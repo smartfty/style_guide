@@ -1,0 +1,1129 @@
+
+---------------
+familyName:YoonV 2002Std_OTF
+displayName:
+postscritpName:YDV2002Std
+---------------
+familyName:YoonV AsphaltStd_OTF
+displayName:
+postscritpName:YDVAsphaltStdB
+---------------
+familyName:YoonV AsphaltStd_OTF
+displayName:
+postscritpName:YDVAsphaltStdL
+---------------
+familyName:YoonV BingjeomStd_OTF
+displayName:
+postscritpName:YDVBingStdB
+---------------
+familyName:YoonV BingjeomStd_OTF
+displayName:
+postscritpName:YDVBingStdL
+---------------
+familyName:YoonV BoramStd_OTF
+displayName:
+postscritpName:YDVBoramStdB
+---------------
+familyName:YoonV BoramStd_OTF
+displayName:
+postscritpName:YDVBoramStdL
+---------------
+familyName:YoonV BoramStd_OTF
+displayName:
+postscritpName:YDVBoramStdM
+---------------
+familyName:YoonV BultangothicStd_OTF
+displayName:
+postscritpName:YDVBurnStdB
+---------------
+familyName:YoonV BultangothicStd_OTF
+displayName:
+postscritpName:YDVBurnStdG
+---------------
+familyName:YoonV BultangothicStd_OTF
+displayName:
+postscritpName:YDVBurnStdW
+---------------
+familyName:YoonV ChamMyungjoStd_OTF
+displayName:
+postscritpName:YDVCMjoStdB
+---------------
+familyName:YoonV ChamMyungjoStd_OTF
+displayName:
+postscritpName:YDVCMjoStdL
+---------------
+familyName:YoonV ChamMyungjoStd_OTF
+displayName:
+postscritpName:YDVCMjoStdM
+---------------
+familyName:YoonV GalchaeBStd_OTF
+displayName:
+postscritpName:YDVCheersBStd10
+---------------
+familyName:YoonV GalchaeBStd_OTF
+displayName:
+postscritpName:YDVCheersBStd20
+---------------
+familyName:YoonV GalchaeBStd_OTF
+displayName:
+postscritpName:YDVCheersBStd30
+---------------
+familyName:YoonV GalchaeMStd_OTF
+displayName:
+postscritpName:YDVCheersMStd10
+---------------
+familyName:YoonV GalchaeMStd_OTF
+displayName:
+postscritpName:YDVCheersMStd20
+---------------
+familyName:YoonV GalchaeMStd_OTF
+displayName:
+postscritpName:YDVCheersMStd30
+---------------
+familyName:YoonV ChungKiwaStd_OTF
+displayName:
+postscritpName:YDVChungStdB
+---------------
+familyName:YoonV ChungKiwaStd_OTF
+displayName:
+postscritpName:YDVChungStdCB
+---------------
+familyName:YoonV ChungKiwaStd_OTF
+displayName:
+postscritpName:YDVChungStdL
+---------------
+familyName:YoonV ChungKiwaStd_OTF
+displayName:
+postscritpName:YDVChungStdM
+---------------
+familyName:YoonV YulibyeolStd_OTF
+displayName:
+postscritpName:YDVCrystalStdB
+---------------
+familyName:YoonV YulibyeolStd_OTF
+displayName:
+postscritpName:YDVCrystalStdL
+---------------
+familyName:YoonV YulibyeolStd_OTF
+displayName:
+postscritpName:YDVCrystalStdM
+---------------
+familyName:YoonV MeolijeongcheStd_OTF
+displayName:
+postscritpName:YDVCstreStdB
+---------------
+familyName:YoonV MeolijeongcheStd_OTF
+displayName:
+postscritpName:YDVCstreStdL
+---------------
+familyName:YoonV MeolijeongcheStd_OTF
+displayName:
+postscritpName:YDVCstreStdM
+---------------
+familyName:YoonV MeolijeongcheStd_OTF
+displayName:
+postscritpName:YDVCstreStdUL
+---------------
+familyName:YoonV PpeokkugiStd_OTF
+displayName:
+postscritpName:YDVCuckStdB
+---------------
+familyName:YoonV PpeokkugiStd_OTF
+displayName:
+postscritpName:YDVCuckStdL
+---------------
+familyName:YoonV PpeokkugiStd_OTF
+displayName:
+postscritpName:YDVCuckStdM
+---------------
+familyName:YoonV DeotiponteuStd_OTF
+displayName:
+postscritpName:YDVDirtyStdB
+---------------
+familyName:YoonV DeotiponteuStd_OTF
+displayName:
+postscritpName:YDVDirtyStdL
+---------------
+familyName:YoonV DeotiponteuStd_OTF
+displayName:
+postscritpName:YDVDirtyStdM
+---------------
+familyName:YoonV SanullimStd_OTF
+displayName:
+postscritpName:YDVEchoStdB
+---------------
+familyName:YoonV SanullimStd_OTF
+displayName:
+postscritpName:YDVEchoStdL
+---------------
+familyName:YoonV SanullimStd_OTF
+displayName:
+postscritpName:YDVEchoStdM
+---------------
+familyName:YoonV GaeulStd_OTF
+displayName:
+postscritpName:YDVFallStdB
+---------------
+familyName:YoonV GaeulStd_OTF
+displayName:
+postscritpName:YDVFallStdL
+---------------
+familyName:YoonV GaeulStd_OTF
+displayName:
+postscritpName:YDVFallStdM
+---------------
+familyName:YoonV BulkkotStd_OTF
+displayName:
+postscritpName:YDVFireStdB
+---------------
+familyName:YoonV BulkkotStd_OTF
+displayName:
+postscritpName:YDVFireStdL
+---------------
+familyName:YoonV BulkkotStd_OTF
+displayName:
+postscritpName:YDVFireStdM
+---------------
+familyName:YoonV JayuBStd_OTF
+displayName:
+postscritpName:YDVFreeBStd10
+---------------
+familyName:YoonV JayuBStd_OTF
+displayName:
+postscritpName:YDVFreeBStd20
+---------------
+familyName:YoonV JayuBStd_OTF
+displayName:
+postscritpName:YDVFreeBStd30
+---------------
+familyName:YoonV JayuLStd_OTF
+displayName:
+postscritpName:YDVFreeLStd10
+---------------
+familyName:YoonV JayuLStd_OTF
+displayName:
+postscritpName:YDVFreeLStd20
+---------------
+familyName:YoonV JayuLStd_OTF
+displayName:
+postscritpName:YDVFreeLStd30
+---------------
+familyName:YoonV JayuMStd_OTF
+displayName:
+postscritpName:YDVFreeMStd10
+---------------
+familyName:YoonV JayuMStd_OTF
+displayName:
+postscritpName:YDVFreeMStd20
+---------------
+familyName:YoonV JayuMStd_OTF
+displayName:
+postscritpName:YDVFreeMStd30
+---------------
+familyName:YoonV MaengkkongiStd_OTF
+displayName:
+postscritpName:YDVFrogStdB
+---------------
+familyName:YoonV MaengkkongiStd_OTF
+displayName:
+postscritpName:YDVFrogStdL
+---------------
+familyName:YoonV MaengkkongiOStd_OTF
+displayName:
+postscritpName:YDVFrogStdOB
+---------------
+familyName:YoonV MaengkkongiOStd_OTF
+displayName:
+postscritpName:YDVFrogStdOL
+---------------
+familyName:YoonV GaldaeStd_OTF
+displayName:
+postscritpName:YDVGalStdB
+---------------
+familyName:YoonV GaldaeStd_OTF
+displayName:
+postscritpName:YDVGalStdL
+---------------
+familyName:YoonV GaldaeStd_OTF
+displayName:
+postscritpName:YDVGalStdM
+---------------
+familyName:YoonV GochujamjaliStd_OTF
+displayName:
+postscritpName:YDVGamStdB
+---------------
+familyName:YoonV GochujamjaliStd_OTF
+displayName:
+postscritpName:YDVGamStdL
+---------------
+familyName:YoonV GochujamjaliStd_OTF
+displayName:
+postscritpName:YDVGamStdM
+---------------
+familyName:YoonV GasinamuIIStd_OTF
+displayName:
+postscritpName:YDVGasiIIStdB
+---------------
+familyName:YoonV GasinamuIIStd_OTF
+displayName:
+postscritpName:YDVGasiIIStdL
+---------------
+familyName:YoonV GasinamuIIStd_OTF
+displayName:
+postscritpName:YDVGasiIIStdM
+---------------
+familyName:YoonV SonyeoStd_OTF
+displayName:
+postscritpName:YDVGirlStdB
+---------------
+familyName:YoonV SonyeoStd_OTF
+displayName:
+postscritpName:YDVGirlStdL
+---------------
+familyName:YoonV SonyeoStd_OTF
+displayName:
+postscritpName:YDVGirlStdM
+---------------
+familyName:YoonV GoindolStd_OTF
+displayName:
+postscritpName:YDVGoinStdB
+---------------
+familyName:YoonV GoindolStd_OTF
+displayName:
+postscritpName:YDVGoinStdL
+---------------
+familyName:YoonV GoindolStd_OTF
+displayName:
+postscritpName:YDVGoinStdM
+---------------
+familyName:YoonV GompangiStd_OTF
+displayName:
+postscritpName:YDVGomStdB
+---------------
+familyName:YoonV GompangiStd_OTF
+displayName:
+postscritpName:YDVGomStdL
+---------------
+familyName:YoonV GompangiStd_OTF
+displayName:
+postscritpName:YDVGomStdM
+---------------
+familyName:YoonV NoliteoBStd_OTF
+displayName:
+postscritpName:YDVGroundBStd10
+---------------
+familyName:YoonV NoliteoBStd_OTF
+displayName:
+postscritpName:YDVGroundBStd20
+---------------
+familyName:YoonV NoliteoBStd_OTF
+displayName:
+postscritpName:YDVGroundBStd30
+---------------
+familyName:YoonV NoliteoLStd_OTF
+displayName:
+postscritpName:YDVGroundLStd10
+---------------
+familyName:YoonV NoliteoLStd_OTF
+displayName:
+postscritpName:YDVGroundLStd20
+---------------
+familyName:YoonV NoliteoLStd_OTF
+displayName:
+postscritpName:YDVGroundLStd30
+---------------
+familyName:YoonV NoliteoMStd_OTF
+displayName:
+postscritpName:YDVGroundMStd10
+---------------
+familyName:YoonV NoliteoMStd_OTF
+displayName:
+postscritpName:YDVGroundMStd20
+---------------
+familyName:YoonV NoliteoMStd_OTF
+displayName:
+postscritpName:YDVGroundMStd30
+---------------
+familyName:YoonV HaheomaeulStd_OTF
+displayName:
+postscritpName:YDVHahoeStdB
+---------------
+familyName:YoonV HaheomaeulStd_OTF
+displayName:
+postscritpName:YDVHahoeStdL
+---------------
+familyName:YoonV HaheomaeulStd_OTF
+displayName:
+postscritpName:YDVHahoeStdM
+---------------
+familyName:YoonV HoheupStd_OTF
+displayName:
+postscritpName:YDVHohupStdB
+---------------
+familyName:YoonV HoheupStd_OTF
+displayName:
+postscritpName:YDVHohupStdM
+---------------
+familyName:YoonV AiliseuStd_OTF
+displayName:
+postscritpName:YDVIrisStdB
+---------------
+familyName:YoonV AiliseuStd_OTF
+displayName:
+postscritpName:YDVIrisStdL
+---------------
+familyName:YoonV AiliseuStd_OTF
+displayName:
+postscritpName:YDVIrisStdM
+---------------
+familyName:YoonV KkachijibStd_OTF
+displayName:
+postscritpName:YDVKachiStdB
+---------------
+familyName:YoonV KkachijibStd_OTF
+displayName:
+postscritpName:YDVKachiStdL
+---------------
+familyName:YoonV KkachijibStd_OTF
+displayName:
+postscritpName:YDVKachiStdM
+---------------
+familyName:YoonV KkokkomaStd_OTF
+displayName:
+postscritpName:YDVKidStdB
+---------------
+familyName:YoonV KkokkomaStd_OTF
+displayName:
+postscritpName:YDVKidStdL
+---------------
+familyName:YoonV KkokkomaStd_OTF
+displayName:
+postscritpName:YDVKidStdM
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd01
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd02
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd03
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd04
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd05
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd06
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd07
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd08
+---------------
+familyName:YoonV MatrixStd_OTF
+displayName:
+postscritpName:YDVMatrixStd09
+---------------
+familyName:YoonV UlimokgakStd_OTF
+displayName:
+postscritpName:YDVMokStdB
+---------------
+familyName:YoonV UlimokgakStd_OTF
+displayName:
+postscritpName:YDVMokStdL
+---------------
+familyName:YoonV UlimokgakStd_OTF
+displayName:
+postscritpName:YDVMokStdM
+---------------
+familyName:YoonV WolgwangStd_OTF
+displayName:
+postscritpName:YDVMoonStdB
+---------------
+familyName:YoonV WolgwangStd_OTF
+displayName:
+postscritpName:YDVMoonStdL
+---------------
+familyName:YoonV WolgwangStd_OTF
+displayName:
+postscritpName:YDVMoonStdM
+---------------
+familyName:YoonV NudeupeonchiStd_OTF
+displayName:
+postscritpName:YDVNudeGoStd
+---------------
+familyName:YoonV NudeupeonchiStd_OTF
+displayName:
+postscritpName:YDVNudeMjStd
+---------------
+familyName:YoonV TalmyeongjoIIStd_OTF
+displayName:
+postscritpName:YDVOffIIStdB
+---------------
+familyName:YoonV TalmyeongjoIIStd_OTF
+displayName:
+postscritpName:YDVOffIIStdEB
+---------------
+familyName:YoonV TalmyeongjoIIStd_OTF
+displayName:
+postscritpName:YDVOffIIStdL
+---------------
+familyName:YoonV TalmyungjoStd_OTF
+displayName:
+postscritpName:YDVOffmStdB
+---------------
+familyName:YoonV TalmyungjoStd_OTF
+displayName:
+postscritpName:YDVOffmStdL
+---------------
+familyName:YoonV SiinStd_OTF
+displayName:
+postscritpName:YDVPoemStdB
+---------------
+familyName:YoonV SiinStd_OTF
+displayName:
+postscritpName:YDVPoemStdL
+---------------
+familyName:YoonV SiinStd_OTF
+displayName:
+postscritpName:YDVPoemStdM
+---------------
+familyName:YoonV PungseonStd_OTF
+displayName:
+postscritpName:YDVPoongStdM
+---------------
+familyName:YoonV PungseonStd_OTF
+displayName:
+postscritpName:YDVPoongStdS
+---------------
+familyName:YoonV PeonchiStd_OTF
+displayName:
+postscritpName:YDVPuMStd
+---------------
+familyName:YoonV PeonchiStd_OTF
+displayName:
+postscritpName:YDVPuStd
+---------------
+familyName:YoonV BargainsaleStd_OTF
+displayName:
+postscritpName:YDVSaleStdB
+---------------
+familyName:YoonV BargainsaleStd_OTF
+displayName:
+postscritpName:YDVSaleStdL
+---------------
+familyName:YoonV BargainsaleStd_OTF
+displayName:
+postscritpName:YDVSaleStdM
+---------------
+familyName:YoonV SaojeongStd_OTF
+displayName:
+postscritpName:YDVSaoStdB
+---------------
+familyName:YoonV SaojeongStd_OTF
+displayName:
+postscritpName:YDVSaoStdL
+---------------
+familyName:YoonV SaojeongStd_OTF
+displayName:
+postscritpName:YDVSaoStdM
+---------------
+familyName:YoonV SaojeongStd_OTF
+displayName:
+postscritpName:YDVSaoStdUL
+---------------
+familyName:YoonV SapphireIIStd_OTF
+displayName:
+postscritpName:YDVSapphIIStdB
+---------------
+familyName:YoonV SapphireIIStd_OTF
+displayName:
+postscritpName:YDVSapphIIStdL
+---------------
+familyName:YoonV SapphireIIStd_OTF
+displayName:
+postscritpName:YDVSapphIIStdM
+---------------
+familyName:YoonV DalpaengiStd_OTF
+displayName:
+postscritpName:YDVSnailStdB
+---------------
+familyName:YoonV DalpaengiStd_OTF
+displayName:
+postscritpName:YDVSnailStdL
+---------------
+familyName:YoonV DalpaengiStd_OTF
+displayName:
+postscritpName:YDVSnailStdM
+---------------
+familyName:YoonV SosulgaStd_OTF
+displayName:
+postscritpName:YDVSosStdB
+---------------
+familyName:YoonV SosulgaStd_OTF
+displayName:
+postscritpName:YDVSosStdL
+---------------
+familyName:YoonV SosulgaStd_OTF
+displayName:
+postscritpName:YDVSosStdM
+---------------
+familyName:YoonV SwiliStd_OTF
+displayName:
+postscritpName:YDVSwiriStdB
+---------------
+familyName:YoonV SwiliStd_OTF
+displayName:
+postscritpName:YDVSwiriStdL
+---------------
+familyName:YoonV SwiliStd_OTF
+displayName:
+postscritpName:YDVSwiriStdM
+---------------
+familyName:YoonV TaMyungjoStd_OTF
+displayName:
+postscritpName:YDVTMjoStdB
+---------------
+familyName:YoonV TaMyungjoStd_OTF
+displayName:
+postscritpName:YDVTMjoStdL
+---------------
+familyName:YoonV TaMyungjoStd_OTF
+displayName:
+postscritpName:YDVTMjoStdM
+---------------
+familyName:YoonV TaebaeksanmaekBStd_OTF
+displayName:
+postscritpName:YDVTaebekBStd10
+---------------
+familyName:YoonV TaebaeksanmaekBStd_OTF
+displayName:
+postscritpName:YDVTaebekBStd20
+---------------
+familyName:YoonV TaebaeksanmaekBStd_OTF
+displayName:
+postscritpName:YDVTaebekBStd30
+---------------
+familyName:YoonV TaebaeksanmaekCBStd_OTF
+displayName:
+postscritpName:YDVTaebekCBStd10
+---------------
+familyName:YoonV TaebaeksanmaekCBStd_OTF
+displayName:
+postscritpName:YDVTaebekCBStd20
+---------------
+familyName:YoonV TaebaeksanmaekCBStd_OTF
+displayName:
+postscritpName:YDVTaebekCBStd30
+---------------
+familyName:YoonV YeogosijeolBStd_OTF
+displayName:
+postscritpName:YDVTeensBStd10
+---------------
+familyName:YoonV YeogosijeolBStd_OTF
+displayName:
+postscritpName:YDVTeensBStd20
+---------------
+familyName:YoonV YeogosijeolBStd_OTF
+displayName:
+postscritpName:YDVTeensBStd30
+---------------
+familyName:YoonV YeogosijeolMStd_OTF
+displayName:
+postscritpName:YDVTeensMStd10
+---------------
+familyName:YoonV YeogosijeolMStd_OTF
+displayName:
+postscritpName:YDVTeensMStd20
+---------------
+familyName:YoonV YeogosijeolMStd_OTF
+displayName:
+postscritpName:YDVTeensMStd30
+---------------
+familyName:YoonV GatmaulStd_OTF
+displayName:
+postscritpName:YDVTownStdB
+---------------
+familyName:YoonV GatmaulStd_OTF
+displayName:
+postscritpName:YDVTownStdL
+---------------
+familyName:YoonV GatmaulStd_OTF
+displayName:
+postscritpName:YDVTownStdM
+---------------
+familyName:YoonV WongoStd_OTF
+displayName:
+postscritpName:YDVWongoStdB
+---------------
+familyName:YoonV WongoStd_OTF
+displayName:
+postscritpName:YDVWongoStdL
+---------------
+familyName:YoonV WongoStd_OTF
+displayName:
+postscritpName:YDVWongoStdM
+---------------
+familyName:YoonV OuriSinmunStd_OTF
+displayName:
+postscritpName:YDVWriSinStd
+---------------
+familyName:YoonV YoonGothic100Std_OTF
+displayName:
+postscritpName:YDVYGOStd11
+---------------
+familyName:YoonV YoonGothic105Std_OTF
+displayName:
+postscritpName:YDVYGOStd115
+---------------
+familyName:YoonV YoonGothic100Std_OTF
+displayName:
+postscritpName:YDVYGOStd12
+---------------
+familyName:YoonV YoonGothic105Std_OTF
+displayName:
+postscritpName:YDVYGOStd125
+---------------
+familyName:YoonV YoonGothic100Std_OTF
+displayName:
+postscritpName:YDVYGOStd13
+---------------
+familyName:YoonV YoonGothic105Std_OTF
+displayName:
+postscritpName:YDVYGOStd135
+---------------
+familyName:YoonV YoonGothic100Std_OTF
+displayName:
+postscritpName:YDVYGOStd14
+---------------
+familyName:YoonV YoonGothic105Std_OTF
+displayName:
+postscritpName:YDVYGOStd145
+---------------
+familyName:YoonV YoonGothic100Std_OTF
+displayName:
+postscritpName:YDVYGOStd15
+---------------
+familyName:YoonV YoonGothic105Std_OTF
+displayName:
+postscritpName:YDVYGOStd155
+---------------
+familyName:YoonV YoonGothic100Std_OTF
+displayName:
+postscritpName:YDVYGOStd16
+---------------
+familyName:YoonV YoonGothic105Std_OTF
+displayName:
+postscritpName:YDVYGOStd165
+---------------
+familyName:YoonV YoonGothic200Std_OTF
+displayName:
+postscritpName:YDVYGOStd22
+---------------
+familyName:YoonV YoonGothic200Std_OTF
+displayName:
+postscritpName:YDVYGOStd23
+---------------
+familyName:YoonV YoonGothic200Std_OTF
+displayName:
+postscritpName:YDVYGOStd24
+---------------
+familyName:YoonV YoonGothic200Std_OTF
+displayName:
+postscritpName:YDVYGOStd25
+---------------
+familyName:YoonV YoonGothic300Std_OTF
+displayName:
+postscritpName:YDVYGOStd31
+---------------
+familyName:YoonV YoonGothic300Std_OTF
+displayName:
+postscritpName:YDVYGOStd32
+---------------
+familyName:YoonV YoonGothic300Std_OTF
+displayName:
+postscritpName:YDVYGOStd33
+---------------
+familyName:YoonV YoonGothic300Std_OTF
+displayName:
+postscritpName:YDVYGOStd34
+---------------
+familyName:YoonV YoonGothic300Std_OTF
+displayName:
+postscritpName:YDVYGOStd35
+---------------
+familyName:YoonV YoonGothic300Std_OTF
+displayName:
+postscritpName:YDVYGOStd36
+---------------
+familyName:YoonV YoonGothic500Std_OTF
+displayName:
+postscritpName:YDVYGOStd52
+---------------
+familyName:YoonV YoonGothic500Std_OTF
+displayName:
+postscritpName:YDVYGOStd53
+---------------
+familyName:YoonV YoonGothic500Std_OTF
+displayName:
+postscritpName:YDVYGOStd54
+---------------
+familyName:YoonV YoonGothic500Std_OTF
+displayName:
+postscritpName:YDVYGOStd55
+---------------
+familyName:YoonV YoonMyungjo100Std_OTF
+displayName:
+postscritpName:YDVYMjOStd11
+---------------
+familyName:YoonV YoonMyungjo105Std_OTF
+displayName:
+postscritpName:YDVYMjOStd115
+---------------
+familyName:YoonV YoonMyungjo100Std_OTF
+displayName:
+postscritpName:YDVYMjOStd12
+---------------
+familyName:YoonV YoonMyungjo105Std_OTF
+displayName:
+postscritpName:YDVYMjOStd125
+---------------
+familyName:YoonV YoonMyungjo100Std_OTF
+displayName:
+postscritpName:YDVYMjOStd13
+---------------
+familyName:YoonV YoonMyungjo105Std_OTF
+displayName:
+postscritpName:YDVYMjOStd135
+---------------
+familyName:YoonV YoonMyungjo100Std_OTF
+displayName:
+postscritpName:YDVYMjOStd14
+---------------
+familyName:YoonV YoonMyungjo105Std_OTF
+displayName:
+postscritpName:YDVYMjOStd145
+---------------
+familyName:YoonV YoonMyungjo100Std_OTF
+displayName:
+postscritpName:YDVYMjOStd15
+---------------
+familyName:YoonV YoonMyungjo105Std_OTF
+displayName:
+postscritpName:YDVYMjOStd155
+---------------
+familyName:YoonV YoonMyungjo100Std_OTF
+displayName:
+postscritpName:YDVYMjOStd16
+---------------
+familyName:YoonV YoonMyungjo105Std_OTF
+displayName:
+postscritpName:YDVYMjOStd165
+---------------
+familyName:YoonV YoonMyungjo200Std_OTF
+displayName:
+postscritpName:YDVYMjOStd22
+---------------
+familyName:YoonV YoonMyungjo200Std_OTF
+displayName:
+postscritpName:YDVYMjOStd23
+---------------
+familyName:YoonV YoonMyungjo200Std_OTF
+displayName:
+postscritpName:YDVYMjOStd24
+---------------
+familyName:YoonV YoonMyungjo300Std_OTF
+displayName:
+postscritpName:YDVYMjOStd31
+---------------
+familyName:YoonV YoonMyungjo300Std_OTF
+displayName:
+postscritpName:YDVYMjOStd32
+---------------
+familyName:YoonV YoonMyungjo300Std_OTF
+displayName:
+postscritpName:YDVYMjOStd33
+---------------
+familyName:YoonV YoonMyungjo300Std_OTF
+displayName:
+postscritpName:YDVYMjOStd34
+---------------
+familyName:YoonV YoonMyungjo300Std_OTF
+displayName:
+postscritpName:YDVYMjOStd35
+---------------
+familyName:YoonV YoonMyungjo300Std_OTF
+displayName:
+postscritpName:YDVYMjOStd36
+---------------
+familyName:YoonV YoonMyungjo400Std_OTF
+displayName:
+postscritpName:YDVYMjOStd42
+---------------
+familyName:YoonV YoonMyungjo400Std_OTF
+displayName:
+postscritpName:YDVYMjOStd44
+---------------
+familyName:YoonV YoonMyungjo400Std_OTF
+displayName:
+postscritpName:YDVYMjOStd45
+---------------
+familyName:YoonV YoonMyungjo500Std_OTF
+displayName:
+postscritpName:YDVYMjOStd52
+---------------
+familyName:YoonV YoonMyungjo500Std_OTF
+displayName:
+postscritpName:YDVYMjOStd53
+---------------
+familyName:YoonV YoonMyungjo500Std_OTF
+displayName:
+postscritpName:YDVYMjOStd54
+---------------
+familyName:YoonV YoonMyungjo500Std_OTF
+displayName:
+postscritpName:YDVYMjOStd55
+---------------
+familyName:YoonV YoonSinmunStd_OTF
+displayName:
+postscritpName:YDVYSinStd
+---------------
+familyName:YoonV YoonCheStd_OTF
+displayName:
+postscritpName:YDVYheadStdB
+---------------
+familyName:YoonV YoonCheStd_OTF
+displayName:
+postscritpName:YDVYheadStdL
+---------------
+familyName:YoonV YoonCheStd_OTF
+displayName:
+postscritpName:YDVYheadStdM
+---------------
+familyName:YoonV YoonCheStd_OTF
+displayName:
+postscritpName:YDVYheadStdUL
+---------------
+familyName:YoonV UnhyeongungStd_OTF
+displayName:
+postscritpName:YDVYhkStdB
+---------------
+familyName:YoonV UnhyeongungStd_OTF
+displayName:
+postscritpName:YDVYhkStdL
+---------------
+familyName:YoonV UnhyeongungStd_OTF
+displayName:
+postscritpName:YDVYhkStdM
+---------------
+familyName:YoonV YellyeoStd_OTF
+displayName:
+postscritpName:YDVYoolStdB
+---------------
+familyName:YoonV YellyeoStd_OTF
+displayName:
+postscritpName:YDVYoolStdL
+---------------
+familyName:YoonV YellyeoStd_OTF
+displayName:
+postscritpName:YDVYoolStdM
+---------------
+familyName:YoonV SJHStd_OTF
+displayName:
+postscritpName:YDVYoonSJHStd
+---------------
+familyName:YoonV SJHStd_OTF
+displayName:
+postscritpName:YDVYoonSJHStdB
+---------------
+familyName:YoonV SJYStd_OTF
+displayName:
+postscritpName:YDVYoonSJYStd
+---------------
+familyName:YoonV SJYStd_OTF
+displayName:
+postscritpName:YDVYoonSJYStdB
+---------------
+familyName:YoonV GodingStd_OTF
+displayName:
+postscritpName:YDVYouthStdB
+---------------
+familyName:YoonV GodingStd_OTF
+displayName:
+postscritpName:YDVYouthStdL
+---------------
+familyName:YoonV GodingStd_OTF
+displayName:
+postscritpName:YDVYouthStdM
+---------------
+familyName:YoonV TalyooncheStd_OTF
+displayName:
+postscritpName:YDVYtalStdB
+---------------
+familyName:YoonV TalyooncheStd_OTF
+displayName:
+postscritpName:YDVYtalStdL
+---------------
+familyName:YoonV TalyooncheStd_OTF
+displayName:
+postscritpName:YDVYtalStdM
+---------------
+familyName:YuGothic
+displayName:YuGothic Bold
+postscritpName:YuGo-Bold
+---------------
+familyName:YuGothic
+displayName:YuGothic Medium
+postscritpName:YuGo-Medium
+---------------
+familyName:YuKyokasho
+displayName:YuKyokasho Bold
+postscritpName:YuKyo-Bold
+---------------
+familyName:YuKyokasho
+displayName:YuKyokasho Medium
+postscritpName:YuKyo-Medium
+---------------
+familyName:YuKyokasho Yoko
+displayName:YuKyokasho Yoko Bold
+postscritpName:YuKyo_Yoko-Bold
+---------------
+familyName:YuKyokasho Yoko
+displayName:YuKyokasho Yoko Medium
+postscritpName:YuKyo_Yoko-Medium
+---------------
+familyName:YuMincho
+displayName:YuMincho Demibold
+postscritpName:YuMin-Demibold
+---------------
+familyName:YuMincho
+displayName:YuMincho Extrabold
+postscritpName:YuMin-Extrabold
+---------------
+familyName:YuMincho
+displayName:YuMincho Medium
+postscritpName:YuMin-Medium
+---------------
+familyName:YuMincho +36p Kana
+displayName:YuMincho +36p Kana Demibold
+postscritpName:YuMin_36pKn-Demibold
+---------------
+familyName:YuMincho +36p Kana
+displayName:YuMincho +36p Kana Extrabold
+postscritpName:YuMin_36pKn-Extrabold
+---------------
+familyName:YuMincho +36p Kana
+displayName:YuMincho +36p Kana Medium
+postscritpName:YuMin_36pKn-Medium
+---------------
+familyName:Yuppy SC
+displayName:Yuppy SC Regular
+postscritpName:YuppySC-Regular
+---------------
+familyName:Yuppy TC
+displayName:Yuppy TC Regular
+postscritpName:YuppyTC-Regular
+---------------
+familyName:Zapf Dingbats
+displayName:Zapf Dingbats
+postscritpName:ZapfDingbatsITC
+---------------
+familyName:Zapfino
+displayName:Zapfino
+postscritpName:Zapfino
+---------------
+familyName:smGothicP
+displayName:smGothicP W10
+postscritpName:smGothicP-W10
+---------------
+familyName:smGothicP
+displayName:smGothicP W30
+postscritpName:smGothicP-W30
+---------------
+familyName:smGothicP
+displayName:smGothicP W35
+postscritpName:smGothicP-W35
+---------------
+familyName:smGothicP
+displayName:smGothicP W70
+postscritpName:smGothicP-W70
+---------------
+familyName:smGothicP
+displayName:smGothicP W90
+postscritpName:smGothicP-W90
+---------------
+familyName:smGothicR
+displayName:smGothicR W10
+postscritpName:smGothicR-W10
+---------------
+familyName:smGothicR
+displayName:smGothicR W30
+postscritpName:smGothicR-W30
+---------------
+familyName:smGothicR
+displayName:smGothicR W70
+postscritpName:smGothicR-W70
+---------------
+familyName:smGothicR
+displayName:smGothicR W90
+postscritpName:smGothicR-W90
+---------------
+familyName:smGungseoP
+displayName:smGungseoP Medium
+postscritpName:smGungseoP
+---------------
+familyName:smMyungjoP
+displayName:smMyungjoP W10
+postscritpName:smMyungjoP-W10
+---------------
+familyName:smMyungjoP
+displayName:smMyungjoP W30
+postscritpName:smMyungjoP-W30
+---------------
+familyName:smMyungjoP
+displayName:smMyungjoP W70
+postscritpName:smMyungjoP-W70
+---------------
+familyName:smMyungjoP
+displayName:smMyungjoP W90
+postscritpName:smMyungjoP-W90
+---------------
+familyName:smMyungjoR
+displayName:smMyungjoR W10
+postscritpName:smMyungjoR-W10
+---------------
+familyName:smMyungjoR
+displayName:smMyungjoR W30
+postscritpName:smMyungjoR-W30
+---------------
+familyName:smMyungjoR
+displayName:smMyungjoR W70
+postscritpName:smMyungjoR-W70
+---------------
+familyName:smMyungjoR
+displayName:smMyungjoR W90
+postscritpName:smMyungjoR-W90
+---------------
+familyName:smShinMyungjoP
+displayName:smShinMyungjoP W30
+postscritpName:smSMyungjoP-W30
+---------------
+familyName:smShinShinMyungjoP
+displayName:smShinShinMyungjoP W30
+postscritpName:smSSMyungjoP-W30
+---------------
+familyName:smShinShinMyungjoP
+displayName:smShinShinMyungjoP W35
+postscritpName:smSSMyungjoP-W35

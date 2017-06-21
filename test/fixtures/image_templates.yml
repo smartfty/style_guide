@@ -1,0 +1,42 @@
+# == Schema Information
+#
+# Table name: image_templates
+#
+#  id              :integer          not null, primary key
+#  column          :integer
+#  row             :integer
+#  height_in_lines :integer
+#  image_path      :string
+#  caption_title   :string
+#  caption         :string
+#  position        :integer
+#  page_columns    :integer
+#  article_id      :integer
+#  publication_id  :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parent_column: 1
+  parent_row: 1
+  column: 1
+  row: 1
+  height_in_lines: 1
+  image_path: MyString
+  caption_title: MyString
+  caption: MyString
+  position: 1
+
+two:
+  parent_column: 1
+  parent_row: 1
+  column: 1
+  row: 1
+  height_in_lines: 1
+  image_path: MyString
+  caption_title: MyString
+  caption: MyString
+  position: 1

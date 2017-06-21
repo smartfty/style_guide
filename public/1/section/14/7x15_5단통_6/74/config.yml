@@ -1,0 +1,48 @@
+---
+date: 2017-04-10
+section_name: 애드버토리얼
+is_front_page: false
+:ad_type: 5단통
+grid_size:
+- 137.40142857142857
+- 96.94466666666668
+width: 1116.85
+height: 1539.21
+story_frames:
+- - 0
+  - 0
+  - 2
+  - 5
+- - 2
+  - 0
+  - 3
+  - 5
+- - 5
+  - 0
+  - 2
+  - 5
+- - 0
+  - 5
+  - 2
+  - 5
+- - 2
+  - 5
+  - 3
+  - 5
+- - 5
+  - 5
+  - 2
+  - 5
+- - 0
+  - 10
+  - 7
+  - 5
+  - :광고: 5단통
+left_margin: 42.52
+top_margin: 42.52
+right_margin: 42.52
+bottom_margin: 42.52
+gutter: 10.0
+divider_info:
+- 4
+- 20.0

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div >
+  <img src="<%= @image_template.local_image_path %>" width="50%"></img>
+</div>
+
+<p>
+  <strong>Column:</strong>
+  <%= @image_template.column %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @image_template.row %>
+</p>
+
+<p>
+  <strong>Height adjustment:</strong>
+  <%= @image_template.height_in_lines %>
+</p>
+
+<p>
+  <strong>Image path:</strong>
+  <%= @image_template.image_path %>
+</p>
+
+<p>
+  <strong>Cation title:</strong>
+  <%= @image_template.caption_title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @image_template.caption %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @image_template.position %>
+</p>
+
+<%= link_to 'Edit', edit_image_template_path(@image_template) %> |
+<%= link_to 'Back', image_templates_path %>

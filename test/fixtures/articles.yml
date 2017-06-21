@@ -1,0 +1,53 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id             :integer          not null, primary key
+#  column         :integer
+#  row            :integer
+#  order          :integer
+#  profile        :integer
+#  title          :string
+#  subtitle       :string
+#  body           :text
+#  reporter       :string
+#  email          :string
+#  personal_image :string
+#  image          :string
+#  quote          :string
+#  name_tag       :string
+#  is_front_page  :boolean
+#  top_story      :boolean
+#  top_position   :boolean
+#  kind           :string
+#  page_columns   :integer
+#  publication_id :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  column: 1
+  row: 1
+  title: MyString
+  subtitle: MyString
+  body: MyText
+  reporter: MyString
+  personal_image: MyString
+  image: MyString
+  quote: MyString
+  publication: one
+
+two:
+  column: 1
+  row: 1
+  title: MyString
+  subtitle: MyString
+  body: MyText
+  reporter: MyString
+  personal_image: MyString
+  image: MyString
+  quote: MyString
+  publication: two

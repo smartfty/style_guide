@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @publication.name %>
+</p>
+
+<p>
+  <strong>Paper size:</strong>
+  <%= @publication.paper_size %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @publication.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @publication.height %>
+</p>
+
+<p>
+  <strong>Left margin:</strong>
+  <%= @publication.left_margin %>
+</p>
+
+<p>
+  <strong>Top margin:</strong>
+  <%= @publication.top_margin %>
+</p>
+
+<p>
+  <strong>Right margin:</strong>
+  <%= @publication.right_margin %>
+</p>
+
+<p>
+  <strong>Bottom margin:</strong>
+  <%= @publication.bottom_margin %>
+</p>
+
+<p>
+  <strong>Lines per grid:</strong>
+  <%= @publication.lines_per_grid %>
+</p>
+
+<p>
+  <strong>Divider:</strong>
+  <%= @publication.divider %>
+</p>
+
+<p>
+  <strong>Gutter:</strong>
+  <%= @publication.gutter %>
+</p>
+
+<p>
+  <strong>Page count:</strong>
+  <%= @publication.page_count %>
+</p>
+
+<p>
+  <strong>Section names:</strong>
+  <%= @publication.section_names %>
+</p>
+
+<p>
+  <strong>Front page heading:</strong>
+  <%= @publication.front_page_heading %>
+</p>
+
+<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Back', publications_path %>

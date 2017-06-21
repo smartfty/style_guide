@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<button class="btn-danger large"><%= @issue.date.to_s %></button>
+<div class="row">
+  <% @issue.pages.each do |page| %>
+  <div class = "col-md-3"  align='center'>
+    <p><a href="<%=  page_path(page) %>"><img  src="<%= page.jpg_image_path %>" width="100%"></img></a></p>
+    <h4 align='center'><a href='<%= page_path(page)%>'><%= page.page_number %></a></h4>
+  </div>    <!-- true -->
+  <% end %>
+
+</div>

@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table name: text_styles
+#
+#  id                    :integer          not null, primary key
+#  name                  :string
+#  english               :string
+#  font_family           :string
+#  font                  :string
+#  font_size             :float
+#  color                 :string
+#  alignment             :string
+#  tracking              :float
+#  space_width           :float
+#  scale                 :float
+#  text_line_spacing     :float
+#  space_before_in_lines :integer
+#  text_height_in_lines  :integer
+#  space_after_in_lines  :integer
+#  custom_font           :boolean
+#  publication_id        :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  english: MyString
+  font: MyString
+  size: 1.5
+  alignment: MyString
+  tracking: 1.5
+  color: MyString
+  space_before_in_lines: 1
+  text_height_in_lines: 1
+  space_after_in_lines: 1
+  publication: one
+
+two:
+  name: MyString
+  english: MyString
+  font: MyString
+  size: 1.5
+  alignment: MyString
+  tracking: 1.5
+  color: MyString
+  space_before_in_lines: 1
+  text_height_in_lines: 1
+  space_after_in_lines: 1
+  publication: two

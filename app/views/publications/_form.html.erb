@@ -1,0 +1,87 @@
+<%= form_for(publication) do |f| %>
+  <% if publication.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+      <ul>
+      <% publication.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :paper_size %>
+    <%= f.text_field :paper_size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :width %>
+    <%= f.text_field :width %>
+  </div>
+
+  <div class="field">
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= f.label :left_margin %>
+    <%= f.text_field :left_margin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :top_margin %>
+    <%= f.text_field :top_margin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :right_margin %>
+    <%= f.text_field :right_margin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bottom_margin %>
+    <%= f.text_field :bottom_margin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lines_per_grid %>
+    <%= f.number_field :lines_per_grid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :divider %>
+    <%= f.text_field :divider %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gutter %>
+    <%= f.text_field :gutter %>
+  </div>
+
+  <div class="field">
+    <%= f.label :page_count %>
+    <%= f.number_field :page_count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :section_names %>
+    <%= f.text_area :section_names %>
+  </div>
+
+  <div class="field">
+    <%= f.label :front_page_heading %>
+    <%= f.text_field :front_page_heading %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

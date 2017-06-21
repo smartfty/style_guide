@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: publications
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  paper_size         :string
+#  width              :float
+#  height             :float
+#  left_margin        :float
+#  top_margin         :float
+#  right_margin       :float
+#  bottom_margin      :float
+#  lines_per_grid     :integer
+#  divider            :float
+#  gutter             :float
+#  page_count         :integer
+#  section_names      :text
+#  front_page_heading :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  paper_size: MyString
+  width: 1.5
+  height: 1.5
+  left_margin: 1.5
+  top_margin: 1.5
+  right_margin: 1.5
+  bottom_margin: 1.5
+  lines_per_grid: 1
+  divider: 1.5
+  gutter: 1.5
+  page_count: 1
+  section_names: MyText
+  front_page_heading: MyString
+
+two:
+  name: MyString
+  paper_size: MyString
+  width: 1.5
+  height: 1.5
+  left_margin: 1.5
+  top_margin: 1.5
+  right_margin: 1.5
+  bottom_margin: 1.5
+  lines_per_grid: 1
+  divider: 1.5
+  gutter: 1.5
+  page_count: 1
+  section_names: MyText
+  front_page_heading: MyString
