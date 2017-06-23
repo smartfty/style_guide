@@ -172,7 +172,6 @@ class WorkingArticle < ApplicationRecord
   private
 
   def parse_story
-    puts __method__
     source      = read_story
     begin
       if (md = source.match(/^(---\s*\n.*?\n?)^(---\s*$\n?)/m))
@@ -206,9 +205,8 @@ class WorkingArticle < ApplicationRecord
 
   # parse working_article info from copied article_template files
   def parse_article
-    parse_story
     parse_article_info
-
+    parse_story
   end
 
 end

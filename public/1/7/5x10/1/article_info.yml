@@ -1,4 +1,7 @@
-:lines_count: 287
-:current_characters: 1476
-:suggested_characters: 5166
-:needed_chars: 3690
+:column: 5
+:row: 10
+:is_front_page: 0
+:top_story: 0
+:top_position: 1
+:underflow: 1
+:empty_lines: 230

@@ -11,6 +11,12 @@ class ImagesController < ApplicationController
     @current_images = Image.current_images
   end
 
+  def place_all
+    Image.place_all_images
+    redirect_to current_images_path, notice: 'All images were successfully placed.'
+  end
+
+
   # GET /images/1
   # GET /images/1.json
   def show
@@ -46,6 +52,7 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
+        @image.update_change
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }
       else
@@ -73,6 +80,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:column, :row, :height_in_lines, :image_path, :caption_title, :caption, :position, :page_columns, :working_article_id)
+      params.require(:image).permit(:column, :row, :height_in_lines, :image_path, :caption_title, :caption, :position, :page_number, :story_number, :working_article_id)
     end
 end

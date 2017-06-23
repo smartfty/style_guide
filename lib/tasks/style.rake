@@ -4,9 +4,20 @@ namespace :style do
   task :generate_pdf =>:environment do
     puts "generating pdf for all articles"
     Article.all.each do |article|
+      article.create_folders
       article.generate_pdf
     end
   end
+
+  desc "generating pdf for all articles unless it exist"
+  task :update_pdf_unless =>:environment do
+    puts "generating pdf for all articles unless"
+    Article.all.each do |article|
+      article.create_folders
+      article.update_pdf_unless
+    end
+  end
+
 
   desc "update pdf for all articles"
   task :update_pdf =>:environment do

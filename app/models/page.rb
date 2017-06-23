@@ -47,15 +47,28 @@ class Page < ApplicationRecord
 
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
-    update_page_layout
+    copy_section_template
   end
 
   def ad_folder
     path + "/ad"
   end
 
-  def ad_info
-    placed_ads.first.ad_info
+  def ad_place_holder_string
+    ad = placed_ads.first
+    if ad
+      placed_ads.first.ad_place_holder_string
+    end
+    ""
+  end
+
+  def save_ad_place_holder
+    puts __method__
+    s = ad_place_holder_string
+    unless s == ""
+      ad_info_path = ad_folder + "/#{save_ad_place_holder}"
+      system "cd #{ad_folder} && touch #{ad_info_path}"
+    end
   end
 
   def section_template_folder
@@ -96,12 +109,14 @@ class Page < ApplicationRecord
   end
 
   def update_working_articles
+    puts __method__
+    puts "template_id:#{template_id}"
     template_section = Section.find(template_id)
 
     # evaled_layout = eval(template_section.layout)
     # evaled_layout.each do |box_rect|
     layout = eval(template_section.layout)
-    layout.each do |box|
+    layout.each_with_index do |box, i|
       atts = {}
       atts[:page_id]  = self
       atts[:order]    = i + 1
@@ -119,11 +134,13 @@ class Page < ApplicationRecord
         end
         WorkingArticle.where(atts).first_or_create
       elsif box.length == 5
-        atts.merge!(box[4])
+        value = box[4].values.first
+        ad_hash = {ad_type: value} #conver "광고 to ad_type"
+        atts.merge!(ad_hash)
         #TODO we have non-article box, ad or something
         # since this is copyied form section template
         # we might not have to anything?
-        WorkingAd.where(atts).first_or_create
+        PlacedAd.where(atts).first_or_create
       end
     end
 
@@ -131,13 +148,7 @@ class Page < ApplicationRecord
 
   def copy_section_template
     puts __method__
-    puts "id:#{id}"
-    puts "section_template_folder:#{section_template_folder}"
-    puts "source: #{Dir.glob("#{section_template_folder}/*").first}"
     source = Dir.glob("#{section_template_folder}/*").first
-
-    puts "source:#{source}"
-    puts  "cp -R #{source}/ #{path}"
     if source
       system("cp -r #{source}/ #{path}")
     else
@@ -148,6 +159,7 @@ class Page < ApplicationRecord
   end
 
   def update_page_layout
+    puts __method__
     copy_section_template
     generate_pdf
   end

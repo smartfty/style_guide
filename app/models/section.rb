@@ -59,10 +59,6 @@ class Section < ApplicationRecord
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}/section.jpg"
   end
 
-  def section_rakefile_template_path
-    "#{Rails.root}/public/template/Rakefile"
-  end
-
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     update_section_layout
@@ -82,16 +78,17 @@ class Section < ApplicationRecord
     # grid_key: 7x12/H/5
     grid_width            = publication.grid_width(column)
     grid_height           = publication.grid_height
+    h['page_columns']     = column
     h['grid_size']        = [grid_width, grid_height]
     h['width']            = publication.width
     h['height']           = publication.height
-    h['story_frames']     = eval(layout)
     h['left_margin']      = publication.left_margin
     h['top_margin']       = publication.top_margin
     h['right_margin']     = publication.right_margin
     h['bottom_margin']    = publication.bottom_margin
     h['gutter']           = publication.gutter
     h['divider_info']     = publication.divider_info(column)
+    h['story_frames']     = eval(layout)
     h
   end
 
@@ -101,27 +98,13 @@ class Section < ApplicationRecord
     File.open(section_config_yml_path, 'w'){|f| f.write section_config_hash.to_yaml}
   end
 
-
-  def section_rakefile_template_path
-    "#{Rails.root}/public/section_template/Rakefile"
-  end
-
-  def copy_rakefile
-    rakefile_path = path + "/Rakefile"
-    system "cp #{section_rakefile_template_path} #{rakefile_path}"
-    # File.open(rakefile_path, 'w'){|f| f.write rakefile_content}
-    #code
-  end
-
-  def save_article_without_template(path, column, row)
-    #TODO
-  end
-
   def article_type(box)
     if box.length == 5 && box[4].class == Hash
       h = box[4]
-      return '제목'  if h[:타입] == '제목'
-      return '광고'  if h[:광고]
+      return 'title'  if h[:타입] == '제목'
+      return 'title'  if h[:type] == 'title'
+      return 'ad'  if h[:광고]
+      return 'ad'  if h[:ad_type]
     end
     'article'
   end
@@ -130,6 +113,10 @@ class Section < ApplicationRecord
     page_heading_template_path = "#{Rails.root}/public/#{publication_id}/page_heading/#{page_number}"
     page_heading_path = path + "/heading"
     system "cp -R #{page_heading_template_path}/ #{page_heading_path}"
+  end
+
+  def save_article_without_template(path, column, row)
+    #TODO
   end
 
   def copy_articles
@@ -164,9 +151,12 @@ class Section < ApplicationRecord
       end
 
       article_path = path + "/#{i+1}"
-      puts "article_path:#{article_path}"
-      puts "cp -R #{article_template_path}/ #{article_path}"
-      system "cp -R #{article_template_path}/ #{article_path}"
+      unless File.directory?(article_path)
+        puts "cp -R #{article_template_path}/ #{article_path}"
+        system "cp -R #{article_template_path}/ #{article_path}"
+      else
+        # puts "#{article_path} alread exist..."
+      end
     end
   end
 
@@ -176,17 +166,6 @@ class Section < ApplicationRecord
 
   def ad_folder
     path + "/ad"
-  end
-
-  def copy_sample_ad
-    # copy random asmple ad
-    ad = Dir.glob("#{sample_ad_path}/*{.jpg,.pdf}").sample
-    puts "sample_ad_path:#{sample_ad_path}"
-    puts "ad:#{ad}"
-    puts "cp #{ad} #{ad_folder}/images/1.jpg"
-    if ad
-      system "cp #{ad} #{ad_folder}/images/1.jpg"
-    end
   end
 
   def delete_pdf_ad
@@ -204,14 +183,29 @@ class Section < ApplicationRecord
     #code
   end
 
+  def copy_sample_ad
+    # copy random asmple ad
+    ad = Dir.glob("#{sample_ad_path}/*{.jpg,.pdf}").sample
+    puts "sample_ad_path:#{sample_ad_path}"
+    puts "ad:#{ad}"
+    puts "cp #{ad} #{ad_folder}/images/1.jpg"
+    if ad
+      system "cp #{ad} #{ad_folder}/images/1.jpg"
+    end
+  end
+
   def update_section_layout
     puts __method__
     save_section_config_yml
     copy_page_heading
     copy_articles
-    copy_ad
-    copy_sample_ad
-    generate_pdf
+    # copy_ad
+    # copy_sample_ad
+    generate_pdf unless File.exist?(pdf_path)
+  end
+
+  def clear_section_pdf
+    system("rm ##{pdf_path}")
   end
 
   def generate_pdf
@@ -289,6 +283,27 @@ class Section < ApplicationRecord
 
   def svg_unit_height
     20
+  end
+
+  def has_overlapping_rect?
+    #code
+  end
+
+  def has_pdf_error?
+    return true unless File.exist?(pdf_path)
+    false
+  end
+
+  def self.section_with_pdf_error
+    pdf_error_sections = []
+    Section.all.each do |section|
+      # section.has_overlapping_rect?
+      if section.has_pdf_error?
+        pdf_error_sections << section.id
+        pdf_error_sections << section.path
+      end
+    end
+    pdf_error_sections
   end
 
   private

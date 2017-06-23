@@ -3,11 +3,20 @@ date: 2017-04-10
 section_name: 정치
 is_front_page: false
 :ad_type: no_ad
+page_columns: 7
 grid_size:
 - 137.40142857142857
 - 96.94466666666668
 width: 1116.85
 height: 1539.21
+left_margin: 42.52
+top_margin: 42.52
+right_margin: 42.52
+bottom_margin: 42.52
+gutter: 10.0
+divider_info:
+- 4
+- 20.0
 story_frames:
 - - 0
   - 0
@@ -45,11 +54,3 @@ story_frames:
   - 12
   - 2
   - 3
-left_margin: 42.52
-top_margin: 42.52
-right_margin: 42.52
-bottom_margin: 42.52
-gutter: 10.0
-divider_info:
-- 4
-- 20.0

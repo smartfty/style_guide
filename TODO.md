@@ -38,6 +38,29 @@
   - short key
   - progress wheel
 
+2017-6-22
+  - make rails project portable
+    - gitignore public/issue/*
+    - rake regenerate setup
+    - db:drop db:seed
+  - use drop box for image, graphic and ads
+
+2017-6-21
+  - issue_plan
+    면배열표
+      date
+      publication_id
+
+  - page_plan
+    issue_plan_id
+    ad_type
+    advertiser
+    color
+    article_count
+    page_number
+    template_id
+
+
 2017-6-19
   - merge TexgStyle show and edit when layout is shown
   단락 스타일, 영문 단락 스타일

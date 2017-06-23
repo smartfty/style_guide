@@ -15,9 +15,10 @@ class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :pages
   has_many  :images
+  has_many  :placed_ads
+
   before_create :read_issue_plan
   after_create :setup
-
 
   def path
     "#{Rails.root}/public/#{publication_id}/issue/#{id}"
@@ -33,6 +34,8 @@ class Issue < ApplicationRecord
 
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
+    system "mkdir -p #{issue_images_path}" unless File.directory?(issue_images_path)
+    system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)
     make_pages
   end
 
@@ -58,13 +61,10 @@ class Issue < ApplicationRecord
 
   def make_pages
     eval_issue_plan.each_with_index do |page_hash, i|
-      puts "page_hash:#{page_hash}"
-
       section = Section.where(page_number: i+1).sample
       if section
         section_hash = section.attributes
         section_hash = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
-        puts "section.id:#{section.id}"
         section_hash[:template_id] = section.id
         section_hash[:issue_id] = id
         section_hash.delete(:id)
@@ -75,8 +75,6 @@ class Issue < ApplicationRecord
         section_hash.delete(:divider_position)
         section_hash.delete(:created_at)
         section_hash.delete(:updated_at)
-        puts "++++++++++++++"
-        puts "section_hash:#{section_hash}"
         p = Page.where(section_hash).first_or_create
       else
         puts "page_number: #{i + 1}"
@@ -99,19 +97,15 @@ class Issue < ApplicationRecord
     File.open(issue_ad_list_path, 'w'){|f| f.write.ad_list} if ad_list
   end
 
-  def parse_ads
-    Dir.glob("#{issue_ads_path}/*{.jpg,.pdf}").each  do |ad|
-
-    end
-
-  end
-
   def parse_images
-
     Dir.glob("#{issue_images_path}/*{.jpg,.pdf}").each  do |image|
+      puts "+++++ image:#{image}"
       h = {}
       issue_image_basename  = File.basename(image)
       profile_array         = issue_image_basename.split("_")
+      puts "profile_array:#{profile_array}"
+      next if profile_array.length < 2
+      puts "profile_array.length:#{profile_array.length}"
       h[:image_path]        = image
       h[:page_number]       = profile_array[0]
       h[:story_number]      = profile_array[1]
@@ -136,12 +130,35 @@ class Issue < ApplicationRecord
       working_article = WorkingArticle.where(page_id: page.id, order: h[:story_number]).first
       if working_article
         h[:working_article_id] = working_article.id
+        puts "h:#{h}"
         Image.where(h).first_or_create
       #TODO create symbolic link
       else
         puts "article at page:#{h[:page_number]} story_number: #{h[:story_number]} not found!!!}"
       end
     end
+
+  end
+
+  def parse_ads
+
+    Dir.glob("#{issue_ads_path}/*{.jpg,.pdf}").each  do |ad|
+      h = {}
+      h[:image_path]        = ad
+      h[:issue_id]          = self
+      PlacedAd.where(h).first_or_create
+    end
+  end
+
+  def parse_graphics
+    puts __method__
+  end
+
+  def save_ad_place_holders
+    pages.each do |page|
+      page.save_ad_place_holder
+    end
+
   end
 
   private

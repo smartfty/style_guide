@@ -45,6 +45,21 @@ class Image < ApplicationRecord
     h
   end
 
+  def update_change
+    puts __method__
+    current_article_id = working_article_id
+    page        = Page.where(issue_id: issue_id, page_number: page_number).first
+    new_article = WorkingArticle.where(page_id: page.id, order: story_number).first
+    puts "new_article.id:#{new_article.id}"
+    if new_article && update_change.id != current_article_id
+      puts "change to different article"
+      self.working_article_id = new_article.id
+      self.save
+      new_article.generate_pdf
+      WorkingArticle.find(current_article_id).generate_pdf
+    end
+  end
+
   def self.current_images
     last_issue = Issue.last
     Image.where(issue_id: last_issue).all

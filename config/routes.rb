@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   resources :images do
     collection do
       get 'current'
+      get 'place_all'
     end
   end
 

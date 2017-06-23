@@ -121,7 +121,11 @@ ActiveRecord::Schema.define(version: 20170615110626) do
     t.string   "ad_type"
     t.integer  "column"
     t.integer  "row"
+    t.string   "image_path"
+    t.string   "advertiser"
+    t.integer  "order"
     t.integer  "page_id"
+    t.integer  "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -38,6 +38,7 @@ class Article < ApplicationRecord
   scope :six_column, -> {where("column==?", 6)}
   scope :seven_column, -> {where("column==?", 7)}
   has_many :images
+
   def path
     publication.path + "/#{page_columns}/#{column}x#{row}/#{kind}/"
     # publication.path + "#{{page_columns}}/#{column}x#{row}/#{kind}/"
@@ -93,9 +94,13 @@ class Article < ApplicationRecord
     path + "/article_info.yml"
   end
 
-  def setup
+  def create_folders
     system "mkdir -p #{path}" unless File.directory?(path)
     system "mkdir -p #{images_path}" unless File.directory?(images_path)
+  end
+
+  def setup
+    create_folders
     save_story
     save_layout
   end
@@ -103,6 +108,12 @@ class Article < ApplicationRecord
   def save_article
     save_story
     save_layout
+  end
+
+  def update_pdf_unless
+    unless File.exist?(pdf_path)
+      system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    end
   end
 
   def update_pdf
@@ -159,7 +170,6 @@ class Article < ApplicationRecord
     grid_height   = publication.grid_height
     gutter        = publication.gutter
     image_options = image_options if image_options
-    puts
     content=<<~EOF
     RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter} )
     EOF

@@ -15,9 +15,10 @@
 #  scale                 :float
 #  text_line_spacing     :float
 #  space_before_in_lines :integer
-#  text_height_in_lines  :integer
 #  space_after_in_lines  :integer
-#  custom_font           :boolean
+#  text_height_in_lines  :integer
+#  box_attributes        :text
+#  used_column           :integer
 #  publication_id        :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
