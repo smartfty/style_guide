@@ -1,11 +1,11 @@
 ---
 date: 2017-04-10
-section_name: 정책
+section_name: 책소개
 is_front_page: false
 :ad_type: no_ad
 page_columns: 7
 grid_size:
-- 137.40142857142857
+- 134.65
 - 96.94466666666668
 width: 1116.85
 height: 1539.21
@@ -13,32 +13,24 @@ left_margin: 42.52
 top_margin: 42.52
 right_margin: 42.52
 bottom_margin: 42.52
-gutter: 10.0
+gutter: 12.75
 divider_info:
 - 4
-- 20.0
+- 25.51
 story_frames:
 - - 0
   - 0
+  - 7
   - 4
-  - 10
-- - 4
-  - 0
-  - 3
+- - 0
   - 4
+  - 4
+  - 6
 - - 4
   - 4
   - 3
   - 6
 - - 0
   - 10
-  - 4
-  - 5
-- - 2
-  - 13
-  - 2
-  - 2
-- - 4
-  - 10
-  - 3
+  - 7
   - 5

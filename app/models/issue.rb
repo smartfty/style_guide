@@ -15,7 +15,7 @@ class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :pages
   has_many  :images
-  has_many  :placed_ads
+  has_many  :ad_images
 
   before_create :read_issue_plan
   after_create :setup
@@ -61,7 +61,12 @@ class Issue < ApplicationRecord
 
   def make_pages
     eval_issue_plan.each_with_index do |page_hash, i|
-      section = Section.where(page_number: i+1).sample
+      if i == 0
+        puts "page_hash:#{page_hash}"
+        puts "Section.where(page_hash).count:#{Section.where(page_hash).count}"
+      end
+      section = Section.where(page_hash).all.sample
+
       if section
         section_hash = section.attributes
         section_hash = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
@@ -78,7 +83,7 @@ class Issue < ApplicationRecord
         p = Page.where(section_hash).first_or_create
       else
         puts "page_number: #{i + 1}"
-        puts "++++++++++ no section template found for page:#{page_hash[:page_number]}"
+        puts "++++++++++ no section template found for page:#{page_hash}"
       end
     end
   end
@@ -140,13 +145,13 @@ class Issue < ApplicationRecord
 
   end
 
-  def parse_ads
+  def parse_ad_images
 
     Dir.glob("#{issue_ads_path}/*{.jpg,.pdf}").each  do |ad|
       h = {}
       h[:image_path]        = ad
       h[:issue_id]          = self
-      PlacedAd.where(h).first_or_create
+      AdImage.where(h).first_or_create
     end
   end
 
@@ -154,11 +159,24 @@ class Issue < ApplicationRecord
     puts __method__
   end
 
-  def save_ad_place_holders
+  def ad_list
+    list = []
     pages.each do |page|
-      page.save_ad_place_holder
+      page.ad_images
     end
 
+  end
+
+  def save_issue_plan_ad
+    pages.each do |page|
+      page.save_issue_plan_ad
+    end
+  end
+
+  def copy_sample_ad
+    pages.each do |page|
+      page.copy_sample_ad
+    end
   end
 
   private

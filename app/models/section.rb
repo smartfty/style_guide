@@ -140,6 +140,10 @@ class Section < ApplicationRecord
           article_template_path += "/0"
           #code
         end
+      elsif type == 'ad'
+        next
+        # ad_type = rect[4].values.first
+        # article_template_path = "#{Rails.root}/public/#{publication_id}/#{ad}/#{column}/#{ad_type}"
       end
 
       unless  File.directory?(article_template_path)
@@ -199,7 +203,7 @@ class Section < ApplicationRecord
     save_section_config_yml
     copy_page_heading
     copy_articles
-    # copy_ad
+    copy_ad
     # copy_sample_ad
     generate_pdf unless File.exist?(pdf_path)
   end

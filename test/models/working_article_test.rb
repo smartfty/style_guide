@@ -19,6 +19,7 @@
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
+#  kind           :string
 #  page_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

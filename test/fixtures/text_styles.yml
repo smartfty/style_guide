@@ -30,7 +30,7 @@ one:
   name: MyString
   english: MyString
   font: MyString
-  size: 1.5
+  font_size: 1.5
   alignment: MyString
   tracking: 1.5
   color: MyString
@@ -43,7 +43,7 @@ two:
   name: MyString
   english: MyString
   font: MyString
-  size: 1.5
+  font_size: 1.5
   alignment: MyString
   tracking: 1.5
   color: MyString

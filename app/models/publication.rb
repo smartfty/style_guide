@@ -65,6 +65,57 @@ class Publication < ApplicationRecord
     grid_height/lines_per_grid
   end
 
+  def divider_extra_space
+    divider - gutter
+  end
+
+  def divider_position(page_columns)
+    case page_columns
+    when 5
+      3
+    when 6
+      4
+    when 7
+      4
+    else
+      page_columns - 2
+    end
+  end
+
+
+  def x_of_grid_frame(page_columns, grid_frame)
+    divider_location = divider_position(page_columns)
+    g_width = grid_width(page_columns)
+    x = left_margin + (g_width + gutter)*grid_frame[0]
+    if grid_frame[0] >= divider_location
+      x += divider_extra_space
+    end
+    x
+  end
+
+  def y_of_grid_frame(page_columns, grid_frame)
+    grid_frame[1]*grid_height
+  end
+
+
+  def width_of_grid_frame(page_columns, grid_frame)
+    divider_location = divider_position(page_columns)
+    g_width = grid_width(page_columns)
+    w = g_width*grid_frame[2] + gutter*(grid_frame[2]-1)
+    if grid_frame[2] >= divider_location
+      w += divider_extra_space
+    end
+    w
+  end
+
+  def height_of_grid_frame(page_columns, grid_frame)
+    grid_frame[3]*grid_height
+  end
+
+  def frame_rect_of_grid_frame(page_columns, grid_frame)
+    [x_of_grid_frame(grid_frame), y_of_grid_frame(grid_frame), width_of_grid_frame(grid_frame), height_of_grid_frame(grid_frame)]
+  end
+
   def page_heading_width
     width - left_margin - right_margin
   end

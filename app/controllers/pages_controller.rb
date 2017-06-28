@@ -11,6 +11,8 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     @working_articles = @page.working_articles
+    @ad_boxes         = @page.ad_boxes
+
   end
 
   # GET /pages/new

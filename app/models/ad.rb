@@ -12,11 +12,6 @@
 #  updated_at     :datetime         not null
 #
 
-# t.string :name
-# t.integer :column
-# t.integer :row
-# t.integer :page_columns
-# t.integer :publication_id
 
 
 class Ad < ApplicationRecord
@@ -45,14 +40,25 @@ class Ad < ApplicationRecord
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
+  def ad_width
+    publication.width_of_grid_frame(page_columns, [0,0,column,row])
+  end
+
+  def ad_height
+    publication.height_of_grid_frame(page_columns, [0,0,column,row])
+  end
+
+  def ad_top_margin
+    publication.body_line_height
+  end
+
   def layout_rb
-    grid_width  = publication.grid_width(column)
-    grid_height = publication.grid_height
-    gutter      = publication.gutter
+    puts "saving ad layout_rb"
+    puts "path:#{path}"
     content=<<~EOF
-    RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, grid_width: #{publication.grid_width(column)}, grid_height: #{grid_height}, gutter:#{gutter}, is_ad_box: true, grid_base: [#{column}, #{row}] ) do
-      image(image_path: 'some_path', layout_expand: [:width, :height], grid_frame: [0,0, #{column}, #{row}], is_float: true)
-      layout_floats!
+    RLayout::NewsAdBox.new(is_ad_box: true, width: #{ad_width}, height:#{ad_height}, top_margin: #{ad_top_margin}) do
+      image(image_path: 'some_path', layout_expand: [:width, :height])
+      relayout!
     end
     EOF
   end
@@ -67,7 +73,7 @@ class Ad < ApplicationRecord
 
   def copy_sample_ad
     # copy random asmple ad
-    name
+    # name
     ad = Dir.glob("#{sample_ad_path}/*{.jpg,.pdf}").sample
     puts "sample_ad_path:#{sample_ad_path}"
     puts "ad:#{ad}"

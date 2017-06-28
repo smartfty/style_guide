@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Column:</strong>
+  <%= @ad_box.column %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @ad_box.row %>
+</p>
+
+<p>
+  <strong>Ad type:</strong>
+  <%= @ad_box.ad_type %>
+</p>
+
+<p>
+  <strong>Advertiser:</strong>
+  <%= @ad_box.advertiser %>
+</p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @ad_box.page %>
+</p>
+
+<%= link_to 'Edit', edit_ad_box_path(@ad_box) %> |
+<%= link_to 'Back', ad_boxes_path %>

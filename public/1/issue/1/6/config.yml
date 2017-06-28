@@ -1,11 +1,11 @@
 ---
 date: 2017-04-10
-section_name: 행정
+section_name: 국제통일
 is_front_page: false
 :ad_type: no_ad
-page_columns: 7
+page_columns: 6
 grid_size:
-- 137.40142857142857
+- 159.21666666666667
 - 96.94466666666668
 width: 1116.85
 height: 1539.21
@@ -13,40 +13,28 @@ left_margin: 42.52
 top_margin: 42.52
 right_margin: 42.52
 bottom_margin: 42.52
-gutter: 10.0
+gutter: 12.75
 divider_info:
-- 4
-- 20.0
+- 3
+- 25.51
 story_frames:
 - - 0
   - 0
-  - 5
-  - 7
-- - 5
-  - 0
-  - 2
-  - 7
-- - 0
-  - 7
-  - 5
-  - 4
-- - 5
-  - 7
-  - 2
+  - 6
   - 4
 - - 0
+  - 4
+  - 1
+  - 7
+- - 1
+  - 4
+  - 5
+  - 7
+- - 0
+  - 11
+  - 1
+  - 4
+- - 1
   - 11
   - 5
-  - 2
-- - 0
-  - 13
-  - 2
-  - 2
-- - 2
-  - 13
-  - 3
-  - 2
-- - 5
-  - 11
-  - 2
   - 4

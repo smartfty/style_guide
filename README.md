@@ -130,6 +130,14 @@ Rails app for creating style guide for newspaper publication
   t.integer :page_columns
   t.references :issue, foreign_key: true
 
+## AdBox
+  t.integer :column
+  t.integer :row
+  t.string :ad_type
+  t.string :advertiser
+  t.references :page, foreign_key: true
+
+
 # email based layout?
   references:issue
   template_id:integer

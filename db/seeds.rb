@@ -1,7 +1,7 @@
 # require 'csv'
-#
-p = Publication.where(name: '내일신문', paper_size: 'custom', width: 1116.85,  height: 1539.21, left_margin: 42.52, top_margin: 42.52, right_margin: 42.52, bottom_margin: 42.52, lines_per_grid: 7, divider: 20, gutter: 10, page_count:24).first_or_create
-# #
+# gutter = 4.5mm = mm * 2.834646
+p = Publication.where(name: '내일신문', paper_size: 'custom', width: 1116.85,  height: 1539.21, left_margin: 42.52, top_margin: 42.52, right_margin: 42.52, bottom_margin: 42.52, lines_per_grid: 7, divider: 25.51, gutter: 12.75, page_count:24).first_or_create
+# # #
 NEWSPAPER_STYLE = [
   {:name=>"본문명조", :english=>"body", :font_family=>"윤신문명조", :font=>"YDVYSinStd", :font_size=>9.6, :color=>"", :alignment=>"justified", :tracking=>-0.5, :space_width=>5.0, :scale=>100.0, :text_line_spacing=>nil, :space_before_in_lines=>nil, :text_height_in_lines=>nil, :space_after_in_lines=>nil, :publication_id=>1},
   {:name=>"본문고딕", :english=>"body_gothic", :font_family=>"윤고딕120", :font=>"YDVYGOStd12", :font_size=>9.4, :color=>"", :alignment=>"justified", :tracking=>-0.5, :space_width=>5.0, :scale=>100.0, :text_line_spacing=>nil, :space_before_in_lines=>nil, :text_height_in_lines=>nil, :space_after_in_lines=>nil, :publication_id=>1},
@@ -113,6 +113,12 @@ extra_paragraph = "\n#{quote}"*3
   end
 end
 
+ad_csv_path = "#{Rails.root}/public/1/ad/ads.csv"
+csv_text = File.read(ad_csv_path)
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+  Ad.where(row.to_hash).first_or_create
+end
 
 # parse section.csv
 csv_path = "#{Rails.root}/public/1/section/sections.csv"
@@ -147,8 +153,8 @@ end
 #   '기획',
 #   '오피니언'
 # ]
-
+#
 issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1).first_or_create
-issue.parse_images
-issue.parse_ads
-issue.parse_graphics
+# issue.parse_images
+# issue.parse_ad_imagess
+# issue.parse_graphics

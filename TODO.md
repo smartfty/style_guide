@@ -38,6 +38,30 @@
   - short key
   - progress wheel
 
+3017-6-28
+  - fix parsing issue plan error
+  - treat ads similar to images, attaching it to working_article_box
+  - parse_ad_images
+  - add devise
+
+  - fix left_margin, right_margin for NewsArticleBox column
+    - left_margin should be 0 for first column
+    - right_margin should be 0 for right most column
+    
+  - fix page_headings
+
+
+2017-6-27
+  - rename placed_ad to ad_image
+  - fix ad rlayout_rb as NewsAdBox < Container
+  - create AdBox
+
+
+2017-6-23
+  - rename ad_image to ad_image
+  - fix ad containing section, working_article
+  - create working_article_box for ads
+
 2017-6-22
   - make rails project portable
     - gitignore public/issue/*
@@ -103,7 +127,7 @@
   - section index sort by page and ad
 
 2017-6-15
-  - add placed_ads
+  - add ad_images
 
 2017-6-8
   - name images with page-order-column_size.jpg

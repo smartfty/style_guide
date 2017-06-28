@@ -17,6 +17,7 @@ class CreateWorkingArticles < ActiveRecord::Migration[5.0]
       t.boolean :is_front_page
       t.boolean :top_story
       t.boolean :top_position
+      t.string :kind
       t.references :page, foreign_key: true
 
       t.timestamps

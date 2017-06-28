@@ -1,4 +1,7 @@
 <%# add navigation links to this file %>
+
+<!-- <ul class="nav navbar-nav navbar-center"> -->
+
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">오늘의 신문<span class="caret"></span></a>
   <ul class="dropdown-menu" role="menu">
@@ -43,6 +46,15 @@
 <li><%= link_to '광고', ads_path %></li>
 <li><%= link_to '이미지 레이아웃', current_images_path %></li>
 
-<li><%= link_to '            ', '#' %></li>
-<li><%= link_to '            ', '#' %></li>
 <li><%= link_to '도움말', home_help_path %></li>
+
+
+<% if user_signed_in? %>
+  <li><%= link_to current_user.email, "#" %></li>
+  <li><%= link_to '등록정보 수정', edit_user_registration_path %></li>
+  <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete  %></li>
+
+<% else %>
+  <li><%= link_to '로인', new_user_session_path %></li>
+  <li><%= link_to '새로등록', new_user_registration_path %></li>
+<% end %>

@@ -19,6 +19,7 @@
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
+#  kind           :string
 #  page_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -30,7 +31,11 @@ class WorkingArticle < ApplicationRecord
   before_create :parse_article
 
   def path
-    page.path + "/#{order}"
+    if kind == 'ad'
+      page.path + "/ad"
+    else
+      page.path + "/#{order}"
+    end
     # publication.path + "#{{page_columns}}/#{column}x#{row}/#{kind}/"
   end
 
@@ -195,18 +200,23 @@ class WorkingArticle < ApplicationRecord
   end
 
   def parse_article_info
-    article_info_hash   = article_info
-    self.column         = article_info_hash[:column]
-    self.row            = article_info_hash[:row]
-    self.is_front_page  = article_info_hash[:is_front_page]
-    self.top_story      = article_info_hash[:top_story]
-    self.top_position   = article_info_hash[:top_position]
+    if article_info_hash = article_info
+      self.column         = article_info_hash[:column]
+      self.row            = article_info_hash[:row]
+      self.is_front_page  = article_info_hash[:is_front_page]
+      self.top_story      = article_info_hash[:top_story]
+      self.top_position   = article_info_hash[:top_position]
+    end
   end
 
   # parse working_article info from copied article_template files
   def parse_article
-    parse_article_info
-    parse_story
+    if article_info
+      parse_article_info
+      parse_story
+    else
+      #code
+    end
   end
 
 end

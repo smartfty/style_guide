@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :placed_ads
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :ad_boxes
+  resources :ad_images
   resources :working_articles do
     member do
       get 'download_pdf'

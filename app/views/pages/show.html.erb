@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
 <div class="row">
   <div class = "col-lg-8">
     <% if File.exist?(@page.pdf_path) %>
@@ -17,6 +18,9 @@
 
     <% @working_articles.each do |article| %>
       <h1><%= link_to "#{article.order}: #{article.title}", working_article_path(article) %></h1>
+    <% end %>
+    <% @ad_boxes.each do |ad_box| %>
+      <h1><%= link_to "광고: #{ad_box.ad_type} 광고주: #{ad_box.advertiser}", ad_box_path(ad_box) %></h1>
     <% end %>
 
   </div>

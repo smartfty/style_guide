@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615110626) do
+ActiveRecord::Schema.define(version: 20170627230518) do
+
+  create_table "ad_boxes", force: :cascade do |t|
+    t.integer  "column"
+    t.integer  "row"
+    t.string   "ad_type"
+    t.string   "advertiser"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_ad_boxes_on_page_id"
+  end
+
+  create_table "ad_images", force: :cascade do |t|
+    t.string   "ad_type"
+    t.integer  "column"
+    t.integer  "row"
+    t.string   "image_path"
+    t.string   "advertiser"
+    t.integer  "page_number"
+    t.integer  "article_number"
+    t.integer  "working_article_id"
+    t.integer  "issue_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "ads", force: :cascade do |t|
     t.string   "name"
@@ -45,21 +70,6 @@ ActiveRecord::Schema.define(version: 20170615110626) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["publication_id"], name: "index_articles_on_publication_id"
-  end
-
-  create_table "image_templates", force: :cascade do |t|
-    t.integer  "column"
-    t.integer  "row"
-    t.integer  "height_in_lines"
-    t.string   "image_path"
-    t.string   "caption_title"
-    t.string   "caption"
-    t.integer  "position"
-    t.integer  "page_columns"
-    t.integer  "article_id"
-    t.integer  "publication_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -115,19 +125,6 @@ ActiveRecord::Schema.define(version: 20170615110626) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["issue_id"], name: "index_pages_on_issue_id"
-  end
-
-  create_table "placed_ads", force: :cascade do |t|
-    t.string   "ad_type"
-    t.integer  "column"
-    t.integer  "row"
-    t.string   "image_path"
-    t.string   "advertiser"
-    t.integer  "order"
-    t.integer  "page_id"
-    t.integer  "issue_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -197,6 +194,24 @@ ActiveRecord::Schema.define(version: 20170615110626) do
     t.index ["publication_id"], name: "index_text_styles_on_publication_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   create_table "working_articles", force: :cascade do |t|
     t.integer  "column"
     t.integer  "row"
@@ -214,6 +229,7 @@ ActiveRecord::Schema.define(version: 20170615110626) do
     t.boolean  "is_front_page"
     t.boolean  "top_story"
     t.boolean  "top_position"
+    t.string   "kind"
     t.integer  "page_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

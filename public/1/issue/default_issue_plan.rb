@@ -1,7 +1,7 @@
 issue_plan = [
-  {:page_number=>1, :profile=>"6x15_H_5단통_4", :column=>6, :row=>15, :story_count=>4, :color_page=>true},
-  {:page_number=>2, :profile=>"7x15_4", :column=>7, :row=>15, :story_count=>4, :color_page=>false},
-  {:page_number=>3, :profile=>"7x15_9단21_4", :column=>7, :row=>15, :ad_type=>"9단21", :story_count=>4, :color_page=>true},
+  {:page_number=>1},
+  {:page_number=>2, :profile=>"7x15_7"},
+  {:page_number=>3, :profile=>"7x15_9단21_4"},
   {:page_number=>4, :profile=>"7x15_9", :column=>7, :row=>15, :story_count=>9, :color_page=>false},
   {:page_number=>5, :profile=>"7x15_8", :column=>7, :row=>15, :story_count=>8, :color_page=>false},
   {:page_number=>6, :profile=>"6x15_5", :column=>6, :row=>15, :story_count=>5, :color_page=>false},

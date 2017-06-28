@@ -5,7 +5,7 @@ is_front_page: false
 :ad_type: no_ad
 page_columns: 5
 grid_size:
-- 196.362
+- 193.60999999999999
 - 96.94466666666668
 width: 1116.85
 height: 1539.21
@@ -13,10 +13,10 @@ left_margin: 42.52
 top_margin: 42.52
 right_margin: 42.52
 bottom_margin: 42.52
-gutter: 10.0
+gutter: 12.75
 divider_info:
 - 2
-- 20.0
+- 25.51
 story_frames:
 - - 0
   - 0

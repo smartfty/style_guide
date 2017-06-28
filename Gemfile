@@ -64,3 +64,4 @@ gem 'jquery-ace-rails'
 
 gem 'kaminari'
 gem 'victor'
+gem 'devise'

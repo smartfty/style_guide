@@ -20,7 +20,7 @@
 class Page < ApplicationRecord
   belongs_to :issue
   has_many :working_articles
-  has_many :placed_ads
+  has_many :ad_boxes
 
   before_create :make_profile
   after_create :setup
@@ -50,24 +50,39 @@ class Page < ApplicationRecord
     copy_section_template
   end
 
-  def ad_folder
-    path + "/ad"
+  def sample_ad_folder
+    "#{Rails.root}/public/#{issue.publication.id}/ad"
   end
 
-  def ad_place_holder_string
-    ad = placed_ads.first
+  def issue_ads_folder
+    "#{Rails.root}/public/#{issue.publication.id}/issue/#{issue.id}/ads"
+  end
+
+  def ad_image_string
+    ad = ad_images.first
     if ad
-      placed_ads.first.ad_place_holder_string
+      ad_images.first.ad_image_string
     end
     ""
   end
 
-  def save_ad_place_holder
-    puts __method__
-    s = ad_place_holder_string
-    unless s == ""
-      ad_info_path = ad_folder + "/#{save_ad_place_holder}"
-      system "cd #{ad_folder} && touch #{ad_info_path}"
+  def save_issue_plan_ad
+    if ad_type && ad_type != ""
+      issue_ad_string = "#{page_number}_#{ad_type}"
+      system "cd #{issue_ads_folder} && touch #{issue_ad_string}"
+    end
+  end
+
+  def select_sample_ad
+    Dir.glob("#{sample_ad_folder}/#{page_columns}#{ad_type}/*{.jpg,.pdf}").sample
+  end
+
+  def copy_sample_ad
+    if ad_type && ad_type != ""
+      sample = select_sample_ad
+      basename = File.basename(sample)
+      ad_name  = "#{page_number}_#{basename}"
+      system "cp #{sample} #{issue_ads_folder}/ad_name"
     end
   end
 
@@ -112,18 +127,17 @@ class Page < ApplicationRecord
     puts __method__
     puts "template_id:#{template_id}"
     template_section = Section.find(template_id)
-
     # evaled_layout = eval(template_section.layout)
     # evaled_layout.each do |box_rect|
     layout = eval(template_section.layout)
     layout.each_with_index do |box, i|
       atts = {}
       atts[:page_id]  = self
-      atts[:order]    = i + 1
       atts[:column]   = box[2]
       atts[:row]      = box[3]
 
       if box.length == 4
+        atts[:order]    = i + 1
         atts[:is_front_page] = (page_number == 1 ? true : false)
         atts[:top_story]     = (i == 0 ? true : false)
         atts[:top_position]  = false
@@ -133,14 +147,10 @@ class Page < ApplicationRecord
           atts[:top_position]  = true
         end
         WorkingArticle.where(atts).first_or_create
-      elsif box.length == 5
-        value = box[4].values.first
-        ad_hash = {ad_type: value} #conver "광고 to ad_type"
-        atts.merge!(ad_hash)
-        #TODO we have non-article box, ad or something
-        # since this is copyied form section template
-        # we might not have to anything?
-        PlacedAd.where(atts).first_or_create
+      elsif box.length == 5 && ad_type
+        puts "creating ad_boxpage number:#{page_number}"
+        atts[:ad_type] = ad_type
+        AdBox.where(atts).first_or_create
       end
     end
 

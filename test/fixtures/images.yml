@@ -30,7 +30,8 @@ one:
   caption_title: MyString
   caption: MyString
   position: 1
-  article_id: 1
+  working_article_id: 1
+  issue_id: 1
 
 two:
   column: 1
@@ -40,5 +41,5 @@ two:
   caption_title: MyString
   caption: MyString
   position: 1
-  article_id: 1
-  publication_id: 1
+  working_article_id: 1
+  issue_id: 1
