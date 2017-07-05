@@ -1,4 +1,49 @@
 namespace :style do
+  desc "create page_headings for all section"
+  task :create_page_headings =>:environment do
+    puts "creating page_headings ..."
+      section_names = [
+        '1면',
+        '정치',
+        '정치',
+        '정치',
+        '행정',
+        '행정',
+        '전면광고',
+        '국제통일',
+        '전면광고',
+        '금융',
+        '전면광고',
+        '금융',
+        '금융',
+        '산업',
+        '산업',
+        '산업',
+        '산업',
+        '정책',
+        '정책',
+        '기획',
+        '기획',
+        '오피니언',
+        '오피니언',
+        '전면광고'
+      ]
+
+    # p = Publication.where(name: '내일신문', paper_size: 'custom', width: 1116.85,  height: 1539.21, left_margin: 42.52, top_margin: 42.52, right_margin: 42.52, bottom_margin: 42.52, lines_per_grid: 7, divider: 25.51, gutter: 12.75, page_count:24, section_names: section_names, page_columns: [6,7]).first_or_create
+
+    section_names.each_with_index do |section_name, i|
+      PageHeading.where(publication_id: 1, page_number: i + 1, section_name: section_name, date: Date.new(2017,5,30)).first_or_create
+    end
+  end
+
+  desc "generating pdf for all page_headings"
+  task :generate_page_heading_pdf =>:environment do
+    puts "generating pdf for all page_headings"
+    PageHeading.all.each do |page_heading|
+      page_heading.generate_pdf
+    end
+  end
+
 
   desc "generating pdf for all articles"
   task :generate_pdf =>:environment do
@@ -98,7 +143,6 @@ namespace :style do
     row_index             = keys.index('row')
     page_number_index     = keys.index('page_number')
     section_name_index    = keys.index('section_name')
-    divider_position_index = keys.index('divider_position')
     layout_index          = keys.index('layout')
 
     csv.each do |row|
@@ -137,7 +181,6 @@ namespace :style do
       section_hash.delete(:ad_type) unless section_hash[:ad_type]
       section_hash.delete(:layout)
       section_hash.delete(:publication_id)
-      section_hash.delete(:divider_position)
       section_hash.delete(:created_at)
       section_hash.delete(:updated_at)
       page_hash.merge!(section_hash)

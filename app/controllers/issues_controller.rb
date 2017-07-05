@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :set_issue, only: [:show, :edit, :update, :destroy, :update_issue_path]
 
   # GET /issues
   # GET /issues.json
@@ -51,6 +51,10 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update_plan
+    Issue.last.change_or_make_pages
+    redirect_to issue_path(Issue.lasts.id)
+  end
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy

@@ -8,8 +8,6 @@ We need lots of section templates. They can be categorized by several levels.
   - ad size
   - first_page
 
-So we can organize them in following folder structure
-  grid_base_box_count/unigue_layout_array/kinds
   7x15_3/1/base.rb
           /base.svg
 
@@ -18,7 +16,7 @@ So we can organize them in following folder structure
 
   7x15_3/3/base.rb
           /base.svg
-  
+
   7x15_4/
   7x15_5/
   7x15_6/

@@ -16,7 +16,7 @@
 #  gutter             :float
 #  page_count         :integer
 #  section_names      :text
-#  front_page_heading :string
+#  page_columns :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
@@ -45,14 +45,27 @@ class Publication < ApplicationRecord
     system "mkdir -p #{path}" unless File.directory?(path)
   end
 
+  def page_pdf_path
+    path + "/layout"
+  end
+
+  def layout_rb(column, row)
+    content=<<~EOF
+    RLayout::NewspaperSectionPage.new(width:#{width}, height:#{height}, gutter:#{gutter} divider: #{divider}, :column:#{column}, row:#{row})
+    EOF
+  end
+
+  def generate_pdf
+    #code
+  end
 
   def grid_width(page_columns)
-    h = (width - gutter*5 - divider - left_margin - right_margin)/7
+    h = (width - left_margin - right_margin)/7
     if page_columns == 7
     elsif page_columns == 6
-      h = (width - gutter*4 - divider - left_margin - right_margin)/6
+      h = (width - left_margin - right_margin)/6
     elsif page_columns == 5
-      h = (width - gutter*3 - divider - left_margin - right_margin)/5
+      h = (width - left_margin - right_margin)/5
     end
     h
   end
@@ -65,32 +78,8 @@ class Publication < ApplicationRecord
     grid_height/lines_per_grid
   end
 
-  def divider_extra_space
-    divider - gutter
-  end
-
-  def divider_position(page_columns)
-    case page_columns
-    when 5
-      3
-    when 6
-      4
-    when 7
-      4
-    else
-      page_columns - 2
-    end
-  end
-
-
   def x_of_grid_frame(page_columns, grid_frame)
-    divider_location = divider_position(page_columns)
-    g_width = grid_width(page_columns)
-    x = left_margin + (g_width + gutter)*grid_frame[0]
-    if grid_frame[0] >= divider_location
-      x += divider_extra_space
-    end
-    x
+    left_margin + grid_width(page_columns)*grid_frame[0]
   end
 
   def y_of_grid_frame(page_columns, grid_frame)
@@ -99,13 +88,7 @@ class Publication < ApplicationRecord
 
 
   def width_of_grid_frame(page_columns, grid_frame)
-    divider_location = divider_position(page_columns)
-    g_width = grid_width(page_columns)
-    w = g_width*grid_frame[2] + gutter*(grid_frame[2]-1)
-    if grid_frame[2] >= divider_location
-      w += divider_extra_space
-    end
-    w
+    grid_width(page_columns)*grid_frame[2]
   end
 
   def height_of_grid_frame(page_columns, grid_frame)
@@ -144,6 +127,16 @@ class Publication < ApplicationRecord
     elsif column == 5
       [2, divider]
     end
+  end
+
+  def section_names_path
+    #code
+  end
+
+  def reload_section_names
+    section_names_path = path + "/section_names.rb"
+    self.section_names = File.open(section_names_path, 'r'){|f| f.read}
+    self.save
   end
 
 end

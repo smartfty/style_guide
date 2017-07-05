@@ -1,1 +1,1 @@
-RLayout::NewsArticleBox.new(column: 6, row:6, is_front_page:false, top_story:true, top_position:true, grid_width:161.96833333333333, grid_height:96.94466666666668, gutter:10.0 )
+RLayout::NewsArticleBox.new(column: 6, row:6, on_left_edge: true, on_right_edge: true, is_front_page:false, top_story:true, top_position:true, grid_width:147.40142857142857, grid_height:96.94466666666668, gutter:12.75 )

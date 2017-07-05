@@ -13,7 +13,6 @@
 #  page_number      :integer
 #  section_name     :string
 #  color_page       :boolean          default("f")
-#  divider_position :integer
 #  publication_id   :integer          default("1")
 #  layout           :text
 #  created_at       :datetime         not null
@@ -22,17 +21,17 @@
 
 class Section < ApplicationRecord
 
-  belongs_to :publication
+  belongs_to :publication, optional: true
   has_many :articles
-  # validates :layout, uniqueness: true
-  validates :layout, presence: true
-  validates :column, presence: true
-  validates :row, presence: true
-  validates :divider_position, presence: true
-  validates :publication_id, presence: true
-
-  before_create :parse_layout
-  after_create :setup
+  has_many :ad_box_templates
+  # validates :profile, presence: true
+  # validates :layout, presence: true
+  # validates :column, presence: true
+  # validates :row, presence: true
+  # validates :publication_id, presence: true
+  # before_create :check_status
+  # after_save :parse_layout
+  # after_create :setup
   # serialize :layout, Array
   scope :five_column, -> {where("column==?", 5)}
   scope :six_column, -> {where("column==?", 6)}
@@ -43,8 +42,13 @@ class Section < ApplicationRecord
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}"
   end
 
+  #path from public
+  def relative_path
+    "/#{publication.id}/section/#{page_number}/#{profile}/#{id}"
+  end
+
   def pdf_image_path
-    "/#{publication.id}/section/#{page_number}/#{profile}/#{id}/section.pdf"
+    relative_path + "/section.pdf"
   end
 
   def pdf_path
@@ -52,16 +56,21 @@ class Section < ApplicationRecord
   end
 
   def jpg_image_path
-    "/#{publication.id}/section/#{page_number}/#{profile}/#{id}/section.jpg"
+    relative_path + "/section.jpg"
   end
 
   def jpg_path
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}/section.jpg"
   end
 
+  def page_headig_path
+    path + "/page_heading"
+  end
+
   def setup
-    system "mkdir -p #{path}" unless File.directory?(path)
-    update_section_layout
+    puts "in section setup"
+    # system "mkdir -p #{path}" unless File.directory?(path)
+    # update_section_layout
   end
 
   def section_config_hash
@@ -115,55 +124,6 @@ class Section < ApplicationRecord
     system "cp -R #{page_heading_template_path}/ #{page_heading_path}"
   end
 
-  def save_article_without_template(path, column, row)
-    #TODO
-  end
-
-  def copy_articles
-    eval_layout.each_with_index do |rect, i|
-      type = article_type(rect)
-      article_template_path = "#{Rails.root}/public/#{publication_id}/#{column}/#{rect[2]}x#{rect[3]}"
-      if type == 'article'
-        if i == 0
-          # for top_story
-          if is_front_page || page_number == 1
-            article_template_path += "/4"
-          else
-            article_template_path += "/3"
-          end
-        elsif rect[1] == 1 &&  page_number == 1 # if the box is at y == 1, top_position for front page
-          article_template_path += "/2"
-        elsif rect[1] == 0 # if the box is at y == 0, top_position
-          article_template_path += "/1"
-        else
-          # reqular article box
-          article_template_path += "/0"
-          #code
-        end
-      elsif type == 'ad'
-        next
-        # ad_type = rect[4].values.first
-        # article_template_path = "#{Rails.root}/public/#{publication_id}/#{ad}/#{column}/#{ad_type}"
-      end
-
-      unless  File.directory?(article_template_path)
-        puts "#{article_template_path} doesn't exist!!!!!"
-        #TODO create article
-        article_path = path + "/#{i+1}"
-        save_article_without_template(article_path, rect[2], rect[3])
-        next
-      end
-
-      article_path = path + "/#{i+1}"
-      unless File.directory?(article_path)
-        puts "cp -R #{article_template_path}/ #{article_path}"
-        system "cp -R #{article_template_path}/ #{article_path}"
-      else
-        # puts "#{article_path} alread exist..."
-      end
-    end
-  end
-
   def sample_ad_path
     "#{Rails.root}/public/#{publication_id}/ad/sample/#{ad_type}"
   end
@@ -199,17 +159,37 @@ class Section < ApplicationRecord
   end
 
   def update_section_layout
-    puts __method__
     save_section_config_yml
     copy_page_heading
-    copy_articles
-    copy_ad
+    create_articles
+    generate_article_pdf
+    generate_ad_box_template_pdf
+    # copy_ad
     # copy_sample_ad
-    generate_pdf unless File.exist?(pdf_path)
+    generate_pdf
+  end
+
+  def generate_article_pdf
+    articles.each do |article|
+      article.generate_pdf
+    end
+  end
+
+  def generate_ad_box_template_pdf
+    ad_box_templates.each do |ad|
+      ad.generate_pdf
+    end
   end
 
   def clear_section_pdf
     system("rm ##{pdf_path}")
+  end
+
+  def regenerate_secrion_pdf
+    articles.each do |article|
+      article.generate_pdf
+    end
+    generate_pdf
   end
 
   def generate_pdf
@@ -264,6 +244,31 @@ class Section < ApplicationRecord
       end
   end
 
+  def self.to_hash_list(options = {})
+      section_list = []
+      filtered = column_names.dup
+      filtered.shift  # remove id
+      filtered.pop    # remove created_at
+      filtered.pop    # remove updated_at
+      all.each do |item|
+        section_list << Hash[filtered.zip item.attributes.values_at(*filtered)]
+      end
+      section_list
+  end
+
+  def save_current_sections
+    section_list = Section.to_hash_list
+    # save yml
+    yml_path = "#{Rails.root}/public/1/section/sections.yml"
+    File.open(yml_path, 'w'){|f| f.write section_list.to_yaml}
+    # save rb
+    rb_path = "#{Rails.root}/public/1/section/sections.rb"
+    File.open(rb_path, 'w'){|f| f.write section_list.to_s}
+    # save csv
+    csv_path = "#{Rails.root}/public/1/section/sections.csv"
+    File.open(csv_path, 'w'){|f| f.write Section.to_csv.to_s}
+  end
+
   def eval_layout
     eval(layout)
   end
@@ -310,33 +315,42 @@ class Section < ApplicationRecord
     pdf_error_sections
   end
 
-  private
-
   # prefered page for specific page_number
-  def parse_layout
+  def create_articles
     count = 0
     box_array = eval_layout
-    self.column       = 7         unless self.column
-    self.row          = 15        unless self.row
-    # self.color_page   = false     unless self.color_page
-    self.is_front_page  = is_front_page if is_front_page
-    self.is_front_page  = true if page_number == 1
-    self.ad_type        = ad_type if ad_type
-    box_array.each do |box|
+    box_array.each_with_index do |box, i|
+      article_atts = {}
+      article_atts[:section_id]  = self.id
+      article_atts[:column]   = box[2]
+      article_atts[:row]      = box[3]
+      article_atts[:order]    = i + 1
+      article_atts[:is_front_page]  = false
+      article_atts[:is_front_page]  = true if is_front_page
+      article_atts[:top_story]      = false
+      article_atts[:top_story]      = true if article_atts[:order] == 1
+      article_atts[:top_position]   = false
+      article_atts[:top_position]   = true if box[1] == 0
+      article_atts[:top_position]   = true if is_front_page && box[1] == 1
       if box.length == 5 && box[4].class == Hash
         h = box[4]
-        self.is_front_page = true   if h[:타입] == '제목'
-        self.ad_type = h[:type].gsub(" ","-")     if h[:type]
-        self.ad_type = h[:광고].gsub(" ","-")      if h[:광고]
-        # TODO create Special Box Object here
+        ad_box_atts = {}
+        ad_box_atts[:section_id]   = self.id
+        ad_box_atts[:column]   = box[2]
+        ad_box_atts[:row]      = box[3]
+        ad_box_atts[:order]    = i + 1
+        ad_box_atts[:ad_type]   = h[:type].gsub(" ","-")     if h[:type]
+        ad_box_atts[:ad_type]   = h[:광고].gsub(" ","-")      if h[:광고]
+        AdBoxTemplate.where(ad_box_atts).first_or_create!
       else
-        # TODO create Nomal Article Object here
+        article_atts[:on_left_edge] = false
+        article_atts[:on_left_edge] = true if box[0] == 0
+        article_atts[:on_right_edge] = false
+        article_atts[:on_right_edge] = true if box[0] + box[2] == column
+        Article.where(article_atts).first_or_create!
         count += 1
       end
-      self.story_count = count
     end
-    self.profile = make_profile
-    true
   end
 
 end

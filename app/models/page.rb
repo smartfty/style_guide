@@ -45,6 +45,14 @@ class Page < ApplicationRecord
     "#{Rails.root}/public/#{issue.publication.id}/issue/#{issue.id}/#{page_number}/section.jpg"
   end
 
+  def page_headig_path
+    path + "/page_heading"
+  end
+
+  def page_heading
+    publication.page_heading(page_number)
+  end
+
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     copy_section_template

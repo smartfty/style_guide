@@ -69,6 +69,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:name, :paper_size, :width, :height, :left_margin, :top_margin, :right_margin, :bottom_margin, :lines_per_grid, :divider, :gutter, :page_count, :section_names, :front_page_heading)
+      params.require(:publication).permit(:name, :paper_size, :width, :height, :left_margin, :top_margin, :right_margin, :bottom_margin, :lines_per_grid, :divider, :gutter, :page_count, :section_names, :page_columns)
     end
 end

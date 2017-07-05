@@ -11,7 +11,6 @@ class CreateSections < ActiveRecord::Migration[5.0]
       t.integer :page_number
       t.string :section_name
       t.boolean :color_page, :default=> false
-      t.integer :divider_position
       t.integer :publication_id, :default => 1
       t.text :layout
 

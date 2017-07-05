@@ -15,11 +15,10 @@
 #  personal_image :string
 #  image          :string
 #  quote          :text
-#  name_tag       :string
+#  subject_head       :string
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
-#  kind           :string
 #  page_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -31,12 +30,7 @@ class WorkingArticle < ApplicationRecord
   before_create :parse_article
 
   def path
-    if kind == 'ad'
-      page.path + "/ad"
-    else
-      page.path + "/#{order}"
-    end
-    # publication.path + "#{{page_columns}}/#{column}x#{row}/#{kind}/"
+    page.path + "/#{order}"
   end
 
   def images_path
@@ -83,7 +77,9 @@ class WorkingArticle < ApplicationRecord
   def generate_pdf
     save_story
     save_layout
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
+
   end
 
   def update_page_pdf
@@ -196,7 +192,7 @@ class WorkingArticle < ApplicationRecord
     self.personal_image = @metadata['personal_image']
     self.image          = @metadata['image']
     self.quote          = @metadata['quote']
-    self.name_tag       = @metadata['name_tag']
+    self.subject_head       = @metadata['subject_head']
   end
 
   def parse_article_info

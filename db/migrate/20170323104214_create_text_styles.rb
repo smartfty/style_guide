@@ -6,7 +6,7 @@ class CreateTextStyles < ActiveRecord::Migration[5.0]
       t.string :font_family
       t.string :font
       t.float :font_size
-      t.string :color
+      t.string :text_color
       t.string :alignment
       t.float :tracking
       t.float :space_width
@@ -16,7 +16,6 @@ class CreateTextStyles < ActiveRecord::Migration[5.0]
       t.integer :space_after_in_lines
       t.integer :text_height_in_lines
       t.text :box_attributes
-      t.integer :used_column
       t.references :publication, foreign_key: true
 
       t.timestamps

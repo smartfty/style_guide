@@ -16,7 +16,7 @@
 #  gutter             :float
 #  page_count         :integer
 #  section_names      :text
-#  front_page_heading :string
+#  page_columns :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
@@ -24,7 +24,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: MyString1
   paper_size: MyString
   width: 1.5
   height: 1.5
@@ -37,10 +37,10 @@ one:
   gutter: 1.5
   page_count: 1
   section_names: MyText
-  front_page_heading: MyString
+  page_columns: MyString
 
 two:
-  name: MyString
+  name: MyString2
   paper_size: MyString
   width: 1.5
   height: 1.5
@@ -53,4 +53,4 @@ two:
   gutter: 1.5
   page_count: 1
   section_names: MyText
-  front_page_heading: MyString
+  page_columns: MyString

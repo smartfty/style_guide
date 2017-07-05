@@ -31,7 +31,7 @@
         <td><%= text_style.font_family %></td>
         <td><%= text_style.font %></td>
         <td style="text-align:center;"><%= text_style.font_size %></td>
-        <td style="text-align:center;"><%= text_style.color %></td>
+        <td style="text-align:center;"><%= text_style.text_color %></td>
         <td style="text-align:center;"><%= text_style.alignment %></td>
         <td style="text-align:center;"><%= text_style.tracking %></td>
         <td style="text-align:center;"><%= text_style.space_width %></td>
@@ -51,6 +51,8 @@
 <br>
 
 <div align="center">
+  <%= link_to "스타일 적용", save_current_text_style_path(first_style), method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
+
   <%= link_to "결과물 보기", style_view_text_styles_path, method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
   <%= link_to "       ", "#", method: :get, class: "btn-group btn btn-lg" , align: "center"%>
 

@@ -13,13 +13,14 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.string :personal_image
       t.string :image
       t.string :quote
-      t.string :name_tag
+      t.string :subject_head
+      t.boolean :on_left_edge
+      t.boolean :on_right_edge
       t.boolean :is_front_page
       t.boolean :top_story
       t.boolean :top_position
-      t.string :kind
       t.integer :page_columns
-      t.references :publication, foreign_key: true
+      t.integer :section_id, foreign_key: true
       t.timestamps
     end
   end

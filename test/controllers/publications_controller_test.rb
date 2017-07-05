@@ -17,7 +17,7 @@ class PublicationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create publication" do
     assert_difference('Publication.count') do
-      post publications_url, params: { publication: { bottom_margin: @publication.bottom_margin, divider: @publication.divider, front_page_heading: @publication.front_page_heading, gutter: @publication.gutter, height: @publication.height, left_margin: @publication.left_margin, lines_per_grid: @publication.lines_per_grid, name: @publication.name, page_count: @publication.page_count, paper_size: @publication.paper_size, right_margin: @publication.right_margin, section_names: @publication.section_names, top_margin: @publication.top_margin, width: @publication.width } }
+      post publications_url, params: { publication: { bottom_margin: @publication.bottom_margin, divider: @publication.divider, page_columns: @publication.page_columns, gutter: @publication.gutter, height: @publication.height, left_margin: @publication.left_margin, lines_per_grid: @publication.lines_per_grid, name: @publication.name, page_count: @publication.page_count, paper_size: @publication.paper_size, right_margin: @publication.right_margin, section_names: @publication.section_names, top_margin: @publication.top_margin, width: @publication.width } }
     end
 
     assert_redirected_to publication_url(Publication.last)
@@ -34,7 +34,7 @@ class PublicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update publication" do
-    patch publication_url(@publication), params: { publication: { bottom_margin: @publication.bottom_margin, divider: @publication.divider, front_page_heading: @publication.front_page_heading, gutter: @publication.gutter, height: @publication.height, left_margin: @publication.left_margin, lines_per_grid: @publication.lines_per_grid, name: @publication.name, page_count: @publication.page_count, paper_size: @publication.paper_size, right_margin: @publication.right_margin, section_names: @publication.section_names, top_margin: @publication.top_margin, width: @publication.width } }
+    patch publication_url(@publication), params: { publication: { bottom_margin: @publication.bottom_margin, divider: @publication.divider, page_columns: @publication.page_columns, gutter: @publication.gutter, height: @publication.height, left_margin: @publication.left_margin, lines_per_grid: @publication.lines_per_grid, name: @publication.name, page_count: @publication.page_count, paper_size: @publication.paper_size, right_margin: @publication.right_margin, section_names: @publication.section_names, top_margin: @publication.top_margin, width: @publication.width } }
     assert_redirected_to publication_url(@publication)
   end
 

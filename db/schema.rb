@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627230518) do
+ActiveRecord::Schema.define(version: 20170630013933) do
+
+  create_table "ad_box_templates", force: :cascade do |t|
+    t.integer  "column"
+    t.integer  "row"
+    t.integer  "order"
+    t.string   "ad_type"
+    t.integer  "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ad_boxes", force: :cascade do |t|
     t.integer  "column"
@@ -60,16 +70,16 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.string   "personal_image"
     t.string   "image"
     t.string   "quote"
-    t.string   "name_tag"
+    t.string   "subject_head"
+    t.boolean  "on_left_edge"
+    t.boolean  "on_right_edge"
     t.boolean  "is_front_page"
     t.boolean  "top_story"
     t.boolean  "top_position"
-    t.string   "kind"
     t.integer  "page_columns"
-    t.integer  "publication_id"
+    t.integer  "section_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["publication_id"], name: "index_articles_on_publication_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -108,7 +118,22 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.integer  "publication_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["publication_id"], name: "index_page_headings_on_publication_id"
+  end
+
+  create_table "page_plans", force: :cascade do |t|
+    t.integer  "page_number"
+    t.string   "section_name"
+    t.integer  "column"
+    t.integer  "row"
+    t.integer  "story_count"
+    t.string   "profile"
+    t.string   "ad_type"
+    t.string   "advertiser"
+    t.boolean  "color_page"
+    t.integer  "issue_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["issue_id"], name: "index_page_plans_on_issue_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -148,9 +173,10 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.float    "gutter"
     t.integer  "page_count"
     t.text     "section_names"
-    t.string   "front_page_heading"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.text     "page_columns"
+    t.integer  "row"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "sections", force: :cascade do |t|
@@ -163,12 +189,11 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.integer  "story_count"
     t.integer  "page_number"
     t.string   "section_name"
-    t.boolean  "color_page",       default: false
-    t.integer  "divider_position"
-    t.integer  "publication_id",   default: 1
+    t.boolean  "color_page",     default: false
+    t.integer  "publication_id", default: 1
     t.text     "layout"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "text_styles", force: :cascade do |t|
@@ -177,7 +202,7 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.string   "font_family"
     t.string   "font"
     t.float    "font_size"
-    t.string   "color"
+    t.string   "text_color"
     t.string   "alignment"
     t.float    "tracking"
     t.float    "space_width"
@@ -187,7 +212,6 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.integer  "space_after_in_lines"
     t.integer  "text_height_in_lines"
     t.text     "box_attributes"
-    t.integer  "used_column"
     t.integer  "publication_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -208,6 +232,7 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "role",                   default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -225,11 +250,12 @@ ActiveRecord::Schema.define(version: 20170627230518) do
     t.string   "personal_image"
     t.string   "image"
     t.text     "quote"
-    t.string   "name_tag"
+    t.string   "subject_head"
+    t.boolean  "on_left_edge"
+    t.boolean  "on_right_edge"
     t.boolean  "is_front_page"
     t.boolean  "top_story"
     t.boolean  "top_position"
-    t.string   "kind"
     t.integer  "page_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

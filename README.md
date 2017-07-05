@@ -18,7 +18,7 @@ Rails app for creating style guide for newspaper publication
   gutter
   page_count
   section_names
-  front_page_heading
+  page_columns
 
 ### section
   profile
@@ -31,7 +31,7 @@ Rails app for creating style guide for newspaper publication
   section_name
   layout
   color_page
-  divider_position
+
   #--------
   issue_id
 
@@ -64,7 +64,7 @@ Rails app for creating style guide for newspaper publication
   korean_name
   font
   size
-  color
+  text_color
   tracking
   space_width
   scale
@@ -73,7 +73,7 @@ Rails app for creating style guide for newspaper publication
   space_after_in_lines
 
 ### article
-  kind
+
   column
   row
   title
@@ -122,7 +122,7 @@ Rails app for creating style guide for newspaper publication
   t.string :personal_image
   t.string :image
   t.string :quote
-  t.string :name_tag
+  t.string :subject_head
   t.boolean :is_front_page
   t.boolean :top_story
   t.boolean :top_position
@@ -137,6 +137,15 @@ Rails app for creating style guide for newspaper publication
   t.string :advertiser
   t.references :page, foreign_key: true
 
+
+## Issue_plan_page
+  page_number
+  ad_kind
+  story_count
+  page_columns
+  color_page
+  section_name
+  issue:references
 
 # email based layout?
   references:issue

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :ad_box_templates
+  resources :page_plans
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+  resources :users
 
   resources :ad_boxes
   resources :ad_images
@@ -10,7 +13,11 @@ Rails.application.routes.draw do
       get 'download_pdf'
     end
   end
-  resources :issues
+  resources :issues do
+    member do
+      get 'update_plan'
+    end
+  end
   resources :pages do
     member do
       get 'download_pdf'
@@ -23,7 +30,6 @@ Rails.application.routes.draw do
       get 'six'
       get 'seven'
     end
-
     member do
       get 'download_pdf'
       get 'duplicate'
@@ -40,6 +46,7 @@ Rails.application.routes.draw do
     member do
       get 'download_pdf'
       get 'duplicate'
+      get 'regenerate'
     end
   end
 
@@ -82,6 +89,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'download_pdf'
+      get 'save_current'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

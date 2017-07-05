@@ -1,0 +1,49 @@
+
+
+  <%= form_for(page_plan) do |f| %>
+    <% if page_plan.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(page_plan.errors.count, "error") %> prohibited this page_planpage_plan from being saved:</h2>
+
+        <ul>
+        <% page_plan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.label :page_number %>
+      <%= f.text_field :page_number %>
+    </div>
+
+    <div class="field">
+      <%= f.label :section_name %>
+      <%= f.text_field :section_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :story_count %>
+      <%= f.text_field :story_count %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ad_type %>
+      <%= f.select :ad_type, Ad.all.collect { |p| p.name }, include_blank: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :advertiser %>
+      <%= f.text_field :advertiser %>
+    </div>
+    <div class="field">
+      <%= f.label :color_page %>
+      <%= f.check_box :color_page %>
+    </div>
+
+    <div class="actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>

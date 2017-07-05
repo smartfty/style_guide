@@ -14,7 +14,8 @@ class CreatePublications < ActiveRecord::Migration[5.0]
       t.float :gutter
       t.integer :page_count
       t.text :section_names
-      t.string :front_page_heading
+      t.text :page_columns
+      t.integer :row
 
       t.timestamps
     end

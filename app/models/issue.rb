@@ -13,6 +13,7 @@
 
 class Issue < ApplicationRecord
   belongs_to :publication
+  has_many  :page_plans
   has_many  :pages
   has_many  :images
   has_many  :ad_images
@@ -36,7 +37,8 @@ class Issue < ApplicationRecord
     system "mkdir -p #{path}" unless File.directory?(path)
     system "mkdir -p #{issue_images_path}" unless File.directory?(issue_images_path)
     system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)
-    make_pages
+    make_default_issue_plan
+    # make_pages
   end
 
   def section_path
@@ -59,14 +61,26 @@ class Issue < ApplicationRecord
     path + "/ads/ad_list.yml"
   end
 
-  def make_pages
-    eval_issue_plan.each_with_index do |page_hash, i|
-      if i == 0
-        puts "page_hash:#{page_hash}"
-        puts "Section.where(page_hash).count:#{Section.where(page_hash).count}"
-      end
-      section = Section.where(page_hash).all.sample
+  def make_default_issue_plan
+    # page_array = [page_number, profile]
+    section_names_array = eval(publication.section_names)
+    eval_issue_plan.each_with_index do |page_array, i|
+      page_hash                 = {}
+      page_hash[:issue_id]      = id
+      page_hash[:section_name]  = section_names_array[i]
+      page_hash[:page_number]   = page_array[0]
+      page_hash[:profile]       = page_array[1]
+      p = PagePlan.where(page_hash).first_or_create!
+    end
+  end
 
+  def change_or_make_pages
+    puts "page_plans.length:#{page_plans.length}"
+    page_plans.each_with_index do |page_plan, i|
+      page = Page.where(page_number: page_plan[:page_number])
+      section = Section.where(profile:page_plan[:profile]).all.sample
+      puts "++++++++ page_plan[:profile]:#{page_plan[:profile]}"
+      puts "section:#{section}"
       if section
         section_hash = section.attributes
         section_hash = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
@@ -77,13 +91,13 @@ class Issue < ApplicationRecord
         section_hash.delete(:order)
         section_hash.delete(:is_front_page)
         section_hash.delete(:publication_id)
-        section_hash.delete(:divider_position)
         section_hash.delete(:created_at)
         section_hash.delete(:updated_at)
         p = Page.where(section_hash).first_or_create
       else
+        # make section with profile
         puts "page_number: #{i + 1}"
-        puts "++++++++++ no section template found for page:#{page_hash}"
+        puts "++++++++++ no section template found for page:#{page_plan}"
       end
     end
   end
@@ -177,6 +191,12 @@ class Issue < ApplicationRecord
     pages.each do |page|
       page.copy_sample_ad
     end
+  end
+
+  def reset_issue_plan
+    self.plan = File.open(default_issue_plan_path, 'r'){|f| f.read}
+    self.save
+    make_default_issue_plan
   end
 
   private

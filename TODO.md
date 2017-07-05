@@ -2,8 +2,9 @@
 # TODO
 - make demo video
 - make user manual
+- ajaxify all pdf_generatoin
+- enable ace editor
 
-- auto detect divider_position with layout box information
 - paginate remote with kaminari
 - add ransack for index search
 
@@ -17,18 +18,9 @@
 - page_view with clickable page view
 - use key to summit
 
-- add issue_plan
   - name
   - publication_id
 
-- add page_plan
-  - page_number
-  - section_name
-  - color_page
-  - ad_type
-  - profile
-  - layout
-  - issue_plan_id
   - add path
   - parse svg and make pdf
   - page_headings
@@ -37,6 +29,39 @@
   - page_plan
   - short key
   - progress wheel
+
+2017-7-3
+  - fix rlayout create_columns
+
+2017-7-2
+  - fix article and working_article gutter, left_margin, right_margin depending on the position
+    - add on_left_edge
+    - add on_right_edge
+
+3017-7-1
+  - save text_style_file at "/Users/Shared/SoftwareLab/newspaper/publication_name.yml"
+  - add regenerate Section with custom style, so we can see the change taking effect.
+  - save_current_text_styles
+
+  - update how NewspaperSectionPage lays out article column width depending on the location and width
+
+3017-6-29
+  - add issue_plan to issue
+  - create page_plan table
+    - page_number
+    - section_name
+    - profile
+    - column
+    - row
+    - story_count
+    - ad_type
+    - advertiser
+    - color_page
+    - issue_id
+
+    - update paired color_page
+  - default_issue_plan should have have just page_number and profile
+  - we should parse it and fill in the information from it
 
 3017-6-28
   - fix parsing issue plan error
@@ -47,7 +72,7 @@
   - fix left_margin, right_margin for NewsArticleBox column
     - left_margin should be 0 for first column
     - right_margin should be 0 for right most column
-    
+
   - fix page_headings
 
 
@@ -79,7 +104,7 @@
     issue_plan_id
     ad_type
     advertiser
-    color
+    text_color
     article_count
     page_number
     template_id
@@ -100,7 +125,7 @@
   - 그래픽 효과?, 단락 장식, 박스_디자인
   {fill_color: 'red', stroke_width: '1', stroke_color: 'pink', stroke_dash: [1,2,1,2]}
   - add 문패 sample
-  - two name_tag_18, name_tag_14, name_tag_12
+  - two subject_head_18, subject_head_14, subject_head_12
   - 문페 18, 14, 12
 
   - 5,6,7단 부터 문패18
@@ -219,11 +244,6 @@ magenta
 
 2017-5_25
   - add ad_type to section_config_hash
-  - replace divider_info with divider_position
-
-
-
-
 
 2017-5_24
   - heading image fit type no scale
@@ -271,7 +291,6 @@ magenta
 2017-5-15
   - body text too tight
   - fix text_area text size to 16
-  - fix divider_position
   - make all articles editable
 
   - page_header
@@ -282,8 +301,6 @@ magenta
     - profile/layout
 
 2017-5-14
-  - add divider_position to section
-  - divider_position
   - fix top_position not being reflecting error
   - draw bottom line without gap
   - fix single column article width error

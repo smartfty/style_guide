@@ -15,11 +15,10 @@
 #  personal_image :string
 #  image          :string
 #  quote          :text
-#  name_tag       :string
+#  subject_head       :string
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
-#  kind           :string
 #  page_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -29,7 +28,7 @@
 
 one:
   column: 1
-  row: 
+  row:
   order: 1
   profile: MyString
   title: MyText
@@ -40,7 +39,7 @@ one:
   personal_image: MyString
   image: MyString
   quote: MyText
-  name_tag: MyString
+  subject_head: MyString
   is_front_page: false
   top_story: false
   top_position: false
@@ -48,7 +47,7 @@ one:
 
 two:
   column: 1
-  row: 
+  row:
   order: 1
   profile: MyString
   title: MyText
@@ -59,7 +58,7 @@ two:
   personal_image: MyString
   image: MyString
   quote: MyText
-  name_tag: MyString
+  subject_head: MyString
   is_front_page: false
   top_story: false
   top_position: false

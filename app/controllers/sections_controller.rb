@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy, :download_pdf, :duplicate]
+  before_action :set_section, only: [:show, :edit, :update, :destroy, :download_pdf, :duplicate, :regenerate]
 
   # GET /sections
   # GET /sections.json
@@ -105,6 +105,11 @@ class SectionsController < ApplicationController
     send_file @section.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
+  def regenerate
+    @sections.regenerate_secrion_pdf
+    redirect_to @section, notice: 'Section pdf was successfully regenerated.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section
@@ -113,6 +118,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:profile, :column, :row, :ad_type, :is_front_page, :story_count, :page_number, :section_name, :layout, :color_page, :divider_position)
+      params.require(:section).permit(:profile, :column, :row, :ad_type, :is_front_page, :story_count, :page_number, :section_name, :layout, :color_page)
     end
 end

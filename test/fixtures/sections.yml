@@ -13,7 +13,6 @@
 #  page_number      :integer
 #  section_name     :string
 #  color_page       :boolean          default("f")
-#  divider_position :integer
 #  publication_id   :integer          default("1")
 #  layout           :text
 #  created_at       :datetime         not null

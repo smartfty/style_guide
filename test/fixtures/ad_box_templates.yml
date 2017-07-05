@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  column: 1
+  row: 1
+  ad_type: MyString
+  section: one
+
+two:
+  column: 1
+  row: 1
+  ad_type: MyString
+  section: two

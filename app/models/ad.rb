@@ -101,5 +101,9 @@ class Ad < ApplicationRecord
       end
   end
 
+  def save_current_ads
+    csv_path = "#{Rails.root}/public/1/ad/ads.csv"
+    File.open(csv_path, 'w'){|f| f.write Ad.to_csv.to_s}
+  end
 
 end

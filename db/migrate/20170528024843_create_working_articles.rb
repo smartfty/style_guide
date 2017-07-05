@@ -13,11 +13,12 @@ class CreateWorkingArticles < ActiveRecord::Migration[5.0]
       t.string :personal_image
       t.string :image
       t.text :quote
-      t.string :name_tag
+      t.string :subject_head
+      t.boolean :on_left_edge
+      t.boolean :on_right_edge
       t.boolean :is_front_page
       t.boolean :top_story
       t.boolean :top_position
-      t.string :kind
       t.references :page, foreign_key: true
 
       t.timestamps

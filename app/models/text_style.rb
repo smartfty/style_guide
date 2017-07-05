@@ -8,7 +8,7 @@
 #  font_family           :string
 #  font                  :string
 #  font_size             :float
-#  color                 :string
+#  text_color             :string
 #  alignment             :string
 #  tracking              :float
 #  space_width           :float
@@ -18,7 +18,6 @@
 #  space_after_in_lines  :integer
 #  text_height_in_lines  :integer
 #  box_attributes        :text
-#  used_column           :integer
 #  publication_id        :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -75,9 +74,39 @@ class TextStyle < ApplicationRecord
     styles_hash
   end
 
+  def self.current_styles_with_english_key(options = {})
+    # get rif of id, created_at, updated_at
+    styles_hash = {}
+    h = {}
+    filtered = column_names.dup
+    filtered.shift  # delete id
+    filtered.delete('english')  # delete name
+    filtered.pop    # delete created_at
+    filtered.pop    # delete updated_at
+    all.each do |item|
+      styles_hash[item.attributes['english']] = Hash[filtered.zip item.attributes.values_at(*filtered)]
+    end
+    styles_hash
+  end
+
+
   def self.save_current_styles_with_name_key
     path = "#{Rails.root}/public/1" + "/text_style/current_qtext_styles_with_name_key.rb"
     styles_hash = self.current_styles_with_name_key
+    File.open(path, 'w'){|f| f.write styles_hash.to_s}
+  end
+
+  def self.publication_name
+    publication_id
+  end
+
+  def save_current_styles_with_english_key
+    folder = "/Users/Shared/SoftwareLab/newspaper_text_style"
+    system("mkdir -p #{folder}") unless File.directory?(folder)
+    path = folder + "/#{publication.name}.yml"
+    styles_hash = TextStyle.current_styles_with_english_key
+    File.open(path, 'w'){|f| f.write styles_hash.to_yaml}
+    path = folder + "/#{publication.name}.rb"
     File.open(path, 'w'){|f| f.write styles_hash.to_s}
   end
 
@@ -148,10 +177,23 @@ class TextStyle < ApplicationRecord
   end
 
   def save_layout
+    puts __method__
     sample_text = "우리는 민족중흥의 역사적 사명에 대해서는 전혀 들은바 없이 그냥 이땅에 태어 낳다. 그래서 우리는 가끔 당황스러워 한다."
-    attrs             = {}
-    attrs[:font]      = font
-    attrs[:text_size] = font_size
+    attrs                     = {}
+    attrs[:font]              = font
+    attrs[:font_size]         = font_size
+    attrs[:text_color]        = text_color        if text_color && text_color != ""
+    attrs[:alignment]         = alignment
+    attrs[:tracking]          = tracking          if tracking
+    attrs[:space_width]       = space_width       if space_width
+    attrs[:scale]             = scale             if scale
+    attrs[:text_line_spacing] = text_line_spacing if text_line_spacing
+    if box_attributes
+      box_attributes_hash       = eval(box_attributes)
+      if box_attributes_hash.class == Hash && box_attributes_hash.keys.length > 0
+        attrs[:box_attributes]    = box_attributes
+      end
+    end
     attrs[:width]     = 300
     attrs[:height]    = 200
     attrs[:margin]    = 20

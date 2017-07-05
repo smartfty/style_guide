@@ -15,11 +15,10 @@
 #  personal_image :string
 #  image          :string
 #  quote          :string
-#  name_tag       :string
+#  subject_head       :string
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
-#  kind           :string
 #  page_columns   :integer
 #  publication_id :integer
 #  created_at     :datetime         not null
@@ -27,21 +26,20 @@
 #
 
 class Article < ApplicationRecord
-  belongs_to :publication
+  belongs_to :section #, optional: true
 
   after_create :setup
-  scope :one_column, -> {where("column==?", 1)}
-  scope :two_column, -> {where("column==?", 2)}
-  scope :three_column, -> {where("column==?", 3)}
-  scope :four_column, -> {where("column==?", 4)}
-  scope :five_column, -> {where("column==?", 5)}
-  scope :six_column, -> {where("column==?", 6)}
-  scope :seven_column, -> {where("column==?", 7)}
+  # scope :one_column, -> {where("column==?", 1)}
+  # scope :two_column, -> {where("column==?", 2)}
+  # scope :three_column, -> {where("column==?", 3)}
+  # scope :four_column, -> {where("column==?", 4)}
+  # scope :five_column, -> {where("column==?", 5)}
+  # scope :six_column, -> {where("column==?", 6)}
+  # scope :seven_column, -> {where("column==?", 7)}
   has_many :images
 
   def path
-    publication.path + "/#{page_columns}/#{column}x#{row}/#{kind}/"
-    # publication.path + "#{{page_columns}}/#{column}x#{row}/#{kind}/"
+    section.path + "/#{order}"
   end
 
   def images_path
@@ -64,12 +62,16 @@ class Article < ApplicationRecord
     path + "/output.jpg"
   end
 
+  def relative_path
+    section.relative_path + "/#{order}"
+  end
+
   def pdf_image_path
-    "/#{publication.id}/#{page_columns}/#{column}x#{row}/#{kind}/output.pdf"
+    relative_path + "/output.pdf"
   end
 
   def jpg_image_path
-    "/#{publication.id}/#{page_columns}/#{column}x#{row}/#{kind}/output.jpg"
+    relative_path + "/output.jpg"
   end
 
   def custom_pdf_path
@@ -82,16 +84,20 @@ class Article < ApplicationRecord
 
 
   def custom_pdf_image_path
-    "/#{publication.id}/#{page_columns}/#{column}x#{row}/#{kind}/custom_style.pdf"
+    relative_path + "/custom_style.pdf"
   end
 
   def custom_jpg_image_path
-    "/#{publication.id}/#{page_columns}/#{column}x#{row}/#{kind}/custom_style.jpg"
+    relative_path + "/custom_style.end"
   end
 
 
   def article_info_path
     path + "/article_info.yml"
+  end
+
+  def publication
+    section.publication
   end
 
   def create_folders
@@ -123,14 +129,16 @@ class Article < ApplicationRecord
   def generate_pdf
     save_story
     save_layout
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
+
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
   def generate_custom_style_pdf(current_styles)
     puts __method__
     styles_path     = path + "/custom_style.yml"
     File.open(styles_path, 'w'){|f| f.write current_styles.to_yaml}
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
   end
 
   def article_info
@@ -143,6 +151,27 @@ class Article < ApplicationRecord
   end
 
   def story_md
+    title     = '제목은 여기에 여기는 제목'
+    subtitle  = '부제는 여기에 여기는 부제목 자리'
+    reporter  = '홍길동'
+    email     = 'gdhong@gmail.com'
+
+    body =<<~EOF
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    EOF
+
+    quote           = "이부분이 이용한 부분입니다. 이부분은 본문 중간에 위치 하게 됩니다. 아마도 이부분이 좀던 눈에 띠게 해야 합나다."
+    extra_paragraph = "\n#{quote}"*3
+
     story_md =<<~EOF
     ---
     title: #{title}
@@ -170,9 +199,14 @@ class Article < ApplicationRecord
     grid_height   = publication.grid_height
     gutter        = publication.gutter
     image_options = image_options if image_options
+
     content=<<~EOF
-    RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter} )
+    RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, on_left_edge: #{on_left_edge}, on_right_edge: #{on_right_edge}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter} )
     EOF
+  end
+
+  def save_layout
+    File.open(layout_path, 'w'){|f| f.write layout_rb}
   end
 
   def save_story
@@ -183,21 +217,8 @@ class Article < ApplicationRecord
     File.open(story_path, 'r'){|f| f.read }
   end
 
-
-  def save_layout
-    File.open(layout_path, 'w'){|f| f.write layout_rb}
-  end
-
   def library_images
     publication.library_images
-  end
-
-  # copy library image to article image as 1.jpg
-  def copy_from_image_library(source)
-    system("cp #{source} #{images_path}/1.jpg")
-    image_hash = eval(image_path)
-    image_hash[:local_image] = 1.jpg
-    self.image_path = image_hash.to_s
   end
 
   def filler_text(empty_line_count, options={})

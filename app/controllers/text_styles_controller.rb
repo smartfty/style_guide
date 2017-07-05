@@ -1,5 +1,5 @@
 class TextStylesController < ApplicationController
-  before_action :set_text_style, only: [:show, :edit, :update, :destroy,:download_pdf]
+  before_action :set_text_style, only: [:show, :edit, :update, :destroy, :save_current, :download_pdf]
 
   # GET /text_styles
   # GET /text_styles.json
@@ -77,6 +77,11 @@ class TextStylesController < ApplicationController
     redirect_to text_styles_url
   end
 
+  def save_current
+    @text_style.save_current_styles_with_english_key
+    redirect_to text_styles_url,  notice: 'Current text style was successfully saved.'
+  end
+
   # download output.pdf
   def download_pdf
     send_file @text_style.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
@@ -90,6 +95,6 @@ class TextStylesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def text_style_params
-      params.require(:text_style).permit(:name, :english, :font_family, :font, :font_size, :alignment, :color, :tracking, :space_width, :scale, :space_before_in_lines, :text_height_in_lines, :space_after_in_lines, :publication_id)
+      params.require(:text_style).permit(:name, :english, :font_family, :font, :font_size, :alignment, :text_color, :tracking, :space_width, :scale, :space_before_in_lines, :text_height_in_lines, :space_after_in_lines, :publication_id)
     end
 end
