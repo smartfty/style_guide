@@ -1,4 +1,4 @@
-# require 'csv'
+require 'csv'
 require 'yaml'
 # gutter = 4.5mm = mm * 2.834646
 section_names = [
@@ -49,7 +49,6 @@ csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   Ad.where(row.to_hash).first_or_create
 end
-puts "Ad.count:#{Ad.count}"
 
 #
 # parse section.csv
@@ -71,12 +70,15 @@ issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publicati
 user1 = User.create(name: "김민수", email: "mskimsid@gmail.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 user2 = User.create(name: "김형규", email: "hgkim@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 user3 = User.create(name: "양유미", email: "biny@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
-user4 = User.create(name: "조경희", email: "khcho@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
+user4 = User.create(name: "조경아", email: "kacho@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
 user5 = User.create(name: "안성현", email: "shahn@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
+user6 = User.create(name: "한승효", email: "shhan@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
+user7 = User.create(name: "반수희", email: "shban@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
+user8 = User.create(name: "이지혜", email: "shban@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
 
-user6 = User.create(name: "편집1", email: "editor1@naeil.com", password: 'itis1234', password_confirmation: "password", role: 1)
-user7 = User.create(name: "편집2", email: "editor2@naeil.com", password: 'itis1234', password_confirmation: "password", role: 1)
+user9 = User.create(name: "편집1", email: "editor1@naeil.com", password: 'itis1234', password_confirmation: "password", role: 1)
+user10 = User.create(name: "편집2", email: "editor2@naeil.com", password: 'itis1234', password_confirmation: "password", role: 1)
 
-user8 = User.create(name: "기자1", email: "reporter1@naeil.com", password: 'itis1234', password_confirmation: "password",)
-user9 = User.create(name: "기자2", email: "reporter2@naeil.com", password: 'itis1234', password_confirmation: "password",)
-user10 = User.create(name: "기자3", email: "reporter3@naeil.com", password: 'itis1234', password_confirmation: "password",)
+user11 = User.create(name: "기자1", email: "reporter1@naeil.com", password: 'itis1234', password_confirmation: "password",)
+user12 = User.create(name: "기자2", email: "reporter2@naeil.com", password: 'itis1234', password_confirmation: "password",)
+user13 = User.create(name: "기자3", email: "reporter3@naeil.com", password: 'itis1234', password_confirmation: "password",)
