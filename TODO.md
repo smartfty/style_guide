@@ -30,6 +30,51 @@
   - short key
   - progress wheel
 
+2017-7-14
+  - add status to page_plan
+    indication page updated status
+    add button to update individual page
+
+2017-7-13
+  - create dynamic text_style definition for varying text_style
+    give, col, row,
+    {
+      '1x3': {font_size: 14,},
+      '4x3': {font_size: 14,},
+      '4x3': {font_size: 14,},
+      '4x3': {font_size: 14,},
+      '4x3': {font_size: 14,},
+      '4x3': {font_size: 14,},
+    }
+
+2017-7-13
+  - t.text :box_attributes
+  - t.string :applied_columns
+
+  - t.string :custom_markup
+  - category heading 제목박스, body 본문, float 플롯트
+
+2017-7-9
+  - add markup
+  - used in column
+    subject_head_4_5_6
+    subtitle_4_5_6
+    subtitle_3
+    subtitle_2
+    subtitle_1
+
+
+
+2017-7-7
+  - add units in publication
+    mm, inch, point
+
+  - add 문페, 편집자_노트
+    cation, caption_title
+
+2017-7-6
+  - fix Article, and WorkingArticle to use custom style by sending newsman article . -custom={publication.name}
+
 2017-7-3
   - fix rlayout create_columns
 

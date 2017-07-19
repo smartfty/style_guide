@@ -66,13 +66,11 @@ csv.each do |row|
 end
 
 issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1).first_or_create
-# issue.parse_images
-# issue.parse_ad_imagess
-# issue.parse_graphics
+
 #
-user1 = User.create(name: "김민수", email: "mskimsid@gmail.com", password: 'itis1234', password_confirmation: "password", role: 3)
-user2 = User.create(name: "김형규", email: "hgkim@naeil.com", password: 'itis1234', password_confirmation: "password", role: 3)
-user3 = User.create(name: "양유미", email: "biny@naeil.com", password: 'itis1234', password_confirmation: "password", role: 3)
+user1 = User.create(name: "김민수", email: "mskimsid@gmail.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
+user2 = User.create(name: "김형규", email: "hgkim@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
+user3 = User.create(name: "양유미", email: "biny@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 user4 = User.create(name: "조경희", email: "khcho@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
 user5 = User.create(name: "안성현", email: "shahn@naeil.com", password: 'itis1234', password_confirmation: "password", role: 2)
 

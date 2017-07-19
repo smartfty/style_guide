@@ -148,7 +148,7 @@ end
 
 # issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1).first_or_create
 # issue.parse_images
-# issue.parse_ad_imagess
+# issue.parse_ad_images
 # issue.parse_graphics
 
 #

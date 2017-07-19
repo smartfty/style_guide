@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy, :download_pdf, :duplicate, :regenerate]
+  before_action :set_section, only: [:show, :edit, :update, :destroy, :download_pdf, :duplicate, :regenerate_pdf]
 
   # GET /sections
   # GET /sections.json
@@ -105,10 +105,11 @@ class SectionsController < ApplicationController
     send_file @section.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
-  def regenerate
-    @sections.regenerate_secrion_pdf
-    redirect_to @section, notice: 'Section pdf was successfully regenerated.'
+  def regenerate_pdf
+    @section.regenerate_pdf
+    redirect_to @section, notice: '저장된 다락 스타일을 사용한 페이지가 성공적으로 생성 되었습니다.'
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
   create_table "page_plans", force: :cascade do |t|
     t.integer  "page_number"
     t.string   "section_name"
+    t.integer  "selected_template_id"
     t.integer  "column"
     t.integer  "row"
     t.integer  "story_count"
@@ -130,9 +131,10 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.string   "ad_type"
     t.string   "advertiser"
     t.boolean  "color_page"
+    t.boolean  "dirty"
     t.integer  "issue_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["issue_id"], name: "index_page_plans_on_issue_id"
   end
 
@@ -146,10 +148,12 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.boolean  "color_page"
     t.string   "profile"
     t.integer  "issue_id"
+    t.integer  "page_plan_id"
     t.integer  "template_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["issue_id"], name: "index_pages_on_issue_id"
+    t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -161,6 +165,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
 
   create_table "publications", force: :cascade do |t|
     t.string   "name"
+    t.string   "unit"
     t.string   "paper_size"
     t.float    "width"
     t.float    "height"
@@ -212,6 +217,8 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.integer  "space_after_in_lines"
     t.integer  "text_height_in_lines"
     t.text     "box_attributes"
+    t.string   "custom_markup"
+    t.string   "applied_columns"
     t.integer  "publication_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

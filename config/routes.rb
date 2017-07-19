@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :ad_box_templates
-  resources :page_plans
+  resources :page_plans do
+    member do
+      get 'select_template'
+      get 'update_page'
+    end
+  end
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
@@ -21,6 +26,7 @@ Rails.application.routes.draw do
   resources :pages do
     member do
       get 'download_pdf'
+      get 'regenerate_pdf'
     end
   end
 
@@ -46,7 +52,8 @@ Rails.application.routes.draw do
     member do
       get 'download_pdf'
       get 'duplicate'
-      get 'regenerate'
+      get 'regenerate_pdf'
+
     end
   end
 

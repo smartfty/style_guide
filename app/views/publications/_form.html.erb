@@ -18,8 +18,13 @@
 
   <div class="field">
     <%= f.label :paper_size %>
-    <%= f.text_field :paper_size %>
+    <%= f.select :paper_size, ["대판", "베르리너", "타블로이드"] %>
   </div>
+
+  <div class="field">
+    <%= f.label :unit %>
+    <%= f.select :unit, ["mm", "inch", "point"] %>
+  <div class="field">
 
   <div class="field">
     <%= f.label :width %>
@@ -73,7 +78,8 @@
 
   <div class="field">
     <%= f.label :section_names %>
-    <%= f.text_area :section_names %>
+    <%= f.text_area :section_names, cols: "50", rows: "5"%>
+
   </div>
 
   <div class="field">

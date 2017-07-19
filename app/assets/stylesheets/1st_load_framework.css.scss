@@ -80,3 +80,38 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+.selected_template {
+  border: 4px;
+  color: #000;
+  background-color: #f00;
+
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+
+  &:hover {
+    color: #fff;
+    background-color: #f00;
+  }
+}
+
+.unselected_template {
+  border: 4px;
+  color: #000;
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}

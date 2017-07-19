@@ -88,13 +88,14 @@ class PageHeading < ApplicationRecord
 
   def even_content
     even=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal', stroke_sizes: [0,0,0,1], stroke_width: 0.3) do
-      text('#{page_number}', x: 10, y: 10, font: 'YDVYGOStd14', font_size: 10, text_color: "#221E1F", width: 50, height: 44, stroke_width: 0.3,)
-      text('2017년 5월 11일 목요일', x: 25, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 10, text_color: "#221E1F", text_alignment: 'left', stroke_width: 0.3,)
-      text('#{section_name}', x:#{page_heading_width/2}, font: 'YDVYMjOStd14', width: 200, font_size: 20, text_color: "#221E1F")
-      text('내일신문',  x: #{page_heading_width - 240} , y: 10, width: 230, text_alignment: 'right', font: 'YDVYGOStd12', font_size: 10, stroke_width: 0.3,)
-      line(x: -3, width: #{page_heading_width + 6}, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
-      line(x: -3, width: #{page_heading_width + 6}, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
+
+    RLayout::Container.new(width: 1028.98, height: 54.425, layout_direction: 'horinoztal') do
+      text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
+      text('#{page_number}', x: 1.9795, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
+      text('2017년 5월 11일 목요일', x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: #{page_heading_width - 48}, y: 10, width: 43, height: 12,)
+      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
+      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
 
     end
     EOF
@@ -102,16 +103,13 @@ class PageHeading < ApplicationRecord
 
   def odd_content
     odd=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal', stroke_sizes: [0,0,0,1], stroke_width: 0.3) do
-      text('내일신문', x: 3, y: 10, width: 230, text_alignment: 'left', font: 'YDVYGOStd12', font_size: 10,)
-
-      text('#{section_name}', x:#{page_heading_width/2}, width: 200, font: 'YDVYMjOStd14', font_size: 20, text_color: "#221E1F")
-      text('2017년 5월 11일 목요일', x: #{page_heading_width - 240} , y: 30, y: 10, width: 200, font: 'YDVYGOStd12', stroke_width: 0.3, font_size: 10, text_color: "#221E1F", text_alignment: 'right')
-
-      text('#{page_number}', x: #{page_heading_width - 40} , y: 10, font: 'YDVYGOStd14', font_size: 10, text_color: "#221E1F", width: 30, height: 44, stroke_width: 0.3, text_alignment: 'right')
-      line(x: -3, width: #{page_heading_width + 6}, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
-      line(x: -3, width: #{page_heading_width + 6}, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
-
+    RLayout::Container.new(width: 1028.98, height: 54.425, layout_direction: 'horinoztal') do
+      text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
+      text('2017년 5월 11일 목요일', x: 900.5693, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+      text('#{page_number}', x: 998, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
+      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: 3, y: 10, width: 43, height: 12, fit_type: 0)
+      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
+      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
     end
     EOF
   end
@@ -144,12 +142,16 @@ class PageHeading < ApplicationRecord
     File.open(layout_path, 'w'){|f| f.write layout_content}
   end
 
+  def self.generate_pdf
+    PageHeading.all.each do |ph|
+      ph.generate_pdf
+    end
+  end
 
   def generate_pdf
     save_layout
     # system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob ."
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman ."
-
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
 
@@ -160,9 +162,9 @@ class PageHeading < ApplicationRecord
 
 
   def generate_pdf_for_page(page)
-    save_layout_for_page(page, date)
+    save_layout_for_page(page)
     page_path = page.path
-    system "cd #{page_path} && /Applications/rjob.app/Contents/MacOS/rjob ."
+    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
     #code
   end
 end

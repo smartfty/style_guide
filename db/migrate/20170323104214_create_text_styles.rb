@@ -16,6 +16,8 @@ class CreateTextStyles < ActiveRecord::Migration[5.0]
       t.integer :space_after_in_lines
       t.integer :text_height_in_lines
       t.text :box_attributes
+      t.string :custom_markup
+      t.string :applied_columns
       t.references :publication, foreign_key: true
 
       t.timestamps

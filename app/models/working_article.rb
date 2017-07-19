@@ -15,7 +15,7 @@
 #  personal_image :string
 #  image          :string
 #  quote          :text
-#  subject_head       :string
+#  subject_head   :string
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean

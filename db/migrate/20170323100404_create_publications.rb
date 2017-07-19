@@ -2,6 +2,7 @@ class CreatePublications < ActiveRecord::Migration[5.0]
   def change
     create_table :publications do |t|
       t.string :name
+      t.string :unit
       t.string :paper_size
       t.float :width
       t.float :height

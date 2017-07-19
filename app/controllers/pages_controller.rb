@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :regenerate_pdf]
 
   # GET /pages
   # GET /pages.json
@@ -12,7 +12,6 @@ class PagesController < ApplicationController
   def show
     @working_articles = @page.working_articles
     @ad_boxes         = @page.ad_boxes
-
   end
 
   # GET /pages/new
@@ -67,6 +66,11 @@ class PagesController < ApplicationController
   # download output.pdf
   def download_pdf
     send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
+  end
+
+  def regenerate_pdf
+    @page.regenerate_pdf
+    redirect_to @page, notice: '저장된 다락 스타일을 사용한 페이지가 성공적으로 생성 되었습니다.'
   end
 
   private

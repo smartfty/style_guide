@@ -118,6 +118,13 @@ class Section < ApplicationRecord
     'article'
   end
 
+  def self.copy_page_heading
+    Section.all.each do |sec|
+      sec.copy_page_heading
+    end
+    #code
+  end
+
   def copy_page_heading
     page_heading_template_path = "#{Rails.root}/public/#{publication_id}/page_heading/#{page_number}"
     page_heading_path = path + "/heading"
@@ -185,11 +192,17 @@ class Section < ApplicationRecord
     system("rm ##{pdf_path}")
   end
 
-  def regenerate_secrion_pdf
+  def regenerate_pdf
     articles.each do |article|
       article.generate_pdf
     end
     generate_pdf
+  end
+
+  def self.generate_pdf
+    Section.all.each do |sec|
+      sec.generate_pdf
+    end
   end
 
   def generate_pdf

@@ -19,10 +19,11 @@
 
 class Page < ApplicationRecord
   belongs_to :issue
+  belongs_to :page_plan
   has_many :working_articles
   has_many :ad_boxes
 
-  before_create :make_profile
+  before_create :copy_attributes_from_template
   after_create :setup
 
   def path
@@ -132,9 +133,11 @@ class Page < ApplicationRecord
   end
 
   def update_working_articles
-    puts __method__
     puts "template_id:#{template_id}"
-    template_section = Section.find(template_id)
+    template_section = Section.where(profile: profile).first
+    if template_id
+      template_section = Section.find(template_id)
+    end
     # evaled_layout = eval(template_section.layout)
     # evaled_layout.each do |box_rect|
     layout = eval(template_section.layout)
@@ -172,17 +175,38 @@ class Page < ApplicationRecord
     else
       puts "No template in #{section_template_folder}"
     end
-
     update_working_articles
   end
 
+  def change_page(new_section_template_id)
+    new_section_template = Section.find(new_section_template_id)
+    section_hash = new_section_template.attributes
+    section_hash = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
+    section_hash[:template_id] = new_section_template.id
+    section_hash.delete(:id)
+    section_hash.delete(:layout)
+    section_hash.delete(:order)
+    section_hash.delete(:is_front_page)
+    section_hash.delete(:publication_id)
+    section_hash.delete(:created_at)
+    section_hash.delete(:updated_at)
+    update(section_hash)
+    update_page_layout
+  end
+
   def update_page_layout
-    puts __method__
     copy_section_template
-    generate_pdf
+    regenerate_pdf
   end
 
   def generate_pdf
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
+  end
+
+  def regenerate_pdf
+    working_articles.each do |working_article|
+      working_article.generate_pdf
+    end
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
   end
 
@@ -197,13 +221,15 @@ class Page < ApplicationRecord
 
   private
 
-  def make_profile
-    profile = "#{column}x#{row}_"
-    profile += "H_" if page_number == 1
-    profile += "#{ad_type}_" if ad_type
-    profile += story_count.to_s
-    puts "page_profile:#{profile}"
-    self.profile = profile
+  def copy_attributes_from_template
+    section = Section.find(template_id)
+    self.profile      = section.profile
+    self.page_number  = section.page_number
+    self.column       = section.column
+    self.row          = section.row
+    self.ad_type      = section.ad_type
+    self.story_count  = section.story_count
+    true
   end
 
 end

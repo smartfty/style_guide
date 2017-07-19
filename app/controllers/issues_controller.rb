@@ -52,8 +52,9 @@ class IssuesController < ApplicationController
   end
 
   def update_plan
-    Issue.last.change_or_make_pages
-    redirect_to issue_path(Issue.lasts.id)
+    issue = Issue.last
+    issue.update_plan
+    redirect_to issue_path(issue)
   end
   # DELETE /issues/1
   # DELETE /issues/1.json

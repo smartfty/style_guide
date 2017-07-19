@@ -177,7 +177,6 @@ class TextStyle < ApplicationRecord
   end
 
   def save_layout
-    puts __method__
     sample_text = "우리는 민족중흥의 역사적 사명에 대해서는 전혀 들은바 없이 그냥 이땅에 태어 낳다. 그래서 우리는 가끔 당황스러워 한다."
     attrs                     = {}
     attrs[:font]              = font
@@ -209,6 +208,6 @@ class TextStyle < ApplicationRecord
 
   def generate_pdf
     save_layout
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 end

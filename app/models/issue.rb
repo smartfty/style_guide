@@ -74,31 +74,33 @@ class Issue < ApplicationRecord
     end
   end
 
+  def update_plan
+    change_or_make_pages
+    parse_images
+    parse_ad_images
+    parse_graphics
+  end
+
   def change_or_make_pages
-    puts "page_plans.length:#{page_plans.length}"
     page_plans.each_with_index do |page_plan, i|
-      page = Page.where(page_number: page_plan[:page_number])
-      section = Section.where(profile:page_plan[:profile]).all.sample
-      puts "++++++++ page_plan[:profile]:#{page_plan[:profile]}"
-      puts "section:#{section}"
-      if section
-        section_hash = section.attributes
-        section_hash = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
-        section_hash[:template_id] = section.id
-        section_hash[:issue_id] = id
-        section_hash.delete(:id)
-        section_hash.delete(:layout)
-        section_hash.delete(:order)
-        section_hash.delete(:is_front_page)
-        section_hash.delete(:publication_id)
-        section_hash.delete(:created_at)
-        section_hash.delete(:updated_at)
-        p = Page.where(section_hash).first_or_create
-      else
-        # make section with profile
-        puts "page_number: #{i + 1}"
-        puts "++++++++++ no section template found for page:#{page_plan}"
+      if !page_plan.need_update?
+        if page_plan.dirty
+          page_plan.dirty = false
+          page_plan.save
+        end
+        next
       end
+      # todo make sure all  page_plan is assigned selected_template_id
+      section_template = Section.find(page_plan.selected_template_id)
+      p = Page.where(template_id: section_template.id).first
+      unless p
+        # create new page
+        p = Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id:section_template.id)
+      else
+        p.change_page(section_template)
+      end
+      page_plan.dirty = false
+      page_plan.save
     end
   end
 
@@ -146,6 +148,12 @@ class Issue < ApplicationRecord
       h[:issue_id]          = self.id
       # h[:column]            = profile_array[2] if  profile_array.length > 3
       page = Page.where(issue_id: self, page_number: h[:page_number]).first
+      puts "h[:issue_id]:#{h[:issue_id]}"
+      puts "h[:page_number]:#{h[:page_number]}"
+      unless page
+        puts "Page: #{h[:page_number]} doesn't exist!!!!"
+        next
+      end
       working_article = WorkingArticle.where(page_id: page.id, order: h[:story_number]).first
       if working_article
         h[:working_article_id] = working_article.id

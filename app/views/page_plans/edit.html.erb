@@ -1,7 +1,31 @@
 
-  <h3>페이지 정보 수정</h3>
+  <h3>페이지 선택</h3>
 
-  <%= render 'form', page_plan: @page_plan %>
+  <div class="row">
+    <% @page_templates.each do |template| %>
+      <div class="col-lg-2" >
+        <% if template.id == @page_plan.selected_template_id %>
+          <div class='selected_template'>
+            <img width="98%"  src="<%= template.pdf_image_path %>" alt="" >
+            <div align="center">
+              <h4><%= template.profile =%></h4>
+            </div>
+          </div>
 
-  <%= link_to 'Show', @page_plan %> |
-  <%= link_to 'Back', page_plans_path %>
+        <% else %>
+          <div class='unselected_template'>
+            <p><a href="<%=  select_template_page_plan_path(selected_template_id: template.id) %>"><img  src="<%= template.pdf_image_path %>" width="100%"></img></a></p>
+            <div align="center">
+              <h4><%= template.profile =%></h4>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+    <% end %>
+
+  </div>
+
+
+  <%= link_to '이전으로', page_plans_path, method: :get, class: "btn btn-lg btn-success"  %>
