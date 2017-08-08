@@ -232,6 +232,18 @@ class Section < ApplicationRecord
     end
   end
 
+  def heading_height_in_pt
+    if page_number == 1
+      publication.front_page_heading_height_in_pt
+    else
+      publication.inner_page_heading_height_in_pt
+    end
+  end
+  
+  def generate_heading_pdf
+    PageHeading.generate_pdf(self)
+  end
+
   def generate_pdf
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
   end

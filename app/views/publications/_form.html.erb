@@ -118,10 +118,11 @@
           <%= f.text_field :article_line_thickness, class: 'form-control' %>
         </div>
 
-        <div class="form-group">
-          <%= f.label '세로 기사 분리선 그리기' %>
+        <div class="form-inline">
           <%= f.check_box :draw_divider, class: 'form-control' %>
+          <%= f.label :draw_divider, " <= 기사 분리선 그리기" %>
         </div>
+
     </div>
   </div>
 

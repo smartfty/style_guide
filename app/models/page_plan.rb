@@ -25,11 +25,11 @@
 
 class PagePlan < ApplicationRecord
   belongs_to :issue, optional: true
-  # has_one :page
+  has_one :page
   before_create :parse_profile
 
   def need_update?
-    #check thir dirty field and currnent page template id
+    # check the dirty field and currnent page template id
     # we miught have a case where the use changes template back to the provious one
     # this cane we do npt need to update page
     return true unless page

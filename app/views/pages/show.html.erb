@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class = "col-lg-8">
+  <div class = "col-lg-10">
     <% if File.exist?(@page.pdf_path) %>
       <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
       <img width="95%" src="<%= @page.pdf_image_path %>"></img>
       <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
     <% end %>
   </div>
-  <div class = "col-lg-4">
+  <div class = "col-lg-2">
     <br>
     <br>
     <br>
@@ -17,10 +17,10 @@
     </div>
 
     <% @working_articles.each do |article| %>
-      <h1><%= link_to "#{article.order}: #{article.title}", working_article_path(article) %></h1>
+      <h3><%= link_to "#{article.order}: #{article.title}", working_article_path(article) %></h3>
     <% end %>
     <% @ad_boxes.each do |ad_box| %>
-      <h1><%= link_to "광고: #{ad_box.ad_type} 광고주: #{ad_box.advertiser}", ad_box_path(ad_box) %></h1>
+      <h3><%= link_to "광고: #{ad_box.ad_type} 광고주: #{ad_box.advertiser}", ad_box_path(ad_box) %></h3>
     <% end %>
 
   </div>

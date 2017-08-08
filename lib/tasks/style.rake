@@ -142,14 +142,14 @@ namespace :style do
       Section.where(row_h).first_or_create
     end
   end
-  #
-  # desc "generating pdf for all page headings"
-  # task :generate_heading_pdf =>:environment do
-  #   puts "generating pdf for all page headings"
-  #   PageHeading.all.each do |heading|
-  #     heading.generate_pdf
-  #   end
-  # end
+
+  desc "generating heading pdf for all sections "
+  task :generate_section_heading_pdf =>:environment do
+    puts "generating pdf for all page headings"
+    Section.all.each do |section|
+      section.generate_heading_pdf
+    end
+  end
 
   desc "generating pdf for all pages"
   task :generate_page_heading_pdf =>:environment do

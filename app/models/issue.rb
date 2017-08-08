@@ -22,11 +22,11 @@ class Issue < ApplicationRecord
   after_create :setup
 
   def path
-    "#{Rails.root}/public/#{publication_id}/issue/#{id}"
+    "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}"
   end
 
   def relative_path
-    "#{publication_id}/issue/#{id}"
+    "#{publication_id}/issue/#{date.to_s}"
   end
 
   def default_issue_plan_path
@@ -75,7 +75,7 @@ class Issue < ApplicationRecord
   end
 
   def update_page_plan
-    #clear pages or archive 
+    #clear pages or archive
     puts __method__
 
   end

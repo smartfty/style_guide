@@ -20,7 +20,7 @@
 
 class Page < ApplicationRecord
   belongs_to :issue
-  # has_one :page_plan
+  belongs_to :page_plan
   has_many :working_articles
   has_many :ad_boxes
 
