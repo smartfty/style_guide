@@ -1,8 +1,9 @@
 class CreateTextStyles < ActiveRecord::Migration[5.0]
   def change
     create_table :text_styles do |t|
-      t.string :name
+      t.string :korean_name
       t.string :english
+      t.string :category    #heaind, float, body
       t.string :font_family
       t.string :font
       t.float :font_size
@@ -16,8 +17,8 @@ class CreateTextStyles < ActiveRecord::Migration[5.0]
       t.integer :space_after_in_lines
       t.integer :text_height_in_lines
       t.text :box_attributes
-      t.string :custom_markup
-      t.string :applied_columns
+      t.string :markup
+      t.text :dynamic_style
       t.references :publication, foreign_key: true
 
       t.timestamps

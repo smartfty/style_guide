@@ -29,21 +29,11 @@ namespace :style do
         '전면광고'
       ]
 
-    # p = Publication.where(name: '내일신문', paper_size: 'custom', width: 1116.85,  height: 1539.21, left_margin: 42.52, top_margin: 42.52, right_margin: 42.52, bottom_margin: 42.52, lines_per_grid: 7, divider: 25.51, gutter: 12.75, page_count:24, section_names: section_names, page_columns: [6,7]).first_or_create
 
     section_names.each_with_index do |section_name, i|
       PageHeading.where(publication_id: 1, page_number: i + 1, section_name: section_name, date: Date.new(2017,5,30)).first_or_create
     end
   end
-
-  desc "generating pdf for all page_headings"
-  task :generate_page_heading_pdf =>:environment do
-    puts "generating pdf for all page_headings"
-    PageHeading.all.each do |page_heading|
-      page_heading.generate_pdf
-    end
-  end
-
 
   desc "generating pdf for all articles"
   task :generate_pdf =>:environment do
@@ -152,12 +142,20 @@ namespace :style do
       Section.where(row_h).first_or_create
     end
   end
+  #
+  # desc "generating pdf for all page headings"
+  # task :generate_heading_pdf =>:environment do
+  #   puts "generating pdf for all page headings"
+  #   PageHeading.all.each do |heading|
+  #     heading.generate_pdf
+  #   end
+  # end
 
-  desc "generating pdf for all page headings"
-  task :generate_heading_pdf =>:environment do
-    puts "generating pdf for all page headings"
-    PageHeading.all.each do |heading|
-      heading.generate_pdf
+  desc "generating pdf for all pages"
+  task :generate_page_heading_pdf =>:environment do
+    Page.all.each do |page|
+      puts "page.page_number:#{page.page_number}"
+      page.generate_heading_pdf
     end
   end
 

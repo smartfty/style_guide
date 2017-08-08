@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  before_action :set_publication, only: [:show, :edit, :update, :destroy, :download_pdf]
 
   # GET /publications
   # GET /publications.json
@@ -42,6 +42,7 @@ class PublicationsController < ApplicationController
   def update
     respond_to do |format|
       if @publication.update(publication_params)
+        @publication.generate_sample_pdf
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
         format.json { render :show, status: :ok, location: @publication }
       else
@@ -61,6 +62,11 @@ class PublicationsController < ApplicationController
     end
   end
 
+  # download output.pdf
+  def download_pdf
+    send_file @publication.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
@@ -69,6 +75,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:name, :paper_size, :width, :height, :left_margin, :top_margin, :right_margin, :bottom_margin, :lines_per_grid, :divider, :gutter, :page_count, :section_names, :page_columns)
+      params.require(:publication).permit(:name, :paper_size, :width, :height, :left_margin, :top_margin, :right_margin, :bottom_margin, :lines_per_grid, :gutter, :page_count, :section_names, :page_columns, :front_page_heading_height, :inner_page_heading_height, :inner_page_heading_height, :article_bottom_spaces_in_lines, :article_line_draw_sides, :article_line_thickness, :draw_divider)
     end
 end

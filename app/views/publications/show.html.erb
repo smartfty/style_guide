@@ -1,74 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @publication.name %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Paper size:</strong>
-  <%= @publication.paper_size %>
-</p>
+  <div class="col-md-1">
+    <p>    </p>
+  </div>
 
-<p>
-  <strong>Width:</strong>
-  <%= @publication.width %>
-</p>
+  <div class="col-md-5">
+    <%= render 'form', publication: @publication %>
+  </div>
 
-<p>
-  <strong>Height:</strong>
-  <%= @publication.height %>
-</p>
+  <div class="col-md-1">
+    <p>    </p>
+  </div>
 
-<p>
-  <strong>Left margin:</strong>
-  <%= @publication.left_margin %>
-</p>
+  <div class="col-md-5">
+    <div align="center">
+      <%= button_to "다운로드 샘플 PDF", download_pdf_publication_path(@publication), method: :get, class: "btn btn-sm btn-danger" %>
+    </div>
+    <img src="<%= @publication.pdf_image_path %>"></img>
+    <div align="center">
+      <%= button_to "다운로드 샘플 PDF", download_pdf_publication_path(@publication), method: :get, class: "btn btn-sm btn-danger" %>
+    </div>
+  </div>
+  
 
-<p>
-  <strong>Top margin:</strong>
-  <%= @publication.top_margin %>
-</p>
-
-<p>
-  <strong>Right margin:</strong>
-  <%= @publication.right_margin %>
-</p>
-
-<p>
-  <strong>Bottom margin:</strong>
-  <%= @publication.bottom_margin %>
-</p>
-
-<p>
-  <strong>Lines per grid:</strong>
-  <%= @publication.lines_per_grid %>
-</p>
-
-<p>
-  <strong>Divider:</strong>
-  <%= @publication.divider %>
-</p>
-
-<p>
-  <strong>Gutter:</strong>
-  <%= @publication.gutter %>
-</p>
-
-<p>
-  <strong>Page count:</strong>
-  <%= @publication.page_count %>
-</p>
-
-<p>
-  <strong>Section names:</strong>
-  <%= @publication.section_names %>
-</p>
-
-<p>
-  <strong>Page Columns:</strong>
-  <%= @publication.page_columns %>
-</p>
-
-<%= link_to 'Edit', edit_publication_path(@publication) %> |
-<%= link_to 'Back', publications_path %>
+</div>

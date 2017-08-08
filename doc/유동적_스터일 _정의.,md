@@ -1,5 +1,22 @@
 
 
+t_#
+
+t_##
+
+t_###
+
+#
+##
+
+q_#
+q_##
+
+s_#
+s_##
+s_###
+
+
 # 유동적 단락 스타일 정의
 
 사용되는 기사박스의 크기별로 스타일이 변해야 하는 경우를 지원하기 위한 새로운 스타일 정의 방법이다
@@ -31,6 +48,8 @@
 ]
 
 # Dynamic Text Style Definition
+
+dynamic_style
 
 Dynamic Text Style Definition is needed to support when size of a style changes has to change depending on the article box that is used.
 

@@ -6,5 +6,4 @@ RLayout::Container.new(width: 1028.98, height: 54.425, layout_direction: 'horino
   image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: 983.81, y: 10, width: 43, height: 12,)
   line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
   line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
-
 end

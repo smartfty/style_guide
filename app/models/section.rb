@@ -2,41 +2,34 @@
 #
 # Table name: sections
 #
-#  id               :integer          not null, primary key
-#  profile          :string
-#  column           :integer
-#  row              :integer
-#  order            :integer
-#  ad_type          :string
-#  is_front_page    :boolean
-#  story_count      :integer
-#  page_number      :integer
-#  section_name     :string
-#  color_page       :boolean          default("f")
-#  publication_id   :integer          default("1")
-#  layout           :text
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id             :integer          not null, primary key
+#  profile        :string
+#  column         :integer
+#  row            :integer
+#  order          :integer
+#  ad_type        :string
+#  is_front_page  :boolean
+#  story_count    :integer
+#  page_number    :integer
+#  section_name   :string
+#  color_page     :boolean          default("f")
+#  publication_id :integer          default("1")
+#  layout         :text
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class Section < ApplicationRecord
 
   belongs_to :publication, optional: true
+  has_one :page_plan
   has_many :articles
   has_many :ad_box_templates
-  # validates :profile, presence: true
-  # validates :layout, presence: true
-  # validates :column, presence: true
-  # validates :row, presence: true
-  # validates :publication_id, presence: true
-  # before_create :check_status
-  # after_save :parse_layout
-  # after_create :setup
+
+  after_create :setup
   # serialize :layout, Array
-  scope :five_column, -> {where("column==?", 5)}
   scope :six_column, -> {where("column==?", 6)}
   scope :seven_column, -> {where("column==?", 7)}
-
 
   def path
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}"
@@ -63,14 +56,38 @@ class Section < ApplicationRecord
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}/section.jpg"
   end
 
-  def page_headig_path
-    path + "/page_heading"
+  def page_heading_path
+    path + "/heading"
+  end
+
+  def page_headig_layout_path
+    page_heading_path + "/layout.rb"
+  end
+
+  def page_heading_width
+    publication.page_heading_width
+  end
+
+  def page_heading_height
+    if page_number == 1
+      publication.front_page_heading_height
+    else
+      publication.inner_page_heading_height
+    end
+  end
+
+  def korean_date_string
+    if page_number == 1
+      "2017년 5월 11일 목요일 (4200호)"
+    else
+      "2017년 5월 11일 목요일"
+    end
   end
 
   def setup
-    puts "in section setup"
-    # system "mkdir -p #{path}" unless File.directory?(path)
+    system "mkdir -p #{path}" unless File.directory?(path)
     # update_section_layout
+    # create_articles
   end
 
   def section_config_hash
@@ -80,24 +97,31 @@ class Section < ApplicationRecord
     h['section_name'] = section_name
     if page_number == 1 || is_front_page == true
       h['is_front_page']  = true
+      h['page_heading_margin_in_lines']     = publication.front_page_heading_margin
     else
       h['is_front_page']  = false
+      h['page_heading_margin_in_lines']     = publication.inner_page_heading_height
     end
     h[:ad_type] = ad_type || "no_ad"
     # grid_key: 7x12/H/5
-    grid_width            = publication.grid_width(column)
-    grid_height           = publication.grid_height
-    h['page_columns']     = column
-    h['grid_size']        = [grid_width, grid_height]
-    h['width']            = publication.width
-    h['height']           = publication.height
-    h['left_margin']      = publication.left_margin
-    h['top_margin']       = publication.top_margin
-    h['right_margin']     = publication.right_margin
-    h['bottom_margin']    = publication.bottom_margin
-    h['gutter']           = publication.gutter
-    h['divider_info']     = publication.divider_info(column)
-    h['story_frames']     = eval(layout)
+    grid_width                          = publication.grid_width(column)
+    grid_height                         = publication.grid_height
+    h['page_columns']                   = column
+    h['grid_size']                      = [grid_width, grid_height]
+    h['lines_per_grid']                 = publication.lines_per_grid
+    h['width']                          = publication.width
+    h['height']                         = publication.height
+    h['left_margin']                    = publication.left_margin
+    h['top_margin']                     = publication.top_margin
+    h['right_margin']                   = publication.right_margin
+    h['bottom_margin']                  = publication.bottom_margin
+    h['gutter']                         = publication.gutter
+    h['draw_divider']                   = publication.draw_divider
+    h['story_frames']                   = eval(layout)
+    # h['article_bottom_spaces_in_lines'] = publication.article_bottom_spaces_in_lines
+    # h['article_line_draw_sides']        = publication.article_line_draw_sides
+    h['article_line_thickness']         = publication.article_line_thickness
+    h['draw_divider']                   = publication.draw_divider
     h
   end
 
@@ -110,19 +134,22 @@ class Section < ApplicationRecord
   def article_type(box)
     if box.length == 5 && box[4].class == Hash
       h = box[4]
-      return 'title'  if h[:타입] == '제목'
-      return 'title'  if h[:type] == 'title'
+      return 'title'     if h[:타입] == '제목'
+      return 'title'     if h[:type] == 'title'
+      return 'opinion'   if h[:타입] == '기고'
+      return 'opinion'   if h[:type] == 'opinion'
+      return 'editorial' if h[:타입] == '사설'
+      return 'editorial' if h[:type] == 'editorial'
       return 'ad'  if h[:광고]
       return 'ad'  if h[:ad_type]
     end
     'article'
   end
 
-  def self.copy_page_heading
+  def self.update_page_headings
     Section.all.each do |sec|
       sec.copy_page_heading
     end
-    #code
   end
 
   def copy_page_heading
@@ -345,6 +372,9 @@ class Section < ApplicationRecord
       article_atts[:top_position]   = false
       article_atts[:top_position]   = true if box[1] == 0
       article_atts[:top_position]   = true if is_front_page && box[1] == 1
+      article_atts[:on_left_edge]   = true if box[0] == 0
+      article_atts[:on_right_edge]  = true if box[0] + box[2] == column
+
       if box.length == 5 && box[4].class == Hash
         h = box[4]
         ad_box_atts = {}

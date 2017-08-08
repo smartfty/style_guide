@@ -12,8 +12,6 @@
 #  updated_at     :datetime         not null
 #
 
-
-
 class Ad < ApplicationRecord
   belongs_to :publication
   after_create :setup

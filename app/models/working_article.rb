@@ -6,9 +6,12 @@
 #  column         :integer
 #  row            :integer
 #  order          :integer
+#  kind           :string
 #  profile        :string
 #  title          :text
+#  title_head     :string
 #  subtitle       :text
+#  subtitle_head  :string
 #  body           :text
 #  reporter       :string
 #  email          :string
@@ -16,6 +19,8 @@
 #  image          :string
 #  quote          :text
 #  subject_head   :string
+#  on_left_edge   :boolean
+#  on_right_edge  :boolean
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
@@ -54,11 +59,11 @@ class WorkingArticle < ApplicationRecord
   end
 
   def pdf_image_path
-    "/#{publication.id}/issue/#{page.issue.id}/#{page.page_number}/#{order}/output.pdf"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/output.pdf"
   end
 
   def jpg_image_path
-    "/#{publication.id}/issue/#{page.issue.id}/#{page.page_number}/#{order}/output.jpg"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/output.jpg"
   end
 
   def article_info_path
@@ -79,7 +84,6 @@ class WorkingArticle < ApplicationRecord
     save_layout
     # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
-
   end
 
   def update_page_pdf
@@ -98,17 +102,37 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  def parse_title_box
+    #code
+  end
+
+  def parse_subtitle_box
+    #code
+  end
+
+  def story_metadata
+    # filtered_title = RubyPants.new(title).to_html
+    # filtered_subtitle = RubyPants.new(subtitle).to_html
+    # h = {}
+    # h['title']      = filtered_title
+    # # h['title_head'] = "#{RubyPants.new(title_head).to_html}" if title_head
+    # h['subtitle']   = filtered_subtitle
+    # # h['subtitle_head'] = "#{RubyPants.new(subtitle_head).to_html}" if subtitle_head
+    # h['reporter']   = reporter
+    # h['email']      = email
+    h = {}
+    h['title']      = title
+    h['subtitle']   = subtitle
+    h['reporter']   = reporter
+    h['email']      = email
+    h
+  end
+
   def story_md
     story_md =<<~EOF
+    #{story_metadata.to_yaml}
     ---
-    title: #{title}
-    subtitle: #{subtitle}
-    reporter: #{reporter}
-    email: #{email}
-    ---
-
     #{body}
-
     EOF
   end
 
@@ -117,7 +141,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   def image_options
-    #code
     if images.first
       images.first.iamge_layout_hash
     else
@@ -133,26 +156,42 @@ class WorkingArticle < ApplicationRecord
     grid_width    = publication.grid_width(page_columns)
     grid_height   = publication.grid_height
     gutter        = publication.gutter
-    # content=<<~EOF
-    # RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter} )
-    # EOF
-    content = "RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter}) do\n"
+    page_heading_margin_in_lines = 0
+    if top_position
+      if is_front_page
+        # front_page_heading_height - lines_per_grid
+        page_heading_margin_in_lines = publication.front_page_heading_margin
+      else
+        page_heading_margin_in_lines = publication.inner_page_heading_height
+      end
+    end
+
+    h = {}
+    h[:kind]                          = kind if kind
+    h[:column]                        = column
+    h[:row]                           = row
+    h[:grid_width]                    = grid_width
+    h[:grid_height]                   = grid_height
+    h[:gutter]                        = gutter
+    h[:on_left_edge]                  = on_left_edge
+    h[:on_right_edge]                 = on_right_edge
+    h[:is_front_page]                 = is_front_page
+    h[:top_story]                     = top_story
+    h[:top_position]                  = top_position
+    h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+    h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
+    h[:article_line_thickness]        = publication.article_line_thickness
+    h[:article_line_draw_sides]       = publication.article_line_draw_sides
+    h[:article_line_draw_sides]       = publication.draw_divider
+    h
+    h = h.to_s.gsub("{", "").gsub("}", "")
+    content = "RLayout::NewsArticleBox.new(#{h}) do\n"
     if image_hash = image_options
       content += "  news_image(#{image_hash})\n"
     end
-    puts "image_hash:#{image_hash}"
     content += "end\n"
     content
   end
-  #
-  # def layout_rb
-  #   grid_width  = publication.grid_width(page.column)
-  #   grid_height = publication.grid_height
-  #   gutter      = publication.gutter
-  #   content=<<~EOF
-  #   RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter} )
-  #   EOF
-  # end
 
   def save_story
     File.open(story_path, 'w'){|f| f.write story_md}
@@ -184,19 +223,23 @@ class WorkingArticle < ApplicationRecord
     rescue => e
       puts "YAML Exception reading #filename: #{e.message}"
     end
+    self.kind           = @metadata['kind'] || 'article'
     self.title          = @metadata['title']
+    self.title_head     = @metadata['title_head'] || nil
     self.subtitle       = @metadata['subtitle']
+    self.subtitle_head  = @metadata['subtitle_head'] || nil
     self.body           = @contents
     self.reporter       = @metadata['reporter']
     self.email          = @metadata['email']
     self.personal_image = @metadata['personal_image']
     self.image          = @metadata['image']
     self.quote          = @metadata['quote']
-    self.subject_head       = @metadata['subject_head']
+    self.subject_head   = @metadata['subject_head']
   end
 
   def parse_article_info
     if article_info_hash = article_info
+      self.kind           = article_info_hash[:kind]
       self.column         = article_info_hash[:column]
       self.row            = article_info_hash[:row]
       self.is_front_page  = article_info_hash[:is_front_page]

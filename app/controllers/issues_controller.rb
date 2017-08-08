@@ -25,7 +25,6 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -42,6 +41,7 @@ class IssuesController < ApplicationController
   def update
     respond_to do |format|
       if @issue.update(issue_params)
+        @issue.update_page_plan # new issue
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
         format.json { render :show, status: :ok, location: @issue }
       else

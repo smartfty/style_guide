@@ -95,6 +95,6 @@ class TextStylesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def text_style_params
-      params.require(:text_style).permit(:name, :english, :font_family, :font, :font_size, :alignment, :text_color, :tracking, :space_width, :scale, :space_before_in_lines, :text_height_in_lines, :space_after_in_lines, :publication_id)
+      params.require(:text_style).permit(:korean_name, :english, :font_family, :font, :font_size, :alignment, :text_color, :tracking, :space_width, :scale, :space_before_in_lines, :text_height_in_lines, :space_after_in_lines, :publication_id)
     end
 end

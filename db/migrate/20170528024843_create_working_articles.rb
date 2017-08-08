@@ -4,9 +4,12 @@ class CreateWorkingArticles < ActiveRecord::Migration[5.0]
       t.integer :column
       t.integer :row
       t.integer :order
+      t.string :kind
       t.string :profile
       t.text :title
+      t.string :title_head
       t.text :subtitle
+      t.string :subtitle_head
       t.text :body
       t.string :reporter
       t.string :email

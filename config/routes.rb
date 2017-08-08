@@ -88,7 +88,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :publications
+  resources :publications do
+    member do
+      get 'download_pdf'
+    end
+    
+  end
   resources :text_styles do
     collection do
       get 'style_view'

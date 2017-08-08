@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label '단락 스타일' %>
-    <%= f.text_field :name %>
+    <%= f.text_field :korean_name %>
   </div>
 
   <div class="field">
@@ -85,6 +85,16 @@
   <div class="field">
     <%= f.label '박스 디자인' %>
     <%= f.text_area :box_attributes, cols: "100", rows: "3", font_size: "16px"%>
+  </div>
+
+  <div class="field">
+    <%= f.label '유동적 단락 스타일' %>
+    <%= f.text_area :dynamic_style, cols: "100", rows: "3", font_size: "16px"%>
+  </div>
+
+  <div class="field">
+    <%= f.label '입력시 단락표시 방법' %>
+    <%= f.text_field :markup %>
   </div>
 
   <div class="actions">

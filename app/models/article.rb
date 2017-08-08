@@ -6,21 +6,25 @@
 #  column         :integer
 #  row            :integer
 #  order          :integer
+#  kind           :string
 #  profile        :integer
-#  title          :string
-#  subtitle       :string
+#  title_head     :string
+#  title          :text
+#  subtitle       :text
+#  subtitle_head  :text
 #  body           :text
 #  reporter       :string
 #  email          :string
 #  personal_image :string
 #  image          :string
-#  quote          :string
-#  subject_head       :string
+#  quote          :text
+#  subject_head   :string
+#  on_left_edge   :boolean
+#  on_right_edge  :boolean
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
-#  page_columns   :integer
-#  publication_id :integer
+#  section_id     :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
@@ -29,13 +33,7 @@ class Article < ApplicationRecord
   belongs_to :section #, optional: true
 
   after_create :setup
-  # scope :one_column, -> {where("column==?", 1)}
-  # scope :two_column, -> {where("column==?", 2)}
-  # scope :three_column, -> {where("column==?", 3)}
-  # scope :four_column, -> {where("column==?", 4)}
-  # scope :five_column, -> {where("column==?", 5)}
-  # scope :six_column, -> {where("column==?", 6)}
-  # scope :seven_column, -> {where("column==?", 7)}
+
   has_many :images
 
   def path
@@ -82,7 +80,6 @@ class Article < ApplicationRecord
     path + "/custom_style.jpg"
   end
 
-
   def custom_pdf_image_path
     relative_path + "/custom_style.pdf"
   end
@@ -90,7 +87,6 @@ class Article < ApplicationRecord
   def custom_jpg_image_path
     relative_path + "/custom_style.end"
   end
-
 
   def article_info_path
     path + "/article_info.yml"
@@ -199,9 +195,34 @@ class Article < ApplicationRecord
     grid_height   = publication.grid_height
     gutter        = publication.gutter
     image_options = image_options if image_options
+    page_heading_margin_in_lines = 0
+    if top_position
+      if is_front_page
+        # front_page_heading_height - lines_per_grid
+        page_heading_margin_in_lines = publication.front_page_heading_margin
+      else
+        page_heading_margin_in_lines = publication.inner_page_heading_height
+      end
+    end
+    h = {}
+    h[:column]                        = column
+    h[:row]                           = row
+    h[:grid_width]                    = grid_width
+    h[:grid_height]                   = grid_height
+    h[:gutter]                        = gutter
+    h[:on_left_edge]                  = on_left_edge
+    h[:on_right_edge]                 = on_right_edge
+    h[:is_front_page]                 = is_front_page
+    h[:top_story]                     = top_story
+    h[:top_position]                  = top_position
+    h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+    h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
+    h[:article_line_draw_sides]       = publication.article_line_draw_sides
+    h[:article_line_thickness]        = publication.article_line_thickness
+    h[:draw_divider]                  = publication.draw_divider
 
     content=<<~EOF
-    RLayout::NewsArticleBox.new(column: #{column}, row:#{row}, on_left_edge: #{on_left_edge}, on_right_edge: #{on_right_edge}, is_front_page:#{is_front_page}, top_story:#{top_story}, top_position:#{top_position}, grid_width:#{grid_width}, grid_height:#{grid_height}, gutter:#{gutter} )
+    RLayout::NewsArticleBox.new(#{h})
     EOF
   end
 
@@ -219,6 +240,10 @@ class Article < ApplicationRecord
 
   def library_images
     publication.library_images
+  end
+
+  def page_columns
+    section.column
   end
 
   def filler_text(empty_line_count, options={})
@@ -263,7 +288,6 @@ class Article < ApplicationRecord
       profile += "1면_"
     else
       profile += "내지_"
-
     end
     if top_story
       profile += "메인기사"

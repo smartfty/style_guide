@@ -4,23 +4,25 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.integer :column
       t.integer :row
       t.integer :order
+      t.string :kind
       t.integer :profile
-      t.string :title
-      t.string :subtitle
+      t.string :title_head
+      t.text :title
+      t.text :subtitle
+      t.text :subtitle_head
       t.text :body
       t.string :reporter
       t.string :email
       t.string :personal_image
       t.string :image
-      t.string :quote
+      t.text :quote
       t.string :subject_head
       t.boolean :on_left_edge
       t.boolean :on_right_edge
       t.boolean :is_front_page
       t.boolean :top_story
       t.boolean :top_position
-      t.integer :page_columns
-      t.integer :section_id, foreign_key: true
+      t.integer :section_id
       t.timestamps
     end
   end

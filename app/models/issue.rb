@@ -37,7 +37,7 @@ class Issue < ApplicationRecord
     system "mkdir -p #{path}" unless File.directory?(path)
     system "mkdir -p #{issue_images_path}" unless File.directory?(issue_images_path)
     system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)
-    make_default_issue_plan
+    # make_default_issue_plan
     # make_pages
   end
 
@@ -66,12 +66,18 @@ class Issue < ApplicationRecord
     section_names_array = eval(publication.section_names)
     eval_issue_plan.each_with_index do |page_array, i|
       page_hash                 = {}
-      page_hash[:issue_id]      = id
+      page_hash[:issue_id]       = self.id
       page_hash[:section_name]  = section_names_array[i]
       page_hash[:page_number]   = page_array[0]
       page_hash[:profile]       = page_array[1]
       p = PagePlan.where(page_hash).first_or_create!
     end
+  end
+
+  def update_page_plan
+    #clear pages or archive 
+    puts __method__
+
   end
 
   def update_plan

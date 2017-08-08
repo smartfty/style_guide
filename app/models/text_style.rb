@@ -3,12 +3,13 @@
 # Table name: text_styles
 #
 #  id                    :integer          not null, primary key
-#  name                  :string
+#  korean_name           :string
 #  english               :string
+#  category              :string
 #  font_family           :string
 #  font                  :string
 #  font_size             :float
-#  text_color             :string
+#  text_color            :string
 #  alignment             :string
 #  tracking              :float
 #  space_width           :float
@@ -18,6 +19,8 @@
 #  space_after_in_lines  :integer
 #  text_height_in_lines  :integer
 #  box_attributes        :text
+#  markup                :string
+#  dynamic_style         :text
 #  publication_id        :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -26,7 +29,7 @@
 class TextStyle < ApplicationRecord
   belongs_to :publication
 
-  validates :name, presence: true
+  validates :korean_name, presence: true
   validates :english, presence: true
 
   after_create :setup
@@ -65,11 +68,11 @@ class TextStyle < ApplicationRecord
     h = {}
     filtered = column_names.dup
     filtered.shift  # delete id
-    filtered.shift  # delete name
+    filtered.shift  # delete korean_name
     filtered.pop    # delete created_at
     filtered.pop    # delete updated_at
     all.each do |item|
-      styles_hash[item.attributes['name']] = Hash[filtered.zip item.attributes.values_at(*filtered)]
+      styles_hash[item.attributes['korean_name']] = Hash[filtered.zip item.attributes.values_at(*filtered)]
     end
     styles_hash
   end
@@ -101,9 +104,11 @@ class TextStyle < ApplicationRecord
   end
 
   def save_current_styles_with_english_key
-    folder = "/Users/Shared/SoftwareLab/newspaper_text_style"
+    # folder = "/Users/Shared/SoftwareLab/newspaper_text_style"
+    # path = folder + "/#{publication.name}.yml"
+    folder = "/Users/Shared/SoftwareLab/newsman/#{publication.name}"
     system("mkdir -p #{folder}") unless File.directory?(folder)
-    path = folder + "/#{publication.name}.yml"
+    path = folder + "/text_style.yml"
     styles_hash = TextStyle.current_styles_with_english_key
     File.open(path, 'w'){|f| f.write styles_hash.to_yaml}
     path = folder + "/#{publication.name}.rb"
@@ -112,20 +117,20 @@ class TextStyle < ApplicationRecord
 
   def self.sample_articles
     sample_collection = []
-    sample_collection << Article.where(page_columns: 7, column: 1, row: 4, top_story: false).first
-    sample_collection << Article.where(page_columns: 7, column: 2, row: 4, top_story: false).first
+    sample_collection << Article.where(column: 1, row: 4, top_story: false).first
+    sample_collection << Article.where(column: 2, row: 4, top_story: false).first
 
-    sample_collection << Article.where(page_columns: 7, column: 3, row: 4, top_story: true).first
-    sample_collection << Article.where(page_columns: 7, column: 3, row: 4, top_position: true).first
-    sample_collection << Article.where(page_columns: 7, column: 3, row: 4, top_story: false).first
+    sample_collection << Article.where(column: 3, row: 4, top_story: true).first
+    sample_collection << Article.where(column: 3, row: 4, top_position: true).first
+    sample_collection << Article.where(column: 3, row: 4, top_story: false).first
 
-    sample_collection << Article.where(page_columns: 7, column: 4, row: 4, top_story: true).first
-    sample_collection << Article.where(page_columns: 7, column: 4, row: 4, top_position: true).first
-    sample_collection << Article.where(page_columns: 7, column: 4, row: 4, top_story: false).first
+    sample_collection << Article.where(column: 4, row: 4, top_story: true).first
+    sample_collection << Article.where(column: 4, row: 4, top_position: true).first
+    sample_collection << Article.where(column: 4, row: 4, top_story: false).first
 
-    sample_collection << Article.where(page_columns: 7, column: 5, row: 4, top_story: true).first
-    sample_collection << Article.where(page_columns: 7, column: 5, row: 4, top_position: true).first
-    sample_collection << Article.where(page_columns: 7, column: 5, row: 4, top_story: false).first
+    sample_collection << Article.where(column: 5, row: 4, top_story: true).first
+    sample_collection << Article.where(column: 5, row: 4, top_position: true).first
+    sample_collection << Article.where(column: 5, row: 4, top_story: false).first
 
     puts sample_collection[0].class
     puts sample_collection.length

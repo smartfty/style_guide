@@ -1,14 +1,31 @@
-<%= simple_form_for(@issue) do |f| %>
-  <%= f.error_notification %>
+<div class="authform">
+  <h3>새로운 신문설정</h3>
 
-  <div class="form-inputs">
-    <%= f.input :date %>
-    <%= f.input :number %>
-    <%= f.input :plan %>
-    <%= f.association :publication %>
+<%= form_for(issue) do |f| %>
+  <% if issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+      <ul>
+      <% issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :날자 %>
+    <%= f.date_select :date,  {:use_month_names => ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월','12월']}, class: 'form-control' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <%= f.label :호수 %>
+    <%= f.text_field :number, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-sm btn-primary">새로운 신문 생성</button>
   </div>
 <% end %>
+
+</div>

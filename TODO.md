@@ -30,6 +30,78 @@
   - short key
   - progress wheel
 
+2017_8_8
+  - change issue_path_with_date, from id
+  - create new issue
+
+  - page-plan switching page
+    - fix ad_box not copying bug
+
+  - image_caption, image_title, image_pan,
+    - image_upload
+    - ad_upload
+    - 사진 위치 bug
+    - upload image
+
+  - smart quote
+
+  - box style support
+    border, bgcolor, grid_frame
+
+  - new publication at 3002
+    - banner_image
+
+2017_8_3
+  - spinning progress-bar while processing
+
+2017_8_3
+  - 문패
+    subject_head
+    두덩어리 문패
+    사설항목
+    editorial_head
+    가사 종류
+    문패 : subject_head #
+    사설항목: editorial_head ##
+    {종류: '기고'}
+    {종류: '사설'} ,
+
+2017-8-1
+  - add article kind 'story', 'editorial'
+  - add category heading, body, float
+
+  - sinlge and double quote error in input box,
+  - smart quote
+  - add box_attributes
+  - add unit in publication
+  - draw_sides,
+  - article_bottom_spaces_in_lines
+  - draw_divider
+
+2017-7-28
+  - front_page_heading_height
+  - inner_page_heading_height
+  - article_bottom_spaces_in_lines
+  - article_line_draw_sides
+      bottom_full, bottom_columns, dividing_vertical
+  - article_line_thickness
+  - on_left_edge, on_right_edge
+
+2017-7-26
+  - save publication info
+    /SoftwareLab/newsman/publication_name/text_style.yml
+    /SoftwareLab/newsman/publication_name/publication_info.yml
+
+2017-7-21
+  - front page page_heading,
+  - auto generate issue date
+  - fix change page bug, delete previous article files
+
+2017-7-17
+  - add color
+  - fix page update after article edit
+  - fix page update after article edit
+
 2017-7-14
   - add status to page_plan
     indication page updated status
@@ -39,19 +111,18 @@
   - create dynamic text_style definition for varying text_style
     give, col, row,
     {
-      '1x3': {font_size: 14,},
-      '4x3': {font_size: 14,},
-      '4x3': {font_size: 14,},
-      '4x3': {font_size: 14,},
-      '4x3': {font_size: 14,},
-      '4x3': {font_size: 14,},
+      '1x3': 12,
+      '2x3': 14,
+      '4x15': 16,
+      '5x15': 16,
+      '6x15': 18,
     }
 
 2017-7-13
   - t.text :box_attributes
-  - t.string :applied_columns
+  - t.string :dynamic_style
 
-  - t.string :custom_markup
+  - t.string :markup
   - category heading 제목박스, body 본문, float 플롯트
 
 2017-7-9
@@ -62,8 +133,6 @@
     subtitle_3
     subtitle_2
     subtitle_1
-
-
 
 2017-7-7
   - add units in publication
@@ -452,7 +521,7 @@ magenta
 
 2017-4-18
   - regenerate pdf when updating section
-  - issue heading, page_heading_height_in_lines = 3
+  - issue heading, page_heading_height = 3
   - article type:top_box top_box
   - change is_front_page to is_front_page
   - pagination

@@ -65,9 +65,11 @@ section {
   @extend .btn;
   @extend .btn-primary;
 }
+
 .authform fieldset {
   @extend .well;
 }
+
 #error_explanation:not(:empty) {
   @extend .alert;
   @extend .alert-danger;
@@ -114,4 +116,10 @@ section {
     color: #fff;
     background-color: #000;
   }
+}
+
+.input-form {
+  padding-top: 30px;
+  max-width: 4000px;
+  margin: 0 auto;
 }

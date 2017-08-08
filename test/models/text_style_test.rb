@@ -3,12 +3,13 @@
 # Table name: text_styles
 #
 #  id                    :integer          not null, primary key
-#  name                  :string
+#  korean_name           :string
 #  english               :string
+#  category              :string
 #  font_family           :string
 #  font                  :string
 #  font_size             :float
-#  color                 :string
+#  text_color            :string
 #  alignment             :string
 #  tracking              :float
 #  space_width           :float
@@ -18,6 +19,8 @@
 #  space_after_in_lines  :integer
 #  text_height_in_lines  :integer
 #  box_attributes        :text
+#  markup                :string
+#  dynamic_style         :text
 #  publication_id        :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null

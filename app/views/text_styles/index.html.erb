@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>단락 스타일</th>
-      <th>단락 스타일 영문명</th>
+      <th>영문명</th>
       <th>서체이름</th>
-      <th>서체 포스트스크립 이름</th>
+      <th>포스트스크립 이름</th>
       <th>크기</th>
       <th>칼라</th>
       <th>정렬</th>
@@ -26,7 +26,7 @@
   <tbody>
     <% @text_styles.each do |text_style| %>
       <tr>
-        <td><%= text_style.name %></td>
+        <td><%= text_style.korean_name %></td>
         <td><%= text_style.english %></td>
         <td><%= text_style.font_family %></td>
         <td><%= text_style.font %></td>

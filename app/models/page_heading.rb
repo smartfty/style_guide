@@ -21,14 +21,13 @@ class PageHeading < ApplicationRecord
     "#{Rails.root}/public/#{publication.id}/page_heading/#{id}"
   end
 
-  def from_public_path
+  def relative_path
     "#/#{publication.id}/page_heading/#{id}"
   end
 
   def setup
     system("mkidr -p #{path}") unless File.directory?(path)
   end
-
 
   def images_path
     path + "/images"
@@ -66,46 +65,73 @@ class PageHeading < ApplicationRecord
     publication.page_heading_width
   end
 
-  def first_page_heading_height
-    publication.first_page_heading_height
-  end
-
-  def first_page_content
+  def front_page_content
+    page_heading_width  = publication.page_heading_width
     first_page=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{first_page_heading_height}, layout_direction: 'horinoztal') do
-      text('#{page_number}')
-      text('#{date}')
-      text('First Page Logo goes here!!')
-      text('내일신문')
-      relayout!
+    RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
+      image(local_image: '1.pdf', width: #{page_heading_width}, height: 110,)
+      text('2017년 5월 11일 목요일 (4200호)', x: 884.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
     end
     EOF
   end
 
-  def page_heading_height
-    publication.page_heading_height
+  def self.front_page_content(page)
+    page_number   = page.page_number
+    section_name  = page.section_name
+    page_heading_width = page.page_heading_width
+    page_heading_height = page.publication.front_page_heading_height_in_pt
+    date                = page.korean_date_string
+    first_page=<<~EOF
+    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
+      image(local_image: '1.pdf', width: #{page_heading_width}, height: 110,)
+      text('#{date}', x: 884.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
+    end
+    EOF
   end
 
   def even_content
+    page_heading_width  = publication.page_heading_width
+    page_heading_height = publication.inner_page_heading_height_in_pt
+    date                = '2017년 5월 11일 목요일'
     even=<<~EOF
-
-    RLayout::Container.new(width: 1028.98, height: 54.425, layout_direction: 'horinoztal') do
+    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
       text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
       text('#{page_number}', x: 1.9795, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
-      text('2017년 5월 11일 목요일', x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+      text(#{date}, x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
       image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: #{page_heading_width - 48}, y: 10, width: 43, height: 12,)
       line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
       line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
+    end
+    EOF
+  end
 
+  def self.even_content(page)
+    page_number         = page.page_number
+    section_name        = page.section_name
+    page_heading_width  = page.page_heading_width
+    page_heading_height = page.heading_height_in_pt
+    date                = page.korean_date_string
+
+    even=<<~EOF
+    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
+      text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
+      text('#{page_number}', x: 1.9795, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
+      text('#{date}', x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: #{page_heading_width - 48}, y: 10, width: 43, height: 12,)
+      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
+      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
     end
     EOF
   end
 
   def odd_content
+    page_heading_width  = publication.page_heading_width
+    page_heading_height = publication.inner_page_heading_height_in_pt
+    date                = '2017년 5월 11일 목요일'
     odd=<<~EOF
-    RLayout::Container.new(width: 1028.98, height: 54.425, layout_direction: 'horinoztal') do
+    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
       text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
-      text('2017년 5월 11일 목요일', x: 900.5693, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+      text('#{date}', x: 900.5693, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
       text('#{page_number}', x: 998, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
       image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: 3, y: 10, width: 43, height: 12, fit_type: 0)
       line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
@@ -114,9 +140,29 @@ class PageHeading < ApplicationRecord
     EOF
   end
 
+
+  def self.odd_content(page)
+    page_number   = page.page_number
+    section_name  = page.section_name
+    page_heading_width  = page.publication.page_heading_width
+    page_heading_height = page.heading_height_in_pt
+    date                = page.korean_date_string
+    odd=<<~EOF
+    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
+      text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
+      text('#{date}', x: 900.5693, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+      text('#{page_number}', x: 998, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
+      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: 3, y: 10, width: 43, height: 12, fit_type: 0)
+      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
+      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
+    end
+    EOF
+  end
+
+
   def layout_content
     if page_number == 1
-      return first_page_content
+      return front_page_content
     elsif page_number.even?
       return even_content
     else
@@ -124,47 +170,51 @@ class PageHeading < ApplicationRecord
     end
   end
 
-  def self.to_csv(options = {})
-      CSV.generate(options) do |csv|
-        # get rif of id, created_at, updated_at
-        filtered = column_names.dup
-        filtered.shift
-        filtered.pop
-        filtered.pop
-        csv << filtered
-        all.each do |item|
-          csv << item.attributes.values_at(*filtered)
-        end
-      end
+  def self.layout_content(page)
+    page_number = page.page_number
+    section_name = page.section_name
+    if page_number == 1
+      return PageHeading.front_page_content(page)
+    elsif page_number.even?
+      return PageHeading.even_content(page)
+    else
+      return PageHeading.odd_content(page)
+    end
   end
 
   def save_layout
     File.open(layout_path, 'w'){|f| f.write layout_content}
   end
 
-  def self.generate_pdf
-    PageHeading.all.each do |ph|
-      ph.generate_pdf
-    end
-  end
-
   def generate_pdf
     save_layout
-    # system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob ."
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
-
-  def save_layout_for_page(page)
-    path_layout_path = page.page_headig_path
-    File.open(layout_path, 'w'){|f| f.write layout_content}
+  def self.save_layout(page)
+    page_headig_layout_path = page.page_headig_layout_path
+    system("mkdir -p #{page.page_heading_path}") unless File.exist?(page.page_heading_path)
+    File.open(page_headig_layout_path, 'w'){|f| f.write PageHeading.layout_content(page)}
   end
 
-
-  def generate_pdf_for_page(page)
-    save_layout_for_page(page)
-    page_path = page.path
-    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
-    #code
+  def self.generate_pdf(page)
+    PageHeading.save_layout(page)
+    path = page.page_heading_path
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      # get rif of id, created_at, updated_at
+      filtered = column_names.dup
+      filtered.shift
+      filtered.pop
+      filtered.pop
+      csv << filtered
+      all.each do |item|
+        csv << item.attributes.values_at(*filtered)
+      end
+    end
+  end
+
 end

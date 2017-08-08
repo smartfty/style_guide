@@ -12,6 +12,7 @@
 #  color_page   :boolean
 #  profile      :string
 #  issue_id     :integer
+#  page_plan_id :integer
 #  template_id  :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

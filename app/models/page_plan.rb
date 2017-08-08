@@ -1,11 +1,31 @@
+# == Schema Information
+#
+# Table name: page_plans
+#
+#  id                   :integer          not null, primary key
+#  page_number          :integer
+#  section_name         :string
+#  selected_template_id :integer
+#  column               :integer
+#  row                  :integer
+#  story_count          :integer
+#  profile              :string
+#  ad_type              :string
+#  advertiser           :string
+#  color_page           :boolean
+#  dirty                :boolean
+#  issue_id             :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
 
 # PagePlan is cewate with page_number and profile
 # profile is parse to fill into info
 
 class PagePlan < ApplicationRecord
-  belongs_to :issue
-  has_one :page
-
+  belongs_to :issue, optional: true
+  # has_one :page
   before_create :parse_profile
 
   def need_update?
