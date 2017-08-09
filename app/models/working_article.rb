@@ -110,8 +110,11 @@ class WorkingArticle < ApplicationRecord
     #code
   end
 
+  def filtered_title
+    RubyPants.new(title).to_html
+  end
+
   def story_metadata
-    # filtered_title = RubyPants.new(title).to_html
     # filtered_subtitle = RubyPants.new(subtitle).to_html
     # h = {}
     # h['title']      = filtered_title
@@ -121,8 +124,8 @@ class WorkingArticle < ApplicationRecord
     # h['reporter']   = reporter
     # h['email']      = email
     h = {}
-    h['title']      = title
-    h['subtitle']   = subtitle
+    h['title']      = RubyPants.new(title).to_html
+    h['subtitle']   = RubyPants.new(subtitle).to_html
     h['reporter']   = reporter
     h['email']      = email
     h
@@ -132,7 +135,7 @@ class WorkingArticle < ApplicationRecord
     story_md =<<~EOF
     #{story_metadata.to_yaml}
     ---
-    #{body}
+    #{RubyPants.new(body).to_html}
     EOF
   end
 

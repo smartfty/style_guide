@@ -67,7 +67,5 @@ gem 'victor'
 gem 'devise'
 # gem 'smart_listing'
 # gem 'css3-progress-bar-rails'
-
 gem 'bootstrap_form'
-# gem 'rubypants-unicode'
 gem 'rubypants-unicode'

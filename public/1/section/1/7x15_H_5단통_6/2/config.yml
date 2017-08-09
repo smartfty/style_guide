@@ -6,16 +6,16 @@ page_heading_margin_in_lines: 1
 :ad_type: 5단통
 page_columns: 7
 grid_size:
-- 146.99714285714285
-- 97.32266666666668
+- 146.99664257142857
+- 97.322846
 lines_per_grid: 7
-width: 1114.02
-height: 1544.88
-left_margin: 42.52
-top_margin: 42.52
-right_margin: 42.52
-bottom_margin: 42.52
-gutter: 12.75
+width: 1114.0158780000002
+height: 1544.88207
+left_margin: 42.519690000000004
+top_margin: 42.519690000000004
+right_margin: 42.519690000000004
+bottom_margin: 42.519690000000004
+gutter: 12.755907
 draw_divider: 
 story_frames:
 - - 0

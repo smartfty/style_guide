@@ -32,10 +32,13 @@
 
 2017_8_8
   - change issue_path_with_date, from id
-  - create new issue
-
   - page-plan switching page
     - fix ad_box not copying bug
+  - smart quote
+
+  - article_kind
+  
+  - create new issue
 
   - image_caption, image_title, image_pan,
     - image_upload
@@ -43,7 +46,6 @@
     - 사진 위치 bug
     - upload image
 
-  - smart quote
 
   - box style support
     border, bgcolor, grid_frame
