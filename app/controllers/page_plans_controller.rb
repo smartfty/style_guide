@@ -67,7 +67,7 @@ class PagePlansController < ApplicationController
     @page_plan.selected_template_id = params[:selected_template_id]
     @page_plan.dirty    = true
     @page_plan.save
-    redirect_to page_plans_path, notice: '새로운 페이지 디자인이 성공적으로 선태 되었습니다.'
+    redirect_to current_plan_issue_path(@page_plan.issue_id), notice: '새로운 페이지 디자인이 성공적으로 선태 되었습니다.'
   end
 
   def update_page
@@ -75,7 +75,7 @@ class PagePlansController < ApplicationController
     @page_plan.dirty   = false
     @page_plan.save
 
-    redirect_to page_plans_path, notice: '페이지 디자인이 성공적으로 바뀌었습니다.'
+    redirect_to current_plan_issue_path(@page_plan.issue_id), notice: '페이지 디자인이 성공적으로 바뀌었습니다.'
   end
 
   private

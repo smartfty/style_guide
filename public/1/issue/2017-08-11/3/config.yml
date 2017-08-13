@@ -1,0 +1,42 @@
+---
+date: 2017-04-10
+section_name: 정치
+is_front_page: false
+page_heading_margin_in_lines: 3
+:ad_type: 9단21
+page_columns: 7
+grid_size:
+- 146.99664257142857
+- 97.322846
+lines_per_grid: 7
+width: 1114.0158780000002
+height: 1544.88207
+left_margin: 42.519690000000004
+top_margin: 42.519690000000004
+right_margin: 42.519690000000004
+bottom_margin: 42.519690000000004
+gutter: 12.755907
+draw_divider: 
+story_frames:
+- - 0
+  - 0
+  - 5
+  - 6
+- - 5
+  - 0
+  - 2
+  - 6
+- - 0
+  - 6
+  - 3
+  - 5
+- - 0
+  - 11
+  - 3
+  - 4
+- - 3
+  - 6
+  - 4
+  - 9
+  - :광고: 9단21
+article_line_thickness: 0.3

@@ -5,7 +5,7 @@
 #  id                 :integer          not null, primary key
 #  column             :integer
 #  row                :integer
-#  height_in_lines    :integer
+#  extra_height_in_lines    :integer
 #  image_path         :string
 #  caption_title      :string
 #  caption            :string
@@ -23,6 +23,7 @@
 class Image < ApplicationRecord
   belongs_to :issue
   belongs_to :working_article
+  mount_uploader :image, ImageUploader
 
   def image_base_name
     File.basename(image_path)
@@ -38,7 +39,7 @@ class Image < ApplicationRecord
     h[:column]            = column
     h[:row]               = row
     h[:position]          = position
-    h[:height_in_lines]   = height_in_lines
+    h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:caption_title]     = caption_title
     h[:caption]           = caption

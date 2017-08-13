@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :그리드열수 %>
+          <%= f.label :그리드별행수 %>
           <%= f.number_field :lines_per_grid, class: 'form-control' %>
         </div>
 
@@ -84,27 +84,30 @@
         <div class="form-group">
           <%= f.label :섹션이름 %>
           <p><%= f.text_area :section_names, cols: "35", rows: "8"%></p>
-
         </div>
 
         <div class="form-group">
           <%= f.label :단종류 %>
           <p><%= f.text_area :page_columns, cols: "35", rows: "1"%></p>
+        </div>
 
+        <div class="field">
+          <%= f.label :열수 %>
+          <%= f.number_field :row, class: 'form-control' %>
         </div>
 
         <div class="form-group">
-          <%= f.label '1면 제호 높이(열)' %>
+          <%= f.label '1면 제호 높이(행)' %>
           <%= f.number_field :front_page_heading_height, class: 'form-control' %>
         </div>
 
         <div class="form-group">
-          <%= f.label '내지 면머리 높이(열)' %>
+          <%= f.label '내지 면머리 높이(행)' %>
           <%= f.number_field :inner_page_heading_height, class: 'form-control' %>
         </div>
 
         <div class="form-group">
-          <%= f.label '기사 하단 여백(열)' %>
+          <%= f.label '기사 하단 여백(행)' %>
           <%= f.number_field :article_bottom_spaces_in_lines, class: 'form-control' %>
         </div>
 

@@ -30,6 +30,41 @@
   - short key
   - progress wheel
 
+2017_8_11
+  - news issue
+  - upload image
+  - pan_image
+  - image_with_caption
+  - title and subtitle squeeze to fit
+  
+2017_8_9
+  - 사진 및 부분 2행
+
+  - width of image with gutter
+
+  - 문패
+    문패 : subject_head #
+    두덩어리 문패
+
+    사설항목
+    사설제목
+    기고제목
+
+    editorial_head
+    문패 : subject_head #
+    사설항목: editorial_head #
+    {종류: '기고'}
+    {종류: '사설'} ,
+
+  [0,1,4,3, {광고: '5단통'}]
+  기사입력창에서 수정
+
+    {종류: '사진'}
+    {종류: '기고'}
+    {종류: '사설'}
+
+기사입력창에서 수정
+
 2017_8_8
   - change issue_path_with_date, from id
   - page-plan switching page
@@ -37,7 +72,7 @@
   - smart quote
 
   - article_kind
-  
+
   - create new issue
 
   - image_caption, image_title, image_pan,
@@ -56,17 +91,6 @@
 2017_8_3
   - spinning progress-bar while processing
 
-2017_8_3
-  - 문패
-    subject_head
-    두덩어리 문패
-    사설항목
-    editorial_head
-    가사 종류
-    문패 : subject_head #
-    사설항목: editorial_head ##
-    {종류: '기고'}
-    {종류: '사설'} ,
 
 2017-8-1
   - add article kind 'story', 'editorial'
@@ -323,7 +347,7 @@ magenta
   - image resource folder
   - 통합데스트 대체 UI
     - file name convention, folder
-    - change height_extra_line to height_in_lines
+    - change height_extra_line to extra_height_in_lines
 
 2017-6_1
   - 광고 크기조절 내부 여백 줄이 보일 수 있도록

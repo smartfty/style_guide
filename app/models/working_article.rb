@@ -32,7 +32,9 @@
 class WorkingArticle < ApplicationRecord
   belongs_to :page
   has_many :images
+
   before_create :parse_article
+
 
   def path
     page.path + "/#{order}"

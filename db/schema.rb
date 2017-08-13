@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
   create_table "images", force: :cascade do |t|
     t.integer  "column"
     t.integer  "row"
-    t.integer  "height_in_lines"
+    t.integer  "extra_height_in_lines"
     t.string   "image_path"
     t.string   "caption_title"
     t.string   "caption"
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.boolean  "used_in_layout"
     t.integer  "working_article_id"
     t.integer  "issue_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "issues", force: :cascade do |t|

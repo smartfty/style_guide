@@ -6,11 +6,11 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">오늘의 신문<span class="caret"></span></a>
   <ul class="dropdown-menu" role="menu">
     <% if current_user %>
-      <li><%= link_to '면 배열표', page_plans_path %></li>
+      <li><%= link_to '면 배열표', current_plan_issue_path(current_issue.id) %></li>
       <li class="divider"></li>
       <li><%= link_to '신문보기', issue_path(current_issue.id) %></li>
       <li class="divider"></li>
-      <li><%= link_to '새로운 신문 생성', "#" %></li>
+      <li><%= link_to '새로운 호 생성', new_issue_path %></li>
     <% else %>
       <li><%= link_to '신문보기', issue_path(current_issue.id) %></li>
     <% end %>
@@ -30,14 +30,13 @@
 
       <li class="divider"></li>
       <li><%= link_to '6 단', six_sections_path %></li>
-
     </ul>
   </li>
 
   <li><%= link_to '서체 목록', text_styles_path %></li>
   <!-- <li><%= link_to '면머리', page_headings_path %></li> -->
   <li><%= link_to '광고', ads_path %></li>
-  <li><%= link_to '사진', current_images_path %></li>
+  <li><%= link_to '사진', images_issue_path(current_issue.id) %></li>
 
   <li><%= link_to '도움말', home_help_path %></li>
 <% end %>

@@ -5,7 +5,7 @@
 #  id                 :integer          not null, primary key
 #  column             :integer
 #  row                :integer
-#  height_in_lines    :integer
+#  extra_height_in_lines    :integer
 #  image_path         :string
 #  caption_title      :string
 #  caption            :string

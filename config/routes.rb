@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :issues do
     member do
       get 'update_plan'
+      get 'current_plan'
+      get 'images'
     end
   end
   resources :pages do
@@ -92,7 +94,7 @@ Rails.application.routes.draw do
     member do
       get 'download_pdf'
     end
-    
+
   end
   resources :text_styles do
     collection do

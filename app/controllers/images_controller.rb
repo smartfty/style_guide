@@ -80,6 +80,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:column, :row, :height_in_lines, :image_path, :caption_title, :caption, :position, :page_number, :story_number, :working_article_id)
+      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :position, :page_number, :story_number, :working_article_id)
     end
 end

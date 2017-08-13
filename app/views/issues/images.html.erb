@@ -1,0 +1,33 @@
+<h2>당일 면-기사 별 사용/미사용 사진들</h2>
+
+<div class="row">
+  <% @images.each do |image| %>
+  <div class = "col-md-2"  align='center'>
+    <button class="btn-danger large"><%= image.page_number %>-<%= image.story_number %></button>
+    <p><a href="<%=  image_path(image) %>"><img  src="<%= image.relative_path %>" width="100%"></img></a></p>
+  </div>    <!-- true -->
+  <% end %>
+</div>
+
+<%= form_for(@issue, :html => { :multipart => true }) do |f| %>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </div>
+  <%= f.fields_for :images do |i| %>
+    <div class="field">
+      <%= i.label :image %><br>
+      <%= i.file_field :image, :multiple => true, name: "images[image][]" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<div align="center">
+  <%= link_to "모든사진 적용하기", place_all_images_path, method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
+</div>

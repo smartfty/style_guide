@@ -1,3 +1,0 @@
-RLayout::NewsArticleBox.new(:kind=>"article", :column=>4, :row=>8, :grid_width=>146.99664257142857, :grid_height=>97.322846, :gutter=>12.755907, :on_left_edge=>true, :on_right_edge=>false, :is_front_page=>false, :top_story=>true, :top_position=>true, :page_heading_margin_in_lines=>3, :article_bottom_spaces_in_lines=>2, :article_line_thickness=>0.3, :article_line_draw_sides=>nil) do
-  news_image({:image_path=>"/Users/mskim/Development/rails5/style_guide/public/1/issue/1/images/5_1_2.jpg", :column=>2, :row=>2, :position=>3, :height_in_lines=>14, :is_float=>true, :caption_title=>"사진설먕 제목", :caption=>"사진설먕운 여기에 사진설명은 여기에 사진설명은 여기에 사진설명"})
-end

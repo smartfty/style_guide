@@ -16,7 +16,10 @@ class Issue < ApplicationRecord
   has_many  :page_plans
   has_many  :pages
   has_many  :images
+  accepts_nested_attributes_for :images
+
   has_many  :ad_images
+  accepts_nested_attributes_for :ad_images
 
   before_create :read_issue_plan
   after_create :setup
@@ -74,39 +77,28 @@ class Issue < ApplicationRecord
     end
   end
 
-  def update_page_plan
-    #clear pages or archive
-    puts __method__
-
-  end
-
   def update_plan
     change_or_make_pages
     parse_images
-    parse_ad_images
-    parse_graphics
+    # parse_ad_images
+    # parse_graphics
   end
 
   def change_or_make_pages
     page_plans.each_with_index do |page_plan, i|
-      if !page_plan.need_update?
-        if page_plan.dirty
+      if page_plan.page
+        if page_plan.need_update?
+          page_plan.page.change_page(section_template)
           page_plan.dirty = false
           page_plan.save
         end
         next
-      end
-      # todo make sure all  page_plan is assigned selected_template_id
-      section_template = Section.find(page_plan.selected_template_id)
-      p = Page.where(template_id: section_template.id).first
-      unless p
-        # create new page
-        p = Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id:section_template.id)
       else
-        p.change_page(section_template)
+        # create new page
+        page_plan.page = Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+        page_plan.dirty = false
+        page_plan.save
       end
-      page_plan.dirty = false
-      page_plan.save
     end
   end
 
@@ -150,7 +142,7 @@ class Issue < ApplicationRecord
       else
         h[:row]       = h[:column] + 1
       end
-      h[:height_in_lines]   = h[:row] * publication.lines_per_grid
+      h[:extra_height_in_lines]   = h[:row] * publication.lines_per_grid
       h[:issue_id]          = self.id
       # h[:column]            = profile_array[2] if  profile_array.length > 3
       page = Page.where(issue_id: self, page_number: h[:page_number]).first

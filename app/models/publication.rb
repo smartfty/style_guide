@@ -111,7 +111,7 @@ class Publication < ApplicationRecord
   end
 
   def grid_height
-    (height - top_margin - bottom_margin)/15
+    (height - top_margin - bottom_margin)/row
   end
 
   def body_line_height
@@ -235,12 +235,15 @@ class Publication < ApplicationRecord
         rectangle(x: x_position, y: #{top_margin}, width: #{column_width}, height: #{page_height}, stroke_width: 0.5)
         x_position += #{column_width} + #{gutter}
       end
-      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{front_page_heading_height}, fill_color: 'lightGray')
-      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{inner_page_heading_height}, fill_color: 'darkGray')
+      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{front_page_heading_height_in_pt}, fill_color: 'lightGray')
+      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{inner_page_heading_height_in_pt}, fill_color: 'darkGray')
     end
     EOF
 
   end
+  # #{raw - 2}.times do |i|
+  #   line([#{left_margin}, #{(i + 1)*grid_height}], [#{left_margin + page_heading_width}, #{(i + 1)*grid_height}])
+  # end
 
   def sample_page_path
     path + "/sample"

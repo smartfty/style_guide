@@ -17,7 +17,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create image" do
     assert_difference('Image.count') do
-      post images_url, params: { image: { working_article_id: @image.working_article_id, caption: @image.caption, caption_title: @image.caption_title, column: @image.column, height_in_lines: @image.height_in_lines, image_path: @image.image_path, position: @image.position, row: @image.row } }
+      post images_url, params: { image: { working_article_id: @image.working_article_id, caption: @image.caption, caption_title: @image.caption_title, column: @image.column, extra_height_in_lines: @image.extra_height_in_lines, image_path: @image.image_path, position: @image.position, row: @image.row } }
     end
 
     assert_redirected_to image_url(Image.last)
@@ -34,7 +34,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update image" do
-    patch image_url(@image), params: { image: { working_article_id: @image.working_article_id, caption: @image.caption, caption_title: @image.caption_title, column: @image.column, height_in_lines: @image.height_in_lines, image_path: @image.image_path, position: @image.position, row: @image.row } }
+    patch image_url(@image), params: { image: { working_article_id: @image.working_article_id, caption: @image.caption, caption_title: @image.caption_title, column: @image.column, extra_height_in_lines: @image.extra_height_in_lines, image_path: @image.image_path, position: @image.position, row: @image.row } }
     assert_redirected_to image_url(@image)
   end
 

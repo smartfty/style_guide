@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy, :update_issue_path]
+  before_action :set_issue, only: [:show, :edit, :update, :current_plan, :images, :destroy]
 
   # GET /issues
   # GET /issues.json
@@ -27,6 +27,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
     respond_to do |format|
       if @issue.save
+        @issue.make_default_issue_plan
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
         format.json { render :show, status: :created, location: @issue }
       else
@@ -41,7 +42,6 @@ class IssuesController < ApplicationController
   def update
     respond_to do |format|
       if @issue.update(issue_params)
-        @issue.update_page_plan # new issue
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
         format.json { render :show, status: :ok, location: @issue }
       else
@@ -56,6 +56,15 @@ class IssuesController < ApplicationController
     issue.update_plan
     redirect_to issue_path(issue)
   end
+
+  def current_plan
+    @page_plans = @issue.page_plans
+  end
+
+  def images
+    @images = @issue.images
+  end
+
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
@@ -65,6 +74,7 @@ class IssuesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

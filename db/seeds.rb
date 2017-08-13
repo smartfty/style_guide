@@ -43,6 +43,7 @@ h[:lines_per_grid]                  = 7
 h[:page_count]                      = 24
 h[:section_names]                   = section_names
 h[:page_columns]                    = [6,7]
+h[:row]                             = 15
 h[:front_page_heading_height]       = 8
 h[:inner_page_heading_height]       = 3
 h[:article_bottom_spaces_in_lines]  = 2
@@ -92,6 +93,7 @@ issue.make_default_issue_plan if issue
 
 # #
 user1 = User.create!(name: "김민수", email: "mskimsid@gmail.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
+user2 = User.create!(name: "김형규", email: "hgkim@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 user3 = User.create!(name: "양유미", email: "biny@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 user4 = User.create!(name: "조경아", email: "kacho@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 user5 = User.create!(name: "안상현", email: "shahn@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)

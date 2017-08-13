@@ -6,12 +6,14 @@
 
   </div>
   <div class= "col-md-6">
+    <div class="button-group">
+        <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
+    </div>
+
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <img src="<%= @working_article.pdf_image_path %>"></img>
+
+    <img width="100%" src="<%= @working_article.pdf_image_path %>" ></img>
     <% if @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>
       <div align="center" width="50%" height="50px" style="color:red;"><%= @working_article.article_info[:overflow_text]%></div>
     <% elsif @working_article.article_info[:empty_lines] %>
@@ -21,6 +23,13 @@
     <div align="center">
       <%= button_to "다운로드 샘플 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
     </div>
+    <div align="center">
+      <% if @working_article.images.length > 0 %>
+
+      <%= button_to "다운로드 샘플 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </div>
+
   </div>
 </div>
 
