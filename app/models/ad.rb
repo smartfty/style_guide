@@ -14,6 +14,7 @@
 
 class Ad < ApplicationRecord
   belongs_to :publication
+  belongs_to :issue
   after_create :setup
   validates :column, presence: true
   validates :row, presence: true

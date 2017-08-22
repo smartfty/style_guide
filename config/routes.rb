@@ -23,8 +23,12 @@ Rails.application.routes.draw do
       get 'update_plan'
       get 'current_plan'
       get 'images'
+      patch 'upload_images'
+      get 'ad_images'
+      patch 'upload_ad_images'
     end
   end
+
   resources :pages do
     member do
       get 'download_pdf'

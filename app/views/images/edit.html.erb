@@ -1,6 +1,9 @@
-<h1>Editing Image</h1>
+<h3>사진정보</h3>
 
 <%= render 'form', image: @image %>
-
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+<% if  @image.working_article_id %>
+  <!-- true -->
+  <%= link_to "<- 이전으로", working_article_path(@image.working_article_id), method: :get, class: "btn btn-lg btn-success" %>
+<% else %>
+  <%= link_to "<- 이전으로", images_issue_path(@image.issue_id), method: :get, class: "btn btn-lg btn-success" %>
+<% end %>

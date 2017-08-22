@@ -27,6 +27,12 @@
     <%= f.text_field :number, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :이슈사진들 %>
+    <%= f.file_field :issue_images, multiple: true, class: 'form-control' %>
+  </div>
+
+
   <div class="actions">
     <button type="submit" class="btn btn-sm btn-primary">새로운 신문 생성</button>
   </div>

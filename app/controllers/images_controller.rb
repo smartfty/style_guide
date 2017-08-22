@@ -65,11 +65,14 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
+    issue_id = @image.issue_id
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      # format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to images_issue_path(issue_id), notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private
@@ -80,6 +83,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :position, :page_number, :story_number, :working_article_id)
+      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :position, :page_number, :story_number, :issue_id, :image, :working_article_id)
     end
 end

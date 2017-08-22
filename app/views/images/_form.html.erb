@@ -10,48 +10,60 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= image_tag image.image.url, id: "cropbox" %>
+    </div>
+    <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :적용됨 %>
+          <%= f.check_box :used_in_layout %>
+        </div>
 
-  <div class="field">
-    <%= f.label :column %>
-    <%= f.number_field :column %>
+        <div class="field">
+          <%= f.label :단 %>
+          <%= f.number_field :column %>
+        </div>
+
+        <div class="field">
+          <%= f.label :열 %>
+          <%= f.number_field :row %>
+        </div>
+
+        <div class="field">
+          <%= f.label '행 추가높이' %>
+          <%= f.number_field :extra_height_in_lines %>
+        </div>
+
+        <div class="field">
+          <%= f.label '페이지' %>
+          <%= f.text_field :page_number %>
+        </div>
+
+        <div class="field">
+          <%= f.label '기사 번호' %>
+          <%= f.text_field :story_number %>
+        </div>
+
+        <div class="field">
+          <%= f.label :사진제목 %>
+          <%= f.text_field :caption_title %>
+        </div>
+
+        <div class="field">
+          <%= f.label :사진설명 %>
+          <%= f.text_area :caption, cols: "60", rows: "3", font_size: "16px"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :위치 %>
+          <%= f.number_field :position %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :row %>
-    <%= f.number_field :row %>
-  </div>
-
-  <div class="field">
-    <%= f.label :extra_height_in_lines %>
-    <%= f.number_field :extra_height_in_lines %>
-  </div>
-
-  <div class="field">
-    <%= f.label :page_number %>
-    <%= f.text_field :page_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :story_number %>
-    <%= f.text_field :story_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :사진제목 %>
-    <%= f.text_field :caption_title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :사진설명 %>
-    <%= f.text_field :caption %>
-  </div>
-
-  <div class="field">
-    <%= f.label :위치 %>
-    <%= f.number_field :position %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

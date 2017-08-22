@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :current_plan, :images, :destroy]
+  before_action :set_issue, only: [:show, :edit, :update, :current_plan, :images, :upload_images, :ad_images, :upload_ad_images, :destroy]
 
   # GET /issues
   # GET /issues.json
@@ -51,6 +51,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  # DELETE /issues/1
+  # DELETE /issues/1.json
+  def destroy
+    @issue.destroy
+    respond_to do |format|
+      format.html { redirect_to issues_url, notice: 'Issue was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   def update_plan
     issue = Issue.last
     issue.update_plan
@@ -62,19 +72,40 @@ class IssuesController < ApplicationController
   end
 
   def images
-    @images = @issue.images
+    @issue_images = @issue.images
   end
 
-  # DELETE /issues/1
-  # DELETE /issues/1.json
-  def destroy
-    @issue.destroy
+  def upload_images
     respond_to do |format|
-      format.html { redirect_to issues_url, notice: 'Issue was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      format.html do
+         if @issue.update(issue_params)
+           params[:images]['image'].each do |a|
+             @image = @issue.images.create!(:image => a, :issue_id => @issue.id)
+           end
+         end
+       end
+     end
+    redirect_to images_issue_path(@issue.id)
+    # images_issue_path(current_issue.id)
   end
 
+  def ad_images
+    @issue_ad_images = @issue.ad_images
+  end
+
+  def upload_ad_images
+    respond_to do |format|
+      format.html do
+         if @issue.update(issue_params)
+           params[:ad_images]['ad_image'].each do |a|
+             @ad = @issue.ad_images.create!(:ad_image => a, :issue_id => @issue.id)
+           end
+         end
+       end
+     end
+    redirect_to ad_images_issue_path(@issue.id)
+    # images_issue_path(current_issue.id)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -84,6 +115,7 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:date, :number, :plan, :publication_id)
+      # params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
+      params.permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
     end
 end

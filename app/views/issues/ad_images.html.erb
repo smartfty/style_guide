@@ -1,0 +1,29 @@
+<h2><%= @issue.date %>: 당일 광고들</h2>
+
+<%= form_with( model: @issue, :html => { :multipart => true }, :url=> {action: 'upload_ad_images'}) do |f| %>
+
+  <%= f.fields_for :images, AdImage.new do |p| %>
+    <div class="field">
+      <%= p.label :image %><br>
+      <%= p.file_field :image, :multiple => true, name: "ad_images[ad_image][]" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.button "저장", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+  </div>
+<% end %>
+
+
+<div class="row">
+  <% @issue_ad_images.each do |image| %>
+  <div class = "col-md-2"  align='center'>
+    <button class="btn-danger large"><%= image.page_number %>-<%= image.article_number %></button>
+    <p><a href="<%=  image_path(image) %>"><%= image_tag image.ad_image.url %></a></p>
+  </div>    <!-- true -->
+  <% end %>
+</div>
+
+<div align="center">
+  <%= link_to "모든사진 적용하기", place_all_images_path, method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
+</div>

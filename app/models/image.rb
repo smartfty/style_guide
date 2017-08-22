@@ -22,15 +22,12 @@
 
 class Image < ApplicationRecord
   belongs_to :issue
-  belongs_to :working_article
+  belongs_to :working_article, optional: true
   mount_uploader :image, ImageUploader
+  before_create  :set_default
 
-  def image_base_name
-    File.basename(image_path)
-  end
-
-  def relative_path
-    "/#{issue.relative_path}/images/#{image_base_name}"
+  def image_path
+    "#{Rails.root}/public" + image.url if image
   end
 
   def iamge_layout_hash
@@ -46,24 +43,36 @@ class Image < ApplicationRecord
     h
   end
 
+  # set current_article_id, if page_number and story_number is given
   def update_change
-    puts __method__
+    return unless page_number
+    return unless story_number
+
     current_article_id = working_article_id
     page        = Page.where(issue_id: issue_id, page_number: page_number).first
+    unless page
+      puts "we don't have page!!!"
+      return
+    end
     new_article = WorkingArticle.where(page_id: page.id, order: story_number).first
+    unless new_article
+      puts "we don't the article with story number!!!"
+      return
+    end
     puts "new_article.id:#{new_article.id}"
-    if new_article && update_change.id != current_article_id
+    if new_article && new_article.id != current_article_id
       puts "change to different article"
       self.working_article_id = new_article.id
+      self.used_in_layout = false
       self.save
-      new_article.generate_pdf
-      WorkingArticle.find(current_article_id).generate_pdf
+      place_image
+      # clear image from current_article, if it exits
+      WorkingArticle.find(current_article_id).generate_pdf if current_article_id
     end
   end
 
   def self.current_images
-    last_issue = Issue.last
-    Image.where(issue_id: last_issue).all
+    Image.where(issue_id: image.id).all
   end
 
   def self.place_all_images
@@ -95,4 +104,44 @@ class Image < ApplicationRecord
       self.save
     end
   end
+
+
+
+  def protrait?
+    return false unless image
+    #TODO
+    false
+  end
+
+  # return array of image_basename.split("_")
+  # we want to see if page_number and story_number are specified in the file name.
+  def parse_file_name
+    return [] unless image
+    image_basename  = File.basename(image.url)
+    if image_basename =~ /^\d/
+      image_basename.split("_")
+    else
+      []
+    end
+  end
+
+  private
+
+    def set_default
+      self.column                 = 2
+      self.row                    =  2
+      self.extra_height_in_lines  = 0
+      self.position               = 3
+      self.landscape              = true
+
+      if image
+        parsed_name_array = parse_file_name
+        if parsed_name_array.length >= 2
+          self.page_number      = parsed_name_array[0].to_i
+          self.story_number     = parsed_name_array[1].to_i
+          self.column           = parsed_name_array[2] if  parsed_name_array.length >= 3
+          self.row              = parsed_name_array[3] if  parsed_name_array.length >= 4
+        end
+      end
+    end
 end

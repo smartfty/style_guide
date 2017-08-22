@@ -17,7 +17,6 @@ class Issue < ApplicationRecord
   has_many  :pages
   has_many  :images
   accepts_nested_attributes_for :images
-
   has_many  :ad_images
   accepts_nested_attributes_for :ad_images
 
@@ -126,10 +125,10 @@ class Issue < ApplicationRecord
       next if profile_array.length < 2
       puts "profile_array.length:#{profile_array.length}"
       h[:image_path]        = image
-      h[:page_number]       = profile_array[0]
-      h[:story_number]      = profile_array[1]
+      h[:page_number]       = profile_array[0].to_i
+      h[:story_number]      = profile_array[1].to_i
       h[:column]            = 2
-      h[:column]            = profile_array[2] if  profile_array.length > 3
+      h[:column]            = profile_array[2].to_i if  profile_array.length > 3
       h[:landscape]         = true
       h[:caption_title]     = "사진설먕 제목"
       h[:caption]           = "사진설먕운 여기에 사진설명은 여기에 사진설명은 여기에 사진설명"

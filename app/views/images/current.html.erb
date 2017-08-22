@@ -11,7 +11,7 @@
   <% @current_images.each do |image| %>
   <div class = "col-md-2"  align='center'>
     <button class="btn-danger large"><%= image.page_number %>-<%= image.story_number %></button>
-    <p><a href="<%=  image_path(image) %>"><img  src="<%= image.relative_path %>" width="100%"></img></a></p>
+    <p><a href="<%=  image_path(image) %>"><img  src="<%= image.image.file %>" width="100%"></img></a></p>
   </div>    <!-- true -->
   <% end %>
 

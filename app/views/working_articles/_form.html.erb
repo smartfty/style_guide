@@ -1,6 +1,6 @@
 
 
-<%= form_for(article) do |f| %>
+<%= form_for(article, remote: true) do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -12,32 +12,41 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= f.label :가사종류 %>
+    <%= f.select :kind, ['가사', '기고', '사설', '사진'] %>
+  </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :문패 %>
     <%= f.text_field :subject_head, class: 'subject_head_input' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :제목 %>
     <%= f.text_field :title, class: 'title_input' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :부제목 %>
-    <%= f.text_field :subtitle, class: 'subtile_title_input'%>
+    <%= f.text_area :subtitle, cols: "60", rows: "3", font_size: "16px"%>
+
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :편집자주 %>
+    <%= f.text_field :subtitle_head, class: 'subtile_title_input'%>
+  </div>
+
+  <div class="form-group">
     <%= f.label :기자명 %>
     <%= f.text_field :reporter %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :본문 %>
     <%= f.text_area :body, cols: "120", rows: "30", font_size: "16px"%>
   </div>
-
 
   <div class="field">
     <%= f.text_field :image, type: "hidden" %>
@@ -52,7 +61,7 @@
   </div>
 
   <div class="actions">
-    <button type="submit" class="btn btn-sm btn-primary">저장</button>
+    <%= f.button "저장", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
 
 <% end %>

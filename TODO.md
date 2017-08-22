@@ -30,13 +30,41 @@
   - short key
   - progress wheel
 
-2017_8_11
-  - news issue
-  - upload image
+2017_8_22
+  - fix issue_images
+    - from issue_images link to edit , not show
+    - delete image
+      - return to issue_images after delete
+    - color green, if placed_in_layout red if not
+    - 기사창으로 이동, if placed_in_layout
+    - return from image edit,
+      to issue_image, if article is not assigned
+      to article if assigned
+  - working_article
+      - show image, personal_image
+      - add link to edit_image
+  - fix issue_ad_images
+
+
+
+  - fix x, width
+  - image caption
+  
+
+2017_8_21
+  - upload_ad
+
+2017_8_16
+  - in article view add article type selection
+
   - pan_image
   - image_with_caption
   - title and subtitle squeeze to fit
-  
+  - make use custom paragraph for title, subtitle, and all other text.
+
+2017_8_11
+  - news issue
+
 2017_8_9
   - 사진 및 부분 2행
 
