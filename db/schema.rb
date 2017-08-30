@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.integer "article_number"
     t.integer "ad_box_id"
     t.integer "issue_id"
+    t.boolean "used_in_layout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

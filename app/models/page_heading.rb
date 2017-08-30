@@ -115,7 +115,8 @@ class PageHeading < ApplicationRecord
     EOF
   end
 
-  def real_even =<<~EOF
+  def real_even
+    real_data=<<~EOF
     RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
       image(image_path: '/Users/Shared/SoftwareLab/newsman/내일신문/even_bgimage.pdf', x: 0, y: 0, width: 1028.976498, height: 38.70979114285714,)
       text('정치', fill_color: 'clear', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 14, text_color: "#221E1F", text_alignment: 'center')

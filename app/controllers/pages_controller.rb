@@ -44,6 +44,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
+        request.referrer
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
         format.json { render :show, status: :ok, location: @page }
       else
@@ -70,6 +71,7 @@ class PagesController < ApplicationController
 
   def regenerate_pdf
     @page.regenerate_pdf
+    request.referrer
     redirect_to @page, notice: '저장된 다락 스타일을 사용한 페이지가 성공적으로 생성 되었습니다.'
   end
 
