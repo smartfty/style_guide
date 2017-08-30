@@ -17,7 +17,7 @@ class AdImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ad_image" do
     assert_difference('AdImage.count') do
-      post ad_images_url, params: { ad_image: { ad_type: @ad_image.ad_type, column: @ad_image.column, page_id: @ad_image.page_id, row: @ad_image.row } }
+      post ad_images_url, params: { ad_image: { ad_type: @ad_image.ad_type, column: @ad_image.column, page_id: @ad_image.page_number, row: @ad_image.row } }
     end
 
     assert_redirected_to ad_image_url(AdImage.last)
@@ -34,7 +34,7 @@ class AdImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ad_image" do
-    patch ad_image_url(@ad_image), params: { ad_image: { ad_type: @ad_image.ad_type, column: @ad_image.column, page_id: @ad_image.page_id, row: @ad_image.row } }
+    patch ad_image_url(@ad_image), params: { ad_image: { ad_type: @ad_image.ad_type, column: @ad_image.column, page_id: @ad_image.page_number, row: @ad_image.row } }
     assert_redirected_to ad_image_url(@ad_image)
   end
 

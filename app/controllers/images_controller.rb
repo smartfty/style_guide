@@ -13,9 +13,8 @@ class ImagesController < ApplicationController
 
   def place_all
     Image.place_all_images
-    redirect_to current_images_path, notice: 'All images were successfully placed.'
+    redirect_to images_issue_path(Issue.last.id), notice: 'All images were successfully placed.'
   end
-
 
   # GET /images/1
   # GET /images/1.json
@@ -53,7 +52,13 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.update(image_params)
         @image.update_change
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.html do
+          if @image.working_article_id
+            redirect_to working_article_path(@image.working_article_id), notice: 'Image was successfully updated.'
+          else
+            redirect_to images_issue_path(@image.issue_id), notice: 'Image was successfully updated.'
+          end
+        end
         format.json { render :show, status: :ok, location: @image }
       else
         format.html { render :edit }
@@ -72,7 +77,6 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_issue_path(issue_id), notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
-
   end
 
   private
@@ -83,6 +87,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :position, :page_number, :story_number, :issue_id, :image, :working_article_id)
+      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id)
     end
 end

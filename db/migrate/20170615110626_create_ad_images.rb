@@ -4,13 +4,13 @@ class CreateAdImages < ActiveRecord::Migration[5.0]
       t.string :ad_type
       t.integer :column
       t.integer :row
-      # t.string :image_path
       t.string :ad_image    #carrierwave uploader
       t.string :advertiser
       t.integer :page_number
       t.integer :article_number
-      t.integer :working_article_id
+      t.integer :ad_box_id
       t.integer :issue_id
+      t.boolean :used_in_layout
 
       t.timestamps
     end

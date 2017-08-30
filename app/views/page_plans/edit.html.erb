@@ -28,4 +28,4 @@
   </div>
 
 
-  <%= link_to '이전으로', current_plan_issue_path(current_issue.id), method: :get, class: "btn btn-lg btn-success"  %>
+  <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-lg btn-success"  %>

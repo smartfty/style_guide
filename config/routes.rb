@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   resources :users
 
   resources :ad_boxes
-  resources :ad_images
+  resources :ad_images do
+    collection do
+      # get 'current'
+      get 'place_all'
+    end
+  end
   resources :working_articles do
     member do
       get 'download_pdf'
@@ -59,7 +64,6 @@ Rails.application.routes.draw do
       get 'download_pdf'
       get 'duplicate'
       get 'regenerate_pdf'
-
     end
   end
 

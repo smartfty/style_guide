@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.string "advertiser"
     t.integer "page_number"
     t.integer "article_number"
-    t.integer "working_article_id"
+    t.integer "ad_box_id"
     t.integer "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.string "image"
     t.string "caption_title"
     t.string "caption"
+    t.string "source"
     t.integer "position"
     t.integer "page_number"
     t.integer "story_number"

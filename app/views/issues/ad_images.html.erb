@@ -14,16 +14,67 @@
   </div>
 <% end %>
 
-
 <div class="row">
-  <% @issue_ad_images.each do |image| %>
-  <div class = "col-md-2"  align='center'>
-    <button class="btn-danger large"><%= image.page_number %>-<%= image.article_number %></button>
-    <p><a href="<%=  image_path(image) %>"><%= image_tag image.ad_image.url %></a></p>
-  </div>    <!-- true -->
-  <% end %>
+  <div class="col-md-2">
+
+    <h3 align="center"><%= @issue.date %>: 광고면</h3>
+    <table border= '1' align="center">
+      <thead>
+        <tr>
+          <th>페이지</th>
+          <th>면 이름</th>
+          <th>기사 수</th>
+          <th>광고</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @issue_plans_with_ad.each do |page_plan| %>
+          <% if page_plan.color_page %>
+            <tr style="background-color:pink;">
+              <td style="text-align:center;"><%= page_plan.page_number %></td>
+              <td style="text-align:center;"><%= page_plan.section_name %></td>
+              <td style="text-align:center;"><%= page_plan.story_count %></td>
+              <td style="text-align:center;"><%= page_plan.ad_type %></td>
+              <td style="text-align:center;"><%= page_plan.advertiser %></td>
+           </tr>
+          <% else %>
+            <tr style="background-color:white;">
+              <td style="text-align:center;"><%= page_plan.page_number %></td>
+              <td style="text-align:center;"><%= page_plan.section_name %></td>
+              <td style="text-align:center;"><%= page_plan.story_count %></td>
+              <td style="text-align:center;"><%= page_plan.ad_type %></td>
+              <td style="text-align:center;"><%= page_plan.advertiser %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="col-md-10">
+    <div class="row">
+      <% @issue_ad_images.each do |image| %>
+      <div class = "col-md-6"  align='center'>
+        <button class="btn-danger large"><%= image.page_number %>-<%= image.article_number %></button>
+        <p><a href="<%=  edit_ad_image_path(image) %>"><%= image_tag image.ad_image.url %></a></p>
+        <% if image.page_number %>
+          <%= link_to "기사창으로 이동", page_path(image.page_number), method: :get, class: "btn btn-sm btn-primary" %>|
+          <%= link_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        <% else %>
+          <p><%= button_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></p>
+        <% end %>
+
+      </div>    <!-- true -->
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
+
+
 <div align="center">
-  <%= link_to "모든사진 적용하기", place_all_images_path, method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
+  <%= link_to "광고 적용하기", place_all_ad_images_path, method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
 </div>

@@ -17,18 +17,18 @@
 
 <div class="row">
   <% @issue_images.each do |image| %>
-  <div class = "col-md-2"  align='center' style="min-height:200%;">
+  <div class = "col-md-3"  align='center' style="min-height:200%;">
     <% if image.used_in_layout %>
-      <button class="btn-success btn btn-lg"><%= image.page_number %>-<%= image.story_number %></button>
+      <button class="btn-success btn btn-sm"><%= image.page_number %>-<%= image.story_number %></button>
     <% else %>
-      <button class="btn-danger btn btn-lg"><%= image.page_number %>-<%= image.story_number %></button>
+      <button class="btn-danger btn btn-sm"><%= image.page_number %>-<%= image.story_number %></button>
     <% end %>
     <p> <a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url %></a></p>
     <% if image.used_in_layout %>
       <%= link_to "기사창으로 이동", working_article_path(image.working_article_id), method: :get, class: "btn btn-sm btn-primary" %>|
       <%= link_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
     <% else %>
-      <p><%= button_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></p>
+      <p><%= link_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></p>
     <% end %>
 
 

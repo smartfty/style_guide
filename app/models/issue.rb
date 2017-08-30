@@ -101,6 +101,14 @@ class Issue < ApplicationRecord
     end
   end
 
+  def page_plan_with_ad
+    list = []
+    page_plans.each do |pp|
+      list << pp if pp.ad_type
+    end
+    list
+  end
+
   def ad_list
     list = []
     pages.each do |page|

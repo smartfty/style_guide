@@ -86,11 +86,12 @@ class IssuesController < ApplicationController
        end
      end
     redirect_to images_issue_path(@issue.id)
-    # images_issue_path(current_issue.id)
+    # images_issue_path(Issue.last.id)
   end
 
   def ad_images
-    @issue_ad_images = @issue.ad_images
+    @issue_plans_with_ad  = @issue.page_plan_with_ad
+    @issue_ad_images      = @issue.ad_images
   end
 
   def upload_ad_images
@@ -104,7 +105,7 @@ class IssuesController < ApplicationController
        end
      end
     redirect_to ad_images_issue_path(@issue.id)
-    # images_issue_path(current_issue.id)
+    # images_issue_path(Issue.last.id)
   end
 
   private

@@ -26,7 +26,7 @@ class AdImage < ApplicationRecord
   mount_uploader :ad_image, AdImageUploader
 
   def image_path
-    "#{Rails.root}/public" + image.url if image
+    "#{Rails.root}/public" + ad_image.url if ad_image
   end
 
   def path
@@ -42,18 +42,42 @@ class AdImage < ApplicationRecord
   end
 
   def ad_image_string
-    "#{page.page_number}_#{ad_type}"
+    "#{page_number}"
+  end
+
+  def self.current_ad_images
+    AdImage.where(issue_id: Issue.last.id).all
+  end
+
+  def self.place_all_ad_images
+    AdImage.current_ad_images.each do |curremt_ad_image|
+      curremt_ad_image.place_ad_image
+    end
+  end
+
+  def place_ad_image
+    if ad_box
+      ad_box.generate_pdf
+      ad_box.update_page_pdf
+    end
   end
 
   private
 
   def parse_ad
-    profile_array         = File.basename(ad_image.url).split("_")
-    if profile_array[0] =~/^\d/
-      page_number         = profile_array[0]
-      self.page_id        = Page.where(issue_id: issue_id, page_number: page_number).first.id
-      self.ad_type        = profile_array[1]
-      self.advertiser     = profile_array[2]
+    basename         = File.basename(ad_image.url)
+    if basename      =~/^(\d+)/
+      page_number             = $1
+      self.page_number        = $1.to_i
+      page                    = Page.where(issue_id: issue_id, page_number: page_number.to_i).first
+      if page
+        ad_box                  = page.ad_boxes.first
+        if ad_box
+          self.ad_box_id          = ad_box.id
+          self.ad_type            = ad_box.ad_type
+        end
+      end
+      # self.advertiser     = profile_array[2]
     else
       puts "we have ad without page_number!!!"
     end

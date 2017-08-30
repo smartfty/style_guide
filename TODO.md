@@ -30,6 +30,27 @@
   - short key
   - progress wheel
 
+2017_8_28
+  - image caption
+  - add source box to image edit
+  - allow adjusting image size
+  - batch place issue_images
+
+  - Korean localization and view changes
+  - batch place, issue_ads
+  - fix it so for image position change
+  - image zoom and pan
+  - fix title_box, subtitle_box, and all text boxes,  
+      - save current Text as NSText
+    - auto adjust overflowing title
+
+  - page_headings
+  - paragraph input with single return
+  - make page with SVG, and get rid of title links
+
+2017_8_23
+  - ad_width, ad_x, ad left_inset, right_inset
+
 2017_8_22
   - fix issue_images
     - from issue_images link to edit , not show
@@ -44,15 +65,8 @@
       - show image, personal_image
       - add link to edit_image
   - fix issue_ad_images
-
-
-
   - fix x, width
-  - image caption
-  
 
-2017_8_21
-  - upload_ad
 
 2017_8_16
   - in article view add article type selection
@@ -245,7 +259,7 @@
 
 
 2017-6-27
-  - rename placed_ad to ad_image
+  - rename ad_image to ad_image
   - fix ad rlayout_rb as NewsAdBox < Container
   - create AdBox
 

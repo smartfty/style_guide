@@ -1,74 +1,82 @@
 class AdImagesController < ApplicationController
-  before_action :set_placed_ad, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad_image, only: [:show, :edit, :update, :destroy]
 
-  # GET /placed_ads
-  # GET /placed_ads.json
+  # GET /ad_images
+  # GET /ad_images.json
   def index
-    @placed_ads = AdImage.all
+    @ad_images = AdImage.all
   end
 
-  # GET /placed_ads/1
-  # GET /placed_ads/1.json
+  # GET /ad_images/1
+  # GET /ad_images/1.json
   def show
   end
 
-  # GET /placed_ads/new
+  # GET /ad_images/new
   def new
-    @placed_ad = AdImage.new
+    @ad_image = AdImage.new
   end
 
-  # GET /placed_ads/1/edit
+  # GET /ad_images/1/edit
   def edit
   end
 
-  # POST /placed_ads
-  # POST /placed_ads.json
+  # POST /ad_images
+  # POST /ad_images.json
   def create
-    @placed_ad = AdImage.new(placed_ad_params)
+    @ad_image = AdImage.new(ad_image_params)
 
     respond_to do |format|
-      if @placed_ad.save
-        format.html { redirect_to @placed_ad, notice: 'Placed ad was successfully created.' }
-        format.json { render :show, status: :created, location: @placed_ad }
+      if @ad_image.save
+        format.html { redirect_to @ad_image, notice: 'Placed ad was successfully created.' }
+        format.json { render :show, status: :created, location: @ad_image }
       else
         format.html { render :new }
-        format.json { render json: @placed_ad.errors, status: :unprocessable_entity }
+        format.json { render json: @ad_image.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /placed_ads/1
-  # PATCH/PUT /placed_ads/1.json
+  # PATCH/PUT /ad_images/1
+  # PATCH/PUT /ad_images/1.json
   def update
     respond_to do |format|
-      if @placed_ad.update(placed_ad_params)
-        format.html { redirect_to @placed_ad, notice: 'Placed ad was successfully updated.' }
-        format.json { render :show, status: :ok, location: @placed_ad }
+      if @ad_image.update(ad_image_params)
+        format.html { redirect_to @ad_image, notice: 'Placed ad was successfully updated.' }
+        format.json { render :show, status: :ok, location: @ad_image }
       else
         format.html { render :edit }
-        format.json { render json: @placed_ad.errors, status: :unprocessable_entity }
+        format.json { render json: @ad_image.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /placed_ads/1
-  # DELETE /placed_ads/1.json
+  # DELETE /ad_images/1
+  # DELETE /ad_images/1.json
   def destroy
-    @placed_ad.destroy
+    @ad_image.destroy
     respond_to do |format|
-      format.html { redirect_to placed_ads_url, notice: 'Placed ad was successfully destroyed.' }
+      format.html { redirect_to ad_images_url, notice: 'Placed ad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  def place_all
+    AdImage.place_all_ad_images
+    redirect_to ad_images_issue_path(Issue.last.id), notice: 'All images were successfully placed.'
+
+    # redirect_to ad_images_issue_path(Issue.last.id), notice: 'All ad_images were successfully placed.'
+    # redirect_to current_images_path, notice: 'All images were successfully placed.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_placed_ad
-      @placed_ad = AdImage.find(params[:id])
+    def set_ad_image
+      @ad_image = AdImage.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def placed_ad_params
-      params.require(:placed_ad).permit(:ad_type, :column, :row, :page_id)
+    def ad_image_params
+      params.require(:ad_image).permit(:column, :row, :page_number, :story_number, :issue_id, :image, :working_article_id, :ad_box)
     end
 end

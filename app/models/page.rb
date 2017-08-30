@@ -50,6 +50,10 @@ class Page < ApplicationRecord
     "#{Rails.root}/public/#{issue.publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.jpg"
   end
 
+  def publication
+    issue.publication
+  end
+  
   def page_heading_path
     path + "/heading"
   end
@@ -129,7 +133,7 @@ class Page < ApplicationRecord
   def ad_image_string
     ad = ad_images.first
     if ad
-      ad_images.first.ad_image_string
+      return ad_images.first.ad_image_string
     end
     ""
   end

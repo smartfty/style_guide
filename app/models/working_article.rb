@@ -32,6 +32,7 @@
 class WorkingArticle < ApplicationRecord
   belongs_to :page
   has_many :images
+  has_one :ad_images
 
   before_create :parse_article
 
@@ -92,7 +93,6 @@ class WorkingArticle < ApplicationRecord
     page_path = page.path
     puts "page_path:#{page_path}"
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
-
   end
 
   def article_info

@@ -65,12 +65,22 @@ class PageHeading < ApplicationRecord
     publication.page_heading_width
   end
 
+  def front_page_real_value
+    real_data =<<~EOF
+    RLayout::Container.new(width: 1028.976498, height: 137.708, layout_direction: 'horinoztal') do
+      image(local_image: '1.pdf', width: 1028.976498, height: 137.708,)
+      text('2017년 5월 11일 목요일 (4200호)', x: 886.00, y: 108, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
+    end
+    EOF
+  end
+
   def front_page_content
     page_heading_width  = publication.page_heading_width
+
     first_page=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
       image(local_image: '1.pdf', width: #{page_heading_width}, height: 110,)
-      text('2017년 5월 11일 목요일 (4200호)', x: 884.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
+      text('2017년 5월 11일 목요일 (4200호)', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
     end
     EOF
   end
@@ -105,6 +115,17 @@ class PageHeading < ApplicationRecord
     EOF
   end
 
+  def real_even =<<~EOF
+    RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
+      image(image_path: '/Users/Shared/SoftwareLab/newsman/내일신문/even_bgimage.pdf', x: 0, y: 0, width: 1028.976498, height: 38.70979114285714,)
+      text('정치', fill_color: 'clear', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 14, text_color: "#221E1F", text_alignment: 'center')
+      text('2', x: 1.9795, y: 1, font: 'YDVYGOStd12', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
+      text('2017년 5월 11일 목요일', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
+    end
+
+    EOF
+  end
+
   def self.even_content(page)
     page_number         = page.page_number
     section_name        = page.section_name
@@ -114,12 +135,10 @@ class PageHeading < ApplicationRecord
 
     even=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
-      text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "#221E1F", text_alignment: 'center')
+      image(image_path: '/Users/Shared/SoftwareLab/newsman/내일신문/even_bgimage.pdf', x: 0, y: 0, width: 1028.976498, height: 38.70979114285714,)
+      text('#{section_name}', fill_color: 'clear', y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 14, text_color: "#221E1F", text_alignment: 'center')
       text('#{page_number}', x: 1.9795, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "#221E1F", width: 50, height: 44)
-      text('#{date}', x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
-      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: #{page_heading_width - 48}, y: 10, width: 43, height: 12,)
-      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "#221E1F")
-      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "#221E1F")
+      text('#{date}', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "#221E1F", text_alignment: 'left')
     end
     EOF
   end

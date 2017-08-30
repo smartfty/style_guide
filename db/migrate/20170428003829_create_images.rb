@@ -4,10 +4,10 @@ class CreateImages < ActiveRecord::Migration[5.0]
       t.integer :column
       t.integer :row
       t.integer :extra_height_in_lines
-      # t.string :image_path
       t.string :image
       t.string :caption_title
       t.string :caption
+      t.string :source
       t.integer :position
       t.integer :page_number
       t.integer :story_number

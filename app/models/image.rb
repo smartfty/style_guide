@@ -40,6 +40,7 @@ class Image < ApplicationRecord
     h[:is_float]          = true
     h[:caption_title]     = caption_title
     h[:caption]           = caption
+    h[:source]            = source if source
     h
   end
 
@@ -47,7 +48,6 @@ class Image < ApplicationRecord
   def update_change
     return unless page_number
     return unless story_number
-
     current_article_id = working_article_id
     page        = Page.where(issue_id: issue_id, page_number: page_number).first
     unless page
@@ -67,22 +67,30 @@ class Image < ApplicationRecord
       self.save
       place_image
       # clear image from current_article, if it exits
-      WorkingArticle.find(current_article_id).generate_pdf if current_article_id
+    end
+    if working_article
+      working_article.generate_pdf
+      working_article.update_page_pdf
     end
   end
 
   def self.current_images
-    Image.where(issue_id: image.id).all
+    Image.where(issue_id: Issue.last.id).all
   end
 
   def self.place_all_images
     Image.current_images.each do |curremt_image|
-      curremt_image.place_image
+      curremt_image.place_image unless curremt_image.used_in_layout
     end
   end
 
   def place_image
-    if working_article && !used_in_layout
+    if page_number && story_number
+      page = Page.where(issue_id: issue_id, page_number: page_number).first
+      return unless page
+      working_article = WorkingArticle.where(page_id: page.id, order: story_number).first
+      return unless working_article
+      self.working_article_id = working_article.id
       working_article.generate_pdf
       working_article.update_page_pdf
       self.used_in_layout = true
@@ -106,13 +114,6 @@ class Image < ApplicationRecord
   end
 
 
-
-  def protrait?
-    return false unless image
-    #TODO
-    false
-  end
-
   # return array of image_basename.split("_")
   # we want to see if page_number and story_number are specified in the file name.
   def parse_file_name
@@ -129,7 +130,7 @@ class Image < ApplicationRecord
 
     def set_default
       self.column                 = 2
-      self.row                    =  2
+      self.row                    = 2
       self.extra_height_in_lines  = 0
       self.position               = 3
       self.landscape              = true

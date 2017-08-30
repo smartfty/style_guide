@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Placed Ads</h1>
+<h1>AdImage</h1>
 
 <table>
   <thead>
@@ -19,7 +19,7 @@
         <td><%= ad_image.ad_type %></td>
         <td><%= ad_image.column %></td>
         <td><%= ad_image.row %></td>
-        <td><%= ad_image.page_id %></td>
+        <td><%= ad_image.page_number %></td>
         <td><%= link_to 'Show', ad_image %></td>
         <td><%= link_to 'Edit', edit_ad_image_path(ad_image) %></td>
         <td><%= link_to 'Destroy', ad_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
