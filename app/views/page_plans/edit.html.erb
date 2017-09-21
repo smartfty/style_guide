@@ -1,0 +1,31 @@
+
+  <h3>페이지 선택</h3>
+
+  <div class="row">
+    <% @page_templates.each do |template| %>
+      <div class="col-lg-2" >
+        <% if template.id == @page_plan.selected_template_id %>
+          <div class='selected_template'>
+            <img width="98%"  src="<%= template.pdf_image_path %>" alt="" >
+            <div align="center">
+              <h4><%= template.profile =%></h4>
+            </div>
+          </div>
+
+        <% else %>
+          <div class='unselected_template'>
+            <p><a href="<%=  select_template_page_plan_path(selected_template_id: template.id) %>"><img  src="<%= template.pdf_image_path %>" width="100%"></img></a></p>
+            <div align="center">
+              <h4><%= template.profile =%></h4>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+    <% end %>
+
+  </div>
+
+
+  <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-lg btn-success"  %>

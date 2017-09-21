@@ -1,0 +1,3 @@
+RLayout::NewsArticleBox.new(:kind=>"가사", :column=>4, :row=>6, :grid_width=>146.99664257142857, :grid_height=>96.377964, :gutter=>12.755907, :on_left_edge=>true, :on_right_edge=>false, :is_front_page=>true, :top_story=>true, :top_position=>true, :page_heading_margin_in_lines=>3, :article_bottom_spaces_in_lines=>2, :article_line_thickness=>0.3, :article_line_draw_sides=>false) do
+  news_image({:image_path=>"/Users/mskim/Development/rails5/style_guide/public/1/issue/2017-05-30/images/1_1.jpg", :column=>2, :row=>2, :position=>3, :extra_height_in_lines=>0, :is_float=>true, :caption_title=>"사진제목 여기에", :caption=>"사진설명 은 여기에 사진설명 은 여기에 사진설명 은 여기에 사진설명 은 여기에 사진설명 은 여기에 사진설명 은 여기에 사진설명 은 여기에 사진설명 은 여기에", :source=>""})
+end

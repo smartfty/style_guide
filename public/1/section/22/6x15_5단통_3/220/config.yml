@@ -1,0 +1,37 @@
+---
+date: 2017-04-10
+section_name: 오피니언
+is_front_page: false
+:ad_type: 5단통
+page_columns: 6
+grid_size:
+- 171.96833333333333
+- 96.94466666666668
+width: 1116.85
+height: 1539.21
+left_margin: 42.52
+top_margin: 42.52
+right_margin: 42.52
+bottom_margin: 42.52
+gutter: 12.75
+divider_info:
+- 3
+- 25.51
+story_frames:
+- - 0
+  - 0
+  - 4
+  - 5
+- - 4
+  - 0
+  - 2
+  - 10
+- - 0
+  - 5
+  - 4
+  - 5
+- - 0
+  - 10
+  - 6
+  - 5
+  - :광고: 5단통

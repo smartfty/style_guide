@@ -1,0 +1,45 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id           :integer          not null, primary key
+#  page_number  :integer
+#  section_name :string
+#  column       :integer
+#  row          :integer
+#  ad_type      :string
+#  story_count  :integer
+#  color_page   :boolean
+#  profile      :string
+#  issue_id     :integer
+#  page_plan_id :integer
+#  template_id  :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  page_number: 1
+  section_name: MyString
+  column: 1
+  row: 1
+  ad_type: MyString
+  story_count: 1
+  color_page: false
+  profile: MyString
+  issue: one
+  template_id: 1
+
+two:
+  page_number: 1
+  section_name: MyString
+  column: 1
+  row: 1
+  ad_type: MyString
+  story_count: 1
+  color_page: false
+  profile: MyString
+  issue: two
+  template_id: 1

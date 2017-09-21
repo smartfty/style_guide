@@ -1,0 +1,28 @@
+
+<h3>광고:<%=  @ad_box.ad_image.class %></h3>
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'form', ad_box: @ad_box %>
+  </div>
+  <div class="col-md-8">
+    <% if @ad_box.ad_image %>
+      <p><a href="<%=  edit_ad_image_path(@ad_box.ad_image) %>"><%= image_tag @ad_box.jpg_image_path %></a></p>
+      <p><%= link_to '삭제', @ad_box.ad_image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% else %>
+      <%= form_with( model: @ad_box, :html => { :multipart => true }, :url=> {action: 'upload_ad_image'}) do |f| %>
+        <%= f.fields_for :ad_image, AdImage.new do |p| %>
+          <div class="field">
+            <%= p.label '사진선택' %><br>
+            <h3> <%= p.file_field :ad_image, :multiple => true, name: "ad_image[ad_image]" %></h3>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.button "사진 올리기", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>
