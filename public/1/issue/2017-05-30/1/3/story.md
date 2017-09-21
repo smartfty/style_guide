@@ -1,6 +1,6 @@
 ---
 title: 제목은 여기에 여기는 제목
-subtitle: 부제는 여기에 여기는 부제목 자리
+subtitle: 부제는 여기에 여기는 부제목 자리 여기는 부제목
 reporter: 홍길동
 email: gdhong@gmail.com
 
