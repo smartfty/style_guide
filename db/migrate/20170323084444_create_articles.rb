@@ -1,6 +1,8 @@
 class CreateArticles < ActiveRecord::Migration[5.0]
   def change
     create_table :articles do |t|
+      t.integer :grid_x
+      t.integer :grid_y
       t.integer :column
       t.integer :row
       t.integer :order

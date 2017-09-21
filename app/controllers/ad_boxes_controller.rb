@@ -1,5 +1,5 @@
 class AdBoxesController < ApplicationController
-  before_action :set_ad_box, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad_box, only: [:show, :edit, :update, :destroy, :upload_ad_image]
 
   # GET /ad_boxes
   # GET /ad_boxes.json
@@ -25,7 +25,6 @@ class AdBoxesController < ApplicationController
   # POST /ad_boxes.json
   def create
     @ad_box = AdBox.new(ad_box_params)
-
     respond_to do |format|
       if @ad_box.save
         format.html { redirect_to @ad_box, notice: 'Ad box was successfully created.' }
@@ -59,6 +58,15 @@ class AdBoxesController < ApplicationController
       format.html { redirect_to ad_boxes_url, notice: 'Ad box was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upload_ad_image
+    respond_to do |format|
+      format.html do        
+        @ad_image = AdImage.create!(:ad_image => params[:ad_image]['ad_image'], :ad_box_id => @ad_box.id)
+       end
+     end
+    redirect_to @ad_box
   end
 
   private

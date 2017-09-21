@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :ad_box_templates
   resources :page_plans do
     member do
@@ -11,7 +12,12 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  resources :ad_boxes
+  resources :ad_boxes do
+    member do
+      patch 'upload_ad_image'
+    end
+
+  end
   resources :ad_images do
     collection do
       # get 'current'
@@ -21,6 +27,8 @@ Rails.application.routes.draw do
   resources :working_articles do
     member do
       get 'download_pdf'
+      patch 'upload_images'
+
     end
   end
   resources :issues do
@@ -37,6 +45,7 @@ Rails.application.routes.draw do
   resources :pages do
     member do
       get 'download_pdf'
+      get 'change_template'
       get 'regenerate_pdf'
     end
   end

@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class = "col-sm-6" style="padding-bottom: 40px;" width="100%">
+  <div class = "col-sm-1" style="padding-bottom: 40px;" width="100%">
+    <p>"   "</p>
+  </div>
+  <div class = "col-sm-5" style="padding-bottom: 40px;" width="100%">
     <%= render 'form', article: @working_article %>
   </div>
   <div class = "col-sm-1" style="padding-bottom: 40px;" width="100%">
@@ -31,19 +34,40 @@
     <div class="row">
       <% @working_article.images.each do |image| %>
         <div class="col-md-3">
-          <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url %></a></p>
+          <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb) %></a></p>
           <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         </div>
       <% end %>
+      <% if  @working_article.images.length == 0%>
+        <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
+          <%= f.fields_for :images, Image.new do |p| %>
+            <div class="field">
+              <%= p.label '사진선택' %><br>
+              <h3> <%= p.file_field :image, :multiple => true, name: "images[image][]" %></h3>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.button "사진 올리기", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% # link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+      <% # link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+      <%= link_to "발문 추가", add_quote_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+
+
+
+
+
+
     </div>
 
   </div>
 </div>
 
-<% # link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-<% # link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-<%= link_to "발문 추가", add_quote_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
 
 <div class="button-group">
-    <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
+    <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-lg btn-success" %>
 </div>

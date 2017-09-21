@@ -30,23 +30,39 @@
   - short key
   - progress wheel
 
+2017_9_4
+  - fix copy_section_template to page
+      - not to delete the whole thing, but copy layout , config,
+      - backup story files for difference story_number templates
+  - make story_backup_folder on each page folder
+
+  - add table, graphic
+  - change section_pdf to section
+
+2017_9_4
+  - make page with SVG, and get rid of title links
+  - paragraph input with single return
+
+  - upload ad in AdBox, add upload in WorkingArticle
+  - page_headings
+  - batch place issue_images
+  - batch place, issue_ads
+  - fix it so for image position change
+  - image zoom and pan
+
+2017_9_1
+  - replace all text with TtitleText
+  - carrierwave thumbnail
+      - set image directory
+      - small image 100x100
+      - place images with Flexbox
+  - squeeze title
+    - auto adjust overflowing title
+
 2017_8_28
   - image caption
   - add source box to image edit
   - allow adjusting image size
-  - batch place issue_images
-
-  - Korean localization and view changes
-  - batch place, issue_ads
-  - fix it so for image position change
-  - image zoom and pan
-  - fix title_box, subtitle_box, and all text boxes,  
-      - save current Text as NSText
-    - auto adjust overflowing title
-
-  - page_headings
-  - paragraph input with single return
-  - make page with SVG, and get rid of title links
 
 2017_8_23
   - ad_width, ad_x, ad left_inset, right_inset

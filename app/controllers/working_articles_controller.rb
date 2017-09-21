@@ -1,5 +1,5 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf]
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images]
 
   # GET /working_articles
   # GET /working_articles.json
@@ -81,12 +81,27 @@ class WorkingArticlesController < ApplicationController
     @selected_image = params[:selected_image]
   end
 
+
   def add_personal_image
     #code
   end
 
   def add_quote
     #code
+  end
+
+  def upload_images
+    respond_to do |format|
+      format.html do
+        #  if @working_article.update(working_article_params)
+           params[:images]['image'].each do |a|
+             @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
+           end
+        #  end
+       end
+     end
+    redirect_to @working_article
+    # images_issue_path(Issue.last.id)
   end
 
   private

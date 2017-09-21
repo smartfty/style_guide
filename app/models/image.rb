@@ -21,13 +21,17 @@
 #
 
 class Image < ApplicationRecord
-  belongs_to :issue
+  belongs_to :issue, optional: true
   belongs_to :working_article, optional: true
   mount_uploader :image, ImageUploader
   before_create  :set_default
 
   def image_path
     "#{Rails.root}/public" + image.url if image
+  end
+
+  def publication
+    issue.publication
   end
 
   def iamge_layout_hash
@@ -135,7 +139,14 @@ class Image < ApplicationRecord
       self.position               = 3
       self.landscape              = true
 
-      if image
+      if working_article_id
+        wa = WorkingArticle.find(working_article_id)
+        self.issue_id         = wa.page.issue.id
+        self.page_number      = wa.page.page_number
+        self.story_number     = wa.order
+        self.used_in_layout   = true
+
+      elsif image
         parsed_name_array = parse_file_name
         if parsed_name_array.length >= 2
           self.page_number      = parsed_name_array[0].to_i

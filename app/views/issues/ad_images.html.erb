@@ -51,30 +51,30 @@
         <% end %>
       </tbody>
     </table>
-
   </div>
-  <div class="col-md-10">
-    <div class="row">
-      <% @issue_ad_images.each do |image| %>
-      <div class = "col-md-6"  align='center'>
-        <button class="btn-danger large"><%= image.page_number %>-<%= image.article_number %></button>
-        <p><a href="<%=  edit_ad_image_path(image) %>"><%= image_tag image.ad_image.url %></a></p>
-        <% if image.page_number %>
-          <%= link_to "기사창으로 이동", page_path(image.page_number), method: :get, class: "btn btn-sm btn-primary" %>|
-          <%= link_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+
+
+  <div class="flex-container">
+    <% @issue_ad_images.each do |image| %>
+      <div class="flex-item">
+        <% if image.used_in_layout %>
+          <button class="btn-success btn btn-xs"><%= image.page_number %></button>
         <% else %>
-          <p><%= button_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></p>
+          <button class="btn-danger btn btn-xs"><%= image.page_number %></button>
         <% end %>
+        <p> <a href="<%=  edit_ad_image_path(image) %>"><%= image_tag image.ad_image.url(:thumb) %></a></p>
+        <% if image.used_in_layout %>
+          <%= link_to "기사창으로 이동", ad_image_path(image.ad_image_id), method: :get, class: "btn btn-xs btn-primary" %>|
+          <%= link_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+        <% else %>
+          <p><%= link_to "삭제", image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></p>
+        <% end %>
+      </div>
+    <% end %>
 
-      </div>    <!-- true -->
-      <% end %>
-    </div>
   </div>
-
-</div>
-
 
 
 <div align="center">
-  <%= link_to "광고 적용하기", place_all_ad_images_path, method: :get, class: "btn-group btn btn-sm btn-success" , align: "center"%>
+  <%= link_to "광고 적용하기", place_all_ad_images_path, method: :get, class: "btn-group btn btn-xs btn-success" , align: "center"%>
 </div>

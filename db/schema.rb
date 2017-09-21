@@ -13,6 +13,8 @@
 ActiveRecord::Schema.define(version: 20170630013933) do
 
   create_table "ad_box_templates", force: :cascade do |t|
+    t.integer "grid_x"
+    t.integer "grid_y"
     t.integer "column"
     t.integer "row"
     t.integer "order"
@@ -23,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170630013933) do
   end
 
   create_table "ad_boxes", force: :cascade do |t|
+    t.integer "grid_x"
+    t.integer "grid_y"
     t.integer "column"
     t.integer "row"
     t.string "ad_type"
@@ -59,6 +63,8 @@ ActiveRecord::Schema.define(version: 20170630013933) do
   end
 
   create_table "articles", force: :cascade do |t|
+    t.integer "grid_x"
+    t.integer "grid_y"
     t.integer "column"
     t.integer "row"
     t.integer "order"
@@ -262,6 +268,8 @@ ActiveRecord::Schema.define(version: 20170630013933) do
   end
 
   create_table "working_articles", force: :cascade do |t|
+    t.integer "grid_x"
+    t.integer "grid_y"
     t.integer "column"
     t.integer "row"
     t.integer "order"

@@ -78,7 +78,7 @@ class Issue < ApplicationRecord
 
   def update_plan
     change_or_make_pages
-    parse_images
+    # parse_images
     # parse_ad_images
     # parse_graphics
   end
@@ -132,7 +132,7 @@ class Issue < ApplicationRecord
       puts "profile_array:#{profile_array}"
       next if profile_array.length < 2
       puts "profile_array.length:#{profile_array.length}"
-      h[:image_path]        = image
+      # h[:image_path]        = image
       h[:page_number]       = profile_array[0].to_i
       h[:story_number]      = profile_array[1].to_i
       h[:column]            = 2

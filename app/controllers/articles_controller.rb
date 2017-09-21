@@ -98,10 +98,14 @@ class ArticlesController < ApplicationController
   def style_update
     #code
   end
-  
+
   def fill
     @article.fill_up_enpty_lines
     redirect_to @article, notice: 'Article was successfully created.'
+    #code
+  end
+
+  def send_email
     #code
   end
 

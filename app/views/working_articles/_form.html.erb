@@ -12,40 +12,46 @@
       </ul>
     </div>
   <% end %>
+
   <div class="form-group">
     <%= f.label :가사종류 %>
     <%= f.select :kind, ['가사', '기고', '사설', '사진'] %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :문패 %>
-    <%= f.text_field :subject_head, class: 'subject_head_input' %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :제목 %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :부제목 %>
+        <%= f.text_area :subtitle, cols: "40", rows: "2", font_size: "16px", class: 'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= f.label :기자명 %>
+        <%= f.text_field :reporter %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :문패 %>
+        <%= f.text_field :subject_head, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :편집자주 %>
+        <%= f.text_area :subtitle_head, cols: "40", rows: "2", font_size: "16px", class: 'form-control'%>
+      </div>
+      <div class="actions">
+        <%= f.button "저장", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :제목 %>
-    <%= f.text_field :title, class: 'title_input' %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :부제목 %>
-    <%= f.text_area :subtitle, cols: "60", rows: "3", font_size: "16px"%>
-
-  </div>
-
-  <div class="form-group">
-    <%= f.label :편집자주 %>
-    <%= f.text_field :subtitle_head, class: 'subtile_title_input'%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :기자명 %>
-    <%= f.text_field :reporter %>
-  </div>
 
   <div class="form-group">
     <%= f.label :본문 %>
-    <%= f.text_area :body, cols: "120", rows: "30", font_size: "16px"%>
+    <%= f.text_area :body, cols: "110", rows: "30", font_size: "16px" , class: 'form-control'%>
   </div>
 
   <div class="field">

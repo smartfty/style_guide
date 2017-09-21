@@ -134,7 +134,6 @@ class Publication < ApplicationRecord
     grid_frame[1]*grid_height
   end
 
-
   def width_of_grid_frame(page_columns, grid_frame)
     grid_width(page_columns)*grid_frame[2]
   end
@@ -147,8 +146,12 @@ class Publication < ApplicationRecord
     [x_of_grid_frame(grid_frame), y_of_grid_frame(grid_frame), width_of_grid_frame(grid_frame), height_of_grid_frame(grid_frame)]
   end
 
-  def page_heading_width
+  def page_width
     width - left_margin - right_margin
+  end
+
+  def page_heading_width
+    page_width
   end
 
   def page_height

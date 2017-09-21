@@ -239,7 +239,7 @@ class Section < ApplicationRecord
       publication.inner_page_heading_height_in_pt
     end
   end
-  
+
   def generate_heading_pdf
     PageHeading.generate_pdf(self)
   end
@@ -374,6 +374,8 @@ class Section < ApplicationRecord
     box_array.each_with_index do |box, i|
       article_atts = {}
       article_atts[:section_id]  = self.id
+      article_atts[:grid_x]   = box[0]
+      article_atts[:grid_y]   = box[1]
       article_atts[:column]   = box[2]
       article_atts[:row]      = box[3]
       article_atts[:order]    = i + 1
@@ -391,6 +393,8 @@ class Section < ApplicationRecord
         h = box[4]
         ad_box_atts = {}
         ad_box_atts[:section_id]   = self.id
+        ad_box_atts[:grid_x]   = box[0]
+        ad_box_atts[:grid_y]   = box[1]
         ad_box_atts[:column]   = box[2]
         ad_box_atts[:row]      = box[3]
         ad_box_atts[:order]    = i + 1

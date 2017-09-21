@@ -70,4 +70,6 @@ gem 'devise'
 gem 'bootstrap_form'
 gem 'rubypants-unicode'
 gem 'carrierwave'
+gem "mini_magick"
 gem "font-awesome-rails"
+gem 'rmagick'

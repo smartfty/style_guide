@@ -33,12 +33,15 @@ class WorkingArticle < ApplicationRecord
   belongs_to :page
   has_many :images
   has_one :ad_images
-
   before_create :parse_article
+  accepts_nested_attributes_for :images
 
+  def page_path
+    page.path
+  end
 
   def path
-    page.path + "/#{order}"
+    page_path + "/#{order}"
   end
 
   def images_path
@@ -104,27 +107,12 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
-  def parse_title_box
-    #code
-  end
-
-  def parse_subtitle_box
-    #code
-  end
 
   def filtered_title
     RubyPants.new(title).to_html
   end
 
   def story_metadata
-    # filtered_subtitle = RubyPants.new(subtitle).to_html
-    # h = {}
-    # h['title']      = filtered_title
-    # # h['title_head'] = "#{RubyPants.new(title_head).to_html}" if title_head
-    # h['subtitle']   = filtered_subtitle
-    # # h['subtitle_head'] = "#{RubyPants.new(subtitle_head).to_html}" if subtitle_head
-    # h['reporter']   = reporter
-    # h['email']      = email
     h = {}
     h['title']      = RubyPants.new(title).to_html
     h['subtitle']   = RubyPants.new(subtitle).to_html
@@ -157,10 +145,35 @@ class WorkingArticle < ApplicationRecord
     page.column
   end
 
+  def grid_width
+    publication.grid_width(page_columns)
+  end
+
+  def grid_height
+    publication.grid_height
+  end
+
+  def gutter
+    publication.gutter
+  end
+
+  def width
+    column*grid_width
+  end
+
+  def height
+    row*grid_height
+  end
+
+  def x
+    grid_x*grid_width
+  end
+
+  def y
+    grid_y*grid_height
+  end
+
   def layout_rb
-    grid_width    = publication.grid_width(page_columns)
-    grid_height   = publication.grid_height
-    gutter        = publication.gutter
     page_heading_margin_in_lines = 0
     if top_position
       if is_front_page
@@ -212,6 +225,13 @@ class WorkingArticle < ApplicationRecord
 
   def library_images
     publication.library_images
+  end
+
+  def box_svg
+    # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+
   end
 
   private
