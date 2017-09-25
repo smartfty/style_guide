@@ -42,7 +42,14 @@ class AdImagesController < ApplicationController
   def update
     respond_to do |format|
       if @ad_image.update(ad_image_params)
-        format.html { redirect_to @ad_image, notice: 'Placed ad was successfully updated.' }
+        format.html do
+          @ad_image.place_ad_image
+          if @ad_image.ad_box_id
+            redirect_to ad_box_path(@ad_image.ad_box_id), notice: 'Ad Image was successfully updated.'
+          else
+            redirect_to ad_images_issue_path(@ad_image.issue_id), notice: 'Ad Image was successfully updated.'
+          end
+        end
         format.json { render :show, status: :ok, location: @ad_image }
       else
         format.html { render :edit }
