@@ -33,11 +33,6 @@ class AdBox < ApplicationRecord
     page.url + "/ad/output.jpg"
   end
 
-  def generate_pdf
-    save_layout
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
-  end
-
   def publication
     page.publication
   end
@@ -62,10 +57,6 @@ class AdBox < ApplicationRecord
     grid_height*grid_y
   end
 
-  def ad_width
-    grid_width*column
-  end
-
   def ad_height
     grid_height*row
   end
@@ -74,6 +65,7 @@ class AdBox < ApplicationRecord
     x             = publication.left_margin
     left_inset    = 0
     right_inset   = 0
+    ad_width      = grid_width*column
     if page.page_number.odd?
       x = publication.width - publication.right_margin - ad_width
       if column < page.column
@@ -103,7 +95,15 @@ class AdBox < ApplicationRecord
   end
 
   def save_layout
+    puts __method__
+    puts "layout_rb:#{layout_rb}"
     File.open(layout_path, 'w'){|f| f.write layout_rb}
+  end
+
+  def generate_pdf
+    save_layout
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    update_page_pdf
   end
 
   def update_page_pdf
@@ -113,7 +113,7 @@ class AdBox < ApplicationRecord
   end
 
   def box_svg
-    "<a xlink:href='/ad_boxes/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{ad_width}' height='#{ad_height}' /></a>\n"
+    "<a xlink:href='/ad_boxes/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
   end
 
 end

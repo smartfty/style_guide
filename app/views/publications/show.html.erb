@@ -10,11 +10,8 @@
     <%= render 'form', publication: @publication %>
   </div>
 
-  <div class="col-md-1">
-    <p>    </p>
-  </div>
 
-  <div class="col-md-5">
+  <div class="col-md-4">
     <div align="center">
       <%= button_to "다운로드 샘플 PDF", download_pdf_publication_path(@publication), method: :get, class: "btn btn-sm btn-danger" %>
     </div>
@@ -23,6 +20,10 @@
       <%= button_to "다운로드 샘플 PDF", download_pdf_publication_path(@publication), method: :get, class: "btn btn-sm btn-danger" %>
     </div>
   </div>
-  
+  <div class="col-md-1">
+    <p>    </p>
+  </div>
+
+
 
 </div>

@@ -30,6 +30,13 @@
   - short key
   - progress wheel
 
+2017_9_21
+  - trigger relayout of AdBox, and Page when uploading ad_image
+  - fix bug in subtile bottom space
+  - ad_box go_back button should link to page
+  - fist page heading ad upload
+  - article_box hover with css
+
 2017_9_4
   - fix copy_section_template to page
       - not to delete the whole thing, but copy layout , config,

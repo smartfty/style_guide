@@ -41,6 +41,7 @@ class AdBoxesController < ApplicationController
   def update
     respond_to do |format|
       if @ad_box.update(ad_box_params)
+        @ad_box.generate_pdf
         format.html { redirect_to @ad_box, notice: 'Ad box was successfully updated.' }
         format.json { render :show, status: :ok, location: @ad_box }
       else
@@ -62,7 +63,7 @@ class AdBoxesController < ApplicationController
 
   def upload_ad_image
     respond_to do |format|
-      format.html do        
+      format.html do
         @ad_image = AdImage.create!(:ad_image => params[:ad_image]['ad_image'], :ad_box_id => @ad_box.id)
        end
      end
