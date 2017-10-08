@@ -1,5 +1,5 @@
 class PageHeadingsController < ApplicationController
-  before_action :set_page_heading, only: [:show, :edit, :update, :destroy]
+  before_action :set_page_heading, only: [:show, :edit, :update, :destroy, :upload_images]
 
   # GET /page_headings
   # GET /page_headings.json
@@ -66,6 +66,21 @@ class PageHeadingsController < ApplicationController
     end
   end
 
+  def upload_images
+    respond_to do |format|
+      format.html do
+        #  if @working_article.update(working_article_params)
+           params[:heading_ad_images]['heading_ad_image'].each do |a|
+             @image = @page_heading.heading_ad_images.create!(:heading_ad_image => a, :page_heading_id => @page_heading.id)
+           end
+        #  end
+       end
+     end
+    redirect_to @page_heading
+    # images_issue_path(Issue.last.id)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page_heading
@@ -74,6 +89,6 @@ class PageHeadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_heading_params
-      params.require(:page_heading).permit(:page_number, :section_name, :date, :publication_id)
+      params.require(:page_heading).permit(:page_number, :section_name, :date, :page_id)
     end
 end

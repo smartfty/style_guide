@@ -1,0 +1,47 @@
+# == Schema Information
+#
+# Table name: heading_ad_images
+#
+#  id               :integer          not null, primary key
+#  heading_ad_image :string
+#  x                :float
+#  y                :float
+#  width            :float
+#  height           :float
+#  x_in_unit        :float
+#  y_in_unit        :float
+#  width_in_unit    :float
+#  height_in_unit   :float
+#  page_heading_id  :integer
+#  advertiser       :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ad_image: MyString
+  x: 1.5
+  'y': 1.5
+  width: 1.5
+  height: 1.5
+  x_in_unit: 1.5
+  y_in_unit: 1.5
+  width_in_unit: 1.5
+  height_in_unit: 1.5
+  page_heading: one
+  advertiser: MyString
+
+two:
+  ad_image: MyString
+  x: 1.5
+  'y': 1.5
+  width: 1.5
+  height: 1.5
+  x_in_unit: 1.5
+  y_in_unit: 1.5
+  width_in_unit: 1.5
+  height_in_unit: 1.5
+  page_heading: two
+  advertiser: MyString

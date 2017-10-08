@@ -78,8 +78,9 @@ class PagesController < ApplicationController
 
   def change_template
     new_template_id = params[:template_id]
-    @page.template_id = new_template_id
-    @page.copy_section_template
+    # @page.template_id = new_template_id
+    # @page.save
+    @page.change_template(new_template_id)
     redirect_to @page, notice: '페이지가 성공적으로 바뀌었습니다.'
   end
 

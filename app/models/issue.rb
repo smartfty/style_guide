@@ -87,7 +87,7 @@ class Issue < ApplicationRecord
     page_plans.each_with_index do |page_plan, i|
       if page_plan.page
         if page_plan.need_update?
-          page_plan.page.change_page(section_template)
+          page_plan.page.change_template(page_plan.selected_template_id)
           page_plan.dirty = false
           page_plan.save
         end

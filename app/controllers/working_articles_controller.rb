@@ -93,11 +93,9 @@ class WorkingArticlesController < ApplicationController
   def upload_images
     respond_to do |format|
       format.html do
-        #  if @working_article.update(working_article_params)
-           params[:images]['image'].each do |a|
-             @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
-           end
-        #  end
+         params[:images]['image'].each do |a|
+           @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
+         end
        end
      end
     redirect_to @working_article

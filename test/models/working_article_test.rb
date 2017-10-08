@@ -3,6 +3,8 @@
 # Table name: working_articles
 #
 #  id             :integer          not null, primary key
+#  grid_x         :integer
+#  grid_y         :integer
 #  column         :integer
 #  row            :integer
 #  order          :integer

@@ -2,4 +2,12 @@
 
 <%= render 'form', ad_image: @ad_image %>
 
-<%= link_to '광고이미지', ad_images_issue_path(@ad_image.issue) %>
+<% if @ad_box %>
+  <div align="center">
+    <%= link_to '광고이미지', ad_images_issue_path(@ad_image.issue) %>
+  </div>
+<% else %>
+  <div align="center">
+    <%= link_to "이전으로", ad_box_path(@ad_image.ad_box), method: :get, class: "btn btn-lg btn-success" %>
+  </div>
+<% end %>

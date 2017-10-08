@@ -56,7 +56,6 @@ gem 'pry-byebug', group: [:development, :test]
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'griddler'
-gem 'simple_form'
 gem 'rails_layout'
 gem 'bootstrap-sass'
 # gem 'high_voltage'
@@ -68,6 +67,7 @@ gem 'devise'
 # gem 'smart_listing'
 # gem 'css3-progress-bar-rails'
 gem 'bootstrap_form'
+gem 'simple_form'
 gem 'rubypants-unicode'
 gem 'carrierwave'
 gem "mini_magick"

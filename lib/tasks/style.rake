@@ -189,12 +189,6 @@ namespace :style do
     File.open(issue_path, 'w'){|f| f.write issue_content}
   end
 
-  desc "update all page layout"
-  task :update_page_layout => :environment do
-    Page.all.each do |page|
-      page.update_page_layout
-    end
-  end
 
   desc "show all page's working_articles count"
   task :working_articles_count =>:environment do
@@ -217,14 +211,6 @@ namespace :style do
     end
   end
 
-  desc 'fix working articles'
-  task :fix_working_articles =>:environment do
-    puts "fix working articles"
-    Page.all.each do |page|
-      page.fix_working_articles
-    end
-  end
-
   desc "generate text styles pdf"
   task :generate_text_style_pdf =>:environment do
     puts "generating pdf for all text_styles"
@@ -232,7 +218,6 @@ namespace :style do
       style.generate_pdf
     end
   end
-
 
   desc "update text styles csv"
   task :update_text_styles_csv =>:environment do

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :section_headings
+  resources :heading_ad_images
   resources :ad_box_templates
   resources :page_plans do
     member do
@@ -28,7 +30,6 @@ Rails.application.routes.draw do
     member do
       get 'download_pdf'
       patch 'upload_images'
-
     end
   end
   resources :issues do
@@ -50,7 +51,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :page_headings
+  resources :page_headings do
+    member do
+      patch 'upload_images'
+    end
+  end
   resources :image_templates do
     collection do
       get 'six'

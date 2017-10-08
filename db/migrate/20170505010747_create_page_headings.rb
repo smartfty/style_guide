@@ -5,8 +5,7 @@ class CreatePageHeadings < ActiveRecord::Migration[5.0]
       t.string :section_name
       t.string :date
       t.text :layout
-      t.integer :publication_id
-
+      t.integer :page_id
       t.timestamps
     end
   end

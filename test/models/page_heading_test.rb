@@ -2,14 +2,14 @@
 #
 # Table name: page_headings
 #
-#  id             :integer          not null, primary key
-#  page_number    :integer
-#  section_name   :string
-#  date           :string
-#  layout         :text
-#  publication_id :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id           :integer          not null, primary key
+#  page_number  :integer
+#  section_name :string
+#  date         :string
+#  layout       :text
+#  page_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require_relative '../test_helper'

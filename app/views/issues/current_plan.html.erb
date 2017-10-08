@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
-<h3 align="center"><%= @issue.date %>: 면 배열표</h3>
+<h3 align="center"><%= @issue.date %>: 면배열표</h3>
 <table border= '1' align="center">
   <thead>
     <tr>
-      <th>페이지</th>
-      <th>면 이름</th>
-      <th>기사 수</th>
-      <th>광고</th>
-      <th>광고주</th>
-      <th>신규 페이지</th>
+      <th>지면</th>
+      <th style="text-align:center;">면머리</th>
+      <th>기사수</th>
+      <th>광고크기</th>
+      <th>칼라</th>
+      <th>광고명</th>
+      <th>버튼</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
           <td style="text-align:center;"><%= page_plan.page_number %></td>
           <td style="text-align:center;"><%= page_plan.section_name %></td>
           <td style="text-align:center;"><%= page_plan.story_count %></td>
+          <td style="text-align:center;"><%= page_plan.ad_type %></td>
           <td style="text-align:center;"><%= page_plan.ad_type %></td>
           <td style="text-align:center;"><%= page_plan.advertiser %></td>
           <% if page_plan.need_update? %>
@@ -34,6 +36,7 @@
           <td style="text-align:center;"><%= page_plan.page_number %></td>
           <td style="text-align:center;"><%= page_plan.section_name %></td>
           <td style="text-align:center;"><%= page_plan.story_count %></td>
+          <td style="text-align:center;"><%= page_plan.ad_type %></td>
           <td style="text-align:center;"><%= page_plan.ad_type %></td>
           <td style="text-align:center;"><%= page_plan.advertiser %></td>
           <% if page_plan.need_update? %>

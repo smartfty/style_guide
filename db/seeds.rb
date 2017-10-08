@@ -44,7 +44,7 @@ h[:page_count]                      = 24
 h[:section_names]                   = section_names
 h[:page_columns]                    = [6,7]
 h[:row]                             = 15
-h[:front_page_heading_height]       = 8
+h[:front_page_heading_height]       = 10
 h[:inner_page_heading_height]       = 3
 h[:article_bottom_spaces_in_lines]  = 2
 h[:article_line_draw_sides]         = [0,0,0,1]
@@ -53,7 +53,7 @@ h[:article_line_thickness]          = 0.3
 p = Publication.where(h).first_or_create
 #
 section_names.each_with_index do |section_name, i|
-  ph = PageHeading.where(publication_id: p.id, page_number: i + 1, section_name: section_name, date: Date.new(2017,5,30)).first_or_create
+  SectionHeading.where(publication_id:p.id, page_number: i + 1, section_name: section_name, date: Date.new(2017,5,30)).first_or_create
   # ph.generate_pdf
 end
 
@@ -87,8 +87,8 @@ csv.each do |row|
   # s.update_section_layout  if s
 end
 #
-# issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1).first_or_create
-issue = Issue.create!(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1)
+
+issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1).first_or_create
 issue.make_default_issue_plan if issue
 
 # #

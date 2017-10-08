@@ -3,6 +3,8 @@
 # Table name: articles
 #
 #  id             :integer          not null, primary key
+#  grid_x         :integer
+#  grid_y         :integer
 #  column         :integer
 #  row            :integer
 #  order          :integer
@@ -24,7 +26,6 @@
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
-#  page_columns   :integer
 #  section_id     :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

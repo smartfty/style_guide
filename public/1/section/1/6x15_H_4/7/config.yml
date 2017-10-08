@@ -2,7 +2,7 @@
 date: 2017-04-10
 section_name: 1면
 is_front_page: true
-page_heading_margin_in_lines: 1
+page_heading_margin_in_lines: 3
 :ad_type: no_ad
 page_columns: 6
 grid_size:

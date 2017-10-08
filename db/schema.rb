@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630013933) do
+ActiveRecord::Schema.define(version: 20170927235053) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -91,6 +91,23 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "heading_ad_images", force: :cascade do |t|
+    t.string "heading_ad_image"
+    t.float "x"
+    t.float "y"
+    t.float "width"
+    t.float "height"
+    t.float "x_in_unit"
+    t.float "y_in_unit"
+    t.float "width_in_unit"
+    t.float "height_in_unit"
+    t.integer "page_heading_id"
+    t.string "advertiser"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_heading_id"], name: "index_heading_ad_images_on_page_heading_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.integer "column"
     t.integer "row"
@@ -125,7 +142,7 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.string "section_name"
     t.string "date"
     t.text "layout"
-    t.integer "publication_id"
+    t.integer "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -202,6 +219,16 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.text "article_line_draw_sides"
     t.float "article_line_thickness"
     t.boolean "draw_divider"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "section_headings", force: :cascade do |t|
+    t.integer "page_number"
+    t.string "section_name"
+    t.string "date"
+    t.text "layout"
+    t.integer "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -291,9 +318,12 @@ ActiveRecord::Schema.define(version: 20170630013933) do
     t.boolean "is_front_page"
     t.boolean "top_story"
     t.boolean "top_position"
+    t.boolean "inactive"
+    t.integer "article_id"
     t.integer "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
   end
 

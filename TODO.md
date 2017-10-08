@@ -30,12 +30,51 @@
   - short key
   - progress wheel
 
-2017_9_21
+2017_10_7
+  - add inactive field to WorkingArticle
+    - this will allow us to keep unused articles as inactive, between template change.
+  - add article_id to WorkingArticle
+2017_10_7
+  - fix switching page templates,
+    - page_view_show
+      - change_template_page_path
+    - delete unused ad_boxes
+    - show progress
+
+  - add Trix WYSIWIG editor
+    fix story.md to story.yml
+
+    - 본문 중간제목 별도의 스타일
+        앞 1 줄 적용
+    - 본문 고딕은 inline emphasis 적용 **내용** to mean 본문고딕
+    - fix style_guide text_style preview with our text system
+
+  - editors note, 문패
+
+2017_9_27
+  - apply scale to text
+  - apply custom text to body, caption, and title
+  - create SectionHeading
+  - SectionHeading.update_section_configs
+
+
+
+2017_9_26
+  - apply text_style from saved custom setting
+  - subtitle apply new line with return key
+  - fist page heading ad upload
+      t.integer :page_id
+      t.string :heading_ad
+      mount_uploader :heading_ad, HeadingAdUploader
+  - apply new page heading with AI file
+  - fix title width with non-edge box
+
+2017_9_25
+  - redirect_to to page after uploading ad_image
+    placed images are lost during switching page
   - trigger relayout of AdBox, and Page when uploading ad_image
   - fix bug in subtile bottom space
   - ad_box go_back button should link to page
-  - fist page heading ad upload
-  - article_box hover with css
 
 2017_9_4
   - fix copy_section_template to page

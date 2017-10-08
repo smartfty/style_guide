@@ -23,9 +23,10 @@ class Page < ApplicationRecord
   belongs_to :page_plan
   has_many :working_articles
   has_many :ad_boxes
-
+  has_one :page_heading
   before_create :copy_attributes_from_template
   after_create :setup
+
 
   DAYS_IN_KOREAN = %w{일요일 월요알 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
@@ -38,9 +39,6 @@ class Page < ApplicationRecord
     path + "/story_backup"
   end
 
-  def s
-    #code
-  end
   def url
     "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
   end
@@ -197,71 +195,33 @@ class Page < ApplicationRecord
     "#{Rails.root}/public/#{publication.id}/section/#{page_number}/#{profile}/#{template_id}"
   end
 
-  def  fix_working_articles
-    template_section = Section.find(template_id)
-    layout = eval(template_section.layout)
-    layout.each_with_index do |box, i|
-      atts = {}
-      atts[:page_id]  = self
-      atts[:order]    = i + 1
-      if box.length == 4
-        target = WorkingArticle.where(atts).first_or_create
-        target.grid_x     = box[0]
-        target.grid_y     = box[1]
-        target.column     = box[2]
-        target.row        = box[3]
-        target.is_front_page = (page_number == 1 ? true : false)
-        target.top_story     = (i == 0 ? true : false)
-        target.top_position  = false
-        if box[1] == 0 && page_number != 1
-          target.top_position  = true
-        elsif box[1] == 1 && page_number == 1
-          target.top_position  = true
-        end
-        if box[0] == 0
-          target.on_left_edge = true
-        end
-        if box[0] + box[2] == column
-          target.on_right_edge = true
-        end
-        target.save
-      else
-        #TODO we have non-article box, ad or something
-        # since this is copyied form section template
-        # we might not have to anything?
-      end
-    end
-  end
-
   def update_working_articles
-    section = Section.find(template_id)
-    self.profile      = section.profile
-    self.page_number  = section.page_number
-    self.section_name = section.section_name
-    self.column       = section.column
-    self.row          = section.row
-    self.ad_type      = section.ad_type
-    self.story_count  = section.story_count
-    self.save
     # delete unused working_articles
-    if working_articles.count > 0
-      working_articles.each do |old|
-        old.destroy
-      end
-    end
-    # copy working_article from template_section
-    current_working_articles = working_articles
+    section = Section.find(template_id)
     section.articles.each_with_index do |article, i|
-      atts = article.attributes
-      atts = Hash[atts.map{ |k, v| [k.to_sym, v] }]
-      atts.delete(:id)
-      atts.delete(:section_id)
-      atts.delete(:created_at)
-      atts.delete(:updated_at)
-      atts[:page_id] = self.id
-      atts[:order] = i + 1
-      WorkingArticle.where(atts).first_or_create
+      current = {page_id: self.id, order:i+1}
+      if wa = WorkingArticle.where(current).first
+        wa.change_article(article)
+      else
+        current[:article_id] = article.id
+        WorkingArticle.create(current)
+      end
+
     end
+
+    # mark unused as inactive
+    working_articles.each_with_index do |working_article, i|
+      working_article.inactive = true if i >= section.articles.length
+      working_article.save
+    end
+
+    # create PageHeading for this page
+    heading_atts                  = {}
+    heading_atts[:page_number]    = section.page_number
+    heading_atts[:page_id]        = self.id
+    heading_atts[:date]           = issue.date
+    result                        = PageHeading.where(heading_atts).first_or_create
+
     # copy ad_box from template_section
     current_ad_articles = ad_boxes
     section.ad_box_templates.each_with_index do |ad, i|
@@ -302,7 +262,8 @@ class Page < ApplicationRecord
   def copy_section_template
     source = Dir.glob("#{section_template_folder}/*").first
     old_article_count = working_articles.length
-    new_aricle_count  = Section.find(template_id).story_count
+    section           = Section.find(template_id)
+    new_aricle_count  = section.story_count
     if source
       copy_config_file
       new_aricle_count.times do |i|
@@ -353,11 +314,11 @@ class Page < ApplicationRecord
     update_working_articles
   end
 
-  def change_page(new_section_template_id)
-    new_section_template = Section.find(new_section_template_id)
-    section_hash = new_section_template.attributes
-    section_hash = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
-    section_hash[:template_id] = new_section_template_id
+  def change_template(new_template_id)
+    new_section                 = Section.find(new_template_id)
+    section_hash                = new_section.attributes
+    section_hash                = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
+    section_hash[:template_id]  = new_template_id
     section_hash.delete(:id)
     section_hash.delete(:layout)
     section_hash.delete(:order)
@@ -366,14 +327,20 @@ class Page < ApplicationRecord
     section_hash.delete(:created_at)
     section_hash.delete(:updated_at)
     update(section_hash)
-    update_page_layout
-  end
-
-  def update_page_layout
-    copy_section_template
+    # update ad_box
+    # remove current ad_boxz unless new template has same size ad
+    if ad_boxes.count > 0 && (new_section.ad_box_templates.count == 0 || new_section.ad_box_templates.first.ad_type != ad_boxes.first.ad_type)
+      ad_boxes.each do |ad_box|
+        ad_box.page_id = nil
+        ad_box.save
+      end
+    end
+    copy_config_file
+    update_working_articles
     generate_heading_pdf
     regenerate_pdf
   end
+
 
   def heading_height_in_pt
     if page_number == 1
@@ -392,7 +359,7 @@ class Page < ApplicationRecord
   end
 
   def generate_heading_pdf
-    PageHeading.generate_pdf(self)
+    page_heading.generate_pdf
   end
 
   def generate_pdf
@@ -423,12 +390,6 @@ class Page < ApplicationRecord
     page_heading_url + "/output.pdf"
   end
 
-  def page_heading_svg
-    # "<image xlink:href='#{page_heading_jpg_path}' x='0' y='0' width='#{page_heading_width}' height='#{page_heading_height}' />\n"
-    "<image xlink:href='#{page_heading_pdf_path}' x='0' y='0' width='#{page_heading_width}' height='#{page_heading_height}' />\n"
-      # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-  end
-
   def page_svg
     "<image xlink:href='#{pdf_image_path}' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />\n"
     #code
@@ -438,7 +399,10 @@ class Page < ApplicationRecord
     box_element_svg = page_svg
     box_element_svg += "<g transform='translate(#{doc_left_margin},#{doc_top_margin})' >\n"
     # box_element_svg += page_svg
+    box_element_svg += page_heading.box_svg if page_number == 1
+    puts "box_element_svg:#{box_element_svg}"
     working_articles.each do |article|
+      next if article.inactive
       box_element_svg += article.box_svg
     end
     ad_boxes.each do |ad_box|

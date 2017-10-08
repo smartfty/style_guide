@@ -3,6 +3,8 @@
 # Table name: working_articles
 #
 #  id             :integer          not null, primary key
+#  grid_x         :integer
+#  grid_y         :integer
 #  column         :integer
 #  row            :integer
 #  order          :integer
@@ -31,9 +33,10 @@
 
 class WorkingArticle < ApplicationRecord
   belongs_to :page
+  belongs_to :article
   has_many :images
-  has_one :ad_images
-  before_create :parse_article
+  # before_create :parse_article
+  before_create :init_atts
   accepts_nested_attributes_for :images
 
   def page_path
@@ -231,10 +234,8 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-
   end
 
-  private
 
   def parse_story
     source      = read_story
@@ -262,6 +263,7 @@ class WorkingArticle < ApplicationRecord
     self.subject_head   = @metadata['subject_head']
   end
 
+
   def parse_article_info
     if article_info_hash = article_info
       self.kind           = article_info_hash[:kind]
@@ -273,6 +275,8 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  # private
+
   # parse working_article info from copied article_template files
   def parse_article
     if article_info
@@ -283,4 +287,52 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  def change_article(new_article)
+    self.article_id = new_article.id
+    article_info_hash   = new_article.attributes
+    article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
+    self.kind           = article_info_hash[:kind]
+    self.grid_x         = article_info_hash[:grid_x]
+    self.grid_y         = article_info_hash[:grid_y]
+    self.column         = article_info_hash[:column]
+    self.row            = article_info_hash[:row]
+    self.is_front_page  = article_info_hash[:is_front_page]
+    self.top_story      = article_info_hash[:top_story]
+    self.top_position   = article_info_hash[:top_position]
+    self.inactive       = false
+    self.save
+
+  end
+
+  private
+
+  def init_atts
+    article_info_hash   = article.attributes
+    article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
+    self.kind           = article_info_hash[:kind]
+    self.grid_x         = article_info_hash[:grid_x]
+    self.grid_y         = article_info_hash[:grid_y]
+    self.column         = article_info_hash[:column]
+    self.row            = article_info_hash[:row]
+    self.is_front_page  = article_info_hash[:is_front_page]
+    self.top_story      = article_info_hash[:top_story]
+    self.top_position   = article_info_hash[:top_position]
+    self.inactive       = false
+    self.title          = '제목은 여기에 여기는 제목'
+    self.subtitle       = '부제는 여기에 여기는 부제목 자리'
+    self.reporter       = '홍길동'
+    self.email          = 'gdhong@gmail.com'
+    self.body =<<~EOF
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+
+    EOF
+  end
 end

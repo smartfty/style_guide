@@ -3,6 +3,8 @@
 # Table name: ad_boxes
 #
 #  id         :integer          not null, primary key
+#  grid_x     :integer
+#  grid_y     :integer
 #  column     :integer
 #  row        :integer
 #  ad_type    :string

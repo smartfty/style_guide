@@ -12,8 +12,8 @@
 #  story_count    :integer
 #  page_number    :integer
 #  section_name   :string
-#  color_page     :boolean          default("f")
-#  publication_id :integer          default("1")
+#  color_page     :boolean          default(FALSE)
+#  publication_id :integer          default(1)
 #  layout         :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

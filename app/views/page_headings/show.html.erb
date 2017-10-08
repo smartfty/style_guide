@@ -1,26 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<img src="<%= @page_heading.pdf_image_path %>"></img>
+<div class="row">
+  <div class="col-md-2">
+    <%= render 'form', page_heading: @page_heading %>
 
-<p>
-  <strong>Page number:</strong>
-  <%= @page_heading.page_number %>
-</p>
+  </div>
+  <div class="col-md-10">
+    <img src="<%= @page_heading.pdf_image_path %>"></img>
+    <div align="center">
 
-<p>
-  <strong>Section name:</strong>
-  <%= @page_heading.section_name %>
-</p>
+    <% if  @page_heading.heading_ad_images.length == 0%>
+      <%= form_with( model: @page_heading, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
+        <%= f.fields_for :heading_ad_images, HeadingAdImage.new do |p| %>
+          <div class="field">
+            <%= p.label '쪽광고 선택' %><br>
+            <h3> <%= p.file_field :heading_ad_image, :multiple => true, name: "heading_ad_images[heading_ad_image][]" %></h3>
+          </div>
+        <% end %>
 
-<p>
-  <strong>Date:</strong>
-  <%= @page_heading.date %>
-</p>
+        <div class="actions">
+          <%= f.button "쪽광고 올리기", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+        </div>
+      <% end %>
+    <% end %>
 
-<p>
-  <strong>Publication:</strong>
-  <%= @page_heading.publication %>
-</p>
+    </div>
 
-<%= link_to 'Edit', edit_page_heading_path(@page_heading) %> |
-<%= link_to 'Back', page_headings_path %>
+    <div class="row">
+      <% @page_heading.heading_ad_images.each do |image| %>
+        <div class="col-md-3">
+          <p><a href="<%=  edit_heading_ad_image_path(image) %>"><%= image_tag image.heading_ad_image.url(:thumb) %></a></p>
+          <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="button-group">
+    <%= link_to "이전으로", page_path(@page_heading.page), method: :get, class: "btn btn-lg btn-success" %>
+</div>

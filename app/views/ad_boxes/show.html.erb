@@ -6,8 +6,10 @@
   </div>
   <div class="col-md-8">
     <% if @ad_box.ad_image %>
+
       <p><a href="<%=  edit_ad_image_path(@ad_box.ad_image) %>"><%= image_tag @ad_box.jpg_image_path %></a></p>
       <p><%= link_to '삭제', @ad_box.ad_image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
     <% else %>
       <%= form_with( model: @ad_box, :html => { :multipart => true }, :url=> {action: 'upload_ad_image'}) do |f| %>
         <%= f.fields_for :ad_image, AdImage.new do |p| %>

@@ -38,7 +38,7 @@ class PagePlan < ApplicationRecord
   end
 
   def update_page
-    page.change_page(selected_template_id) if page
+    page.change_template(selected_template_id) if page
   end
 
   private

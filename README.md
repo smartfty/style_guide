@@ -84,11 +84,31 @@ Rails app for creating style guide for newspaper publication
   image
   quote
 
+## section_heading
+page_number
+publication_id
+section_name
+date
+
 ## page_heading
+  page_id
   page_number
   section_name
   layout
   publication
+
+## heading_ad_images
+  x
+  y
+  width
+  height
+  x_in_unit
+  y_in_unit
+  width_in_unit
+  height_in_unit
+  ad_image # carrierwave uploader
+  advertiser
+  page_heading_id
 
 ## issue
   references:publication
@@ -136,6 +156,8 @@ Rails app for creating style guide for newspaper publication
   t.string :ad_type
   t.string :advertiser
   t.references :page, foreign_key: true
+
+## AdImage
 
 
 ## Issue_plan_page
