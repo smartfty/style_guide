@@ -23,10 +23,8 @@ one:
   ad_type: MyString
   column: 1
   row: 1
-  working_article_id: 1
 
 two:
   ad_type: MyString
   column: 1
   row: 1
-  working_article_id: 1

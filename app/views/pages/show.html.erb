@@ -47,10 +47,14 @@
           </div>
         <% else %>
           <div class='unselected_template'>
-            <p><a href="<%=  change_template_page_path(@page.id, template_id: template.id) %>"><img  src="<%= template.pdf_image_path %>" width="100%"></img></a></p>
+            <p><img  src="<%= template.pdf_image_path %>" width="100%"></img></p>
             <div align="center">
               <h4><%= template.profile =%></h4>
             </div>
+            <div align="center">
+              <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
+            </div>
+
           </div>
         <% end %>
       </div>

@@ -21,7 +21,12 @@
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "create class" do
+    assert true
+  end
+
+  test "change_template" do
+
+    
+  end
 end

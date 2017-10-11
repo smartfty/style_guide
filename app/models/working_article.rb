@@ -37,6 +37,7 @@ class WorkingArticle < ApplicationRecord
   has_many :images
   # before_create :parse_article
   before_create :init_atts
+  after_create :setup
   accepts_nested_attributes_for :images
 
   def page_path
@@ -45,6 +46,10 @@ class WorkingArticle < ApplicationRecord
 
   def path
     page_path + "/#{order}"
+  end
+
+  def setup
+    FileUtils.mkdir_p path unless File.exist?(path)
   end
 
   def images_path

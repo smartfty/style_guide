@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170927235053) do
     t.integer "row"
     t.string "ad_type"
     t.string "advertiser"
+    t.boolean "inactive"
     t.integer "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

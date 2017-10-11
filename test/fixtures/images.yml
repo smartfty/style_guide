@@ -27,7 +27,6 @@ one:
   column: 1
   row: 1
   extra_height_in_lines: 1
-  image_path: MyString
   caption_title: MyString
   caption: MyString
   position: 1
@@ -38,7 +37,6 @@ two:
   column: 1
   row: 1
   extra_height_in_lines: 1
-  image_path: MyString
   caption_title: MyString
   caption: MyString
   position: 1

@@ -18,9 +18,14 @@ class AdBox < ApplicationRecord
   belongs_to :page
   has_one  :ad_image
   accepts_nested_attributes_for :ad_image
+  after_create :setup
 
   def path
     page.path + "/ad"
+  end
+
+  def setup
+    FileUtils.mkdir_p path unless File.exist?(path)
   end
 
   def publication
@@ -82,7 +87,7 @@ class AdBox < ApplicationRecord
       end
     end
 
-    image_path    = ad_image.image_path
+    image_path    = ad_image.image_path if ad_image
     content=<<~EOF
     RLayout::NewsAdBox.new(is_ad_box: true, width: #{ad_width}, left_inset: #{left_inset}, right_inset: #{right_inset}, height:#{ad_height}, top_margin: 13.849238095238096) do
       image(image_path: '#{image_path}', layout_expand: [:width, :height])
@@ -99,7 +104,9 @@ class AdBox < ApplicationRecord
   def save_layout
     puts __method__
     puts "layout_rb:#{layout_rb}"
+    puts "layout_path:#{layout_path}"
     File.open(layout_path, 'w'){|f| f.write layout_rb}
+    puts "File.exist?(layout_path):#{File.exist?(layout_path)}"
   end
 
   def generate_pdf

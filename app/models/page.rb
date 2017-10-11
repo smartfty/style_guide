@@ -208,13 +208,15 @@ class Page < ApplicationRecord
       end
 
     end
-
     # mark unused as inactive
     working_articles.each_with_index do |working_article, i|
-      working_article.inactive = true if i >= section.articles.length
+      if i >= section.articles.length
+        working_article.inactive = true
+      else
+        working_article.inactive = false
+      end
       working_article.save
     end
-
     # create PageHeading for this page
     heading_atts                  = {}
     heading_atts[:page_number]    = section.page_number
@@ -222,22 +224,31 @@ class Page < ApplicationRecord
     heading_atts[:date]           = issue.date
     result                        = PageHeading.where(heading_atts).first_or_create
 
-    # copy ad_box from template_section
-    current_ad_articles = ad_boxes
-    section.ad_box_templates.each_with_index do |ad, i|
-      atts = ad.attributes
-      atts = Hash[atts.map{ |k, v| [k.to_sym, v] }]
-      atts.delete(:id)
-      atts.delete(:order)
-      atts.delete(:section_id)
-      atts.delete(:created_at)
-      atts.delete(:updated_at)
-      current_ad = current_ad_articles[i]
-      unless current_ad
-        atts[:page_id] = self.id
-        current_ad = AdBox.where(atts).first_or_create
+
+  end
+
+  def update_ad_boxes
+    section = Section.find(template_id)
+    section.ad_box_templates.each_with_index do |ad_box_template, i|
+      current = {page_id: self.id}
+      if ad = AdBox.where(current).first
+      else
+        current[:grid_x] = ad_box_template.grid_x
+        current[:grid_y] = ad_box_template.grid_y
+        current[:column] = ad_box_template.column
+        current[:row] = ad_box_template.row
+        AdBox.create(current)
       end
-      current_ad.update(atts)
+    end
+
+    # mark unused as inactive
+    ad_boxes.each_with_index do |ad_box, i|
+      if i >= section.ad_box_templates.length
+        ad_box.inactive = true
+      else
+        ad_box.inactive = false
+      end
+      ad_box.save
     end
   end
 
@@ -312,9 +323,11 @@ class Page < ApplicationRecord
       puts "No template in #{section_template_folder}"
     end
     update_working_articles
+    update_ad_boxes
   end
 
   def change_template(new_template_id)
+    puts "++++++++ new_template_id:#{new_template_id}"
     new_section                 = Section.find(new_template_id)
     section_hash                = new_section.attributes
     section_hash                = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
@@ -336,8 +349,9 @@ class Page < ApplicationRecord
       end
     end
     copy_config_file
-    update_working_articles
     generate_heading_pdf
+    update_working_articles
+    update_ad_boxes
     regenerate_pdf
   end
 

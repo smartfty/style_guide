@@ -18,10 +18,8 @@ one:
   page_number: 1
   section_name: MyString
   date: MyString
-  publication: one
 
 two:
   page_number: 1
   section_name: MyString
   date: MyString
-  publication: two

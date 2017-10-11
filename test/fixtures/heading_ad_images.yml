@@ -21,7 +21,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ad_image: MyString
   x: 1.5
   'y': 1.5
   width: 1.5
@@ -34,7 +33,6 @@ one:
   advertiser: MyString
 
 two:
-  ad_image: MyString
   x: 1.5
   'y': 1.5
   width: 1.5
