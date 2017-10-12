@@ -223,8 +223,6 @@ class Page < ApplicationRecord
     heading_atts[:page_id]        = self.id
     heading_atts[:date]           = issue.date
     result                        = PageHeading.where(heading_atts).first_or_create
-
-
   end
 
   def update_ad_boxes

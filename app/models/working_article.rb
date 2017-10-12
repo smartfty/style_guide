@@ -129,6 +129,12 @@ class WorkingArticle < ApplicationRecord
     h
   end
 
+  def story_yml
+    h = {}
+    h[:heading] = story_metadata
+    h[:body]    = body
+  end
+
   def story_md
     story_md =<<~EOF
     #{story_metadata.to_yaml}
@@ -301,6 +307,8 @@ class WorkingArticle < ApplicationRecord
     self.grid_y         = article_info_hash[:grid_y]
     self.column         = article_info_hash[:column]
     self.row            = article_info_hash[:row]
+    self.on_left_edge   = article_info_hash[:on_left_edge]
+    self.on_right_edge  = article_info_hash[:on_right_edge]
     self.is_front_page  = article_info_hash[:is_front_page]
     self.top_story      = article_info_hash[:top_story]
     self.top_position   = article_info_hash[:top_position]

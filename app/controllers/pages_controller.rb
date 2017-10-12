@@ -80,7 +80,7 @@ class PagesController < ApplicationController
     new_template_id = params[:template_id]
     @page.change_template(new_template_id)
     respond_to do |format|
-        format.js   {}
+        format.js   {render :js => "window.location = '#{page_path(@page)}'"}
     end
     # redirect_to @page, notice: '페이지가 성공적으로 바뀌었습니다.'
   end
