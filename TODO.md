@@ -29,6 +29,58 @@
   - page_plan
   - short key
   - progress wheel
+  
+2017_10_15
+  - eNews
+    search
+    view page
+    download pdf article
+    download image from pdf article
+
+2017_10_15
+  - page reload for working_article
+  - page reload for page
+
+2017_10_7
+    제목입력박스
+      제목        # 여기제목                  
+      부제목      ##
+      문패       ###
+      리딩       ####
+
+    본문입력박스
+      본문
+      본문고딕    **내용**
+      기자명      >
+      관련기사    [관련기사 2면]
+
+      테두리제목   #
+      편집자주    ##
+      중간제목    ###
+      안내박스    ####
+
+    발문입력박스(floating text_box)
+      제목      #
+      제목      ##
+      발문      ###
+      본문      
+
+    사진_박스(floating text_box)
+      사진설명제목  #
+      사진설명     ##
+      출처        ###
+
+2017_10_7
+    기사, 기고, 사설, 이미지_박스, 디자인박스
+
+2017_10_7
+  ## graphic_request #그래픽
+    date              # 일시
+    title             # 내용
+    requester         # 의뢰자
+    person_in_charge  # 작업자
+    status            # 진행중, 완성
+    description       # 비고
 
 2017_10_7
   - add inactive field to WorkingArticle

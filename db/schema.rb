@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927235053) do
+ActiveRecord::Schema.define(version: 20171012061848) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -88,6 +88,17 @@ ActiveRecord::Schema.define(version: 20170927235053) do
     t.boolean "top_story"
     t.boolean "top_position"
     t.integer "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "graphic_requests", force: :cascade do |t|
+    t.date "date"
+    t.string "title"
+    t.string "requester"
+    t.string "person_in_charge"
+    t.string "status"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

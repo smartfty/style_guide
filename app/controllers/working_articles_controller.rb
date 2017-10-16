@@ -44,8 +44,10 @@ class WorkingArticlesController < ApplicationController
       if @working_article.update(working_article_params)
         @working_article.generate_pdf
         @working_article.update_page_pdf
-        request.referrer
-        format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
+        # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
+        # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
+        format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
+
         format.json { render :show, status: :ok, location: @working_article }
       else
         format.html { render :edit }

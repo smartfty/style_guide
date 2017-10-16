@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :graphic_requests
   resources :section_headings
   resources :heading_ad_images
   resources :ad_box_templates

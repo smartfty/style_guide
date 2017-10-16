@@ -46,7 +46,9 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.update(page_params)
         request.referrer
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        # format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        format.html {render :js => "window.location = '#{page_path(@page)}'"}
+
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
