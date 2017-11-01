@@ -118,7 +118,7 @@ class AdBox < ApplicationRecord
   def update_page_pdf
     page_path = page.path
     puts "page_path:#{page_path}"
-    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
+    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def box_svg

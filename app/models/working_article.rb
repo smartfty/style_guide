@@ -103,7 +103,7 @@ class WorkingArticle < ApplicationRecord
   def update_page_pdf
     page_path = page.path
     puts "page_path:#{page_path}"
-    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
+    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def article_info
@@ -206,7 +206,15 @@ class WorkingArticle < ApplicationRecord
     h[:grid_height]                   = grid_height
     h[:gutter]                        = gutter
     h[:on_left_edge]                  = on_left_edge
+    if h[:on_left_edge].nil?
+      h[:on_left_edge] = false
+      h[:on_left_edge] = true if grid_x == 0
+    end
     h[:on_right_edge]                 = on_right_edge
+    if h[:on_right_edge].nil?
+      h[:on_right_edge] = false
+      h[:on_right_edge] = true if h[:column] + grid_x == page.column
+    end
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
     h[:top_position]                  = top_position
@@ -216,12 +224,29 @@ class WorkingArticle < ApplicationRecord
     h[:article_line_draw_sides]       = publication.article_line_draw_sides
     h[:article_line_draw_sides]       = publication.draw_divider
     h
-    h = h.to_s.gsub("{", "").gsub("}", "")
-    content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-    if image_hash = image_options
-      content += "  news_image(#{image_hash})\n"
+    # h = h.to_s.gsub("{", "").gsub("}", "")
+    if kind == '사진'
+      content = "RLayout::NewsImageBox.new(#{h}) do\n"
+      if image_hash = image_options
+        image_hash[:fit_type] = 4
+        image_hash[:expand] = [:width, :height]
+        puts "image_hash:#{image_hash}"
+        content += "  news_image(#{image_hash})\n"
+      end
+      content += "end\n"
+    elsif kind == '만평'
+      content = "RLayout::NewsComicBox.new(#{h}) do\n"
+      if image_hash = image_options
+        content += "  news_image(#{image_hash})\n"
+      end
+      content += "end\n"
+    else
+      content = "RLayout::NewsArticleBox.new(#{h}) do\n"
+      if image_hash = image_options
+        content += "  news_image(#{image_hash})\n"
+      end
+      content += "end\n"
     end
-    content += "end\n"
     content
   end
 

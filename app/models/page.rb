@@ -375,14 +375,14 @@ class Page < ApplicationRecord
   end
 
   def generate_pdf
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def regenerate_pdf
     working_articles.each do |working_article|
       working_article.generate_pdf
     end
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def eval_layout

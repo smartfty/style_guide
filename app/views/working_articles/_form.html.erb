@@ -15,8 +15,18 @@
 
   <div class="form-group">
     <%= f.label :기사종류 %>
-    <%= f.select :kind, ['기사', '기고', '사설', '사진'] %>
+    <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
   </div>
+  <% if article.kind ==  '사진'%>
+    <p>여기에 사진 정보 입력</p>
+
+  <% elsif article.kind ==  '만평' %>
+    <div class="form-group">
+      <%= f.label :기자명 %>
+      <%= f.text_field :reporter %>
+    </div>
+
+  <% else %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
@@ -65,6 +75,8 @@
   <div class="field">
     <%= f.text_field :quote, type: "hidden" %>
   </div>
+  <% end %>
+
 
   <div class="actions">
     <%= f.button "저장", class: "btn btn-primary btn-lg", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>

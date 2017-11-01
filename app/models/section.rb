@@ -251,7 +251,7 @@ class Section < ApplicationRecord
   end
 
   def generate_pdf
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section_pdf ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def svg_box

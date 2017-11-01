@@ -29,7 +29,52 @@
   - page_plan
   - short key
   - progress wheel
-  
+
+2017_10_31
+  create NewsBpx < Container
+  NewsArticleBox  < NewsBpx
+  NewsImageBox    < NewsBpx
+  NewsComicBox    < NewsBpx
+  NewsEditorialBox < NewsBpx
+  NewsOpinionBox  < NewsBpx
+  NewsAdBox       < NewsBpx
+
+  handle bottom position
+    draw line?
+    leave a space at the bottom?
+
+2017_10_23
+  박스사진
+    박스사진 하단 2행 여백 줄
+    그램에만 테두리
+    맨 윗줄이 아닐경우 위에 1행 여백
+    left_edge, right_edge 적용
+
+  만평
+    만평은 테두리 있고/없고 0.3포인트
+    만평 타이들로고
+    작가이름(본문기자 이름 스타일 사용)
+    left_edge, right_edge 적용
+
+  판권 박스
+    left_edge, right_edge 적용 없음
+
+2017_10_18
+  - 상단여백 1줄,  when v_position == center or bottom
+
+2017_10_17
+  - 사진위치 변경
+    - 우쯕상단, 중간상당, ...
+    - 하단 여백 적용
+
+  - 그래픽 첨부
+  - 부제 줄바꾸기 지원
+  - 돌출광고
+  - 제목 부제 사이즈 조절
+
+2017_10_16
+  - working article article kind tab or pill
+
 2017_10_15
   - eNews
     search
