@@ -397,16 +397,20 @@ class Section < ApplicationRecord
 
       if box.length == 5 && box[4].class == Hash
         h = box[4]
-        ad_box_atts = {}
-        ad_box_atts[:section_id]   = self.id
-        ad_box_atts[:grid_x]   = box[0]
-        ad_box_atts[:grid_y]   = box[1]
-        ad_box_atts[:column]   = box[2]
-        ad_box_atts[:row]      = box[3]
-        ad_box_atts[:order]    = i + 1
-        ad_box_atts[:ad_type]   = h[:type].gsub(" ","-")     if h[:type]
-        ad_box_atts[:ad_type]   = h[:광고].gsub(" ","-")      if h[:광고]
-        AdBoxTemplate.where(ad_box_atts).first_or_create!
+        if h[:광고] || h[:type]
+          ad_box_atts = {}
+          ad_box_atts[:section_id]   = self.id
+          ad_box_atts[:grid_x]   = box[0]
+          ad_box_atts[:grid_y]   = box[1]
+          ad_box_atts[:column]   = box[2]
+          ad_box_atts[:row]      = box[3]
+          ad_box_atts[:order]    = i + 1
+          ad_box_atts[:ad_type]   = h[:type].gsub(" ","-")     if h[:type]
+          ad_box_atts[:ad_type]   = h[:광고].gsub(" ","-")      if h[:광고]
+          AdBoxTemplate.where(ad_box_atts).first_or_create!
+        elsif h[:박스광고] || h[:display_ad]
+          # TODO create display_ad_area
+        end
       else
         article_atts[:on_left_edge] = false
         article_atts[:on_left_edge] = true if box[0] == 0

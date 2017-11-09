@@ -3,41 +3,38 @@
 - make demo video
 - make user manual
 - ajaxify all pdf_generatoin
-- enable ace editor
+- enable ace editor/Trix, or Quill
 
 - paginate remote with kaminari
-- add ransack for index search
+- add ransack for searching
 
 ## get record with unique field (:layout)
 - Section.distinct.pluck(:layout)
 
 - fill_up words for article template
-- place ad
-- place image
-- issue_plan edit
-- page_view with clickable page view
 - use key to summit
-
-  - name
-  - publication_id
-
-  - add path
   - parse svg and make pdf
   - page_headings
       - SVG to PDF
-
-  - page_plan
   - short key
   - progress wheel
 
+2017_11_9
+  - 제목 3단 should have space_before of 1 line, but it doesn't
+  - file upload PDF rmagick can not render PDF for thumbnail
+  - EPS support
+
+  create NewsDisplayAdBox
+    NewsDisplayAdBox  < Container
+    NewsDisplayAdItem < Container
+
 2017_10_31
-  create NewsBpx < Container
-  NewsArticleBox  < NewsBpx
-  NewsImageBox    < NewsBpx
-  NewsComicBox    < NewsBpx
-  NewsEditorialBox < NewsBpx
-  NewsOpinionBox  < NewsBpx
-  NewsAdBox       < NewsBpx
+  create
+    NewsBox < Container
+    NewsArticleBox  < NewsBox
+    NewsImageBox    < NewsBox
+    NewsComicBox    < NewsBox
+    NewsAdBox       < NewsBox
 
   handle bottom position
     draw line?

@@ -122,6 +122,7 @@ class WorkingArticle < ApplicationRecord
 
   def story_metadata
     h = {}
+    h['subject_head'] = title_head
     h['title']      = RubyPants.new(title).to_html
     h['subtitle']   = RubyPants.new(subtitle).to_html
     h['reporter']   = reporter
@@ -145,6 +146,33 @@ class WorkingArticle < ApplicationRecord
 
   def publication
     page.issue.publication
+  end
+
+  def opinion_profile_pdf_path
+    publication.path + "/opinion/#{reporter}.pdf"
+  end
+
+  # IMAGE_FIT_TYPE_ORIGINAL       = 0
+  # IMAGE_FIT_TYPE_VERTICAL       = 1
+  # IMAGE_FIT_TYPE_HORIZONTAL     = 2
+  # IMAGE_FIT_TYPE_KEEP_RATIO     = 3
+  # IMAGE_FIT_TYPE_IGNORE_RATIO   = 4
+  # IMAGE_FIT_TYPE_REPEAT_MUTIPLE = 5
+  # IMAGE_CHANGE_BOX_SIZE         = 6 #change box size to fit image source as is at origin
+
+  def opinion_profile_options
+    profile_hash                  = {}
+    profile_hash[:image_path]     = opinion_profile_pdf_path
+    profile_hash[:column]         = 1
+    profile_hash[:row]            = 1
+    profile_hash[:extra_height_in_lines]= 5 # 7+5=12 lines
+    profile_hash[:stroke_width]   = 0
+    profile_hash[:position]       = 1
+    profile_hash[:is_float]       = true
+    profile_hash[:fit_type]       = 4
+    profile_hash[:before_title]   = true
+    profile_hash[:layout_expand]  = nil
+    profile_hash
   end
 
   def image_options
@@ -200,6 +228,7 @@ class WorkingArticle < ApplicationRecord
 
     h = {}
     h[:kind]                          = kind if kind
+    h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
     h[:column]                        = column
     h[:row]                           = row
     h[:grid_width]                    = grid_width
@@ -222,7 +251,7 @@ class WorkingArticle < ApplicationRecord
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = publication.article_line_thickness
     h[:article_line_draw_sides]       = publication.article_line_draw_sides
-    h[:article_line_draw_sides]       = publication.draw_divider
+    h[:draw_divider]                  = publication.draw_divider
     h
     # h = h.to_s.gsub("{", "").gsub("}", "")
     if kind == '사진'
@@ -239,6 +268,12 @@ class WorkingArticle < ApplicationRecord
       if image_hash = image_options
         content += "  news_image(#{image_hash})\n"
       end
+      content += "end\n"
+    elsif kind == '기고' || kind == 'opinion'
+      h[:article_line_draw_sides]  = [0,1,0,0]
+
+      content = "RLayout::NewsArticleBox.new(#{h}) do\n"
+        content += "  news_image(#{opinion_profile_options})\n"
       content += "end\n"
     else
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"

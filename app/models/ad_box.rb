@@ -68,6 +68,22 @@ class AdBox < ApplicationRecord
     grid_height*row
   end
 
+  def top_position?
+    grid_y == 0 || (grid_y == 1 && page.page_number == 1)
+  end
+
+  def on_left_edge?
+    grid_x == 0
+  end
+
+  def on_right_edge?
+    grid_x + grid_width == page.column
+  end
+
+  def is_front_page?
+    page.page_number == 1
+  end
+
   def layout_rb
     x             = publication.left_margin
     left_inset    = 0
@@ -86,16 +102,94 @@ class AdBox < ApplicationRecord
         right_inset = gutter
       end
     end
+    page_heading_margin_in_lines = 0
+    if top_position?
+      if is_front_page?
+        # front_page_heading_height - lines_per_grid
+        page_heading_margin_in_lines = publication.front_page_heading_margin
+      else
+        page_heading_margin_in_lines = publication.inner_page_heading_height
+      end
+    end
 
-    image_path    = ad_image.image_path if ad_image
+
+    image_path                                     = ad_image.image_path if ad_image
+    ad_image_hash = {}
+    ad_image_hash[:image_path]                     = image_path
+    ad_image_hash[:layout_expand]                  = [:width, :height]
+    ad_image_hash[:page_heading_margin_in_lines]   = [:page_heading_margin_in_lines]
+
     content=<<~EOF
     RLayout::NewsAdBox.new(is_ad_box: true, width: #{ad_width}, left_inset: #{left_inset}, right_inset: #{right_inset}, height:#{ad_height}, top_margin: 13.849238095238096) do
       image(image_path: '#{image_path}', layout_expand: [:width, :height])
       relayout!
     end
     EOF
-
   end
+  #
+  # def layout_rb
+  #   x             = publication.left_margin
+  #   left_inset    = 0
+  #   right_inset   = 0
+  #   ad_width      = grid_width*column
+  #   if page.page_number.odd?
+  #     x = publication.width - publication.right_margin - ad_width
+  #     if column < page.column
+  #       x += gutter/2
+  #       ad_width -= gutter
+  #       left_inset = gutter
+  #     end
+  #   else
+  #     if column < page.column
+  #       ad_width -= gutter
+  #       right_inset = gutter
+  #     end
+  #   end
+  #
+  #   page_heading_margin_in_lines = 0
+  #   if top_position?
+  #     if is_front_page?
+  #       page_heading_margin_in_lines = publication.front_page_heading_margin
+  #     else
+  #       page_heading_margin_in_lines = publication.inner_page_heading_height
+  #     end
+  #   end
+  #
+  #   h = {}
+  #   h[:column]                        = column
+  #   h[:row]                           = row
+  #   h[:grid_width]                    = grid_width
+  #   h[:grid_height]                   = grid_height
+  #   h[:gutter]                        = gutter
+  #   h[:on_left_edge]                  = on_left_edge?
+  #   if h[:on_left_edge].nil?
+  #     h[:on_left_edge] = false
+  #     h[:on_left_edge] = true if grid_x == 0
+  #   end
+  #   h[:on_right_edge]                 = on_right_edge?
+  #   if h[:on_right_edge].nil?
+  #     h[:on_right_edge] = false
+  #     h[:on_right_edge] = true if h[:column] + grid_x == page.column
+  #   end
+  #   h[:is_front_page]                 = is_front_page?
+  #   h[:top_story]                     = top_story
+  #   h[:top_position]                  = top_position
+  #   h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+  #   h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
+  #   h[:article_line_thickness]        = publication.article_line_thickness
+  #   h[:article_line_draw_sides]       = publication.article_line_draw_sides
+  #   h[:draw_divider]                  = publication.draw_divider
+  #   h
+  #   # h = h.to_s.gsub("{", "").gsub("}", "")
+  #   content = "RLayout::NewsAdBox.new(#{h}) do\n"
+  #   image_hash[:fit_type]   = 4
+  #   image_hash[:expand]     = [:width, :height]
+  #   image_hash[:image_path] = ad_image.image_path if ad_image
+  #   content += "  news_image(#{image_hash})\n"
+  #   content += "end\n"
+  #   content
+  # end
+
 
   def layout_path
     path + "/layout.rb"
