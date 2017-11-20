@@ -6,34 +6,33 @@
 
   </div>
   <div class="col-md-10">
-    <img src="<%= @page_heading.pdf_image_path %>"></img>
+    <div align="center">
+      <%= button_to "다운로드 배경 PDF", download_pdf_page_heading_path(@page_heading), method: :get, class: "btn btn-sm btn-danger" %>
+    </div>
+    <br>
+    <br>
+
+    <img src="<%= @page_heading.pdf_image_path %>" height="400px"></img>
+    <br>
+    <br>
+
     <div align="center">
 
-    <% if  @page_heading.heading_ad_images.length == 0%>
       <%= form_with( model: @page_heading, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
-        <%= f.fields_for :heading_ad_images, HeadingAdImage.new do |p| %>
+        <%= f.fields_for :heading_bg_image, HeadingBgImage.new do |p| %>
           <div class="field">
-            <%= p.label '쪽광고 선택' %><br>
-            <h3> <%= p.file_field :heading_ad_image, :multiple => true, name: "heading_ad_images[heading_ad_image][]" %></h3>
+            <%= p.label '배경 이미지 선택' %><br>
+            <h3> <%= p.file_field :heading_bg_image %></h3>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.button "쪽광고 올리기", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+          <%= f.button "배경 이미지 올리기", class: "btn btn-primary btn-lg", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
         </div>
       <% end %>
-    <% end %>
 
     </div>
 
-    <div class="row">
-      <% @page_heading.heading_ad_images.each do |image| %>
-        <div class="col-md-3">
-          <p><a href="<%=  edit_heading_ad_image_path(image) %>"><%= image_tag image.heading_ad_image.url(:thumb) %></a></p>
-          <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        </div>
-      <% end %>
-    </div>
   </div>
 </div>
 

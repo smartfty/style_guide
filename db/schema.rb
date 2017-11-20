@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012061848) do
+ActiveRecord::Schema.define(version: 20171119021955) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -118,6 +118,14 @@ ActiveRecord::Schema.define(version: 20171012061848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["page_heading_id"], name: "index_heading_ad_images_on_page_heading_id"
+  end
+
+  create_table "heading_bg_images", force: :cascade do |t|
+    t.string "heading_bg_image"
+    t.integer "page_heading_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_heading_id"], name: "index_heading_bg_images_on_page_heading_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -260,6 +268,16 @@ ActiveRecord::Schema.define(version: 20171012061848) do
     t.text "layout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stroke_styles", force: :cascade do |t|
+    t.string "klass"
+    t.string "name"
+    t.text "stroke"
+    t.integer "publication_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_stroke_styles_on_publication_id"
   end
 
   create_table "text_styles", force: :cascade do |t|

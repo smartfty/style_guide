@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :heading_bg_images
+  resources :stroke_styles do
+    collection do
+      get 'style_view'
+      get 'style_update'
+    end
+    member do
+      get 'download_pdf'
+      get 'save_current'
+    end
+
+  end
   resources :graphic_requests
   resources :section_headings
   resources :heading_ad_images
@@ -54,6 +66,7 @@ Rails.application.routes.draw do
 
   resources :page_headings do
     member do
+      get 'download_pdf'
       patch 'upload_images'
     end
   end

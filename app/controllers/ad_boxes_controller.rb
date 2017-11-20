@@ -55,6 +55,7 @@ class AdBoxesController < ApplicationController
   # DELETE /ad_boxes/1
   # DELETE /ad_boxes/1.json
   def destroy
+    page = @ad_box.page
     @ad_box.destroy
     respond_to do |format|
       format.html { redirect_to ad_boxes_url, notice: 'Ad box was successfully destroyed.' }

@@ -26,6 +26,8 @@
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
+#  inactive       :boolean
+#  article_id     :integer
 #  page_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -96,7 +98,6 @@ class WorkingArticle < ApplicationRecord
   def generate_pdf
     save_story
     save_layout
-    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
   end
 
@@ -218,12 +219,7 @@ class WorkingArticle < ApplicationRecord
   def layout_rb
     page_heading_margin_in_lines = 0
     if top_position
-      if is_front_page
-        # front_page_heading_height - lines_per_grid
-        page_heading_margin_in_lines = publication.front_page_heading_margin
-      else
-        page_heading_margin_in_lines = publication.inner_page_heading_height
-      end
+        page_heading_margin_in_lines = publication.page_heading_margin_in_lines(page.page_number)
     end
 
     h = {}

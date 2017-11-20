@@ -39,6 +39,10 @@ class Page < ApplicationRecord
     path + "/story_backup"
   end
 
+  def relative_path
+    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
+  end
+
   def url
     "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
   end
@@ -314,7 +318,6 @@ class Page < ApplicationRecord
           system "cp  #{backup_file_name} #{increased_story}" if File.exist?(backup_file_name)
         end
       end
-
       #TODO How about ad?
       copy_ad_template
     else

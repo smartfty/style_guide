@@ -207,6 +207,17 @@ class Publication < ApplicationRecord
     end
   end
 
+  def page_heading_margin_in_lines(page_number)
+    case page_number
+    when 1
+      front_page_heading_height
+    when 22,23
+      inner_page_heading_height + 1
+    else
+      inner_page_heading_height
+    end
+  end
+
   def front_page_heading_height_in_pt
     front_page_heading_height*body_line_height
   end

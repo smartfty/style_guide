@@ -61,9 +61,10 @@ class AdImagesController < ApplicationController
   # DELETE /ad_images/1
   # DELETE /ad_images/1.json
   def destroy
+    ad_box = @ad_image.ad_box
     @ad_image.destroy
     respond_to do |format|
-      format.html { redirect_to ad_images_url, notice: 'Placed ad was successfully destroyed.' }
+      format.html { redirect_to ad_box_path(ad_box), notice: 'Placed ad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -35,8 +35,10 @@ class AdImage < ApplicationRecord
   def  publication
     if ad_box
       ad_box.publication
-    else
+    elsif issue
       issue.publication
+    else
+      Publication.first
     end
   end
 

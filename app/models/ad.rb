@@ -35,6 +35,7 @@ class Ad < ApplicationRecord
   end
 
   def generate_pdf
+    puts "generate_pdf of Ad :#{id}"
     save_layout
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
@@ -47,15 +48,27 @@ class Ad < ApplicationRecord
     publication.height_of_grid_frame(page_columns, [0,0,column,row])
   end
 
+  def grid_width
+    publication.grid_width(page_columns)
+  end
+
+  def grid_height
+    publication.grid_height
+  end
+
   def ad_top_margin
     publication.body_line_height
+  end
+
+  def page_heading_margin_in_lines
+    publication.inner_page_heading_height
   end
 
   def layout_rb
     puts "saving ad layout_rb"
     puts "path:#{path}"
     content=<<~EOF
-    RLayout::NewsAdBox.new(is_ad_box: true, width: #{ad_width}, height:#{ad_height}, top_margin: #{ad_top_margin}) do
+    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
       image(image_path: 'some_path', layout_expand: [:width, :height])
       relayout!
     end
@@ -83,6 +96,7 @@ class Ad < ApplicationRecord
   end
 
   def save_layout
+    FileUtils.mkdir_p(path) unless File.exist?(path)
     File.open(layout_path, 'w'){|f| f.write layout_rb}
   end
 

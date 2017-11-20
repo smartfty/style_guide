@@ -99,10 +99,6 @@ class TextStyle < ApplicationRecord
     File.open(path, 'w'){|f| f.write styles_hash.to_s}
   end
 
-  def self.publication_name
-    publication_id
-  end
-
   def save_current_styles_with_english_key
     # folder = "/Users/Shared/SoftwareLab/newspaper_text_style"
     # path = folder + "/#{publication.name}.yml"

@@ -151,11 +151,20 @@ namespace :style do
     end
   end
 
-  desc "generating pdf for all pages"
+  desc "generating heading pdf for all pages"
   task :generate_page_heading_pdf =>:environment do
     Page.all.each do |page|
       puts "page.page_number:#{page.page_number}"
       page.generate_heading_pdf
+    end
+  end
+
+  desc "update heading pdf for all pages"
+  task  :update_page_heading_pdf=>:environment do
+    Page.all.each_with_index do |page, i|
+      next if i == 0
+      puts "page.page_number:#{page.page_number}"
+      PageHeading.generate_pdf(page)
     end
   end
 

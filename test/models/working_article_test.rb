@@ -26,6 +26,8 @@
 #  is_front_page  :boolean
 #  top_story      :boolean
 #  top_position   :boolean
+#  inactive       :boolean
+#  article_id     :integer
 #  page_id        :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

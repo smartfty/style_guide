@@ -4,7 +4,6 @@
 - make user manual
 - ajaxify all pdf_generatoin
 - enable ace editor/Trix, or Quill
-
 - paginate remote with kaminari
 - add ransack for searching
 
@@ -19,14 +18,65 @@
   - short key
   - progress wheel
 
+## create NewsDisplayAdBox
+  NewsDisplayAdBox  < Container
+  NewsDisplayAdItem < Container
+
+2017_11_22
+  - page_heading height
+    front page, inner_page, opinion_page
+
+2017_11_15
+  - front page heading bg
+  - image frame control
+
+2017_11_14
+  - change front page heading background
+  - make front page heading background
+  - upload front page heading ad
+
+2017_11_13
+  - NewsAdBox view
+  - add image delete button
+
+2017_11_11
+  - NewsAdBox
+
 2017_11_9
-  - 제목 3단 should have space_before of 1 line, but it doesn't
+  - new table stroke_style
+    - class_name
+    - korean_name
+    - stroke_yml
+
+  - create stroke_style.yml to publication/style/text_style.yml
+      - page_heading_margin_in_lines: [4,3]
+
+      - news_article_box
+          korean: 기사박스
+          graphic: [0,0,0,1,0.3] #[left,top, right, bottom, thickness, color, type]
+          news_heading:
+          news_image:
+            image: [0,0,0,1,0.3]
+          quote
+      - news_opinion_box
+          korean: 오피니언박스
+          graphic: [0,2,0,1,0.3]
+      - news_editorial_box
+          korean: 사설박스
+          graphic: [1,6,1,1,0.3]
+      - news_image_box
+          korean: 이미지박스
+          graphic: [1,6,1,1,6]
+      - news_ad_box
+          korean: 광고박스
+          graphic: [1,1,1,1,0]
+
+
+
+2017_11_9
+  - 제목 3단 should have have space_before of 1 line, but it doesn't
   - file upload PDF rmagick can not render PDF for thumbnail
   - EPS support
-
-  create NewsDisplayAdBox
-    NewsDisplayAdBox  < Container
-    NewsDisplayAdItem < Container
 
 2017_10_31
   create

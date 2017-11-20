@@ -27,6 +27,8 @@ class Section < ApplicationRecord
   has_many :ad_box_templates
 
   after_create :setup
+  before_create :parse_profile
+
   # serialize :layout, Array
   scope :six_column, -> {where("column==?", 6)}
   scope :seven_column, -> {where("column==?", 7)}
@@ -199,13 +201,12 @@ class Section < ApplicationRecord
   end
 
   def update_section_layout
+    update_profile
     save_section_config_yml
     copy_page_heading
     create_articles
     generate_article_pdf
     generate_ad_box_template_pdf
-    # copy_ad
-    # copy_sample_ad
     generate_pdf
   end
 
@@ -252,6 +253,14 @@ class Section < ApplicationRecord
 
   def generate_pdf
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+  end
+
+  def svg_unit_width
+    30
+  end
+
+  def svg_unit_height
+    20
   end
 
   def svg_box
@@ -344,13 +353,6 @@ class Section < ApplicationRecord
     profile
   end
 
-  def svg_unit_width
-    30
-  end
-
-  def svg_unit_height
-    20
-  end
 
   def has_overlapping_rect?
     #code
@@ -422,4 +424,29 @@ class Section < ApplicationRecord
     end
   end
 
+  def parse_story_count
+    count = 0
+    box_array = eval_layout
+    box_array.each_with_index do |box, i|
+      if box.length == 5 && box[4].class == Hash
+      else
+        count += 1
+      end
+    end
+    count
+  end
+
+  def update_profile
+    self.story_count = parse_story_count
+    self.profile     = make_profile
+    self.save
+    self
+  end
+
+  private
+  def parse_profile
+    self.story_count = parse_story_count
+    self.profile     = make_profile
+    true
+  end
 end
