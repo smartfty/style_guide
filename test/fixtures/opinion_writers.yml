@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: opinion_writers
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  title          :string
+#  work           :string
+#  position       :string
+#  publication_id :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  work: MyString
+  position: MyString
+  publication: one
+
+two:
+  name: MyString
+  title: MyString
+  work: MyString
+  position: MyString
+  publication: two

@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :current_plan, :images, :upload_images, :ad_images, :upload_ad_images, :destroy]
+  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_to_cms]
 
   # GET /issues
   # GET /issues.json
@@ -22,7 +22,7 @@ class IssuesController < ApplicationController
   end
 
   # POST /issues
-  # POST /issues.json
+  # POST /issues.jsonfredirect_to
   def create
     @issue = Issue.new(issue_params)
     respond_to do |format|
@@ -108,10 +108,36 @@ class IssuesController < ApplicationController
     # images_issue_path(Issue.last.id)
   end
 
+  def clone_pages
+    @clone_pages = Page.clone_pages
+  end
+
+  def slide_show
+
+  end
+
+  def assign_reporter
+    @reporters        = Reporter.all.order(:division)
+    @working_articles = []
+    @issue.pages.each do |page|
+      @working_articles += page.working_articles
+    end#code
+  end
+
+  def send_to_cms
+    puts __method__
+    @issue.request_cms_new_issue
+    redirect_to assign_reporter_issue_path(@issue)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
-      @issue = Issue.find(params[:id])
+      if params[:id]
+        @issue = Issue.find(params[:id])
+      else
+        @issue = Issue.last
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

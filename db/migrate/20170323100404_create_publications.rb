@@ -29,6 +29,7 @@ class CreatePublications < ActiveRecord::Migration[5.0]
       t.text :article_line_draw_sides
       t.float :article_line_thickness
       t.boolean :draw_divider
+      t.string :cms_server_url
       t.timestamps
     end
   end

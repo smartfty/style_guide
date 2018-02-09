@@ -73,3 +73,9 @@ gem 'carrierwave'
 gem "mini_magick"
 gem "font-awesome-rails"
 gem 'rmagick'
+gem 'seed_dump'
+gem "browser"
+
+gem 'sinatra'
+gem 'rest-client'
+gem 'faker'

@@ -22,6 +22,61 @@
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
 
+2018_2_4
+  - copy to or save to Sites/naeil/#{issue}/#{page} folder
+  - when generating pdf save_layout unless File.exit?(layout_rb)
+
+2018_1_18
+  - story_assign
+  - show article order in page view
+
+2018_1_2
+  - <br> support
+  - ## support running_head
+  - "◆ 보유세 카드 떠오르는 배경 =" with *my content*
+  - strong emphasis support with **my content**
+  - This is a
+    line break.
+  - support different title_main for page column and column
+  - support different title for page column and column
+  - section 22,23, and book review page heading
+    - SVG to rlayout
+    - Do not copy from template, generate it from Model  
+  -  Do not save Article sample, just generate pdf, jpg
+    - reduce installation size
+  - install demo site, installation instruction
+  - recovery scenario
+  - 메인기사 선택 selection
+
+2017_12_12
+  - draw guide lines on top of page or top of article
+  - set main article with selection  메인, 기사,
+  - ignore orphan strategy, just truncate as it comes.
+  - selectable main_article,
+  - support editorial_title
+  - support opinion_title
+
+2017_12_10
+  - rake update_text_style
+  - install chosun and co-pub font at server
+  - bold and ## markup support in news_article body
+  - yaml_dump
+
+2017_12_9
+  - PageHeading bg uploading
+  - add working_article locking and unlocking
+    - add locked_by: user_id
+  - increase_title_size_by:flaot
+  - force_fit_title
+
+2017_12_7
+  - publication sample page with lines,
+  -  fix Line Object
+  - add 5 column page
+
+2017_11_22
+  - add browser gem to detect agent
+
 2017_11_22
   - page_heading height
     front page, inner_page, opinion_page
@@ -70,8 +125,34 @@
       - news_ad_box
           korean: 광고박스
           graphic: [1,1,1,1,0]
+      - add eNews rethinking newspaper media
+          - animated headline
+          - reading text to speech
+2017_11_30
+  - add news_view
+    slid show of pages
+    when clincked zoom in for article preview
 
+2017_11_29
+  - add opinion_writers
+    - name
+    - title
+    - organization
+    - position
 
+2017_11_24
+  - clone_page   별판생성
+    add  clone_name to page
+
+2017_11_28
+  - upload bg_image for heading
+  - create for guest_writer
+
+2017_11_23
+  - add zoom article view
+
+2017_11_22
+  - add different height for opinion page heading height
 
 2017_11_9
   - 제목 3단 should have have space_before of 1 line, but it doesn't

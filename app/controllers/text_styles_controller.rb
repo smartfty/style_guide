@@ -1,10 +1,10 @@
 class TextStylesController < ApplicationController
-  before_action :set_text_style, only: [:show, :edit, :update, :destroy, :save_current, :download_pdf]
+  before_action :set_text_style, only: [:show, :edit, :update, :destroy, :save_current, :duplicate, :download_pdf]
 
   # GET /text_styles
   # GET /text_styles.json
   def index
-    @text_styles = TextStyle.all
+    @text_styles = TextStyle.order(korean_name: :desc).all
     respond_to do |format|
       format.html
       format.csv { send_data @text_styles.to_csv }
@@ -86,6 +86,19 @@ class TextStylesController < ApplicationController
   def download_pdf
     send_file @text_style.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
+
+  def duplicate
+    # @new_section = Section.new(@section.attributes)
+    @new_text_style = TextStyle.create(@text_style.attributes.merge({id: nil }))
+    respond_to do |format|
+      if @new_text_style
+          format.html { redirect_to text_styles_path, notice: 'TextStyle was successfully duplicated.'}
+      else
+        format.html { redirect_to sections_url, notice: 'Section could not be duplicated.' }
+      end
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

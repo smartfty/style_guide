@@ -63,6 +63,33 @@ class Issue < ApplicationRecord
     path + "/ads/ad_list.yml"
   end
 
+  def issue_info_for_cms
+    {
+      'id' => id,
+      'date' => date.to_s,
+      'plan' => plan
+    }
+  end
+
+  def current_working_articles_hash
+    #code
+  end
+
+  def request_cms_new_issue
+    puts __method__
+    # cms_address = 'http://localhost:3001'
+    # puts "#{cms_address}/#{id}"
+    # RestClient.post( "#{cms_address}/api/v1/cms_new_issue/#{id}", {'payload' => issue_info_for_cms})
+  end
+
+  def news_cms_host
+    "http://localhost:3001"
+  end
+
+  def news_cms_head
+    "#{news_cms_host}/update_issue_plan"
+  end
+
   def make_default_issue_plan
     # page_array = [page_number, profile]
     section_names_array = eval(publication.section_names)

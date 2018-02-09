@@ -67,7 +67,6 @@ class SectionsController < ApplicationController
   end
 
   def duplicate
-    puts __method__
     # @new_section = Section.new(@section.attributes)
     @new_section = Section.create(@section.attributes.merge({id: nil }))
     respond_to do |format|
@@ -92,7 +91,6 @@ class SectionsController < ApplicationController
 
   def six
     @sections = Section.six_column.order(:page_number).page(params[:page]).per(20)
-    # @sections = Section.six_column
   end
 
   def seven

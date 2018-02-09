@@ -16,6 +16,7 @@
 #  template_id  :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  clone_name   :string
 #
 
 class Page < ApplicationRecord
@@ -27,16 +28,19 @@ class Page < ApplicationRecord
   before_create :copy_attributes_from_template
   after_create :setup
 
+  scope :clone_page, -> {where("clone_name!=?", nil)}
+
+
 
   DAYS_IN_KOREAN = %w{일요일 월요알 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
 
   def path
-    "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
-  end
-
-  def story_backup_path
-    path + "/story_backup"
+    if clone_name == nil
+      "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
+    else
+      "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}-#{clone_name}"
+    end
   end
 
   def relative_path
@@ -61,6 +65,34 @@ class Page < ApplicationRecord
 
   def jpg_path
     "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.jpg"
+  end
+
+  def to_hash
+    p_hash = attributes
+    p_hash.delete('created_at')    # delete created_at
+    p_hash.delete('updated_at')     # delete updated_at
+    p_hash.delete('id')             # delete id
+    p_hash
+  end
+
+  def clone
+    h = to_hash
+    binding.pry
+    h[:clone_name] = 'b'
+    unless b = Page.where(h).first
+      Page.create!(h)
+      return
+    end
+    h[:clone_name] = 'c'
+    unless c = Page.where(h).first
+      Page.create!(h)
+      return
+    end
+    h[:clone_name] = 'd'
+    unless c = Page.where(h).first
+      Page.create!(h)
+      return
+    end
   end
 
   def publication
@@ -106,7 +138,6 @@ class Page < ApplicationRecord
   # def page_heading
   #   publication.page_heading(page_number)
   # end
-
   def page_heading_width
     publication.page_heading_width
   end
@@ -379,6 +410,7 @@ class Page < ApplicationRecord
 
   def generate_pdf
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    copy_outputs_to_site
   end
 
   def regenerate_pdf
@@ -386,6 +418,18 @@ class Page < ApplicationRecord
       working_article.generate_pdf
     end
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    copy_outputs_to_site
+  end
+
+
+  def site_path
+    File.expand_path("~/Sites/naeil/#{issue.date.to_s}/#{page_number}")
+  end
+
+  def copy_outputs_to_site
+    FileUtils.mkdir_p site_path unless File.exist?(site_path)
+    system "cp #{pdf_path} #{site_path}/"
+    system "cp #{jpg_path} #{site_path}/"
   end
 
   def eval_layout
@@ -415,7 +459,6 @@ class Page < ApplicationRecord
     box_element_svg += "<g transform='translate(#{doc_left_margin},#{doc_top_margin})' >\n"
     # box_element_svg += page_svg
     box_element_svg += page_heading.box_svg if page_number == 1
-    puts "box_element_svg:#{box_element_svg}"
     working_articles.each do |article|
       next if article.inactive
       box_element_svg += article.box_svg
@@ -435,6 +478,39 @@ class Page < ApplicationRecord
     </svg>
     EOF
   end
+
+
+  def page_svg_with_jpg
+    "<image xlink:href='#{jpg_image_path}' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />\n"
+    #code
+  end
+
+  def box_svg_with_jpg
+    box_element_svg = page_svg_with_jpg
+    box_element_svg += "<g transform='translate(#{doc_left_margin},#{doc_top_margin})' >\n"
+    # box_element_svg += page_svg
+    box_element_svg += page_heading.box_svg if page_number == 1
+    working_articles.each do |article|
+      next if article.inactive
+      box_element_svg += article.box_svg
+    end
+    ad_boxes.each do |ad_box|
+      box_element_svg += ad_box.box_svg
+    end
+    box_element_svg += '</g>'
+    box_element_svg
+  end
+
+  def to_svg_with_jpg
+    svg=<<~EOF
+    <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 #{doc_width} #{doc_height}' >
+      <rect fill='white' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />
+      #{box_svg_with_jpg}
+    </svg>
+    EOF
+  end
+
+
 
   private
 

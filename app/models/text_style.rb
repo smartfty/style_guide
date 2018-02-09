@@ -203,7 +203,7 @@ class TextStyle < ApplicationRecord
       text('#{sample_text}', #{attrs_string})
     end
     EOF
-
+    system("mkdir -p #{path}") unless File.exist?(path)
     File.open(layout_path, 'w'){|f| f.write layout_content}
   end
 

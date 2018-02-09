@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :reporters
+  resources :opinion_writers
   resources :heading_bg_images
   resources :stroke_styles do
     collection do
@@ -39,12 +41,16 @@ Rails.application.routes.draw do
       get 'place_all'
     end
   end
+
   resources :working_articles do
     member do
       get 'download_pdf'
       patch 'upload_images'
+      get 'zoom_preview'
+      patch 'assign_reporter'
     end
   end
+
   resources :issues do
     member do
       get 'update_plan'
@@ -53,6 +59,10 @@ Rails.application.routes.draw do
       patch 'upload_images'
       get 'ad_images'
       patch 'upload_ad_images'
+      get 'clone_pages'
+      get 'slide_show'
+      get 'assign_reporter'
+      get 'send_to_cms'
     end
   end
 
@@ -61,7 +71,9 @@ Rails.application.routes.draw do
       get 'download_pdf'
       get 'change_template'
       get 'regenerate_pdf'
+      get 'clone'
     end
+
   end
 
   resources :page_headings do
@@ -102,8 +114,13 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'home/welcome'
+  match 'news_layout_hello' => Api::NewsLayout, :via => :get
+  match 'new_issue/:date' => Api::NewsLayout, :via => :get
+  match 'issue_plan/:date' => Api::NewsLayout, :via => :get
+  match 'api/v1/layout_article/:date/:page/:order' => Api::NewsLayout, :via => :post
+  match 'refresh_page/:date/:page' => Api::NewsLayout, :via => :get
 
+  get 'home/welcome'
   get 'home/help'
 
   resources :articles do
@@ -139,6 +156,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'download_pdf'
+      get 'duplicate'
       get 'save_current'
     end
   end

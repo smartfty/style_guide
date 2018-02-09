@@ -13,6 +13,11 @@ class PagesController < ApplicationController
     @working_articles = @page.working_articles
     @ad_boxes         = @page.ad_boxes
     @page_templates   = Section.where(page_number: @page.page_number)
+    # respond_to do |format|
+    #   format.html
+    #   # format.pdf {send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"}
+    #   format.jpg {send_date @page.jpg_path, :type=>'application/jpg'}
+    # end
   end
 
   # GET /pages/new

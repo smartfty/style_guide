@@ -1,4 +1,5 @@
 namespace :style do
+
   desc "create page_headings for all section"
   task :create_page_headings =>:environment do
     puts "creating page_headings ..."
@@ -35,6 +36,21 @@ namespace :style do
     end
   end
 
+  desc "copy all artifcle outputs to site locaton"
+  task :copy_articles_to_site =>:environment do
+    WorkingArticle.all.each do |article|
+      article.copy_outputs_to_site
+    end
+  end
+
+  desc "copy all page outputs to site locaton"
+  task :copy_pages_to_site =>:environment do
+    Page.all.each do |article|
+      article.copy_outputs_to_site
+    end
+  end
+
+
   desc "generating pdf for all articles"
   task :generate_pdf =>:environment do
     puts "generating pdf for all articles"
@@ -52,7 +68,6 @@ namespace :style do
       article.update_pdf_unless
     end
   end
-
 
   desc "update pdf for all articles"
   task :update_pdf =>:environment do
@@ -78,7 +93,6 @@ namespace :style do
     end
   end
 
-
   desc "update section profile for all sections"
   task :update_section_profile =>:environment do
     puts "update section layout for all sections"
@@ -87,7 +101,6 @@ namespace :style do
       section.save
     end
   end
-
 
   desc "update section layout for all sections"
   task :update_section_layout =>:environment do
@@ -198,7 +211,6 @@ namespace :style do
     File.open(issue_path, 'w'){|f| f.write issue_content}
   end
 
-
   desc "show all page's working_articles count"
   task :working_articles_count =>:environment do
     puts "show all page's working_articles count"
@@ -275,20 +287,6 @@ namespace :style do
 
     File.open(text_styles_list_path, 'w'){|f| f.write text_styles_list.to_s}
     File.open(text_styles_named_key_path, 'w'){|f| f.write text_styles_named_hash.to_s}
-
-
-    # styles_hash = {}
-    # h = {}
-    # filtered = column_names.dup
-    # filtered.shift  # delete id
-    # filtered.shift  # delete name
-    # filtered.pop    # delete created_at
-    # filtered.pop    # delete updated_at
-    # all.each do |item|
-    #   styles_hash[item.attributes['name']] = Hash[filtered.zip item.attributes.values_at(*filtered)]
-    # end
-    # styles_hash
-
 
   end
 

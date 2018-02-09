@@ -1,0 +1,44 @@
+
+<div align="center">
+
+<h4>담당기자 설정</h4>
+<div align="center">
+  <%= link_to "CMS 에 기사 생성", send_to_cms_issue_path(@issue), method: :get, class: "btn-group btn btn-sm btn-danger" , align: "center"%>
+
+</div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>페이지</th>
+      <th style="text-align:center;">기자</th>
+      <th style="text-align:center;">제목</th>
+      <th style="text-align:center;"> 기사번호</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @working_articles.each do |working_article| %>
+    <% if  working_article.page.page_number.odd?%>
+      <tr style="background-color: #bbbbbb;">
+    <% else %>
+      <tr style="background-color: #dddddd">
+    <% end %>
+        <td style="text-align:center;"><%= working_article.page.page_number %></td>
+        <td><%= working_article.reporter %></td>
+        <td><%= working_article.title %></td>
+        <td style="text-align:center;"><%= working_article.order %></td>
+        <td><%= button_to '설정', edit_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+
+<div align="center">
+  <%= link_to "CMS 에 기사 생성", send_to_cms_issue_path(@issue), method: :get, class: "btn-group btn btn-sm btn-danger" , align: "center"%>
+
+</div>

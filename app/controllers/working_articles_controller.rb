@@ -1,9 +1,11 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images]
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview, :assign_reporter]
 
   # GET /working_articles
   # GET /working_articles.json
   def index
+    # rails controller 에서
+    # ruby 에서 아뭬데나
     @working_articles = WorkingArticle.all
   end
 
@@ -41,6 +43,8 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
+      binding.pry
+
       if @working_article.update(working_article_params)
         @working_article.generate_pdf
         @working_article.update_page_pdf
@@ -77,8 +81,6 @@ class WorkingArticlesController < ApplicationController
   end
 
   def select_image
-    puts "params:#{params}"
-    puts "params.inspect:#{params.inspect}"
     images.first
     @selected_image = params[:selected_image]
   end
@@ -102,6 +104,15 @@ class WorkingArticlesController < ApplicationController
      end
     redirect_to @working_article
     # images_issue_path(Issue.last.id)
+  end
+
+  def zoom_preview
+    #code
+  end
+
+  def assign_reporter
+    @working_article.update(working_article_params)
+    redirect_to assign_reporter_issue_path(Issue.last)
   end
 
   private

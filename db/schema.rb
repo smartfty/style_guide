@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119021955) do
+ActiveRecord::Schema.define(version: 20180207013201) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -157,6 +157,17 @@ ActiveRecord::Schema.define(version: 20171119021955) do
     t.index ["publication_id"], name: "index_issues_on_publication_id"
   end
 
+  create_table "opinion_writers", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.string "work"
+    t.string "position"
+    t.integer "publication_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_opinion_writers_on_publication_id"
+  end
+
   create_table "page_headings", force: :cascade do |t|
     t.integer "page_number"
     t.string "section_name"
@@ -199,6 +210,7 @@ ActiveRecord::Schema.define(version: 20171119021955) do
     t.integer "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "clone_name"
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
   end
@@ -239,6 +251,16 @@ ActiveRecord::Schema.define(version: 20171119021955) do
     t.text "article_line_draw_sides"
     t.float "article_line_thickness"
     t.boolean "draw_divider"
+    t.string "cms_server_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reporters", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "division"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

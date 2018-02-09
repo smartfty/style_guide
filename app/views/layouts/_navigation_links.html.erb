@@ -1,6 +1,7 @@
 <%# add navigation links to this file %>
 
 <!-- <ul class="nav navbar-nav navbar-center"> -->
+<!-- <li><%= link_to '스라이드쇼', slide_show_issue_path(Issue.last.id) %></li> -->
 <li><%= link_to '신문보기', issue_path(Issue.last.id) %></li>
 
 <li class="dropdown">
@@ -10,6 +11,8 @@
       <li><%= link_to '면 배열표', current_plan_issue_path(Issue.last.id) %></li>
       <li class="divider"></li>
       <li><%= link_to '새로운 호 생성', new_issue_path %></li>
+      <li><%= link_to '담당 배정', assign_reporter_issue_path(Issue.last.id) %></li>
+
     <% end %>
   </ul>
 </li>
@@ -32,23 +35,22 @@
       <li><%= link_to '테두리 스타일 목록', stroke_styles_path %></li>
     </ul>
   </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">이미지<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to '광고', ad_images_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '사진', images_issue_path(Issue.last.id) %></li>
+    </ul>
+  </li>
   <!-- <li><%= link_to '면머리', page_headings_path %></li> -->
-  <li><%= link_to '광고', ad_images_issue_path(Issue.last.id) %></li>
-  <li><%= link_to '사진', images_issue_path(Issue.last.id) %></li>
-  <li><%= link_to '그레픽', graphic_requests_path %></li>
 
-  <li><%= link_to '도움말', home_help_path %></li>
+
 <% end %>
 
 
 <% if user_signed_in? %>
   <li><%= link_to current_user.email, "#" %></li>
-  <li><%= link_to '등록정보 수정', edit_user_registration_path %></li>
   <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete  %></li>
-  <% puts "current_user.role:#{current_user.role}" %>
-  <% if current_user.admin? %>
-    <li><%= link_to '사용자', users_path %></li>
-  <% end %>
 
 <% else %>
   <li><%= link_to '로그인', new_user_session_path %></li>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @opinion_writer.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @opinion_writer.title %>
+</p>
+
+<p>
+  <strong>Work:</strong>
+  <%= @opinion_writer.work %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @opinion_writer.position %>
+</p>
+
+<p>
+  <strong>Publication:</strong>
+  <%= @opinion_writer.publication %>
+</p>
+
+<%= link_to 'Edit', edit_opinion_writer_path(@opinion_writer) %> |
+<%= link_to 'Back', opinion_writers_path %>

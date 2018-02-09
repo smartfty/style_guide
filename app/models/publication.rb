@@ -50,15 +50,24 @@
 # 1 in = 72 point; 1 point = 0.013889 in
 # 1 px = 0.75 point; 1 point = 1.333333 px
 class Publication < ApplicationRecord
-  has_many :text_styles
-  has_many :articles
-  has_many :image_templates
+  has_many :issues
   after_create :setup
   before_save :convert_to_pt
 
   MM2POINT    = 2.834646
   INCH2POINT  = 72
   PX2POINT    = 0.75
+  SECTIONS = [
+    '1면'
+    '정치',
+    '행정',
+    '국제통일',
+    '금융',
+    '산업',
+    '정책',
+    '기획',
+    '오피니언',
+  ]
 
   def path
     "#{Rails.root}/public/#{id}"
@@ -210,8 +219,8 @@ class Publication < ApplicationRecord
   def page_heading_margin_in_lines(page_number)
     case page_number
     when 1
-      front_page_heading_height
-    when 22,23
+      front_page_heading_margin
+    when 18, 19, 22,23
       inner_page_heading_height + 1
     else
       inner_page_heading_height
@@ -225,6 +234,11 @@ class Publication < ApplicationRecord
   def inner_page_heading_height_in_pt
     inner_page_heading_height*body_line_height
   end
+
+  def opinion_page_heading_height_in_pt
+    (inner_page_heading_height + 1)*body_line_height
+  end
+
 
   def layout_rb
     h = {}
@@ -242,15 +256,28 @@ class Publication < ApplicationRecord
       columns = columns
     end
     column_width = (page_heading_width - (columns - 1)*gutter)/columns
+
     content=<<~EOF
     RLayout::Container.new(#{h}) do
+      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{front_page_heading_height_in_pt}, fill_color: 'lightGray')
+      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{opinion_page_heading_height_in_pt}, fill_color: 'gray')
+      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{inner_page_heading_height_in_pt}, fill_color: 'darkGray')
+
       x_position = #{left_margin}
       #{columns}.times do
-        rectangle(x: x_position, y: #{top_margin}, width: #{column_width}, height: #{page_height}, stroke_width: 0.5)
+        rectangle(x: x_position, y: #{top_margin}, width: #{column_width}, height: #{page_height}, stroke_width: 0.5, fill_color: 'clear')
         x_position += #{column_width} + #{gutter}
       end
-      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{front_page_heading_height_in_pt}, fill_color: 'lightGray')
-      rectangle(x: #{left_margin}, y: #{top_margin}, width: #{page_heading_width}, height: #{inner_page_heading_height_in_pt}, fill_color: 'darkGray')
+      y = #{top_margin}
+      #{row }.times do |i|
+        line(x: #{left_margin}, y: y , width: #{page_heading_width}, height: 0, #{}stroke_width: 0.6, stroke_color: 'red', fill_color: 'clear')
+        line_top = y
+        #{lines_per_grid}.times do |j|
+          line(x: #{left_margin}, y: line_top , width: #{page_heading_width}, height: 0, #{}stroke_width: 0.1, stroke_color: 'red', fill_color: 'clear')
+          line_top += #{body_line_height}
+        end
+        y += #{grid_height}
+      end
     end
     EOF
 
@@ -276,13 +303,12 @@ class Publication < ApplicationRecord
   end
 
   def save_sample_page_layout_rb
-    puts "layout_rb:#{layout_rb}"
     system("mkdir -p #{sample_page_path}") unless File.directory?(sample_page_path)
     File.open(sample_page_layout_path, 'w'){|f| f.write layout_rb}
   end
 
   def generate_sample_pdf
     save_sample_page_layout_rb
-    system "cd #{sample_page_path} && /Applications/rjob.app/Contents/MacOS/rjob layout.rb"
+    system "cd #{sample_page_path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 end

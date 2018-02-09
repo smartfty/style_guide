@@ -87,8 +87,8 @@ class WorkingArticle < ApplicationRecord
   end
 
   def save_article
+    save_layout unless File.exist?(layout_path)
     save_story
-    save_layout
   end
 
   def update_pdf
@@ -96,14 +96,27 @@ class WorkingArticle < ApplicationRecord
   end
 
   def generate_pdf
-    save_story
-    save_layout
+    save_article
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
+    copy_outputs_to_site
+  end
+
+  def site_path
+    page_site_path + "/#{order}"
+  end
+
+  def page_site_path
+    page.site_path
+  end
+
+  def copy_outputs_to_site
+    FileUtils.mkdir_p site_path unless File.exist?(site_path)
+    system "cp #{pdf_path} #{site_path}/"
+    system "cp #{jpg_path} #{site_path}/"
   end
 
   def update_page_pdf
     page_path = page.path
-    puts "page_path:#{page_path}"
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
@@ -352,6 +365,12 @@ class WorkingArticle < ApplicationRecord
     else
       #code
     end
+  end
+
+  def top_story?
+    return true if top_story
+    return true if page.working_articles.first.kind != '기사' && order == 2
+    false
   end
 
   def change_article(new_article)
