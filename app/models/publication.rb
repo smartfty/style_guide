@@ -58,7 +58,7 @@ class Publication < ApplicationRecord
   INCH2POINT  = 72
   PX2POINT    = 0.75
   SECTIONS = [
-    '1면'
+    '1면',
     '정치',
     '행정',
     '국제통일',
