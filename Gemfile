@@ -76,7 +76,7 @@ gem "font-awesome-rails"
 gem 'seed_dump'
 gem "browser"
 
-gem 'sinatra'
+gem 'sinatra', '~> 2.0.1'
 gem 'rest-client'
 gem 'faker'
 
