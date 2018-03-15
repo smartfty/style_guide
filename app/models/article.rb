@@ -114,6 +114,11 @@ class Article < ApplicationRecord
     save_layout
   end
 
+  # aooorcimation of character_count
+  def char_count
+    column*row*7*15
+  end
+
   def update_pdf_unless
     unless File.exist?(pdf_path)
       system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."

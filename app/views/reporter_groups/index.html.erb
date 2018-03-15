@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div align="center">
+
+<h3>부서</h3>
+
+<table border='1'>
+  <thead>
+    <tr>
+      <th>섹션</th>
+      <th>팀장</th>
+      <th>페이지 영역</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reporter_groups.each do |reporter_group| %>
+      <tr>
+        <td><%= reporter_group.section %></td>
+        <td><%= reporter_group.leader %></td>
+        <td><%= reporter_group.page_range %></td>
+        <td><%= link_to 'Show', reporter_group %></td>
+        <td><%= link_to 'Edit', edit_reporter_group_path(reporter_group) %></td>
+        <td><%= link_to 'Destroy', reporter_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= button_to '신규 부서 추가', new_reporter_group_path, method: :get, class: "btn btn-sm btn-success"%>
+
+</div>

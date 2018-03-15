@@ -26,7 +26,9 @@
 class PagePlan < ApplicationRecord
   belongs_to :issue, optional: true
   has_one :page
+  has_many :article_plans
   before_create :parse_profile
+  after_create :create_article_plans
 
   def need_update?
     # check the dirty field and currnent page template id
@@ -39,6 +41,27 @@ class PagePlan < ApplicationRecord
 
   def update_page
     page.change_template(selected_template_id) if page
+  end
+
+  def team_leader
+    ReporterGroup.where(section: section_name).first.leader
+  end
+
+  def create_article_plans
+    return if section_name == '전면광고'
+    story_count.times do |i|
+      puts "team_leader:#{team_leader}"
+      ArticlePlan.where(page_plan:self, reporter: team_leader, order: i + 1, title: "제목은 여기에 ...").first_or_create
+    end
+  end
+
+  def section_name
+    page.section_name
+  end
+
+  def reporters_of_group
+    group = ReporterGroup.where(section: section_name).first
+    group.reporters if group
   end
 
   private

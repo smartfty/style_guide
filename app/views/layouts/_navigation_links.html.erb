@@ -18,7 +18,6 @@
 </li>
 
 <% if current_user %>
-  <li><%= link_to '매체 정보', publication_path(1) %></li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">지면편집<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
@@ -30,6 +29,7 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">스타일 편집<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
+      <li><%= link_to '매체 정보', publication_path(1) %></li>
       <li><%= link_to '서체 목록', text_styles_path %></li>
       <li class="divider"></li>
       <li><%= link_to '테두리 스타일 목록', stroke_styles_path %></li>
@@ -42,6 +42,14 @@
       <li><%= link_to '사진', images_issue_path(Issue.last.id) %></li>
     </ul>
   </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">기자정보<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to '오피니언 저자', opinion_writers_path %></li>
+      <li><%= link_to '색션별 팀장', reporter_groups_path %></li>
+      <li><%= link_to '기자', reporters_path %></li>
+    </ul>
+  </li>
   <!-- <li><%= link_to '면머리', page_headings_path %></li> -->
 
 
@@ -49,10 +57,8 @@
 
 
 <% if user_signed_in? %>
-  <li><%= link_to current_user.email, "#" %></li>
   <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete  %></li>
 
 <% else %>
   <li><%= link_to '로그인', new_user_session_path %></li>
-  <li><%= link_to '새로등록', new_user_registration_path %></li>
 <% end %>

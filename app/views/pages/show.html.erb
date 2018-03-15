@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 <div align="center">
-  <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-lg btn-success" %>
+  <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
 </div>
 
 <% if browser.safari? %>
   <div class="row">
-    <div class = "col-md-1">
+    <div class = "col-sm-1 col-md-1">
       <p> </p>
     </div>
-    <div class = "col-md-10">
+    <div class = "col-sm-10 col-md-10">
       <% if File.exist?(@page.pdf_path) %>
         <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
         <%= raw @page.to_svg %>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
 
-    <div class = "col-md-1">
+    <div class = "col-sm-1 col-md-1">
       <p> </p>
     </div>
    </div>
@@ -24,19 +24,19 @@
  <% elsif browser.ie? %>
    <p>browser.ie</p>
    <div class="row">
-     <div class = "col-lg-10">
+     <div class = "col-sm-10 col-md-10">
        <% if File.exist?(@page.pdf_path) %>
          <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
          <img width="95%" src="<%= @page.jpg_image_path %>"></img>
          <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
        <% end %>
      </div>
-     <div class = "col-lg-2">
+     <div class="col-sm-2 col-md-2">
        <br>
        <br>
        <br>
        <div align="center">
-         <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-lg btn-success" %>
+         <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
        </div>
 
        <% @working_articles.each do |article| %>
@@ -47,8 +47,6 @@
        <% end %>
      </div>
    </div>
-
-
 
   <% elsif browser.modern?%>
     <p>browser.modern</p>
@@ -74,7 +72,7 @@
   <% end %>
 
 <div align="center">
-  <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-lg btn-success" %>
+  <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
 </div>
 
 <br>

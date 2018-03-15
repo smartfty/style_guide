@@ -3,7 +3,7 @@
 
   <div class="row">
     <% @page_templates.each do |template| %>
-      <div class="col-lg-2" >
+      <div class="col-sm-2 col-lg-2" >
         <% if template.id == @page_plan.selected_template_id %>
           <div class='selected_template'>
             <img width="98%"  src="<%= template.pdf_image_path %>" alt="" >
@@ -28,4 +28,4 @@
   </div>
 
 
-  <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-lg btn-success"  %>
+  <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-md btn-success"  %>

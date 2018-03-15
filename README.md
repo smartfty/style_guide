@@ -169,6 +169,22 @@ date
   section_name
   issue:references
 
+## ReporterGroup
+  section
+  team_leader
+  page_range
+
+## Reporters
+  name
+  email
+  reporter_group:references
+  title
+
+## article_plan
+  page_plan_id
+  reporter
+  order
+
 # email based layout?
   references:issue
   template_id:integer

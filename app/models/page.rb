@@ -77,7 +77,7 @@ class Page < ApplicationRecord
 
   def clone
     h = to_hash
-    binding.pry
+    # binding.pry
     h[:clone_name] = 'b'
     unless b = Page.where(h).first
       Page.create!(h)

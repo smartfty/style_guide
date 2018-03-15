@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207013201) do
+ActiveRecord::Schema.define(version: 20180213051359) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20180207013201) do
     t.integer "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "article_plans", force: :cascade do |t|
+    t.integer "page_plan_id"
+    t.string "reporter"
+    t.integer "order"
+    t.string "title"
+    t.string "char_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_plan_id"], name: "index_article_plans_on_page_plan_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -162,6 +173,8 @@ ActiveRecord::Schema.define(version: 20180207013201) do
     t.string "title"
     t.string "work"
     t.string "position"
+    t.string "email"
+    t.string "cell"
     t.integer "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -256,13 +269,23 @@ ActiveRecord::Schema.define(version: 20180207013201) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reporter_groups", force: :cascade do |t|
+    t.string "section"
+    t.string "page_range"
+    t.string "leader"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reporters", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "division"
     t.string "title"
+    t.string "cell"
+    t.integer "reporter_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reporter_group_id"], name: "index_reporters_on_reporter_group_id"
   end
 
   create_table "section_headings", force: :cascade do |t|

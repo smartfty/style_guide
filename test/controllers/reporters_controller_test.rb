@@ -17,7 +17,7 @@ class ReportersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reporter" do
     assert_difference('Reporter.count') do
-      post reporters_url, params: { reporter: { division: @reporter.division, email: @reporter.email, name: @reporter.name, title: @reporter.title } }
+      post reporters_url, params: { reporter: { email: @reporter.email, name: @reporter.name, reporter_group_id: @reporter.reporter_group_id, title: @reporter.title } }
     end
 
     assert_redirected_to reporter_url(Reporter.last)
@@ -34,7 +34,7 @@ class ReportersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reporter" do
-    patch reporter_url(@reporter), params: { reporter: { division: @reporter.division, email: @reporter.email, name: @reporter.name, title: @reporter.title } }
+    patch reporter_url(@reporter), params: { reporter: { email: @reporter.email, name: @reporter.name, reporter_group_id: @reporter.reporter_group_id, title: @reporter.title } }
     assert_redirected_to reporter_url(@reporter)
   end
 

@@ -43,7 +43,7 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
-      binding.pry
+      # binding.pry
 
       if @working_article.update(working_article_params)
         @working_article.generate_pdf

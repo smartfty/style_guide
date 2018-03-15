@@ -1,29 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @opinion_writer.name %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @opinion_writer.title %>
-</p>
-
-<p>
-  <strong>Work:</strong>
-  <%= @opinion_writer.work %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @opinion_writer.position %>
-</p>
-
-<p>
-  <strong>Publication:</strong>
-  <%= @opinion_writer.publication %>
-</p>
-
-<%= link_to 'Edit', edit_opinion_writer_path(@opinion_writer) %> |
-<%= link_to 'Back', opinion_writers_path %>
+<h3 align='center'>오피니언 저자</h3>
+<div class="row">
+  <div class="col-sm-1 col-md-1">
+    <p> </p>
+  </div>
+  <div class="col-sm-5 col-md-5">
+    <%= render 'form', opinion_writer: @opinion_writer %>
+  </div>
+  <div class="col-sm-5 col-md-5">
+    <% if browser.safari? %>
+      <img width="100%" height="100%" src="<%= @opinion_writer.pdf_image_path %>" ></img>
+    <% elsif browser.modern?  || browser.ie?%>
+      <img width="100%" height="100%" src="<%= @opinion_writer.pdf_image_path %>" ></img>
+    <% end %>
+  </div>
+  <div class="col-sm-1 col-md-1">
+    <p> </p>
+  </div>
+</div>
+<%= link_to "이전으로", opinion_writers_path, method: :get, class: "btn btn-md btn-success" %>

@@ -4,7 +4,8 @@ class OpinionWritersController < ApplicationController
   # GET /opinion_writers
   # GET /opinion_writers.json
   def index
-    @opinion_writers = OpinionWriter.all
+    @q = OpinionWriter.ransack(params[:q])
+    @opinion_writers = @q.result
   end
 
   # GET /opinion_writers/1
@@ -28,6 +29,7 @@ class OpinionWritersController < ApplicationController
 
     respond_to do |format|
       if @opinion_writer.save
+        @opinion_writer.generate_pdf
         format.html { redirect_to @opinion_writer, notice: 'Opinion writer was successfully created.' }
         format.json { render :show, status: :created, location: @opinion_writer }
       else
@@ -42,7 +44,8 @@ class OpinionWritersController < ApplicationController
   def update
     respond_to do |format|
       if @opinion_writer.update(opinion_writer_params)
-        format.html { redirect_to @opinion_writer, notice: 'Opinion writer was successfully updated.' }
+        @opinion_writer.generate_pdf
+        format.html { redirect_to @opinion_writer, notice: '오피니언 저자 수정 되었습니다.' }
         format.json { render :show, status: :ok, location: @opinion_writer }
       else
         format.html { render :edit }

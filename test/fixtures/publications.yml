@@ -31,6 +31,7 @@
 #  article_line_draw_sides        :text
 #  article_line_thickness         :float
 #  draw_divider                   :boolean
+#  cms_server_url                 :string
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null
 #

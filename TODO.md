@@ -20,8 +20,53 @@
   - progress wheel
 
 ## create NewsDisplayAdBox
+
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
+
+2018_3_14
+  - issue_info_for_cms => issue_info
+  - add publicatin
+  - anavigation rrows
+    - pre, up, next for page and article
+  - for page 22, 23 don't show page template
+
+2018_2_25
+  - ## put space_before
+
+2018_2_23
+  - add search for OpinionWriter
+    - use ransack
+  - upload image to OpinionWriter
+  - multiple image path extension support {eps, pdf, jpg}
+
+2018_2_19
+  - fix navbar, color, remove items
+  - fix col-md-4 to handle col-sm-4
+  - apply newly defined text_styles
+  - add text_styles emphasis definition
+        style, font, prefix, suffix, color, size
+
+  - add opinion_writers CRUD
+
+2018_2_19
+  - auto-generate opinion writers profile
+
+2018_2_14
+  - add ReporterGroups table
+  - add Reporters table
+  - add ArticlePlan table
+
+  - parse reporter_data.csv
+  - add page_plan_show as assign_reporter
+
+  - in PagePlan create_article_plans
+        is not creating ArticlePlans
+  - Article add word_count
+      page_columns, column, row, front_page, top_story,s top_position, on_left_edge, on_right_edge
+
+2018_2_13
+  - add assign_reporter
 
 2018_2_4
   - copy to or save to Sites/naeil/#{issue}/#{page} folder

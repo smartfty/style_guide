@@ -1,35 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Opinion Writers</h1>
+<h3>오피니언 저자</h3>
+<%= search_form_for @q do |f| %>
+  <%= f.label '이름에 포함된 글자로' %>
+  <%= f.search_field :name_cont %>
+  <%= f.label '제목에 포함된 글자로' %>
+  <%= f.search_field :title_cont %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Work</th>
-      <th>Position</th>
-      <th>Publication</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @opinion_writers.each do |opinion_writer| %>
-      <tr>
-        <td><%= opinion_writer.name %></td>
-        <td><%= opinion_writer.title %></td>
-        <td><%= opinion_writer.work %></td>
-        <td><%= opinion_writer.position %></td>
-        <td><%= opinion_writer.publication %></td>
-        <td><%= link_to 'Show', opinion_writer %></td>
-        <td><%= link_to 'Edit', edit_opinion_writer_path(opinion_writer) %></td>
-        <td><%= link_to 'Destroy', opinion_writer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <%= f.submit %>
+<% end %>
 <br>
 
-<%= link_to 'New Opinion Writer', new_opinion_writer_path %>
+<div class="row">
+  <% @opinion_writers.each do |writer| %>
+  <div class = "col-sm-3 col-md-3"  align='center'>
+  <a href="<%=  opinion_writer_path(writer) %>"><img  src="<%= writer.pdf_image_path %>" width="100%"></img></a>
+    <h4 align='center'><a href='<%= opinion_writer_path(writer)%>'><%= writer.name %></a></h4>
+  </div>    <!-- true -->
+  <% end %>
+</div>
+<br>
+<div align="center">
+  <%= link_to '새로운 저자등록', new_opinion_writer_path , method: :get, class: "btn btn-md btn-success" %>
+</div>

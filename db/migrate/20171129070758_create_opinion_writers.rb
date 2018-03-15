@@ -5,6 +5,8 @@ class CreateOpinionWriters < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :work
       t.string :position
+      t.string :email
+      t.string :cell
       t.references :publication, foreign_key: true
 
       t.timestamps

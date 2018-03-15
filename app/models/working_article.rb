@@ -87,7 +87,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def save_article
-    save_layout unless File.exist?(layout_path)
+    save_layout
     save_story
   end
 
@@ -114,6 +114,17 @@ class WorkingArticle < ApplicationRecord
     system "cp #{pdf_path} #{site_path}/"
     system "cp #{jpg_path} #{site_path}/"
   end
+
+  # def dropbox_path
+  #   #
+  #
+  # end
+  #
+  # def save_to_dropbox
+  #   # system "cp #{dropbox_path} #{site_path}/"
+  #   # system "cp #{jpg_path} #{site_path}/"
+  #
+  # end
 
   def update_page_pdf
     page_path = page.path
@@ -278,9 +289,13 @@ class WorkingArticle < ApplicationRecord
         content += "  news_image(#{image_hash})\n"
       end
       content += "end\n"
-    elsif kind == '기고' || kind == 'opinion'
+    elsif kind == '사설' || kind == 'editorial'
       h[:article_line_draw_sides]  = [0,1,0,0]
-
+      content = "RLayout::NewsArticleBox.new(#{h}) do\n"
+        # content += "  news_image(#{opinion_profile_options})\n"
+      content += "end\n"
+    elsif kind == '기고' || kind == 'opinion'
+      h[:article_line_draw_sides]  = [0,1,0,1]
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
         content += "  news_image(#{opinion_profile_options})\n"
       content += "end\n"

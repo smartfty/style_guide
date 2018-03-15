@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :reporters
+  resources :article_plans
+  resources :reporter_groups
   resources :opinion_writers
   resources :heading_bg_images
   resources :stroke_styles do
