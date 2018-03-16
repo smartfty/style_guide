@@ -50,14 +50,10 @@ class PagePlan < ApplicationRecord
   def create_article_plans
     return if section_name == '전면광고'
     story_count.times do |i|
-      puts "team_leader:#{team_leader}"
       ArticlePlan.where(page_plan:self, reporter: team_leader, order: i + 1, title: "제목은 여기에 ...").first_or_create
     end
   end
 
-  def section_name
-    page.section_name
-  end
 
   def reporters_of_group
     group = ReporterGroup.where(section: section_name).first
