@@ -175,9 +175,9 @@ namespace :style do
 
   desc "chnage output to story for all articles"
   task :change_ouput_to_story =>:environment do
-    # WorkingArticle.all.each do |wa|
-    #   wa.change_ouput_to_story
-    # end
+    WorkingArticle.all.each do |wa|
+      wa.change_ouput_to_story
+    end
 
     Article.all.each do |a|
       a.change_ouput_to_story
