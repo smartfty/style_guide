@@ -67,19 +67,33 @@ class WorkingArticle < ApplicationRecord
   end
 
   def pdf_path
-    path + "/output.pdf"
+    path + "/story.pdf"
   end
 
   def jpg_path
+    path + "/story.jpg"
+  end
+
+  def old_pdf_path
+    path + "/output.pdf"
+  end
+
+  def old_jpg_path
     path + "/output.jpg"
   end
 
+  def change_ouput_to_story
+    system "mv #{old_pdf_path} #{pdf_path}"
+    system "mv #{old_jpg_path} #{jpg_path}"
+  end
+
+
   def pdf_image_path
-    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/output.pdf"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.pdf"
   end
 
   def jpg_image_path
-    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/output.jpg"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.jpg"
   end
 
   def article_info_path

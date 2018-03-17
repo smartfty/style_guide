@@ -70,7 +70,7 @@ class WorkingArticlesController < ApplicationController
     end
   end
 
-  # download output.pdf
+  # download story.pdf
   def download_pdf
     send_file @working_article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end

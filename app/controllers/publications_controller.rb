@@ -62,7 +62,7 @@ class PublicationsController < ApplicationController
     end
   end
 
-  # download output.pdf
+  # download story.pdf
   def download_pdf
     send_file @publication.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end

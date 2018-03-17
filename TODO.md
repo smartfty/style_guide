@@ -24,10 +24,17 @@
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
 
+2018_3_16
+  - change output.pdf to story.pdf
+2018_3_15
+  - when creating new issue, copy page pdf and jpg
+  - generate page heading with new data and issue number
+  - we might need date to issue number table
+
 2018_3_14
   - issue_info_for_cms => issue_info
-  - add publicatin
-  - anavigation rrows
+  - add publication
+  - navigation arrows
     - pre, up, next for page and article
   - for page 22, 23 don't show page template
 

@@ -97,7 +97,7 @@ class SectionsController < ApplicationController
     @sections = Section.seven_column.order(:page_number).page(params[:page]).per(20)
   end
 
-  # download output.pdf
+  # download story.pdf
   def download_pdf
     send_file @section.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end

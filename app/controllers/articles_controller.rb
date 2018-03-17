@@ -90,7 +90,7 @@ class ArticlesController < ApplicationController
     @articles = Article.seven_column
   end
 
-  # download output.pdf
+  # download story.pdf
   def download_pdf
     send_file @article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end

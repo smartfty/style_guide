@@ -60,6 +60,15 @@ namespace :style do
     end
   end
 
+
+  desc "generating pdf for all articles"
+  task :generate_page_pdf =>:environment do
+    puts "generating pdf for all articles"
+    Page.all.each do |page|
+      page.generate_pdf
+    end
+  end
+
   desc "generating pdf for all articles unless it exist"
   task :update_pdf_unless =>:environment do
     puts "generating pdf for all articles unless"
@@ -161,6 +170,17 @@ namespace :style do
     puts "generating pdf for all page headings"
     Section.all.each do |section|
       section.generate_heading_pdf
+    end
+  end
+
+  desc "chnage output to story for all articles"
+  task :change_ouput_to_story =>:environment do
+    # WorkingArticle.all.each do |wa|
+    #   wa.change_ouput_to_story
+    # end
+
+    Article.all.each do |a|
+      a.change_ouput_to_story
     end
   end
 
@@ -289,5 +309,7 @@ namespace :style do
     File.open(text_styles_named_key_path, 'w'){|f| f.write text_styles_named_hash.to_s}
 
   end
+
+
 
 end

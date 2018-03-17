@@ -82,7 +82,7 @@ class TextStylesController < ApplicationController
     redirect_to text_styles_url,  notice: 'Current text style was successfully saved.'
   end
 
-  # download output.pdf
+  # download story.pdf
   def download_pdf
     send_file @text_style.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end

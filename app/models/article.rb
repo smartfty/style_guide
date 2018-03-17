@@ -51,15 +51,28 @@ class Article < ApplicationRecord
   end
 
   def story_path
-    path + "/story.md"
+    path + "/c.md"
   end
 
   def pdf_path
-    path + "/output.pdf"
+    path + "/story.pdf"
   end
 
   def jpg_path
+    path + "/story.jpg"
+  end
+
+  def old_pdf_path
+    path + "/output.pdf"
+  end
+
+  def old_jpg_path
     path + "/output.jpg"
+  end
+
+  def change_ouput_to_story
+    system "mv #{old_pdf_path} #{pdf_path}"
+    system "mv #{old_jpg_path} #{jpg_path}"
   end
 
   def relative_path
@@ -67,7 +80,7 @@ class Article < ApplicationRecord
   end
 
   def pdf_image_path
-    relative_path + "/output.pdf"
+    relative_path + "/story.pdf"
   end
 
   def jpg_image_path
