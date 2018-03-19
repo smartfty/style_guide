@@ -24,6 +24,11 @@
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
 
+2018_3_19
+  - create non-publishing holidays
+    issue_number generated according to holidays
+    year date
+
 2018_3_16
   - change output.pdf to story.pdf
 2018_3_15
