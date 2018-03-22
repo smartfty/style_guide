@@ -100,6 +100,8 @@ class Section < ApplicationRecord
     if page_number == 1 || is_front_page == true
       h['is_front_page']  = true
       h['page_heading_margin_in_lines']     = publication.front_page_heading_margin
+    elsif page_number == 22 || page_number == 23
+      h['page_heading_margin_in_lines']     = 4
     else
       h['is_front_page']  = false
       h['page_heading_margin_in_lines']     = publication.inner_page_heading_height
@@ -136,7 +138,8 @@ class Section < ApplicationRecord
   def save_section_config_yml
     system "mkdir -p #{path}" unless File.directory?(path)
     section_config_yml_path = path + "/config.yml"
-    File.open(section_config_yml_path, 'w'){|f| f.write section_config_hash.to_yaml}
+    yaml = section_config_hash.to_yaml
+    File.open(section_config_yml_path, 'w'){|f| f.write yaml}
   end
 
   def article_type(box)

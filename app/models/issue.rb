@@ -22,6 +22,8 @@ class Issue < ApplicationRecord
 
   before_create :read_issue_plan
   after_create :setup
+  # validates_presence_of :date
+  # validates_uniqueness_of :date
 
   def path
     "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}"

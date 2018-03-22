@@ -27,10 +27,7 @@ class Page < ApplicationRecord
   has_one :page_heading
   before_create :copy_attributes_from_template
   after_create :setup
-
   scope :clone_page, -> {where("clone_name!=?", nil)}
-
-
 
   DAYS_IN_KOREAN = %w{일요일 월요알 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
@@ -150,7 +147,7 @@ class Page < ApplicationRecord
     end
   end
 
-  def isuue_week_day_in_korean
+  def issue_week_day_in_korean
     date = issue.date
     DAYS_IN_KOREAN[date.wday]
   end
@@ -173,9 +170,9 @@ class Page < ApplicationRecord
   def korean_date_string
     date = issue.date
     if page_number == 1
-      "#{date.year}년 #{date.month}월 #{date.day}일 #{isuue_week_day_in_korean} (#{issue.number}호)"
+      "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean} (#{issue.number}호)"
     else
-      "#{date.year}년 #{date.month}월 #{date.day}일 #{isuue_week_day_in_korean}"
+      "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean}"
     end
   end
 
@@ -241,7 +238,6 @@ class Page < ApplicationRecord
         current[:article_id] = article.id
         WorkingArticle.create(current)
       end
-
     end
     # mark unused as inactive
     working_articles.each_with_index do |working_article, i|
@@ -299,8 +295,38 @@ class Page < ApplicationRecord
 
   def copy_config_file
     source = section_template_folder + "/config.yml"
+    config_hash = YAML::load_file(source)
+    config_hash['date'] = issue.date.to_s
     target = path + "/config.yml"
+    File.open(target, 'w'){|f| f.write(config_hash.to_yaml)}
+  end
+
+  def copy_section_pdf
+    source = section_template_folder + "/section.pdf"
+    target = path + "/section.pdf"
     system "cp #{source} #{target}"
+    jpg_source = section_template_folder + "/section.jpg"
+    jpg_target = path + "/section.jpg"
+    system "cp #{jpg_source} #{jpg_target}"
+  end
+
+  def copy_heading
+    FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
+    source = issue.publication.heading_path + "/#{page_number}"
+    target = page_heading_path
+    layout_erb_path     = page_heading_path + "/layout.erb"
+    unless File.exist? layout_erb_path
+      system "cp -R #{source}/ #{target}/"
+    end
+    layout_erb_content  = File.open(layout_erb_path, 'r'){|f| f.read}
+    erb                 = ERB.new(layout_erb_content)
+    @date               = korean_date_string
+    @section_name       = section_name
+    @page_number        = page_number
+    layout_content      = erb.result(binding)
+    layout_rb_path      = page_heading_path + "/layout.rb"
+    File.open(layout_rb_path, 'w'){|f| f.write layout_content}
+    system "cd #{page_heading_path} && /Applications/rjob.app/Contents/MacOS/rjob ."
   end
 
   def copy_section_template
@@ -356,6 +382,9 @@ class Page < ApplicationRecord
     end
     update_working_articles
     update_ad_boxes
+    #TODO
+    copy_heading
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def change_template(new_template_id)

@@ -175,15 +175,22 @@ date
   page_range
 
 ## Reporters
+
   name
   email
   reporter_group:references
   title
 
 ## article_plan
+
   page_plan_id
   reporter
   order
+
+## holidays
+
+  day
+  name
 
 # email based layout?
   references:issue

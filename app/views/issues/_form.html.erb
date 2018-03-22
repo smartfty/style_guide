@@ -1,5 +1,5 @@
 <div class="authform">
-  <h3>새로운 신문설정</h3>
+  <h3>오늘자 신문 만들기</h3>
 
 <%= form_for(issue) do |f| %>
   <% if issue.errors.any? %>
@@ -12,29 +12,12 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label '매체' %>
-    <%= f.text_field :publication_id,  class: 'form-control' %>
-  </div>
 
-  <div class="form-group">
-      <div class='input-group date' id='datetimepicker1'>
-          <input type='text' class="form-control" />
-          <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-      </div>
-  </div>
-  <script type="text/javascript">
-      $(function () {
-          $('#datetimepicker1').datetimepicker();
-      });
-  </script>
-
+  <%= f.hidden_field :publication_id, value:  1 %>
 
   <div class="form-group">
     <%= f.label :날짜 %>
-    <%= f.date_select :date,  {:use_month_names => ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월','12월']}, class: 'form-control' %>
+    <%= f.date_select :date, id: :issue_date %>
   </div>
 
   <div class="form-group">
@@ -42,14 +25,8 @@
     <%= f.text_field :number, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :이슈사진들 %>
-    <%= f.file_field :issue_images, multiple: true, class: 'form-control' %>
-  </div>
-
-
   <div class="actions">
-    <button type="submit" class="btn btn-sm btn-primary">새로운 신문 생성</button>
+    <button type="submit" class="btn btn-sm btn-primary">오늘자 신문 생성</button>
   </div>
 <% end %>
 

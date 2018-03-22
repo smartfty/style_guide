@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213051359) do
+ActiveRecord::Schema.define(version: 20180320081233) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -137,6 +137,13 @@ ActiveRecord::Schema.define(version: 20180213051359) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["page_heading_id"], name: "index_heading_bg_images_on_page_heading_id"
+  end
+
+  create_table "holidays", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|

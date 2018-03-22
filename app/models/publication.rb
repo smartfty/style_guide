@@ -104,6 +104,10 @@ class Publication < ApplicationRecord
     info_hash
   end
 
+  def heading_path
+    path + "/page_heading"
+  end
+
   def save_publication_info
     system("mkdir -p #{publication_info_folder}") unless File.directory?(publication_info_folder)
     File.open(info_yml_path,'w'){|f| f.write publication_info_hash.to_yaml}

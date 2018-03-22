@@ -2,21 +2,21 @@
 date: 2017-04-10
 section_name: 정치
 is_front_page: false
+page_heading_margin_in_lines: 3
 :ad_type: no_ad
 page_columns: 7
 grid_size:
-- 147.40142857142857
-- 96.94466666666668
-width: 1116.85
-height: 1539.21
-left_margin: 42.52
-top_margin: 42.52
-right_margin: 42.52
-bottom_margin: 42.52
-gutter: 12.75
-divider_info:
-- 4
-- 25.51
+- 146.99664257142857
+- 96.377964
+lines_per_grid: 7
+width: 1114.0158780000002
+height: 1544.88207
+left_margin: 42.519690000000004
+top_margin: 56.69292
+right_margin: 42.519690000000004
+bottom_margin: 42.519690000000004
+gutter: 12.755907
+draw_divider: 
 story_frames:
 - - 0
   - 0
@@ -54,3 +54,4 @@ story_frames:
   - 11
   - 3
   - 4
+article_line_thickness: 0.3

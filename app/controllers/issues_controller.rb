@@ -15,6 +15,7 @@ class IssuesController < ApplicationController
   # GET /issues/new
   def new
     @issue = Issue.new
+    @publication = Publication.first
   end
 
   # GET /issues/1/edit
@@ -24,6 +25,7 @@ class IssuesController < ApplicationController
   # POST /issues
   # POST /issues.jsonfredirect_to
   def create
+
     @issue = Issue.new(issue_params)
     respond_to do |format|
       if @issue.save
@@ -125,7 +127,6 @@ class IssuesController < ApplicationController
   end
 
   def send_to_cms
-    puts __method__
     @issue.request_cms_new_issue
     redirect_to assign_reporter_issue_path(@issue)
   end
@@ -143,6 +144,6 @@ class IssuesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
       # params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
-      params.permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
+      params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
     end
 end

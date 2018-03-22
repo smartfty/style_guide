@@ -23,7 +23,14 @@
 
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
-
+2018_3_21
+  - longin window at login
+  - make three navigation buttons
+  - view page
+  - add Users
+  - heading erb
+  - change heading/output.pdf to layout.pdf
+  
 2018_3_19
   - create non-publishing holidays
     issue_number generated according to holidays
