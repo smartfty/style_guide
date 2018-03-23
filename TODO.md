@@ -23,14 +23,18 @@
 
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
+
 2018_3_21
-  - longin window at login
+  - add save_as_default in Page
+  - fix bug when changing page template
+    add profile and section_id
+  - login window as root
   - make three navigation buttons
   - view page
   - add Users
   - heading erb
   - change heading/output.pdf to layout.pdf
-  
+
 2018_3_19
   - create non-publishing holidays
     issue_number generated according to holidays

@@ -102,6 +102,14 @@ namespace :style do
     end
   end
 
+  desc "update section config yml for all sections"
+  task :save_section_config_yml =>:environment do
+    puts "saved section config yml for all sections"
+    Section.all.each do |section|
+      section.save_section_config_yml
+    end
+  end
+
   desc "update section profile for all sections"
   task :update_section_profile =>:environment do
     puts "update section layout for all sections"

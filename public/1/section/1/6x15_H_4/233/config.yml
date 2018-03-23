@@ -4,6 +4,8 @@ section_name: 1면
 is_front_page: true
 page_heading_margin_in_lines: 3
 :ad_type: no_ad
+profile: 6x15_H_4
+section_id: 233
 page_columns: 6
 grid_size:
 - 171.496083

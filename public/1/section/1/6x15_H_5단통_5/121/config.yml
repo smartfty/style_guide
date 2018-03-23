@@ -4,6 +4,8 @@ section_name: 1면
 is_front_page: true
 page_heading_margin_in_lines: 3
 :ad_type: 5단통
+profile: 6x15_H_5단통_5
+section_id: 121
 page_columns: 6
 grid_size:
 - 171.496083

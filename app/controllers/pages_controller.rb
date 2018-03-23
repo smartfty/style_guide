@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :regenerate_pdf, :change_template]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :regenerate_pdf, :change_template, :save_current_as_default]
 
   # GET /pages
   # GET /pages.json
@@ -89,7 +89,11 @@ class PagesController < ApplicationController
     respond_to do |format|
         format.js   {render :js => "window.location = '#{page_path(@page)}'"}
     end
-    # redirect_to @page, notice: '페이지가 성공적으로 바뀌었습니다.'
+  end
+
+  def save_current_as_default
+    @page.save_as_default
+    redirect_to @page, notice: '현 페이지를 시작 페이지로 설정 하였습니다.'
   end
 
   private

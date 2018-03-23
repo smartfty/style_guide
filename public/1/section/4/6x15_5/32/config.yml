@@ -4,6 +4,8 @@ section_name: 정치
 is_front_page: false
 page_heading_margin_in_lines: 3
 :ad_type: no_ad
+profile: 6x15_5
+section_id: 32
 page_columns: 6
 grid_size:
 - 171.496083

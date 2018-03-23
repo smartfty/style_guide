@@ -27,9 +27,20 @@ Rails.application.routes.draw do
       get 'update_page'
     end
   end
+
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'home#welcome'
+    end
+    unauthenticated :user do
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
   resources :users
 
   resources :ad_boxes do
@@ -74,6 +85,7 @@ Rails.application.routes.draw do
       get 'download_pdf'
       get 'change_template'
       get 'regenerate_pdf'
+      get 'save_current_as_default'
       get 'clone'
     end
 

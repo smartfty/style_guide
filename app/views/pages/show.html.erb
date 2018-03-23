@@ -52,10 +52,10 @@
     <p>browser.modern</p>
 
     <div class="row">
-      <div class = "col-md-1">
+      <div class = "col-sm-1 col-md-1">
         <p> </p>
       </div>
-      <div class = "col-md-10">
+      <div class = "col-sm-10 col-md-10">
         <% if File.exist?(@page.pdf_path) %>
           <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
           <%= raw @page.to_svg_with_jpg %>
@@ -63,7 +63,7 @@
         <% end %>
       </div>
 
-      <div class = "col-md-1">
+      <div class = "col-sm-1 col-md-1">
         <p> </p>
       </div>
      </div>
@@ -79,27 +79,26 @@
 <br>
 
 
-
 <div class="row">
-  <div class = "col-md-2">
+  <div class = "col-sm-12 col-md-2">
     <p> </p>
   </div>
-  <div class = "col-md-8">
+  <div class = "col-sm-8 col-md-8">
     <div class="row">
       <% @page_templates.each do |template| %>
-      <div class="col-lg-2" >
+      <div class="col-sm-2 col-md-2" >
         <% if template.id == @page.template_id %>
           <div class='selected_template'>
             <img width="98%"  src="<%= template.jpg_image_path %>" alt="" >
             <div align="center">
-              <h4><%= template.profile =%></h4>
+              <h5><%= template.profile %>(<%= template.id %>)</h5>
             </div>
           </div>
         <% else %>
           <div class='unselected_template'>
             <p><img  src="<%= template.jpg_image_path %>" width="100%"></img></p>
             <div align="center">
-              <h4><%= template.profile =%></h4>
+              <p><%= template.profile %>(<%= template.id %>)</p>
             </div>
             <div align="center">
               <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
@@ -114,9 +113,13 @@
 
 
   </div>
-  <div class = "col-md-2">
+  <div class = "col-sm-2 col-md-2">
     <p> </p>
   </div>
+</div>
+
+<div align="center">
+  <%= link_to "시작 페이지로 저장", save_current_as_default_page_path(@page.issue), method: :get, class: "btn btn-md btn-danger" %>
 </div>
 
 <div align="center">

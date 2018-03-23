@@ -4,6 +4,8 @@ section_name: 국제통일면
 is_front_page: false
 page_heading_margin_in_lines: 3
 :ad_type: no_ad
+profile: 5x15_6
+section_id: 137
 page_columns: 5
 grid_size:
 - 205.7952996

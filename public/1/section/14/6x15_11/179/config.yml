@@ -4,6 +4,8 @@ section_name: 산업
 is_front_page: false
 page_heading_margin_in_lines: 3
 :ad_type: no_ad
+profile: 6x15_11
+section_id: 179
 page_columns: 6
 grid_size:
 - 171.496083

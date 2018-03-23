@@ -110,6 +110,8 @@ class Section < ApplicationRecord
     # grid_key: 7x12/H/5
     grid_width                          = publication.grid_width(column)
     grid_height                         = publication.grid_height
+    h['profile']                        = profile
+    h['section_id']                     = id
     h['page_columns']                   = column
     h['grid_size']                      = [grid_width, grid_height]
     h['lines_per_grid']                 = publication.lines_per_grid

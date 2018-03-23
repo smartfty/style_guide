@@ -416,6 +416,14 @@ class Page < ApplicationRecord
     regenerate_pdf
   end
 
+  def save_as_default
+    default_issue_plan_path = issue.default_issue_plan_path
+    issue_hash = eval(File.open(default_issue_plan_path, 'r'){|f| f.read})
+    binding.pry
+    issue_hash[page_number - 1] << template_id
+    File.open(default_issue_plan_path, 'w'){|f| f.write issue_hash.to_s}
+  end
+
 
   def heading_height_in_pt
     if page_number == 1
