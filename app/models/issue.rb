@@ -34,7 +34,11 @@ class Issue < ApplicationRecord
   end
 
   def default_issue_plan_path
-    "#{Rails.root}/public/#{publication_id}/issue/default_issue_plan.rb"
+    "#{Rails.root}/public/#{publication_id}/default_issue_plan.rb"
+  end
+
+  def default_issue_path
+    "#{Rails.root}/public/#{publication_id}/default_issue_plan"
   end
 
   def setup

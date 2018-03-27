@@ -26,7 +26,10 @@
 
 2018_3_27
   - add Users with working section info
-  - show section range 
+  - show section range
+  - add space before for ## , fix bug at the last line
+  - create default_issue and copy it when creating new issue
+  - move default_issue_plan to publication/default_issue_plan.rb and and include it to git
 
 2018_3_24
   - add tab on working_articles
