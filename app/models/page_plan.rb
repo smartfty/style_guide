@@ -66,7 +66,7 @@ class PagePlan < ApplicationRecord
     if profile && profile != ""
       selected_section_template = Section.where(page_number: page_number, profile: profile).first
       unless selected_section_template
-        selected_section_template = Section.where(page_number: page_number).frist
+        selected_section_template = Section.where(page_number: page_number).first
       end
       unless selected_section_template
         puts "Np section template for the page: #{page_number} found!!! !!!"

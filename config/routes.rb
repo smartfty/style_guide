@@ -77,6 +77,17 @@ Rails.application.routes.draw do
       get 'slide_show'
       get 'assign_reporter'
       get 'send_to_cms'
+
+      get 'first_group'
+      get 'second_group'
+      get 'third_group'
+      get 'fourth_group'
+      get 'fifth_group'
+      get 'sixth_group'
+      get 'seventh_group'
+      get 'eighth_group'
+      get 'nineth_group'
+      get 'ad_group'
     end
   end
 

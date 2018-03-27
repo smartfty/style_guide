@@ -25,7 +25,6 @@ class IssuesController < ApplicationController
   # POST /issues
   # POST /issues.jsonfredirect_to
   def create
-
     @issue = Issue.new(issue_params)
     respond_to do |format|
       if @issue.save
@@ -108,6 +107,78 @@ class IssuesController < ApplicationController
      end
     redirect_to ad_images_issue_path(@issue.id)
     # images_issue_path(Issue.last.id)
+  end
+
+  def demo
+    #code
+  end
+
+  #
+  # SECTIONS = [
+  #   '1면',
+  #   '정치',
+  #   '행정',
+  #   '국제통일',
+  #   '금융',
+  #   '산업',
+  #   '정책',
+  #   '기획',
+  #   '오피니언',
+  # ]
+  #
+#   1
+# 2_4
+# 5_6
+# 8
+# 10_13
+# 14-17
+# 18_19
+# 20_21
+# 22-23
+  def first_group
+    set_issue
+    @page_range = 0..0
+  end
+
+  def second_group
+    set_issue
+    @page_range = 1..3
+  end
+
+  def third_group
+    set_issue
+    @page_range = 4..5
+  end
+
+  def fourth_group
+    set_issue
+    @page_range = 7..7
+  end
+
+  def fifth_group
+    set_issue
+    @page_range = 9..12
+  end
+
+  def sixth_group
+    set_issue
+    @page_range = 13..16
+  end
+
+  def seventh_group
+    set_issue
+    @page_range = 17..18
+  end
+
+  def eighth_group
+    set_issue
+    @page_range = 19..20
+  end
+
+  # 오피니언
+  def nineth_group
+    set_issue
+    @page_range = 21..22
   end
 
   def clone_pages

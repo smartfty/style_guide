@@ -24,6 +24,18 @@
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
 
+2018_3_27
+  - add Users with working section info
+  - show section range 
+
+2018_3_24
+  - add tab on working_articles
+    text-editor ace
+    preview     annotatejs
+    image_edit
+    quote_box
+    box_style
+
 2018_3_21
   - add save_as_default in Page
   - fix bug when changing page template
@@ -31,7 +43,6 @@
   - login window as root
   - make three navigation buttons
   - view page
-  - add Users
   - heading erb
   - change heading/output.pdf to layout.pdf
 
