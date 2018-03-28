@@ -138,51 +138,61 @@ class IssuesController < ApplicationController
   def first_group
     set_issue
     @page_range = 0..0
+    session[:current_group] = 'first_group'
   end
 
   def second_group
     set_issue
+    session[:current_group] = 'second_group'
     @page_range = 1..3
   end
 
   def third_group
     set_issue
     @page_range = 4..5
+    session[:current_group] = 'third_group'
   end
 
   def fourth_group
     set_issue
     @page_range = 7..7
+    session[:current_group] = 'fourth_group'
   end
 
   def fifth_group
     set_issue
     @page_range = 9..12
+    session[:current_group] = 'fifth_group'
   end
 
   def sixth_group
     set_issue
     @page_range = 13..16
+    session[:current_group] = 'sixth_group'
   end
 
   def seventh_group
     set_issue
+    session[:current_group] = 'seventh_group'
     @page_range = 17..18
   end
 
   def eighth_group
     set_issue
+    session[:current_group] = 'eighth_group'
     @page_range = 19..20
   end
 
   # 오피니언
   def nineth_group
     set_issue
+    session[:current_group] = 'nineth_group'
     @page_range = 21..22
   end
 
   def ad_group
     set_issue
+    session[:current_group] = 'ad_group'
     @pages = []
 
     [6,8,10,23].each do |i|

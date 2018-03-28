@@ -1,6 +1,27 @@
 <p id="notice"><%= notice %></p>
 <div align="center">
-  <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
+  <% case session[:current_group] %>
+  <% when 'first_group' %>
+    <%= link_to "이전으로", first_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'second_group' %>
+    <%= link_to "이전으로", second_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'third_group' %>
+    <%= link_to "이전으로", third_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'fourth_group' %>
+    <%= link_to "이전으로", fourth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'fifth_group' %>
+    <%= link_to "이전으로", fifth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'sixth_group' %>
+    <%= link_to "이전으로", sixth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'seventh_group' %>
+    <%= link_to "이전으로", seventh_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'eighth_group' %>
+    <%= link_to "이전으로", eighth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% when 'nineth_group' %>
+    <%= link_to "이전으로", nineth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+  <% else %>
+    <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
+  <% end %>
 </div>
 
 <% if browser.safari? %>
@@ -71,9 +92,30 @@
 
   <% end %>
 
-<div align="center">
-  <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
-</div>
+  <div align="center">
+    <% case session[:current_group] %>
+    <% when 'first_group' %>
+      <%= link_to "이전으로", first_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'second_group' %>
+      <%= link_to "이전으로", second_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'third_group' %>
+      <%= link_to "이전으로", third_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'fourth_group' %>
+      <%= link_to "이전으로", fourth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'fifth_group' %>
+      <%= link_to "이전으로", fifth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'sixth_group' %>
+      <%= link_to "이전으로", sixth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'seventh_group' %>
+      <%= link_to "이전으로", seventh_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'eighth_group' %>
+      <%= link_to "이전으로", eighth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% when 'nineth_group' %>
+      <%= link_to "이전으로", nineth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+    <% else %>
+      <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
+    <% end %>
+  </div>
 
 <br>
 <br>
