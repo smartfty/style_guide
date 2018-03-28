@@ -24,6 +24,14 @@
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
 
+  - 22, 기고 사진박스
+    기본광고
+    사진박스 올리기
+    pdf file
+    
+  - 23, 내일시론 기자명
+    기본광고
+
 2018_3_27
   - add Users with working section info
   - show section range

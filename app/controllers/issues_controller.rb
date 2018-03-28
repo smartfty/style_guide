@@ -181,6 +181,15 @@ class IssuesController < ApplicationController
     @page_range = 21..22
   end
 
+  def ad_group
+    set_issue
+    @pages = []
+
+    [6,8,10,23].each do |i|
+      @pages << @issue.pages[i]
+    end
+  end
+
   def clone_pages
     @clone_pages = Page.clone_pages
   end

@@ -280,6 +280,7 @@ class WorkingArticle < ApplicationRecord
     end
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
+    h[:top_story]                     = false   if kind == 'opinion' || '기고'
     h[:top_position]                  = top_position
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines

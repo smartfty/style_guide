@@ -148,4 +148,4 @@ User.create!(name: "기자2", email: "reporter2@naeil.com", password: 'itis1234'
 
 User.create!(name: "장명국", email: "ceo@naeil.com", password: 'itis6161', password_confirmation: "itis6161", role: 1)
 User.create!(name: "이옥경", email: "okkl@naeil.com", password: 'itis7885', password_confirmation: "itis7885", role: 1)
-User.create!(name: "정세용", email: "csy@naeil.com", password: 'itis7885', password_confirmation: "itis7885", role: 1)
+User.create!(name: "정세용", email: "csy@naeil.com", password: 'itis4343', password_confirmation: "itis7885", role: 1)
