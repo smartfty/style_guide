@@ -24,13 +24,26 @@
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
 
+2018_4_3
+  - remove c.md, remove unused filed up section template
+  - extra line line for ##
+
+2018_4_1
+
+  - used style checking
+
   - 22, 기고 사진박스
-    기본광고
+    기본광고 자동 자동추가
     사진박스 올리기
     pdf file
-    
+
   - 23, 내일시론 기자명
-    기본광고
+    기본광고 자동추가
+
+  - - partial for opinion, editorial
+
+  - add users to seed
+
 
 2018_3_27
   - add Users with working section info

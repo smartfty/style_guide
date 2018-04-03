@@ -1,5 +1,16 @@
 namespace :style do
 
+  desc "remove c.md files"
+  task :remove_c_md =>:environment do
+    WorkingArticle.all.each do |article|
+      article.remove_c_md
+    end
+    Article.all.each do |article|
+      puts "article"
+      article.remove_c_md
+    end
+  end
+
   desc "create page_headings for all section"
   task :create_page_headings =>:environment do
     puts "creating page_headings ..."

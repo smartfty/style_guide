@@ -53,7 +53,7 @@ class AdBoxTemplate < ApplicationRecord
   end
 
   def is_front_page?
-    page.page_number == 1
+    section.page_number == 1
   end
 
   def layout_rb

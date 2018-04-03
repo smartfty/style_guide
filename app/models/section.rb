@@ -149,12 +149,12 @@ class Section < ApplicationRecord
       h = box[4]
       return 'title'     if h[:타입] == '제목'
       return 'title'     if h[:type] == 'title'
-      return 'opinion'   if h[:타입] == '기고'
+      return '기고'       if h[:타입] == '기고'
       return 'opinion'   if h[:type] == 'opinion'
-      return 'editorial' if h[:타입] == '사설'
+      return '사설'       if h[:타입] == '사설'
       return 'editorial' if h[:type] == 'editorial'
-      return 'ad'  if h[:광고]
-      return 'ad'  if h[:ad_type]
+      return 'ad'        if h[:광고]
+      return 'ad'        if h[:ad_type]
     end
     'article'
   end
@@ -404,7 +404,7 @@ class Section < ApplicationRecord
 
       if box.length == 5 && box[4].class == Hash
         h = box[4]
-        if h[:광고] || h[:type]
+        if h[:광고] || h[:ad]
           ad_box_atts = {}
           ad_box_atts[:section_id]   = self.id
           ad_box_atts[:grid_x]   = box[0]
@@ -415,8 +415,14 @@ class Section < ApplicationRecord
           ad_box_atts[:ad_type]   = h[:type].gsub(" ","-")     if h[:type]
           ad_box_atts[:ad_type]   = h[:광고].gsub(" ","-")      if h[:광고]
           AdBoxTemplate.where(ad_box_atts).first_or_create!
-        elsif h[:박스광고] || h[:display_ad]
-          # TODO create display_ad_area
+        elsif h[:타입] || h[:type]
+          article_atts[:on_left_edge] = false
+          article_atts[:on_left_edge] = true if box[0] == 0
+          article_atts[:on_right_edge] = false
+          article_atts[:on_right_edge] = true if box[0] + box[2] == column
+          article_atts[:kind] = h[:타입]
+          Article.where(article_atts).first_or_create!
+          count += 1
         end
       else
         article_atts[:on_left_edge] = false
@@ -433,7 +439,9 @@ class Section < ApplicationRecord
     count = 0
     box_array = eval_layout
     box_array.each_with_index do |box, i|
-      if box.length == 5 && box[4].class == Hash
+      if box.length == 5 && box[4].class == Hash && (box[4][:타입] == '기고' || box[4][:타입] == '사설')
+        count += 1
+      elsif box.length == 5 && box[4].class == Hash
       else
         count += 1
       end

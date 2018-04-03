@@ -87,9 +87,12 @@ class WorkingArticle < ApplicationRecord
     system "mv #{old_jpg_path} #{jpg_path}"
   end
 
-
   def pdf_image_path
     "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.pdf"
+  end
+
+  def page_number
+    page.page_number
   end
 
   def jpg_image_path
@@ -161,7 +164,7 @@ class WorkingArticle < ApplicationRecord
 
   def story_metadata
     h = {}
-    h['subject_head'] = title_head
+    h['subject_head'] = subject_head
     h['title']      = RubyPants.new(title).to_html
     h['subtitle']   = RubyPants.new(subtitle).to_html
     h['reporter']   = reporter
@@ -280,7 +283,7 @@ class WorkingArticle < ApplicationRecord
     end
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
-    h[:top_story]                     = false   if kind == 'opinion' || '기고'
+    h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
     h[:top_position]                  = top_position
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
@@ -322,6 +325,11 @@ class WorkingArticle < ApplicationRecord
       content += "end\n"
     end
     content
+  end
+
+  def remove_c_md
+    c_md_path = path + "/c.md"
+    FileUtils.rm(c_md_path) if File.exist?(c_md_path)
   end
 
   def save_story

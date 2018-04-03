@@ -51,7 +51,7 @@ class Article < ApplicationRecord
   end
 
   def story_path
-    path + "/c.md"
+    path + "/story.md"
   end
 
   def pdf_path
@@ -188,17 +188,43 @@ class Article < ApplicationRecord
     quote           = "이부분이 이용한 부분입니다. 이부분은 본문 중간에 위치 하게 됩니다. 아마도 이부분이 좀던 눈에 띠게 해야 합나다."
     extra_paragraph = "\n#{quote}"*3
 
-    story_md =<<~EOF
-    ---
-    title: #{title}
-    subtitle: #{subtitle}
-    reporter: #{reporter}
-    email: #{email}
-    ---
+    if kind == '기고'
+      story_md =<<~EOF
+      ---
+      title: #{title}
+      subtitle: #{subtitle}
+      reporter: #{reporter}
+      email: #{email}
+      ---
 
-    #{body}
+      #{body}
 
-    EOF
+      EOF
+    elsif kind == '사설'
+      story_md =<<~EOF
+      ---
+      subject_head: 내일시론
+      title: #{title}
+      email: #{email}
+      ---
+
+      #{body}
+
+      EOF
+
+    else
+      story_md =<<~EOF
+      ---
+      title: #{title}
+      subtitle: #{subtitle}
+      reporter: #{reporter}
+      email: #{email}
+      ---
+
+      #{body}
+
+      EOF
+    end
   end
 
   def image_options
@@ -210,6 +236,80 @@ class Article < ApplicationRecord
     end
   end
 
+  #
+  # def layout_rb
+  #   page_heading_margin_in_lines = 0
+  #   if top_position && is_front_page
+  #       page_heading_margin_in_lines = publication.page_heading_margin_in_lines(1)
+  #   elsif top_position
+  #       page_heading_margin_in_lines = 3
+  #   end
+  #
+  #   h = {}
+  #   h[:kind]                          = kind if kind
+  #   h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
+  #   h[:column]                        = column
+  #   h[:row]                           = row
+  #   h[:grid_width]                    = publication.grid_width(column)
+  #   h[:grid_height]                   = publication.grid_height
+  #   h[:gutter]                        = publication.gutter
+  #   h[:on_left_edge]                  = on_left_edge
+  #   if h[:on_left_edge].nil?
+  #     h[:on_left_edge] = false
+  #     h[:on_left_edge] = true if grid_x == 0
+  #   end
+  #   h[:on_right_edge]                 = on_right_edge
+  #   if h[:on_right_edge].nil?
+  #     h[:on_right_edge] = false
+  #     h[:on_right_edge] = true if h[:column] + grid_x == page.column
+  #   end
+  #   h[:is_front_page]                 = is_front_page
+  #   h[:top_story]                     = top_story
+  #   h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
+  #   h[:top_position]                  = top_position
+  #   h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+  #   h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
+  #   h[:article_line_thickness]        = publication.article_line_thickness
+  #   h[:article_line_draw_sides]       = publication.article_line_draw_sides
+  #   h[:draw_divider]                  = publication.draw_divider
+  #   h
+  #   # h = h.to_s.gsub("{", "").gsub("}", "")
+  #   if kind == '사진'
+  #     content = "RLayout::NewsImageBox.new(#{h}) do\n"
+  #     if image_hash = image_options
+  #       image_hash[:fit_type] = 4
+  #       image_hash[:expand] = [:width, :height]
+  #       puts "image_hash:#{image_hash}"
+  #       content += "  news_image(#{image_hash})\n"
+  #     end
+  #     content += "end\n"
+  #   elsif kind == '만평'
+  #     content = "RLayout::NewsComicBox.new(#{h}) do\n"
+  #     if image_hash = image_options
+  #       content += "  news_image(#{image_hash})\n"
+  #     end
+  #     content += "end\n"
+  #   elsif kind == '사설' || kind == 'editorial'
+  #     h[:article_line_draw_sides]  = [0,1,0,0]
+  #     content = "RLayout::NewsArticleBox.new(#{h}) do\n"
+  #       # content += "  news_image(#{opinion_profile_options})\n"
+  #     content += "end\n"
+  #   elsif kind == '기고' || kind == 'opinion'
+  #     h[:article_line_draw_sides]  = [0,1,0,1]
+  #     content = "RLayout::NewsArticleBox.new(#{h}) do\n"
+  #       content += "  news_image(#{opinion_profile_options})\n"
+  #     content += "end\n"
+  #   else
+  #     content = "RLayout::NewsArticleBox.new(#{h}) do\n"
+  #     if image_hash = image_options
+  #       content += "  news_image(#{image_hash})\n"
+  #     end
+  #     content += "end\n"
+  #   end
+  #   content
+  # end
+
+
   def layout_rb
     grid_width    = publication.grid_width(page_columns)
     grid_height   = publication.grid_height
@@ -220,11 +320,16 @@ class Article < ApplicationRecord
       if is_front_page
         # front_page_heading_height - lines_per_grid
         page_heading_margin_in_lines = publication.front_page_heading_margin
+      elsif section.page_number == 22 || section.page_number == 23
+        page_heading_margin_in_lines = 4
       else
         page_heading_margin_in_lines = publication.inner_page_heading_height
       end
     end
     h = {}
+    h[:kind] = kind                   unless h[:kind] == '기사'
+    h[:reporter] =  '홍길동'           if  h[:kind] == '기고'
+    h[:subject_head] = '내일시론'       if  h[:kind] == '사설'
     h[:column]                        = column
     h[:row]                           = row
     h[:grid_width]                    = grid_width
@@ -244,6 +349,23 @@ class Article < ApplicationRecord
     content=<<~EOF
     RLayout::NewsArticleBox.new(#{h})
     EOF
+    if kind == '기고'
+      content=<<~EOF
+      RLayout::NewsArticleBox.new(#{h})
+        news_image({:image_path=>"/Users/mskim/Development/rails5/style_guide/public/1/opinion/강석진.pdf", :column=>1, :row=>1, :extra_height_in_lines=>5, :stroke_width=>0, :position=>1, :is_float=>true, :fit_type=>4, :before_title=>true, :layout_expand=>nil})
+      end
+      EOF
+    else
+      content=<<~EOF
+      RLayout::NewsArticleBox.new(#{h})
+      EOF
+    end
+
+  end
+
+  def remove_c_md
+    c_md_path = path + "/c.md"
+    FileUtils.rm(c_md_path) if File.exist?(c_md_path)
   end
 
   def save_layout

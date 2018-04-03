@@ -1,0 +1,78 @@
+
+
+<%= form_for(article, remote: true) do |f| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1>사설</h1>
+
+  <div class="form-group">
+    <%= f.label :기사종류 %>
+    <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :제목 %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :부제목 %>
+        <%= f.text_area :subtitle, cols: "40", rows: "2", font_size: "16px", class: 'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= f.label "기자 프로필"%>
+        <%= f.text_field :reporter %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :문패 %>
+        <% if page_number == 23 %>
+          <%= f.text_field :subject_head, class: 'form-control', value: "내일시론" %>
+        <% elsif page_number == 22 %>
+          <%= f.text_field :subject_head, class: 'form-control', value: "기고" %>
+        <% else f %>
+          <%= f.text_field :subject_head, class: 'form-control'%>
+        <% end %>
+
+      </div>
+
+      <div class="actions">
+        <%= f.button "저장", class: "btn btn-primary btn-md", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :본문 %>
+    <%= f.text_area :body, cols: "110", rows: "30", font_size: "16px" , class: 'form-control'%>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :image, type: "hidden" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :personal_image, type: "hidden" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :quote, type: "hidden" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.button "저장", class: "btn btn-primary btn-md", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+  </div>
+
+<% end %>
