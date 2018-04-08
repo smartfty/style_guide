@@ -40,6 +40,10 @@ class Page < ApplicationRecord
     end
   end
 
+  def date
+    issue.date.to_s
+  end
+
   def relative_path
     "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
   end
@@ -546,7 +550,26 @@ class Page < ApplicationRecord
     EOF
   end
 
+  def dropbox_path
+    File.expand_path("~/dropbox")
+  end
 
+  def dropbox_page_path
+    dropbox_path + "/#{date}_#{page_number}.pdf"
+  end
+
+  def dropbox_exist?
+    File.exist?(dropbox_path)
+  end
+
+  def copy_to_drop_box
+    unless dropbox_exist?
+      return "드롭박스가 설치되지 않았습니다."
+    else
+      system("cp #{pdf_path} #{dropbox_page_path}")
+      return true
+    end
+  end
 
   private
 

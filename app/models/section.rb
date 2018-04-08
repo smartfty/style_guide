@@ -145,16 +145,14 @@ class Section < ApplicationRecord
   end
 
   def article_type(box)
-    if box.length == 5 && box[4].class == Hash
+    if box.length == 5
       h = box[4]
-      return 'title'     if h[:타입] == '제목'
-      return 'title'     if h[:type] == 'title'
-      return '기고'       if h[:타입] == '기고'
-      return 'opinion'   if h[:type] == 'opinion'
-      return '사설'       if h[:타입] == '사설'
-      return 'editorial' if h[:type] == 'editorial'
-      return 'ad'        if h[:광고]
-      return 'ad'        if h[:ad_type]
+      return '기고'       if h[4] == '기고'
+      return 'opinion'   if h[4] == 'opinion'
+      return '사설'       if h[4] == '사설'
+      return 'editorial' if h[4] == 'editorial'
+      return 'ad'        if h[4] =~ /^광고/
+      return 'ad'        if h[4] =~ /^ad/
     end
     'article'
   end
@@ -402,9 +400,8 @@ class Section < ApplicationRecord
       article_atts[:on_left_edge]   = true if box[0] == 0
       article_atts[:on_right_edge]  = true if box[0] + box[2] == column
 
-      if box.length == 5 && box[4].class == Hash
-        h = box[4]
-        if h[:광고] || h[:ad]
+      if box.length == 5
+        if box[4] =~/^광고/ || box[4] =~/^ad/
           ad_box_atts = {}
           ad_box_atts[:section_id]   = self.id
           ad_box_atts[:grid_x]   = box[0]
@@ -412,15 +409,14 @@ class Section < ApplicationRecord
           ad_box_atts[:column]   = box[2]
           ad_box_atts[:row]      = box[3]
           ad_box_atts[:order]    = i + 1
-          ad_box_atts[:ad_type]   = h[:type].gsub(" ","-")     if h[:type]
-          ad_box_atts[:ad_type]   = h[:광고].gsub(" ","-")      if h[:광고]
+          ad_box_atts[:ad_type]   = box[4].split("_")[1]
           AdBoxTemplate.where(ad_box_atts).first_or_create!
-        elsif h[:타입] || h[:type]
+        else
           article_atts[:on_left_edge] = false
           article_atts[:on_left_edge] = true if box[0] == 0
           article_atts[:on_right_edge] = false
           article_atts[:on_right_edge] = true if box[0] + box[2] == column
-          article_atts[:kind] = h[:타입]
+          article_atts[:kind] = box[4]
           Article.where(article_atts).first_or_create!
           count += 1
         end
@@ -439,9 +435,9 @@ class Section < ApplicationRecord
     count = 0
     box_array = eval_layout
     box_array.each_with_index do |box, i|
-      if box.length == 5 && box[4].class == Hash && (box[4][:타입] == '기고' || box[4][:타입] == '사설')
+      if box.length == 5  && (box[4] == '기고' || box[4] == 'opinion' || box[4] == '사설' || box[4] == 'editorial')
         count += 1
-      elsif box.length == 5 && box[4].class == Hash
+      elsif box.length == 5 && box[4] =~ /^광고/
       else
         count += 1
       end

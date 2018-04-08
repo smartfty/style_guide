@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :regenerate_pdf, :change_template, :save_current_as_default]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default]
 
   # GET /pages
   # GET /pages.json
@@ -75,6 +75,16 @@ class PagesController < ApplicationController
   # download story.pdf
   def download_pdf
     send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
+  end
+
+  def dropbox
+    result = @page.copy_to_drop_box
+    if result
+      redirect_to @page, notice: '페이지가 성공적으로 드롭박스에 저장 되었습니다,.'
+    else
+      redirect_to @page, notice: "#{result}"
+
+    end
   end
 
   def regenerate_pdf

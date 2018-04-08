@@ -166,9 +166,12 @@ class WorkingArticle < ApplicationRecord
     h = {}
     h['subject_head'] = subject_head
     h['title']      = RubyPants.new(title).to_html
-    h['subtitle']   = RubyPants.new(subtitle).to_html
+    puts "+++++ kind:#{kind}"
+    h['subtitle']   = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+    puts "h['subtitle']:#{h['subtitle']}"
     h['reporter']   = reporter
     h['email']      = email
+
     h
   end
 
@@ -428,6 +431,13 @@ class WorkingArticle < ApplicationRecord
     self.inactive       = false
     self.save
 
+  end
+
+  # add extra empty line between paragraphs
+  def to_markdown_para
+    b = body.gsub!(/(\n|\r\n)+/, "\n\n")
+    puts b.dump
+    self.save
   end
 
   private

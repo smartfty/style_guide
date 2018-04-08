@@ -1,6 +1,6 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview, :assign_reporter]
-
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :to_markdown_para, :upload_images, :zoom_preview, :assign_reporter]
+  layout 'working_article'
   # GET /working_articles
   # GET /working_articles.json
   def index
@@ -73,6 +73,12 @@ class WorkingArticlesController < ApplicationController
   # download story.pdf
   def download_pdf
     send_file @working_article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
+  end
+
+  def to_markdown_para
+    @working_article.to_markdown_para
+    redirect_to working_article_path(@working_article)
+
   end
 
   def add_image

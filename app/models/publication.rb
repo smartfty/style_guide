@@ -84,6 +84,15 @@ class Publication < ApplicationRecord
     path_array.map{|p| p.gsub!(front, "")}
   end
 
+  def text_style_info_path
+    publication_info_folder + "/text_style.yml"
+  end
+
+  def copy_text_style_to_shared_location
+    text_style_source = path + "/text_style/text_style.yml"
+    system("cp #{text_style_source} #{text_style_info_path}")
+  end
+
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
   end

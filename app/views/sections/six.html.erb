@@ -22,6 +22,7 @@
         <td style="text-align:center;"><%= section.story_count %></td>
         <td><%= button_to "보기", section, method: :get, class: "btn btn-sm btn-success" %></td>
         <td><%= button_to "수정", edit_section_path(section), method: :get, class: "btn btn-sm btn-warning" %></td>
+        <td><%= button_to "복제", duplicate_section_path(section), method: :get, class: "btn btn-sm btn-primary" %></td>
         <td><%= button_to "삭제", section, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
     <% end %>

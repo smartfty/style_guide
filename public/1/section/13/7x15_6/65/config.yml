@@ -1,0 +1,47 @@
+---
+date: 2017-04-10
+section_name: 금융-4단기고
+is_front_page: false
+page_heading_margin_in_lines: 3
+:ad_type: no_ad
+profile: 7x15_6
+section_id: 65
+page_columns: 7
+grid_size:
+- 146.99664257142857
+- 96.377964
+lines_per_grid: 7
+width: 1114.0158780000002
+height: 1544.88207
+left_margin: 42.519690000000004
+top_margin: 56.69292
+right_margin: 42.519690000000004
+bottom_margin: 42.519690000000004
+gutter: 12.755907
+draw_divider: 
+story_frames:
+- - 0
+  - 0
+  - 4
+  - 7
+- - 4
+  - 0
+  - 3
+  - 7
+- - 0
+  - 7
+  - 4
+  - 2
+- - 0
+  - 9
+  - 4
+  - 6
+- - 4
+  - 7
+  - 3
+  - 5
+- - 4
+  - 12
+  - 3
+  - 3
+article_line_thickness: 0.3

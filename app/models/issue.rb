@@ -10,7 +10,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
-
+# v
 class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :page_plans

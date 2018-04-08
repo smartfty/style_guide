@@ -51,6 +51,7 @@ h[:article_line_thickness]          = 0.3
 h[:cms_server_url]                  = 'http:://localhost:3001'
 
 p = Publication.where(h).first_or_create
+p.copy_text_style_to_shared_location
 
 section_names.each_with_index do |section_name, i|
   SectionHeading.where(publication_id:p.id, page_number: i + 1, section_name: section_name, date: Date.new(2017,5,30)).first_or_create
@@ -145,6 +146,7 @@ User.create!(name: "편집1", email: "editor1@naeil.com", password: 'itis1234', 
 User.create!(name: "편집2", email: "editor2@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 1)
 User.create!(name: "기자1", email: "reporter1@naeil.com", password: 'itis1234', password_confirmation: "itis1234",)
 User.create!(name: "기자2", email: "reporter2@naeil.com", password: 'itis1234', password_confirmation: "itis1234",)
+User.create!(name: "이동명", email: "leedongmyeong@gmail.com", password: 'itis1234', password_confirmation: "itis1234",)
 
 User.create!(name: "장명국", email: "ceo@naeil.com", password: 'itis6161', password_confirmation: "itis6161", role: 1)
 User.create!(name: "이옥경", email: "okkl@naeil.com", password: 'itis7885', password_confirmation: "itis7885", role: 1)

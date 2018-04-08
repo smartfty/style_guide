@@ -36,7 +36,7 @@
 require 'test_helper'
 
 class WorkingArticleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "add_extra_line_between_paragraphs" do
+    assert true
+  end
 end

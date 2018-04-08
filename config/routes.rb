@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   resources :working_articles do
     member do
       get 'download_pdf'
+      get 'to_markdown_para'
       patch 'upload_images'
       get 'zoom_preview'
       patch 'assign_reporter'
@@ -94,6 +95,7 @@ Rails.application.routes.draw do
   resources :pages do
     member do
       get 'download_pdf'
+      get 'dropbox'
       get 'change_template'
       get 'regenerate_pdf'
       get 'save_current_as_default'

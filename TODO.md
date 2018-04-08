@@ -3,10 +3,8 @@
 # TODO
 - make demo video
 - make user manual
-- ajaxify all pdf_generatoin
 - enable ace editor/Trix, or Quill
 - paginate remote with kaminari
-- add ransack for searching
 
 ## get record with unique field (:layout)
 - Section.distinct.pluck(:layout)
@@ -23,6 +21,66 @@
 
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
+
+  - title
+    - original
+    - auto_fit
+    - resuce_size_1
+    - resuce_size_2
+    - resuce_size_3
+    - resuce_size_4
+    - resuce_size_5
+
+  - body
+    - add extra line between paragraph
+    - fit_text
+
+  - box
+    - increase_box_line_1
+    - increase_box_line_2
+    - increase_box_line_3
+    - increase_box_line_4
+    - increase_box_line_5
+
+  - image
+
+  - quote_box
+2018_4_9
+  - change section,layout to Array
+    - [0,0,3,3,'광고_5단통']
+    - [0,0,3,3,'사설']
+    - [0,0,3,3,'가고']
+    - [0,0,3,3,'사진']
+
+  - remove samoke ad images from git repo
+  - add imagemagick with brew
+  
+2018_4_6
+  - fix editorial box bottom_line
+    - editorial box personal profile and body line mismatch
+
+  - s = body.gsub(/(\n|\r\n)+/, "\n\n")
+
+  - in seed file add text_style.yml copy to shared location
+    - add text_style.yml to publication
+  - add body menu in working_article auto paragraph to markdown convert, put extra empty line.
+  - add default full page ad to new issue
+
+  - 교정용(by second) by article
+  - 인쇄용(by date)
+
+2018_4_4
+  - fix ## space above
+  - add <br/> support
+  - fix editorial margin
+
+  - add save to Dropbox
+  - place default ad
+  - show menu by login role
+  - adjust_size 크기_조절
+  - adjust_body_size
+  - copy_fit   우겨넣기
+
 
 2018_4_3
   - remove c.md, remove unused filed up section template

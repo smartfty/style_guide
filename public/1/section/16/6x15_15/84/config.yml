@@ -1,0 +1,83 @@
+---
+date: 2017-04-10
+section_name: 애드버토리얼
+is_front_page: false
+page_heading_margin_in_lines: 3
+:ad_type: no_ad
+profile: 6x15_15
+section_id: 84
+page_columns: 6
+grid_size:
+- 171.496083
+- 96.377964
+lines_per_grid: 7
+width: 1114.0158780000002
+height: 1544.88207
+left_margin: 42.519690000000004
+top_margin: 56.69292
+right_margin: 42.519690000000004
+bottom_margin: 42.519690000000004
+gutter: 12.755907
+draw_divider: 
+story_frames:
+- - 0
+  - 0
+  - 2
+  - 3
+- - 2
+  - 0
+  - 2
+  - 3
+- - 4
+  - 0
+  - 2
+  - 3
+- - 0
+  - 3
+  - 2
+  - 3
+- - 2
+  - 3
+  - 2
+  - 3
+- - 4
+  - 3
+  - 2
+  - 3
+- - 0
+  - 6
+  - 2
+  - 3
+- - 2
+  - 6
+  - 2
+  - 3
+- - 4
+  - 6
+  - 2
+  - 3
+- - 0
+  - 9
+  - 2
+  - 3
+- - 2
+  - 9
+  - 2
+  - 3
+- - 4
+  - 9
+  - 2
+  - 3
+- - 0
+  - 12
+  - 2
+  - 3
+- - 2
+  - 12
+  - 2
+  - 3
+- - 4
+  - 12
+  - 2
+  - 3
+article_line_thickness: 0.3

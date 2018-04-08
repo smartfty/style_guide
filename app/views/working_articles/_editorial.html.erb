@@ -12,9 +12,8 @@
       </ul>
     </div>
   <% end %>
-  <h1>사설</h1>
 
-  <div class="form-group">
+  <div class="form-group" >
     <%= f.label :기사종류 %>
     <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
   </div>
@@ -25,10 +24,12 @@
         <%= f.label :제목 %>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
-      <div class="form-group">
+
+      <div class="form-group" style="display:none">
         <%= f.label :부제목 %>
         <%= f.text_area :subtitle, cols: "40", rows: "2", font_size: "16px", class: 'form-control'%>
       </div>
+
       <div class="form-group">
         <%= f.label "기자 프로필"%>
         <%= f.text_field :reporter %>

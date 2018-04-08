@@ -17,26 +17,26 @@ top_margin: 56.69292
 right_margin: 42.519690000000004
 bottom_margin: 42.519690000000004
 gutter: 12.755907
-draw_divider: 
+draw_divider:
 story_frames:
 - - 0
   - 0
   - 4
   - 5
-  - :타입: 기고
+  - 기고
 - - 4
   - 0
   - 2
   - 10
-  - :타입: 사설
+  - 사설
 - - 0
   - 5
   - 4
   - 5
-  - :타입: 기고
+  - 기고
 - - 0
   - 10
   - 6
   - 5
-  - :광고: 5단통
+  - 광고_5단통
 article_line_thickness: 0.3

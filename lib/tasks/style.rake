@@ -154,13 +154,6 @@ namespace :style do
     end
   end
 
-  desc "generating pdf for all sections"
-  task :update_section_layout =>:environment do
-    puts "generating pdf for all sections"
-    Section.all.each do |section|
-      section.update_section_layout
-    end
-  end
 
   desc "parse section scv file"
   task :parse_section_csv =>:environment do

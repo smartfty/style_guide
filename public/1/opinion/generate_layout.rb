@@ -1,9 +1,9 @@
 require 'erb'
-
+require 'pry'
 template =<<~EOF
     RLayout::Container.new(width:171.496083,  height: 165.219) do
       line(x: 0 , y:1, width: 171.496083, stroke_width: 2, height:0)
-      text('<%= @title %>', y:5, font: 'KoPubDotumPB', font_size: 12, width: 170)
+      text('<%= @title %>', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170)
       rect(x: 0, y: 70, width:171.496083, height: 65,  fill_color:"CMYK=0,0,0,10")
       <% if @name.include?('_') %>
         <% @name_without_rest = @name.split('_').first %>
@@ -47,6 +47,5 @@ f.each_line do |line|
   # puts "@position:#{@position}"
   erb   = ERB.new(template)
   layout = erb.result(binding)
-
   File.open("#{@name}.rb", 'w'){|f| f.write layout}
 end
