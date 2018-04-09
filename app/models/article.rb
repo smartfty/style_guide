@@ -346,7 +346,8 @@ class Article < ApplicationRecord
     h[:draw_divider]                  = publication.draw_divider
 
     content=<<~EOF
-    RLayout::NewsArticleBox.new(#{h}) do
+    RLayout::NewsArticleBox.new(#{h})
+
     EOF
     if kind == '기고'
       content=<<~EOF
@@ -356,7 +357,7 @@ class Article < ApplicationRecord
       EOF
     else
       content=<<~EOF
-      RLayout::NewsArticleBox.new(#{h}) do
+      RLayout::NewsArticleBox.new(#{h})
       EOF
     end
 
