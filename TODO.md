@@ -25,40 +25,48 @@
   - title
     - original
     - auto_fit
-    - resuce_size_1
-    - resuce_size_2
-    - resuce_size_3
-    - resuce_size_4
-    - resuce_size_5
+    - resuce_1
+    - resuce_2
+    - resuce_3
+    - resuce_4
+    - resuce_5
 
   - body
     - add extra line between paragraph
     - fit_text
 
   - box
-    - increase_box_line_1
-    - increase_box_line_2
-    - increase_box_line_3
-    - increase_box_line_4
-    - increase_box_line_5
+    - increase_1
+    - increase_2
+    - increase_3
+    - increase_4
+    - increase_5
 
   - image
 
   - quote_box
+
 2018_4_9
-  - change section,layout to Array
+  - remove upload image to issue area from publication area
+
+2018_4_9
+  - change section#layout to Array
     - [0,0,3,3,'광고_5단통']
     - [0,0,3,3,'사설']
     - [0,0,3,3,'가고']
     - [0,0,3,3,'사진']
 
-  - remove samoke ad images from git repo
+  - remove sample ad images from git repo
   - add imagemagick with brew
-  
+
+  - fix editorial title error
+  - fix error when creating Article PDF
+
 2018_4_6
   - fix editorial box bottom_line
     - editorial box personal profile and body line mismatch
 
+  - s = body.gsub(/^\^/, "")
   - s = body.gsub(/(\n|\r\n)+/, "\n\n")
 
   - in seed file add text_style.yml copy to shared location
