@@ -170,6 +170,25 @@ reporter:
   markup: ''
   dynamic_style: ''
   publication_id: 1
+reporter_editorial:
+  korean_name: 논설기자
+  category:
+  font_family: KoPub돋움체_Pro Light
+  font: KoPubDotumPL
+  font_size: 9.0
+  text_color: black
+  alignment: right
+  tracking: 0.0
+  space_width: 2.0
+  scale: 100.0
+  text_line_spacing:
+  space_before_in_lines:
+  space_after_in_lines:
+  text_height_in_lines:
+  box_attributes: ''
+  markup: ''
+  dynamic_style: ''
+  publication_id: 1
 title_main:
   korean_name: 제목_메인
   category:
