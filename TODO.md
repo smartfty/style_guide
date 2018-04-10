@@ -46,6 +46,14 @@
 
   - quote_box
 
+2018_4_10
+  - fix 금칙 , . at begging of the line
+  - 본문정리
+    convert single line text to ##
+  - 발문 추가
+  - 이미지 추가, adjust image to fit
+  - size grow + 1, + 2, +3
+
 2018_4_9
   - remove upload image to issue area from publication area
 
