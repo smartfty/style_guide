@@ -73,7 +73,6 @@ class PageHeadingsController < ApplicationController
   def upload_images
     respond_to do |format|
       format.html do
-        # puts binding.pry
         @image = HeadingBgImage.create!(:heading_bg_image => params[:heading_bg_image], :page_heading_id => @page_heading.id)
         # @image = @page_heading.heading_bg_image.create!(:heading_bg_image => params[:file], :page_heading_id => @page_heading.id)
        end

@@ -63,6 +63,12 @@ Rails.application.routes.draw do
       patch 'upload_images'
       get 'zoom_preview'
       patch 'assign_reporter'
+      get 'add_image'
+      get 'extend_zero'
+      get 'extend_one'
+      get 'extend_two'
+      get 'extend_three'
+      get 'extend_four'
     end
   end
 

@@ -43,18 +43,32 @@
     - increase_5
 
   - image
-
   - quote_box
 
-2018_4_10
-  - fix 금칙 , . at begging of the line
-  - 본문정리
-    convert single line text to ##
+2018_4_12
+  - add zoom_preview
+  
+2018_4_12
+  - opinion_page
+  - expanded_line_count, pushed_line_count
+    - swap story
+    - create overflow column
+  - opinion_page with image
+
+2018_4_11
+  - fix page_heading
+  - fix opinion add new generate rb
+
   - 발문 추가
   - 이미지 추가, adjust image to fit
   - size grow + 1, + 2, +3
 
-2018_4_9
+  - row col for small screen for page view
+  - fix 금칙 , . at begging of the line
+  - 본문정리
+    convert single line text to ##
+
+2018_4_11
   - remove upload image to issue area from publication area
 
 2018_4_9

@@ -401,6 +401,8 @@ ActiveRecord::Schema.define(version: 20180320081233) do
     t.boolean "top_story"
     t.boolean "top_position"
     t.boolean "inactive"
+    t.integer "extended_line_count"
+    t.integer "pushed_line_count"
     t.integer "article_id"
     t.integer "page_id"
     t.datetime "created_at", null: false

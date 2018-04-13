@@ -76,9 +76,18 @@ class Page < ApplicationRecord
     p_hash
   end
 
+  def siblings(article)
+    grid_x          = article.grid_x
+    grid_right_edge = article.grid_x + article.column
+    grid_bottom     = article.grid_y + article.row
+    working_articles.select do |wa|
+      wa.grid_y == grid_bottom && wa.grid_x >= grid_x && wa != article
+    end
+  end
+
   def clone
     h = to_hash
-    # binding.pry
+  
     h[:clone_name] = 'b'
     unless b = Page.where(h).first
       Page.create!(h)
@@ -295,6 +304,10 @@ class Page < ApplicationRecord
 
   def copy_ad_template
     #code
+  end
+
+  def config_path
+    path + "/config.yml"
   end
 
   def copy_config_file

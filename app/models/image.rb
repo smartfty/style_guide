@@ -35,6 +35,14 @@ class Image < ApplicationRecord
     issue.publication
   end
 
+  def page_number
+    working_article.page_number
+  end
+
+  def order
+    working_article.order
+  end
+
   def iamge_layout_hash
     h = {}
     h[:image_path]        = image_path

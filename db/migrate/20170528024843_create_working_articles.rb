@@ -25,6 +25,8 @@ class CreateWorkingArticles < ActiveRecord::Migration[5.0]
       t.boolean :top_story
       t.boolean :top_position
       t.boolean :inactive
+      t.integer :extended_line_count
+      t.integer :pushed_line_count
       t.references :article, foreign_key: true
       t.references :page, foreign_key: true
 

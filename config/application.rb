@@ -13,5 +13,7 @@ module StyleGuide
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W(#{config.root}/lib)
+    config.time_zone = "Asia/Seoul"
+
   end
 end

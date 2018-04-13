@@ -103,6 +103,10 @@ class WorkingArticle < ApplicationRecord
     path + "/article_info.yml"
   end
 
+  def issue
+    page.issue
+  end
+
   def save_article
     save_layout
     save_story
@@ -132,16 +136,39 @@ class WorkingArticle < ApplicationRecord
     system "cp #{jpg_path} #{site_path}/"
   end
 
-  # def dropbox_path
-  #   #
-  #
-  # end
-  #
-  # def save_to_dropbox
-  #   # system "cp #{dropbox_path} #{site_path}/"
-  #   # system "cp #{jpg_path} #{site_path}/"
-  #
-  # end
+  def siblings
+    page.siblings(self)
+  end
+
+  def add_extended_line_count_to_config_yml(line_count)
+    config_path = page.config_path
+    config_hash = YAML::load_file(config_path)
+    frame_array = config_hash['story_frames'][order - 1]
+    if frame_array.last =~/^expand/
+      frame_array[-1] = "expand_#{line_count}"
+    else
+      frame_array << "expand_#{line_count}"
+    end
+    File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
+  end
+
+  def extend_line(line_count)
+    self.extended_line_count = line_count
+    self.save
+    siblings.each do |sybling|
+      sybling.push_line(line_count)
+    end
+    generate_pdf
+    add_extended_line_count_to_config_yml(line_count)
+    update_page_pdf
+  end
+
+  def push_line(line_count)
+    puts "++++++++++ in push_line id:#{id}"
+    self.pushed_line_count = line_count
+    self.save
+    generate_pdf
+  end
 
   def update_page_pdf
     page_path = page.path
@@ -164,11 +191,14 @@ class WorkingArticle < ApplicationRecord
 
   def story_metadata
     h = {}
+    h['extended_line_count'] = extended_line_count if extended_line_count && extended_line_count > 0
+    h['pushed_line_count'] = pushed_line_count if pushed_line_count && pushed_line_count > 0
     h['subject_head'] = subject_head
     h['title']      = RubyPants.new(title).to_html
     puts "+++++ kind:#{kind}"
     h['subtitle']   = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
     puts "h['subtitle']:#{h['subtitle']}"
+    h['quote']      = quote if quote != "" && !quote.nil?
     h['reporter']   = reporter
     h['email']      = email
 
@@ -217,6 +247,22 @@ class WorkingArticle < ApplicationRecord
     profile_hash[:fit_type]       = 4
     profile_hash[:before_title]   = true
     profile_hash[:layout_expand]  = nil
+    profile_hash
+  end
+
+  def editorial_image_options
+    profile_hash                          = {}
+    profile_hash[:image_path]             = images.first.image_path if images.length > 0
+    profile_hash[:inside_first_column]    = true
+    profile_hash[:width_in_colum]         = 'half'
+    profile_hash[:image_height_in_line]   = 7
+    profile_hash[:bottom_room_margin]     = 2
+    profile_hash[:extra_height_in_lines]  = 5 # 7+5=12 lines
+    profile_hash[:stroke_width]           = 0
+    profile_hash[:is_float]               = true
+    profile_hash[:fit_type]               = 4
+    profile_hash[:before_title]           = true
+    profile_hash[:layout_expand]          = nil
     profile_hash
   end
 
@@ -289,6 +335,8 @@ class WorkingArticle < ApplicationRecord
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
     h[:top_position]                  = top_position
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+    h[:extended_line_count]           = extended_line_count if extended_line_count && extended_line_count > 0
+    h[:pushed_line_count]             = pushed_line_count if pushed_line_count && pushed_line_count > 0
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = publication.article_line_thickness
     h[:article_line_draw_sides]       = publication.article_line_draw_sides
@@ -313,7 +361,7 @@ class WorkingArticle < ApplicationRecord
     elsif kind == '사설' || kind == 'editorial'
       h[:article_line_draw_sides]  = [0,1,0,0]
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-        # content += "  news_image(#{opinion_profile_options})\n"
+      content += "  news_column_image(#{editorial_image_options})\n" if images.length > 0
       content += "end\n"
     elsif kind == '기고' || kind == 'opinion'
       h[:article_line_draw_sides]  = [0,1,0,1]
@@ -440,6 +488,9 @@ class WorkingArticle < ApplicationRecord
     self.save
   end
 
+  def growable?
+    true
+  end
   private
 
   def init_atts

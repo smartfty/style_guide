@@ -1,5 +1,5 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :to_markdown_para, :upload_images, :zoom_preview, :assign_reporter]
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :to_markdown_para, :upload_images, :zoom_preview, :assign_reporter, :add_image]
   layout 'working_article'
   # GET /working_articles
   # GET /working_articles.json
@@ -43,7 +43,6 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
-      # binding.pry
 
       if @working_article.update(working_article_params)
         @working_article.generate_pdf
@@ -78,7 +77,6 @@ class WorkingArticlesController < ApplicationController
   def to_markdown_para
     @working_article.to_markdown_para
     redirect_to working_article_path(@working_article)
-
   end
 
   def add_image
@@ -119,6 +117,36 @@ class WorkingArticlesController < ApplicationController
   def assign_reporter
     @working_article.update(working_article_params)
     redirect_to assign_reporter_issue_path(Issue.last)
+  end
+
+  def extend_zero
+    set_working_article
+    @working_article.extend_line(0)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def extend_one
+    set_working_article
+    @working_article.extend_line(1)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def extend_two
+    set_working_article
+    @working_article.extend_line(2)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def extend_three
+    set_working_article
+    @working_article.extend_line(3)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def extend_four
+    set_working_article
+    @working_article.extend_line(4)
+    redirect_to working_article_path(@working_article)
   end
 
   private
