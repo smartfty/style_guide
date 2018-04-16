@@ -45,13 +45,13 @@
   - image
   - quote_box
 
-2018_4_12
+2018_4_16
   - add zoom_preview
-  
+  - extended_line_count, pushed_line_count
+  - swap story
+
 2018_4_12
   - opinion_page
-  - expanded_line_count, pushed_line_count
-    - swap story
     - create overflow column
   - opinion_page with image
 

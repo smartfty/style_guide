@@ -141,18 +141,23 @@ class WorkingArticle < ApplicationRecord
   end
 
   def add_extended_line_count_to_config_yml(line_count)
+    puts __method__
     config_path = page.config_path
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
-    if frame_array.last =~/^expand/
-      frame_array[-1] = "expand_#{line_count}"
+    if frame_array.last =~/^extend/
+      frame_array[-1] = "extend_#{line_count}"
     else
-      frame_array << "expand_#{line_count}"
+      frame_array << "extend_#{line_count}"
     end
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
 
   def extend_line(line_count)
+    puts "++++++++++ in extend_line id:#{id}"
+    puts "line_count:#{line_count}"
+    puts "extended_line_count:#{extended_line_count}"
+    return if line_count == extended_line_count
     self.extended_line_count = line_count
     self.save
     siblings.each do |sybling|
@@ -183,7 +188,6 @@ class WorkingArticle < ApplicationRecord
       return nil
     end
   end
-
 
   def filtered_title
     RubyPants.new(title).to_html
