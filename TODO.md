@@ -45,6 +45,12 @@
   - image
   - quote_box
 
+2018_4_17
+  - fix overflow text
+  - add quote_box for opinion
+    - add quote_bpx
+    - remove quote_box
+    
 2018_4_16
   - add zoom_preview
   - extended_line_count, pushed_line_count

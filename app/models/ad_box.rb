@@ -33,6 +33,10 @@ class AdBox < ApplicationRecord
     page.issue
   end
 
+  def pdf_image_path
+    page.url + "/ad/output.pdf"
+  end
+
   def jpg_image_path
     page.url + "/ad/output.jpg"
   end
