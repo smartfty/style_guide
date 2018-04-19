@@ -154,9 +154,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   def extend_line(line_count)
-    puts "++++++++++ in extend_line id:#{id}"
-    puts "line_count:#{line_count}"
-    puts "extended_line_count:#{extended_line_count}"
     return if line_count == extended_line_count
     self.extended_line_count = line_count
     self.save
@@ -169,10 +166,35 @@ class WorkingArticle < ApplicationRecord
   end
 
   def push_line(line_count)
-    puts "++++++++++ in push_line id:#{id}"
     self.pushed_line_count = line_count
     self.save
     generate_pdf
+  end
+
+  def show_quote_box?
+    quote && quote != "" || quote_box_size && quote_box_size != "0"
+  end
+
+  def empty_lines_count
+    h = article_info
+    return nil unless h
+    h[:empty_lines]
+  end
+
+  def quote_auto
+    empty_lines = empty_lines_count
+    return  0 unless empty_lines && empty_lines > 4
+    if empty_lines > 8
+      quote_line(3)
+    elsif empty_lines >= 8
+      quote_line(3)
+    end
+  end
+
+  def quote_line(line_count)
+    puts "line_count: #{line_count}"
+    self.quote_box_size = line_count
+    self.save
   end
 
   def update_page_pdf
@@ -199,13 +221,10 @@ class WorkingArticle < ApplicationRecord
     h['pushed_line_count'] = pushed_line_count if pushed_line_count && pushed_line_count > 0
     h['subject_head'] = subject_head
     h['title']      = RubyPants.new(title).to_html
-    puts "+++++ kind:#{kind}"
     h['subtitle']   = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
-    puts "h['subtitle']:#{h['subtitle']}"
-    h['quote']      = quote if quote != "" && !quote.nil?
+    h['quote']      = quote if quote_box_size.to_i > 0
     h['reporter']   = reporter
     h['email']      = email
-
     h
   end
 
@@ -341,6 +360,7 @@ class WorkingArticle < ApplicationRecord
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
     h[:extended_line_count]           = extended_line_count if extended_line_count && extended_line_count > 0
     h[:pushed_line_count]             = pushed_line_count if pushed_line_count && pushed_line_count > 0
+    h[:quote_box_size]                = quote_box_size if show_quote_box?
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = publication.article_line_thickness
     h[:article_line_draw_sides]       = publication.article_line_draw_sides
@@ -495,6 +515,7 @@ class WorkingArticle < ApplicationRecord
   def growable?
     true
   end
+
   private
 
   def init_atts

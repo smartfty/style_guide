@@ -45,12 +45,39 @@
   - image
   - quote_box
 
+2018_4_19
+  - 전면광고 page_heading
+  - opinion
+    - quote_auto
+    
+  - editorial
+    - box show overflow
+    - line above text
+
+2018_4_18
+  - fix ad page_heading_margin_in_lines
+  - change black color as cmyk color  
+  - add quote_box_size field to db
+  - quote_box
+    - 자동생성
+    - ----
+    - 2x2
+    - 2x3
+    - 2x4
+    - ----
+    - 발문 삭제
+
+    - top_margin    = 2 lines
+    - bottom_margin = 2 lines
+  - fix save  pdf for print
+
 2018_4_17
   - fix overflow text
   - add quote_box for opinion
     - add quote_bpx
     - remove quote_box
-    
+    - space only line for <br>?
+
 2018_4_16
   - add zoom_preview
   - extended_line_count, pushed_line_count

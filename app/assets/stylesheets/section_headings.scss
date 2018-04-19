@@ -1,3 +1,48 @@
 // Place all the styles related to the section_headings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.alert {
+  padding: 15px;
+  margin-bottom: 0px !important;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.main{
+  padding-top: 50px  !important;
+}
+
+.navbar-fixed-top2 {
+  top: 50px !important;
+  position: fixed !important;
+  border-radius: 0 !important;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-btn2 {
+  margin: 10px;
+  padding: 4px 10px !important;
+  background-color: #5cb85c !important;
+}
+
+.navbar-btn2:hover {
+  background-color: #449d44 !important;
+  border-color: #398439 !important;
+}
+
+.navbar-btn3 {
+  margin: 10px;
+  padding: 4px 10px !important;
+  background-color: #c9534f !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff !important;
+}
+
+.navbar-btn3:hover {
+  background-color: #c9302c !important;
+  border-color: #ac2925 !important;
+}

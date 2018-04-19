@@ -69,6 +69,12 @@ Rails.application.routes.draw do
       get 'extend_two'
       get 'extend_three'
       get 'extend_four'
+      get 'quote_auto'
+      get 'quote_zero'
+      get 'quote_one'
+      get 'quote_two'
+      get 'quote_three'
+      get 'quote_four'
     end
   end
 

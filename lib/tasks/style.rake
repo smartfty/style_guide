@@ -1,4 +1,10 @@
 namespace :style do
+  desc "update page_heding"
+  task :update_page_heading =>:environment do
+    Page.all.each do |page|
+      page.copy_heading
+    end
+  end
 
   desc "remove c.md files"
   task :remove_c_md =>:environment do

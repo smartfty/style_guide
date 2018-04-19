@@ -87,7 +87,7 @@ class Page < ApplicationRecord
 
   def clone
     h = to_hash
-  
+
     h[:clone_name] = 'b'
     unless b = Page.where(h).first
       Page.create!(h)
@@ -332,9 +332,9 @@ class Page < ApplicationRecord
     source = issue.publication.heading_path + "/#{page_number}"
     target = page_heading_path
     layout_erb_path     = page_heading_path + "/layout.erb"
-    unless File.exist? layout_erb_path
-      system "cp -R #{source}/ #{target}/"
-    end
+    # unless File.exist? layout_erb_path
+    system "cp -R #{source}/ #{target}/"
+    # end
     layout_erb_content  = File.open(layout_erb_path, 'r'){|f| f.read}
     erb                 = ERB.new(layout_erb_content)
     @date               = korean_date_string

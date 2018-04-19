@@ -5,7 +5,7 @@ body:
   font_family: 조선일보명조
   font: ChosunilboNM
   font_size: 9.6
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: justified
   tracking: -0.4
   space_width: 3.0
@@ -24,7 +24,7 @@ body_gothic:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
   font_size: 9.4
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: justified
   tracking: -0.2
   space_width: 3.0
@@ -43,7 +43,7 @@ running_head:
   font_family: KoPub돋움체_Pro Medium
   font: KoPubDotumPM
   font_size: 9.4
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.1
   space_width: 3.0
@@ -62,15 +62,15 @@ quote:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 12.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: center
   tracking: -0.5
   space_width: 6.0
   scale: 100.0
   text_line_spacing:
-  space_before_in_lines:
-  space_after_in_lines:
-  text_height_in_lines:
+  space_before_in_lines: 2
+  space_after_in_lines: 0
+  text_height_in_lines: 1
   box_attributes: ''
   markup: ''
   dynamic_style: ''
@@ -81,7 +81,7 @@ related_story:
   font_family: KoPub돋움체_Pro Medium
   font: KoPubDotumPM
   font_size: 9.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: right
   tracking: -0.5
   space_width: 3.0
@@ -100,7 +100,7 @@ caption_title:
   font_family: KoPub돋움체_Pro Bold
   font: KoPubDotumPB
   font_size: 9.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.2
   space_width: 2.0
@@ -119,7 +119,7 @@ caption:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
   font_size: 7.5
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.5
   space_width: 1.0
@@ -138,7 +138,7 @@ source:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
   font_size: 7.5
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: right
   tracking: -0.2
   space_width: 2.0
@@ -157,7 +157,7 @@ reporter:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
   font_size: 7.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: right
   tracking: 0.0
   space_width: 2.0
@@ -176,7 +176,7 @@ reporter_editorial:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
   font_size: 9.4
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: right
   tracking: 0.0
   space_width: 2.0
@@ -195,7 +195,7 @@ title_main:
   font_family: KoPub바탕체_Pro Bold
   font: KoPubBatangPB
   font_size: 42.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
   space_width: 10.0
@@ -214,7 +214,7 @@ title_4_5:
   font_family: 윤명조140
   font: YDVYMjOStd14
   font_size: 32.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.5
   space_width: 10.0
@@ -233,7 +233,7 @@ title_4:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 30.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -2.0
   space_width: 7.0
@@ -252,7 +252,7 @@ title_3:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 27.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -2.0
   space_width: 4.0
@@ -271,7 +271,7 @@ title_2:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 23.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -2.0
   space_width: 4.0
@@ -290,7 +290,7 @@ title_1:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 18.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -2.0
   space_width: 4.0
@@ -309,7 +309,7 @@ subtitle_main:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 18.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
   space_width: 5.0
@@ -328,7 +328,7 @@ subtitle_M:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 14.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
   space_width: 5.0
@@ -347,7 +347,7 @@ subtitle_S:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 12.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
   space_width: 4.0
@@ -366,7 +366,7 @@ news_line_title:
   font_family: KoPub돋움체_Pro Medium
   font: KoPubDotumPM
   font_size: 13.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.5
   space_width: 3.0
@@ -385,7 +385,7 @@ brand_name:
   font_family: KoPub돋움체_Pro Medium
   font: KoPubDotumPM
   font_size: 13.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: center
   tracking: -0.5
   space_width: 3.0
@@ -423,7 +423,7 @@ subject_head_M:
   font_family: KoPub돋움체_Pro Bold
   font: KoPubDotumPB
   font_size: 14.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.5
   space_width: 3.0
@@ -442,7 +442,7 @@ subject_head_S:
   font_family: KoPub돋움체_Pro Bold
   font: KoPubDotumPB
   font_size: 12.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.5
   space_width: 3.0
@@ -480,7 +480,7 @@ title_opinion:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 22.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.5
   space_width: 7.0
@@ -499,7 +499,7 @@ title_editorial:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
   font_size: 18.0
-  text_color: black
+  text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.5
   space_width: 5.0

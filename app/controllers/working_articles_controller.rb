@@ -94,10 +94,6 @@ class WorkingArticlesController < ApplicationController
     #code
   end
 
-  def add_quote
-    #code
-  end
-
   def upload_images
     respond_to do |format|
       format.html do
@@ -148,6 +144,43 @@ class WorkingArticlesController < ApplicationController
     @working_article.extend_line(4)
     redirect_to working_article_path(@working_article)
   end
+
+  def quote_auto
+    set_working_article
+    @working_article.quote_auto
+    redirect_to working_article_path(@working_article)
+  end
+
+  def quote_zero
+    set_working_article
+    @working_article.quote_line(0)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def quote_one
+    set_working_article
+    @working_article.quote_line(1)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def quote_two
+    set_working_article
+    @working_article.quote_line(2)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def quote_three
+    set_working_article
+    @working_article.quote_line(3)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def quote_four
+    set_working_article
+    @working_article.quote_line(4)
+    redirect_to working_article_path(@working_article)
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
