@@ -509,6 +509,9 @@ class WorkingArticle < ApplicationRecord
   # add extra empty line between paragraphs
   def to_markdown_para
     body.gsub!(/^\^/, "")
+    body.gsub!(/^\W*\n/m, "\n")
+    body.gsub!(/^\W*#/, '#' )
+    body.gsub!(/(\n|\r\n)+/, "\n\n")
     body.gsub!(/(\n|\r\n)+/, "\n\n")
     self.save
   end

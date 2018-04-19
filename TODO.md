@@ -45,6 +45,9 @@
   - image
   - quote_box
 
+2018_4_20
+  - fix overflow text
+
 2018_4_19
   - 전면광고 page_heading
   - opinion
@@ -55,7 +58,7 @@
     - line above text
   - update section_config
     draw_divider: true for page 22
-    
+
 2018_4_18
   - fix ad page_heading_margin_in_lines
   - change black color as cmyk color  
@@ -71,7 +74,7 @@
 
     - top_margin    = 2 lines
     - bottom_margin = 2 lines
-  - fix save  pdf for print
+  - fix save pdf for print
 
 2018_4_17
   - fix overflow text
