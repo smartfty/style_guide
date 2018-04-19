@@ -27,6 +27,10 @@ class OpinionWriter < ApplicationRecord
     "/#{publication.id}/opinion/#{name}.pdf"
   end
 
+  def jpg_path_image_path
+    "/#{publication.id}/opinion/#{name}.jpg"
+  end
+
   def layout_path
     path + "/#{name}.rb"
   end

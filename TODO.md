@@ -49,11 +49,13 @@
   - 전면광고 page_heading
   - opinion
     - quote_auto
-    
+
   - editorial
     - box show overflow
     - line above text
-
+  - update section_config
+    draw_divider: true for page 22
+    
 2018_4_18
   - fix ad page_heading_margin_in_lines
   - change black color as cmyk color  

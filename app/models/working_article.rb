@@ -337,6 +337,7 @@ class WorkingArticle < ApplicationRecord
 
     h = {}
     h[:kind]                          = kind if kind
+    h[:page_number]                   = page_number
     h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
     h[:column]                        = column
     h[:row]                           = row

@@ -124,10 +124,9 @@ class Section < ApplicationRecord
     h['gutter']                         = publication.gutter
     h['draw_divider']                   = publication.draw_divider
     h['story_frames']                   = eval(layout)
-    # h['article_bottom_spaces_in_lines'] = publication.article_bottom_spaces_in_lines
-    # h['article_line_draw_sides']        = publication.article_line_draw_sides
     h['article_line_thickness']         = publication.article_line_thickness
     h['draw_divider']                   = publication.draw_divider
+    h['draw_divider']                   = true if page_number == 22
     h
   end
 
