@@ -171,7 +171,8 @@ class WorkingArticlesController < ApplicationController
 
   def swap
     set_working_article
-
+    @working_article.swap
+    redirect_to working_article_path(@working_article)
   end
 
   def quote_auto

@@ -188,8 +188,6 @@ class WorkingArticle < ApplicationRecord
 
 
   def add_pushed_line_count_to_config_yml(line_count)
-    binding.pry
-    puts __method__
     config_path = page.config_path
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
@@ -202,11 +200,33 @@ class WorkingArticle < ApplicationRecord
   end
 
   def push_line(line_count)
-    puts __method__
     self.pushed_line_count = line_count
     self.save
     generate_pdf
     add_pushed_line_count_to_config_yml(line_count)
+  end
+
+  def change_story_with(new_story)
+    h = new_story[:heading]
+    self.subject_head      = h['subject_head'] = subject_head
+    self.title             = h['title']
+    self.subtitle          = h['subtitle']
+    self.quote             = h['quote']
+    self.reporter          = h['reporter']
+    self.email             = h['email']
+    self.body              = new_story[:body]
+    self.save
+    generate_pdf
+  end
+
+  def swap
+    return unless siblings.length == 1
+    sybling = siblings.first
+    sybling_story = sybling.story_yml
+    my_story = story_yml
+    sybling.change_story_with(my_story)
+    change_story_with(sybling_story)
+    update_page_pdf
   end
 
   def show_quote_box?
@@ -270,6 +290,7 @@ class WorkingArticle < ApplicationRecord
     h = {}
     h[:heading] = story_metadata
     h[:body]    = body
+    h
   end
 
   def story_md
