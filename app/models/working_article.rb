@@ -153,6 +153,18 @@ class WorkingArticle < ApplicationRecord
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
 
+  def remove_extended_line_count_from_config_yml
+    puts __method__
+    config_path = page.config_path
+    config_hash = YAML::load_file(config_path)
+    frame_array = config_hash['story_frames'][order - 1]
+    if frame_array.last =~/^extend/
+      frame_array.pop
+    end
+    File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
+  end
+
+
   def extend_line(line_count)
     return if line_count == extended_line_count
     self.extended_line_count = line_count
@@ -161,7 +173,11 @@ class WorkingArticle < ApplicationRecord
       sybling.push_line(line_count)
     end
     generate_pdf
-    add_extended_line_count_to_config_yml(line_count)
+    if line_count == 0
+      remove_extended_line_count_from_config_yml
+    else
+      add_extended_line_count_to_config_yml(line_count)
+    end
     update_page_pdf
   end
 

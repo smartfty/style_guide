@@ -47,6 +47,10 @@
 
 2018_4_20
   - fix overflow text
+  
+  - fix bug when changing template with extended lines not clearing
+  - extended, pushed
+  - fix reduced, and pulled
 
 2018_4_19
   - 전면광고 page_heading

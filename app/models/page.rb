@@ -254,6 +254,7 @@ class Page < ApplicationRecord
     end
     # mark unused as inactive
     working_articles.each_with_index do |working_article, i|
+      working_article.extend_line(0)
       if i >= section.articles.length
         working_article.inactive = true
       else
