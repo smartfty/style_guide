@@ -145,6 +145,35 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article)
   end
 
+  def reduce_one
+    set_working_article
+    @working_article.extend_line(-1)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def reduce_two
+    set_working_article
+    @working_article.extend_line(-2)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def reduce_three
+    set_working_article
+    @working_article.extend_line(-3)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def reduce_four
+    set_working_article
+    @working_article.extend_line(-4)
+    redirect_to working_article_path(@working_article)
+  end
+
+  def swap
+    set_working_article
+
+  end
+
   def quote_auto
     set_working_article
     @working_article.quote_auto

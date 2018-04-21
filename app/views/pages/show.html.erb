@@ -54,9 +54,9 @@
    <div class="row">
      <div class = "col-sm-10 col-md-10">
        <% if File.exist?(@page.pdf_path) %>
-         <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
+         <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
          <img width="95%" src="<%= @page.jpg_image_path %>"></img>
-         <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
+         <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
        <% end %>
      </div>
      <div class="col-sm-2 col-md-2">
@@ -85,7 +85,7 @@
       </div>
       <div class = "col-sm-10 col-md-10">
         <% if File.exist?(@page.pdf_path) %>
-          <%= button_to "다운로드 샘플 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
+          <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
           <%= raw @page.to_svg_with_jpg %>
 
           <% if @page.dropbox_exist? %>

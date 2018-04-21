@@ -63,7 +63,15 @@
         <li><%= link_to '4행 추가', extend_four_working_article_path %></li>
         <li class="divider"></li>
         <li><%= link_to '0행 복구', extend_zero_working_article_path %></li>
-
+        <li class="divider"></li>
+        <li><%= link_to '1행 줄이기', reduce_one_working_article_path %></li>
+        <li><%= link_to '2행 줄이기', reduce_two_working_article_path %></li>
+        <li><%= link_to '3행 줄이기', reduce_three_working_article_path %></li>
+        <li><%= link_to '4행 줄이기', reduce_four_working_article_path %></li>
+        <% if @working_article.siblings.length == 1 %>
+          <li class="divider"></li>
+          <li><%= link_to '아래 박스와 기사 교환', swap_working_article_path %></li>
+        <% end %>
       </ul>
     </li>
   <% end %>

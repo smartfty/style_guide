@@ -140,6 +140,10 @@ class WorkingArticle < ApplicationRecord
     page.siblings(self)
   end
 
+  def character_count
+    body.length
+  end
+
   def add_extended_line_count_to_config_yml(line_count)
     puts __method__
     config_path = page.config_path
@@ -154,11 +158,12 @@ class WorkingArticle < ApplicationRecord
   end
 
   def remove_extended_line_count_from_config_yml
-    puts __method__
     config_path = page.config_path
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.last =~/^extend/
+      frame_array.pop
+    elsif frame_array.last =~/^push/
       frame_array.pop
     end
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
@@ -181,10 +186,27 @@ class WorkingArticle < ApplicationRecord
     update_page_pdf
   end
 
+
+  def add_pushed_line_count_to_config_yml(line_count)
+    binding.pry
+    puts __method__
+    config_path = page.config_path
+    config_hash = YAML::load_file(config_path)
+    frame_array = config_hash['story_frames'][order - 1]
+    if frame_array.last =~/^extend/
+      frame_array[-1] = "push_#{line_count}"
+    else
+      frame_array << "push_#{line_count}"
+    end
+    File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
+  end
+
   def push_line(line_count)
+    puts __method__
     self.pushed_line_count = line_count
     self.save
     generate_pdf
+    add_pushed_line_count_to_config_yml(line_count)
   end
 
   def show_quote_box?
@@ -375,8 +397,8 @@ class WorkingArticle < ApplicationRecord
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
     h[:top_position]                  = top_position
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
-    h[:extended_line_count]           = extended_line_count if extended_line_count && extended_line_count > 0
-    h[:pushed_line_count]             = pushed_line_count if pushed_line_count && pushed_line_count > 0
+    h[:extended_line_count]           = extended_line_count if extended_line_count
+    h[:pushed_line_count]             = pushed_line_count if pushed_line_count
     h[:quote_box_size]                = quote_box_size if show_quote_box?
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = publication.article_line_thickness

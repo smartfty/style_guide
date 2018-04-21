@@ -14,8 +14,8 @@
 
       <div class="row" align='center'>
       <% @working_article.images.each do |image| %>
-        <div class="col-md-3">
-          <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb), height: "500%"%></a></p>
+        <div class="col-md-4">
+          <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb), :height => "50%", :width=> "100%"%></a></p>
           <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         </div>
       <% end %>
@@ -47,13 +47,11 @@
   </div>
 
 
-
   <div class = "col-sm-1" style="padding-bottom: 40px;" width="100%">
     <p> </p>
   </div>
 
   <div class= "col-sm-5">
-
 
     <br>
     <br>
@@ -64,10 +62,12 @@
     <% end %>
 
     <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>
-      <div align="center" width="50%" height="50px"><p>넘친줄 수:<%=  @working_article.article_info[:overflow_line_count] %></p></div>
+      <div align="center" width="50%" height="50px"><p>본문 글자수:<%= @working_article.character_count %> | 박스 추가 행: <%= @working_article.extended_line_count %>  | 넘친줄 수: <%=  @working_article.article_info[:overflow_line_count] %></p></div>
       <div align="center" width="50%" height="50px" style="color:red;"><%=  @working_article.article_info[:overflow_text].html_safe%></div>
     <% elsif @working_article.article_info && @working_article.article_info[:empty_lines] %>
-      <p align="center" >빈줄 수: <%= @working_article.article_info[:empty_lines] %></p>
+      <p align="center" >본문 글자수:<%= @working_article.character_count %> | 박스 추가 행: <%= @working_article.extended_line_count %>   | 빈줄 수: <%= @working_article.article_info[:empty_lines] %></p>
+    <% else %>
+      <p align="center" >본문 글자수:<%= @working_article.character_count %> | 박스 추가 행: <%= @working_article.extended_line_count %>  </p>
     <% end %>
     <br>
     <br>

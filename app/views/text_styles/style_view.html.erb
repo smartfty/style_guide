@@ -10,7 +10,7 @@
     <div class = "col-md-6">
       <% if File.exist?(article.pdf_path) %>
         <h4>설정갑</h4>
-        <%= button_to "다운로드 샘플 PDF", download_pdf_article_path(article), method: :get, class: "btn btn-sm btn-danger" %>
+        <%= button_to "다운로드 PDF", download_pdf_article_path(article), method: :get, class: "btn btn-sm btn-danger" %>
         <img width="95%" src="<%= article.pdf_image_path %>"></img>
       <% end %>
 
@@ -18,7 +18,7 @@
     <div class = "col-md-6">
       <h4>사용자 설정</h4>
       <% if File.exist?(article.custom_pdf_path) %>
-        <%= button_to "다운로드 샘플 PDF", download_pdf_article_path(article), method: :get, class: "btn btn-sm btn-danger" %>
+        <%= button_to "다운로드 PDF", download_pdf_article_path(article), method: :get, class: "btn btn-sm btn-danger" %>
         <img width="95%" src="<%= article.custom_pdf_image_path %>"></img>
       <% end %>
 

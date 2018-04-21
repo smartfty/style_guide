@@ -45,9 +45,12 @@
   - image
   - quote_box
 
+2018_4_21
+  - show character_count for working_article
+  - add - extended_line_count, pushed
+
 2018_4_20
   - fix overflow text
-  
   - fix bug when changing template with extended lines not clearing
   - extended, pushed
   - fix reduced, and pulled
