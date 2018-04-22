@@ -45,6 +45,9 @@
   - image
   - quote_box
 
+2018_4_22
+  - fix image fit_type for opinion image to IMAGE_FIT_TYPE_KEEP_RATIO
+  - show message after line change, quote_box size change, swap
 2018_4_21
   - show character_count for working_article
   - add - extended_line_count, pushed

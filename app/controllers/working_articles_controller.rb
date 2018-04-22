@@ -118,94 +118,94 @@ class WorkingArticlesController < ApplicationController
   def extend_zero
     set_working_article
     @working_article.extend_line(0)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article) , notice: '박스크기 0 행 추가로 설정되었습니다.'
   end
 
   def extend_one
     set_working_article
     @working_article.extend_line(1)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 1 행 추가로 설정되었습니다.'
   end
 
   def extend_two
     set_working_article
     @working_article.extend_line(2)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 2 행 추가로 설정되었습니다.'
   end
 
   def extend_three
     set_working_article
     @working_article.extend_line(3)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 3 행 추가로 설정되었습니다.'
   end
 
   def extend_four
     set_working_article
     @working_article.extend_line(4)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 4 행 추가로 설정되었습니다.'
   end
 
   def reduce_one
     set_working_article
     @working_article.extend_line(-1)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 -1 행 축소 설정되었습니다.'
   end
 
   def reduce_two
     set_working_article
     @working_article.extend_line(-2)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 -2 행 축소 설정되었습니다.'
   end
 
   def reduce_three
     set_working_article
     @working_article.extend_line(-3)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 -3 행 축소 설정되었습니다.'
   end
 
   def reduce_four
     set_working_article
     @working_article.extend_line(-4)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '박스크기 -4 행 축소 설정되었습니다.'
   end
 
   def swap
     set_working_article
     @working_article.swap
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '위와 아래 가사가 교체 되었습니다.'
   end
 
   def quote_auto
     set_working_article
     @working_article.quote_auto
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '위와 아래 가사가 교체 되었습니다.'
   end
 
   def quote_zero
     set_working_article
     @working_article.quote_line(0)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '발문 박스가 삭제 되었습니다.'
   end
 
   def quote_one
     set_working_article
-    @working_article.quote_line(1)
+    @working_article.quote_line(1), notice: '1 행용 발문 박스(8줄 추가됨)가 설정 되었습니다.'
     redirect_to working_article_path(@working_article)
   end
 
   def quote_two
     set_working_article
-    @working_article.quote_line(2)
+    @working_article.quote_line(2), notice: '2 행용 발문 박스(10줄 추가)가 설정 되었습니다.'
     redirect_to working_article_path(@working_article)
   end
 
   def quote_three
     set_working_article
     @working_article.quote_line(3)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '3 행용 발문 박스(10줄 추가됨) 설정 되었습니다.'
   end
 
-  def quote_four
+  def quote_four, notice: '4 행용 발문 박스(10줄 추가됨) 설정 되었습니다.'
     set_working_article
     @working_article.quote_line(4)
     redirect_to working_article_path(@working_article)
