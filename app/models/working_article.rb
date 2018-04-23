@@ -326,7 +326,7 @@ class WorkingArticle < ApplicationRecord
     profile_hash[:stroke_width]   = 0
     profile_hash[:position]       = 1
     profile_hash[:is_float]       = true
-    profile_hash[:fit_type]       = 3 #IMAGE_FIT_TYPE_KEEP_RATIO
+    profile_hash[:fit_type]       = 4 #TODO
     profile_hash[:before_title]   = true
     profile_hash[:layout_expand]  = nil
     profile_hash
@@ -568,6 +568,7 @@ class WorkingArticle < ApplicationRecord
   # add extra empty line between paragraphs
   def to_markdown_para
     body.gsub!(/^(\^|-\s)/, "")
+    # body.gsub!(/^\u3000, "")
     body.gsub!(/^\s*\n/m, "\n")
     # body.gsub!(/^\W*#/, '#' )
     body.gsub!(/(\n|\r\n)+/, "\n\n")
