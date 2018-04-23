@@ -189,14 +189,14 @@ class WorkingArticlesController < ApplicationController
 
   def quote_one
     set_working_article
-    @working_article.quote_line(1), notice: '1 행용 발문 박스(8줄 추가됨)가 설정 되었습니다.'
-    redirect_to working_article_path(@working_article)
+    @working_article.quote_line(1)
+    redirect_to working_article_path(@working_article), notice: '1 행용 발문 박스(8줄 추가됨)가 설정 되었습니다.'
   end
 
   def quote_two
     set_working_article
-    @working_article.quote_line(2), notice: '2 행용 발문 박스(10줄 추가)가 설정 되었습니다.'
-    redirect_to working_article_path(@working_article)
+    @working_article.quote_line(2)
+    redirect_to working_article_path(@working_article), notice: '2 행용 발문 박스(10줄 추가)가 설정 되었습니다.'
   end
 
   def quote_three
@@ -205,10 +205,10 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '3 행용 발문 박스(10줄 추가됨) 설정 되었습니다.'
   end
 
-  def quote_four, notice: '4 행용 발문 박스(10줄 추가됨) 설정 되었습니다.'
+  def quote_four
     set_working_article
     @working_article.quote_line(4)
-    redirect_to working_article_path(@working_article)
+    redirect_to working_article_path(@working_article), notice: '4 행용 발문 박스(10줄 추가됨) 설정 되었습니다.'
   end
 
 
