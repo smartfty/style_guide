@@ -18,7 +18,7 @@ class CreateTextStyles < ActiveRecord::Migration[5.0]
       t.integer :text_height_in_lines
       t.text :box_attributes
       t.string :markup
-      t.text :dynamic_style
+      t.text :graphic_attributes
       t.references :publication, foreign_key: true
 
       t.timestamps

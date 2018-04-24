@@ -126,7 +126,7 @@ class Section < ApplicationRecord
     h['story_frames']                   = eval(layout)
     h['article_line_thickness']         = publication.article_line_thickness
     h['draw_divider']                   = publication.draw_divider
-    h['draw_divider']                   = true if page_number == 22
+    h['draw_divider']                   = false # true if page_number == 22
     h
   end
 

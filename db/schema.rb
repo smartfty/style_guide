@@ -350,7 +350,7 @@ ActiveRecord::Schema.define(version: 20180418042407) do
     t.integer "text_height_in_lines"
     t.text "box_attributes"
     t.string "markup"
-    t.text "dynamic_style"
+    t.text "graphic_attributes"
     t.integer "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

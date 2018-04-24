@@ -49,7 +49,7 @@ s_###
 
 # Dynamic Text Style Definition
 
-dynamic_style
+graphic_attributes
 
 Dynamic Text Style Definition is needed to support when size of a style changes has to change depending on the article box that is used.
 

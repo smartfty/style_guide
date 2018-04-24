@@ -20,7 +20,7 @@
 #  text_height_in_lines  :integer
 #  box_attributes        :text
 #  markup                :string
-#  dynamic_style         :text
+#  graphic_attributes         :text
 #  publication_id        :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null

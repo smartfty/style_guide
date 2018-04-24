@@ -44,6 +44,8 @@
 
   - image
   - quote_box
+2018_4_23
+  - opinion image image_fit_to to horizontal
 
 2018_4_22
   - fix image fit_type for opinion image to IMAGE_FIT_TYPE_KEEP_RATIO
@@ -715,7 +717,7 @@
 
 2017-7-13
   - t.text :box_attributes
-  - t.string :dynamic_style
+  - t.string :graphic_attributes
 
   - t.string :markup
   - category heading 제목박스, body 본문, float 플롯트

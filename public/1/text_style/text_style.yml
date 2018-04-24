@@ -16,7 +16,7 @@ body:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 body_gothic:
   korean_name: 본문고딕
@@ -35,7 +35,7 @@ body_gothic:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 running_head:
   korean_name: 본문중제
@@ -54,7 +54,7 @@ running_head:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 quote:
   korean_name: 발문
@@ -73,7 +73,7 @@ quote:
   text_height_in_lines: 1
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 related_story:
   korean_name: 관련기사
@@ -92,7 +92,7 @@ related_story:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 caption_title:
   korean_name: 사진제목
@@ -111,7 +111,7 @@ caption_title:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 caption:
   korean_name: 사진설명
@@ -130,7 +130,7 @@ caption:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 source:
   korean_name: 사진출처
@@ -149,7 +149,7 @@ source:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 reporter:
   korean_name: 기자명
@@ -168,7 +168,7 @@ reporter:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 reporter_editorial:
   korean_name: 논설기자
@@ -187,7 +187,7 @@ reporter_editorial:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: "{'token_union_style' => {:stroke_width => 1.5, :stroke_sides => [0,1,0,0], :top_line_space=>3}}"
   publication_id: 1
 title_main:
   korean_name: 제목_메인
@@ -206,7 +206,7 @@ title_main:
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_4_5:
   korean_name: 제목_4-5단
@@ -225,7 +225,7 @@ title_4_5:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_4:
   korean_name: 제목_4단
@@ -244,7 +244,7 @@ title_4:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_3:
   korean_name: 제목_3단
@@ -263,7 +263,7 @@ title_3:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_2:
   korean_name: 제목_2단
@@ -282,7 +282,7 @@ title_2:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_1:
   korean_name: 제목_1단
@@ -301,7 +301,7 @@ title_1:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 subtitle_main:
   korean_name: 부제_메인
@@ -320,7 +320,7 @@ subtitle_main:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 subtitle_M:
   korean_name: 부제_14
@@ -339,7 +339,7 @@ subtitle_M:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 subtitle_S:
   korean_name: 부제_12
@@ -358,7 +358,7 @@ subtitle_S:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 news_line_title:
   korean_name: 뉴스라인_제목
@@ -377,7 +377,7 @@ news_line_title:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 brand_name:
   korean_name: 애드_브랜드명
@@ -396,7 +396,7 @@ brand_name:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 subject_head_L:
   korean_name: 문패_18
@@ -415,7 +415,7 @@ subject_head_L:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 subject_head_M:
   korean_name: 문패_14
@@ -434,7 +434,7 @@ subject_head_M:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 subject_head_S:
   korean_name: 문패_12
@@ -453,7 +453,7 @@ subject_head_S:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 editor_note:
   korean_name: 편집자주
@@ -472,7 +472,7 @@ editor_note:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_opinion:
   korean_name: 기고 제목
@@ -491,7 +491,7 @@ title_opinion:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_editorial:
   korean_name: 사설 제목
@@ -510,7 +510,7 @@ title_editorial:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_7:
   korean_name: 제목_7단
@@ -529,7 +529,7 @@ title_7:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_6:
   korean_name: 제목_6단
@@ -548,7 +548,7 @@ title_6:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_5:
   korean_name: 제목_5단
@@ -567,7 +567,7 @@ title_5:
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_main_7:
   korean_name: 제목_메인_7
@@ -586,7 +586,7 @@ title_main_7:
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_main_6:
   korean_name: 제목_메인_6
@@ -605,7 +605,7 @@ title_main_6:
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
 title_main_5:
   korean_name: 제목_메인_5
@@ -624,5 +624,5 @@ title_main_5:
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
-  dynamic_style: ''
+  graphic_attributes: ''
   publication_id: 1
