@@ -17,7 +17,7 @@ top_margin: 56.69292
 right_margin: 42.519690000000004
 bottom_margin: 42.519690000000004
 gutter: 12.755907
-draw_divider: 
+draw_divider: false
 story_frames:
 - - 0
   - 0
