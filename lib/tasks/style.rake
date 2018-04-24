@@ -2,7 +2,7 @@ namespace :style do
 
   desc 'copy text_style to users'
   task :copy_text_style_to_shared =>:environment do
-    text_style_yml_path = "#{Rails.root}/1/text_style.yml"
+    text_style_yml_path = "#{Rails.root}/public/1/text_style.yml"
     target_folder = "/Users/Shared/SoftwareLab/newsman/내일신문"
     system "cp #{text_style_yml_path} #{target_folder}/"
   end
