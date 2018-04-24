@@ -9,9 +9,7 @@
     <% else %>
       <%= render 'form', article: @working_article %>
     <% end %>
-
-    <% if @working_article.kind == '가사' || (@working_article.kind == '시설' && @working_article.page_number == 22 ) %>
-      <h1>@working_article.kind</h1>
+    <% if @working_article.kind == '가사' || (@working_article.kind == '사설' && @working_article.page_number == 22 ) %>
       <div class="row" align='center'>
       <% @working_article.images.each do |image| %>
         <div class="col-md-4">
