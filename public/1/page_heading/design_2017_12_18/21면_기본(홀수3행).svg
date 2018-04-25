@@ -9,7 +9,7 @@
 		<text transform="matrix(1 0 0 1 493.165 16.4062)" font-family="'KoPubBatangPM-KSCpc-EUC-H'" font-size="20" letter-spacing="6">기획</text>
 	</g>
 	<g display="inline">
-		<text transform="matrix(1 0 0 1 995.8672 22.3418)" fill="#221E1F" font-family="'HelveticaNeue-Light'" font-size="27">21</text>
+		<text transform="matrix(1 0 0 1 995.8672 22.3418)" fill="CMYK=0,0,0,100" font-family="'HelveticaNeue-Light'" font-size="27">21</text>
 	</g>
 	
 		<line display="inline" fill="none" stroke="#000000" stroke-width="0.2" stroke-miterlimit="10" x1="0" y1="21.55" x2="990.105" y2="21.55"/>
