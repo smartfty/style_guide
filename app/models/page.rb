@@ -475,7 +475,6 @@ class Page < ApplicationRecord
     copy_outputs_to_site
   end
 
-
   def site_path
     File.expand_path("~/Sites/naeil/#{issue.date.to_s}/#{page_number}")
   end
@@ -533,10 +532,8 @@ class Page < ApplicationRecord
     EOF
   end
 
-
   def page_svg_with_jpg
     "<image xlink:href='#{jpg_image_path}' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />\n"
-    #code
   end
 
   def box_svg_with_jpg

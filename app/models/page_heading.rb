@@ -149,20 +149,16 @@ class PageHeading < ApplicationRecord
     page_heading_height = publication.inner_page_heading_height_in_pt
     date                = '2017년 5월 11일 목요일'
     even=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
-      text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
-      text('#{page_number}', x: 1.9795, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44)
-      text(#{date}, x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left')
-      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: #{page_heading_width - 48}, y: 10, width: 43, height: 12,)
-      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
-      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
+    RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
+      image(local_image: 'even.pdf', x: 0, y: 0, width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+      text('<%= @section_name %>', fill_color: 'clear', x: 464.0 , y: -2, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100" , text_alignment: 'center', fill_color: 'clear')
+      text('<%= @page_number %>', x: 3, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
+      text('<%= @date %>', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
     end
     EOF
   end
 
   def self.even_content(page)
-    puts "page.class:#{page.class}"
-
     publication = Publication.first
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
@@ -170,13 +166,11 @@ class PageHeading < ApplicationRecord
     page_number         = page.page_number
     section_name        = SECTIONS[page_number - 1]
     even=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
-      text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
-      text('#{page_number}', x: 1.9795, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44)
-      text(#{date}, x: 33.5356, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left')
-      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: #{page_heading_width - 48}, y: 10, width: 43, height: 12,)
-      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
-      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
+    RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
+      image(local_image: 'even.pdf', x: 0, y: 0, width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+      text('<%= @section_name %>', fill_color: 'clear', x: 464.0 , y: -2, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100" , text_alignment: 'center', fill_color: 'clear')
+      text('<%= @page_number %>', x: 3, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
+      text('<%= @date %>', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
     end
     EOF
   end
@@ -186,13 +180,11 @@ class PageHeading < ApplicationRecord
     page_heading_height = publication.inner_page_heading_height_in_pt
     date                = '2017년 5월 11일 목요일'
     odd=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
-      text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
-      text('#{date}', x: 880.5693, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left')
-      text('#{page_number}', x: 985, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "CMYK=0,0,0,100", width: 35, height: 44, text_alignment: 'right')
-      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: 3, y: 10, width: 43, height: 12, fit_type: 0)
-      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
-      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
+    RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
+      image(local_image: 'even.pdf', x: 0, y: 0, width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+      text('<%= @section_name %>', fill_color: 'clear', x: 464.0 , y: -2, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100" , text_alignment: 'center', fill_color: 'clear')
+      text('<%= @page_number %>', x: 3, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
+      text('<%= @date %>', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
     end
     EOF
   end
@@ -207,13 +199,11 @@ class PageHeading < ApplicationRecord
     section_name        = SECTIONS[page_number - 1]
 
     odd=<<~EOF
-    RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
-      text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
-      text('#{date}', x: 880, y: 10,  width: 200, font: 'YDVYGOStd12', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left')
-      text('#{page_number}', x: 985, y: 1, font: 'YDVYGOStd14', font_size: 24, text_color: "CMYK=0,0,0,100", width: 35, height: 44, text_alignment: 'right')
-      image(image_path: '/Users/Shared/SoftwareLab/news_heading/logo/내일신문.pdf', x: 3, y: 10, width: 43, height: 12, fit_type: 0)
-      line(x: -3, width: 1037.81, y: 23.803, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
-      line(x: -3, width: 1037.81, y: 25.903, stroke_width: 0.3, stroke_color: "CMYK=0,0,0,100")
+    RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
+      image(local_image: 'odd.pdf', width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+      text('<%= @section_name %>', x: 464.0, y: -4, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center', fill_color:'clear')
+      text('<%= @date %>', x: 900.5693, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color:'clear')
+      text('<%= @page_number %>', x: 998, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color:'clear')
     end
     EOF
   end
