@@ -14,6 +14,7 @@
 
 class OpinionWriter < ApplicationRecord
   belongs_to :publication
+  mount_uploader :OpionImage, OpionImageUploader
 
   def path
     "#{Rails.root}/public/#{publication.id}/opinion"
@@ -27,7 +28,7 @@ class OpinionWriter < ApplicationRecord
     "/#{publication.id}/opinion/#{name}.pdf"
   end
 
-  def jpg_path_image_path
+  def jpg_image_path
     "/#{publication.id}/opinion/#{name}.jpg"
   end
 

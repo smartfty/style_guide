@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :profiles
   resources :holidays
   resources :reporters
   resources :article_plans

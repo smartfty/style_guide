@@ -29,21 +29,21 @@
     - resuce_2
     - resuce_3
     - resuce_4
-    - resuce_5
 
   - body
-    - add extra line between paragraph
     - fit_text
 
-  - box
-    - increase_1
-    - increase_2
-    - increase_3
-    - increase_4
-    - increase_5
+3918_4_26
+  - place fixed ad in Section
 
-  - image
-  - quote_box
+2018_4_25
+  - opinion image uploaded
+    download csv
+  - reporter similar to opinion
+    download csv
+  - fix ad image upload
+    - handle EPS upload without imagemagick
+
 2018_4_23
   - opinion image image_fit_to to horizontal
 

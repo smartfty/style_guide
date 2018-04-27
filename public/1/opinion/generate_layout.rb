@@ -2,8 +2,8 @@ require 'erb'
 require 'pry'
 template =<<~EOF
     RLayout::Container.new(width:158.737,  height: 165.182) do
-      line(x: 0 , y:1, width: 158.737, stroke_width: 2, height:0)
-      text('<%= @title %>', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170)
+      line(x: 0 , y:1, width: 158.737, stroke_width: 2, height:0, storke_color:"CMYK=0,0,0,100")
+      text('<%= @title %>', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170, text_color:"CMYK=0,0,0,100")
       rect(x: 0, y: 70, width:158.737, height: 65,  fill_color:"CMYK=0,0,0,10")
       <% if @name.include?('_') %>
         <% @name_without_rest = @name.split('_').first %>
@@ -13,19 +13,19 @@ template =<<~EOF
       <% end %>
       container(x: 70, y: 80, width:150, bottom_margin: 10, fill_color: 'clear') do
         <% if @name && @name.include?('_') %>
-          text('<%= @work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
-          text('<%= @position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
+          text('<%= @work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100" )
+          text('<%= @position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% elsif @name && @work && @position %>
           <% if @name.include?('_') %>
-            text('<%= @name.split("-").first.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear')
+            text('<%= @name.split("-").first.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
           <% else  %>
-            text('<%= @name.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear')
+            text('<%= @name.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
           <% end  %>
-          text('<%= @work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
-          text('<%= @position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
+          text('<%= @work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          text('<%= @position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% elsif @position == nil %>
-          text('<%= @name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear')
-          text('<%= @work %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
+          text('<%= @name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          text('<%= @work %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% end %>
       end
     end
