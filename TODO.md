@@ -33,7 +33,14 @@
   - body
     - fit_text
 
-3918_4_26
+2018_4_29
+  - when we create new issue, make sure section pdf is generated only once
+  - show quote_box_size
+  - install postgres
+  - opinion image uploaded
+  - profile image uploaded
+
+2018_4_26
   - place fixed ad in Section
 
 2018_4_25

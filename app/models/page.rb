@@ -29,7 +29,7 @@ class Page < ApplicationRecord
   after_create :setup
   scope :clone_page, -> {where("clone_name!=?", nil)}
 
-  DAYS_IN_KOREAN = %w{일요일 월요알 화요일 수요일 목요일 금요일 토요일 }
+  DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
 
   def path

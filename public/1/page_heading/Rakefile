@@ -32,3 +32,12 @@ rule '.pdf' => '.rb' do |t|
   # puts "t:#{t}"
   system("cd #{t.name.pathmap("%d")} && /Applications/rjob.app/Contents/MacOS/rjob .")
 end
+
+#
+rule '.pdf' => '.rb' do |t|
+  # puts "t.name:#{t.name}"
+  # puts "t.source:#{t.source}"
+  # puts "generate pdf..."
+  # puts "t:#{t}"
+  system("cd #{t.name.pathmap("%d")} && /Applications/rjob.app/Contents/MacOS/rjob .")
+end

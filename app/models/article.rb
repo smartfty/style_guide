@@ -185,7 +185,7 @@ class Article < ApplicationRecord
 
     EOF
 
-    quote           = "이부분이 이용한 부분입니다. 이부분은 본문 중간에 위치 하게 됩니다. 아마도 이부분이 좀던 눈에 띠게 해야 합나다."
+    quote           = "여기에 발문 입력 합니다.\r\n. 이부분은 본문 중간에 위치 하게 됩니다."
     extra_paragraph = "\n#{quote}"*3
 
     if kind == '기고'
