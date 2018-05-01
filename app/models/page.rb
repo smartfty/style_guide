@@ -85,6 +85,20 @@ class Page < ApplicationRecord
     end
   end
 
+  def bottom_article?(article)
+    article_bottom_grid     = article.grid_y + article.row
+    article_x_grid          = article.grid_x
+    article_y_grid          = article.grid_y
+    return true if article_bottom_grid == row
+    ad_box = ad_boxes.first
+    return false if ad_box.nil?
+    ad_box_x_max_grid       = ad_box.grid_x + ad_box.column
+    if ad_box.grid_y == article_bottom_grid && ad_box.x <= article_x_grid && article_x_grid <= ad_box_x_max_grid
+      return true
+    end
+    false
+  end
+
   def clone
     h = to_hash
 

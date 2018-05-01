@@ -14,7 +14,7 @@
 
 class OpinionWriter < ApplicationRecord
   belongs_to :publication
-  mount_uploader :OpionImage, OpionImageUploader
+  mount_uploader :opinion_image, OpinionImageUploader
 
   def path
     "#{Rails.root}/public/#{publication.id}/opinion"
@@ -84,5 +84,19 @@ class OpinionWriter < ApplicationRecord
   def generate_pdf
     save_layout
     system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob #{name}.rb"
+  end
+
+  def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+        # get rif of id, created_at, updated_at
+        filtered = column_names.dup
+        filtered.shift
+        filtered.pop
+        filtered.pop
+        csv << filtered
+        all.each do |item|
+          csv << item.attributes.values_at(*filtered)
+        end
+      end
   end
 end

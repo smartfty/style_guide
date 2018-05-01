@@ -28,4 +28,5 @@
 <br>
 <div align="center">
   <%= link_to '새로운 저자등록', new_opinion_writer_path , method: :get, class: "btn btn-md btn-success" %>
+  <%= link_to "다운로드 CSV", opinion_writers_path(format: "csv"), method: :get, class: "btn-group btn btn-sm btn-warning" , align: "center"%>
 </div>

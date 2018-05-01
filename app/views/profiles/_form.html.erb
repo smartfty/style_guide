@@ -1,13 +1,12 @@
-<%= simple_form_for(@profile) do |f| %>
+<%= simple_form_for(profile) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :profile_image %>
-    <%= f.input :work %>
-    <%= f.input :position %>
-    <%= f.input :email %>
-    <%= f.association :publication %>
+    <%= f.input :name, label: "이름" %>
+    <%= f.input :work, label: "소속" %>
+    <%= f.input :position, label: "직책" %>
+    <%= f.input :profile_image, label: "사진선택" %>
+    <%= f.association :publication , :as => :hidden, input_html: {value: 1}%>
   </div>
 
   <div class="form-actions">

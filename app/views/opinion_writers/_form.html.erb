@@ -1,15 +1,16 @@
-<%= simple_form_for(@opinion_writer) do |f| %>
+<%= simple_form_for(opinion_writer) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :title %>
-    <%= f.input :work %>
-    <%= f.input :position %>
-    <%= f.input :publication_id, input_html: {value: 1} %>
+    <%= f.input :name, label: "이름"   %>
+    <%= f.input :title, label: "제목" %>
+    <%= f.input :work, label: "소속" %>
+    <%= f.input :position, label: "직책" %>
+    <%= f.input :opinion_image, label: "사진선책" %>
+    <%= f.input :publication_id, :as => :hidden, input_html: {value: 1} %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, label: "저장" %>
   </div>
 <% end %>

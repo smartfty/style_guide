@@ -332,9 +332,13 @@ class WorkingArticle < ApplicationRecord
     profile_hash
   end
 
+  def editorial_profile_pdf_path
+    publication.path + "/profile/#{reporter}.pdf"
+  end
+
   def editorial_image_options
     profile_hash                          = {}
-    profile_hash[:image_path]             = images.first.image_path if images.length > 0
+    profile_hash[:image_path]             = editorial_profile_pdf_path
     profile_hash[:inside_first_column]    = true
     profile_hash[:width_in_colum]         = 'half'
     profile_hash[:image_height_in_line]   = 7
@@ -417,6 +421,7 @@ class WorkingArticle < ApplicationRecord
     h[:top_story]                     = top_story
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
     h[:top_position]                  = top_position
+    h[:bottom_article]                = page.bottom_article?(self)
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
     h[:extended_line_count]           = extended_line_count if extended_line_count
     h[:pushed_line_count]             = pushed_line_count if pushed_line_count
@@ -445,7 +450,7 @@ class WorkingArticle < ApplicationRecord
     elsif kind == '사설' || kind == 'editorial'
       h[:article_line_draw_sides]  = [0,1,0,0]
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-      content += "  news_column_image(#{editorial_image_options})\n" if images.length > 0
+      content += "  news_column_image(#{editorial_image_options})\n" if page_number == 22
       content += "end\n"
     elsif kind == '기고' || kind == 'opinion'
       h[:article_line_draw_sides]  = [0,1,0,1]

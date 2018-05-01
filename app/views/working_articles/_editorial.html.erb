@@ -29,17 +29,11 @@
         <%= f.label :부제목 %>
         <%= f.text_area :subtitle, cols: "40", rows: "2", font_size: "16px", class: 'form-control'%>
       </div>
-      <% if article.page_number == 22 %>
-        <div class="form-group" style="display:none">
-          <%= f.label "기자 프로필"%>
-          <%= f.text_field :reporter %>
-        </div>
-      <% else  %>
-        <div class="form-group" >
-          <%= f.label "기자 프로필"%>
-          <%= f.text_field :reporter %>
-        </div>
-      <% end %>
+
+      <div class="form-group" >
+        <%= f.label "기자 프로필"%>
+        <%= f.text_field :reporter %>
+      </div>
 
     </div>
     <div class="col-md-6">

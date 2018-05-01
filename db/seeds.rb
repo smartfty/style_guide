@@ -106,6 +106,16 @@ csv.each do |row|
   OpinionWriter.where(h).first_or_create
 end
 
+profile_csv_path = "#{Rails.root}/public/1/profile/data.csv"
+csv_text = File.read(profile_csv_path)
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+  h = row.to_hash
+  h = Hash[h.map{ |key, value| [key.to_sym, value] }]
+  h[:publication_id] = 1
+  Profile.where(h).first_or_create
+end
+
 csv_path = "#{Rails.root}/public/1/section/sections.csv"
 csv_text = File.read(csv_path)
 csv = CSV.parse(csv_text)

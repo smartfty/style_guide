@@ -33,6 +33,14 @@
   - body
     - fit_text
 
+2018_5_1
+  - add bottom_article?(article) method to Page
+  - draw bottom_line only when draw_bottom_line and bottom_article is true
+  - upload opinion_image
+    - download csv
+  - upload profile_image
+    - download csv
+
 2018_4_29
   - when we create new issue, make sure section pdf is generated only once
   - show quote_box_size

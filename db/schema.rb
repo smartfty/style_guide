@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425094348) do
+ActiveRecord::Schema.define(version: 20180425083453) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -182,10 +182,10 @@ ActiveRecord::Schema.define(version: 20180425094348) do
     t.string "position"
     t.string "email"
     t.string "cell"
+    t.string "opinion_image"
     t.integer "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "opinion_image"
     t.index ["publication_id"], name: "index_opinion_writers_on_publication_id"
   end
 

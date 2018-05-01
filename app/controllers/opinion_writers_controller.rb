@@ -6,6 +6,15 @@ class OpinionWritersController < ApplicationController
   def index
     @q = OpinionWriter.ransack(params[:q])
     @opinion_writers = @q.result
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        writers = OpinionWriter.order(name: :desc).all
+        send_data writers.to_csv 
+      end
+      format.xls # { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /opinion_writers/1
@@ -72,6 +81,6 @@ class OpinionWritersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opinion_writer_params
-      params.require(:opinion_writer).permit(:name, :title, :work, :position, :publication_id)
+      params.require(:opinion_writer).permit(:name, :opinion_image, :title, :work, :position, :publication_id)
     end
 end
