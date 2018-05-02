@@ -3,5 +3,7 @@
 :is_front_page: 0
 :top_story: 0
 :top_position: 0
-:underflow: 1
+:extended_line_count: 0
+:pushed_line_count: 0
+:quote_box_size: 0
 :empty_lines: 44

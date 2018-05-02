@@ -3,11 +3,14 @@
 :is_front_page: 1
 :top_story: 0
 :top_position: 0
-:@overflow: 1
-:overflow_text: "\uBCF8\uBB38 \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774
-  \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294
-  \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4
-  \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774
-  \uC785\uB2C8\uB2E4. \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \uC5EC\uAE30\uB294
-  \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4.
-  \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \\n"
+:extended_line_count: 0
+:pushed_line_count: 0
+:quote_box_size: 0
+:overflow_line_count: 6
+:overflow_text: "<p>\uC774 \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774
+  \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294 \uBCF8</p><p>\uBB38\uC774 \uC785\uB2C8\uB2E4
+  \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294</p><p>\uBCF8\uBB38\uC774
+  \uC785\uB2C8\uB2E4 \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \uC5EC\uAE30</p><p>\uB294
+  \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4.</p><p>\uC5EC\uAE30\uB294
+  \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4. \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8</p><p>\uB2E4.
+  \uC5EC\uAE30\uB294 \uBCF8\uBB38\uC774 \uC785\uB2C8\uB2E4.</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>"

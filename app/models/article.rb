@@ -308,6 +308,9 @@ class Article < ApplicationRecord
   #   content
   # end
 
+  def page_number
+    section.page_number
+  end
 
   def layout_rb
     grid_width    = publication.grid_width(page_columns)
@@ -326,9 +329,10 @@ class Article < ApplicationRecord
       end
     end
     h = {}
-    h[:kind] = kind                   unless h[:kind] == '기사'
-    h[:reporter] =  '홍길동'           if  h[:kind] == '기고'
-    h[:subject_head] = '내일시론'       if  h[:kind] == '사설'
+    h[:kind]                          = kind          unless h[:kind] == '기사'
+    h[:reporter]                      =  '홍길동'       if  h[:kind] == '기고'
+    h[:subject_head]                  = '내일시론'       if  h[:kind] == '사설' && page_number == 23
+    h[:subject_head]                  = '기고'          if  h[:kind] == '사설' && page_number == 22
     h[:column]                        = column
     h[:row]                           = row
     h[:grid_width]                    = grid_width
