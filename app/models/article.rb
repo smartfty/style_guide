@@ -366,7 +366,7 @@ class Article < ApplicationRecord
     if kind == '기고'
       content=<<~EOF
       RLayout::NewsArticleBox.new(#{h}) do
-        news_image({:image_path=>"/Users/mskim/Development/rails5/style_guide/public/1/opinion/강석진.pdf", :column=>1, :row=>1, :extra_height_in_lines=>5, :stroke_width=>0, :position=>1, :is_float=>true, :fit_type=>4, :before_title=>true, :layout_expand=>nil})
+        news_image({:image_path=>"#{Rails.root}/public/1/opinion/홍길동.pdf", :column=>1, :row=>1, :extra_height_in_lines=>5, :stroke_width=>0, :position=>1, :is_float=>true, :fit_type=>4, :before_title=>true, :layout_expand=>nil})
       end
       EOF
     else
