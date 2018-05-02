@@ -17,6 +17,10 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
+# Indexes
+#
+#  index_heading_ad_images_on_page_heading_id  (page_heading_id)
+#
 
 class HeadingAdImage < ApplicationRecord
   belongs_to :page_heading

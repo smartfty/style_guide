@@ -10,6 +10,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_stroke_styles_on_publication_id  (publication_id)
+#
 
 require 'test_helper'
 

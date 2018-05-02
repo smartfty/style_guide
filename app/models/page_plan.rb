@@ -18,7 +18,10 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #
-
+# Indexes
+#
+#  index_page_plans_on_issue_id  (issue_id)
+#
 
 # PagePlan is cewate with page_number and profile
 # profile is parse to fill into info

@@ -2,35 +2,43 @@
 #
 # Table name: working_articles
 #
-#  id             :integer          not null, primary key
-#  grid_x         :integer
-#  grid_y         :integer
-#  column         :integer
-#  row            :integer
-#  order          :integer
-#  kind           :string
-#  profile        :string
-#  title          :text
-#  title_head     :string
-#  subtitle       :text
-#  subtitle_head  :string
-#  body           :text
-#  reporter       :string
-#  email          :string
-#  personal_image :string
-#  image          :string
-#  quote          :text
-#  subject_head   :string
-#  on_left_edge   :boolean
-#  on_right_edge  :boolean
-#  is_front_page  :boolean
-#  top_story      :boolean
-#  top_position   :boolean
-#  inactive       :boolean
-#  article_id     :integer
-#  page_id        :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id                  :integer          not null, primary key
+#  grid_x              :integer
+#  grid_y              :integer
+#  column              :integer
+#  row                 :integer
+#  order               :integer
+#  kind                :string
+#  profile             :string
+#  title               :text
+#  title_head          :string
+#  subtitle            :text
+#  subtitle_head       :string
+#  body                :text
+#  reporter            :string
+#  email               :string
+#  personal_image      :string
+#  image               :string
+#  quote               :text
+#  subject_head        :string
+#  on_left_edge        :boolean
+#  on_right_edge       :boolean
+#  is_front_page       :boolean
+#  top_story           :boolean
+#  top_position        :boolean
+#  inactive            :boolean
+#  extended_line_count :integer
+#  pushed_line_count   :integer
+#  article_id          :integer
+#  page_id             :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  quote_box_size      :integer
+#
+# Indexes
+#
+#  index_working_articles_on_article_id  (article_id)
+#  index_working_articles_on_page_id     (page_id)
 #
 
 class WorkingArticle < ApplicationRecord
@@ -467,11 +475,6 @@ class WorkingArticle < ApplicationRecord
     content
   end
 
-  def remove_c_md
-    c_md_path = path + "/c.md"
-    FileUtils.rm(c_md_path) if File.exist?(c_md_path)
-  end
-
   def save_story
     File.open(story_path, 'w'){|f| f.write story_md}
   end
@@ -493,7 +496,6 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
-
 
   def parse_story
     source      = read_story
@@ -583,6 +585,28 @@ class WorkingArticle < ApplicationRecord
 
   def growable?
     true
+  end
+
+  def character_count_data_path
+    publication.publication_info_folder + "/charater_count_data/#{Date.today.to_s}_#{page_number}_#{order}"
+  end
+
+  # we want to create a compiled database of actual character count on a working_article.
+  # save a yaml file of actual instance character data
+  # we can average them later as we gather more data
+  def save_character_count
+    info = article_info
+    return unless info
+    return unless info[:overflow] == 0
+
+    useage_data   = Hash[attributes.map{ |k, v| [k.to_sym, v] }]
+    useage_data.delete[:id]
+    useage_data.delete[:updated_at]
+    useage_data.delete[:updated_at]
+
+    useage_data[:character_count] = character_count
+    path = character_count_data_path
+    File.open(path, 'w'){|f| f.write useage_data.to_yaml}
   end
 
   private

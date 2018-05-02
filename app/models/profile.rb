@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  profile_image  :string
+#  work           :string
+#  position       :string
+#  email          :string
+#  publication_id :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_profiles_on_publication_id  (publication_id)
+#
+
 class Profile < ApplicationRecord
   belongs_to :publication
   mount_uploader :profile_image, ProfileImageUploader

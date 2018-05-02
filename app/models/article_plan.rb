@@ -6,8 +6,14 @@
 #  page_plan_id :integer
 #  reporter     :string
 #  order        :integer
+#  title        :string
+#  char_count   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_article_plans_on_page_plan_id  (page_plan_id)
 #
 
 class ArticlePlan < ApplicationRecord

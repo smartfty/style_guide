@@ -18,6 +18,11 @@
 #  updated_at   :datetime         not null
 #  clone_name   :string
 #
+# Indexes
+#
+#  index_pages_on_issue_id      (issue_id)
+#  index_pages_on_page_plan_id  (page_plan_id)
+#
 
 class Page < ApplicationRecord
   belongs_to :issue

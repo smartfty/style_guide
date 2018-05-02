@@ -374,12 +374,6 @@ class Article < ApplicationRecord
       RLayout::NewsArticleBox.new(#{h})
       EOF
     end
-
-  end
-
-  def remove_c_md
-    c_md_path = path + "/c.md"
-    FileUtils.rm(c_md_path) if File.exist?(c_md_path)
   end
 
   def save_layout

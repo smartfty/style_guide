@@ -10,7 +10,11 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
-# v
+# Indexes
+#
+#  index_issues_on_publication_id  (publication_id)
+#
+
 class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :page_plans
@@ -114,6 +118,14 @@ class Issue < ApplicationRecord
     # parse_images
     # parse_ad_images
     # parse_graphics
+  end
+
+  def make_pages
+    page_plans.each_with_index do |page_plan, i|
+      Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+      page_plan.dirty = false
+      page_plan.save
+    end
   end
 
   def change_or_make_pages

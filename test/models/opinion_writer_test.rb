@@ -7,9 +7,16 @@
 #  title          :string
 #  work           :string
 #  position       :string
+#  email          :string
+#  cell           :string
+#  opinion_image  :string
 #  publication_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_opinion_writers_on_publication_id  (publication_id)
 #
 
 require 'test_helper'

@@ -33,6 +33,11 @@
   - body
     - fit_text
 
+2018_5_3
+  - change sqlite to pg
+  - eager loading
+  - save charater_count_data
+
 2018_5_1
   - add bottom_article?(article) method to Page
   - draw bottom_line only when draw_bottom_line and bottom_article is true

@@ -8,6 +8,10 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
+# Indexes
+#
+#  index_heading_bg_images_on_page_heading_id  (page_heading_id)
+#
 
 require 'test_helper'
 
