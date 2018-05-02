@@ -199,7 +199,19 @@ class Article < ApplicationRecord
       #{body}
 
       EOF
-    elsif kind == '사설'
+
+    elsif kind == '사설' && page_number == 22
+      story_md =<<~EOF
+      ---
+      subject_head: 기고
+      title: #{title}
+      email: #{email}
+      ---
+
+      #{body}
+
+      EOF
+    elsif kind == '사설' && page_number == 22
       story_md =<<~EOF
       ---
       subject_head: 내일시론
@@ -331,8 +343,6 @@ class Article < ApplicationRecord
     h = {}
     h[:kind]                          = kind          unless h[:kind] == '기사'
     h[:reporter]                      =  '홍길동'       if  h[:kind] == '기고'
-    h[:subject_head]                  = '내일시론'       if  h[:kind] == '사설' && page_number == 23
-    h[:subject_head]                  = '기고'          if  h[:kind] == '사설' && page_number == 22
     h[:column]                        = column
     h[:row]                           = row
     h[:grid_width]                    = grid_width
