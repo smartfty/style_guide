@@ -31,6 +31,7 @@ RLayout::Container.new(width:158.737,  height: 165.182) do
       text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
     <% end %>
   end
+end
     EOF
 
 csv_path = 'data.csv'
