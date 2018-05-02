@@ -33,7 +33,7 @@ class Profile < ApplicationRecord
       rect(x: 0, y: 10, width:158.737, height: 65,  fill_color:"CMYK=0,0,0,10")
       image(local_image: '<%= name %>.eps', from_right: 0, y: 0, width: 60, height: 75, fill_color: 'clear')
       container(x: 0, y: 20, width:100, bottom_margin: 10, fill_color: 'clear') do
-        <% if name && work && position %>
+        <% if name && work && work != "" && position && position != "" %>
           <% if name.include?('-') %>
           text('<%= name.split("-").first.gsub("+", " ") %>', text_alignment: 'right', from_right: 10, y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear')
           <% else  %>
@@ -41,9 +41,12 @@ class Profile < ApplicationRecord
           <% end  %>
           text('<%= work %>', text_alignment: 'right', from_right: 10, y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
           text('<%= position %>', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
-        <% elsif position == nil %>
+        <% elsif position == "" || position == nil %>
           text('<%= name.gsub("+", " ") %>', text_alignment: 'right', from_right: 10, y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear')
           text('<%= work %>', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
+        <% elsif work == "" || work == nil %>
+          text('<%= name.gsub("+", " ") %>', text_alignment: 'right', from_right: 10, y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear')
+          text('<%= position %>', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
         <% end %>
       end
     end
@@ -59,7 +62,7 @@ class Profile < ApplicationRecord
 
   def generate_pdf
     save_layout
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob #{name}.rb"
+    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob #{name}.rb -jpg"
   end
 
   def self.to_csv(options = {})
