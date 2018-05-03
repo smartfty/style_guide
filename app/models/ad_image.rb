@@ -19,7 +19,7 @@
 
 class AdImage < ApplicationRecord
   belongs_to :issue, optional: true
-  belongs_to :ad_box, optional: true
+  # belongs_to :ad_box, optional: true
 
   before_create :parse_ad
   mount_uploader :ad_image, AdImageUploader

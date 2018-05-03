@@ -8,6 +8,7 @@ class CreateAdBoxes < ActiveRecord::Migration[5.0]
       t.string :ad_type
       t.string :advertiser
       t.boolean :inactive
+      t.string :ad_image
       t.references :page, foreign_key: true
 
       t.timestamps

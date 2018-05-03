@@ -309,6 +309,7 @@ class WorkingArticle < ApplicationRecord
     EOF
   end
 
+
   def publication
     page.issue.publication
   end
@@ -572,6 +573,12 @@ class WorkingArticle < ApplicationRecord
 
   end
 
+
+
+  def growable?
+    true
+  end
+
   # add extra empty line between paragraphs
   def to_markdown_para
     body.gsub!(/^(\^|-\s)/, "")
@@ -583,8 +590,28 @@ class WorkingArticle < ApplicationRecord
     self.save
   end
 
-  def growable?
-    true
+  def newsml_issue_path
+    "#{Rails.root}/public/1/issue/#{issue.date}/newsml"
+  end
+
+  def story_xml_filename
+    date_without_minus = issue.date.to_s.gsub("-","")
+    two_digit_page_number = page_number.to_s.rjust(2, "0")
+    two_digit_ord = order.to_s.rjust(2, "0")
+    "#{date_without_minus}#{two_digit_page_number}#{two_digit_ord}.xml"
+  end
+
+  def save_story_xml
+    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
+    path = "#{newsml_issue_path}/#{story_xml_filename}"
+    File.open(path, 'w'){|f| f.write story_xml}
+  end
+
+  def story_xml
+    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+    story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
+    story_erb = ERB.new(story_xml_template)
+    story_erb.result(binding)
   end
 
   def character_count_data_path

@@ -1,37 +1,24 @@
 
 <h3>광고정보</h3>
+<div align="center">
+  <%= link_to "이전으로", page_path(@ad_box.page), method: :get, class: "btn btn-md btn-success" %>
+</div>
+
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <%= render 'form', ad_box: @ad_box %>
     <br/>
     <br/>
     <br/>
   </div>
-  <div class="col-md-8">
-    <% if @ad_box.ad_image %>
-
-      <p><a href="<%=  edit_ad_image_path(@ad_box.ad_image) %>"><%= image_tag @ad_box.jpg_image_path %></a></p>
-      <p><%= link_to '삭제', @ad_box.ad_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></p>
-
-    <% else %>
-      <%= form_with( model: @ad_box, :html => { :multipart => true }, :url=> {action: 'upload_ad_image'}) do |f| %>
-        <%= f.fields_for :ad_image, AdImage.new do |p| %>
-          <div class="field">
-            <%= p.label '사진선택' %><br>
-            <h3> <%= p.file_field :ad_image, :multiple => true, name: "ad_image[ad_image]" %></h3>
-          </div>
-        <% end %>
-
-        <div class="actions">
-          <%= f.button "사진 올리기", class: "btn btn-primary btn-md", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-        </div>
+    <!-- true -->
+  <div class="col-md-6">
+    <% unless @ad_box.ad_image.nil? %>
+      <% if browser.safari? %>
+        <img  src="<%= @ad_box.pdf_image_path %>" ></img>
+      <% elsif browser.modern?  || browser.ie?%>
+        <img  src="<%= @ad_box.jpg_image_path %>" ></img>
       <% end %>
     <% end %>
-
   </div>
-
-</div>
-
-<div align="center">
-  <%= link_to "이전으로", page_path(@ad_box.page), method: :get, class: "btn btn-md btn-success" %>
 </div>

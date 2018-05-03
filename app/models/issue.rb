@@ -57,6 +57,14 @@ class Issue < ApplicationRecord
     "#{Rails.root}/public/#{publication_id}/section"
   end
 
+  def newsml_path
+    "#{Rails.root}/public/1/newsml"
+  end
+
+  def newsml_issue_path
+    "#{Rails.root}/public/1/#{id}/newsml"
+  end
+
   def eval_issue_plan
     eval(plan)
   end
@@ -256,6 +264,13 @@ class Issue < ApplicationRecord
     self.save
     make_default_issue_plan
   end
+
+  def save_story_xml
+    pages.each do |page|
+      page.save_story_xml
+    end
+  end
+
 
   private
 

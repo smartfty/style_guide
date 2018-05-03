@@ -34,9 +34,13 @@
     - fit_text
 
 2018_5_3
+  - fix ad_upload
+    - include ad_image to ad_box
+    - 
   - change sqlite to pg
   - eager loading
-  - save charater_count_data
+  - save character_count_data
+  - fix text_style, so that designers can edit
 
 2018_5_1
   - add bottom_article?(article) method to Page

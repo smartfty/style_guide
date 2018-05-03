@@ -601,6 +601,12 @@ class Page < ApplicationRecord
     end
   end
 
+  def save_story_xml
+    working_articles.each do |article|
+      article.save_story_xml
+    end
+  end
+
   private
 
   def copy_attributes_from_template

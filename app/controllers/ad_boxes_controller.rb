@@ -27,6 +27,7 @@ class AdBoxesController < ApplicationController
     @ad_box = AdBox.new(ad_box_params)
     respond_to do |format|
       if @ad_box.save
+        # @ad_box.generate_pdf
         format.html { redirect_to @ad_box.page, notice: 'Ad box was successfully created.' }
         format.json { render :show, status: :created, location: @ad_box }
       else
@@ -41,8 +42,9 @@ class AdBoxesController < ApplicationController
   def update
     respond_to do |format|
       if @ad_box.update(ad_box_params)
+        binding.pry
         @ad_box.generate_pdf
-        @ad_box.update_page_pdf
+        # @ad_box.update_page_pdf
         format.html { redirect_to @ad_box, notice: 'Ad box was successfully updated.' }
         format.json { render :show, status: :ok, location: @ad_box }
       else
@@ -80,6 +82,6 @@ class AdBoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_box_params
-      params.require(:ad_box).permit(:column, :row, :ad_type, :advertiser, :page_id)
+      params.require(:ad_box).permit(:column, :row, :ad_type, :advertiser, :ad_image, :page_id)
     end
 end

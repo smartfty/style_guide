@@ -21,8 +21,7 @@
 
 class AdBox < ApplicationRecord
   belongs_to :page
-  has_one  :ad_image
-  accepts_nested_attributes_for :ad_image
+  mount_uploader :ad_image, AdImageUploader
   after_create :setup
 
   def path
@@ -54,8 +53,16 @@ class AdBox < ApplicationRecord
     end
   end
 
+  def page_number
+    page.page_number
+  end
+
   def gutter
     publication.gutter
+  end
+
+  def order
+    page.ad_boxes.index(self)
   end
 
   def grid_width
@@ -122,12 +129,10 @@ class AdBox < ApplicationRecord
       end
     end
 
-
-    image_path                                     = ad_image.image_path if ad_image
+    image_path                                     = ad_image.path if ad_image
     ad_image_hash = {}
-    ad_image_hash[:image_path]                     = image_path
     ad_image_hash[:layout_expand]                  = [:width, :height]
-    ad_image_hash[:page_heading_margin_in_lines]   = [:page_heading_margin_in_lines]
+    ad_image_hash[:page_heading_margin_in_lines]   = page_heading_margin_in_lines
     content=<<~EOF
     RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, top_position: #{top_position?}, on_right_edge: #{on_right_edge?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
       image(image_path: '#{image_path}', fit_type: 4, layout_expand: [:width, :height])
@@ -155,16 +160,6 @@ class AdBox < ApplicationRecord
     page_path = page.path
     puts "page_path:#{page_path}"
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
-  end
-
-  def page_heading_margin
-    if top_position?
-      if is_front_page?
-        publication.front_page_heading_height_in_pt
-      else
-        publication.inner_page_heading_height_in_pt
-      end
-    end
   end
 
   def box_svg

@@ -10,6 +10,7 @@
 #  ad_type    :string
 #  advertiser :string
 #  inactive   :boolean
+#  ad_image   :string
 #  page_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
