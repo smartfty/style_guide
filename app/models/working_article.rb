@@ -610,6 +610,11 @@ class WorkingArticle < ApplicationRecord
   def story_xml
     story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
+    year  = issue.date.year
+    month = issue.date.month
+    day   = issue.date.day
+
+    @day_info = "#{year}년#{month}월#{day}일"
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)
   end
