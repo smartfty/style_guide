@@ -16,6 +16,7 @@ class IssuesController < ApplicationController
   def new
     @issue = Issue.new
     @publication = Publication.first
+    @previous_number = Issue.last.number.to_i + 1 if Issue.last
   end
 
   # GET /issues/1/edit

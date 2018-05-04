@@ -1,5 +1,5 @@
 
-<button class="btn-danger large"><%= @issue.date.to_s %></button>
+<button class="btn-danger large"><%= @issue.date.to_s %> (<%= @issue.number %>)</button>
 <div class="row">
   <% @pages.each do |page| %>
     <div class = "col-sm-3 col-md-3" >

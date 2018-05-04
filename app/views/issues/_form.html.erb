@@ -22,7 +22,12 @@
 
   <div class="form-group">
     <%= f.label :호수 %>
-    <%= f.text_field :number, class: 'form-control' %>
+    <% if previous_number %>
+      <%= f.text_field :number, class: 'form-control', value: previous_number%>
+    <% else %>
+      <%= f.text_field :number, class: 'form-control', value: previous_number%>
+    <% end %>
+
   </div>
 
   <div class="actions">

@@ -39,6 +39,8 @@
   - fix ad_image upload
   - add save_story_xml
   - remove image and ad_image from navigation bar menu
+  - add pdf to ad_image uploader type
+  - add previous issue_number to new issue
 
   - change sqlite to pg
   - eager loading
