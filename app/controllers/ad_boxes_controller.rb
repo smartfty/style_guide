@@ -42,7 +42,6 @@ class AdBoxesController < ApplicationController
   def update
     respond_to do |format|
       if @ad_box.update(ad_box_params)
-        binding.pry
         @ad_box.generate_pdf
         # @ad_box.update_page_pdf
         format.html { redirect_to @ad_box, notice: 'Ad box was successfully updated.' }

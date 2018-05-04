@@ -33,12 +33,17 @@
   - body
     - fit_text
 
-2018_5_3
-  - fix ad_upload
-    - include ad_image to ad_box
-    - 
+
+2018_5_4
+  - move ad_image to ad_box, get rid of ad_image model
+  - fix ad_image upload
+  - add save_story_xml
+  - remove image and ad_image from navigation bar menu
+
   - change sqlite to pg
   - eager loading
+
+2018_5_3
   - save character_count_data
   - fix text_style, so that designers can edit
 
