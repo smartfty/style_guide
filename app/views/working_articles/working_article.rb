@@ -115,7 +115,7 @@ class WorkingArticle < ApplicationRecord
   def generate_pdf
     save_article
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
-    copy_outputs_to_site
+    # copy_outputs_to_site
   end
 
   def site_path

@@ -271,7 +271,7 @@ class Section < ApplicationRecord
     string = ""
     eval_layout.each do |box|
       next if box.class == Hash
-      if box.length == 5 && box[4].class == Hash
+      if box.length == 5
         if box[4][:type] == 'heading' || box[4]['타입'] == '제목'
           # heading box
           string += "<rect fill='gray' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"

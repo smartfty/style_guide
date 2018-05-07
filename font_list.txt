@@ -1,4 +1,4 @@
-rjob 2017 9 22
+rjob 2018 5 1
 +++++++ Installed Fonts List +++++++
 ---------------
 familyName:.Al Bayan PUA
@@ -1621,18 +1621,6 @@ familyName:Curlz MT
 displayName:Curlz MT
 postscritpName:CurlzMT
 ---------------
-familyName:BiauKai
-displayName:BiauKai
-postscritpName:DFKaiShu-SB-Estd-BF
----------------
-familyName:Wawati SC
-displayName:Wawati SC Regular
-postscritpName:DFWaWaSC-W5
----------------
-familyName:Wawati TC
-displayName:Wawati TC Regular
-postscritpName:DFWaWaTC-W5
----------------
 familyName:DIN Alternate
 displayName:DIN Alternate Bold
 postscritpName:DINAlternate-Bold
@@ -1748,30 +1736,6 @@ postscritpName:EurostileBold
 familyName:Eurostile
 displayName:Eurostile
 postscritpName:EurostileRegular
----------------
-familyName:Lantinghei TC
-displayName:Lantinghei TC Heavy
-postscritpName:FZLTTHB--B51-0
----------------
-familyName:Lantinghei SC
-displayName:Lantinghei SC Heavy
-postscritpName:FZLTTHK--GBK1-0
----------------
-familyName:Lantinghei TC
-displayName:Lantinghei TC Extralight
-postscritpName:FZLTXHB--B51-0
----------------
-familyName:Lantinghei SC
-displayName:Lantinghei SC Extralight
-postscritpName:FZLTXHK--GBK1-0
----------------
-familyName:Lantinghei TC
-displayName:Lantinghei TC Demibold
-postscritpName:FZLTZHB--B51-0
----------------
-familyName:Lantinghei SC
-displayName:Lantinghei SC Demibold
-postscritpName:FZLTZHK--GBK1-0
 ---------------
 familyName:Farah
 displayName:Farah Regular
@@ -1993,38 +1957,6 @@ familyName:smHangSer
 displayName:smHangSer Medium
 postscritpName:HangSer
 ---------------
-familyName:Hannotate SC
-displayName:Hannotate SC Regular
-postscritpName:HannotateSC-W5
----------------
-familyName:Hannotate SC
-displayName:Hannotate SC Bold
-postscritpName:HannotateSC-W7
----------------
-familyName:Hannotate TC
-displayName:Hannotate TC Regular
-postscritpName:HannotateTC-W5
----------------
-familyName:Hannotate TC
-displayName:Hannotate TC Bold
-postscritpName:HannotateTC-W7
----------------
-familyName:HanziPen SC
-displayName:HanziPen SC Regular
-postscritpName:HanziPenSC-W3
----------------
-familyName:HanziPen SC
-displayName:HanziPen SC Bold
-postscritpName:HanziPenSC-W5
----------------
-familyName:HanziPen TC
-displayName:HanziPen TC Regular
-postscritpName:HanziPenTC-W3
----------------
-familyName:HanziPen TC
-displayName:HanziPen TC Bold
-postscritpName:HanziPenTC-W5
----------------
 familyName:Harrington
 displayName:Harrington
 postscritpName:Harrington
@@ -2208,14 +2140,6 @@ postscritpName:HiraginoSans-W8
 familyName:Hiragino Sans
 displayName:Hiragino Sans W9
 postscritpName:HiraginoSans-W9
----------------
-familyName:Hiragino Sans CNS
-displayName:Hiragino Sans CNS W3
-postscritpName:HiraginoSansCNS-W3
----------------
-familyName:Hiragino Sans CNS
-displayName:Hiragino Sans CNS W6
-postscritpName:HiraginoSansCNS-W6
 ---------------
 familyName:Hiragino Sans GB
 displayName:Hiragino Sans GB W3
@@ -2413,13 +2337,29 @@ familyName:Kino MT
 displayName:Kino MT
 postscritpName:KinoMT
 ---------------
-familyName:Klee
-displayName:Klee Demibold
-postscritpName:Klee-Demibold
+familyName:KoPubBatang_Pro
+displayName:KoPubBatang_Pro Bold
+postscritpName:KoPubBatangPB
 ---------------
-familyName:Klee
-displayName:Klee Medium
-postscritpName:Klee-Medium
+familyName:KoPubBatang_Pro
+displayName:KoPubBatang_Pro Light
+postscritpName:KoPubBatangPL
+---------------
+familyName:KoPubBatang_Pro
+displayName:KoPubBatang_Pro Medium
+postscritpName:KoPubBatangPM
+---------------
+familyName:KoPubDotum_Pro
+displayName:KoPubDotum_Pro Bold
+postscritpName:KoPubDotumPB
+---------------
+familyName:KoPubDotum_Pro
+displayName:KoPubDotum_Pro Light
+postscritpName:KoPubDotumPL
+---------------
+familyName:KoPubDotum_Pro
+displayName:KoPubDotum_Pro Medium
+postscritpName:KoPubDotumPM
 ---------------
 familyName:Kohinoor Bangla
 displayName:Kohinoor Bangla Bold
@@ -2625,22 +2565,6 @@ familyName:Letter Gothic Std
 displayName:Letter Gothic Std Slanted
 postscritpName:LetterGothicStd-Slanted
 ---------------
-familyName:Apple LiGothic
-displayName:Apple LiGothic Medium
-postscritpName:LiGothicMed
----------------
-familyName:LiHei Pro
-displayName:LiHei Pro
-postscritpName:LiHeiPro
----------------
-familyName:LiSong Pro
-displayName:LiSong Pro
-postscritpName:LiSongPro
----------------
-familyName:Apple LiSung
-displayName:Apple LiSung Light
-postscritpName:LiSungLight
----------------
 familyName:Lithos Pro
 displayName:Lithos Pro Black
 postscritpName:LithosPro-Black
@@ -2744,14 +2668,6 @@ postscritpName:LucidaSansUnicode
 familyName:Luminari
 displayName:Luminari
 postscritpName:Luminari-Regular
----------------
-familyName:LingWai SC
-displayName:LingWai SC Medium
-postscritpName:MLingWaiMedium-SC
----------------
-familyName:LingWai TC
-displayName:LingWai TC Medium
-postscritpName:MLingWaiMedium-TC
 ---------------
 familyName:MS Gothic
 displayName:MS Gothic
@@ -3221,14 +3137,6 @@ familyName:Oriya Sangam MN
 displayName:Oriya Sangam MN Bold
 postscritpName:OriyaSangamMN-Bold
 ---------------
-familyName:Osaka
-displayName:Osaka
-postscritpName:Osaka
----------------
-familyName:Osaka
-displayName:Osaka-Mono
-postscritpName:Osaka-Mono
----------------
 familyName:PMingLiU
 displayName:PMingLiU
 postscritpName:PMingLiU
@@ -3493,14 +3401,6 @@ familyName:Rosewood Std
 displayName:Rosewood Std
 postscritpName:RosewoodStd-Regular
 ---------------
-familyName:Hei
-displayName:Hei Regular
-postscritpName:SIL-Hei-Med-Jian
----------------
-familyName:Kai
-displayName:Kai Regular
-postscritpName:SIL-Kai-Reg-Jian
----------------
 familyName:smShinJohabT
 displayName:smShinJohabT Bold
 postscritpName:SJohabTB
@@ -3512,22 +3412,6 @@ postscritpName:SJohabTL
 familyName:smShinJohabT
 displayName:smShinJohabT Medium
 postscritpName:SJohabTM
----------------
-familyName:Baoli SC
-displayName:Baoli SC Regular
-postscritpName:STBaoliSC-Regular
----------------
-familyName:Baoli TC
-displayName:Baoli TC Regular
-postscritpName:STBaoliTC-Regular
----------------
-familyName:STFangsong
-displayName:STFangsong
-postscritpName:STFangsong
----------------
-familyName:STHeiti
-displayName:STHeiti
-postscritpName:STHeiti
 ---------------
 familyName:Heiti SC
 displayName:Heiti SC Light
@@ -3661,42 +3545,6 @@ familyName:STIXVariants
 displayName:STIXVariants-Regular
 postscritpName:STIXVariants-Regular
 ---------------
-familyName:STKaiti
-displayName:STKaiti
-postscritpName:STKaiti
----------------
-familyName:Kaiti SC
-displayName:Kaiti SC Black
-postscritpName:STKaitiSC-Black
----------------
-familyName:Kaiti SC
-displayName:Kaiti SC Bold
-postscritpName:STKaitiSC-Bold
----------------
-familyName:Kaiti SC
-displayName:Kaiti SC Regular
-postscritpName:STKaitiSC-Regular
----------------
-familyName:Kaiti TC
-displayName:Kaiti TC Black
-postscritpName:STKaitiTC-Black
----------------
-familyName:Kaiti TC
-displayName:Kaiti TC Bold
-postscritpName:STKaitiTC-Bold
----------------
-familyName:Kaiti TC
-displayName:Kaiti TC Regular
-postscritpName:STKaitiTC-Regular
----------------
-familyName:Libian SC
-displayName:Libian SC Regular
-postscritpName:STLibianSC-Regular
----------------
-familyName:Libian TC
-displayName:Libian TC Regular
-postscritpName:STLibianTC-Regular
----------------
 familyName:STSong
 displayName:STSong
 postscritpName:STSong
@@ -3728,50 +3576,6 @@ postscritpName:STSongti-TC-Light
 familyName:Songti TC
 displayName:Songti TC Regular
 postscritpName:STSongti-TC-Regular
----------------
-familyName:STHeiti
-displayName:STXihei
-postscritpName:STXihei
----------------
-familyName:Xingkai SC
-displayName:Xingkai SC Bold
-postscritpName:STXingkaiSC-Bold
----------------
-familyName:Xingkai SC
-displayName:Xingkai SC Light
-postscritpName:STXingkaiSC-Light
----------------
-familyName:Xingkai TC
-displayName:Xingkai TC Bold
-postscritpName:STXingkaiTC-Bold
----------------
-familyName:Xingkai TC
-displayName:Xingkai TC Light
-postscritpName:STXingkaiTC-Light
----------------
-familyName:Yuanti SC
-displayName:Yuanti SC Bold
-postscritpName:STYuanti-SC-Bold
----------------
-familyName:Yuanti SC
-displayName:Yuanti SC Light
-postscritpName:STYuanti-SC-Light
----------------
-familyName:Yuanti SC
-displayName:Yuanti SC Regular
-postscritpName:STYuanti-SC-Regular
----------------
-familyName:Yuanti TC
-displayName:Yuanti TC Bold
-postscritpName:STYuanti-TC-Bold
----------------
-familyName:Yuanti TC
-displayName:Yuanti TC Light
-postscritpName:STYuanti-TC-Light
----------------
-familyName:Yuanti TC
-displayName:Yuanti TC Regular
-postscritpName:STYuanti-TC-Regular
 ---------------
 familyName:Sana
 displayName:Sana Regular
@@ -3828,6 +3632,10 @@ postscritpName:Seravek-Medium
 familyName:Seravek
 displayName:Seravek Medium Italic
 postscritpName:Seravek-MediumItalic
+---------------
+familyName:Shinmoon
+displayName:Shinmoon
+postscritpName:Shinmoon
 ---------------
 familyName:Shree Devanagari 714
 displayName:Shree Devanagari 714
@@ -4041,6 +3849,10 @@ familyName:Tamil Sangam MN
 displayName:Tamil Sangam MN Bold
 postscritpName:TamilSangamMN-Bold
 ---------------
+familyName:TeamViewer13
+displayName:TeamViewer13
+postscritpName:TeamViewer13
+---------------
 familyName:Tekton Pro
 displayName:Tekton Pro Bold
 postscritpName:TektonPro-Bold
@@ -4117,26 +3929,6 @@ familyName:Times New Roman
 displayName:Times New Roman
 postscritpName:TimesNewRomanPSMT
 ---------------
-familyName:Toppan Bunkyu Gothic
-displayName:Toppan Bunkyu Gothic Demibold
-postscritpName:ToppanBunkyuGothicPr6N-DB
----------------
-familyName:Toppan Bunkyu Gothic
-displayName:Toppan Bunkyu Gothic Regular
-postscritpName:ToppanBunkyuGothicPr6N-Regular
----------------
-familyName:Toppan Bunkyu Midashi Gothic
-displayName:Toppan Bunkyu Midashi Gothic Extrabold
-postscritpName:ToppanBunkyuMidashiGothicStdN-ExtraBold
----------------
-familyName:Toppan Bunkyu Midashi Mincho
-displayName:Toppan Bunkyu Midashi Mincho Extrabold
-postscritpName:ToppanBunkyuMidashiMinchoStdN-ExtraBold
----------------
-familyName:Toppan Bunkyu Mincho
-displayName:Toppan Bunkyu Mincho Regular
-postscritpName:ToppanBunkyuMinchoPr6N-Regular
----------------
 familyName:Trajan Pro
 displayName:Trajan Pro Bold
 postscritpName:TrajanPro-Bold
@@ -4164,22 +3956,6 @@ postscritpName:TrebuchetMS-Bold
 familyName:Trebuchet MS
 displayName:Trebuchet MS Italic
 postscritpName:TrebuchetMS-Italic
----------------
-familyName:Tsukushi A Round Gothic
-displayName:Tsukushi A Round Gothic Bold
-postscritpName:TsukuARdGothic-Bold
----------------
-familyName:Tsukushi A Round Gothic
-displayName:Tsukushi A Round Gothic Regular
-postscritpName:TsukuARdGothic-Regular
----------------
-familyName:Tsukushi B Round Gothic
-displayName:Tsukushi B Round Gothic Bold
-postscritpName:TsukuBRdGothic-Bold
----------------
-familyName:Tsukushi B Round Gothic
-displayName:Tsukushi B Round Gothic Regular
-postscritpName:TsukuBRdGothic-Regular
 ---------------
 familyName:Tw Cen MT
 displayName:Tw Cen MT Bold
@@ -4213,6 +3989,10 @@ familyName:smType
 displayName:smType Medium
 postscritpName:TypeM
 ---------------
+familyName:Minsoo
+displayName:Unnamed Regular
+postscritpName:Unnamed-Regular
+---------------
 familyName:Verdana
 displayName:Verdana
 postscritpName:Verdana
@@ -4244,14 +4024,6 @@ postscritpName:WaseemLight
 familyName:Webdings
 displayName:Webdings
 postscritpName:Webdings
----------------
-familyName:Weibei SC
-displayName:Weibei SC Bold
-postscritpName:Weibei-SC-Bold
----------------
-familyName:Weibei TC
-displayName:Weibei TC Bold
-postscritpName:Weibei-TC-Bold
 ---------------
 familyName:Wingdings
 displayName:Wingdings
@@ -5244,62 +5016,6 @@ postscritpName:YDVYtalStdL
 familyName:YoonV TalyooncheStd_OTF
 displayName:
 postscritpName:YDVYtalStdM
----------------
-familyName:YuGothic
-displayName:YuGothic Bold
-postscritpName:YuGo-Bold
----------------
-familyName:YuGothic
-displayName:YuGothic Medium
-postscritpName:YuGo-Medium
----------------
-familyName:YuKyokasho
-displayName:YuKyokasho Bold
-postscritpName:YuKyo-Bold
----------------
-familyName:YuKyokasho
-displayName:YuKyokasho Medium
-postscritpName:YuKyo-Medium
----------------
-familyName:YuKyokasho Yoko
-displayName:YuKyokasho Yoko Bold
-postscritpName:YuKyo_Yoko-Bold
----------------
-familyName:YuKyokasho Yoko
-displayName:YuKyokasho Yoko Medium
-postscritpName:YuKyo_Yoko-Medium
----------------
-familyName:YuMincho
-displayName:YuMincho Demibold
-postscritpName:YuMin-Demibold
----------------
-familyName:YuMincho
-displayName:YuMincho Extrabold
-postscritpName:YuMin-Extrabold
----------------
-familyName:YuMincho
-displayName:YuMincho Medium
-postscritpName:YuMin-Medium
----------------
-familyName:YuMincho +36p Kana
-displayName:YuMincho +36p Kana Demibold
-postscritpName:YuMin_36pKn-Demibold
----------------
-familyName:YuMincho +36p Kana
-displayName:YuMincho +36p Kana Extrabold
-postscritpName:YuMin_36pKn-Extrabold
----------------
-familyName:YuMincho +36p Kana
-displayName:YuMincho +36p Kana Medium
-postscritpName:YuMin_36pKn-Medium
----------------
-familyName:Yuppy SC
-displayName:Yuppy SC Regular
-postscritpName:YuppySC-Regular
----------------
-familyName:Yuppy TC
-displayName:Yuppy TC Regular
-postscritpName:YuppyTC-Regular
 ---------------
 familyName:Zapf Dingbats
 displayName:Zapf Dingbats

@@ -5,6 +5,7 @@ class CreateAdBoxes < ActiveRecord::Migration[5.0]
       t.integer :grid_y
       t.integer :column
       t.integer :row
+      t.integer :order
       t.string :ad_type
       t.string :advertiser
       t.boolean :inactive

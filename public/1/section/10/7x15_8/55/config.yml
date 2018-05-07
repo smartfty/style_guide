@@ -1,6 +1,6 @@
 ---
 date: 2017-04-10
-section_name: 금융-3단기고
+section_name: 금융
 is_front_page: false
 page_heading_margin_in_lines: 3
 :ad_type: no_ad
@@ -22,34 +22,34 @@ draw_divider: false
 story_frames:
 - - 0
   - 0
-  - 4
-  - 4
-- - 4
-  - 0
-  - 3
-  - 5
-- - 0
-  - 4
-  - 4
-  - 4
-- - 4
-  - 5
-  - 3
-  - 3
-- - 0
-  - 8
-  - 3
   - 7
-- - 3
-  - 8
-  - 1
+  - 2
+- - 0
+  - 2
   - 4
+  - 6
+- - 4
+  - 2
+  - 3
+  - 6
+- - 0
+  - 8
+  - 4
+  - 3
 - - 4
   - 8
   - 3
-  - 4
-- - 3
-  - 12
-  - 4
   - 3
+- - 0
+  - 11
+  - 2
+  - 4
+- - 2
+  - 11
+  - 2
+  - 4
+- - 4
+  - 11
+  - 3
+  - 4
 article_line_thickness: 0.3

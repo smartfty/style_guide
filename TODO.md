@@ -33,6 +33,19 @@
   - body
     - fit_text
 
+2018_5_8
+  - eager loading
+  - run pg in production
+
+2018_5_7
+  - handle forbidden at the beginning characters. . , ! ?
+    - fix align token at the last line
+  - chosun font not copying in PDF
+    - make new font as Shinmoon.ttf
+
+2018_5_5
+  - change page to full page ad page with heading as 전면광고
+  - add order field to AdBox
 
 2018_5_4
   - move ad_image to ad_box, get rid of ad_image model
@@ -44,6 +57,7 @@
 
   - change sqlite to pg
   - eager loading
+
 
 2018_5_3
   - save character_count_data

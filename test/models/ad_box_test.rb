@@ -7,6 +7,7 @@
 #  grid_y     :integer
 #  column     :integer
 #  row        :integer
+#  order      :integer
 #  ad_type    :string
 #  advertiser :string
 #  inactive   :boolean

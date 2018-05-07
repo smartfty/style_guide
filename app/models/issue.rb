@@ -129,6 +129,7 @@ class Issue < ApplicationRecord
   end
 
   def make_pages
+    puts "in make_pages"
     page_plans.each_with_index do |page_plan, i|
       Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
       page_plan.dirty = false

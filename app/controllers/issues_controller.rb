@@ -14,9 +14,9 @@ class IssuesController < ApplicationController
 
   # GET /issues/new
   def new
-    @issue = Issue.new
-    @publication = Publication.first
-    @previous_number = Issue.last.number.to_i + 1 if Issue.last
+    @issue            = Issue.new
+    @publication      = Publication.first
+    @previous_number  = Issue.last.number.to_i + 1 if Issue.last
   end
 
   # GET /issues/1/edit
@@ -30,6 +30,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         @issue.make_default_issue_plan
+        @issue.make_pages
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
         format.json { render :show, status: :created, location: @issue }
       else

@@ -7,9 +7,11 @@
 #  grid_y     :integer
 #  column     :integer
 #  row        :integer
+#  order      :integer
 #  ad_type    :string
 #  advertiser :string
 #  inactive   :boolean
+#  ad_image   :string
 #  page_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -59,10 +61,6 @@ class AdBox < ApplicationRecord
 
   def gutter
     publication.gutter
-  end
-
-  def order
-    page.ad_boxes.index(self)
   end
 
   def grid_width
