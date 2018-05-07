@@ -31,7 +31,7 @@ class IssuesController < ApplicationController
       if @issue.save
         @issue.make_default_issue_plan
         @issue.make_pages
-        format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
+        format.html { redirect_to @issue}
         format.json { render :show, status: :created, location: @issue }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class IssuesController < ApplicationController
   def update
     respond_to do |format|
       if @issue.update(issue_params)
-        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to @issue}
         format.json { render :show, status: :ok, location: @issue }
       else
         format.html { render :edit }
