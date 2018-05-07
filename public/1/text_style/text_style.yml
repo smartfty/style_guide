@@ -2,7 +2,7 @@
 body:
   korean_name: 본문명조
   category:
-  font_family: 조선일보명조
+  font_family: Shinmoon
   font: Shinmoon
   font_size: 9.6
   text_color: CMYK=0,0,0,100
