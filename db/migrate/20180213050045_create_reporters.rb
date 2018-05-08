@@ -5,7 +5,8 @@ class CreateReporters < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :title
       t.string :cell
-      t.references :reporter_group, foreign_key: true
+      t.references :reporter_group
+      # t.references :reporter_group, foreign_key: true
 
       t.timestamps
     end

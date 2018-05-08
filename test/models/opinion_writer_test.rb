@@ -18,6 +18,10 @@
 #
 #  index_opinion_writers_on_publication_id  (publication_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (publication_id => publications.id)
+#
 
 require 'test_helper'
 

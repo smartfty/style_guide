@@ -27,9 +27,11 @@ class CreateWorkingArticles < ActiveRecord::Migration[5.0]
       t.boolean :inactive
       t.integer :extended_line_count
       t.integer :pushed_line_count
-      t.references :article, foreign_key: true
-      t.references :page, foreign_key: true
-
+      t.references :article
+      t.references :page
+      # t.references :article, foreign_key: true
+      # t.references :page, foreign_key: true
+      #
       t.timestamps
     end
   end

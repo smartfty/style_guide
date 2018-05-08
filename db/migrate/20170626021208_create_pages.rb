@@ -9,8 +9,10 @@ class CreatePages < ActiveRecord::Migration[5.0]
       t.integer :story_count
       t.boolean :color_page
       t.string :profile
-      t.references :issue, foreign_key: true
-      t.references :page_plan, foreign_key: true
+      t.references :issue
+      t.references :page_plan
+      # t.references :issue, foreign_key: true
+      # t.references :page_plan, foreign_key: true
       t.integer :template_id
 
       t.timestamps
