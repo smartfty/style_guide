@@ -15,6 +15,10 @@
 #
 #  index_article_plans_on_page_plan_id  (page_plan_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (page_plan_id => page_plans.id)
+#
 
 class ArticlePlan < ApplicationRecord
   belongs_to :page_plan

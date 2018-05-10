@@ -32,14 +32,23 @@
 
   - body
     - fit_text
-2018_5_
+
+2018_5_10
+  - add draw_divider to section
+  - fix section config to save draw_divider
+  - fix section.csv put page_number at first column
+  - add botomm_box? to article and save botomm_box in layout_rb
+  
+2018_5_10
+  - no subtile in editorial article
+  - subject_head_s
 
 2018_5_8
   - eager loading
   - run pg in production
   - add send pdf for proof reading
   - create xml
-  
+
 2018_5_7
   - handle forbidden at the beginning characters. . , ! ?
     - fix align token at the last line

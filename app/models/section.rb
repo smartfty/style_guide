@@ -17,6 +17,7 @@
 #  layout         :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  draw_divider   :boolean
 #
 
 class Section < ApplicationRecord
@@ -122,13 +123,27 @@ class Section < ApplicationRecord
     h['right_margin']                   = publication.right_margin
     h['bottom_margin']                  = publication.bottom_margin
     h['gutter']                         = publication.gutter
-    h['draw_divider']                   = publication.draw_divider
     h['story_frames']                   = eval(layout)
     h['article_line_thickness']         = publication.article_line_thickness
-    h['draw_divider']                   = publication.draw_divider
-    h['draw_divider']                   = false # true if page_number == 22
+    h['draw_divider']                   = draw_divider
     h
   end
+
+
+  def bottom_article?(article)
+    article_bottom_grid     = article.grid_y + article.row
+    article_x_grid          = article.grid_x
+    article_y_grid          = article.grid_y
+    return true if article_bottom_grid == row
+    ad_box = ad_box_templates.first
+    return false if ad_box.nil?
+    ad_box_x_max_grid       = ad_box.grid_x + ad_box.column
+    if ad_box.grid_y == article_bottom_grid && ad_box.grid_x <= article_x_grid && article_x_grid <= ad_box_x_max_grid
+      return true
+    end
+    false
+  end
+
 
   def self.update_section_configs
     Section.all.each do |section|
@@ -207,6 +222,13 @@ class Section < ApplicationRecord
     save_section_config_yml
     copy_page_heading
     create_articles
+    generate_article_pdf
+    generate_ad_box_template_pdf
+    generate_pdf
+  end
+
+  def regerate_section_preview
+    copy_page_heading
     generate_article_pdf
     generate_ad_box_template_pdf
     generate_pdf

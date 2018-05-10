@@ -211,7 +211,7 @@ class Article < ApplicationRecord
       #{body}
 
       EOF
-    elsif kind == '사설' && page_number == 22
+    elsif kind == '사설' && page_number == 23
       story_md =<<~EOF
       ---
       subject_head: 내일시론
@@ -353,6 +353,7 @@ class Article < ApplicationRecord
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
     h[:top_position]                  = top_position
+    h[:bottom_article]                = section.bottom_article?(self)
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
     h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
     h[:article_line_draw_sides]       = publication.article_line_draw_sides

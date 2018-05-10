@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425083453) do
+ActiveRecord::Schema.define(version: 20180510210500) do
 
-  create_table "ad_box_templates", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "ad_box_templates", id: :serial, force: :cascade do |t|
     t.integer "grid_x"
     t.integer "grid_y"
     t.integer "column"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ad_boxes", force: :cascade do |t|
+  create_table "ad_boxes", id: :serial, force: :cascade do |t|
     t.integer "grid_x"
     t.integer "grid_y"
     t.integer "column"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["page_id"], name: "index_ad_boxes_on_page_id"
   end
 
-  create_table "ads", force: :cascade do |t|
+  create_table "ads", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "column"
     t.integer "row"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
   end
 
   create_table "article_plans", force: :cascade do |t|
-    t.integer "page_plan_id"
+    t.bigint "page_plan_id"
     t.string "reporter"
     t.integer "order"
     t.string "title"
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["page_plan_id"], name: "index_article_plans_on_page_plan_id"
   end
 
-  create_table "articles", force: :cascade do |t|
+  create_table "articles", id: :serial, force: :cascade do |t|
     t.integer "grid_x"
     t.integer "grid_y"
     t.integer "column"
@@ -111,7 +114,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.float "y_in_unit"
     t.float "width_in_unit"
     t.float "height_in_unit"
-    t.integer "page_heading_id"
+    t.bigint "page_heading_id"
     t.string "advertiser"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,7 +123,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
 
   create_table "heading_bg_images", force: :cascade do |t|
     t.string "heading_bg_image"
-    t.integer "page_heading_id"
+    t.bigint "page_heading_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["page_heading_id"], name: "index_heading_bg_images_on_page_heading_id"
@@ -133,7 +136,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "images", id: :serial, force: :cascade do |t|
     t.integer "column"
     t.integer "row"
     t.integer "extra_height_in_lines"
@@ -152,7 +155,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "issues", force: :cascade do |t|
+  create_table "issues", id: :serial, force: :cascade do |t|
     t.date "date"
     t.string "number"
     t.text "plan"
@@ -170,13 +173,13 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.string "email"
     t.string "cell"
     t.string "opinion_image"
-    t.integer "publication_id"
+    t.bigint "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publication_id"], name: "index_opinion_writers_on_publication_id"
   end
 
-  create_table "page_headings", force: :cascade do |t|
+  create_table "page_headings", id: :serial, force: :cascade do |t|
     t.integer "page_number"
     t.string "section_name"
     t.string "date"
@@ -186,7 +189,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "page_plans", force: :cascade do |t|
+  create_table "page_plans", id: :serial, force: :cascade do |t|
     t.integer "page_number"
     t.string "section_name"
     t.integer "selected_template_id"
@@ -204,7 +207,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["issue_id"], name: "index_page_plans_on_issue_id"
   end
 
-  create_table "pages", force: :cascade do |t|
+  create_table "pages", id: :serial, force: :cascade do |t|
     t.integer "page_number"
     t.string "section_name"
     t.integer "column"
@@ -223,7 +226,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", id: :serial, force: :cascade do |t|
     t.text "body"
     t.string "email"
     t.datetime "created_at", null: false
@@ -236,13 +239,13 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.string "work"
     t.string "position"
     t.string "email"
-    t.integer "publication_id"
+    t.bigint "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publication_id"], name: "index_profiles_on_publication_id"
   end
 
-  create_table "publications", force: :cascade do |t|
+  create_table "publications", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "unit"
     t.string "paper_size"
@@ -289,7 +292,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.string "email"
     t.string "title"
     t.string "cell"
-    t.integer "reporter_group_id"
+    t.bigint "reporter_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reporter_group_id"], name: "index_reporters_on_reporter_group_id"
@@ -305,7 +308,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sections", force: :cascade do |t|
+  create_table "sections", id: :serial, force: :cascade do |t|
     t.string "profile"
     t.integer "column"
     t.integer "row"
@@ -320,19 +323,20 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.text "layout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "draw_divider"
   end
 
   create_table "stroke_styles", force: :cascade do |t|
     t.string "klass"
     t.string "name"
     t.text "stroke"
-    t.integer "publication_id"
+    t.bigint "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publication_id"], name: "index_stroke_styles_on_publication_id"
   end
 
-  create_table "text_styles", force: :cascade do |t|
+  create_table "text_styles", id: :serial, force: :cascade do |t|
     t.string "korean_name"
     t.string "english"
     t.string "category"
@@ -357,7 +361,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["publication_id"], name: "index_text_styles_on_publication_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -376,7 +380,7 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "working_articles", force: :cascade do |t|
+  create_table "working_articles", id: :serial, force: :cascade do |t|
     t.integer "grid_x"
     t.integer "grid_y"
     t.integer "column"
@@ -412,4 +416,13 @@ ActiveRecord::Schema.define(version: 20180425083453) do
     t.index ["page_id"], name: "index_working_articles_on_page_id"
   end
 
+  add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "heading_ad_images", "page_headings"
+  add_foreign_key "heading_bg_images", "page_headings"
+  add_foreign_key "issues", "publications"
+  add_foreign_key "opinion_writers", "publications"
+  add_foreign_key "page_plans", "issues"
+  add_foreign_key "profiles", "publications"
+  add_foreign_key "stroke_styles", "publications"
+  add_foreign_key "text_styles", "publications"
 end

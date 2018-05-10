@@ -448,12 +448,13 @@ subject_head_S:
   space_width: 3.0
   scale: 100.0
   text_line_spacing:
-  space_before_in_lines:
+  space_before_in_lines: 0.5
   space_after_in_lines:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  graphic_attributes: ''
+  graphic_attributes: "{'token_union_style' => {:stroke_width => 2, :stroke_sides => [0,1,0,0], :top_line_space=>7}}"
+
   publication_id: 1
 editor_note:
   korean_name: 편집자주

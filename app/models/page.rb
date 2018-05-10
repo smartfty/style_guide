@@ -98,7 +98,7 @@ class Page < ApplicationRecord
     ad_box = ad_boxes.first
     return false if ad_box.nil?
     ad_box_x_max_grid       = ad_box.grid_x + ad_box.column
-    if ad_box.grid_y == article_bottom_grid && ad_box.x <= article_x_grid && article_x_grid <= ad_box_x_max_grid
+    if ad_box.grid_y == article_bottom_grid && ad_box.grid_x <= article_x_grid && article_x_grid <= ad_box_x_max_grid
       return true
     end
     false
@@ -380,6 +380,7 @@ class Page < ApplicationRecord
   end
 
   def copy_section_template
+    puts __method__
     source = Dir.glob("#{section_template_folder}/*").first
     old_article_count = working_articles.length
     section           = Section.find(template_id)
@@ -434,7 +435,7 @@ class Page < ApplicationRecord
     update_ad_boxes
     #TODO
     copy_heading
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def change_template(new_template_id)
@@ -512,11 +513,14 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
+    puts __method__
+    puts "working_articles.length:#{working_articles.length}"
     working_articles.each do |working_article|
+      puts "calling working_article.generate_pdf"
       working_article.generate_pdf
     end
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
-    copy_outputs_to_site
+    # copy_outputs_to_site
   end
 
   def site_path
