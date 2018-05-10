@@ -12,10 +12,6 @@
 #
 #  index_heading_bg_images_on_page_heading_id  (page_heading_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (page_heading_id => page_headings.id)
-#
 
 class HeadingBgImage < ApplicationRecord
   belongs_to :page_heading
