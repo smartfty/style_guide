@@ -597,8 +597,7 @@ class WorkingArticle < ApplicationRecord
   def story_xml_filename
     date_without_minus = issue.date.to_s.gsub("-","")
     two_digit_page_number = page_number.to_s.rjust(2, "0")
-    order_plus_one = order + 1
-    two_digit_ord = order_plus_one.to_s.rjust(2, "0")
+    two_digit_ord = order.to_s.rjust(2, "0")
     "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
   end
 

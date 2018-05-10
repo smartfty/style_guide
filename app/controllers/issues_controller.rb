@@ -10,6 +10,8 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    @pages = @issue.pages.order(:id, 'desc')
+    @pages = @issue.pages
   end
 
   # GET /issues/new
@@ -139,6 +141,7 @@ class IssuesController < ApplicationController
 # 22-23
   def first_group
     set_issue
+    @pages = @issue.pages.order(:id)
     @page_range = 0..0
     session[:current_group] = 'first_group'
   end
@@ -221,6 +224,26 @@ class IssuesController < ApplicationController
   def send_to_cms
     @issue.request_cms_new_issue
     redirect_to assign_reporter_issue_path(@issue)
+  end
+
+  def save_story_xml
+    set_issue
+    if File.exist?(@issue.xml_zip_path)
+      system("rm #{@issue.xml_zip_path}")
+      @issue.save_story_xml
+      redirect_to issue_path(@issue), notice: 'xml 파일이  재생성 되었습니다.'
+    else
+      @issue.save_story_xml
+      redirect_to issue_path(@issue), notice: 'xml 파일이 생성 되었습니다.'
+    end
+  end
+
+  def download_story_xml
+    set_issue
+    puts @issue.xml_zip_path
+    # send_file @issue.xml_zip_path, type: 'application/zip'
+    send_file @issue.xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment"
+    redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
   end
 
   private

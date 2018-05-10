@@ -107,6 +107,9 @@ Rails.application.routes.draw do
       get 'eighth_group'
       get 'nineth_group'
       get 'ad_group'
+      get 'save_story_xml'
+      get 'download_story_xml'
+
     end
   end
 

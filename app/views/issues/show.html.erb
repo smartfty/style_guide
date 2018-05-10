@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <button class="btn-danger large"><%= @issue.date.to_s %> <%= @issue.number %></button>
 <div class="row">
@@ -10,3 +9,6 @@
   <% end %>
 
 </div>
+
+<%= button_to "xml 파일 생성", save_story_xml_issue_path, method: :get, class: "btn btn-sm btn-warning" %>
+<%= button_to "xml 파일 다운로드", download_story_xml_issue_path, method: :get, class: "btn btn-sm btn-danger" %>
