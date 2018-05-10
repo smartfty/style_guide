@@ -1,28 +1,4 @@
-<div align="center">
-  <% case session[:current_group] %>
-  <% when 'first_group' %>
-    <%= link_to "이전으로", first_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'second_group' %>
-    <%= link_to "이전으로", second_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'third_group' %>
-    <%= link_to "이전으로", third_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'fourth_group' %>
-    <%= link_to "이전으로", fourth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'fifth_group' %>
-    <%= link_to "이전으로", fifth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'sixth_group' %>
-    <%= link_to "이전으로", sixth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'seventh_group' %>
-    <%= link_to "이전으로", seventh_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'eighth_group' %>
-    <%= link_to "이전으로", eighth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% when 'nineth_group' %>
-    <%= link_to "이전으로", nineth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
-  <% else %>
-    <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
-  <% end %>
 
-</div>
 
 <% if browser.safari? %>
   <div class="row">
@@ -31,15 +7,10 @@
     </div>
     <div class = "col-sm-10 col-md-10">
       <% if File.exist?(@page.pdf_path) %>
+
         <div class="button-group">
-          <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
-        <div class="button-group">
-        <%= raw @page.to_svg %>
-        <% if @page.dropbox_exist? %>
-          <%= button_to "드롭박스에 저장", dropbox_page_path, method: :get, class: "btn btn-sm btn-warning" %>
-        <% else%>
-          <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
-        <% end%>
+          <%= raw @page.to_svg %>
+        </div>
 
       <% end %>
     </div>
@@ -85,7 +56,6 @@
       </div>
       <div class = "col-sm-10 col-md-10">
         <% if File.exist?(@page.pdf_path) %>
-          <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
           <%= raw @page.to_svg_with_jpg %>
 
           <% if @page.dropbox_exist? %>
@@ -179,3 +149,42 @@
 <div align="center">
   <%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_page_path(@page), method: :get, class: "btn-group btn btn-sm btn-primary" , align: "center"%>
 </div>
+
+
+<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+<nav class="navbar navbar-default navbar-fixed-top2">
+    <ul class="nav navbar-nav">
+      <li>
+        <div align="center">
+          <% case session[:current_group] %>
+          <% when 'first_group' %>
+            <%= link_to "이전으로", first_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'second_group' %>
+            <%= link_to "이전으로", second_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'third_group' %>
+            <%= link_to "이전으로", third_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'fourth_group' %>
+            <%= link_to "이전으로", fourth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'fifth_group' %>
+            <%= link_to "이전으로", fifth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'sixth_group' %>
+            <%= link_to "이전으로", sixth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'seventh_group' %>
+            <%= link_to "이전으로", seventh_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'eighth_group' %>
+            <%= link_to "이전으로", eighth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% when 'nineth_group' %>
+            <%= link_to "이전으로", nineth_group_issue_path(@page.issue), method: :get, class: "btn btn-sm btn-success" %>
+          <% else %>
+            <%= link_to "이전으로", issue_path(@page.issue), method: :get, class: "btn btn-md btn-success" %>
+          <% end %>
+        </div>
+      </li>
+      <li>
+        <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
+      </li>
+      <li>
+        <%= button_to "교정용 PDF 저장", save_proof_reading_pdf_page_path, method: :get, class: "btn btn-sm btn-warning" %>
+    </li>
+    </ul>
+</nav>

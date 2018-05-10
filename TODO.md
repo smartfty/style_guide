@@ -32,11 +32,14 @@
 
   - body
     - fit_text
+2018_5_
 
 2018_5_8
   - eager loading
   - run pg in production
-
+  - add send pdf for proof reading
+  - create xml
+  
 2018_5_7
   - handle forbidden at the beginning characters. . , ! ?
     - fix align token at the last line

@@ -118,6 +118,7 @@ Rails.application.routes.draw do
       get 'regenerate_pdf'
       get 'save_current_as_default'
       get 'clone'
+      get 'save_proof_reading_pdf'
     end
 
   end

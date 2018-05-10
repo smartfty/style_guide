@@ -380,7 +380,6 @@ class Page < ApplicationRecord
   end
 
   def copy_section_template
-    puts __method__
     source = Dir.glob("#{section_template_folder}/*").first
     old_article_count = working_articles.length
     section           = Section.find(template_id)
@@ -604,6 +603,51 @@ class Page < ApplicationRecord
       #{box_svg_with_jpg}
     </svg>
     EOF
+  end
+
+  def proof_path
+    path + "/proof"
+  end
+
+  def generate_proof_pdf
+    FileUtils.mkdir_p(proof_path) unless File.exist?(proof_path)
+    r_page_number = page_number.to_s.rjust(2,"0")
+    date          = issue.date.day.to_s.rjust(2,"0")
+    month         = issue.date.month.to_s.rjust(2,"0")
+    year          = issue.date.year.to_s
+    proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*")
+    if proof_files.length == 0
+      target_file   = "proof/#{r_page_number}011001-#{date}#{month}#{year}000.pdf"
+    else
+      curernt_index = proof_files.length
+      target_file = "proof/#{r_page_number}011001-#{date}#{month}#{year}000_#{curernt_index}.pdf"
+    end
+    puts "target_file:#{target_file}"
+    system("cd #{path} && cp section.pdf #{target_file}")
+    target_file
+  end
+
+  def copy_to_proof_reading_ftp
+    require 'net/ftp'
+    puts "copying page pdf to proof reading ftp "
+    # ip  = '211.115.91.75'
+    # id  = 'naeil'
+    # pw  = 'sodlftlsans1!'
+
+    # 동아일보 인쇄용
+    # ip        = '210.115.142.181'
+    # id        = 'naeil'
+    # pw        = 'cts@'
+
+    last_generate_file = generate_proof_pdf
+    # upload files
+    # latest_proof_file = File.new(path + "/#{last_generate_file}")
+    # Net::FTP.open(ip, id, pw) do |ftp|
+    #   # ftp.putbinaryfile(TXT_FILE_OBJECT, "/root_level/nested/#{File.basename(TXT_FILE_OBJECT)}")
+    #
+    #   ftp.putbinaryfile(latest_proof_file, "/mono/#{File.basename(latest_proof_file)}")
+    # end
+    true
   end
 
   def dropbox_path

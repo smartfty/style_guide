@@ -597,8 +597,9 @@ class WorkingArticle < ApplicationRecord
   def story_xml_filename
     date_without_minus = issue.date.to_s.gsub("-","")
     two_digit_page_number = page_number.to_s.rjust(2, "0")
-    two_digit_ord = order.to_s.rjust(2, "0")
-    "#{date_without_minus}#{two_digit_page_number}#{two_digit_ord}.xml"
+    order_plus_one = order + 1
+    two_digit_ord = order_plus_one.to_s.rjust(2, "0")
+    "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
   end
 
   def save_story_xml
@@ -611,10 +612,40 @@ class WorkingArticle < ApplicationRecord
     story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
     year  = issue.date.year
-    month = issue.date.month
-    day   = issue.date.day
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
 
-    @day_info = "#{year}년#{month}월#{day}일"
+    hour  = updated_at.hour.to_s.rjust(2, "0")
+    min   = updated_at.min.to_s.rjust(2, "0")
+    sec   = updated_at.sec.to_s.rjust(2, "0")
+
+    updated_date       = "#{year}#{month}#{day}"
+    updated_time       = "#{hour}#{min}#{sec}+0900"
+    @date_and_time    = "#{updated_date}T#{updated_time}"
+    @day_info         = "#{year}년#{month}월#{day}일"
+    @media_info       = publication.name
+    @edition_info     = page_number.to_s.rjust(2,"0")
+    @page_info        = publication.paper_size
+    @jeho_info        = issue.number
+    @news_title_info  = page.section_name
+
+    @name             = reporter
+    reporter_record   = Reporter.where(name:reporter).first
+    if reporter_record
+      @post             = reporter_record.reporter_group.name
+      @gija_id          = email.split("@").first
+      @email            = email
+    else
+      @post             = "소속팀"
+      @gija_id          = "기자아이디"
+      @email            = "기자이메일"
+    end
+    @head_line        = title
+    @sub_head_line    = subtitle
+    @data_content     = body
+
+    story_erb = ERB.new(story_xml_template)
+    story_erb.result(binding)
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)
   end
