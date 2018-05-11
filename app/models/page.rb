@@ -260,7 +260,6 @@ class Page < ApplicationRecord
   end
 
   def update_working_articles
-    puts __method__
     # delete unused working_articles
     section = Section.find(template_id)
     if section.articles.length == 0
@@ -435,7 +434,8 @@ class Page < ApplicationRecord
     update_ad_boxes
     #TODO
     copy_heading
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    regenerate_pdf
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def change_template(new_template_id)
