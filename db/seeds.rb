@@ -127,7 +127,8 @@ csv.each do |row|
   s = Section.where(row_h).first_or_create!
   s.create_articles if s
   if s.page_number == 22 || s.page_number == 23
-    puts "s.id:#{s.id}"
+    # puts "s.id:#{s.id}"
+    # puts "s.layout:#{s.layout}"
     s.regerate_section_preview
   end
 end

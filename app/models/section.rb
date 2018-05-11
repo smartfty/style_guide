@@ -89,6 +89,7 @@ class Section < ApplicationRecord
 
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
+    save_section_config_yml
     # update_section_layout
     # create_articles
   end

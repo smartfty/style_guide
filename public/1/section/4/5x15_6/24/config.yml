@@ -8,17 +8,16 @@ profile: 5x15_6
 section_id: 24
 page_columns: 5
 grid_size:
-- 205.7952996
+- 205.79529959999996
 - 96.377964
 lines_per_grid: 7
-width: 1114.0158780000002
+width: 1114.015878
 height: 1544.88207
-left_margin: 42.519690000000004
+left_margin: 42.51969
 top_margin: 56.69292
-right_margin: 42.519690000000004
-bottom_margin: 42.519690000000004
+right_margin: 42.51969
+bottom_margin: 42.51969
 gutter: 12.755907
-draw_divider: false
 story_frames:
 - - 0
   - 0
@@ -45,3 +44,4 @@ story_frames:
   - 1
   - 5
 article_line_thickness: 0.3
+draw_divider: 
