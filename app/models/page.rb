@@ -435,7 +435,7 @@ class Page < ApplicationRecord
     update_ad_boxes
     #TODO
     copy_heading
-    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def change_template(new_template_id)
