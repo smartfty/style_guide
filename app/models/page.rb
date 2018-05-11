@@ -451,6 +451,7 @@ class Page < ApplicationRecord
     section_hash.delete(:publication_id)
     section_hash.delete(:created_at)
     section_hash.delete(:updated_at)
+    section_hash.delete(:draw_divider)
     update(section_hash)
     # update ad_box
     # remove current ad_boxz unless new template has same size ad
