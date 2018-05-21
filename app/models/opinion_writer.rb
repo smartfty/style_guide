@@ -13,6 +13,7 @@
 #  publication_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  category_code  :integer
 #
 # Indexes
 #
@@ -41,6 +42,10 @@ class OpinionWriter < ApplicationRecord
 
   def jpg_image_path
     "/#{publication.id}/opinion/#{name}.jpg"
+  end
+
+  def profile_jpg_path
+    "/#{publication.id}/opinion/images/#{name}.jpg"
   end
 
   def layout_path

@@ -34,6 +34,7 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  quote_box_size      :integer
+#  category_code       :integer
 #
 # Indexes
 #

@@ -33,6 +33,7 @@ class Page < ApplicationRecord
   before_create :copy_attributes_from_template
   after_create :setup
   scope :clone_page, -> {where("clone_name!=?", nil)}
+  attr_reader :time_stamp
 
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
@@ -57,8 +58,31 @@ class Page < ApplicationRecord
     "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
   end
 
+
+  def latest_pdf
+    f = Dir.glob("#{path}/section*.pdf").last
+    File.basename(f) if f
+  end
+
+  def latest_pdf_basename
+    if @time_stamp
+      f = Dir.glob("#{path}/section#{@time_stamp}.pdf")
+    else
+      f = Dir.glob("#{path}/section*.pdf").last
+      File.basename(f) if f
+    end
+  end
+
+  def latest_pdf_path
+    Dir.glob("#{path}/#{latest_pdf_basename}").first
+  end
+
   def pdf_image_path
-    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.pdf"
+    # if @time_stamp
+    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/#{latest_pdf_basename}"
+    # else
+    #   "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.pdf"
+    # end
   end
 
   def pdf_path
@@ -507,11 +531,42 @@ class Page < ApplicationRecord
     page_heading.generate_pdf
   end
 
+  def cleanup_old_files
+    puts "clear old files"
+  end
+
+  def stamp_time
+    t = Time.now
+    h = t.hour
+    @time_stamp = "#{t.day.to_s.rjust(2,'0')}#{t.hour.to_s.rjust(2,'0')}#{t.min.to_s.rjust(2,'0')}#{t.sec.to_s.rjust(2,'0')}"
+  end
+
+  def delete_latest_files
+    pdf_file_to_delete = latest_pdf_path
+    jpf_file_to_delte = pdf_file_to_delete.sub(/pdf$/, "jpg")
+    puts "pdf_file_to_delete:#{pdf_file_to_delete}"
+    puts "File.exist?(pdf_file_to_delete):#{File.exist?(pdf_file_to_delete)}"
+    system("rm #{pdf_file_to_delete}")
+    system("rm #{jpf_file_to_delte}")
+  end
+
+  def generate_pdf_with_time_stamp
+    delete_latest_files
+    stamp_time
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
+    cleanup_old_files
+  end
+
   def generate_pdf
     puts "generate_pdf for page"
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
     # copy_outputs_to_site
   end
+
+  def time_stamp
+    #code
+  end
+
 
   def regenerate_pdf
     puts __method__

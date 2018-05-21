@@ -1,7 +1,7 @@
 <p id="notice"></p>
 
 <div class="row">
-  <div class = "col-sm-6" style="padding-bottom: 40px;" width="100%">
+  <div class = "col-sm-4" style="padding-bottom: 40px;" width="100%">
     <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
       <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
     <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>

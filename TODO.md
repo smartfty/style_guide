@@ -33,12 +33,18 @@
   - body
     - fit_text
 
+2018_5_17
+    - add category_code to working_article, reporter_group, opinion_writer
+    - generate_pdf with time_stamp to force page reloading
+    - article without page heading space or exteneded_line space
+    - web scrape issue_plan
+
 2018_5_10
   - add draw_divider to section
   - fix section config to save draw_divider
   - fix section.csv put page_number at first column
   - add botomm_box? to article and save botomm_box in layout_rb
-  
+
 2018_5_10
   - no subtile in editorial article
   - subject_head_s

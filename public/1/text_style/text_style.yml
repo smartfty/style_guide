@@ -4,12 +4,12 @@ body:
   category:
   font_family: Shinmoon
   font: Shinmoon
-  font_size: 9.6
+  font_size: 9.8
   text_color: CMYK=0,0,0,100
   alignment: justified
   tracking: -0.4
   space_width: 3.0
-  scale: 100.0
+  scale: 98.0
   text_line_spacing:
   space_before_in_lines:
   space_after_in_lines:
@@ -23,7 +23,7 @@ body_gothic:
   category:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
-  font_size: 9.4
+  font_size: 9.6
   text_color: CMYK=0,0,0,100
   alignment: justified
   tracking: -0.2
@@ -42,10 +42,10 @@ running_head:
   category:
   font_family: KoPub돋움체_Pro Medium
   font: KoPubDotumPM
-  font_size: 9.4
+  font_size: 9.6
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -0.1
+  tracking: -0.2
   space_width: 3.0
   scale: 100.0
   text_line_spacing:
@@ -498,14 +498,14 @@ title_editorial:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 18.0
+  font_size: 19.0
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.5
   space_width: 5.0
   scale: 100.0
   text_line_spacing:
-  space_before_in_lines: 1
+  space_before_in_lines: 0
   space_after_in_lines: 1
   text_height_in_lines: 2
   box_attributes: ''

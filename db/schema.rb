@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510210500) do
+ActiveRecord::Schema.define(version: 20180516223951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20180510210500) do
     t.bigint "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_code"
     t.index ["publication_id"], name: "index_opinion_writers_on_publication_id"
   end
 
@@ -285,6 +286,7 @@ ActiveRecord::Schema.define(version: 20180510210500) do
     t.string "leader"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_code"
   end
 
   create_table "reporters", force: :cascade do |t|
@@ -412,6 +414,7 @@ ActiveRecord::Schema.define(version: 20180510210500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quote_box_size"
+    t.integer "category_code"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
   end

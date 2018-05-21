@@ -34,6 +34,7 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  quote_box_size      :integer
+#  category_code       :integer
 #
 # Indexes
 #
@@ -49,6 +50,7 @@ class WorkingArticle < ApplicationRecord
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
+  attr_reader :time_stamp
 
   def page_path
     page.path
@@ -95,8 +97,22 @@ class WorkingArticle < ApplicationRecord
     system "mv #{old_jpg_path} #{jpg_path}"
   end
 
+  def latest_pdf_basename
+    puts "@time_stamp:#{@time_stamp}"
+    if @time_stamp
+      f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
+    else
+      f = Dir.glob("#{path}/story*.pdf").last
+      File.basename(f) if f
+    end
+  end
+
+  def latest_pdf_path
+    Dir.glob("#{path}/#{latest_pdf_basename}").first
+  end
+
   def pdf_image_path
-    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.pdf"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/#{latest_pdf_basename}"
   end
 
   def page_number
@@ -124,7 +140,36 @@ class WorkingArticle < ApplicationRecord
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
+  def cleanup_old_files
+    puts "clear old files"
+  end
+
+  def stamp_time
+    t = Time.now
+    h = t.hour
+    @time_stamp = "#{t.day.to_s.rjust(2,'0')}#{t.hour.to_s.rjust(2,'0')}#{t.min.to_s.rjust(2,'0')}#{t.sec.to_s.rjust(2,'0')}"
+  end
+
+  def delete_latest_files
+    pdf_file_to_delete = latest_pdf_path
+    jpf_file_to_delte = pdf_file_to_delete.sub(/pdf$/, "jpg")
+    puts "pdf_file_to_delete:#{pdf_file_to_delete}"
+    puts "File.exist?(pdf_file_to_delete):#{File.exist?(pdf_file_to_delete)}"
+    system("rm #{pdf_file_to_delete}")
+    system("rm #{jpf_file_to_delte}")
+  end
+
+  def generate_pdf_with_time_stamp
+    save_article
+    delete_latest_files
+    stamp_time
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article .  -custom=#{publication.name} -time_stamp=#{@time_stamp}"
+    cleanup_old_files
+  end
+
   def generate_pdf
+    # @time_stamp =  true
+    # binding.pry
     save_article
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
     # copy_outputs_to_site
@@ -268,6 +313,11 @@ class WorkingArticle < ApplicationRecord
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
+  def update_page_pdf_with_time_stamp
+    page_path = page.generate_pdf_with_time_stamp
+    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+  end
+
   def article_info
     if File.exist?(article_info_path)
       return @article_info_hash ||= YAML::load(File.open(article_info_path, 'r'){|f| f.read})
@@ -317,6 +367,11 @@ class WorkingArticle < ApplicationRecord
   def opinion_profile_pdf_path
     publication.path + "/opinion/#{reporter}.pdf"
   end
+
+  def opinion_profile_jpg_path
+    publication.path + "/opinion/#{reporter}.jpg"
+  end
+
 
   # IMAGE_FIT_TYPE_ORIGINAL       = 0
   # IMAGE_FIT_TYPE_VERTICAL       = 1
@@ -607,6 +662,54 @@ class WorkingArticle < ApplicationRecord
     File.open(path, 'w'){|f| f.write story_xml}
   end
 
+  def opinion_image_path
+    publication.path + "/opinion/images"
+  end
+
+  def profile_image_path
+    publication.path + "/profile/images"
+  end
+
+  def image_source
+    if page_number == 22
+      if kind == '기고'
+        person = OpinionWriter.where(name:reporter).first
+        name = person.name
+        return opinion_image_path + "/#{name}.jpg"
+      elsif kind == '사설'
+        person = Profile.where(name:reporter).first
+        name = person.name
+        return profile_image_path + "/#{name}.jpg"
+      end
+
+    elsif page_number == 23
+      if kind == '기고'
+        person = OpinionWriter.where(name:reporter).first
+        name = person.name
+        return opinion_image_path + "/#{name}.jpg"
+      elsif kind == '사설'
+        person = Profile.where(name:reporter).first
+        name = person.name
+        return profile_image_path + "/#{name}.jpg"
+      end
+    end
+  end
+
+  def save_xml_image
+    binding.pry
+    source = image_source
+    target = newsml_issue_path + "/#{@photo_item}"
+    system("cp #{source} #{target}")
+  end
+
+  def save_story_xml
+    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
+    path = "#{newsml_issue_path}/#{story_xml_filename}"
+    File.open(path, 'w'){|f| f.write story_xml}
+    save_xml_image
+  end
+
+
   def story_xml
     story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
@@ -618,13 +721,18 @@ class WorkingArticle < ApplicationRecord
     min   = updated_at.min.to_s.rjust(2, "0")
     sec   = updated_at.sec.to_s.rjust(2, "0")
 
-    updated_date       = "#{year}#{month}#{day}"
-    updated_time       = "#{hour}#{min}#{sec}+0900"
+    page_info        = page_number.to_s.rjust(2,"0")
+
+    updated_date      = "#{year}#{month}#{day}"
+    updated_time      = "#{hour}#{min}#{sec}+0900"
     @date_and_time    = "#{updated_date}T#{updated_time}"
+    @date_id          = updated_date
+    @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
     @day_info         = "#{year}년#{month}월#{day}일"
     @media_info       = publication.name
-    @edition_info     = page_number.to_s.rjust(2,"0")
-    @page_info        = publication.paper_size
+    # @edition_info     = page_number.to_s.rjust(2,"0")
+    # @page_info        = publication.paper_size
+    @page_info        = page_number.to_s.rjust(2,"0")
     @jeho_info        = issue.number
     @news_title_info  = page.section_name
 
@@ -639,9 +747,26 @@ class WorkingArticle < ApplicationRecord
       @gija_id          = "기자아이디"
       @email            = "기자이메일"
     end
+
+    @name_plate       = subject_head
+    unless @name_plate
+      # binding.pry
+      r = OpinionWriter.where(name: reporter).first
+      @name_plate = r.title
+    end
+
+    # @door_plate_code  = category_code
+    # @door_plate       = category
+    # @name_plate_code  = subject_head_code
+
+    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+
     @head_line        = title
     @sub_head_line    = subtitle
     @data_content     = body
+
+    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
+
 
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)

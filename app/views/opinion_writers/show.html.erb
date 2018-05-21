@@ -4,18 +4,30 @@
   <div class="col-sm-1 col-md-1">
     <p> </p>
   </div>
-  <div class="col-sm-5 col-md-5">
+  <div class="col-sm-3 col-md-3">
     <%= render 'form', opinion_writer: @opinion_writer %>
   </div>
-  <div class="col-sm-5 col-md-5">
+  <div class="col-sm-3 col-md-3">
     <% if browser.safari? %>
       <img width="100%" height="100%" src="<%= @opinion_writer.pdf_image_path %>" ></img>
     <% elsif browser.modern?  || browser.ie?%>
-      <img width="100%" height="100%" src="<%= @opinion_writer.pdf_image_path %>" ></img>
+      <img width="100%" height="100%" src="<%= @opinion_writer.jpg_image_path %>" ></img>
     <% end %>
+  </div>
+  <div class="col-sm-3 col-md-3">
+      <img width="100%" height="100%" src="<%= @opinion_writer.profile_jpg_path %>" ></img>
+      <h5 align='center'>오피니언 저자 원본</h5>
   </div>
   <div class="col-sm-1 col-md-1">
     <p> </p>
   </div>
 </div>
-<%= link_to "이전으로", opinion_writers_path, method: :get, class: "btn btn-md btn-success" %>
+<!-- <%= link_to "이전으로", opinion_writers_path, method: :get, class: "btn btn-md btn-success" %> -->
+<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to "이전으로", opinion_writers_path, method: :get, class: "btn btn-sm btn-success" %>
+        </li>
+      </ul>
+    </nav>
