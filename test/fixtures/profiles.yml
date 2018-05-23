@@ -11,6 +11,8 @@
 #  publication_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  title          :string
+#  category_code  :integer
 #
 # Indexes
 #

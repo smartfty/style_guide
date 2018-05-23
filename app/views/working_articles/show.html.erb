@@ -1,7 +1,20 @@
 <p id="notice"></p>
 
 <div class="row">
-  <div class = "col-sm-4" style="padding-bottom: 40px;" width="100%">
+
+  <div class = "col-sm-3">
+    <div class="button-group">
+      <% if browser.safari? %>
+      <%= raw @working_article.page.to_svg %>
+      <% elsif browser.modern?  || browser.ie?%>
+      <%= raw @working_article.page.to_svg_with_jpg %>
+      <% end %>
+      <p align =center><%= @working_article.page.page_number %> </a>
+    </div>
+  </div>
+
+
+  <div class = "col-sm-3" style="padding-bottom: 40px;" width="100%">
     <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
       <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
     <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
@@ -45,18 +58,15 @@
   </div>
 
 
-  <div class = "col-sm-1" style="padding-bottom: 40px;" width="100%">
+  <!-- <div class = "col-sm-1" style="padding-bottom: 40px;" width="100%">
     <p> </p>
-  </div>
+  </div> -->
 
-  <div class= "col-sm-5">
-
-    <br>
-    <br>
+  <div class= "col-sm-4">
     <% if browser.safari? %>
-      <img width="100%" height="100%" src="<%= @working_article.pdf_image_path %>" ></img>
+      <img height="50%" src="<%= @working_article.pdf_image_path %>" ></img>
     <% elsif browser.modern?  || browser.ie?%>
-      <img width="100%" height="100%" src="<%= @working_article.jpg_image_path %>" ></img>
+      <img height="50%" src="<%= @working_article.jpg_image_path %>" ></img>
     <% end %>
 
     <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>

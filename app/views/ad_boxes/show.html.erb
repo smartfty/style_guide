@@ -1,8 +1,13 @@
 
 <h3>광고정보</h3>
-<div align="center">
-  <%= link_to "이전으로", page_path(@ad_box.page), method: :get, class: "btn btn-md btn-success" %>
-</div>
+<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to "이전으로", page_path(@ad_box.page), method: :get, class: "btn btn-md btn-success" %>
+        </li>
+      </ul>
+    </nav>
 
 <div class="row">
   <div class="col-md-6">

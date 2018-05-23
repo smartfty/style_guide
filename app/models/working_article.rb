@@ -656,6 +656,30 @@ class WorkingArticle < ApplicationRecord
     "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
   end
 
+  def section_name_code
+    case page.section_name
+    when '1면'
+      code = "0009"
+    when '정치'
+      code = "0002"
+    when '행정'
+      code = "0003"
+    when '국제통일'
+      code = "0004"
+    when '금융'
+      code = "0007"
+    when '산업'
+      code = "0006"
+    when '기획'
+      code= "0001"
+    when '정책'
+      code = "0005"
+    when '오피니언'
+      code = "0008"
+    end
+    code
+  end
+
   def save_story_xml
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
@@ -696,7 +720,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   def save_xml_image
-    binding.pry
     source = image_source
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
@@ -709,18 +732,15 @@ class WorkingArticle < ApplicationRecord
     save_xml_image
   end
 
-
   def story_xml
     story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
-
     hour  = updated_at.hour.to_s.rjust(2, "0")
     min   = updated_at.min.to_s.rjust(2, "0")
     sec   = updated_at.sec.to_s.rjust(2, "0")
-
     page_info        = page_number.to_s.rjust(2,"0")
 
     updated_date      = "#{year}#{month}#{day}"
@@ -734,8 +754,12 @@ class WorkingArticle < ApplicationRecord
     # @page_info        = publication.paper_size
     @page_info        = page_number.to_s.rjust(2,"0")
     @jeho_info        = issue.number
-    @news_title_info  = page.section_name
 
+    if page.section_name = '오피니언'
+      @news_title_info = '논설'
+    else
+      @news_title_info  = page.section_name
+    end
     @name             = reporter
     reporter_record   = Reporter.where(name:reporter).first
     if reporter_record
@@ -747,7 +771,7 @@ class WorkingArticle < ApplicationRecord
       @gija_id          = "기자아이디"
       @email            = "기자이메일"
     end
-
+    @section_name_code = section_name_code
     @name_plate       = subject_head
     unless @name_plate
       # binding.pry
@@ -755,19 +779,26 @@ class WorkingArticle < ApplicationRecord
       @name_plate = r.title
     end
 
-    # @door_plate_code  = category_code
-    # @door_plate       = category
-    # @name_plate_code  = subject_head_code
+    if page_number == 22
+      if kind == '사설'
+        if subject_head == '기고'
+          category_code = 2401
+        elsif subject_head == '정치시평'
+          category_code = 2201
+        end
+      end
+    elsif page_number == 23
+      if kind == '사설'
+        category_code= 2101
+      end
+    end
 
+    @name_plate_code  = category_code
     @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
-
     @head_line        = title
     @sub_head_line    = subtitle
     @data_content     = body
-
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-
-
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)
     story_erb = ERB.new(story_xml_template)

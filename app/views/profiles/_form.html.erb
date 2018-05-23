@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :title, label: "분류", :collection => ["기고", "정치시평"], include_blank: false %>
     <%= f.input :name, label: "이름" %>
     <%= f.input :work, label: "소속" %>
     <%= f.input :position, label: "직책" %>

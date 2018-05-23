@@ -563,11 +563,6 @@ class Page < ApplicationRecord
     # copy_outputs_to_site
   end
 
-  def time_stamp
-    #code
-  end
-
-
   def regenerate_pdf
     puts __method__
     puts "working_articles.length:#{working_articles.length}"
@@ -736,6 +731,11 @@ class Page < ApplicationRecord
       article.save_story_xml
     end
   end
+
+  def section_pages
+    issue.pages.select{|p| p.section_name == section_name}
+  end
+
 
   private
 

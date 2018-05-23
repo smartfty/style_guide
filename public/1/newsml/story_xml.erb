@@ -31,8 +31,8 @@
 				<Property FormalName="ByLine" Value="" />
 			</Creator>
 			<SubjectCode>
-				<Subject FormalName="<%= @door_plate_code %>" />
-				<Subject FormalNameString="<%= @door_plate %>" />
+				<Subject FormalName="<%= @section_name_code %>" />
+				<Subject FormalNameString="<%= @news_title_info %>" />
 				<SubjectEx FormalName="<%= @name_plate_code %>" />
 				<SubjectEx FormalNameString="<%= @name_plate %>" />
 				<MoneyStatus>10</MoneyStatus>
@@ -58,14 +58,13 @@
 <%= @data_content %>
 ]]>			</DataContent>
 		</NewsComponent>
-		<% if images.length > 0 %>
 		<NewsComponent>
 			<Role FormalName="Photo" />
 			<MediaType FormalName="Image" />
-			<Property ImgClass="[IMG1]" align="center" Class="ï¿½Ï¹ï¿½" Size="Real"/>
+			<Property ImgClass="[IMG1]" align="center" Class="ÀÏ¹Ý" Size="Real"/>
 			<PhotoItem Real="<%= @photo_item %>" />
-			<HeadLine></HeadLine>
+			<DataContent>
+			<![CDATA[  <%= @caption %> ]]>			</DataContent>
 		</NewsComponent>
-		<% end  %>
 	</NewsItem>
 </NewsXML>
