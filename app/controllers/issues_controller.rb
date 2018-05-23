@@ -149,7 +149,7 @@ class IssuesController < ApplicationController
   def second_group
     set_issue
     session[:current_group] = 'second_group'
-    @page_range = 1..3
+    @page_range = 1..4
   end
 
   def third_group

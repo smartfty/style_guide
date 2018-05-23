@@ -33,6 +33,16 @@
   - body
     - fit_text
 
+2018_5_23
+  - add same_group_pages to page
+  - redesign UI
+  
+2018_5_21
+  - add same_group_pages to page
+
+2018_5_21
+  - add category_code to profile
+
 2018_5_17
     - add category_code to working_article, reporter_group, opinion_writer
     - generate_pdf with time_stamp to force page reloading

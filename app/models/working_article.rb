@@ -231,12 +231,15 @@ class WorkingArticle < ApplicationRecord
       sybling.push_line(line_count)
     end
     generate_pdf
+    generate_pdf_with_time_stamp
+    page.generate_pdf_with_time_stamp
+
     if line_count == 0
       remove_extended_line_count_from_config_yml
     else
       add_extended_line_count_to_config_yml(line_count)
     end
-    update_page_pdf
+    page.generate_pdf_with_time_stamp
   end
 
 
