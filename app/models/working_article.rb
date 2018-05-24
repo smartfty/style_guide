@@ -628,21 +628,29 @@ class WorkingArticle < ApplicationRecord
     self.top_position   = article_info_hash[:top_position]
     self.inactive       = false
     self.save
-
   end
-
-
 
   def growable?
     true
   end
 
-  # add extra empty line between paragraphs
+  def filter_to_markdown(body_text)
+    body_text.gsub!(/^(\^|-\s)/, "")
+    body_text.gsub!(/^\t/, "")
+    body_text.gsub!(/^\u3000/, "")
+    body_text.gsub!(/^\s*\n/m, "\n")
+    body_text.gsub!(/^\s*#/, '#' )
+    body_text.gsub!(/(\n|\r\n)+/, "\n\n")
+    body_text.gsub!(/(\n|\r\n)+/, "\n\n")
+    body_text
+  end
+
   def to_markdown_para
     body.gsub!(/^(\^|-\s)/, "")
-    # body.gsub!(/^\u3000, "")
+    body.gsub!(/^\t/, "")
+    body.gsub!(/^\u3000/, "")
     body.gsub!(/^\s*\n/m, "\n")
-    # body.gsub!(/^\W*#/, '#' )
+    body.gsub!(/^\s*#/, '#' )
     body.gsub!(/(\n|\r\n)+/, "\n\n")
     body.gsub!(/(\n|\r\n)+/, "\n\n")
     self.save
@@ -800,7 +808,7 @@ class WorkingArticle < ApplicationRecord
     @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
     @head_line        = title
     @sub_head_line    = subtitle
-    @data_content     = body
+    @data_content     = body.gsub(/^##(.*)\n/, "<b>#{$1}</b>")
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)

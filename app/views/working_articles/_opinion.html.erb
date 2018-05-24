@@ -62,6 +62,7 @@
           <li>
             <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
           </li>
+
           <li>
             <%= f.button "저장하기", class: "btn btn-sm btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
           </li>
