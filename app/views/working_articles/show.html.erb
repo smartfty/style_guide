@@ -1,6 +1,17 @@
 <p id="notice"></p>
 
 <div class="row">
+  <div class = "col-sm-1">
+    <% @working_article.page.section_pages.each do |page| %>
+      <div class = "col-sm-12">
+        <div>
+          <a href="<%=  page_path(page) %>"><img width="100%" src="<%= page.jpg_image_path %>"></img>
+            <p align =center><%= page.page_number %> </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 
   <div class = "col-sm-3">
     <div class="button-group">
@@ -14,7 +25,7 @@
   </div>
 
 
-  <div class = "col-sm-3" style="padding-bottom: 40px;" width="100%">
+  <div class = "col-sm-4" style="padding-bottom: 40px;" width="100%">
     <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
       <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
     <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
@@ -62,16 +73,16 @@
     <p> </p>
   </div> -->
 
-  <div class= "col-sm-4">
+  <div class="col-sm-4">
     <% if browser.safari? %>
-      <img height="50%" src="<%= @working_article.pdf_image_path %>" ></img>
+      <img width="100%" src="<%= @working_article.pdf_image_path %>" ></img>
     <% elsif browser.modern?  || browser.ie?%>
-      <img height="50%" src="<%= @working_article.jpg_image_path %>" ></img>
+      <img width="100%" src="<%= @working_article.jpg_image_path %>" ></img>
     <% end %>
 
     <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>
-      <div align="center" width="50%" height="50px"><p>본문 글자수:<%= @working_article.character_count %> | 박스 추가 행: <%= @working_article.extended_line_count %> | 발문 추가: <%= @working_article.quote_box_size %> | 넘친줄 수: <%=  @working_article.article_info[:overflow_line_count] %></p></div>
-      <div align="center" width="50%" height="50px" style="color:red;"><%=  @working_article.article_info[:overflow_text].html_safe%></div>
+      <div align="center" ><p>본문 글자수:<%= @working_article.character_count %> | 박스 추가 행: <%= @working_article.extended_line_count %> | 발문 추가: <%= @working_article.quote_box_size %> | 넘친줄 수: <%=  @working_article.article_info[:overflow_line_count] %></p></div>
+      <div align="center" style="color:red;"><%=  @working_article.article_info[:overflow_text].html_safe%></div>
     <% elsif @working_article.article_info && @working_article.article_info[:empty_lines] %>
       <p align="center" >본문 글자수:<%= @working_article.character_count %> | 박스 추가 행: <%= @working_article.extended_line_count %>  | 발문 추가: <%= @working_article.quote_box_size %> | 빈줄 수: <%= @working_article.article_info[:empty_lines] %></p>
     <% else %>

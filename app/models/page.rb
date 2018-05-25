@@ -685,23 +685,30 @@ class Page < ApplicationRecord
   def copy_to_proof_reading_ftp
     require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
-    # ip  = '211.115.91.75'
-    # id  = 'naeil'
-    # pw  = 'sodlftlsans1!'
-
-    # 동아일보 인쇄용
-    # ip        = '210.115.142.181'
-    # id        = 'naeil'
-    # pw        = 'cts@'
-
+    ip  = '211.115.91.75'
+    id  = 'naeil'
+    pw  = 'sodlftlsans1!'
     last_generate_file = generate_proof_pdf
     # upload files
-    # latest_proof_file = File.new(path + "/#{last_generate_file}")
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   # ftp.putbinaryfile(TXT_FILE_OBJECT, "/root_level/nested/#{File.basename(TXT_FILE_OBJECT)}")
-    #
-    #   ftp.putbinaryfile(latest_proof_file, "/mono/#{File.basename(latest_proof_file)}")
-    # end
+    latest_proof_file = File.new(path + "/#{last_generate_file}")
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.putbinaryfile(latest_proof_file, "#{File.basename(latest_proof_file)}")
+    end
+    true
+  end
+
+  def copy_to_printer_ftp
+    require 'net/ftp'
+    # 동아일보 인쇄용
+    ip        = '210.115.142.181'
+    id        = 'naeil'
+    pw        = 'cts@'
+    last_generate_file = generate_proof_pdf
+    # upload files
+    latest_proof_file = File.new(path + "/#{last_generate_file}")
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.putbinaryfile(latest_proof_file, "#{File.basename(latest_proof_file)}")
+    end
     true
   end
 

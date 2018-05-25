@@ -230,7 +230,7 @@ class WorkingArticle < ApplicationRecord
     siblings.each do |sybling|
       sybling.push_line(line_count)
     end
-    generate_pdf
+    # generate_pdf
     generate_pdf_with_time_stamp
     page.generate_pdf_with_time_stamp
 
@@ -660,10 +660,13 @@ class WorkingArticle < ApplicationRecord
     "#{Rails.root}/public/1/issue/#{issue.date}/newsml"
   end
 
+  def two_digit_ord
+    order.to_s.rjust(2, "0")
+  end
+
   def story_xml_filename
     date_without_minus = issue.date.to_s.gsub("-","")
     two_digit_page_number = page_number.to_s.rjust(2, "0")
-    two_digit_ord = order.to_s.rjust(2, "0")
     "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
   end
 
