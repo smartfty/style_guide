@@ -86,15 +86,15 @@ class SectionsController < ApplicationController
   end
 
   def five
-    @sections = Section.five_column.order(:page_number).page(params[:page]).per(20)
+    @sections = Section.where(column: 5).order(:page_number).page(params[:page]).per(20)
   end
 
   def six
-    @sections = Section.six_column.order(:page_number).page(params[:page]).per(20)
+    @sections = Section.where(column: 6).order(:page_number).page(params[:page]).per(20)
   end
 
   def seven
-    @sections = Section.seven_column.order(:page_number).page(params[:page]).per(20)
+    @sections = Section.where(column: 7).order(:page_number).page(params[:page]).per(20)
   end
 
   # download story.pdf

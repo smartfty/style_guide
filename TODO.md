@@ -33,10 +33,29 @@
   - body
     - fit_text
 
+2018_5_26
+  - add image_box menu on working_article
+    - 1x1, 2x2, 3x3, 4x4,
+
+    - top_right, top_left, top_center
+    - middle_left, midle_center, middle_right
+    - bottom_left, bottom_center, bottom_right
+
+  - in the image panel
+    - zoom_10%
+    - zoom_20%
+    - zoom_30%
+
+    - move_right_10&
+    - move_left_10&
+
+2018_5_25
+  - fix seven_column, six_column scope pg error
+
 2018_5_23
   - add same_group_pages to page
   - redesign UI
-  
+
 2018_5_21
   - add same_group_pages to page
 

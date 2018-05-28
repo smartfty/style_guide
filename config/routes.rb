@@ -81,6 +81,13 @@ Rails.application.routes.draw do
       get 'quote_two'
       get 'quote_three'
       get 'quote_four'
+      get 'image_1x1'
+      get 'image_2x2'
+      get 'image_3x3'
+      get 'image_4x4'
+      get 'image_5x5'
+      get 'image_auto'
+
     end
   end
 

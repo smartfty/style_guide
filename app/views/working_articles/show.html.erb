@@ -24,7 +24,6 @@
     </div>
   </div>
 
-
   <div class = "col-sm-4" style="padding-bottom: 40px;" width="100%">
     <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
       <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
@@ -33,7 +32,8 @@
     <% else %>
       <%= render 'form', article: @working_article %>
     <% end %>
-    <% if @working_article.kind == '가사' %>
+
+    <% if @working_article.kind == '기사' %>
       <div class="row" align='center'>
       <% @working_article.images.each do |image| %>
         <div class="col-md-4">
@@ -41,6 +41,7 @@
           <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         </div>
       <% end %>
+
       <% if  @working_article.images.length == 0%>
         <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
           <%= f.fields_for :images, Image.new do |p| %>
@@ -57,6 +58,7 @@
           </div>
         <% end %>
       <% end %>
+
 
       <% # link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
       <% # link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>

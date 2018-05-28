@@ -42,10 +42,10 @@
 #  index_working_articles_on_page_id     (page_id)
 #
 
-require 'test_helper'
+require_relative '../test_helper'
 
 class WorkingArticleTest < ActiveSupport::TestCase
-  test "add_extra_line_between_paragraphs" do
+  test "calculate_fitting_image_size" do
     assert true
   end
 end

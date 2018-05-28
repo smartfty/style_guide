@@ -11,15 +11,18 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col-sm-6">
-      <%= image_tag image.image.url, id: "cropbox" %>
+    <div class="col-sm-6 col-md-6">
+      <%= image_tag image.image.url, :width => "100%" %>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-1 col-md-1">
+      <p> </p>
+    </div>
+
+    <div class="col-sm-5 col-md-5">
         <div class="field">
           <%= f.label :적용됨 %>
           <%= f.check_box :used_in_layout %>
         </div>
-
         <div class="field">
           <%= f.label :단 %>
           <%= f.number_field :column %>

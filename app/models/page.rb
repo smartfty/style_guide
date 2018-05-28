@@ -531,10 +531,6 @@ class Page < ApplicationRecord
     page_heading.generate_pdf
   end
 
-  def cleanup_old_files
-    puts "clear old files"
-  end
-
   def stamp_time
     t = Time.now
     h = t.hour
@@ -550,11 +546,19 @@ class Page < ApplicationRecord
     system("rm #{jpf_file_to_delte}")
   end
 
+  def delete_old_files
+    old_pdf_files = Dir.glob("#{path}/section*.pdf")
+    old_jpg_files = Dir.glob("#{path}/section*.jpg")
+    old_pdf_files += old_jpg_files
+    old_pdf_files.each do |old|
+      system("rm #{old}")
+    end
+  end
+
   def generate_pdf_with_time_stamp
-    delete_latest_files
+    delete_old_files
     stamp_time
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
-    cleanup_old_files
   end
 
   def generate_pdf

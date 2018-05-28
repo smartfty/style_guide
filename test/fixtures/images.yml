@@ -19,6 +19,7 @@
 #  issue_id              :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  extra_line            :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

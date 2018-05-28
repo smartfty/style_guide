@@ -100,15 +100,12 @@ class WorkingArticle < ApplicationRecord
   def latest_pdf_basename
     puts "@time_stamp:#{@time_stamp}"
     if @time_stamp
-      f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
+      # f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
+      f = Dir.glob("#{path}/story*.pdf")
     else
       f = Dir.glob("#{path}/story*.pdf").last
       File.basename(f) if f
     end
-  end
-
-  def latest_pdf_path
-    Dir.glob("#{path}/#{latest_pdf_basename}").first
   end
 
   def pdf_image_path
@@ -140,31 +137,26 @@ class WorkingArticle < ApplicationRecord
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
-  def cleanup_old_files
-    puts "clear old files"
-  end
-
   def stamp_time
     t = Time.now
     h = t.hour
     @time_stamp = "#{t.day.to_s.rjust(2,'0')}#{t.hour.to_s.rjust(2,'0')}#{t.min.to_s.rjust(2,'0')}#{t.sec.to_s.rjust(2,'0')}"
   end
 
-  def delete_latest_files
-    pdf_file_to_delete = latest_pdf_path
-    jpf_file_to_delte = pdf_file_to_delete.sub(/pdf$/, "jpg")
-    puts "pdf_file_to_delete:#{pdf_file_to_delete}"
-    puts "File.exist?(pdf_file_to_delete):#{File.exist?(pdf_file_to_delete)}"
-    system("rm #{pdf_file_to_delete}")
-    system("rm #{jpf_file_to_delte}")
+  def delete_old_files
+    old_pdf_files = Dir.glob("#{path}/story*.pdf")
+    old_jpg_files = Dir.glob("#{path}/story*.jpg")
+    old_pdf_files += old_jpg_files
+    old_pdf_files.each do |old|
+      system("rm #{old}")
+    end
   end
 
   def generate_pdf_with_time_stamp
     save_article
-    delete_latest_files
+    delete_old_files
     stamp_time
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article .  -custom=#{publication.name} -time_stamp=#{@time_stamp}"
-    cleanup_old_files
   end
 
   def generate_pdf
@@ -839,6 +831,20 @@ class WorkingArticle < ApplicationRecord
     useage_data[:character_count] = character_count
     path = character_count_data_path
     File.open(path, 'w'){|f| f.write useage_data.to_yaml}
+  end
+
+  def calculate_fitting_image_size(image_column, image_row, image_extra_line)
+    current_image_occupied_lines = image_column*image_row + image_column*image_extra_line
+    room = empty_lines_count + current_image_occupied_lines
+    if room == 0
+      return image_info.dup
+    elsif room > 0
+      expand_line_count = room/image_info[0].to_i
+      retunn []
+    else
+
+    end
+    lines = empty_lines/current_image_column
   end
 
   private

@@ -80,6 +80,31 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article)
   end
 
+  def image_1x1
+    image = @working_article.images.first
+    image.change_size("1x1")
+  end
+
+  def image_2x2
+    image.change_size("2x2")
+  end
+
+  def image_3x3
+    image.change_size("3x3")
+  end
+
+  def image_4x4
+    image.change_size("4x4")
+  end
+
+  def image_5x5
+    image.change_size("5x5")
+  end
+
+  def image_auto
+    image.change_size("auto")
+  end
+
   def add_image
     @library_images = @working_article.library_images
     @current_image  = images.first

@@ -19,6 +19,7 @@
 #  issue_id              :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  extra_line            :integer
 #
 
 class Image < ApplicationRecord
@@ -136,6 +137,32 @@ class Image < ApplicationRecord
       image_basename.split("_")
     else
       []
+    end
+  end
+
+  def current_image_size
+    "#{column}x#{row}"
+  end
+
+  def change_size(size)
+    return false if size == current_image_size
+    if size == 'auto'
+      new_column, new_row, new_lines = working_article.calculate_fitting_image_size(column, row, extra_line)
+      return false if column == new_column && row == new_row && lines == new_lines
+      self.column = new_column
+      self.row    = new_row
+      self.lines  = new_lines
+      self.save
+      true
+    elsif size.include?("x")
+      size_array  = size.split("x")
+      self.column = column[0]
+      self.row    = column[1]
+      self.save
+      true
+    else
+      puts "wrong size format!!!"
+      return false
     end
   end
 

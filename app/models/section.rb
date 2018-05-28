@@ -31,8 +31,8 @@ class Section < ApplicationRecord
   before_create :parse_profile
 
   # serialize :layout, Array
-  scope :six_column, -> {where("column==?", 6)}
-  scope :seven_column, -> {where("column==?", 7)}
+  # scope :six_column, -> {where("column==?", 6)}
+  # scope :seven_column, -> {where("column==?", 7)}
 
   def path
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}"
