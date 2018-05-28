@@ -293,7 +293,7 @@ class Page < ApplicationRecord
       end
     else
       section.articles.each_with_index do |article, i|
-        current = {page_id: self.id, order:i+1}
+        current = {page_id: self.id, order:i+1, kind:'기사'}
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
         else
@@ -322,8 +322,6 @@ class Page < ApplicationRecord
   end
 
   def update_ad_boxes
-    puts __method__
-
     section = Section.find(template_id)
     section.ad_box_templates.each_with_index do |ad_box_template, i|
       current = {page_id: self.id}
@@ -338,7 +336,6 @@ class Page < ApplicationRecord
         AdBox.create(current)
       end
     end
-
     # mark unused as inactive
     ad_boxes.each_with_index do |ad_box, i|
       if i >= section.ad_box_templates.length
