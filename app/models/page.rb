@@ -23,6 +23,7 @@
 #  index_pages_on_issue_id      (issue_id)
 #  index_pages_on_page_plan_id  (page_plan_id)
 #
+require 'net/ftp'
 
 class Page < ApplicationRecord
   belongs_to :issue
@@ -684,7 +685,6 @@ class Page < ApplicationRecord
   end
 
   def copy_to_proof_reading_ftp
-    require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
     ip  = '211.115.91.75'
     id  = 'naeil'
@@ -699,18 +699,48 @@ class Page < ApplicationRecord
   end
 
   def copy_to_printer_ftp
-    require 'net/ftp'
+    dong_a
+    jung_ang
+    true
+  end
+
+  def dong_a
+    puts "sending it to Dong-A"
     # 동아일보 인쇄용
     ip        = '210.115.142.181'
     id        = 'naeil'
     pw        = 'cts@'
-    last_generate_file = generate_proof_pdf
     # upload files
-    latest_proof_file = File.new(path + "/#{last_generate_file}")
+    printer_file = path + "/section.pdf"
+    jung_ang_code = "zn05282210001.pdf"
+
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(latest_proof_file, "#{File.basename(latest_proof_file)}")
+      ftp.putbinaryfile(printer_file, "/mono/#{jung_ang_code}")
     end
-    true
+  end
+
+  def jung_ang_code
+    date = issue.date
+    m = date.month.to_s.rjust(2,"0")
+    d = date.day.to_s.rjust(2,"0")
+    pg = page_number.to_s.rjust(2,"0")
+     "zn#{m}#{d}#{pg}10001.pdf"
+  end
+
+  def jung_ang
+    puts "sending it to Jung-Ang"
+    ip        = '112.216.44.45:2121'
+    id        = 'naeil'
+    pw        = 'sodlf@2018'
+    # upload files
+    printer_file = path + "/section.pdf"
+    ftp = Net::FTP.new  # don't pass hostname or it will try open on default port
+    ftp.connect('112.216.44.45', '2121')  # here you can pass a non-standard port number
+    ftp.login('naeil', 'sodlf@2018')
+    # ftp.passive = true  # optional, if PASV mode is required
+    # Net::FTP.open(ip, id, pw) do |ftp|
+    ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
+    # end
   end
 
   def dropbox_path

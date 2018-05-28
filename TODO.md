@@ -33,6 +33,10 @@
   - body
     - fit_text
 
+2018_5_28
+  - fix delete_old_files for time_stamp
+  - make high resolution jpg preview
+
 2018_5_26
   - add image_box menu on working_article
     - 1x1, 2x2, 3x3, 4x4,
