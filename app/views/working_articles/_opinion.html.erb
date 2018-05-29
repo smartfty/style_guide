@@ -12,12 +12,9 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group" >
-    <%= f.label :기사종류 %>
-    <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
-  </div>
 
-  <div class="row">
+  <div class="view">
+    <div class="col-sm-12">
       <div class="form-group">
         <%= f.label :제목 %>
         <!-- <%= f.text_field :title, class: 'form-control' %> -->
@@ -36,10 +33,9 @@
       </div>
       <% end %>
 
-
   <div class="form-group-body">
     <%= f.label :본문 %>
-    <%= f.text_area :body, col: "40", rows: "25", class: 'form-control'  %>
+    <%= f.text_area :body, col: "40", rows: "20", class: 'form-control'  %>
   </div>
 
   <div class="field">
@@ -49,7 +45,14 @@
   <div class="field">
     <%= f.text_field :personal_image, type: "hidden" %>
   </div>
+  <div class="form-group" >
+    <%= f.label :기사종류 %>
+    <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
+  </div>
+
 </div>
+</div>
+
 
 
   <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->

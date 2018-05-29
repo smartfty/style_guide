@@ -33,9 +33,14 @@
   - body
     - fit_text
 
+2018_5_29
+  -
+
 2018_5_28
+  - set '기사' as default working_article kind
   - fix delete_old_files for time_stamp
   - make high resolution jpg preview
+  - add sending print files to dong_a and jung_ang
 
 2018_5_26
   - add image_box menu on working_article

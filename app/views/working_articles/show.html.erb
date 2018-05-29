@@ -1,6 +1,6 @@
 <p id="notice"></p>
 
-<div class="row">
+<div class="view">
   <div class = "col-sm-1">
     <% @working_article.page.section_pages.each do |page| %>
       <div class = "col-sm-12">
@@ -74,12 +74,11 @@
   <!-- <div class = "col-sm-1" style="padding-bottom: 40px;" width="100%">
     <p> </p>
   </div> -->
-
   <div class="col-sm-4">
     <% if browser.safari? %>
-      <img width="100%" src="<%= @working_article.pdf_image_path %>" ></img>
+      <img src="<%= @working_article.pdf_image_path %>" ></img>
     <% elsif browser.modern?  || browser.ie?%>
-      <img width="100%" src="<%= @working_article.jpg_image_path %>" ></img>
+      <img src="<%= @working_article.jpg_image_path %>" ></img>
     <% end %>
 
     <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>
@@ -92,7 +91,4 @@
     <% end %>
     <br>
     <br>
-
-
-  </div>
 </div>

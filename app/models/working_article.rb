@@ -101,9 +101,19 @@ class WorkingArticle < ApplicationRecord
     puts "@time_stamp:#{@time_stamp}"
     if @time_stamp
       # f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
-      f = Dir.glob("#{path}/story*.pdf")
+      f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
     else
       f = Dir.glob("#{path}/story*.pdf").last
+      File.basename(f) if f
+    end
+  end
+
+  def latest_jpg_basename
+    if @time_stamp
+      # f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
+      f = Dir.glob("#{path}/story#{@time_stamp}.jpg")
+    else
+      f = Dir.glob("#{path}/story*.jpg").last
       File.basename(f) if f
     end
   end
@@ -117,7 +127,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def jpg_image_path
-    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.jpg"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/#{latest_jpg_basename}"
   end
 
   def article_info_path
