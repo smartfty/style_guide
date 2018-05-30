@@ -20,13 +20,13 @@
           <%= button_to "xml 파일 생성", save_story_xml_issue_path, method: :get, class: "btn btn-sm btn-warning" %>
         </li>
         <li>
-          <%= button_to "xml 파일 다운로드", download_story_xml_issue_path, method: :get, class: "btn btn-sm btn-danger" %>
+          <%= button_to "xml 파일 다운로드", download_story_xml_issue_path(format: "zip"), method: :get, class: "btn btn-sm btn-danger" %>
         </li>
         <li>
           <%= button_to "지면보기 xml 생성", save_preview_xml_issue_path, method: :get, class: "btn btn-sm btn-warning" %>
         </li>
         <li>
-          <%= button_to "지면보기 xml 파일 다운로드", download_preview_xml_issue_path, method: :get, class: "btn btn-sm btn-danger" %>
+          <%= button_to "지면보기 xml 파일 다운로드", download_preview_xml_issue_path(format: "zip"), method: :get, class: "btn btn-sm btn-danger" %>
         </li>
 
       </ul>

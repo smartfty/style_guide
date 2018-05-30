@@ -238,14 +238,6 @@ class IssuesController < ApplicationController
     end
   end
 
-  def download_story_xml
-    set_issue
-    puts @issue.xml_zip_path
-    # send_file @issue.xml_zip_path, type: 'application/zip'
-    send_file @issue.xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment"
-    redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
-  end
-
   def save_preview_xml
     set_issue
     if File.exist?(@issue.preview_xml_zip_path)
@@ -258,12 +250,27 @@ class IssuesController < ApplicationController
     end
   end
 
+  def download_story_xml
+    set_issue
+    # send_file @issue.xml_zip_path, type: 'application/zip'
+    respond_to do |format|
+      format.zip { send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
+
+      # zip: {send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
+    end
+    # send_file @issue.xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment", :filename =>filename
+    # send_file @issue.xml_zip_path, :type=>'application/zip', :disposition => "attachment", :filename =>filename
+
+    # redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
+  end
+
+
   def download_preview_xml
     set_issue
-    puts @issue.xml_zip_path
-    # send_file @issue.xml_zip_path, type: 'application/zip'
-    send_file @issue.preview_xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment"
-    redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
+    respond_to do |format|
+      format.zip { send_data File.open(@issue.preview_xml_zip_path, 'r'){|f| f.read} }
+      # zip: {send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
+    end
   end
 
   private

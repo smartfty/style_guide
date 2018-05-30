@@ -739,7 +739,7 @@ class Page < ApplicationRecord
    @day = date.day.to_s.rjust(2,"0")
    @month = date.month.to_s.rjust(2,"0")
    @year = date.year % 100
-   @date = "#{year}#{month}#{day}"
+   @date = "#{@year}#{@month}#{@day}"
    @filename = "#{issue.number}-#{@date}#{page_number}"
 
    header =<<~EOF
