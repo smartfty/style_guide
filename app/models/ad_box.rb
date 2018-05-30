@@ -76,7 +76,7 @@ class AdBox < ApplicationRecord
   end
 
   def width
-    grid_x*grid_width
+    grid_width*column
   end
 
   def grid_height
@@ -84,7 +84,7 @@ class AdBox < ApplicationRecord
   end
 
   def height
-    grid_y*grid_height
+    grid_height*row
   end
 
   def x
