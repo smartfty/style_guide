@@ -23,7 +23,7 @@
 #  index_pages_on_issue_id      (issue_id)
 #  index_pages_on_page_plan_id  (page_plan_id)
 #
-require 'net/ftp'
+require 'erb'
 
 class Page < ApplicationRecord
   belongs_to :issue
@@ -294,7 +294,7 @@ class Page < ApplicationRecord
       end
     else
       section.articles.each_with_index do |article, i|
-        current = {page_id: self.id, order:i+1, kind:'기사'}
+        current = {page_id: self.id, order:i+1}
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
         else
@@ -323,6 +323,8 @@ class Page < ApplicationRecord
   end
 
   def update_ad_boxes
+    puts __method__
+
     section = Section.find(template_id)
     section.ad_box_templates.each_with_index do |ad_box_template, i|
       current = {page_id: self.id}
@@ -337,6 +339,7 @@ class Page < ApplicationRecord
         AdBox.create(current)
       end
     end
+
     # mark unused as inactive
     ad_boxes.each_with_index do |ad_box, i|
       if i >= section.ad_box_templates.length
@@ -529,6 +532,10 @@ class Page < ApplicationRecord
     page_heading.generate_pdf
   end
 
+  def cleanup_old_files
+    puts "clear old files"
+  end
+
   def stamp_time
     t = Time.now
     h = t.hour
@@ -544,19 +551,11 @@ class Page < ApplicationRecord
     system("rm #{jpf_file_to_delte}")
   end
 
-  def delete_old_files
-    old_pdf_files = Dir.glob("#{path}/section*.pdf")
-    old_jpg_files = Dir.glob("#{path}/section*.jpg")
-    old_pdf_files += old_jpg_files
-    old_pdf_files.each do |old|
-      system("rm #{old}")
-    end
-  end
-
   def generate_pdf_with_time_stamp
-    delete_old_files
+    delete_latest_files
     stamp_time
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
+    cleanup_old_files
   end
 
   def generate_pdf
@@ -685,6 +684,7 @@ class Page < ApplicationRecord
   end
 
   def copy_to_proof_reading_ftp
+    require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
     ip  = '211.115.91.75'
     id  = 'naeil'
@@ -699,48 +699,18 @@ class Page < ApplicationRecord
   end
 
   def copy_to_printer_ftp
-    dong_a
-    jung_ang
-    true
-  end
-
-  def dong_a
-    puts "sending it to Dong-A"
+    require 'net/ftp'
     # 동아일보 인쇄용
     ip        = '210.115.142.181'
     id        = 'naeil'
     pw        = 'cts@'
+    last_generate_file = generate_proof_pdf
     # upload files
-    printer_file = path + "/section.pdf"
-    jung_ang_code = "zn05282210001.pdf"
-
+    latest_proof_file = File.new(path + "/#{last_generate_file}")
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/mono/#{jung_ang_code}")
+      ftp.putbinaryfile(latest_proof_file, "#{File.basename(latest_proof_file)}")
     end
-  end
-
-  def jung_ang_code
-    date = issue.date
-    m = date.month.to_s.rjust(2,"0")
-    d = date.day.to_s.rjust(2,"0")
-    pg = page_number.to_s.rjust(2,"0")
-     "zn#{m}#{d}#{pg}10001.pdf"
-  end
-
-  def jung_ang
-    puts "sending it to Jung-Ang"
-    ip        = '112.216.44.45:2121'
-    id        = 'naeil'
-    pw        = 'sodlf@2018'
-    # upload files
-    printer_file = path + "/section.pdf"
-    ftp = Net::FTP.new  # don't pass hostname or it will try open on default port
-    ftp.connect('112.216.44.45', '2121')  # here you can pass a non-standard port number
-    ftp.login('naeil', 'sodlf@2018')
-    # ftp.passive = true  # optional, if PASV mode is required
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
-    # end
+    true
   end
 
   def dropbox_path
@@ -764,9 +734,61 @@ class Page < ApplicationRecord
     end
   end
 
+  def save_preview_xml
+   date = issue.date
+   @day = date.day.to_s.rjust(2,"0")
+   @month = date.month.to_s.rjust(2,"0")
+   @year = date.year % 100
+   @date = "#{year}#{month}#{day}"
+   @filename = "#{issue.number}-#{@date}#{page_number}"
+
+   header =<<~EOF
+   <?xml version="1.0" encoding="UTF-8"?>
+   <PDFScrap version="1.0">
+     <scraps zoom="120">\n
+   EOF
+   template =<<~EOF
+   <Scrap title="<%= @filename %>_1_<%= @order %>.jpg" page="1" type="rectangle">
+     <vertices><%= @x_position %>;<%= @y_position %>;<%= w.width %>;<%= w.height %></vertices>
+   </Scrap>
+   EOF
+   @issue_number = issue.number
+   @page_number = page_number
+
+   article_map_path = "#{Rails.root}/public/1/issue/#{issue.date.to_s}/page_preview"
+   article_map = header
+   working_articles.each do |w|
+     @order = w.order - 1
+     @x_position = publication.left_margin + w.x
+     @y_position = publication.top_margin + w.y
+     erb = ERB.new(template)
+     article_map += erb.result(binding) + "\n"
+     article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
+     system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
+   end
+   ad_boxes.each do |w|
+     @order = working_articles.length
+     @x_position = publication.left_margin + w.x
+     @y_position = publication.top_margin + w.y
+     erb = ERB.new(template)
+     article_map += erb.result(binding) + "\n"
+     article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
+     system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
+
+   end
+   article_map += "</scraps><pdf filename='#{@filename}.PDF'/></PDFScrap>"
+   system("mkdir -p #{article_map_path}") unless File.exist?(article_map_path)
+   File.open(article_map_path + "/#{@filename}.xml", 'w'){|f| f.write article_map}
+   system("cp #{pdf_path} #{article_map_path}/#{@filename}.pdf")
+  end
+
+
   def save_story_xml
     working_articles.each do |article|
       article.save_story_xml
+    end
+    ad_boxes.each do |ad|
+      ad.save_ad_xml
     end
   end
 

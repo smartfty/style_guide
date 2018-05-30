@@ -19,6 +19,8 @@
 #  fk_rails_...  (publication_id => publications.id)
 #
 
+require "zip/zip"
+
 class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :page_plans
@@ -274,6 +276,7 @@ class Issue < ApplicationRecord
     path + "/newsml"
   end
 
+
   def xml_zip_path
     year          = date.year
     month         = date.month.to_s.rjust(2, "0")
@@ -282,9 +285,19 @@ class Issue < ApplicationRecord
     xml_path + "/#{issue_date}.zip"
   end
 
-  def make_story_xml_zip
-    require "zip/zip"
+  def preview_xml_path
+    path + "/page_preview"
+  end
 
+  def preview_xml_zip_path
+    year          = date.year
+    month         = date.month.to_s.rjust(2, "0")
+    day           = date.day.to_s.rjust(2, "0")
+    issue_date    = "#{year}#{month}#{day}"
+    preview_xml_path + "/#{issue_date}.zip"
+  end
+
+  def make_story_xml_zip
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
     folder = xml_path
     input_filenames = Dir.glob("#{xml_path}/*.xml")
@@ -305,6 +318,31 @@ class Issue < ApplicationRecord
     # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
 
   end
+
+
+  def make_preview_xml_zip
+    # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
+    folder = preview_xml_path
+    input_filenames = Dir.glob("#{preview_xml_path}/*.xml")
+    zipfile_name = preview_xml_zip_path
+
+    Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+      input_filenames.each do |filename|
+        base_name = File.basename(filename)
+        # Two arguments:
+        # – The name of the file as it will appear in the archive
+        # – The original file, including the path to find it
+        zipfile.add(base_name,  File.join(folder, base_name))
+      end
+      # zipfile.get_output_stream(“success”) { |os| os.write “All done successfully” }
+    end
+    # send_file(File.join("#{Rails.root}/public/", ‘myfirstzipfile.zip’), :type => ‘application/zip’, :filename => "#{xml_zip_name}")
+    # Remove content from ‘my_pdfs’ folder if you want
+    # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
+
+  end
+
+
   #
   # def make_story_xml_zip
   #   require "zip/zip"
@@ -325,6 +363,13 @@ class Issue < ApplicationRecord
       page.save_story_xml
     end
     make_story_xml_zip
+  end
+
+  def save_preview_xml
+    pages.each do |page|
+      page.save_preview_xml
+    end
+    make_preview_xml_zip
   end
 
 

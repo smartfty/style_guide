@@ -246,6 +246,26 @@ class IssuesController < ApplicationController
     redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
   end
 
+  def save_preview_xml
+    set_issue
+    if File.exist?(@issue.preview_xml_zip_path)
+      system("rm #{@issue.preview_xml_zip_path}")
+      @issue.save_preview_xml
+      redirect_to issue_path(@issue), notice: '지면보기용 xml 파일이 재생성 되었습니다.'
+    else
+      @issue.save_preview_xml
+      redirect_to issue_path(@issue), notice: '지면보기용 xml 파일이 생성 되었습니다.'
+    end
+  end
+
+  def download_preview_xml
+    set_issue
+    puts @issue.xml_zip_path
+    # send_file @issue.xml_zip_path, type: 'application/zip'
+    send_file @issue.preview_xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment"
+    redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_issue

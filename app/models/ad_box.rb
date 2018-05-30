@@ -46,6 +46,14 @@ class AdBox < ApplicationRecord
     page.url + "/ad/output.jpg"
   end
 
+  def jpg_path
+    path + "/output.jpg"
+  end
+
+  def pdf_path
+    path + "/output.pdf"
+  end
+
   def publication
     if page
       page.publication
@@ -67,8 +75,16 @@ class AdBox < ApplicationRecord
     publication.grid_width(page.column)
   end
 
+  def width
+    grid_x*grid_width
+  end
+
   def grid_height
     publication.grid_height
+  end
+
+  def height
+    grid_y*grid_height
   end
 
   def x
@@ -162,6 +178,95 @@ class AdBox < ApplicationRecord
 
   def box_svg
     "<a xlink:href='/ad_boxes/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
+  end
+
+  def save_story_xml
+    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
+    path = "#{newsml_issue_path}/#{story_xml_filename}"
+    File.open(path, 'w'){|f| f.write story_xml}
+    save_xml_image
+  end
+
+  def section_name_code
+    case page.section_name
+    when '1면'
+      code = "0009"
+    when '정치'
+      code = "0002"
+    when '행정'
+      code = "0003"
+    when '국제통일'
+      code = "0004"
+    when '금융'
+      code = "0007"
+    when '산업'
+      code = "0006"
+    when '기획'
+      code= "0001"
+    when '정책'
+      code = "0005"
+    when '오피니언'
+      code = "0008"
+    end
+    code
+  end
+
+  def ad_xml
+    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+    story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
+    hour  = updated_at.hour.to_s.rjust(2, "0")
+    min   = updated_at.min.to_s.rjust(2, "0")
+    sec   = updated_at.sec.to_s.rjust(2, "0")
+    page_info        = page_number.to_s.rjust(2,"0")
+    updated_date      = "#{year}#{month}#{day}"
+    updated_time      = "#{hour}#{min}#{sec}+0900"
+    @date_and_time    = "#{updated_date}T#{updated_time}"
+    @date_id          = updated_date
+    @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
+    @day_info         = "#{year}년#{month}월#{day}일"
+    @media_info       = publication.name
+    # @edition_info     = page_number.to_s.rjust(2,"0")
+    # @page_info        = publication.paper_size
+    @page_info        = page_number.to_s.rjust(2,"0")
+    @jeho_info        = issue.number
+
+    if page.section_name = '오피니언'
+      @news_title_info = '논설'
+    else
+      @news_title_info  = page.section_name
+    end
+    @section_name_code = section_name_code
+
+    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+    @data_content       = advertiser
+
+    story_erb = ERB.new(story_xml_template)
+    story_erb.result(binding)
+    story_erb = ERB.new(story_xml_template)
+    story_erb.result(binding)
+  end
+
+  def newsml_issue_path
+    "#{Rails.root}/public/1/issue/#{issue.date}/newsml"
+  end
+
+  def two_digit_ord
+    (page.working_articles.length + 1).to_s.rjust(2, "0")
+  end
+
+  def save_ad_xml
+    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
+    path = "#{newsml_issue_path}/#{story_xml_filename}"
+    File.open(path, 'w'){|f| f.write ad_xml}
+  end
+
+  def story_xml_filename
+    date_without_minus = issue.date.to_s.gsub("-","")
+    two_digit_page_number = page_number.to_s.rjust(2, "0")
+    "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
   end
 
 end

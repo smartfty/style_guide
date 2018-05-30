@@ -109,6 +109,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def latest_jpg_basename
+    puts "@time_stamp:#{@time_stamp}"
     if @time_stamp
       # f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
       f = Dir.glob("#{path}/story#{@time_stamp}.jpg")
@@ -117,6 +118,7 @@ class WorkingArticle < ApplicationRecord
       File.basename(f) if f
     end
   end
+
 
   def pdf_image_path
     "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/#{latest_pdf_basename}"
@@ -558,6 +560,13 @@ class WorkingArticle < ApplicationRecord
     "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
+  def box_xml
+    # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+  end
+
+
   def parse_story
     source      = read_story
     begin
@@ -758,7 +767,6 @@ class WorkingArticle < ApplicationRecord
     min   = updated_at.min.to_s.rjust(2, "0")
     sec   = updated_at.sec.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
-
     updated_date      = "#{year}#{month}#{day}"
     updated_time      = "#{hour}#{min}#{sec}+0900"
     @date_and_time    = "#{updated_date}T#{updated_time}"
@@ -808,7 +816,6 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-
     @name_plate_code  = category_code
     @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
     @head_line        = title

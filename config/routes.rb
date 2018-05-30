@@ -116,6 +116,10 @@ Rails.application.routes.draw do
       get 'ad_group'
       get 'save_story_xml'
       get 'download_story_xml'
+      get 'save_preview_xml'
+      get 'download_preview_xml'
+
+
 
     end
   end
