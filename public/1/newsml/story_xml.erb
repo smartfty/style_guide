@@ -28,7 +28,7 @@
 				<Property FormalName="Name" Value="<%= @name %>" />
 				<Property FormalName="Post" Value="<%= @post %>" />
 				<Property FormalName="GijaID" Value="<%= @gija_id %>" />
-				<Property FormalName="ByLine" Value="" />
+				<Property FormalName="ByLine" Value="<%= @by_line %>" />
 			</Creator>
 			<SubjectCode>
 				<Subject FormalName="<%= @section_name_code %>" />
@@ -61,7 +61,7 @@
 		<NewsComponent>
 			<Role FormalName="Photo" />
 			<MediaType FormalName="Image" />
-			<Property ImgClass="[IMG1]" align="center" Class="ÀÏ¹Ý" Size="Real"/>
+			<Property ImgClass="[IMG1]" align="center" Class="ï¿½Ï¹ï¿½" Size="Real"/>
 			<PhotoItem Real="<%= @photo_item %>" />
 			<DataContent>
 			<![CDATA[  <%= @caption %> ]]>			</DataContent>

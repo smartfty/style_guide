@@ -757,6 +757,12 @@ class WorkingArticle < ApplicationRecord
     save_xml_image
   end
 
+  def reporter_from_body
+    return unless reporter
+    body.match(/^# (.*)/)
+    $1
+  end
+
   def story_xml
     story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
@@ -784,16 +790,21 @@ class WorkingArticle < ApplicationRecord
     else
       @news_title_info  = page.section_name
     end
-    @name             = reporter
-    reporter_record   = Reporter.where(name:reporter).first
-    if reporter_record
-      @post             = reporter_record.reporter_group.name
-      @gija_id          = email.split("@").first
-      @email            = email
-    else
-      @post             = "소속팀"
-      @gija_id          = "기자아이디"
-      @email            = "기자이메일"
+    # @name             = reporter
+    # reporter_record   = Reporter.where(name:reporter).first
+    # if reporter_record
+    #   @post             = reporter_record.reporter_group.name
+    #   @gija_id          = email.split("@").first
+    #   @email            = email
+    # else
+    #   @post             = "소속팀"
+    #   @gija_id          = "기자아이디"
+    #   @email            = "기자이메일"
+    # end
+    @by_line          = reporter
+    # reporter_record   = Reporter.where(name:reporter).first
+    if page_number == 23 && order == 2
+      @by_line          = reporter_from_body
     end
     @section_name_code = section_name_code
     @name_plate       = subject_head
