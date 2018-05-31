@@ -43,6 +43,8 @@
 #
 
 class WorkingArticle < ApplicationRecord
+  attr_reader :time_stamp
+
   belongs_to :page
   belongs_to :article
   has_many :images
@@ -50,7 +52,6 @@ class WorkingArticle < ApplicationRecord
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
-  attr_reader :time_stamp
 
   def page_path
     page.path
@@ -98,25 +99,13 @@ class WorkingArticle < ApplicationRecord
   end
 
   def latest_pdf_basename
-    puts "@time_stamp:#{@time_stamp}"
-    if @time_stamp
-      # f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
-      f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
-    else
-      f = Dir.glob("#{path}/story*.pdf").last
-      File.basename(f) if f
-    end
+    f = Dir.glob("#{path}/story*.pdf").first
+    File.basename(f) if f
   end
 
   def latest_jpg_basename
-    puts "@time_stamp:#{@time_stamp}"
-    if @time_stamp
-      # f = Dir.glob("#{path}/story#{@time_stamp}.pdf")
-      f = Dir.glob("#{path}/story#{@time_stamp}.jpg")
-    else
-      f = Dir.glob("#{path}/story*.jpg").last
-      File.basename(f) if f
-    end
+    f = Dir.glob("#{path}/story*.jpg").first
+    File.basename(f) if f
   end
 
 
