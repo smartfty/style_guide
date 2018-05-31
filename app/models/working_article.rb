@@ -716,8 +716,12 @@ class WorkingArticle < ApplicationRecord
         return opinion_image_path + "/#{name}.jpg"
       elsif kind == '사설'
         person = Profile.where(name:reporter).first
-        name = person.name
-        return profile_image_path + "/#{name}.jpg"
+        if person
+          name = person.name
+          return profile_image_path + "/#{name}.jpg"
+        else
+          return nil
+        end
       end
 
     elsif page_number == 23

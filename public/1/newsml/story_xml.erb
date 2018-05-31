@@ -28,16 +28,16 @@
 				<Property FormalName="Name" Value="<%= @name %>" />
 				<Property FormalName="Post" Value="<%= @post %>" />
 				<Property FormalName="GijaID" Value="<%= @gija_id %>" />
-				<Property FormalName="ByLine" Value="<%= @by_line %>" />
+				<Property FormalName="ByLine" Value="" />
 			</Creator>
 			<SubjectCode>
 				<Subject FormalName="<%= @section_name_code %>" />
 				<Subject FormalNameString="<%= @news_title_info %>" />
 				<SubjectEx FormalName="<%= @name_plate_code %>" />
 				<SubjectEx FormalNameString="<%= @name_plate %>" />
-				<MoneyStatus>10</MoneyStatus>
+				<MoneyStatus>20</MoneyStatus>
 				<GisaStatus>50</GisaStatus>
-				<GisaFileName>GisaFileName.txt</GisaFileName>
+				<GisaFileName><%= @gisa_key %>.txt</GisaFileName>
 				<GisaKey><%= @gisa_key %></GisaKey>
 			</SubjectCode>
 		</NewsComponent>
@@ -56,12 +56,13 @@
 			<DataContent>
 <![CDATA[
 <%= @data_content %>
+<%= @by_line %>
 ]]>			</DataContent>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Photo" />
 			<MediaType FormalName="Image" />
-			<Property ImgClass="[IMG1]" align="center" Class="�Ϲ�" Size="Real"/>
+			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
 			<PhotoItem Real="<%= @photo_item %>" />
 			<DataContent>
 			<![CDATA[  <%= @caption %> ]]>			</DataContent>
