@@ -86,13 +86,18 @@
       </li>
       <li>
         <div align="center">
-        <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
+          <%= button_to "다운로드 PDF", download_pdf_page_path, method: :get, class: "btn btn-sm btn-danger" %>
         </div>
       </li>
       <li>
         <div align="center">
-        <%= button_to "교정용 PDF 저장", save_proof_reading_pdf_page_path, method: :get, class: "btn btn-sm btn-warning" %>
-      </div>
-    </li>
+          <%= button_to "교정용 PDF 저장", save_proof_reading_pdf_page_path, method: :get, class: "btn btn-sm btn-warning" %>
+        </div>
+      </li>
+      <li>
+        <div align="center">
+          <%= button_to "인쇄용 PDF 전송", send_pdf_to_printer_page_path, method: :get, class: "btn btn-sm btn-success" %>
+        </div>
+      </li>
     </ul>
 </nav>

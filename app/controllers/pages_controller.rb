@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :save_proof_reading_pdf, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :save_proof_reading_pdf, :send_pdf_to_printer, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default]
 
   # GET /pages
   # GET /pages.json
@@ -81,6 +81,15 @@ class PagesController < ApplicationController
     result = @page.copy_to_proof_reading_ftp
     if result
       redirect_to @page, notice: '교열용 PDF 저장 되었습니다,.'
+    else
+      redirect_to @page, notice: "#{result}"
+    end
+  end
+
+  def send_pdf_to_printer
+    result = @page.copy_to_printer_ftp
+    if result
+      redirect_to @page, notice: '페이지 #{page_number} 인쇄용 PDF 전송 되었습니다...'
     else
       redirect_to @page, notice: "#{result}"
     end
