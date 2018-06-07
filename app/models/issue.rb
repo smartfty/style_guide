@@ -384,9 +384,9 @@ class Issue < ApplicationRecord
     html    += "#{@title}\n"
     html    += @table.to_html
     html    += "</body>\n<html>"
-    folder  = "#{Rails.root}/1/issue/#{Date.today.to_s}"
+    folder  = "#{Rails.root}/public/1/issue/#{Date.today.to_s}"
     unless File.exist?(folder)
-      system("cd #{Rails.root}/1/issue} && mkdir #{Date.today.to_s}")
+      system("cd #{Rails.root}/public/1/issue} && mkdir #{Date.today.to_s}")
     end
     path    = folder + "/issue_plan.html"
     File.open(path, 'w'){|f| f.write html}
