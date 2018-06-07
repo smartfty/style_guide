@@ -54,9 +54,8 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-<![CDATA[
-<%= @data_content %>
-<%= @by_line %>
+<![CDATA[[IMG1]<%= @data_content %>
+<br><br><%= @by_line %>
 ]]>			</DataContent>
 		</NewsComponent>
 		<NewsComponent>
@@ -65,7 +64,7 @@
 			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
 			<PhotoItem Real="<%= @photo_item %>" />
 			<DataContent>
-			<![CDATA[  <%= @caption %> ]]>			</DataContent>
+			<![CDATA[  <%= @by_line %> ]]>			</DataContent>
 		</NewsComponent>
 	</NewsItem>
 </NewsXML>

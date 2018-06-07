@@ -12,12 +12,14 @@
   <% @profiles.each do |writer| %>
   <div class = "col-sm-3 col-md-3"  align='center'>
     <% if browser.safari? %>
-      <a href="<%=  profile_path(writer) %>"><img  src="<%= writer.pdf_image_path %>" width="100%"></img></a>
-      <h4 align='center'><a href='<%= profile_path(writer)%>'><%= writer.name %></a></h4>
-   <% else %>
+        <a href="<%=  profile_path(writer) %>"><img  src="<%= writer.pdf_image_path %>" width="100%"></img></a>
+        <h4 align='center'><a href='<%= profile_path(writer)%>'><%= writer.name %></a></h4>
+        <h5> <%= link_to '삭제', writer, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
+    <% else %>
       <a href="<%=  profile_path(writer) %>"><img  src="<%= writer.jpg_image_path %>" width="100%"></img></a>
       <h4 align='center'><a href='<%= profile_path(writer)%>'><%= writer.name %></a></h4>
-   <% end %>
+      <h5> <%= link_to '삭제', writer, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
+    <% end %>
   </div>    <!-- true -->
   <% end %>
 </div>

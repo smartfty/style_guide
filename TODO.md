@@ -33,8 +33,26 @@
   - body
     - fit_text
 
-2018_5_29
-  -
+2018_6_7
+  - fix ad_box to apply time_stamp
+  - add scrape_gw
+  
+2018_6_6
+  - fuzzy find ransack for opinion and profile
+  - frendly_url
+
+2018_6_5
+  - Date.strftime("%d%m%y")
+  - fix generate_layout for opinion
+  - add opinion_jpg_image
+  - add profile_jpg_image
+  - add name= for opinion name
+
+  newsman
+  - align left overflow text
+  - forbidden_first_chars
+  - forbidden_last_chars
+  - fix underflow text line count with news_image at page 22 order 2
 
 2018_5_28
   - set '기사' as default working_article kind
@@ -45,7 +63,6 @@
 2018_5_26
   - add image_box menu on working_article
     - 1x1, 2x2, 3x3, 4x4,
-
     - top_right, top_left, top_center
     - middle_left, midle_center, middle_right
     - bottom_left, bottom_center, bottom_right
@@ -54,7 +71,6 @@
     - zoom_10%
     - zoom_20%
     - zoom_30%
-
     - move_right_10&
     - move_left_10&
 

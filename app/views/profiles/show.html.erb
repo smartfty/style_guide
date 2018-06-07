@@ -7,12 +7,16 @@
   <div class="col-sm-5 col-md-5">
     <%= render 'form', profile: @profile %>
   </div>
-  <div class="col-sm-5 col-md-5">
+  <div class="col-sm-3 col-md-3">
     <% if browser.safari? %>
       <img width="100%" height="100%" src="<%= @profile.pdf_image_path %>" ></img>
     <% elsif browser.modern?  || browser.ie?%>
       <img width="100%" height="100%" src="<%= @profile.jpg_image_path %>" ></img>
     <% end %>
+  </div>
+  <div class="col-sm-3 col-md-3">
+    <img width="100%" height="100%" src="<%= @profile.profile_jpg_path %>" ></img>
+    <h5 align='center'>기고 저자 원본</h5>
   </div>
   <div class="col-sm-1 col-md-1">
     <p> </p>

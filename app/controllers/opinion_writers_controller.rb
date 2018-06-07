@@ -11,7 +11,7 @@ class OpinionWritersController < ApplicationController
       format.html
       format.csv do
         writers = OpinionWriter.order(name: :desc).all
-        send_data writers.to_csv 
+        send_data writers.to_csv
       end
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
@@ -81,6 +81,6 @@ class OpinionWritersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opinion_writer_params
-      params.require(:opinion_writer).permit(:name, :opinion_image, :title, :work, :position, :publication_id)
+      params.require(:opinion_writer).permit(:name, :opinion_image, :opinion_jpg_image, :title, :work, :position, :publication_id, :category_code)
     end
 end

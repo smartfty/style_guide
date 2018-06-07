@@ -255,7 +255,6 @@ class IssuesController < ApplicationController
     # send_file @issue.xml_zip_path, type: 'application/zip'
     respond_to do |format|
       format.zip { send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
-
       # zip: {send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
     end
     # send_file @issue.xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment", :filename =>filename

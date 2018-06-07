@@ -2,17 +2,18 @@
 #
 # Table name: profiles
 #
-#  id             :integer          not null, primary key
-#  name           :string
-#  profile_image  :string
-#  work           :string
-#  position       :string
-#  email          :string
-#  publication_id :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  title          :string
-#  category_code  :integer
+#  id                :integer          not null, primary key
+#  name              :string
+#  profile_image     :string
+#  work              :string
+#  position          :string
+#  email             :string
+#  publication_id    :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  title             :string
+#  category_code     :integer
+#  profile_jpg_image :string
 #
 # Indexes
 #
@@ -26,6 +27,7 @@
 class Profile < ApplicationRecord
   belongs_to :publication
   mount_uploader :profile_image, ProfileImageUploader
+  mount_uploader :profile_jpg_image, ProfileJpgImageUploader
 
   def path
     "#{Rails.root}/public/#{publication.id}/profile"
@@ -41,6 +43,10 @@ class Profile < ApplicationRecord
 
   def jpg_image_path
     "/#{publication.id}/profile/#{name}.jpg"
+  end
+
+  def profile_jpg_path
+    "/#{publication.id}/profile/images/#{name}.jpg"
   end
 
   def layout_path

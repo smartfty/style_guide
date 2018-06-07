@@ -41,6 +41,8 @@
 #  index_working_articles_on_article_id  (article_id)
 #  index_working_articles_on_page_id     (page_id)
 #
+require "iconv"
+
 
 class WorkingArticle < ApplicationRecord
   attr_reader :time_stamp
@@ -99,12 +101,12 @@ class WorkingArticle < ApplicationRecord
   end
 
   def latest_pdf_basename
-    f = Dir.glob("#{path}/story*.pdf").first
+    f = Dir.glob("#{path}/story*.pdf").sort.last
     File.basename(f) if f
   end
 
   def latest_jpg_basename
-    f = Dir.glob("#{path}/story*.jpg").first
+    f = Dir.glob("#{path}/story*.jpg").sort.last
     File.basename(f) if f
   end
 
@@ -694,12 +696,6 @@ class WorkingArticle < ApplicationRecord
     code
   end
 
-  def save_story_xml
-    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
-    path = "#{newsml_issue_path}/#{story_xml_filename}"
-    File.open(path, 'w'){|f| f.write story_xml}
-  end
-
   def opinion_image_path
     publication.path + "/opinion/images"
   end
@@ -746,7 +742,13 @@ class WorkingArticle < ApplicationRecord
   def save_story_xml
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
-    File.open(path, 'w'){|f| f.write story_xml}
+    # File.open(path, 'w'){|f| f.write story_xml}
+    # story_xml.encode("utf-8").force_encoding("euc-kr")
+    # require "iconv"
+    # Iconv.conv("#{code}//IGNORE", "UTF-8", s)
+
+    euc_xml = Iconv.new('EUC-KR', 'UTF-8').iconv(story_xml)
+    File.open(path, 'w:euc-kr'){|f| f.write euc_xml}
     save_xml_image
   end
 
@@ -757,80 +759,109 @@ class WorkingArticle < ApplicationRecord
   end
 
   def story_xml
-    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
-    story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    hour  = updated_at.hour.to_s.rjust(2, "0")
-    min   = updated_at.min.to_s.rjust(2, "0")
-    sec   = updated_at.sec.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    updated_date      = "#{year}#{month}#{day}"
-    updated_time      = "#{hour}#{min}#{sec}+0900"
-    @date_and_time    = "#{updated_date}T#{updated_time}"
-    @date_id          = updated_date
-    @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
-    @day_info         = "#{year}년#{month}월#{day}일"
-    @media_info       = publication.name
-    # @edition_info     = page_number.to_s.rjust(2,"0")
-    # @page_info        = publication.paper_size
-    @page_info        = page_number.to_s.rjust(2,"0")
-    @jeho_info        = issue.number
+      story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+      story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
+      year  = issue.date.year
+      month = issue.date.month.to_s.rjust(2, "0")
+      day   = issue.date.day.to_s.rjust(2, "0")
+      hour  = updated_at.hour.to_s.rjust(2, "0")
+      min   = updated_at.min.to_s.rjust(2, "0")
+      sec   = updated_at.sec.to_s.rjust(2, "0")
+      page_info        = page_number.to_s.rjust(2,"0")
+      updated_date      = "#{year}#{month}#{day}"
+      updated_time      = "#{hour}#{min}#{sec}+0900"
+      @date_and_time    = "#{updated_date}T#{updated_time}"
+      @date_id          = updated_date
+      @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
+      @day_info         = "#{year}년#{month}월#{day}일"
+      @media_info       = publication.name
+      # @edition_info     = page_number.to_s.rjust(2,"0")
+      # @page_info        = publication.paper_size
+      @page_info        = page_number.to_s.rjust(2,"0")
+      @jeho_info        = issue.number
 
-    if page.section_name = '오피니언'
-      @news_title_info = '논설'
-    else
+      # if page.section_name = '오피니언'
+      #   @news_title_info = '논설'
+      # else
+      #   @news_title_info  = page.section_name
+      # end
       @news_title_info  = page.section_name
-    end
-    # @name             = reporter
-    # reporter_record   = Reporter.where(name:reporter).first
-    # if reporter_record
-    #   @post             = reporter_record.reporter_group.name
-    #   @gija_id          = email.split("@").first
-    #   @email            = email
-    # else
-    #   @post             = "소속팀"
-    #   @gija_id          = "기자아이디"
-    #   @email            = "기자이메일"
-    # end
-    @by_line          = reporter
-    # reporter_record   = Reporter.where(name:reporter).first
-    if page_number == 23 && order == 2
-      @by_line          = reporter_from_body
-    end
-    @section_name_code = section_name_code
-    @name_plate       = subject_head
-    unless @name_plate
-      # binding.pry
-      r = OpinionWriter.where(name: reporter).first
-      @name_plate = r.title
-    end
+        # reporter_record   = Reporter.where(name:reporter).first
+        # if reporter_record
+        #   @post             = reporter_record.reporter_group.name
+        #   @gija_id          = email.split("@").first
+        #   @email            = email
+        # else
+        #   @post             = "소속팀"
+        #   @gija_id          = "기자아이디"
+        #   @email            = "기자이메일"
+        # end
+      @name           = reporter
+        # if @name =~/_/
+        # @name = @name.split("_")[0]
+        # end
 
-    if page_number == 22
-      if kind == '사설'
-        if subject_head == '기고'
-          category_code = 2401
-        elsif subject_head == '정치시평'
-          category_code = 2201
+      opinion_writer  = OpinionWriter.where(name:@name).first
+      if opinion_writer
+        @work        = opinion_writer.work if opinion_writer.work
+        @position       = opinion_writer.position if opinion_writer.position
+        if @name =~/_/
+          @name = @name.split("_")[0]
+        end
+        @by_line        = "#{@name} #{@work} #{@position}"
+      end
+      # reporter_record   = Reporter.where(name:reporter).first
+      if page_number == 22 && order == 2
+        profile         = Profile.where(name:@name).first
+        if profile
+          @work        = profile.work if profile.work
+          @position       = profile.position if profile.position
+          if @name =~/_/
+            @name = @name.split("_")[0]
+          end
+          @by_line        = "#{@name} #{@work} #{@position}"
         end
       end
-    elsif page_number == 23
-      if kind == '사설'
-        category_code= 2101
+      if page_number == 23 && order == 2
+        @name          = reporter_from_body
       end
+      @section_name_code = section_name_code
+      @name_plate       = subject_head
+      unless @name_plate
+        # binding.pry
+        r = OpinionWriter.where(name: reporter).first
+        category_code = r.category_code
+        @name_plate = r.title
+      end
+
+      if page_number == 22
+        if kind == '사설'
+          if subject_head == '기고'
+            category_code = 2401
+          elsif subject_head == '정치시평'
+            category_code = 2201
+          # elsif subject_head == '경제시평'
+          #   category_code = 2202
+          end
+        end
+      elsif page_number == 23
+        if kind == '사설'
+          category_code= 2101
+        end
+      end
+      @name_plate_code  = category_code
+      @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+      @money_status     = "20"
+      @head_line        = title
+      @sub_head_line    = subtitle
+      @data_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
+      @data_content     = @data_content.gsub("\n\n"){"<br><br>"}
+      @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
+      story_erb = ERB.new(story_xml_template)
+      story_erb.result(binding)
+      # story_erb = ERB.new(story_xml_template)
+      # story_erb.result(binding)
     end
-    @name_plate_code  = category_code
-    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
-    @head_line        = title
-    @sub_head_line    = subtitle
-    @data_content     = body.gsub(/^##(.*)\n/, "<b>#{$1}</b>")
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    story_erb = ERB.new(story_xml_template)
-    story_erb.result(binding)
-    story_erb = ERB.new(story_xml_template)
-    story_erb.result(binding)
-  end
 
   def character_count_data_path
     publication.publication_info_folder + "/charater_count_data/#{Date.today.to_s}_#{page_number}_#{order}"

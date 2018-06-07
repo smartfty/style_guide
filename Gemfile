@@ -87,4 +87,6 @@ gem 'ransack'
 gem 'rubyzip', '>= 1.0.0'
 gem 'zip-zip'
 gem 'mechanize'
+# gem "iconv", "~> 1.0.3"
+gem 'whenever'
 # gem 'pgreset', '~> 0.1.1'

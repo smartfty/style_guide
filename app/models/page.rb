@@ -69,15 +69,14 @@ class Page < ApplicationRecord
     if @time_stamp
       f = "#{path}/section#{@time_stamp}.pdf"
       File.basename(f) if f
-
     else
-      f = Dir.glob("#{path}/section*.pdf").first
+      f = Dir.glob("#{path}/section*.pdf").last
       File.basename(f) if f
     end
   end
 
   def latest_pdf_path
-    Dir.glob("#{path}/#{latest_pdf_basename}").first
+    f = Dir.glob("#{path}/section*.pdf")
   end
 
   def pdf_image_path
@@ -534,10 +533,6 @@ class Page < ApplicationRecord
     page_heading.generate_pdf
   end
 
-  def cleanup_old_files
-    puts "clear old files"
-  end
-
   def stamp_time
     t = Time.now
     h = t.hour
@@ -546,18 +541,19 @@ class Page < ApplicationRecord
 
   def delete_latest_files
     pdf_file_to_delete = latest_pdf_path
-    jpf_file_to_delte = pdf_file_to_delete.sub(/pdf$/, "jpg")
-    puts "pdf_file_to_delete:#{pdf_file_to_delete}"
-    puts "File.exist?(pdf_file_to_delete):#{File.exist?(pdf_file_to_delete)}"
-    system("rm #{pdf_file_to_delete}")
-    system("rm #{jpf_file_to_delte}")
+    jpf_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
+    pdf_file_to_delete.each do |old|
+      system("rm #{old}")
+    end
+    jpf_file_to_delte.each do |old|
+      system("rm #{old}")
+    end
   end
 
   def generate_pdf_with_time_stamp
     delete_latest_files
     stamp_time
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
-    cleanup_old_files
   end
 
   def generate_pdf
@@ -567,8 +563,6 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
-    puts __method__
-    puts "working_articles.length:#{working_articles.length}"
     working_articles.each do |working_article|
       puts "calling working_article.generate_pdf"
       working_article.generate_pdf
@@ -768,7 +762,6 @@ class Page < ApplicationRecord
    @year = date.year % 100
    @date = "#{@year}#{@month}#{@day}"
    @filename = "#{issue.number}-#{@date}#{page_number}"
-
    header =<<~EOF
    <?xml version="1.0" encoding="UTF-8"?>
    <PDFScrap version="1.0">
@@ -776,7 +769,7 @@ class Page < ApplicationRecord
    EOF
    template =<<~EOF
    <Scrap title="<%= @filename %>_1_<%= @order %>.jpg" page="1" type="rectangle">
-     <vertices><%= @x_position %>;<%= @y_position %>;<%= w.width %>;<%= w.height %></vertices>
+     <vertices><%= @x_position.round(0) %>;<%= @y_position.round(0) %>;<%=(@x_position + w.width).round(0) %>;<%= (@y_position + w.height).round(0) %></vertices>
    </Scrap>
    EOF
    @issue_number = issue.number
@@ -784,7 +777,7 @@ class Page < ApplicationRecord
 
    article_map_path = "#{Rails.root}/public/1/issue/#{issue.date.to_s}/page_preview"
    article_map = header
-   working_articles.each do |w|
+   working_articles.sort_by{|x| x.order}.each do |w|
      @order = w.order - 1
      @x_position = publication.left_margin + w.x
      @y_position = publication.top_margin + w.y
@@ -801,14 +794,12 @@ class Page < ApplicationRecord
      article_map += erb.result(binding) + "\n"
      article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
      system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
-
    end
    article_map += "</scraps><pdf filename='#{@filename}.PDF'/></PDFScrap>"
    system("mkdir -p #{article_map_path}") unless File.exist?(article_map_path)
    File.open(article_map_path + "/#{@filename}.xml", 'w'){|f| f.write article_map}
    system("cp #{pdf_path} #{article_map_path}/#{@filename}.pdf")
   end
-
 
   def save_story_xml
     working_articles.each do |article|

@@ -42,7 +42,9 @@ class AdBoxesController < ApplicationController
   def update
     respond_to do |format|
       if @ad_box.update(ad_box_params)
-        @ad_box.generate_pdf
+        @ad_box.generate_pdf_with_time_stamp
+        @ad_box.page.generate_pdf_with_time_stamp
+
         # @ad_box.update_page_pdf
         format.html { redirect_to @ad_box, notice: 'Ad box was successfully updated.' }
         format.json { render :show, status: :ok, location: @ad_box }

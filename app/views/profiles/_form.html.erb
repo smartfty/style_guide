@@ -6,7 +6,8 @@
     <%= f.input :name, label: "이름" %>
     <%= f.input :work, label: "소속" %>
     <%= f.input :position, label: "직책" %>
-    <%= f.input :profile_image, label: "사진선택" %>
+    <%= f.input :profile_image, label: "EPS선택" %>
+    <%= f.input :profile_jpg_image, label: "JPG선택" %>
     <%= f.association :publication , :as => :hidden, input_html: {value: 1}%>
   </div>
 

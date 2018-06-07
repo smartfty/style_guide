@@ -24,7 +24,7 @@ require "zip/zip"
 class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :page_plans
-  has_many  :pages, -> {order(id: :asc)}
+  has_many  :pages, -> {order(page_number: :asc)}
   has_many  :images
   accepts_nested_attributes_for :images
   has_many  :ad_images
@@ -300,9 +300,10 @@ class Issue < ApplicationRecord
   def make_story_xml_zip
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
     folder = xml_path
-    input_filenames = Dir.glob("#{xml_path}/*.xml")
+    # input_filenames = Dir.glob("#{xml_path}/*.xml")
+    input_filenames = Dir.glob("#{xml_path}/*.{xml,jpg}")
     zipfile_name = xml_zip_path
-
+    system("rm #{xml_zip_path}") if File.exist?(xml_zip_path)
     Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
       input_filenames.each do |filename|
         base_name = File.basename(filename)
@@ -316,16 +317,14 @@ class Issue < ApplicationRecord
     # send_file(File.join("#{Rails.root}/public/", ‘myfirstzipfile.zip’), :type => ‘application/zip’, :filename => "#{xml_zip_name}")
     # Remove content from ‘my_pdfs’ folder if you want
     # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
-
   end
-
 
   def make_preview_xml_zip
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
     folder = preview_xml_path
-    input_filenames = Dir.glob("#{preview_xml_path}/*.xml")
+    input_filenames = Dir.glob("#{preview_xml_path}/*.{xml,jpg,pdf}")
     zipfile_name = preview_xml_zip_path
-
+    system("rm #{preview_xml_zip_path}") if File.exist?(preview_xml_zip_path)
     Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
       input_filenames.each do |filename|
         base_name = File.basename(filename)
@@ -339,38 +338,76 @@ class Issue < ApplicationRecord
     # send_file(File.join("#{Rails.root}/public/", ‘myfirstzipfile.zip’), :type => ‘application/zip’, :filename => "#{xml_zip_name}")
     # Remove content from ‘my_pdfs’ folder if you want
     # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
-
   end
 
-
-  #
-  # def make_story_xml_zip
-  #   require "zip/zip"
-  #   input_filenames = Dir.glob("#{xml_path}/*.xml")
-  #   zipfile_name = xml_zip_path
-  #   Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
-  #     input_filenames.each do |filename|
-  #       # Two arguments:
-  #       # – The name of the file as it will appear in the archive
-  #       # – The original file, including the path to find it
-  #       zipfile.add(filename,  File.join(xml_path, filename))
-  #     end
-  #   end
-  # end
-
   def save_story_xml
-    pages.each do |page|
+    # pages.each do |page|
+    #   page.save_story_xml
+    # end
+    # binding.pry
+    # page 22 and 23 only for now!!
+    pages[21..22].each do |page|
       page.save_story_xml
     end
     make_story_xml_zip
   end
 
   def save_preview_xml
-    pages.each do |page|
+    # page 22 and 23 only for now!!
+    pages[21..22].each do |page|
       page.save_preview_xml
     end
     make_preview_xml_zip
   end
+
+  def self.scrape_gw
+    require 'mechanize'
+    agent = Mechanize.new
+    page = agent.get("http://gw.naeil.com")
+    form = page.form('frm')
+    form.id = 'hgkim'
+    form.pwd = 'hgkim'
+    page =  agent.submit(form, form.buttons.first)
+    @title = agent.get('https://gw.naeil.com/notice/pagealloc/').search("h3")
+    @table = agent.get('https://gw.naeil.com/notice/pagealloc/').search("table")
+
+    html =<<~EOF
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+    </head>
+    <body>
+
+    EOF
+
+    html    += "#{@title}\n"
+    html    += @table.to_html
+    html    += "</body>\n<html>"
+    folder  = "#{Rails.root}/1/issue/#{Date.today.to_s}"
+    unless File.exist?(folder)
+      system("cd #{Rails.root}/1/issue} && mkdir #{Date.today.to_s}")
+    end
+    path    = folder + "/issue_plan.html"
+    File.open(path, 'w'){|f| f.write html}
+    issue_plan   = {}
+    issue_plan[:number] = @title.to_s.split("호")[0]
+    issue_plan[:date] = Date.today.to_s
+    @table.css('tr').each_with_index do |row, j|
+      next if j.even?
+      puts "+++++"
+      tds = row.css("td")
+      puts "tds.count:#{tds.count}"
+      page_number = (j + 1)/2
+      puts "page_number:#{page_number}"
+      page_number = 24 - (j - 1)/2
+      puts "page_number:#{page_number}"
+      # tds.each_with_index do |td, i|
+      #
+      # end
+    end
+  end
+
 
 
   private

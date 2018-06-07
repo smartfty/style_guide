@@ -1,5 +1,19 @@
 namespace :style do
 
+  desc 'scrape form gw'
+  task :scrape_gw =>:environment do
+    Issue.scrape_gw
+  end
+
+  desc 'create new issue'
+  task :create_new_issue =>:environment do
+
+    # connect gw and get scape the site
+    # read the file
+    # create new issue
+
+  end
+
   desc 'copy text_style to users'
   task :copy_text_style_to_shared =>:environment do
     text_style_yml_path = "#{Rails.root}/public/1/text_style/text_style.yml"

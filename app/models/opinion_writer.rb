@@ -2,18 +2,19 @@
 #
 # Table name: opinion_writers
 #
-#  id             :integer          not null, primary key
-#  name           :string
-#  title          :string
-#  work           :string
-#  position       :string
-#  email          :string
-#  cell           :string
-#  opinion_image  :string
-#  publication_id :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  category_code  :integer
+#  id                :integer          not null, primary key
+#  name              :string
+#  title             :string
+#  work              :string
+#  position          :string
+#  email             :string
+#  cell              :string
+#  opinion_image     :string
+#  publication_id    :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  category_code     :integer
+#  opinion_jpg_image :string
 #
 # Indexes
 #
@@ -27,6 +28,7 @@
 class OpinionWriter < ApplicationRecord
   belongs_to :publication
   mount_uploader :opinion_image, OpinionImageUploader
+  mount_uploader :opinion_jpg_image, OpinionJpgImageUploader
 
   def path
     "#{Rails.root}/public/#{publication.id}/opinion"
@@ -45,6 +47,9 @@ class OpinionWriter < ApplicationRecord
   end
 
   def profile_jpg_path
+    filtered_name = name
+    filtered_name = name.split("_").first if name.include?("_")
+    filtered_name = name.split("=").first if name.include?("=")
     "/#{publication.id}/opinion/images/#{name}.jpg"
   end
 
@@ -66,6 +71,9 @@ class OpinionWriter < ApplicationRecord
       <% if name.include?('_') %>
         <% name_without_rest = name.split('_').first %>
         image(local_image: '<%= name_without_rest %>.eps', y: 60, width: 60, height: 75, fill_color: 'clear')
+      <% elsif name.include?('=') %>
+        <% name_without_rest = name.split('=').first %>
+        image(local_image: '<%= name_without_rest %>.eps', y: 60, width: 60, height: 75, fill_color: 'clear')
       <% else %>
         image(local_image: '<%= name %>.eps', y: 60, width: 60, height: 75, fill_color: 'clear')
       <% end %>
@@ -74,18 +82,32 @@ class OpinionWriter < ApplicationRecord
           text('<%= work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100" )
           text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% elsif name && work && work != "" && position && position != "" %>
-          <% if name.include?('_') %>
-            text('<%= name.split("-").first.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% if name.include?('=') %>
+            text('<%= name.split('=').first %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% elsif name.include?('-') %>
+            text('<%= name.split("-").first %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
           <% else  %>
             text('<%= name.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
           <% end  %>
           text('<%= work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
           text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% elsif position == "" || position == nil %>
-          text('<%= name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% if name.include?('=') %>
+            text('<%= name.split('=').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% elsif name.include?('-') %>
+            text('<%= name.split("-").first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% else  %>
+            text('<%= name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% end  %>
           text('<%= work %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% elsif work == "" || work == nil %>
-          text('<%= name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% if name.include?('=') %>
+            text('<%= name.split('=').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% elsif name.include?('-') %>
+            text('<%= name.split("-").first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% else  %>
+            text('<%= name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+          <% end  %>
           text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
         <% end %>
       end

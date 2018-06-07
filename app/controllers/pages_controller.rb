@@ -87,6 +87,7 @@ class PagesController < ApplicationController
   end
 
   def send_pdf_to_printer
+    puts __method__
     result = @page.copy_to_printer_ftp
     if result
       redirect_to @page, notice: '페이지 #{page_number} 인쇄용 PDF 전송 되었습니다...'
