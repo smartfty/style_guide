@@ -41,8 +41,6 @@
 #  index_working_articles_on_article_id  (article_id)
 #  index_working_articles_on_page_id     (page_id)
 #
-require "iconv"
-
 
 class WorkingArticle < ApplicationRecord
   attr_reader :time_stamp
