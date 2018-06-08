@@ -5,6 +5,12 @@ namespace :style do
     Issue.scrape_gw
   end
 
+  desc 'parse gw'
+  task :parse_gw =>:environment do
+    Issue.parse_gw
+  end
+
+
   desc 'create new issue'
   task :create_new_issue =>:environment do
 

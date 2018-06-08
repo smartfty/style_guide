@@ -22,10 +22,6 @@
 #
 #  index_page_plans_on_issue_id  (issue_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (issue_id => issues.id)
-#
 
 require 'test_helper'
 

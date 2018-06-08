@@ -33,10 +33,15 @@
   - body
     - fit_text
 
+2018_6_8
+  - add char_count to article and working_article
+  - show char_count in SVG
+  - add smart quote filter to quote text
+  
 2018_6_7
   - fix ad_box to apply time_stamp
   - add scrape_gw
-  
+
 2018_6_6
   - fuzzy find ransack for opinion and profile
   - frendly_url

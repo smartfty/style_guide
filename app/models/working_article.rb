@@ -334,7 +334,7 @@ class WorkingArticle < ApplicationRecord
     h['subject_head'] = subject_head
     h['title']      = RubyPants.new(title).to_html
     h['subtitle']   = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
-    h['quote']      = quote if quote_box_size.to_i > 0
+    h['quote']      = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
     h['reporter']   = reporter
     h['email']      = email
     h
@@ -546,7 +546,12 @@ class WorkingArticle < ApplicationRecord
   def box_svg
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+
+    svg=<<~EOF
+    <a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>
+    EOF
+    # <text x="#{x + 50}" y="#{y + 300}" style="fill: #999999;" font-size="100" >#{[1000,1500, 2000,2500,3000].sample}</text>
+
   end
 
   def box_xml
@@ -753,7 +758,7 @@ class WorkingArticle < ApplicationRecord
   def reporter_from_body
     return unless reporter
     body.match(/^# (.*)/)
-    $1
+    $1.sub("# ", "")
   end
 
   def story_xml

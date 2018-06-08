@@ -26,6 +26,7 @@
 require 'erb'
 require 'net/ftp'
 
+
 class Page < ApplicationRecord
   belongs_to :issue
   belongs_to :page_plan
@@ -60,23 +61,28 @@ class Page < ApplicationRecord
     "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
   end
 
+
   def latest_pdf
-    f = Dir.glob("#{path}/section*.pdf").first
+    f = Dir.glob("#{path}/section*.pdf").sort.last
     File.basename(f) if f
   end
 
   def latest_pdf_basename
     if @time_stamp
-      f = "#{path}/section#{@time_stamp}.pdf"
-      File.basename(f) if f
+      f = Dir.glob("#{path}/section#{@time_stamp}.pdf")
     else
-      f = Dir.glob("#{path}/section*.pdf").last
+      f = Dir.glob("#{path}/section*.pdf").sort.last
       File.basename(f) if f
     end
   end
 
-  def latest_pdf_path
-    f = Dir.glob("#{path}/section*.pdf")
+  def latest_jpg_basename
+    if @time_stamp
+      f = Dir.glob("#{path}/section#{@time_stamp}.jpg")
+    else
+      f = Dir.glob("#{path}/section*.jpg").sort.last
+      File.basename(f) if f
+    end
   end
 
   def pdf_image_path
@@ -92,11 +98,11 @@ class Page < ApplicationRecord
   end
 
   def jpg_image_path
-    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.jpg"
+    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/#{latest_jpg_basename}"
   end
 
   def jpg_path
-    "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.jpg"
+    "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/#{section.jpg}"
   end
 
   def to_hash
@@ -533,6 +539,10 @@ class Page < ApplicationRecord
     page_heading.generate_pdf
   end
 
+  def cleanup_old_files
+    puts "clear old files"
+  end
+
   def stamp_time
     t = Time.now
     h = t.hour
@@ -540,20 +550,22 @@ class Page < ApplicationRecord
   end
 
   def delete_latest_files
-    pdf_file_to_delete = latest_pdf_path
-    jpf_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
+    pdf_file_to_delete =  Dir.glob("#{path}/section*.pdf")
+    jpg_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
     pdf_file_to_delete.each do |old|
       system("rm #{old}")
     end
-    jpf_file_to_delte.each do |old|
+    jpg_file_to_delte.each do |old|
       system("rm #{old}")
     end
   end
+
 
   def generate_pdf_with_time_stamp
     delete_latest_files
     stamp_time
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
+    cleanup_old_files
   end
 
   def generate_pdf
@@ -563,6 +575,8 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
+    puts __method__
+    puts "working_articles.length:#{working_articles.length}"
     working_articles.each do |working_article|
       puts "calling working_article.generate_pdf"
       working_article.generate_pdf
@@ -680,6 +694,7 @@ class Page < ApplicationRecord
   end
 
   def copy_to_proof_reading_ftp
+    require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
     ip  = '211.115.91.75'
     id  = 'naeil'
@@ -699,14 +714,24 @@ class Page < ApplicationRecord
     true
   end
 
+  def dong_a_code
+    date = issue.date
+    m = date.month.to_s.rjust(2,"0")
+    d = date.day.to_s.rjust(2,"0")
+    pg = page_number.to_s.rjust(2,"0")
+     "NA#{m}#{d}#{pg}NB00.pdf"
+  end
+
   def dong_a
     puts "sending it to Dong-A"
     ip        = '210.115.142.181'
     id        = 'naeil'
     pw        = 'cts@'
     printer_file = path + "/section.pdf"
+
+
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/mono/#{jung_ang_code}")
+      ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
     end
   end
 
@@ -755,6 +780,7 @@ class Page < ApplicationRecord
     end
   end
 
+
   def save_preview_xml
    date = issue.date
    @day = date.day.to_s.rjust(2,"0")
@@ -762,6 +788,8 @@ class Page < ApplicationRecord
    @year = date.year % 100
    @date = "#{@year}#{@month}#{@day}"
    @filename = "#{issue.number}-#{@date}#{page_number}"
+   scale = 1.6
+
    header =<<~EOF
    <?xml version="1.0" encoding="UTF-8"?>
    <PDFScrap version="1.0">
@@ -769,7 +797,7 @@ class Page < ApplicationRecord
    EOF
    template =<<~EOF
    <Scrap title="<%= @filename %>_1_<%= @order %>.jpg" page="1" type="rectangle">
-     <vertices><%= @x_position.round(0) %>;<%= @y_position.round(0) %>;<%=(@x_position + w.width).round(0) %>;<%= (@y_position + w.height).round(0) %></vertices>
+     <vertices><%= (@x_position*scale).round(0) %>;<%= (@y_position*scale).round(0) %>;<%=((@x_position + w.width)*scale).round(0) %>;<%= ((@y_position + w.height)*scale).round(0) %></vertices>
    </Scrap>
    EOF
    @issue_number = issue.number
@@ -800,6 +828,7 @@ class Page < ApplicationRecord
    File.open(article_map_path + "/#{@filename}.xml", 'w'){|f| f.write article_map}
    system("cp #{pdf_path} #{article_map_path}/#{@filename}.pdf")
   end
+
 
   def save_story_xml
     working_articles.each do |article|

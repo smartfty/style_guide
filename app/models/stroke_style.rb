@@ -14,10 +14,6 @@
 #
 #  index_stroke_styles_on_publication_id  (publication_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (publication_id => publications.id)
-#
 
 class StrokeStyle < ApplicationRecord
   belongs_to :publication

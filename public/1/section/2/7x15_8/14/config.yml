@@ -8,15 +8,15 @@ profile: 7x15_8
 section_id: 14
 page_columns: 7
 grid_size:
-- 146.99664257142854
+- 146.99664257142857
 - 96.377964
 lines_per_grid: 7
-width: 1114.015878
+width: 1114.0158780000002
 height: 1544.88207
-left_margin: 42.51969
+left_margin: 42.519690000000004
 top_margin: 56.69292
-right_margin: 42.51969
-bottom_margin: 42.51969
+right_margin: 42.519690000000004
+bottom_margin: 42.519690000000004
 gutter: 12.755907
 story_frames:
 - - 0

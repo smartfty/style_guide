@@ -14,10 +14,6 @@
 #
 #  index_issues_on_publication_id  (publication_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (publication_id => publications.id)
-#
 
 require "zip/zip"
 
@@ -406,6 +402,32 @@ class Issue < ApplicationRecord
       #
       # end
     end
+  end
+
+  def self.parse_gw
+    path  = "/Users/mskim/Development/rails5/style_guide/1/issue/2018-06-07/issue_plan.html"
+    html  = File.open(path, 'r'){|f| f.read}
+    doc   = Nokogiri::HTML(html)
+    @table = doc.css('table')
+    @table.css('tr').each_with_index do |row, j|
+      next if j.even?
+      tds = row.css('td')
+
+      page_number = (j + 1)/2
+      puts "+++ page_number:#{page_number}"
+      tds[0..3].each do |td|
+        puts td
+      end
+      page_number = 24 - (j - 1)/2
+      puts "+++ page_number:#{page_number}"
+      tds[4..7].each do |td|
+        puts td
+      end
+      # tds.each_with_index do |td, i|
+      #
+      # end
+    end
+    #code
   end
 
 
