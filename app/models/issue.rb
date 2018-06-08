@@ -358,14 +358,14 @@ class Issue < ApplicationRecord
 
   def self.scrape_gw
     require 'mechanize'
-    agent = Mechanize.new
-    page = agent.get("http://gw.naeil.com")
-    form = page.form('frm')
-    form.id = 'hgkim'
-    form.pwd = 'hgkim'
-    page =  agent.submit(form, form.buttons.first)
-    @title = agent.get('https://gw.naeil.com/notice/pagealloc/').search("h3")
-    @table = agent.get('https://gw.naeil.com/notice/pagealloc/').search("table")
+    agent     = Mechanize.new
+    page      = agent.get("http://gw.naeil.com")
+    form      = page.form('frm')
+    form.id   = ENV[:GW_ID]
+    form.pwd  = ENV[:GW_PASSWORD]
+    page      =  agent.submit(form, form.buttons.first)
+    @title    = agent.get('https://gw.naeil.com/notice/pagealloc/').search("h3")
+    @table    = agent.get('https://gw.naeil.com/notice/pagealloc/').search("table")
 
     html =<<~EOF
     <!DOCTYPE html>
