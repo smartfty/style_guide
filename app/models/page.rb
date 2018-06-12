@@ -550,7 +550,7 @@ class Page < ApplicationRecord
   end
 
   def delete_latest_files
-    pdf_file_to_delete =  Dir.glob("#{path}/section*.pdf")
+    pdf_file_to_delete = Dir.glob("#{path}/section*.pdf")
     jpg_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
     pdf_file_to_delete.each do |old|
       system("rm #{old}")

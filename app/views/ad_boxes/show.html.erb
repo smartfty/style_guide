@@ -1,5 +1,4 @@
 
-<h3>광고정보</h3>
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
   <nav class="navbar navbar-default navbar-fixed-top2">
       <ul class="nav navbar-nav">
@@ -10,14 +9,19 @@
     </nav>
 
 <div class="row">
-  <div class="col-md-6">
+  <h3>광고정보</h3>
+
+  <div class="col-sm-1">
+  </div>
+
+  <div class="col-sm-2">
     <%= render 'form', ad_box: @ad_box %>
     <br/>
     <br/>
     <br/>
   </div>
     <!-- true -->
-  <div class="col-md-6">
+  <div class="col-sm-7">
     <% unless @ad_box.ad_image.nil? %>
       <% if browser.safari? %>
         <img  src="<%= @ad_box.pdf_image_path %>" ></img>

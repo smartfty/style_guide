@@ -35,7 +35,7 @@
 				<Subject FormalNameString="<%= @news_title_info %>" />
 				<SubjectEx FormalName="<%= @name_plate_code %>" />
 				<SubjectEx FormalNameString="<%= @name_plate %>" />
-				<MoneyStatus>20</MoneyStatus>
+				<MoneyStatus><%= @money_status %></MoneyStatus>
 				<GisaStatus>50</GisaStatus>
 				<GisaFileName><%= @gisa_key %>.txt</GisaFileName>
 				<GisaKey><%= @gisa_key %></GisaKey>
@@ -49,14 +49,22 @@
 [<%= @name_plate %>] <%= @head_line %>
 ]]>
 </HeadLine>
-		</NewsComponent>
+		</NewsComponent><% if @page_number == 23 && @order == 2 %>
 		<NewsComponent>
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-<![CDATA[[IMG1]<%= @data_content %>
-<br><br><%= @by_line %>
+<![CDATA[<%= @data_content %>
+<%= @by_line %>
 ]]>			</DataContent>
+		</NewsComponent><% else %>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+	<![CDATA[[IMG1]<%= @data_content %>
+	<%= @by_line %>
+	]]>			</DataContent>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Photo" />
@@ -64,7 +72,7 @@
 			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
 			<PhotoItem Real="<%= @photo_item %>" />
 			<DataContent>
-			<![CDATA[  <%= @by_line %> ]]>			</DataContent>
-		</NewsComponent>
+			<![CDATA[  <%= @caption %> ]]>			</DataContent>
+		</NewsComponent><% end %>
 	</NewsItem>
 </NewsXML>

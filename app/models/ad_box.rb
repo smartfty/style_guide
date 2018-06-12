@@ -38,12 +38,23 @@ class AdBox < ApplicationRecord
     page.issue
   end
 
+  def latest_pdf_basename
+    # binding.pry
+    f = Dir.glob("#{path}/output*.pdf").sort.last
+    File.basename(f) if f
+  end
+
+  def latest_jpg_basename
+    f = Dir.glob("#{path}/output*.jpg").sort.last
+    File.basename(f) if f
+  end
+
   def pdf_image_path
-    page.url + "/ad/output.pdf"
+    page.url + "/ad/#{latest_pdf_basename}"
   end
 
   def jpg_image_path
-    page.url + "/ad/output.jpg"
+    page.url + "/ad/#{latest_jpg_basename}"
   end
 
   def jpg_path
@@ -254,15 +265,15 @@ class AdBox < ApplicationRecord
     # @page_info        = publication.paper_size
     @page_info        = page_number.to_s.rjust(2,"0")
     @jeho_info        = issue.number
-    if page.section_name = '오피니언'
-      @news_title_info = '논설'
-    else
-      @news_title_info  = page.section_name
-    end
+
+    @news_title_info = '광고'
+    @name_plate      = '광고'
     @section_name_code = section_name_code
 
     @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
-    @data_content       = advertiser
+    @money_status     = "0"
+    @head_line        = advertiser
+
 
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)
@@ -281,7 +292,7 @@ class AdBox < ApplicationRecord
   def save_ad_xml
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
-    File.open(path, 'w'){|f| f.write ad_xml}
+    File.open(path, 'w:euc-kr'){|f| f.write ad_xml}
   end
 
   def story_xml_filename
