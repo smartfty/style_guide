@@ -383,7 +383,11 @@ class WorkingArticle < ApplicationRecord
     profile_hash[:image_path]     = opinion_profile_pdf_path
     profile_hash[:column]         = 1
     profile_hash[:row]            = 1
-    profile_hash[:extra_height_in_lines]= 5 # 7+5=12 lines
+    if reporter == '내일시론'
+      profile_hash[:extra_height_in_lines]= -3 # 7+5=12 lines
+    else
+      profile_hash[:extra_height_in_lines]= 5 # 7+5=12 lines
+    end
     profile_hash[:stroke_width]   = 0
     profile_hash[:position]       = 1
     profile_hash[:is_float]       = true
@@ -638,6 +642,7 @@ class WorkingArticle < ApplicationRecord
   def filter_to_markdown(body_text)
     body_text.strip!
     # body_text.gsub!(/^\n\n/, "\n")
+    body_text.gsub!(/\u200B/, "")
     body_text.gsub!(/^(\^|-\s)/, "")
     body_text.gsub!(/^\t/, "")
     body_text.gsub!(/^\n/, "")
@@ -716,6 +721,9 @@ class WorkingArticle < ApplicationRecord
     title.gsub!("\u200B", "")
     body.gsub!("\u2027", "\u00b7")
     body.gsub!("\u2024", "\u00b7")
+    title.gsub!("\u00A0", " ")
+    body.gsub!("\u2043", "-")
+    body.gsub!("\u30FB", "\u00b7")
     # story_xml.gsub!("\u200B", "")
     # story_xml.encode("utf-8").force_encoding("euc-kr")
     File.open(path, 'w:euc-kr'){|f| f.write story_xml}

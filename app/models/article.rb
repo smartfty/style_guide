@@ -342,7 +342,7 @@ class Article < ApplicationRecord
     end
     h = {}
     h[:kind]                          = kind          unless h[:kind] == '기사'
-    h[:reporter]                      =  '홍길동'       if  h[:kind] == '기고'
+    h[:reporter]                      = '홍길동'       if  h[:kind] == '기고'
     h[:column]                        = column
     h[:row]                           = row
     h[:grid_width]                    = grid_width

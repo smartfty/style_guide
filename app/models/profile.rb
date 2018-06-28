@@ -19,10 +19,6 @@
 #
 #  index_profiles_on_publication_id  (publication_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (publication_id => publications.id)
-#
 
 class Profile < ApplicationRecord
   belongs_to :publication

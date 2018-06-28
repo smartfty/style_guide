@@ -711,6 +711,8 @@ class Page < ApplicationRecord
   def copy_to_printer_ftp
     dong_a
     jung_ang
+    news_pdf
+    ex_pdf
     true
   end
 
@@ -719,7 +721,7 @@ class Page < ApplicationRecord
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
-     "NA#{m}#{d}#{pg}NB00.pdf"
+     "NA#{m}#{d}#{pg}NB01.pdf"
   end
 
   def dong_a
@@ -728,8 +730,6 @@ class Page < ApplicationRecord
     id        = 'naeil'
     pw        = 'cts@'
     printer_file = path + "/section.pdf"
-
-
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
     end
@@ -758,6 +758,44 @@ class Page < ApplicationRecord
     ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
     # end
   end
+
+  def news_pdf_code
+    yyyymd = issue.date.strftime("%Y%m%d")
+    pg = page_number.to_s.rjust(2,"0")
+    "#{yyyymd}-#{pg}.pdf"
+  end
+
+  def news_pdf
+    puts "sending it to News PDF"
+    ip        = '211.115.91.231'
+    id        = 'comp'
+    pw        = '*4141'
+    printer_file = path + "/section.pdf"
+    yyyymd = issue.date.strftime("%Y%m%d")
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
+    end
+  end
+
+  def ex_pdf_code
+    jeho = issue.number
+    yymd = issue.date.strftime("%y%m%d")
+    pg = page_number.to_s.rjust(2,"0")
+    "#{jeho}-#{yymd}#{pg}.pdf"
+  end
+
+  def ex_pdf
+    puts "sending it to External PDF"
+    ip        = '211.115.91.231'
+    id        = 'comp'
+    pw        = '*4141'
+    printer_file = path + "/section.pdf"
+    yyyymd = issue.date.strftime("%Y%m%d")
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")
+    end
+  end
+
 
   def dropbox_path
     File.expand_path("~/dropbox")
@@ -812,7 +850,11 @@ class Page < ApplicationRecord
      erb = ERB.new(template)
      article_map += erb.result(binding) + "\n"
      article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
-     system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
+     # binding.pry if w.page_number==22
+     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
+     FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
+     FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
+
    end
    ad_boxes.each do |w|
      @order = working_articles.length
@@ -821,7 +863,9 @@ class Page < ApplicationRecord
      erb = ERB.new(template)
      article_map += erb.result(binding) + "\n"
      article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
-     system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
+     FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
+     FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
+     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
    end
    article_map += "</scraps><pdf filename='#{@filename}.PDF'/></PDFScrap>"
    system("mkdir -p #{article_map_path}") unless File.exist?(article_map_path)

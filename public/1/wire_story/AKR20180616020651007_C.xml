@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20180616020651007</ContentID>
+		<SendDate>20180621</SendDate>
+		<SendTime>050245</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="1204001" name="월드축구"/>
+			<ClassCode code="1210004" name="축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[월드컵 중간순위] B조(21일)]]></Title>
+		<Body><![CDATA[[월드컵 중간순위] B조(21일)
+
+    ◇ 2018 러시아 월드컵 조별리그 B조 중간순위(21일 현재)  
+┌──┬────┬──┬─┬─┬─┬──┬──┬────┐
+│순위│  나라  │승점│승│무│패│득점│실점│골득실차│
+├──┼────┼──┼─┼─┼─┼──┼──┼────┤
+│ 1  │ 스페인 │ 4  │1 │1 │0 │ 4  │ 3  │   +1   │
+│    │포르투갈│    │  │  │  │    │    │        │
+├──┼────┼──┼─┼─┼─┼──┼──┼────┤
+│ 3  │  이란  │ 3  │1 │0 │1 │ 1  │ 1  │   0    │
+├──┼────┼──┼─┼─┼─┼──┼──┼────┤
+│ 4  │ 모로코 │ 0  │0 │0 │2 │ 0  │ 2  │   -2   │
+└──┴────┴──┴─┴─┴─┴──┴──┴────┘
+    ※승점-골득실차-다득점 순.
+      두 팀 이상이 다득점까지 같을 경우 해당 팀 간 경기에서의 승점-골득실차-다득점-조별리그 전체 경기에서의 페어플레이 점수-추첨 순.
+    (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

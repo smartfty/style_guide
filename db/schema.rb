@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605002534) do
+ActiveRecord::Schema.define(version: 20180620235203) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -382,6 +382,23 @@ ActiveRecord::Schema.define(version: 20180605002534) do
     t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "wire_stories", force: :cascade do |t|
+    t.date "send_date"
+    t.string "content_id"
+    t.string "category_code"
+    t.string "category_name"
+    t.string "region_code"
+    t.string "region_name"
+    t.string "credit"
+    t.string "source"
+    t.string "title"
+    t.text "body"
+    t.integer "issue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_wire_stories_on_issue_id"
   end
 
   create_table "working_articles", force: :cascade do |t|

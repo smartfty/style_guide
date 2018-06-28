@@ -33,11 +33,30 @@
   - body
     - fit_text
 
+2018_6_21
+  - wire_story
+    send_date
+    content_id
+    category_code
+    category_name
+    region_code
+    region_name
+    credit
+    source
+    title
+    body
+
+  - wire_image
+
+2018_6_10
+  - fix euc-kr bug
+  - fix article initial kind as '기사'
+
 2018_6_8
   - add char_count to article and working_article
   - show char_count in SVG
   - add smart quote filter to quote text
-  
+
 2018_6_7
   - fix ad_box to apply time_stamp
   - add scrape_gw

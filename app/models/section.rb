@@ -412,6 +412,7 @@ class Section < ApplicationRecord
       article_atts[:column]   = box[2]
       article_atts[:row]      = box[3]
       article_atts[:order]    = i + 1
+      article_atts[:kind]     = '기사'
       article_atts[:is_front_page]  = false
       article_atts[:is_front_page]  = true if is_front_page
       article_atts[:top_story]      = false

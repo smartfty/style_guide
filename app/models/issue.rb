@@ -14,6 +14,10 @@
 #
 #  index_issues_on_publication_id  (publication_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (publication_id => publications.id)
+#
 
 require "zip/zip"
 
@@ -278,7 +282,7 @@ class Issue < ApplicationRecord
     month         = date.month.to_s.rjust(2, "0")
     day           = date.day.to_s.rjust(2, "0")
     issue_date    = "#{year}#{month}#{day}"
-    xml_path + "/#{issue_date}.zip"
+    xml_path + "/#{issue_date}_story_xml.zip"
   end
 
   def preview_xml_path
@@ -290,7 +294,7 @@ class Issue < ApplicationRecord
     month         = date.month.to_s.rjust(2, "0")
     day           = date.day.to_s.rjust(2, "0")
     issue_date    = "#{year}#{month}#{day}"
-    preview_xml_path + "/#{issue_date}.zip"
+    preview_xml_path + "/#{issue_date}_page_preview.zip"
   end
 
   def make_story_xml_zip
@@ -313,7 +317,9 @@ class Issue < ApplicationRecord
     # send_file(File.join("#{Rails.root}/public/", ‘myfirstzipfile.zip’), :type => ‘application/zip’, :filename => "#{xml_zip_name}")
     # Remove content from ‘my_pdfs’ folder if you want
     # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
+
   end
+
 
   def make_preview_xml_zip
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
@@ -334,14 +340,27 @@ class Issue < ApplicationRecord
     # send_file(File.join("#{Rails.root}/public/", ‘myfirstzipfile.zip’), :type => ‘application/zip’, :filename => "#{xml_zip_name}")
     # Remove content from ‘my_pdfs’ folder if you want
     # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
+
   end
 
+
+  #
+  # def make_story_xml_zip
+  #   require "zip/zip"
+  #   input_filenames = Dir.glob("#{xml_path}/*.xml")
+  #   zipfile_name = xml_zip_path
+  #   Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+  #     input_filenames.each do |filename|
+  #       # Two arguments:
+  #       # – The name of the file as it will appear in the archive
+  #       # – The original file, including the path to find it
+  #       zipfile.add(filename,  File.join(xml_path, filename))
+  #     end
+  #   end
+  # end
+
+
   def save_story_xml
-    # pages.each do |page|
-    #   page.save_story_xml
-    # end
-    # binding.pry
-    # page 22 and 23 only for now!!
     pages[21..22].each do |page|
       page.save_story_xml
     end
@@ -349,88 +368,35 @@ class Issue < ApplicationRecord
   end
 
   def save_preview_xml
-    # page 22 and 23 only for now!!
     pages[21..22].each do |page|
       page.save_preview_xml
     end
     make_preview_xml_zip
   end
 
-  def self.scrape_gw
-    require 'mechanize'
-    agent     = Mechanize.new
-    page      = agent.get("http://gw.naeil.com")
-    form      = page.form('frm')
-    form.id   = ENV[:GW_ID]
-    form.pwd  = ENV[:GW_PASSWORD]
-    page      =  agent.submit(form, form.buttons.first)
-    @title    = agent.get('https://gw.naeil.com/notice/pagealloc/').search("h3")
-    @table    = agent.get('https://gw.naeil.com/notice/pagealloc/').search("table")
-
-    html =<<~EOF
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="UTF-8">
-    </head>
-    <body>
-
-    EOF
-
-    html    += "#{@title}\n"
-    html    += @table.to_html
-    html    += "</body>\n<html>"
-    folder  = "#{Rails.root}/public/1/issue/#{Date.today.to_s}"
-    unless File.exist?(folder)
-      system("cd #{Rails.root}/public/1/issue} && mkdir #{Date.today.to_s}")
-    end
-    path    = folder + "/issue_plan.html"
-    File.open(path, 'w'){|f| f.write html}
-    issue_plan   = {}
-    issue_plan[:number] = @title.to_s.split("호")[0]
-    issue_plan[:date] = Date.today.to_s
-    @table.css('tr').each_with_index do |row, j|
-      next if j.even?
-      puts "+++++"
-      tds = row.css("td")
-      puts "tds.count:#{tds.count}"
-      page_number = (j + 1)/2
-      puts "page_number:#{page_number}"
-      page_number = 24 - (j - 1)/2
-      puts "page_number:#{page_number}"
-      # tds.each_with_index do |td, i|
-      #
-      # end
-    end
+  def copy_to_xml_ftp
+    save_story_xml
+    save_preview_xml
+    xml_send
+    true
   end
 
-  def self.parse_gw
-    path  = "/Users/mskim/Development/rails5/style_guide/1/issue/2018-06-07/issue_plan.html"
-    html  = File.open(path, 'r'){|f| f.read}
-    doc   = Nokogiri::HTML(html)
-    @table = doc.css('table')
-    @table.css('tr').each_with_index do |row, j|
-      next if j.even?
-      tds = row.css('td')
+  # def xml_send_code
+  #   jeho = issue.number
+  #   yymd = issue.date.strftime("%y%m%d")
+  #    "#{jeho}-#{yymd}#{pg}.pdf"
+  # end
 
-      page_number = (j + 1)/2
-      puts "+++ page_number:#{page_number}"
-      tds[0..3].each do |td|
-        puts td
-      end
-      page_number = 24 - (j - 1)/2
-      puts "+++ page_number:#{page_number}"
-      tds[4..7].each do |td|
-        puts td
-      end
-      # tds.each_with_index do |td, i|
-      #
-      # end
+  def xml_send
+    puts "sending it to News & Preview Xml.zip"
+    ip        = '211.115.91.231'
+    id        = 'naeil'
+    pw        = 'sodlftlsans1!'
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.putbinaryfile(xml_zip_path)
+      ftp.putbinaryfile(preview_xml_zip_path)
     end
-    #code
   end
-
-
 
   private
 

@@ -8,10 +8,9 @@ RLayout::Container.new(width:158.737,  height: 165.182) do
   container(x: 70, y: 80, width:150, bottom_margin: 10, fill_color: 'clear') do
     
       
-        text('이종우', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('이종우', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
       
-      text('IBK투자증권', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-      text('리서치 센터장', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+      text('주식칼럼니스트', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
     
   end
 end

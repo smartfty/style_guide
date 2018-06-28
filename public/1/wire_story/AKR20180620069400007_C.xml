@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20180620069400007</ContentID>
+		<SendDate>20180621</SendDate>
+		<SendTime>061537</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1204001" name="월드축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[◇내일의 러시아 월드컵(22일)]]></Title>
+		<Body><![CDATA[◇내일의 러시아 월드컵(22일)
+    
+    ◆22일(목)
+    ▲E조
+    브라질-코스타리카(21시·상트페테르부르크 스타디움)
+    세르비아-스위스(22일·3시·칼리닌그라드 스타디움)
+    ▲D조 
+    나이지리아-아이슬란드(23일·0시·볼고그라드 아레나)
+    (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>
