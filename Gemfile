@@ -90,3 +90,4 @@ gem 'mechanize'
 # gem "iconv", "~> 1.0.3"
 gem 'whenever'
 # gem 'pgreset', '~> 0.1.1'
+gem 'friendly_id', '~> 5.2', '>= 5.2.4'

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :wire_stories
   resources :profiles
   resources :holidays
   resources :reporters
@@ -119,7 +118,9 @@ Rails.application.routes.draw do
       get 'download_story_xml'
       get 'save_preview_xml'
       get 'download_preview_xml'
-
+      get 'save_mobile_preview_xml'
+      get 'send_xml_to_ebiz'
+      get 'merge_container_xml'
 
 
     end

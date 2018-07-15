@@ -3,9 +3,9 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 
-every :day, at: '7am' do
+every :day, at: '4am' do
   # specify the task name as a string
-  rake 'style:create_new_issue'
+  rake "style:new_issue"
 end
 
 # Example:

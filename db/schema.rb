@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620235203) do
+ActiveRecord::Schema.define(version: 20180712184005) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20180620235203) do
     t.integer "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "extended_line_count"
+    t.integer "pushed_line_count"
   end
 
   create_table "graphic_requests", force: :cascade do |t|

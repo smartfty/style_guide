@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_to_cms]
+  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_to_cms, :send_xml_to_ebiz, :merge_container_xml]
 
   # GET /issues
   # GET /issues.json
@@ -18,7 +18,9 @@ class IssuesController < ApplicationController
   def new
     @issue            = Issue.new
     @publication      = Publication.first
-    @previous_number  = Issue.last.number.to_i + 1 if Issue.last
+    @previous_date    = Issue.last.date.to_s        if Issue.last
+    @previous_number  = Issue.last.number.to_i      if Issue.last
+    @new_issue_number = Issue.last.number.to_i + 1  if Issue.last
   end
 
   # GET /issues/1/edit
@@ -231,7 +233,7 @@ class IssuesController < ApplicationController
     if File.exist?(@issue.xml_zip_path)
       system("rm #{@issue.xml_zip_path}")
       @issue.save_story_xml
-      redirect_to issue_path(@issue), notice: 'xml 파일이  재생성 되었습니다.'
+      redirect_to issue_path(@issue), notice: 'xml 파일이 재생성 되었습니다.'
     else
       @issue.save_story_xml
       redirect_to issue_path(@issue), notice: 'xml 파일이 생성 되었습니다.'
@@ -263,6 +265,26 @@ class IssuesController < ApplicationController
     # redirect_to issue_path(@issue), notice: 'xml 다운로드 되었습니다.'
   end
 
+  def send_xml_to_ebiz
+    result = @issue.copy_to_xml_ftp
+    if result
+      redirect_to @issue, notice: '뉴스와 지면보기용 xml 파일이 전송 되었습니다.'
+    else
+      redirect_to @issue, notice: "#{result}"
+    end
+  end
+
+  def save_mobile_preview_xml
+    set_issue
+    if File.exist?(@issue.mobile_preview_xml_zip_path)
+      system("rm #{@issue.mobile_preview_xml_zip_path}")
+      @issue.save_mobile_preview_xml
+      redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 재생성 되었습니다.'
+    else
+      @issue.save_mobile_preview_xml
+      redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 생성 되었습니다.'
+    end
+  end
 
   def download_preview_xml
     set_issue
@@ -270,6 +292,11 @@ class IssuesController < ApplicationController
       format.zip { send_data File.open(@issue.preview_xml_zip_path, 'r'){|f| f.read} }
       # zip: {send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
     end
+  end
+
+  def merge_container_xml
+    @issue.merge_container_xml
+    redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 합성 되었습니다.'
   end
 
   private

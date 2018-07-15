@@ -1,5 +1,6 @@
 <div class="authform">
   <h3>오늘자 신문 만들기</h3>
+  <h4>지난호 <%= "#{previous_date}(#{previous_number}호)" %>  </h4>
 
 <%= form_for(issue, remote: true) do |f| %>
   <% if issue.errors.any? %>
@@ -22,10 +23,10 @@
 
   <div class="form-group">
     <%= f.label :호수 %>
-    <% if previous_number %>
-      <%= f.text_field :number, class: 'form-control', value: previous_number%>
+    <% if new_issue_number %>
+      <%= f.text_field :number, class: 'form-control', value: new_issue_number%>
     <% else %>
-      <%= f.text_field :number, class: 'form-control', value: previous_number%>
+      <%= f.text_field :number, class: 'form-control', value: 1%>
     <% end %>
 
   </div>

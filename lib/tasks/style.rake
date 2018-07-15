@@ -10,13 +10,29 @@ namespace :style do
     Issue.parse_gw
   end
 
-
   desc 'create new issue'
-  task :create_new_issue =>:environment do
-
-    # connect gw and get scape the site
-    # read the file
-    # create new issue
+  task :new_issue =>:environment do
+    today = Date.today
+    if Publication.holidays.include? Date.today
+      puts "#{today.to_s} is holiday."
+    elsif today.sunday? || today.saturday?
+      puts "#{today.to_s} is weekend."
+    else
+      puts "today is working day."
+      if Issue.where(date:today).first
+        puts "#{today.to_s}'s issue is already created!!!'"
+      else
+        prev_issue = Issue.last
+        prev_issue_number = prev_issue.number.to_i || 1
+        puts issue_number= prev_issue_number + 1
+        puts "creating new issue for #{today.to_s} ..."
+        i = Issue.new(publication_id:Publication.first.id, date:today, number: issue_number)
+        i.prepare
+        i.save
+        i.make_default_issue_plan
+        i.make_pages
+      end
+    end
 
   end
 

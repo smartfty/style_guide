@@ -18,10 +18,8 @@
   - progress wheel
 
 ## create NewsDisplayAdBox
-
   NewsDisplayAdBox  < Container
   NewsDisplayAdItem < Container
-
   - title
     - original
     - auto_fit
@@ -32,6 +30,48 @@
 
   - body
     - fit_text
+
+2018_7_13
+  - new issue
+    - validates uniqueness of issue.date
+    - show previous_date
+    - fix extended_line_count to template
+      - new migrate add field to article
+          add extended_line_count :integer
+          add pushed_line_count   :integer
+      - fix update working_article in page
+
+    - rake new_issue
+      - holidays.yml
+          2018-1-1
+          2018-3-1
+          2018-8-15
+          2018-10-10
+
+2018_7_12
+  - fix extend_line to increase relative to current value
+
+2018_7_5
+  - Ad db
+      - upload ad with page_number
+      - input advertiser, ad_type
+  - db backup
+  - print status
+  - lock finished issues
+  - divide_vertical, divide_horizontal
+  - pretty_url
+  - sending revised pdf version to printer with different name
+
+
+2018_7_2
+  - when body text is one line, no first line indent applies
+  - double quote at line ending bug
+  - when sending pdf to print, make different named file
+
+2018_7_1
+  - no top line on working_article other than 22, 23
+    - custom stroke_sides
+  - image at the bottom position with article bottom_margin
 
 2018_6_21
   - wire_story

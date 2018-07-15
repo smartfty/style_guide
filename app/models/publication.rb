@@ -122,6 +122,13 @@ class Publication < ApplicationRecord
     File.open(info_yml_path,'w'){|f| f.write publication_info_hash.to_yaml}
   end
 
+  def self.holidays
+    holidays_path = "#{Rails.root}/public/1/holidays.yml"
+    holidays = File.open(holidays_path, 'r'){|f| f.read}
+    holidays_array = YAML::load(holidays)
+    holidays_array.map{|d| d.to_s}
+  end
+
   def grid_width(page_columns)
     h = (width - left_margin - right_margin)/7
     if page_columns == 7

@@ -21,13 +21,24 @@
         </li>
         <li>
           <%= button_to "xml 파일 다운로드", download_story_xml_issue_path(format: "zip"), method: :get, class: "btn btn-sm btn-danger" %>
-        </li>
-        <li>
+        </li> 
+        <!-- <li>
           <%= button_to "지면보기 xml 생성", save_preview_xml_issue_path, method: :get, class: "btn btn-sm btn-warning" %>
+        </li> -->
+        <!-- <li>
+          <%= button_to "지면보기 xml 파일 다운로드", download_preview_xml_issue_path(format: "zip"), method: :get, class: "btn btn-sm btn-danger" %>
+        </li> -->
+        <li>
+          <%= button_to "기사 및 지면보기 XML 전송", send_xml_to_ebiz_issue_path, method: :get, data: { confirm: '정말 보내시겠습니까?'}, class: "btn btn-sm btn-success" %>
         </li>
         <li>
-          <%= button_to "지면보기 xml 파일 다운로드", download_preview_xml_issue_path(format: "zip"), method: :get, class: "btn btn-sm btn-danger" %>
+          <%= button_to "모바일 지면보기 xml 생성", save_mobile_preview_xml_issue_path, method: :get, class: "btn btn-sm btn-warning" %>
         </li>
+        <li>
+        <%= button_to "모바일 지면보기 xml 합성", merge_container_xml_issue_path, method: :get, class: "btn btn-sm btn-warning" %>
+      </li>
 
       </ul>
     </nav>
+
+    

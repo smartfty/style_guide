@@ -244,6 +244,118 @@ class AdBox < ApplicationRecord
     code
   end
 
+  def news_class_large_id
+    case page.section_name
+    when '1면'
+      code = "9"
+    when '정치'
+      code = "2"
+    when '행정'
+      code = "3"
+    when '국제통일'
+      code = "4"
+    when '금융'
+      code = "7"
+    when '산업'
+      code = "6"
+    when '기획'
+      code= "1"
+    when '정책'
+      code = "5"
+    when '오피니언'
+      code = "8"
+    end
+    code
+  end
+
+  def mobile_preview_xml_article_info
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
+    page_info        = page_number.to_s.rjust(2,"0")
+
+    @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
+    @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
+    @article_file_name = "#{year}#{month}#{day}011001#{page_info}00000000#{@order}"
+    @gija_name        = "편집기자명" # 편집기자명
+    @news_class_large_id    = news_class_large_id
+    @news_class_large_name  = page.section_name
+    @news_class_middle_id   = ""
+    @news_class_middle_name = ""
+    @send_modify            = "0"  # 수정횟수
+    @new_article            = "0" #뭘까?
+    @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}.01L.jpg"
+    #해당기사 저자사진: 121 × 160 픽셀, 120 픽셀/인치
+    #해당기사 그래픽은 .01L대신 .01S.jpg로 표시
+
+      article_info =<<EOF
+      <ArticleInfo>
+        <GroupKey><%= @group_key %></GroupKey>
+        <CmsFileName><%= @cms_file_name %></CmsFileName>
+        <CmsRelationName/>
+        <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
+        <GisaNumberID/>
+        <GisaRelationID/>
+        <ByLine/>
+        <Gija ID="0" Area="0" Name="<%= @gija_name %>" Email=""/>
+        <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
+        <SendModify><%= @send_modify %></SendModify>
+        <NewArticle><%= @new_article %></NewArticle>
+      </ArticleInfo>
+EOF
+          article = ""
+
+          erb = ERB.new(article_info)
+          article += erb.result(binding)
+  end
+
+
+  def mobile_preview_xml_component
+    @name_plate      = '광고'
+    @head_line       = advertiser
+
+    three_component =<<EOF
+      <TitleComponent>
+        <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<!--[[--image1--]]//-->
+        <%= @data_content %>
+        <%= @by_line %>]]>
+        </Content>
+      </ArticleComponent>
+    <PhotoComponent/>
+  </Article>
+EOF
+    component = ""
+
+    erb = ERB.new(three_component)
+    component += erb.result(binding)
+  end
+
+  def xml_group_key_template
+        # @head_line1        = @head_line.gsub("\u201C", "&quot;")
+        # @head_line2        = @head_line1.gsub("\u201D", "&quot;")
+        year  = issue.date.year
+        month = issue.date.month.to_s.rjust(2, "0")
+        day   = issue.date.day.to_s.rjust(2, "0")
+        page_info        = page_number.to_s.rjust(2,"0")
+        @order = page.working_articles.length + 1
+        @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
+
+        @name_plate      = '광고'
+        @head_line       = advertiser
+
+
+      container_xml_group_key=<<EOF
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="[<%= @name_plate %>] <%= @head_line %>"/>
+EOF
+      xml_group_key = ""
+      erb = ERB.new(container_xml_group_key)
+      xml_group_key += erb.result(binding)
+  end
+
+
   def ad_xml
     story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
