@@ -10,6 +10,11 @@ namespace :style do
     Issue.parse_gw
   end
 
+  desc 'say hello'
+  task :say_hello  do
+    puts "#{Time.now}:hello from rake task..."
+  end
+
   desc 'create new issue'
   task :new_issue =>:environment do
     today = Date.today
@@ -25,12 +30,12 @@ namespace :style do
         prev_issue = Issue.last
         prev_issue_number = prev_issue.number.to_i || 1
         puts issue_number= prev_issue_number + 1
-        puts "creating new issue for #{today.to_s} ..."
         i = Issue.new(publication_id:Publication.first.id, date:today, number: issue_number)
         i.prepare
         i.save
         i.make_default_issue_plan
         i.make_pages
+        puts "created new issue at #{Time.now} ..."
       end
     end
 

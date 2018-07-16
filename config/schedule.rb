@@ -2,11 +2,21 @@
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
+set :output, "#{path}/log/cron.log"
 
-every :day, at: '4am' do
+every :day, at: '6am' do
   # specify the task name as a string
-  rake "style:new_issue"
+  rake 'style:new_issue'
 end
+
+# every 2.minutes do
+#   puts 'runing cron job'
+#   # specify the task name as a string
+#   rake 'style:say_hello'
+# end
+
+# to set it for development envriroment
+# whenever --update-crontab --set environment='development'
 
 # Example:
 #

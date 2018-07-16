@@ -48,8 +48,16 @@
           2018-8-15
           2018-10-10
 
+2018_7_16
+  - add {: alignment: 'right'}  {: 정렬: '우측'}
+  - add {: alignment: 'center'} {: 정렬: '중간'}
+  - add {: alignment: 'left'}   {: 정렬: '좌측'}
+
+2018_7_16
+  - fix page update_working_articles for extended_line_count and pushed_line_count
+
 2018_7_12
-  - fix extend_line to increase relative to current value
+  - fix extended_line_count to increase relative to current value
 
 2018_7_5
   - Ad db
