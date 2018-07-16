@@ -437,22 +437,22 @@ class Section < ApplicationRecord
           ad_box_atts[:ad_type]   = box[4].split("_")[1]
           AdBoxTemplate.where(ad_box_atts).first_or_create!
         elsif box[4] =~/^extend/
-          article_atts[:extended_line_count] = box[4].spit("_")[1].to_i
+          article_atts[:extended_line_count] = box[4].split("_")[1].to_i
           # article_atts[:kind] = '기사'
           Article.where(article_atts).first_or_create!
           count += 1
         elsif box[5] && box[5] =~/^extend/
-          article_atts[:extended_line_count] = box[5].spit("_")[1].to_i
+          article_atts[:extended_line_count] = box[5].split("_")[1].to_i
           article_atts[:kind] = box[4]
           Article.where(article_atts).first_or_create!
           count += 1
         elsif box[4] =~/^push/
-          article_atts[:pushed_line_count] = box[4].spit("_")[1].to_i
+          article_atts[:pushed_line_count] = box[4].split("_")[1].to_i
           # article_atts[:kind] = '기사'
           Article.where(article_atts).first_or_create!
           count += 1
         elsif box[5] && box[5] =~/^push/
-          article_atts[:pushed_line_count] = box[5].spit("_")[1].to_i
+          article_atts[:pushed_line_count] = box[5].split("_")[1].to_i
           article_atts[:kind] = box[4]
           Article.where(article_atts).first_or_create!
           count += 1
