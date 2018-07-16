@@ -305,7 +305,9 @@ class Page < ApplicationRecord
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
         else
-          current[:article_id] = article.id
+          current[:article_id]          = article.id
+          current[:extended_line_count] = article.extended_line_count || 0
+          current[:pushed_line_count]   = article.pushed_line_count || 0
           WorkingArticle.create(current)
         end
       end
@@ -921,7 +923,7 @@ EOF
     erb.result(binding)
   end
 
-  
+
   def save_mobile_preview_xml
     default_time      = "00:00:00"
     year  = issue.date.year
