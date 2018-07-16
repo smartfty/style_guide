@@ -424,6 +424,11 @@ class Section < ApplicationRecord
       article_atts[:on_left_edge]   = true if box[0] == 0
       article_atts[:on_right_edge]  = false
       article_atts[:on_right_edge]  = true if box[0] + box[2] == column
+      if box.last =~/^extend/
+        article_atts[:extended_line_count] = box.last.split("_")[1].to_i
+      elsif box.last =~/^push/
+        article_atts[:pushed_line_count] = box.last.split("_")[1].to_i
+      end
 
       if box.length >= 5
         if box[4] =~/^광고/ || box[4] =~/^ad/
@@ -436,26 +441,6 @@ class Section < ApplicationRecord
           ad_box_atts[:order]    = i + 1
           ad_box_atts[:ad_type]   = box[4].split("_")[1]
           AdBoxTemplate.where(ad_box_atts).first_or_create!
-        elsif box[4] =~/^extend/
-          article_atts[:extended_line_count] = box[4].split("_")[1].to_i
-          # article_atts[:kind] = '기사'
-          Article.where(article_atts).first_or_create!
-          count += 1
-        elsif box[5] && box[5] =~/^extend/
-          article_atts[:extended_line_count] = box[5].split("_")[1].to_i
-          article_atts[:kind] = box[4]
-          Article.where(article_atts).first_or_create!
-          count += 1
-        elsif box[4] =~/^push/
-          article_atts[:pushed_line_count] = box[4].split("_")[1].to_i
-          # article_atts[:kind] = '기사'
-          Article.where(article_atts).first_or_create!
-          count += 1
-        elsif box[5] && box[5] =~/^push/
-          article_atts[:pushed_line_count] = box[5].split("_")[1].to_i
-          article_atts[:kind] = box[4]
-          Article.where(article_atts).first_or_create!
-          count += 1
         else
           article_atts[:kind] = box[4]
           Article.where(article_atts).first_or_create!
@@ -490,23 +475,9 @@ class Section < ApplicationRecord
     self
   end
 
-  def parese_extended_and_pushed_line_count
-    box_array = eval_layout
-    box_array.each_with_index do |box, i|
-      if box.length >= 5
-        if box.last =~/^extend/
-          self.extended_line_count = box.last.split("_")[1]
-        elsif last =~/^push/
-          self.pushed_line_count = box.last.split("_")[1]
-        end
-      end
-    end
-  end
-
   private
   def parse_profile
     self.story_count = parse_story_count
-    parese_extended_and_pushed_line_count
     self.profile     = make_profile
     true
   end
