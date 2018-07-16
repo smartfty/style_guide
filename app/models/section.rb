@@ -473,7 +473,7 @@ class Section < ApplicationRecord
     count = 0
     box_array = eval_layout
     box_array.each_with_index do |box, i|
-      if box.length == 5  && (box[4] == '기고' || box[4] == 'opinion' || box[4] == '사설' || box[4] == 'editorial')
+      if box.length >= 5  && (box[4] == '기고' || box[4] == 'opinion' || box[4] == '사설' || box[4] == 'editorial')
         count += 1
       elsif box.length == 5 && box[4] =~ /^광고/
       else
@@ -490,9 +490,23 @@ class Section < ApplicationRecord
     self
   end
 
+  def parese_extended_and_pushed_line_count
+    box_array = eval_layout
+    box_array.each_with_index do |box, i|
+      if box.length >= 5
+        if box.last =~/^extend/
+          self.extended_line_count = box.last.split("_")[1]
+        elsif last =~/^push/
+          self.pushed_line_count = box.last.split("_")[1]
+        end
+      end
+    end
+  end
+
   private
   def parse_profile
     self.story_count = parse_story_count
+    parese_extended_and_pushed_line_count
     self.profile     = make_profile
     true
   end
