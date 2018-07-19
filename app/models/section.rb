@@ -295,12 +295,12 @@ class Section < ApplicationRecord
     eval_layout.each do |box|
       next if box.class == Hash
       if box.length == 5
-        if box[4][:type] == 'heading' || box[4]['타입'] == '제목'
+        if box[4] == 'heading' || box[4] == '제목'
           # heading box
           string += "<rect fill='gray' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
-        elsif box[4][:type] == 'image'
+        elsif box[4] == 'image'
           puts "place image here ..."
-        elsif box[4][:ad] || box[4]['타입'] == '광고'
+        elsif box[4] || box[4] == '광고'
           # ad box
           string += "<rect fill='red' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         else

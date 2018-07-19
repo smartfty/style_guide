@@ -188,6 +188,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def character_count
+    return 0 unless body
     body.length
   end
 
@@ -679,6 +680,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def filter_to_markdown(body_text)
+    return unless body_text
     body_text.strip!
     # body_text.gsub!(/^\n\n/, "\n")
     body_text.gsub!(/\u200B/, "")

@@ -43,7 +43,10 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
+      binding.pry
+
       # if filter_markdown?
+      puts "params['working_article']['kind']:#{params['working_article']['kind']}"
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
       # end
       if @working_article.update(working_article_params)
@@ -52,7 +55,6 @@ class WorkingArticlesController < ApplicationController
         # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
         # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
         format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
-
         format.json { render :show, status: :ok, location: @working_article }
       else
         format.html { render :edit }

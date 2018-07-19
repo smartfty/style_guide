@@ -29,6 +29,8 @@
       <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
     <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
       <%= render 'opinion', article: @working_article %>
+    <% elsif @working_article.kind == '사진' || @working_article.kind == 'image' %>
+      <%= render 'image', article: @working_article %>
     <% else %>
       <%= render 'form', article: @working_article %>
     <% end %>
