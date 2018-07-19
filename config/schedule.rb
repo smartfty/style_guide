@@ -4,10 +4,15 @@
 # http://en.wikipedia.org/wiki/Cron
 set :output, "#{path}/log/cron.log"
 
-every :day, at: '6am' do
+every :day, at: '5am' do
   # specify the task name as a string
   rake 'style:new_issue'
 end
+
+# run
+# whenever --update-crontab 을 실행한다.
+# whenever --update-crontab --set environment='development'
+
 
 # every 2.minutes do
 #   puts 'runing cron job'

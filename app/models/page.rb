@@ -432,7 +432,6 @@ class Page < ApplicationRecord
           layout_template = source + "/layout.rb"
           system("cp  #{layout_template} #{article_foloder}/")
         end
-        puts "i:#{i}"
       end
 
       # backup or restore story from previous template change
@@ -520,7 +519,6 @@ class Page < ApplicationRecord
     File.open(default_issue_plan_path, 'w'){|f| f.write issue_hash.to_s}
   end
 
-
   def heading_height_in_pt
     if page_number == 1
       publication.front_page_heading_height_in_pt
@@ -562,7 +560,6 @@ class Page < ApplicationRecord
     delete_latest_files
     stamp_time
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
-
   end
 
   def generate_pdf
@@ -572,10 +569,7 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
-    puts __method__
-    puts "working_articles.length:#{working_articles.length}"
     working_articles.each do |working_article|
-      puts "calling working_article.generate_pdf"
       working_article.generate_pdf
     end
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
@@ -690,6 +684,10 @@ class Page < ApplicationRecord
     target_file
   end
 
+  def printer_file
+    path + "/section.pdf"
+  end
+
   def copy_to_proof_reading_ftp
     require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
@@ -709,11 +707,38 @@ class Page < ApplicationRecord
     path + "/printer"
   end
 
+  def latest_printer_file
+    if Dir.glob("#{printer_folder}/*.pdf").length == 0
+      printer_file = path + "/section.pdf"
+    else
+      Dir.glob("#{printer_folder}/*.pdf").sort.last
+    end
+  end
+
+  def printer_file_version
+    version = 0
+    if latest_printer_file.split("_").length > 0
+      version =  latest_printer_file.split("_")[1].to_i
+    end
+    version
+  end
+
+  def backup_printer_file
+    target_file = printer_folder + "/section_0.pdf"
+    FileUtils.mkdir_p(printer_folder) unless File.exist?(printer_folder)
+    current_files = Dir.glob("#{printer_folder}/*.pdf")
+    if current_files.length > 0
+      target_file = printer_folder + "/section_#{current_files.length}.pdf"
+    end
+    FileUtils.cp(printer_file, target_file)
+  end
+
   def copy_to_printer_ftp
     dong_a
     jung_ang
     news_pdf
     ex_pdf
+    backup_printer_file
     true
   end
 
@@ -723,6 +748,11 @@ class Page < ApplicationRecord
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
      "NA#{m}#{d}#{pg}NB01.pdf"
+    if printer_file_version == 0
+      "zn#{m}#{d}#{pg}10001.pdf"
+    else
+      "zn#{m}#{d}#{pg}10001_{#{printer_file_version}}.pdf"
+    end
   end
 
   def dong_a
@@ -730,7 +760,6 @@ class Page < ApplicationRecord
     ip        = '210.115.142.181'
     id        = 'naeil'
     pw        = 'cts@'
-    printer_file = path + "/section.pdf"
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
     end
@@ -741,7 +770,11 @@ class Page < ApplicationRecord
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
+    if printer_file_version == 0
      "zn#{m}#{d}#{pg}10001.pdf"
+    else
+     "zn#{m}#{d}#{pg}10001_#{printer_file_version}.pdf"
+    end
   end
 
   def jung_ang
@@ -750,7 +783,6 @@ class Page < ApplicationRecord
     id        = 'naeil'
     pw        = 'sodlf@2018'
     # upload files
-    printer_file = path + "/section.pdf"
     ftp = Net::FTP.new  # don't pass hostname or it will try open on default port
     ftp.connect('112.216.44.45', '2121')  # here you can pass a non-standard port number
     ftp.login('naeil', 'sodlf@2018')
@@ -771,7 +803,6 @@ class Page < ApplicationRecord
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    printer_file = path + "/section.pdf"
     yyyymd = issue.date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
@@ -790,7 +821,6 @@ class Page < ApplicationRecord
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    printer_file = path + "/section.pdf"
     yyyymd = issue.date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")

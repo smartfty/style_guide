@@ -31,6 +31,19 @@
   - body
     - fit_text
 
+2018_7_??
+  - add {: alignment: 'right'}  {: 정렬: '우측'}
+  - add {: alignment: 'center'} {: 정렬: '중간'}
+  - add {: alignment: 'left'}   {: 정렬: '좌측'}
+
+2018_7_19
+  - add whenever
+  - add holidays.yml
+  - fix sending pdf to printer to handle revisions
+
+2018_7_16
+  - fix page update_working_articles for extended_line_count and pushed_line_count
+
 2018_7_13
   - new issue
     - validates uniqueness of issue.date
@@ -47,14 +60,6 @@
           2018-3-1
           2018-8-15
           2018-10-10
-
-2018_7_16
-  - add {: alignment: 'right'}  {: 정렬: '우측'}
-  - add {: alignment: 'center'} {: 정렬: '중간'}
-  - add {: alignment: 'left'}   {: 정렬: '좌측'}
-
-2018_7_16
-  - fix page update_working_articles for extended_line_count and pushed_line_count
 
 2018_7_12
   - fix extended_line_count to increase relative to current value

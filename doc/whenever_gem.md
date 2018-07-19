@@ -29,6 +29,7 @@ end
 crop 을 작동 하려면
 
 whenever --update-crontab 을 실행한다.
+whenever --update-crontab --set environment='development'
 
 도음말
 whenever --help 을 실행한다.

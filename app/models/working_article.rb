@@ -777,10 +777,10 @@ class WorkingArticle < ApplicationRecord
   #   File.open(path, 'w'){|f| f.write story_xml}
   # end
 
-  # http://www.fileformat.info/info/unicode/char/200B/index.htm
+  #  - [ ] 유니코드 문자 EUC-KR 변환시 체크 https://www.compart.com/en/unicode/
   def covert_euckr_not_suported_chars
-    body.gsub!("\u200B", "")
     title.strip!
+    body.gsub!("\u200B", "")
     title.gsub!("\u200B", "")
     body.gsub!("\u2027", "\u00b7")
     body.gsub!("\u2024", "\u00b7")

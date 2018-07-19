@@ -415,6 +415,7 @@ end
     # end
   # end
 
+
   def save_story_xml
     pages[21..22].each do |page|
       page.save_story_xml
@@ -426,11 +427,15 @@ end
     pages[21..22].each do |page|
       page.save_preview_xml
     end
-    make_preview_xml_zip
+    # make_preview_xml_zip
   end
 
   def mobile_page_preview_path
     "#{Rails.root}/public/1/issue/#{date.to_s}/mobile_page_preview"
+  end
+
+  def partial_xml_path
+  "#{Rails.root}/public/1/issue/#{date.to_s}/partial_xml"
   end
 
   def save_mobile_preview_xml
@@ -443,13 +448,15 @@ end
       page.save_mobile_preview_xml
       # all_container_xml_page = page.container_xml_page
     end
-    File.open(mobile_page_preview_path + "/partial_Container.xml", 'w'){|f| f.write s}
-    File.open(mobile_page_preview_path + "/partial_updateinfo.xml", 'w'){|f| f.write u}
+    system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
+    File.open(partial_xml_path + "/partial_Container.xml", 'w'){|f| f.write s}
+    File.open(partial_xml_path + "/partial_updateinfo.xml", 'w'){|f| f.write u}
+    mobile_xml_send
     # make_mobile_preview_xml_zip
-    directory_to_zip = mobile_preview_xml_path
-    output_file = mobile_preview_xml_zip_path
-    zf = ZipFileGenerator.new(directory_to_zip, output_file)
-    zf.write()
+    # directory_to_zip = mobile_preview_xml_path
+    # output_file = mobile_preview_xml_zip_path
+    # zf = ZipFileGenerator.new(directory_to_zip, output_file)
+    # zf.write()
   end
 
   def copy_to_xml_ftp
@@ -470,6 +477,8 @@ end
     month         = date.month.to_s.rjust(2, "0")
     day           = date.day.to_s.rjust(2, "0")
     issue_date    = "#{year}#{month}#{day}"
+    news_xml      = "#{issue_date}_news_xml"
+    preview_xml   = "#{issue_date}_preview_xml"
 
     puts "sending it to News & Preview Xml.zip"
     ip        = '211.115.91.231'
@@ -477,18 +486,31 @@ end
     pw        = 'sodlftlsans1!'
     entries = Dir.glob("#{xml_path}/**/*").sort
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.mkdir issue_date
-      entries.each do |name|
+      ftp.mkdir news_xml
+        entries.each do |name|
         base_name = File.basename(name)
-        if File::directory? name
-          ftp.mkdir issue_date + "/#{base_name}"
+        if File::directory? base_name
+          # ftp.mkdir issue_date + "/#{base_name}"
+          ftp.mkdir base_name
         else
-          File.open(name) { |file| ftp.putbinaryfile(file, issue_date + "/#{base_name}") }
+          File.open(name) { |file| ftp.putbinaryfile(file, news_xml + "/#{base_name}") }
+        end
+      end
+    end
+    entries = Dir.glob("#{preview_xml_path}/**/*").sort
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.mkdir preview_xml
+        entries.each do |name|
+        base_name = File.basename(name)
+        if File::directory? base_name
+          # ftp.mkdir issue_date + "/#{base_name}"
+          ftp.mkdir base_name
+        else
+          File.open(name) { |file| ftp.putbinaryfile(file, preview_xml + "/#{base_name}") }
         end
       end
     end
   end
-
 
   def merge_container_xml
   ip        = '211.115.91.68'
