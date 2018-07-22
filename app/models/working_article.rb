@@ -35,11 +35,13 @@
 #  updated_at          :datetime         not null
 #  quote_box_size      :integer
 #  category_code       :integer
+#  slug                :string
 #
 # Indexes
 #
 #  index_working_articles_on_article_id  (article_id)
 #  index_working_articles_on_page_id     (page_id)
+#  index_working_articles_on_slug        (slug) UNIQUE
 #
 
 class WorkingArticle < ApplicationRecord
@@ -50,7 +52,21 @@ class WorkingArticle < ApplicationRecord
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
+
+  extend FriendlyId
+  # friendly_id :make_frinedly_slug
+  friendly_id :make_frinedly_slug, :use => [:slugged]
+
+
   attr_reader :time_stamp
+
+  def page_friendly_string
+    page.friendly_string
+  end
+
+  def make_frinedly_slug
+    "#{page_friendly_string}_#{order}"
+  end
 
   def page_path
     page.path
@@ -131,7 +147,7 @@ class WorkingArticle < ApplicationRecord
 
   def save_article
     save_layout
-    save_story
+    save_story unless kind == '사진'
   end
 
   def update_pdf
@@ -463,6 +479,13 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  def image_box_options
+    if images.first
+      images.first.iamge_layout_hash
+    else
+      nil
+    end  end
+
   def page_columns
     page.column
   end
@@ -538,7 +561,7 @@ class WorkingArticle < ApplicationRecord
     if kind == '사진'
       content = "RLayout::NewsImageBox.new(#{h}) do\n"
       if image_hash = image_options
-        image_hash[:fit_type] = 4
+        image_hash[:fit_type] = 3 # keep ratio
         image_hash[:expand] = [:width, :height]
         puts "image_hash:#{image_hash}"
         content += "  news_image(#{image_hash})\n"

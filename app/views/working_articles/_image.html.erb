@@ -1,16 +1,61 @@
-<% if  @working_article.images.length == 0%>
-  <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
-    <%= f.fields_for :images, Image.new do |p| %>
-    <br>
-    <br>
-    <hr>
-      <div class="field">
-        <%= p.label '사진선택' %><br>
-        <p> <%= p.file_field :image, :multiple => true, name: "images[image][]" %></p>
-      </div>
-    <% end %>
-    <div class="actions">
-      <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+
+
+<%= form_for(article, remote: true) do |f| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
   <% end %>
+
+  <div class="form-group">
+    <%= f.label :기사종류 %>
+    <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
+  </div>
+  <% if article.kind ==  '사진'%>
+    <p>선택된 사진</p>
+  <% end %>
+
+
+<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
+        </li>
+        <li>
+          <%= f.button "저장하기", class: "btn btn-sm btn-primary navbar-btn", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+        </li>
+        <li>
+          <%= link_to "페이지 PDF 다운로드", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-sm btn-warning" %>
+        </li>
+        <li>
+          <%= link_to "기사 PDF 다운로드", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+        </li>
+      </ul>
+    </nav>
+
+
+<!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
+        </li>
+        <li>
+          <%= f.button "저장하기", class: "btn btn-sm btn-primary navbar-btn", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+        </li>
+        <li>
+          <%= link_to "페이지 PDF 다운로드", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-sm btn-warning" %>
+        </li>
+        <li>
+          <%= link_to "기사 PDF 다운로드", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+        </li>
+      </ul>
+  </nav>
 <% end %>

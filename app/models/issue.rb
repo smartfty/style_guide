@@ -9,6 +9,7 @@
 #  publication_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  slug           :string
 #
 # Indexes
 #
@@ -26,11 +27,17 @@ class Issue < ApplicationRecord
   has_many  :ad_images
   accepts_nested_attributes_for :ad_images
 
+  extend FriendlyId
+  friendly_id :friendly_string, :use => [:slugged]
+
   before_create :read_issue_plan
   after_create :setup
   validates_presence_of :date
   validates_uniqueness_of :date
 
+  def friendly_string
+    date.to_s
+  end
   def path
     "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}"
   end

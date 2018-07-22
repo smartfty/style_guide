@@ -17,12 +17,15 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  clone_name   :string
+#  slug         :string
 #
 # Indexes
 #
 #  index_pages_on_issue_id      (issue_id)
 #  index_pages_on_page_plan_id  (page_plan_id)
+#  index_pages_on_slug          (slug) UNIQUE
 #
+
 require 'erb'
 require 'net/ftp'
 
@@ -38,8 +41,15 @@ class Page < ApplicationRecord
   scope :clone_page, -> {where("clone_name!=?", nil)}
   attr_reader :time_stamp
 
+  extend FriendlyId
+  friendly_id :friendly_string, :use => [:slugged]
+
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
+
+  def friendly_string
+    "#{issue.date.to_s}_#{page_number}"
+  end
 
   def path
     if clone_name == nil
@@ -708,19 +718,11 @@ class Page < ApplicationRecord
   end
 
   def latest_printer_file
-    if Dir.glob("#{printer_folder}/*.pdf").length == 0
-      printer_file = path + "/section.pdf"
-    else
-      Dir.glob("#{printer_folder}/*.pdf").sort.last
-    end
+    Dir.glob("#{printer_folder}/*.pdf").sort.last
   end
 
   def printer_file_version
-    version = 0
-    if latest_printer_file.split("_").length > 0
-      version =  latest_printer_file.split("_")[1].to_i
-    end
-    version
+    latest_printer_file.split("_")[1].to_i
   end
 
   def backup_printer_file
@@ -734,11 +736,11 @@ class Page < ApplicationRecord
   end
 
   def copy_to_printer_ftp
+    backup_printer_file
     dong_a
     jung_ang
     news_pdf
     ex_pdf
-    backup_printer_file
     true
   end
 
@@ -747,11 +749,10 @@ class Page < ApplicationRecord
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
-     "NA#{m}#{d}#{pg}NB01.pdf"
     if printer_file_version == 0
-      "zn#{m}#{d}#{pg}10001.pdf"
+      "NA#{m}#{d}#{pg}NB01.pdf"
     else
-      "zn#{m}#{d}#{pg}10001_{#{printer_file_version}}.pdf"
+      "NA#{m}#{d}#{pg}NB0#{printer_file_version + 1}.pdf"
     end
   end
 
@@ -827,7 +828,6 @@ class Page < ApplicationRecord
     end
   end
 
-
   def dropbox_path
     File.expand_path("~/dropbox")
   end
@@ -848,7 +848,6 @@ class Page < ApplicationRecord
       return true
     end
   end
-
 
   def save_preview_xml
    date = issue.date

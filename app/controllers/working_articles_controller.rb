@@ -43,10 +43,7 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
-      binding.pry
-
       # if filter_markdown?
-      puts "params['working_article']['kind']:#{params['working_article']['kind']}"
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
       # end
       if @working_article.update(working_article_params)
@@ -243,7 +240,9 @@ class WorkingArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_working_article
-      @working_article = WorkingArticle.find(params[:id])
+      # @working_article = WorkingArticle.find(params[:id])
+      @working_article = WorkingArticle.friendly.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

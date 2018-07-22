@@ -303,7 +303,9 @@ class IssuesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
       if params[:id]
-        @issue = Issue.find(params[:id])
+        # @issue = Issue.find(params[:id])
+        @issue = Issue.friendly.find(params[:id])
+
       else
         @issue = Issue.last
       end

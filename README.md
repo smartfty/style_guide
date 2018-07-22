@@ -188,7 +188,6 @@ date
   order
 
 ## holidays
-
   day
   name
 

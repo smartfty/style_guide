@@ -36,6 +36,13 @@
   - add {: alignment: 'center'} {: 정렬: '중간'}
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
 
+  - prevent from printing if we have overflowing article
+  - friendly_id, nested
+
+2018_7_20
+  - fix working_article when kins =='사진'
+    - show should have image info edit
+
 2018_7_19
   - add whenever
   - add holidays.yml
@@ -564,6 +571,9 @@
       - add eNews rethinking newspaper media
           - animated headline
           - reading text to speech
+
+
+
 2017_11_30
   - add news_view
     slid show of pages

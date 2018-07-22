@@ -35,11 +35,13 @@
 #  updated_at          :datetime         not null
 #  quote_box_size      :integer
 #  category_code       :integer
+#  slug                :string
 #
 # Indexes
 #
 #  index_working_articles_on_article_id  (article_id)
 #  index_working_articles_on_page_id     (page_id)
+#  index_working_articles_on_slug        (slug) UNIQUE
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

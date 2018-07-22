@@ -17,11 +17,13 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  clone_name   :string
+#  slug         :string
 #
 # Indexes
 #
 #  index_pages_on_issue_id      (issue_id)
 #  index_pages_on_page_plan_id  (page_plan_id)
+#  index_pages_on_slug          (slug) UNIQUE
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

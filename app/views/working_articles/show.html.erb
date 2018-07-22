@@ -35,41 +35,37 @@
       <%= render 'form', article: @working_article %>
     <% end %>
 
-    <% if @working_article.kind == '기사' %>
+    <% if @working_article.kind == '기사' || @working_article.kind == '사진'%>
       <div class="row" align='center'>
-      <% @working_article.images.each do |image| %>
-        <div class="col-md-4">
-          <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb), :height => "50%", :width=> "100%"%></a></p>
-          <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        </div>
-      <% end %>
-
-      <% if  @working_article.images.length == 0%>
-        <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
-          <%= f.fields_for :images, Image.new do |p| %>
-          <br>
-          <br>
-          <hr>
-            <div class="field">
-              <%= p.label '사진선택' %><br>
-              <p> <%= p.file_field :image, :multiple => true, name: "images[image][]" %></p>
-            </div>
-          <% end %>
-          <div class="actions">
-            <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+        <% @working_article.images.each do |image| %>
+          <div class="col-md-4">
+            <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb), :height => "50%", :width=> "100%"%></a></p>
+            <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
           </div>
         <% end %>
-      <% end %>
 
-
-      <% # link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-      <% # link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-      <br>
-      <hr>
-    </div>
+        <% if  @working_article.images.length == 0%>
+          <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
+            <%= f.fields_for :images, Image.new do |p| %>
+            <br>
+            <br>
+            <hr>
+              <div class="field">
+                <%= p.label '사진선택' %><br>
+                <p> <%= p.file_field :image, :multiple => true, name: "images[image][]" %></p>
+              </div>
+            <% end %>
+            <div class="actions">
+              <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+            </div>
+          <% end %>
+        <% end %>
+        <% # link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+        <% # link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+        <br>
+        <hr>
+      </div>
     <% end %>
-
-
   </div>
 
 
