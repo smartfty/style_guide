@@ -9,13 +9,20 @@ rake db:migrate
 
 ## change Model
 
+add following to model
 extend FriendlyId
-friendly_id :method_to_genete_slug, use: :slugged
+
+### for WorkingArticle
 
 friendly_id :method_to_genete_slug, use: :slugged
+
+### for Issue, and Page
+
 friendly_id :friendly_string, :use => [:slugged]
 
+## change set_working_article, set_page, set_issue
+  Model.find(params[id]) =>   Model.friendly.find(params[id]) =>
 
 ## update existing records
 
-ModelNmae.find_each(&:save)
+Model.find_each(&:save)

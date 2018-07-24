@@ -17,10 +17,6 @@
     <%= f.label :기사종류 %>
     <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
   </div>
-  <% if article.kind ==  '사진'%>
-    <p>선택된 사진</p>
-  <% end %>
-
 
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
   <nav class="navbar navbar-default navbar-fixed-top2">
@@ -58,4 +54,40 @@
         </li>
       </ul>
   </nav>
+<% end %>
+
+<% image =article.images.first%>
+<%= form_for(article.images.first) do |f| %>
+  <% if image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :사진제목 %>
+      <%= f.text_field :caption_title %>
+    </div>
+
+    <div class="field">
+      <%= f.label :사진설명 %>
+      <%= f.text_area :caption, cols: "60", rows: "3", font_size: "16px"%>
+    </div>
+
+    <div class="field">
+      <%= f.label :출처 %>
+      <%= f.text_field :source %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
 <% end %>

@@ -35,13 +35,20 @@
   - add {: alignment: 'right'}  {: 정렬: '우측'}
   - add {: alignment: 'center'} {: 정렬: '중간'}
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
-
   - prevent from printing if we have overflowing article
-  - friendly_id, nested
 
-2018_7_20
+2018_7_24  
+  - API interface
+
+2018_7_24
   - fix working_article when kins =='사진'
     - show should have image info edit
+    - generate article pdf when image is updated
+    - remove link to image_edit when in 사진 모드
+    - call generate_pdf_with_time_stamp when updating image with working_article_id
+
+2018_7_20
+  - friendly_id
 
 2018_7_19
   - add whenever

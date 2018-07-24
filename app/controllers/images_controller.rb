@@ -54,9 +54,10 @@ class ImagesController < ApplicationController
         @image.update_change
         format.html do
           if @image.working_article_id
-            redirect_to working_article_path(@image.working_article_id), notice: 'Image was successfully updated.'
+            @image.working_article.generate_pdf_with_time_stamp
+            redirect_to working_article_path(@image.working_article_id), notice: '이미지 정보가 수정되었습니다.'
           else
-            redirect_to images_issue_path(@image.issue_id), notice: 'Image was successfully updated.'
+            redirect_to images_issue_path(@image.issue_id), notice: '이미지 정보가 수정되었습니다.'
           end
         end
         format.json { render :show, status: :ok, location: @image }
