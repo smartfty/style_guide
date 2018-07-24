@@ -1,4 +1,37 @@
+<% image =article.images.first%>
+<%= form_for(article.images.first) do |f| %>
+  <% if image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
 
+      <ul>
+      <% image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :사진제목 %>
+      <%= f.text_field :caption_title %>
+    </div>
+
+    <div class="field">
+      <%= f.text_area :caption, cols: "60", rows: "3", font_size: "16px"%>
+    </div>
+
+    <div class="field">
+      <%= f.label :출처 %>
+      <%= f.text_field :source %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "사진정보 저장"%>
+    </div>
+
+<% end %>
 
 <%= form_for(article, remote: true) do |f| %>
   <% if article.errors.any? %>
@@ -54,40 +87,4 @@
         </li>
       </ul>
   </nav>
-<% end %>
-
-<% image =article.images.first%>
-<%= form_for(article.images.first) do |f| %>
-  <% if image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
-      <ul>
-      <% image.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div class="field">
-      <%= f.label :사진제목 %>
-      <%= f.text_field :caption_title %>
-    </div>
-
-    <div class="field">
-      <%= f.label :사진설명 %>
-      <%= f.text_area :caption, cols: "60", rows: "3", font_size: "16px"%>
-    </div>
-
-    <div class="field">
-      <%= f.label :출처 %>
-      <%= f.text_field :source %>
-    </div>
-
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
 <% end %>
