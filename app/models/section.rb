@@ -30,6 +30,8 @@ class Section < ApplicationRecord
   after_create :setup
   before_create :parse_profile
 
+  # include PageSplitable
+
   # serialize :layout, Array
   # scope :six_column, -> {where("column==?", 6)}
   # scope :seven_column, -> {where("column==?", 7)}

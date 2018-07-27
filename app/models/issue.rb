@@ -519,40 +519,58 @@ end
     end
   end
 
-  def merge_container_xml
-  ip        = '211.115.91.68'
-  id        = 'jimeun'
-  pw        = 'sodlfwlaus2018!@#$'
-
-  year          = date.year
-  month         = date.month.to_s.rjust(2, "0")
-  day           = date.day.to_s.rjust(2, "0")
-  issue_date    = "#{year}#{month}#{day}"
-
-  ftp_folder              = "#{year}/#{month}/#{day}/"
-  partial_folder          = partial_xml_path
-
-  Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.chdir(ftp_folder)
-    ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
-    ftp.getbinaryfile('Container.xml', "#{partial_xml_path}/Container.xml")
-
-    # ++++++++ Container
-    container_base_path     = partial_folder + '/Container.xml'
-    container_partial_path  = partial_folder + '/partial_Container.xml'
-    if File.exist?(container_base_path) && File.exist?(container_partial_path)
-      base_content          = File.open(container_base_path, 'r'){|f| f.read}
-      after_count_change    = base_content.sub(/<PageList Count="22">/, "<PageList Count=\"24\">")
-      partial_content       = File.open(container_partial_path, 'r'){|f| f.read}
-      page_24_and_afer      = /<Page ID="100124">.*<\/ContainerML>/m
-      result = after_count_change.match(page_24_and_afer)
-      final = result.pre_match + partial_content + result.to_s
-      File.open(container_base_path, 'w'){|f| f.write final}
-      FileUtils.rm(container_partial_path)
-    else
-      puts "No Container.xml or No partial_Container.xml !!!!"
+  def check_for_mergeable_container_xml(ftp)
+    found_mergable_file = false
+    #A viable fallback would be to retrieve the list of files with FTP#list, then iterate through them and compare with idx.
+    starting_time = Time.now
+    while !found_mergable_file do
+      # check for mergable_file
+      # if file exists, do the merge and return
+      current_time = Time.now
+      break if starting_time + 3600 < current_time
+      list = ftp.list
+      if list.include?('updateinfo.xml')
+        return true
+      end
+      sleep 60
     end
+    puts "tried for one hour from #{starting_time}, but no mergerable file was found!!!"
+    false
+  end
 
+  def merge_container_xml
+    ip            = '211.115.91.68'
+    id            = 'jimeun'
+    pw            = 'sodlfwlaus2018!@#$'
+    year          = date.year
+    month         = date.month.to_s.rjust(2, "0")
+    day           = date.day.to_s.rjust(2, "0")
+    issue_date    = "#{year}#{month}#{day}"
+    ftp_folder    = "#{year}/#{month}/#{day}/"
+    partial_folder = partial_xml_path
+
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.chdir(ftp_folder)
+      # result = check_for_mergeable_container_xml(ftp)
+      return unless result
+
+      ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
+      ftp.getbinaryfile('Container.xml', "#{partial_xml_path}/Container.xml")
+      # ++++++++ Container
+      container_base_path     = partial_folder + '/Container.xml'
+      container_partial_path  = partial_folder + '/partial_Container.xml'
+      if File.exist?(container_base_path) && File.exist?(container_partial_path)
+        base_content          = File.open(container_base_path, 'r'){|f| f.read}
+        after_count_change    = base_content.sub(/<PageList Count="22">/, "<PageList Count=\"24\">")
+        partial_content       = File.open(container_partial_path, 'r'){|f| f.read}
+        page_24_and_afer      = /<Page ID="100124">.*<\/ContainerML>/m
+        result = after_count_change.match(page_24_and_afer)
+        final = result.pre_match + partial_content + result.to_s
+        File.open(container_base_path, 'w'){|f| f.write final}
+        FileUtils.rm(container_partial_path)
+      else
+        puts "No Container.xml or No partial_Container.xml !!!!"
+      end
       # ++++++++ updateinfo
       updateinfo_base_path          = partial_folder + '/updateinfo.xml'
       updateinfo_partial_path       = partial_folder + '/partial_updateinfo.xml'
@@ -566,7 +584,7 @@ end
         File.open(updateinfo_base_path, 'w'){|f| f.write info_final}
         FileUtils.rm(updateinfo_partial_path)
       else
-        puts "No updateinfo.xml or No partial_updateinfo.xml !!!!"
+        puts "No updateinfo.xml or partial_updateinfo.xml !!!!"
       end
       # ftp.rename("#{ftp_folder}/.xml", "updateinfo.xml.old")
       # ftp.rename("#{ftp_folder}/Contaiupdateinfoner.xml", "Container.xml.old")

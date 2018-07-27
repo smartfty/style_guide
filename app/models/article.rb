@@ -35,10 +35,10 @@
 
 class Article < ApplicationRecord
   belongs_to :section #, optional: true
-
   after_create :setup
-
   has_many :images
+
+  include ArticleSplitable
 
   def path
     section.path + "/#{order}"

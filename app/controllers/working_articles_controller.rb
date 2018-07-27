@@ -236,6 +236,17 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '4 행용 발문 박스(12줄 추가) 설정 되었습니다.'
   end
 
+  def split_article(options)
+    @working_article.split(options)
+  end
+
+  def split_article_vertically(options)
+    split_article(direction:'v')
+  end
+
+  def split_article_horinotally(options)
+    split_article(direction:'h')
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

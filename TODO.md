@@ -36,9 +36,12 @@
   - add {: alignment: 'center'} {: 정렬: '중간'}
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - prevent from printing if we have overflowing article
-
-2018_7_24  
   - API interface
+
+2018_7_26
+  - split_article
+  - add PageSplitable, ArticleSplitable
+  - add layout field to working_articles db
 
 2018_7_24
   - fix working_article when kins =='사진'
@@ -85,7 +88,6 @@
   - db backup
   - print status
   - lock finished issues
-  - divide_vertical, divide_horizontal
   - pretty_url
   - sending revised pdf version to printer with different name
 
