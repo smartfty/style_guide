@@ -52,7 +52,7 @@ class WorkingArticle < ApplicationRecord
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
-  # include ArtocleSplitable
+  include ArticleSplitable
 
   extend FriendlyId
   # friendly_id :make_frinedly_slug

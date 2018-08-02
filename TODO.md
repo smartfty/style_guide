@@ -40,7 +40,7 @@
 
 2018_7_26
   - split_article
-  - add PageSplitable, ArticleSplitable
+  - add PageSplitable, SectionSplitable, ArticleSplitable
   - add layout field to working_articles db
 
 2018_7_24

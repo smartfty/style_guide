@@ -15,8 +15,14 @@
 #
 #  index_issues_on_publication_id  (publication_id)
 #
+# 
+# i.prepare
+# i.save
+# i.make_default_issue_plan
+# i.make_pages
 
 require "zip/zip"
+require 'net/ftp'
 
 class Issue < ApplicationRecord
   belongs_to :publication
@@ -373,8 +379,6 @@ class Issue < ApplicationRecord
     end
   end
 
-  private
-
   # A helper method to make the recursion work.
   def write_entries(entries, path, zipfile)
     entries.each do |e|
@@ -519,25 +523,6 @@ end
     end
   end
 
-  def check_for_mergeable_container_xml(ftp)
-    found_mergable_file = false
-    #A viable fallback would be to retrieve the list of files with FTP#list, then iterate through them and compare with idx.
-    starting_time = Time.now
-    while !found_mergable_file do
-      # check for mergable_file
-      # if file exists, do the merge and return
-      current_time = Time.now
-      break if starting_time + 3600 < current_time
-      list = ftp.list
-      if list.include?('updateinfo.xml')
-        return true
-      end
-      sleep 60
-    end
-    puts "tried for one hour from #{starting_time}, but no mergerable file was found!!!"
-    false
-  end
-
   def merge_container_xml
     ip            = '211.115.91.68'
     id            = 'jimeun'
@@ -551,9 +536,6 @@ end
 
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.chdir(ftp_folder)
-      # result = check_for_mergeable_container_xml(ftp)
-      return unless result
-
       ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
       ftp.getbinaryfile('Container.xml', "#{partial_xml_path}/Container.xml")
       # ++++++++ Container
@@ -593,14 +575,37 @@ end
     end
   end
 
+  # check target ftp folder every 5 min for 2 hrs (5min x 24 = 2hrs)
+  def wait_for_xml_upload
+    year          = date.year
+    month         = date.month.to_s.rjust(2, "0")
+    day           = date.day.to_s.rjust(2, "0")
+    issue_date    = "#{year}#{month}#{day}"
+    ip        = '211.115.91.68'
+    id        = 'jimeun'
+    pw        = 'sodlfwlaus2018!@#$'
+    ftp_folder  = "#{year}/#{month}/#{day}"
+    found = false
+    24.times do
+      Net::FTP.open(ip, id, pw) do |ftp|
+        ftp.chdir(ftp_folder)
+        files_in_folder = ftp.list
+        files_in_folder.each do |file|
+          found = true if file.include?("Container.xml")
+          break if found
+        end
+      end
+      return true if found
+      sleep 3000 # 5 min
+    end
+    found
+  end
+
   def mobile_xml_send
     year          = date.year
     month         = date.month.to_s.rjust(2, "0")
     day           = date.day.to_s.rjust(2, "0")
     issue_date    = "#{year}#{month}#{day}"
-    # news_xml      = "#{issue_date}_news_xml"
-    # preview_xml   = "#{issue_date}_preview_xml"
-
     puts "sending it tp Mobile Preview Xml.zip"
     ip        = '211.115.91.68'
     id        = 'jimeun'
@@ -615,23 +620,25 @@ end
       ftp.chdir(ftp_folder)
       # ftp.chdir("#{year}/#{month}/#{day}/")
       entries.each do |name|
-      base_name = File.basename(name)
-      dir_name  = File.dirname(name)
-      dir_base_name = File.basename(dir_name)
+        base_name = File.basename(name)
+        dir_name  = File.dirname(name)
+        dir_base_name = File.basename(dir_name)
         if File::directory? name
-          # ftp.mkdir issue_date + "/#{base_name}"
-          # ftp.mkdir "#{ftp_folder}/#{base_name}"
           ftp.mkdir "#{base_name}"
-
         else
           puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
-          # File.open(name) { |file| ftp.putbinaryfile(file, "#{date_s}/#{dir_base_name}/#{base_name}") }
           File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
         end
       end
     end
+    result = wait_for_xml_upload
+    if result
+      puts "xml file upload found and proceeding merge"
+      merge_container_xml
+    else
+      puts "xml file upload not found!!!"
+    end
   end
-
 
   def prepare
     read_issue_plan
@@ -640,7 +647,7 @@ end
   private
 
   def read_issue_plan
-    __method__
+
     if File.exist?(default_issue_plan_path)
       self.plan = File.open(default_issue_plan_path, 'r'){|f| f.read}
       return true

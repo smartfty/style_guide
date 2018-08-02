@@ -18,6 +18,7 @@
 #  updated_at   :datetime         not null
 #  clone_name   :string
 #  slug         :string
+#  layout       :text
 #
 # Indexes
 #

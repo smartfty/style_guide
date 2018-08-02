@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180722003636) do
+ActiveRecord::Schema.define(version: 20180727012842) do
 
   create_table "ad_box_templates", force: :cascade do |t|
     t.integer "grid_x"
@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(version: 20180722003636) do
     t.datetime "updated_at", null: false
     t.string "clone_name"
     t.string "slug"
+    t.text "layout"
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true

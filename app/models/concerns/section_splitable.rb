@@ -1,6 +1,6 @@
-module PageSplitable
+module SectionSplitable
   extend ActiveSupport::Concern
-
+  
   def split_article_in_page(article, rects_array)
     first_rect = rects_array[0]
     second_rect = rects_array[1]
@@ -16,9 +16,16 @@ module PageSplitable
     article.column = first_rect[2]
     article.row = first_rect[3]
     article.save
+    # update story_frames
     index = article.order - 1
-    section  = Section.find(template_id)
-    self.layout = section.layout
+    if self.class == Section || layout
+      # for Section
+      story_frames = eval(layout)
+    else
+      # for Page
+      section  = Section.find(template_id)
+      self.layout = section.layout
+    end
     story_frames = eval(self.layout)
     story_frames.delete_at(index)
     story_frames.insert(index, rects_array[0])
@@ -30,12 +37,20 @@ module PageSplitable
     second_article_atts['grid_y'] = second_rect[1]
     second_article_atts['column'] = second_rect[2]
     second_article_atts['row'] = second_rect[3]
-    second_article_atts['page_id'] = self.id
-    binding.pry
-    new_article = WorkingArticle.create!(second_article_atts)
-    new_article.generate_pdf
-    article.generate_pdf_with_time_stamp
-    update_page_after_split
+    if article.is_a?(WorkingArticle)
+      second_article_atts['page_id'] = self.id
+      binding.pry
+      new_article = WorkingArticle.where(second_article_atts).first_or_create
+      new_article.generate_pdf
+      article.generate_pdf_with_time_stamp
+      update_page_after_split
+    else
+      second_article_atts['section_id'] = self.id
+      a = Article.create(second_article_atts)
+      new_article.generate_pdf
+      article.generate_pdf
+      update_section_after_split
+    end
   end
 
   def make_profile

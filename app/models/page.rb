@@ -18,6 +18,7 @@
 #  updated_at   :datetime         not null
 #  clone_name   :string
 #  slug         :string
+#  layout       :text
 #
 # Indexes
 #
@@ -41,8 +42,9 @@ class Page < ApplicationRecord
   scope :clone_page, -> {where("clone_name!=?", nil)}
   attr_reader :time_stamp
 
-  # include PageSplitable
-  
+  include PageSplitable
+  # include Printable
+
   extend FriendlyId
   friendly_id :friendly_string, :use => [:slugged]
 
@@ -312,7 +314,8 @@ class Page < ApplicationRecord
         wa.inactive = true
       end
     else
-      section.articles.each_with_index do |article, i|
+      sorted_articles = section.articles.sort_by {|article| article.order}
+      sorted_articles.each_with_index do |article, i|
         current = {page_id: self.id, order:i+1}
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
@@ -782,10 +785,11 @@ class Page < ApplicationRecord
 
   def jung_ang
     puts "sending it to Jung-Ang"
-    ip        = '112.216.44.45:2121'
-    id        = 'naeil'
-    pw        = 'sodlf@2018'
+    # ip        = '112.216.44.45:2121'
+    # id        = 'naeil'
+    # pw        = 'sodlf@2018'
     # upload files
+    printer_file = path + "/section.pdf"
     ftp = Net::FTP.new  # don't pass hostname or it will try open on default port
     ftp.connect('112.216.44.45', '2121')  # here you can pass a non-standard port number
     ftp.login('naeil', 'sodlf@2018')
@@ -1131,6 +1135,7 @@ EOF
     self.row          = section.row
     self.ad_type      = section.ad_type
     self.story_count  = section.story_count
+    self.layout       = section.layout
     true
   end
 

@@ -9,6 +9,14 @@ every :day, at: '5am' do
   rake 'style:new_issue'
 end
 
+# every :day, at: '11:30am' do
+#   # specify the task name as a string
+#   runner "Issue.some_method"
+#
+# end
+
+
+
 # run
 # whenever --update-crontab 을 실행한다.
 # whenever --update-crontab --set environment='development'
