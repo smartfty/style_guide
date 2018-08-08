@@ -9,6 +9,13 @@ so that we can store story_frame info.
 
 Sibling Articles are an articles that are to the bottom of current article
 that fall under the current article rect. It could be more than one.
+It is used when we extended_line_count.
+
+## Twin Article
+
+Sibling Articles created when an article is split.
+We can have two type of twins, horizontal twins when we split it vertically,
+and vertical twins when we spit it horizontally.
 
 ## H_Twin article
 

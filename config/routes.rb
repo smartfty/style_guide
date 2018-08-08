@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :microposts, only: [:index, :create, :show, :update, :destroy]
     end
   end
-  
+
   resources :profiles
   resources :holidays
   resources :reporters
@@ -187,11 +187,11 @@ Rails.application.routes.draw do
     end
   end
 
-  match 'news_layout_hello' => Api::NewsLayout, :via => :get
+  match 'hello' => Api::NewsLayout, :via => :get
   match 'new_issue/:date' => Api::NewsLayout, :via => :get
-  match 'issue_plan/:date' => Api::NewsLayout, :via => :get
-  match 'api/v1/layout_article/:date/:page/:order' => Api::NewsLayout, :via => :post
-  match 'refresh_page/:date/:page' => Api::NewsLayout, :via => :get
+  match 'api/v1/issue_plan' => Api::NewsLayout, :via => :get
+  match 'api/v1/page/:date/:page_number' => Api::NewsLayout, :via => :get
+  match 'api/v1/working_article/:date/:page/:order' => Api::NewsLayout, :via => :post
 
   get 'home/welcome'
   get 'home/help'

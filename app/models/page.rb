@@ -391,6 +391,10 @@ class Page < ApplicationRecord
     path + "/config.yml"
   end
 
+  def is_front_page?
+    page_number == 1
+  end
+
   def copy_config_file
     source = section_template_folder + "/config.yml"
     config_hash = YAML::load_file(source)

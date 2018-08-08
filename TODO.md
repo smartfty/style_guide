@@ -32,11 +32,21 @@
     - fit_text
 
 2018_7_??
+
   - add {: alignment: 'right'}  {: 정렬: '우측'}
   - add {: alignment: 'center'} {: 정렬: '중간'}
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
-  - prevent from printing if we have overflowing article
   - API interface
+
+2018_8_2
+  - display overflowing article box with red_line
+  - prevent from sending to printer, if page has an overflowing article
+  - give edit privilege only to certain user   
+
+  - ad upload
+  - ad auto placement at certain time
+
+  - cms reporter page leader summit
 
 2018_7_26
   - split_article
