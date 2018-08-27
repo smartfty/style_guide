@@ -17,11 +17,6 @@
 
   <div class="form-group">
     <%= f.label :기자명 %>
-    <%= f.text_field  :reporter %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :기자명 %>
     <%= f.select :reporter, Reporter.all.collect{|r| r.name} %>
   </div>
 
@@ -33,6 +28,5 @@
   <div class="actions">
     <button type="submit" class="btn btn-sm btn-success">저장</button>
   </div>
-
 
 <% end %>

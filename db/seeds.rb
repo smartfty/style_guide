@@ -63,6 +63,7 @@ styles.each do |k,v|
   value = v.dup
   value[:english] = k
   h = Hash[value.map{ |key, value| [key.to_sym, value] }]
+  h[:graphic_attributes] = h[:graphic_attributes].to_s
   TextStyle.where(h).first_or_create
 end
 

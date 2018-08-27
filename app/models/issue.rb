@@ -14,12 +14,12 @@
 # Indexes
 #
 #  index_issues_on_publication_id  (publication_id)
+#  index_issues_on_slug            (slug) UNIQUE
 #
-# 
-# i.prepare
-# i.save
-# i.make_default_issue_plan
-# i.make_pages
+# Foreign Keys
+#
+#  fk_rails_...  (publication_id => publications.id)
+#
 
 require "zip/zip"
 require 'net/ftp'

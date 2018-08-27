@@ -29,6 +29,10 @@
 #
 #  index_text_styles_on_publication_id  (publication_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (publication_id => publications.id)
+#
 
 class TextStyle < ApplicationRecord
   belongs_to :publication

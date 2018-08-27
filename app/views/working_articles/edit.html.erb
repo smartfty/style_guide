@@ -1,4 +1,7 @@
-
-<%= render 'short_form', article: @working_article %>
+<div class="row" align='center'>
+  <div class="col md-4">
+    <%= render 'short_form', article: @working_article %>
+  </div>
+</div>
 
 <%= link_to 'Back', assign_reporter_issue_path(Issue.last) %>

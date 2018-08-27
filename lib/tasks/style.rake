@@ -18,7 +18,7 @@ namespace :style do
   desc 'create new issue'
   task :new_issue =>:environment do
     today = Date.today
-    if Publication.holidays.include? Date.today
+    if Publication.holidays.include? Date.today.to_s
       puts "#{today.to_s} is holiday."
     elsif today.sunday? || today.saturday?
       puts "#{today.to_s} is weekend."

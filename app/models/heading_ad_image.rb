@@ -21,6 +21,10 @@
 #
 #  index_heading_ad_images_on_page_heading_id  (page_heading_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (page_heading_id => page_headings.id)
+#
 
 class HeadingAdImage < ApplicationRecord
   belongs_to :page_heading

@@ -38,6 +38,30 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018_8_23
+  - fix working_article to edit top_story fieid
+  - fix page 10 template 2
+  - fix crashing when image size is larger than article box
+
+2018_8_20
+
+  - fix single line body indent and text_alignment
+  - use page_heading title from issue_plan 
+    - section grouping using page_heading
+
+  - ad image, ad auto place
+  - postgres db backup
+  - ad auto placement
+  - save ad data
+
+2018_8_18
+  - CMYK not for eps, pdf
+  - fix page_heading section grouping
+
+  - assign_reporters to working_article
+
+2018_8_8
+
 2018_8_2
   - display overflowing article box with red_line
   - prevent from sending to printer, if page has an overflowing article

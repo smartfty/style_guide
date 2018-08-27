@@ -12,10 +12,10 @@ class WorkingArticlesController < ApplicationController
   # GET /working_articles/1
   # GET /working_articles/1.json
   def show
-    # respond_to do |format|
-    #   format.html
-    #   format.js { render :show}
-    # end
+    respond_to do |format|
+      format.html
+      format.json { render @working_article}
+    end
   end
 
   # GET /working_articles/new
