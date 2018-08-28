@@ -43,6 +43,21 @@ ActiveRecord::Schema.define(version: 20180727012842) do
     t.index ["page_id"], name: "index_ad_boxes_on_page_id"
   end
 
+  create_table "ad_images", id: :serial, force: :cascade do |t|
+    t.string "ad_type"
+    t.integer "column"
+    t.integer "row"
+    t.string "ad_image"
+    t.string "advertiser"
+    t.integer "page_number"
+    t.integer "article_number"
+    t.integer "ad_box_id"
+    t.integer "issue_id"
+    t.boolean "used_in_layout"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ads", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "column"

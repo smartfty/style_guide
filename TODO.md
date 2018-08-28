@@ -38,6 +38,11 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018_8_28
+  - 광고 올리기
+  - 광고 저장하기
+  - 광고 저장된 광고 오늘 광고로 사용하기
+
 2018_8_23
   - fix working_article to edit top_story fieid
   - fix page 10 template 2
@@ -46,7 +51,7 @@
 2018_8_20
 
   - fix single line body indent and text_alignment
-  - use page_heading title from issue_plan 
+  - use page_heading title from issue_plan
     - section grouping using page_heading
 
   - ad image, ad auto place

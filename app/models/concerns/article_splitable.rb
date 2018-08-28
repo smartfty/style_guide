@@ -35,7 +35,7 @@ module ArticleSplitable
     end
     direction = options[:direction]
     direction = preferable_direction     unless direction
-    if direction == "vertical" || "v"
+    if direction == "vertical" || direction == "v"
       if rect[2] < 2
         puts "article is too small to split!!!"
         return false
@@ -45,14 +45,16 @@ module ArticleSplitable
       second_width  = rect[2] - first_width
       [[rect[0], rect[1], first_width, rect[3]], [second_x, rect[1], second_width, rect[3]]]
     else
-      if rect[3] < 2 
+      if rect[3] < 2
         puts "article is too small to split!!!"
         return false
       end
       first_height   = rect[3]/2
       second_y       = rect[1] + first_height
       second_height  = rect[3] - first_height
-      [[rect[0], rect[1], rect[2], first_height], [rect[0], second_y, rect[2], second_height]]
+      first_rect     = [rect[0], rect[1], rect[2], first_height]
+      second_rect    = [rect[0], second_y, rect[2], second_height]
+      [first_rect, second_rect]
     end
   end
 
