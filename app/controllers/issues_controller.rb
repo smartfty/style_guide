@@ -12,6 +12,10 @@ class IssuesController < ApplicationController
   def show
     @pages = @issue.pages.order(:id, 'desc')
     @pages = @issue.pages
+    respond_to do |format|
+      format.html
+      format.json { render @issue}
+    end
   end
 
   # GET /issues/new
@@ -283,7 +287,7 @@ class IssuesController < ApplicationController
       @issue.save_mobile_preview_xml
       redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 생성 되었습니다.'
     end
-    
+
   end
 
   def download_preview_xml
