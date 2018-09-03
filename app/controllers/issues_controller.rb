@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_to_cms, :send_xml_to_ebiz, :merge_container_xml]
+  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_to_cms, :send_xml_to_ebiz, :merge_container_xml]
 
   # GET /issues
   # GET /issues.json
@@ -98,6 +98,11 @@ class IssuesController < ApplicationController
      end
     redirect_to images_issue_path(@issue.id)
     # images_issue_path(Issue.last.id)
+  end
+
+  def ad_boxes
+    @issue_plans_with_ad  = @issue.page_plan_with_ad
+    @issue_ad_boxes       = @issue.ad_boxes
   end
 
   def ad_images

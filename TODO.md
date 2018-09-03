@@ -38,10 +38,42 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
-2018_8_28
-  - 광고 올리기
-  - 광고 저장하기
+2018_9_3
+  - 이미지 문페 
+  - 특집 박스조판
+    - 외교국제
+    - 기획
+    - 도서
+
+2018_9_2
+  - 오늘 사용 광고 올리기
+  - 오늘 사용 광고 라이브러리에 저장하기
   - 광고 저장된 광고 오늘 광고로 사용하기
+
+  - change AdImageUploader to AdBoxImageUploader
+      ad_image and ad_box for the current issue
+      store it at publication/1/issue/ad/
+      9-0_company_date.pdf
+      9-0_samsung_2018-9-2.pdf
+      parse file name and create ad_box and ad_image
+  - create AdImageUploader
+      ad_image for the publication
+      store it at publication/ad/
+      company_date.pdf
+      samsung_2018-9-2.pdf
+
+      parse file name and create ad_image
+
+2018_8_31
+  - fix line_space of subtitle after two lines
+
+2018_8_28
+  - add color field to ad_box table
+  - add color field to ad_image table
+  - remove
+  #  page_number    :integer
+  #  article_number :integer
+
 
 2018_8_23
   - fix working_article to edit top_story fieid

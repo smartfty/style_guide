@@ -69,7 +69,6 @@ Rails.application.routes.draw do
   resources :working_articles do
     member do
       get 'download_pdf'
-      get 'to_markdown_para'
       patch 'upload_images'
       get 'zoom_preview'
       patch 'assign_reporter'
@@ -107,6 +106,7 @@ Rails.application.routes.draw do
       get 'images'
       patch 'upload_images'
       get 'ad_images'
+      get 'ad_boxes'
       patch 'upload_ad_images'
       get 'clone_pages'
       get 'slide_show'

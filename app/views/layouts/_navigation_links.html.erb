@@ -52,13 +52,11 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">광고<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
-      <li><%= link_to '오늘 광고', ad_images_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '오늘 광고', ad_boxes_issue_path(Issue.last.id) %></li>
       <li class="divider"></li>
-      <li><%= link_to '저장 광고', ad_images_path %></li>
+      <li><%= link_to '광고 관리', ad_images_path %></li>
     </ul>
   </li>
-
-
 
 
   <li class="dropdown">

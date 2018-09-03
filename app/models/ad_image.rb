@@ -8,13 +8,12 @@
 #  row            :integer
 #  ad_image       :string
 #  advertiser     :string
-#  page_number    :integer
-#  article_number :integer
 #  ad_box_id      :integer
 #  issue_id       :integer
 #  used_in_layout :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  color          :boolean
 #
 
 class AdImage < ApplicationRecord

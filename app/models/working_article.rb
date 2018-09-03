@@ -717,21 +717,10 @@ class WorkingArticle < ApplicationRecord
     body_text.gsub!(/^\s*#/, '#' )
     body_text.gsub!(/^\n/, "")
     body_text.gsub!(/(\n|\r\n)+/, "\n\n")
+    body_text.gsub!(/^\./, "")
     # body_text.gsub!(/[.]\s\s\s+/, ".")
     # body_text.gsub!(/\.$\n\n/, ".")
     body_text
-  end
-
-  def to_markdown_para
-    body.gsub!(/^(\^|-\s)/, "")
-    body.gsub!(/^\t/, "")
-    body.gsub!(/^\n\n/, "")
-    body.gsub!(/^\u3000/, "")
-    body.gsub!(/^\s*\n/m, "\n")
-    body.gsub!(/^\s*#/, '#' )
-    body.gsub!(/$(\n|\r\n)+/, "\n\n" )
-    body.gsub!(/(\n|\r\n)+/, "\n\n")
-    self.save
   end
 
   def newsml_issue_path

@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div align="center">
 
-<h1>AdImage</h1>
+<h3>광고 화일 관리</h3>
 
-<table>
+<table border="1">
   <thead>
     <tr>
-      <th>Ad type</th>
-      <th>Column</th>
-      <th>Row</th>
-      <th>Page</th>
+      <th>광고주</th>
+      <th>종류</th>
+      <th>단</th>
+      <th>열</th>
+      <th>칼라</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +18,12 @@
   <tbody>
     <% @ad_images.each do |ad_image| %>
       <tr>
+        <td><%= ad_image.advertiser %></td>
         <td><%= ad_image.ad_type %></td>
         <td><%= ad_image.column %></td>
         <td><%= ad_image.row %></td>
-        <td><%= ad_image.page_number %></td>
+        <td><%= ad_image.color %></td>
+
         <td><%= link_to 'Show', ad_image %></td>
         <td><%= link_to 'Edit', edit_ad_image_path(ad_image) %></td>
         <td><%= link_to 'Destroy', ad_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,3 +35,4 @@
 <br>
 
 <%= link_to 'New Placed Ad', new_ad_image_path %>
+</div>

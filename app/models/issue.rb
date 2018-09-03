@@ -44,6 +44,15 @@ class Issue < ApplicationRecord
   def friendly_string
     date.to_s
   end
+
+  def ad_boxes
+    boxes = []
+    pages.each do |page|
+      boxes += page.ad_boxes
+    end
+    boxes
+  end
+
   def path
     "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}"
   end
@@ -176,7 +185,7 @@ class Issue < ApplicationRecord
     page_plans.each do |pp|
       list << pp if pp.ad_type
     end
-    list
+    list.sort_by{|p| p.page_number}
   end
 
   def ad_list

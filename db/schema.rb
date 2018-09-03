@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180727012842) do
+ActiveRecord::Schema.define(version: 20180830020125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180727012842) do
     t.integer "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "color"
     t.index ["page_id"], name: "index_ad_boxes_on_page_id"
   end
 
@@ -49,13 +50,12 @@ ActiveRecord::Schema.define(version: 20180727012842) do
     t.integer "row"
     t.string "ad_image"
     t.string "advertiser"
-    t.integer "page_number"
-    t.integer "article_number"
     t.integer "ad_box_id"
     t.integer "issue_id"
     t.boolean "used_in_layout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "color"
   end
 
   create_table "ads", id: :serial, force: :cascade do |t|
