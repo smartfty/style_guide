@@ -25,20 +25,20 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: mskim
+  username: <%= ENV['USER'] %>
   password:
 
 development:
   <<: *default
   database: style_guide_development
-  username: mskim
+  username: <%= ENV['USER'] %>
 
 test:
   <<: *default
   database: style_guide__test
-  username: mskim
+  username: <%= ENV['USER'] %>
 
 production:
   <<: *default
   database: style_guide_production
-  username: mskim
+  username: <%= ENV['USER'] %>

@@ -22,7 +22,6 @@
 1. 인쇄 지원
 
 
-
 ## nav menu
 
 ### 오늘광고
@@ -36,7 +35,6 @@
   사진올리기
   광고검색
   광고주 정보
-
 
 ## create new ad
 
@@ -58,3 +56,16 @@
 - place assigned ad to page
 - place ads automatically at planed time
 - trigger this process with cron
+
+## create Model
+  - ad_library_image
+    - ad_libray_image  AdLibraryImageUploader
+    - ad_type
+    - advertiser
+    - color
+
+## ActiveStorage
+
+We might as well replement the whole image uploading using ActiveStrage,
+keeping ad_library_images on the cloud??
+I need more testing using ActiveStrage!!
