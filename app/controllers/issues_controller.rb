@@ -79,7 +79,7 @@ class IssuesController < ApplicationController
   end
 
   def current_plan
-    @page_plans = @issue.page_plans
+    @page_plans = @issue.page_plans.sort_by{|x| x.page_number}
   end
 
   def images

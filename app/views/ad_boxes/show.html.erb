@@ -1,33 +1,48 @@
-
-<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-  <nav class="navbar navbar-default navbar-fixed-top2">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to "이전으로", page_path(@ad_box.page), method: :get, class: "btn btn-md btn-success" %>
-        </li>
-      </ul>
-    </nav>
-
 <div class="row">
-  <h3>광고정보</h3>
-
-  <div class="col-sm-1">
-  </div>
-
-  <div class="col-sm-2">
-    <%= render 'form', ad_box: @ad_box %>
-    <br/>
-    <br/>
-    <br/>
-  </div>
-    <!-- true -->
-  <div class="col-sm-7">
-    <% unless @ad_box.ad_image.nil? %>
-      <% if browser.safari? %>
-        <img  src="<%= @ad_box.pdf_image_path %>" ></img>
-      <% elsif browser.modern?  || browser.ie?%>
-        <img  src="<%= @ad_box.jpg_image_path %>" ></img>
-      <% end %>
-    <% end %>
-  </div>
+  <p></p>
 </div>
+
+<div class="view">
+  <div class="col-xs-3 col-md-1">
+    <% @ad_box.page.section_pages.each do |page| %>
+      <div class="col-xs-12 col-md-12">
+        <div>
+          <a href="<%=  page_path(page) %>">
+            <img width="100%" src="<%= page.jpg_image_path %>"></img>
+            <p align="center"><%= page.page_number %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-9 col-sm-3">
+      <div class="button-group">
+        <% if browser.safari? %>
+          <%= raw @ad_box.page.to_svg %>
+          <% elsif browser.modern?  || browser.ie?%>
+            <%= raw @ad_box.page.to_svg_with_jpg %>
+          <% end %>
+          <p align="center"><%= @ad_box.page.page_number %>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-2">
+        <h3>광고정보</h3>
+        <%= render 'form', ad_box: @ad_box %>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+
+      <!-- true -->
+      <div class="col-xs-12 col-md-6">
+        <% unless @ad_box.ad_image.nil? %>
+          <% if browser.safari? %>
+            <img src="<%= @ad_box.pdf_image_path %>"></img>
+            <% elsif browser.modern?  || browser.ie?%>
+              <img src="<%= @ad_box.jpg_image_path %>"></img>
+            <% end %>
+          <% end %>
+        </div>
+      </div>

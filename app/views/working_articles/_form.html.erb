@@ -1,24 +1,23 @@
-
-
 <%= form_for(article, remote: true) do |f| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<% if article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(article.errors.count, "error") %>
+      prohibited this article from being saved:</h2>
 
-      <ul>
+    <ul>
       <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :기사종류 %>
-    <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
+    </ul>
   </div>
-  <% if article.kind ==  '사진'%>
-    <p>여기에 사진 정보 입력</p>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :기사종류 %>
+  <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
+</div>
+<% if article.kind ==  '사진'%>
+  <p>여기에 사진 정보 입력</p>
 
   <% elsif article.kind ==  '만평' %>
     <div class="form-group">
@@ -27,87 +26,84 @@
     </div>
 
   <% else %>
-  <div class="view">
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.label :제목 %>
-        <%= f.text_field :title, cols: "40", class: 'form-control' %>
+    <div class="view">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :제목 %>
+          <%= f.text_field :title, cols: "40", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :부제목 %>
+          <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :기자명 %>
+          <%= f.text_field :reporter %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :부제목 %>
-        <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
-      </div>
-      <div class="form-group">
-        <%= f.label :기자명 %>
-        <%= f.text_field :reporter %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :문패 %>
+          <%= f.text_field :subject_head, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :편집자주 %>
+          <%= f.text_area :subtitle_head, cols: "40", rows: "2", class: 'form-control'%>
+        </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.label :문패 %>
-        <%= f.text_field :subject_head, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :편집자주 %>
-        <%= f.text_area :subtitle_head, cols: "40", rows: "2", class: 'form-control'%>
-      </div>
+
+    <div class="form-group">
+      <%= f.label :본문 %>
+      <%= f.text_area :body, cols: "80", rows: "20" , class: 'form-control'%>
     </div>
-  </div>
 
+    <div class="field">
+      <%= f.text_field :image, type: "hidden" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :본문 %>
-    <%= f.text_area :body, cols: "80", rows: "20" , class: 'form-control'%>
-  </div>
+    <div class="field">
+      <%= f.text_field :personal_image, type: "hidden" %>
+    </div>
 
-  <div class="field">
-    <%= f.text_field :image, type: "hidden" %>
-  </div>
-
-  <div class="field">
-    <%= f.text_field :personal_image, type: "hidden" %>
-  </div>
-
-  <div class="field">
-    <%= f.text_field :quote, type: "hidden" %>
-  </div>
+    <div class="field">
+      <%= f.text_field :quote, type: "hidden" %>
+    </div>
   <% end %>
 
-<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
   <nav class="navbar navbar-default navbar-fixed-top2">
-      <ul class="nav navbar-nav navbar-left">
-        <li>
-          <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
-        </li>
-        <li>
-          <%= f.button "저장하기", class: "btn btn-sm btn-primary navbar-btn", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-        </li>
-        <li>
-          <%= link_to "페이지 PDF 다운로드", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-sm btn-warning" %>
-        </li>
-        <li>
-          <%= link_to "기사 PDF 다운로드", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-        </li>
-      </ul>
-    </nav>
+    <ul class="nav navbar-nav2 navbar-left float-frame">
+      <li class="float-unit">
+        <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-md btn-success" %>
+      </li>
+      <li class="float-unit">
+        <%= f.button "저장하기", class: "btn btn-md btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      </li>
+      <li class="float-unit">
+        <%= link_to "페이지 PDF", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-md btn-warning" %>
+      </li>
+      <li class="float-unit">
+        <%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-md btn-danger" %>
+      </li>
+    </ul>
+  </nav>
 
-
-<!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
   <nav class="navbar navbar-default navbar-fixed-bottom">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-sm btn-success" %>
-        </li>
-        <li>
-          <%= f.button "저장하기", class: "btn btn-sm btn-primary navbar-btn", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-        </li>
-        <li>
-          <%= link_to "페이지 PDF 다운로드", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-sm btn-warning" %>
-        </li>
-        <li>
-          <%= link_to "기사 PDF 다운로드", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-        </li>
-      </ul>
-    </nav>
-
+    <ul class="nav navbar-nav2 navbar-right float-frame">
+      <li class="float-unit">
+        <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-md btn-success" %>
+      </li>
+      <li class="float-unit">
+        <%= f.button "저장하기", class: "btn btn-md btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      </li>
+      <li class="float-unit">
+        <%= link_to "페이지 PDF", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-md btn-warning" %>
+      </li>
+      <li class="float-unit">
+        <%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-md btn-danger" %>
+      </li>
+    </ul>
+  </nav>
 <% end %>

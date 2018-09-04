@@ -7,9 +7,7 @@ RLayout::Container.new(width:158.737,  height: 165.182) do
   
   container(x: 70, y: 80, width:150, bottom_margin: 10, fill_color: 'clear') do
     
-      
-        text('정욱식', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-      
+      text('정욱식', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
       text('평화네트워크 대표', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
     
   end

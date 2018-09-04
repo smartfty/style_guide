@@ -10,8 +10,8 @@ RLayout::Container.new(width:158.737,  height: 165.182) do
       
         text('김영익', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
       
-      text('서강대 교수', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-      text('경제학', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+      text('경제 칼럼니스트', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+      text('서강대 경제대학원 겸임교수', tracking: -0.5, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
     
   end
 end

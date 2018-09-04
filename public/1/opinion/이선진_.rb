@@ -8,7 +8,7 @@ RLayout::Container.new(width:158.737,  height: 165.182) do
   
   container(x: 70, y: 80, width:150, bottom_margin: 10, fill_color: 'clear') do
     
-      text('서강대동아연구소 교수', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100" )
+      text('서강대 동아연구소 교수', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100" )
       text('전 주인도네시아 대사', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
     
   end

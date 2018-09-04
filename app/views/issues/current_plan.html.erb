@@ -7,6 +7,8 @@
       <th>면 이름</th>
       <th>기사 수</th>
       <th>광고</th>
+      <th>광고주</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +24,7 @@
           <td style="text-align:center;"><%= page_plan.section_name %></td>
           <td style="text-align:center;"><%= page_plan.story_count %></td>
           <td style="text-align:center;"><%= page_plan.ad_type %></td>
+          <td style="text-align:center;"><%= page_plan.advertiser %></td>
           <% if page_plan.need_update? %>
             <td><%= button_to "적용", update_page_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-danger" %></td>
           <% else %>
