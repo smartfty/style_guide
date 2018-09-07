@@ -43,6 +43,7 @@ class Page < ApplicationRecord
   attr_reader :time_stamp
 
   include PageSplitable
+  include PageFullPageAdable
   # include Printable
 
   extend FriendlyId
