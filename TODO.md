@@ -38,8 +38,12 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018_9_12
+  - fix page slug
+      add page_number when creating page in issue
+
 2018_9_3
-  - 이미지 문페 
+  - 이미지 문페
   - 특집 박스조판
     - 외교국제
     - 기획

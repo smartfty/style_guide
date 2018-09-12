@@ -10,8 +10,8 @@
 1. 광고 batch 등록
   - parse CSV at seed time
   - 화일 이름에 정보 포함
-    - 삼성전자_2018-8_5단통.jpg
-    - lg_2018-8_300x400.jpg
+    - 9-1_삼성전자_2018-8_5단통.jpg
+    - 11-1_lg_2018-8_300x400.jpg
 
 1. upload image
   - 파일명 관리

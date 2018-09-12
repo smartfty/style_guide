@@ -173,7 +173,7 @@ class Issue < ApplicationRecord
         next
       else
         # create new page
-        page_plan.page = Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+        page_plan.page = Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id, page_number: i + 1)
         page_plan.dirty = false
         page_plan.save
       end
