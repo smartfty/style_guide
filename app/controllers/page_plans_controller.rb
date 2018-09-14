@@ -44,7 +44,9 @@ class PagePlansController < ApplicationController
     puts "page_plan_params:#{page_plan_params}"
     respond_to do |format|
       if @page_plan.update(page_plan_params)
-        format.html { redirect_to @page_plan, notice: 'Page plan was successfully updated.' }
+        @page_plan.set_pair_page_color
+        
+        format.html { redirect_to current_plan_issue_path(Issue.last.id)}
         format.json { render :show, status: :ok, location: @page_plan }
       else
         format.html { render :edit }

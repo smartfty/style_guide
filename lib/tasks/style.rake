@@ -10,9 +10,18 @@ namespace :style do
     Issue.parse_gw
   end
 
-  desc 'say hello'
-  task :say_hello  do
-    puts "#{Time.now}:hello from rake task..."
+  desc 'set all pages as color page except 22, 23'
+  task :set_color_page  =>:environment do
+    puts "running set_color_page..."
+    Issue.last.pages.each do |page|
+      puts page.page_number
+      if page.page_number == 22 || page.page_number == 23
+        page.color_page = false
+      else
+        page.color_page = true
+      end
+      page.save
+    end
   end
 
   desc 'create new issue'

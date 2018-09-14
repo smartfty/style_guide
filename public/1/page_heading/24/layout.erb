@@ -1,6 +1,7 @@
 RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
   image(local_image: 'even.pdf', x: 0, y: 0, width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+  line(x: 467.56 , y:22.8, width: 94, stroke_width: 1, height:0, storke_color:"CMYK=0,0,0,100")
   text('<%= @section_name %>', fill_color: 'clear', x: 464.0 , y: -4, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center', fill_color: 'clear')
-  text('<%= @page_number %>', x: 3, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
-  text('<%= @date %>', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
+  text('<%= @page_number %>', tracking: -0.2, x: 3.7, y: -10.97, font: 'KoPubDotumPL', font_size: 33, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
+  text('<%= @date %>', tracking: -0.7, fill_color: 'clear', x: 46.505, y: 7.56, width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
 end

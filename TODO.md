@@ -38,9 +38,29 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018_9_13
+  - page_plan
+    - ad add more names
+    - for page template display only temolates with same ad_type
+
+2018_9_13
+  - page 마감
+    - add it to Dropbox with version number
+    - add poof_version
+    - add print_count
+  - Print Monitoring
+  - edit page_plan
+    - pair_page
+    - 광고주
+
+  - when page template changed to full page ad page_heading text should changed to 
+
 2018_9_12
   - fix page slug
       add page_number when creating page in issue
+  - fix ad_box no line around
+  - fix article no_top line
+
 
 2018_9_3
   - 이미지 문페

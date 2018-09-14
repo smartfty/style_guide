@@ -413,6 +413,14 @@ class Page < ApplicationRecord
     system "cp #{jpg_source} #{jpg_target}"
   end
 
+  def put_space_between_chars(string)
+    s = ""
+    string.each_char do |ch|
+      s += ch + " "
+    end
+    s.strip
+  end
+
   def copy_heading
     FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
     source = issue.publication.heading_path + "/#{page_number}"
@@ -424,7 +432,7 @@ class Page < ApplicationRecord
     layout_erb_content  = File.open(layout_erb_path, 'r'){|f| f.read}
     erb                 = ERB.new(layout_erb_content)
     @date               = korean_date_string
-    @section_name       = section_name
+    @section_name       = put_space_between_chars(section_name)
     @page_number        = page_number
     layout_content      = erb.result(binding)
     layout_rb_path      = page_heading_path + "/layout.rb"

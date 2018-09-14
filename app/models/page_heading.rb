@@ -139,21 +139,26 @@ class PageHeading < ApplicationRecord
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
       image(local_image: '1.pdf', width: #{page_heading_width}, height: 110)
       text('2017년 5월 11일 목요일 (4200호)', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
-      image(image_path: ''heading_ad_image_path', x:500, y:30, width: #{200}, height: 100)
+      image(image_path: 'heading_ad_image_path', x:500, y:30, width: #{200}, height: 100)
     end
     EOF
   end
 
-  def even_content
+  def self.odd_content(page)
+    puts "page.class:#{page.class}"
+    publication = Publication.first
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
     date                = '2017년 5월 11일 목요일'
-    even=<<~EOF
+    page_number         = page.page_number
+    section_name        = SECTIONS[page_number - 1]
+
+    odd=<<~EOF
     RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
-      image(local_image: 'even.pdf', x: 0, y: 0, width: 1028.976498, height: 41.70979114285714, fit_type: 0)
-      text('<%= @section_name %>', fill_color: 'clear', x: 464.0 , y: -2, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100" , text_alignment: 'center', fill_color: 'clear')
-      text('<%= @page_number %>', x: 3, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
-      text('<%= @date %>', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
+      image(local_image: 'odd.pdf', width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+      text('<%= @section_name %>', x: 464.0, y: -4, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center', fill_color:'clear')
+      text('<%= @date %>', x: 900.5693, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color:'clear')
+      text('<%= @page_number %>', x: 998, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color:'clear')
     end
     EOF
   end
@@ -189,21 +194,16 @@ class PageHeading < ApplicationRecord
     EOF
   end
 
-  def self.odd_content(page)
-    puts "page.class:#{page.class}"
-    publication = Publication.first
+  def even_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
     date                = '2017년 5월 11일 목요일'
-    page_number         = page.page_number
-    section_name        = SECTIONS[page_number - 1]
-
-    odd=<<~EOF
+    even=<<~EOF
     RLayout::Container.new(width: 1028.976498, height: 41.70979114285714, layout_direction: 'horinoztal') do
-      image(local_image: 'odd.pdf', width: 1028.976498, height: 41.70979114285714, fit_type: 0)
-      text('<%= @section_name %>', x: 464.0, y: -4, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center', fill_color:'clear')
-      text('<%= @date %>', x: 900.5693, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color:'clear')
-      text('<%= @page_number %>', x: 998, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color:'clear')
+      image(local_image: 'even.pdf', x: 0, y: 0, width: 1028.976498, height: 41.70979114285714, fit_type: 0)
+      text('<%= @section_name %>', fill_color: 'clear', x: 464.0 , y: -2, width: 100, font: 'KoPubBatangPM',  font_size: 20, text_color: "CMYK=0,0,0,100" , text_alignment: 'center', fill_color: 'clear')
+      text('<%= @page_number %>', x: 3, y: 1, font: 'KoPubDotumPL', font_size: 24, text_color: "CMYK=0,0,0,100", width: 50, height: 44, fill_color: 'clear')
+      text('<%= @date %>', fill_color: 'clear', x: 38.875, y: 10,  width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'left', fill_color: 'clear')
     end
     EOF
   end

@@ -13,37 +13,26 @@
       </div>
     <% end %>
 
-
     <div class="field">
-      <%= f.label :page_number %>
-      <%= f.text_field :page_number %>
-    </div>
-
-    <div class="field">
-      <%= f.label :section_name %>
+      <%= f.label :섹션이름 %>
       <%= f.text_field :section_name %>
     </div>
 
     <div class="field">
-      <%= f.label :story_count %>
-      <%= f.text_field :story_count %>
-    </div>
-
-    <div class="field">
-      <%= f.label :ad_type %>
+      <%= f.label :광고종류 %>
       <%= f.select :ad_type, Ad.all.collect { |p| p.name }, include_blank: true %>
     </div>
 
     <div class="field">
-      <%= f.label :advertiser %>
+      <%= f.label :광고주 %>
       <%= f.text_field :advertiser %>
     </div>
     <div class="field">
-      <%= f.label :color_page %>
+      <%= f.label :칼러면 %>
       <%= f.check_box :color_page %>
     </div>
 
     <div class="actions">
-      <%= f.button :submit %>
+      <%= f.button :submit, :label=> "저장"%>
     </div>
   <% end %>

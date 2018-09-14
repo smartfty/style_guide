@@ -74,7 +74,7 @@ class SectionsController < ApplicationController
         if @new_section.column == 7
           format.html { redirect_to seven_sections_path, notice: 'Section was successfully duplicated.'}
         elsif @new_section.column == 6
-          format.html { redirect_to six_column_sections_path, notice: 'Section was successfully duplicated.'}
+          format.html { redirect_to six_sections_path, notice: 'Section was successfully duplicated.'}
         elsif @new_section.column == 5
           format.html { redirect_to five_sections_path, notice: 'Section was successfully duplicated.'}
 

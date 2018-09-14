@@ -67,6 +67,19 @@ class PagePlan < ApplicationRecord
     group.reporters if group
   end
 
+  def pair_page
+    page_count = issue.page_plans.count
+    page_count - (page_number - 1)
+  end
+
+  def set_pair_page_color
+    pair = PagePlan.find(pair_page)
+    unless pair.color_page == color_page
+      pair.color_page = color_page
+      pair.save
+    end
+  end
+
   private
 
   def parse_profile
