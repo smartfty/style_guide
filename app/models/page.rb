@@ -17,16 +17,12 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  clone_name   :string
-#  slug         :string
-#  layout       :text
 #
 # Indexes
 #
 #  index_pages_on_issue_id      (issue_id)
 #  index_pages_on_page_plan_id  (page_plan_id)
-#  index_pages_on_slug          (slug) UNIQUE
 #
-
 require 'erb'
 require 'net/ftp'
 
@@ -42,19 +38,11 @@ class Page < ApplicationRecord
   scope :clone_page, -> {where("clone_name!=?", nil)}
   attr_reader :time_stamp
 
-  include PageSplitable
-  include PageFullPageAdable
-  # include Printable
-
   extend FriendlyId
   friendly_id :friendly_string, :use => [:slugged]
 
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
-
-  def friendly_string
-    "#{issue.date.to_s}_#{page_number}"
-  end
 
   def path
     if clone_name == nil
@@ -62,6 +50,10 @@ class Page < ApplicationRecord
     else
       "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}-#{clone_name}"
     end
+  end
+
+  def is_front_page?
+    page_number == 1
   end
 
   def date
@@ -392,10 +384,6 @@ class Page < ApplicationRecord
     path + "/config.yml"
   end
 
-  def is_front_page?
-    page_number == 1
-  end
-
   def copy_config_file
     source = section_template_folder + "/config.yml"
     config_hash = YAML::load_file(source)
@@ -413,6 +401,7 @@ class Page < ApplicationRecord
     system "cp #{jpg_source} #{jpg_target}"
   end
 
+
   def put_space_between_chars(string)
     s = ""
     string.each_char do |ch|
@@ -420,6 +409,7 @@ class Page < ApplicationRecord
     end
     s.strip
   end
+
 
   def copy_heading
     FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
@@ -432,6 +422,7 @@ class Page < ApplicationRecord
     layout_erb_content  = File.open(layout_erb_path, 'r'){|f| f.read}
     erb                 = ERB.new(layout_erb_content)
     @date               = korean_date_string
+    # @section_name       = section_name
     @section_name       = put_space_between_chars(section_name)
     @page_number        = page_number
     layout_content      = erb.result(binding)
@@ -740,7 +731,7 @@ class Page < ApplicationRecord
   end
 
   def printer_file_version
-    latest_printer_file.split("_")[1].to_i
+    File.basename(latest_printer_file).split("_")[1].to_i
   end
 
   def backup_printer_file
@@ -755,10 +746,10 @@ class Page < ApplicationRecord
 
   def copy_to_printer_ftp
     backup_printer_file
-    dong_a
-    jung_ang
     news_pdf
     ex_pdf
+    jung_ang
+    dong_a
     true
   end
 
@@ -767,10 +758,18 @@ class Page < ApplicationRecord
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
-    if printer_file_version == 0
-      "NA#{m}#{d}#{pg}NB01.pdf"
+    if printer_file_version == 0 
+      if color_page
+        "NA#{m}#{d}#{pg}NC01.pdf"
+      else
+        "NA#{m}#{d}#{pg}NB01.pdf"
+      end
     else
-      "NA#{m}#{d}#{pg}NB0#{printer_file_version + 1}.pdf"
+      if color_page
+        "NA#{m}#{d}#{pg}NC0#{printer_file_version + 1}.pdf"
+      else
+        "NA#{m}#{d}#{pg}NB0#{printer_file_version + 1}.pdf"
+      end
     end
   end
 
@@ -780,8 +779,18 @@ class Page < ApplicationRecord
     id        = 'naeil'
     pw        = 'cts@'
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
+      if color_page
+        ftp.putbinaryfile(printer_file, "/color/#{dong_a_code}")
+      else
+        ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
+      end
     end
+    # ip        = '211.115.91.231'
+    # id        = 'naeil'
+    # pw        = 'sodlftlsans1!'
+    # Net::FTP.open(ip, id, pw) do |ftp|
+    #   ftp.putbinaryfile(printer_file, "#{dong_a_code}")
+    # end
   end
 
   def jung_ang_code
@@ -790,11 +799,11 @@ class Page < ApplicationRecord
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
     if printer_file_version == 0
-     "zn#{m}#{d}#{pg}10001.pdf"
-    else
-     "zn#{m}#{d}#{pg}10001_#{printer_file_version}.pdf"
-    end
-  end
+      "zn#{m}#{d}#{pg}10001.pdf"
+     else
+      "zn#{m}#{d}#{pg}10001_#{printer_file_version}.pdf"
+     end
+   end
 
   def jung_ang
     puts "sending it to Jung-Ang"
@@ -811,6 +820,23 @@ class Page < ApplicationRecord
     ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
     # end
   end
+
+
+    # 2018-7-23
+    # puts "sending it to Jung-Ang"
+    # ip        = '112.216.44.45:2121'
+    # id        = 'naeil'
+    # pw        = 'sodlf@2018'
+    # Net::FTP.open(ip, id, pw) do |ftp|
+    #   ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
+    # end
+    # ip        = '211.115.91.231'
+    # id        = 'naeil'
+    # pw        = 'sodlftlsans1!'
+    # Net::FTP.open(ip, id, pw) do |ftp|
+    #   ftp.putbinaryfile(printer_file, "#{jung_ang_code}")
+    # end
+
 
   def news_pdf_code
     yyyymd = issue.date.strftime("%Y%m%d")
@@ -847,6 +873,7 @@ class Page < ApplicationRecord
     end
   end
 
+
   def dropbox_path
     File.expand_path("~/dropbox")
   end
@@ -867,6 +894,7 @@ class Page < ApplicationRecord
       return true
     end
   end
+
 
   def save_preview_xml
    date = issue.date
@@ -977,9 +1005,9 @@ EOF
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
-    w_updated_at = working_articles.first.updated_at
+    # w_updated_at = working_articles.first.updated_at
     updated_date      = "#{year}-#{month}-#{day}"
-    updated_time      = w_updated_at.strftime("%H:%M:%S")
+    updated_time      = updated_at.strftime("%H:%M:%S")
     @date_id          = updated_date
     @day_info         = "#{year}년#{month}월#{day}일"
     @media_info       = publication.name
@@ -1124,12 +1152,22 @@ EOF
   # end
 
   def save_story_xml
-    working_articles.each do |article|
-      article.save_story_xml
-    end
-    ad_boxes.each do |ad|
+    puts "page_number:#{page_number}"
+    puts "section_name:#{section_name}"
+    if  section_name == "전면광고"
+      ad = ad_boxes.first
+      ad.order = 1
+      ad.save
       ad.save_ad_xml
+    else
+      working_articles.each do |article|
+        article.save_story_xml
+      end
+      ad_boxes.each do |ad|
+        ad.save_ad_xml
+      end
     end
+    
   end
 
   def section_pages
@@ -1148,7 +1186,6 @@ EOF
     self.row          = section.row
     self.ad_type      = section.ad_type
     self.story_count  = section.story_count
-    self.layout       = section.layout
     true
   end
 

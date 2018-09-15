@@ -15,7 +15,6 @@
 #  page_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  color      :boolean
 #
 # Indexes
 #
@@ -214,13 +213,6 @@ class AdBox < ApplicationRecord
     "<a xlink:href='/ad_boxes/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
   end
 
-  def save_story_xml
-    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
-    path = "#{newsml_issue_path}/#{story_xml_filename}"
-    File.open(path, 'w'){|f| f.write story_xml}
-    save_xml_image
-  end
-
   def section_name_code
     case page.section_name
     when '1면'
@@ -399,19 +391,27 @@ EOF
   end
 
   def two_digit_ord
-    (page.working_articles.length + 1).to_s.rjust(2, "0")
+    return "01" if page.section_name == "전면광고"
+    order.to_s.rjust(2, "0")
+  end
+
+  def  ad_two_digit_ord
+    return "01" if page.section_name == "전면광고"
+    order.to_s.rjust(2, "0")
   end
 
   def save_ad_xml
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
-    path = "#{newsml_issue_path}/#{story_xml_filename}"
-    File.open(path, 'w:euc-kr'){|f| f.write ad_xml}
+    ad_xml_path = "#{newsml_issue_path}/#{ad_xml_filename}"
+    File.open(ad_xml_path, 'w:euc-kr'){|f| f.write ad_xml}
   end
 
-  def story_xml_filename
+  def ad_xml_filename
     date_without_minus = issue.date.to_s.gsub("-","")
     two_digit_page_number = page_number.to_s.rjust(2, "0")
-    "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
+    two_digit = ad_two_digit_ord
+    two_digit = "01" if page.section_name == "전면광고"
+    "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit}.xml"
   end
 
 end

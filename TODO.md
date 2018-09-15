@@ -38,12 +38,17 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
-2018_9_13
-  - page_plan
-    - ad add more names
-    - for page template display only temolates with same ad_type
+2018_9_14
+  - add rake tasl set_color_page
+  - fix sending color page to print
+  - fix sending color page to for ebiz
 
 2018_9_13
+  - page_plan
+    - add more ad names
+    - for page template display only temolates with same ad_type
+
+2018_9_12
   - page 마감
     - add it to Dropbox with version number
     - add poof_version
