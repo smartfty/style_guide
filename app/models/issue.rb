@@ -21,44 +21,33 @@
 #  fk_rails_...  (publication_id => publications.id)
 #
 
-require "zip/zip"
-require 'net/ftp'
+require 'zip/zip'
 
 class Issue < ApplicationRecord
   belongs_to :publication
   has_many  :page_plans
-  has_many  :pages, -> {order(page_number: :asc)}
+  has_many  :pages, -> { order(page_number: :asc) }
+  has_one :spread
   has_many  :images
   accepts_nested_attributes_for :images
-  has_many  :ad_images
+  has_many :ad_images
   accepts_nested_attributes_for :ad_images
-
-  extend FriendlyId
-  friendly_id :friendly_string, :use => [:slugged]
 
   before_create :read_issue_plan
   after_create :setup
   validates_presence_of :date
   validates_uniqueness_of :date
 
-  def friendly_string
-    date.to_s
-  end
-
-  def ad_boxes
-    boxes = []
-    pages.each do |page|
-      boxes += page.ad_boxes
-    end
-    boxes
+  def publication_path
+    publication.path
   end
 
   def path
-    "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}"
+    publication_path + "/issue/#{date}"
   end
 
   def relative_path
-    "#{publication_id}/issue/#{date.to_s}"
+    "#{publication_id}/issue/#{date}"
   end
 
   def default_issue_plan_path
@@ -67,6 +56,18 @@ class Issue < ApplicationRecord
 
   def default_issue_path
     "#{Rails.root}/public/#{publication_id}/default_issue_plan"
+  end
+
+  def set_color_page
+    pages.each do |page|
+      puts page.page_number
+      if page.page_number == 22 || page.page_number == 23
+        page.color_page = false
+      else
+        page.color_page = true
+      end
+      page.save
+    end
   end
 
   def setup
@@ -95,15 +96,15 @@ class Issue < ApplicationRecord
   end
 
   def issue_images_path
-    path + "/images"
+    path + '/images'
   end
 
   def issue_ads_path
-    path + "/ads"
+    path + '/ads'
   end
 
   def issue_ad_list_path
-    path + "/ads/ad_list.yml"
+    path + '/ads/ad_list.yml'
   end
 
   def issue_info_for_cms
@@ -115,7 +116,7 @@ class Issue < ApplicationRecord
   end
 
   def current_working_articles_hash
-    #code
+    # code
   end
 
   def request_cms_new_issue
@@ -126,7 +127,7 @@ class Issue < ApplicationRecord
   end
 
   def news_cms_host
-    "http://localhost:3001"
+    'http://localhost:3001'
   end
 
   def news_cms_head
@@ -137,8 +138,8 @@ class Issue < ApplicationRecord
     # page_array = [page_number, profile]
     section_names_array = eval(publication.section_names)
     eval_issue_plan.each_with_index do |page_array, i|
-      page_hash                 = {}
-      page_hash[:issue_id]       = self.id
+      page_hash = {}
+      page_hash[:issue_id] = id
       page_hash[:section_name]  = section_names_array[i]
       page_hash[:page_number]   = page_array[0]
       page_hash[:profile]       = page_array[1]
@@ -154,16 +155,21 @@ class Issue < ApplicationRecord
   end
 
   def make_pages
-    puts "in make_pages"
-    page_plans.each_with_index do |page_plan, i|
-      Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+    puts 'in make_pages'
+    page_plans.each_with_index do |page_plan, _i|
+      Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
       page_plan.dirty = false
       page_plan.save
     end
   end
 
+  def make_spread
+    puts 'in make_spread'
+    Spread.create!(issue_id: id)
+  end
+
   def change_or_make_pages
-    page_plans.each_with_index do |page_plan, i|
+    page_plans.each_with_index do |page_plan, _i|
       if page_plan.page
         if page_plan.need_update?
           page_plan.page.change_template(page_plan.selected_template_id)
@@ -173,7 +179,7 @@ class Issue < ApplicationRecord
         next
       else
         # create new page
-        page_plan.page = Page.create!(issue_id: self.id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id, page_number: i + 1)
+        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
         page_plan.dirty = false
         page_plan.save
       end
@@ -185,7 +191,7 @@ class Issue < ApplicationRecord
     page_plans.each do |pp|
       list << pp if pp.ad_type
     end
-    list.sort_by{|p| p.page_number}
+    list
   end
 
   def ad_list
@@ -193,21 +199,21 @@ class Issue < ApplicationRecord
     pages.each do |page|
       list << page.ad_info if page.ad_info
     end
-    return false if list.length > 0
+    return false unless list.empty?
     list.to_yaml
   end
 
   def save_ad_info
     system("mkdir -p #{issue_ads_path}") unless File.directory?(issue_ads_path)
-    File.open(issue_ad_list_path, 'w'){|f| f.write.ad_list} if ad_list
+    File.open(issue_ad_list_path, 'w') { |f| f.write.ad_list } if ad_list
   end
 
   def parse_images
-    Dir.glob("#{issue_images_path}/*{.jpg,.pdf}").each  do |image|
+    Dir.glob("#{issue_images_path}/*{.jpg,.pdf}").each do |image|
       puts "+++++ image:#{image}"
       h = {}
       issue_image_basename  = File.basename(image)
-      profile_array         = issue_image_basename.split("_")
+      profile_array         = issue_image_basename.split('_')
       puts "profile_array:#{profile_array}"
       next if profile_array.length < 2
       puts "profile_array.length:#{profile_array.length}"
@@ -215,21 +221,21 @@ class Issue < ApplicationRecord
       h[:page_number]       = profile_array[0].to_i
       h[:story_number]      = profile_array[1].to_i
       h[:column]            = 2
-      h[:column]            = profile_array[2].to_i if  profile_array.length > 3
+      h[:column]            = profile_array[2].to_i if profile_array.length > 3
       h[:landscape]         = true
-      h[:caption_title]     = "사진설먕 제목"
-      h[:caption]           = "사진설먕운 여기에 사진설명은 여기에 사진설명은 여기에 사진설명"
-      h[:position]          = 3 #top_right 상단_우측
-      #TODO read image file and determin orientaion from it.
+      h[:caption_title]     = '사진설먕 제목'
+      h[:caption]           = '사진설먕운 여기에 사진설명은 여기에 사진설명은 여기에 사진설명'
+      h[:position]          = 3 # top_right 상단_우측
+      # TODO read image file and determin orientaion from it.
       h[:used_in_layout]    = false
-      h[:landscape]         = profile_array[3] if  profile_array.length > 4
-      if h[:landscape]
-        h[:row]             = h[:column]
-      else
-        h[:row]       = h[:column] + 1
-      end
-      h[:extra_height_in_lines]   = h[:row] * publication.lines_per_grid
-      h[:issue_id]          = self.id
+      h[:landscape]         = profile_array[3] if profile_array.length > 4
+      h[:row] = if h[:landscape]
+                  h[:column]
+                else
+                  h[:column] + 1
+                end
+      h[:extra_height_in_lines] = h[:row] * publication.lines_per_grid
+      h[:issue_id] = id
       # h[:column]            = profile_array[2] if  profile_array.length > 3
       page = Page.where(issue_id: self, page_number: h[:page_number]).first
       puts "h[:issue_id]:#{h[:issue_id]}"
@@ -243,17 +249,15 @@ class Issue < ApplicationRecord
         h[:working_article_id] = working_article.id
         puts "h:#{h}"
         Image.where(h).first_or_create
-      #TODO create symbolic link
+      # TODO: create symbolic link
       else
         puts "article at page:#{h[:page_number]} story_number: #{h[:story_number]} not found!!!}"
       end
     end
-
   end
 
   def parse_ad_images
-
-    Dir.glob("#{issue_ads_path}/*{.jpg,.pdf}").each  do |ad|
+    Dir.glob("#{issue_ads_path}/*{.jpg,.pdf}").each do |ad|
       h = {}
       h[:image_path]        = ad
       h[:issue_id]          = self
@@ -267,65 +271,57 @@ class Issue < ApplicationRecord
 
   def ad_list
     list = []
-    pages.each do |page|
-      page.ad_images
-    end
-
+    pages.each(&:ad_images)
   end
 
   def save_issue_plan_ad
-    pages.each do |page|
-      page.save_issue_plan_ad
-    end
+    pages.each(&:save_issue_plan_ad)
   end
 
   def copy_sample_ad
-    pages.each do |page|
-      page.copy_sample_ad
-    end
+    pages.each(&:copy_sample_ad)
   end
 
   def reset_issue_plan
-    self.plan = File.open(default_issue_plan_path, 'r'){|f| f.read}
-    self.save
+    self.plan = File.open(default_issue_plan_path, 'r', &:read)
+    save
     make_default_issue_plan
   end
 
   def xml_path
-    path + "/newsml"
+    path + '/newsml'
   end
-
 
   def xml_zip_path
     year          = date.year
-    month         = date.month.to_s.rjust(2, "0")
-    day           = date.day.to_s.rjust(2, "0")
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
     issue_date    = "#{year}#{month}#{day}"
     xml_path + "/#{issue_date}_story_xml.zip"
   end
 
   def preview_xml_path
-    path + "/page_preview"
+    path + '/page_preview'
   end
 
   def preview_xml_zip_path
     year          = date.year
-    month         = date.month.to_s.rjust(2, "0")
-    day           = date.day.to_s.rjust(2, "0")
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
     issue_date    = "#{year}#{month}#{day}"
     preview_xml_path + "/#{issue_date}_page_preview.zip"
   end
 
   def mobile_preview_xml_path
-      path + "/mobile_page_preview"
+    path + '/mobile_page_preview'
   end
 
   def mobile_preview_xml_zip_path
-      year          = date.year
-      month         = date.month.to_s.rjust(2, "0")
-      day           = date.day.to_s.rjust(2, "0")
-      issue_date    = "#{year}#{month}#{day}"
-      mobile_preview_xml_path + "/#{issue_date}_mobile_preview_xml.zip"
+    year = date.year
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
+    issue_date    = "#{year}#{month}#{day}"
+    mobile_preview_xml_path + "/#{issue_date}_mobile_preview_xml.zip"
   end
 
   def make_story_xml_zip
@@ -341,16 +337,14 @@ class Issue < ApplicationRecord
         # Two arguments:
         # – The name of the file as it will appear in the archive
         # – The original file, including the path to find it
-        zipfile.add(base_name,  File.join(folder, base_name))
+        zipfile.add(base_name, File.join(folder, base_name))
       end
       # zipfile.get_output_stream(“success”) { |os| os.write “All done successfully” }
     end
     # send_file(File.join("#{Rails.root}/public/", ‘myfirstzipfile.zip’), :type => ‘application/zip’, :filename => "#{xml_zip_name}")
     # Remove content from ‘my_pdfs’ folder if you want
     # FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/my_pdfs/*"))
-
   end
-
 
   def make_preview_xml_zip
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
@@ -364,7 +358,7 @@ class Issue < ApplicationRecord
         # Two arguments:
         # – The name of the file as it will appear in the archive
         # – The original file, including the path to find it
-        zipfile.add(base_name,  File.join(folder, base_name))
+        zipfile.add(base_name, File.join(folder, base_name))
       end
       # zipfile.get_output_stream(“success”) { |os| os.write “All done successfully” }
     end
@@ -380,103 +374,85 @@ class Issue < ApplicationRecord
       @output_file = output_file
     end
 
-  def write
-    entries = Dir.entries(@input_dir) - %w(. ..)
+    def write
+      entries = Dir.entries(@input_dir) - %w[. ..]
 
-    ::Zip::File.open(@output_file, ::Zip::File::CREATE) do |zipfile|
-      write_entries entries, '', zipfile
-    end
-  end
-
-  # A helper method to make the recursion work.
-  def write_entries(entries, path, zipfile)
-    entries.each do |e|
-      zipfile_path = path == '' ? e : File.join(path, e)
-      disk_file_path = File.join(@input_dir, zipfile_path)
-      puts "Deflating #{disk_file_path}"
-
-      if File.directory? disk_file_path
-        recursively_deflate_directory(disk_file_path, zipfile, zipfile_path)
-      else
-        put_into_archive(disk_file_path, zipfile, zipfile_path)
+      ::Zip::File.open(@output_file, ::Zip::File::CREATE) do |zipfile|
+        write_entries entries, '', zipfile
       end
     end
-  end
 
-  def recursively_deflate_directory(disk_file_path, zipfile, zipfile_path)
-    zipfile.mkdir zipfile_path
-    subdir = Dir.entries(disk_file_path) - %w(. ..)
-    write_entries subdir, zipfile_path, zipfile
-  end
+    private
 
-  def put_into_archive(disk_file_path, zipfile, zipfile_path)
-    zipfile.get_output_stream(zipfile_path) do |f|
-      f.write(File.open(disk_file_path, 'rb').read)
+    # A helper method to make the recursion work.
+    def write_entries(entries, path, zipfile)
+      entries.each do |e|
+        zipfile_path = path == '' ? e : File.join(path, e)
+        disk_file_path = File.join(@input_dir, zipfile_path)
+        puts "Deflating #{disk_file_path}"
+
+        if File.directory? disk_file_path
+          recursively_deflate_directory(disk_file_path, zipfile, zipfile_path)
+        else
+          put_into_archive(disk_file_path, zipfile, zipfile_path)
+        end
+      end
     end
-  end
+
+    def recursively_deflate_directory(disk_file_path, zipfile, zipfile_path)
+      zipfile.mkdir zipfile_path
+      subdir = Dir.entries(disk_file_path) - %w[. ..]
+      write_entries subdir, zipfile_path, zipfile
+    end
+
+    def put_into_archive(disk_file_path, zipfile, zipfile_path)
+      zipfile.get_output_stream(zipfile_path) do |f|
+        f.write(File.open(disk_file_path, 'rb').read)
+      end
+    end
 end
 
   # def make_mobile_preview_xml_zip
-    # folder = mobile_preview_xml_path
-    # input_filenames = Dir.glob("#{mobile_preview_xml_path}/**.*")
-    # zipfile_name = mobile_preview_xml_zip_path
-    # system("rm #{mobile_preview_xml_zip_path}") if File.exist?(mobile_preview_xml_zip_path)
-    # Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
-    #   input_filenames.each do |filename|
-    #     base_name = File.basename(filename)
-    #     zipfile.add(base_name,  File.join(folder, base_name))
-    #   end
-    # end
-
-    # Zip::ZipFile.open(zipfile_name, Zip::ZipFile::CREATE) do |zipfile|
-    #   Dir[File.join(folder, '*')].each do |file|
-    #     zipfile.add(file.sub(folder, ''), file)
-    #   end
-    # end
+  # folder = mobile_preview_xml_path
+  # input_filenames = Dir.glob("#{mobile_preview_xml_path}/**.*")
+  # zipfile_name = mobile_preview_xml_zip_path
+  # system("rm #{mobile_preview_xml_zip_path}") if File.exist?(mobile_preview_xml_zip_path)
+  # Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+  #   input_filenames.each do |filename|
+  #     base_name = File.basename(filename)
+  #     zipfile.add(base_name,  File.join(folder, base_name))
+  #   end
   # end
 
+  # Zip::ZipFile.open(zipfile_name, Zip::ZipFile::CREATE) do |zipfile|
+  #   Dir[File.join(folder, '*')].each do |file|
+  #     zipfile.add(file.sub(folder, ''), file)
+  #   end
+  # end
+  # end
+
+  def full_page_ad
+    pages.select{|p| p.section_name == "전면광고"}
+  end
 
   def save_story_xml
-    pages[21..22].each do |page|
-      page.save_story_xml
-    end
+    full_page_ad.each(&:save_story_xml)
+    pages[21..22].each(&:save_story_xml)
     # make_story_xml_zip
   end
 
   def save_preview_xml
-    pages[21..22].each do |page|
-      page.save_preview_xml
-    end
+    full_page_ad.each(&:save_preview_xml)
+    pages[21..22].each(&:save_preview_xml)
     # make_preview_xml_zip
   end
 
   def mobile_page_preview_path
-    "#{Rails.root}/public/1/issue/#{date.to_s}/mobile_page_preview"
+    "#{Rails.root}/public/1/issue/#{date}/mobile_page_preview"
   end
 
   def partial_xml_path
-  "#{Rails.root}/public/1/issue/#{date.to_s}/partial_xml"
-  end
-
-  def save_mobile_preview_xml
-    # page 22 and 23 only for now!!
-    s = ""
-    u = ""
-    pages[21..22].each do |page|
-      s += page.all_container
-      u += page.updateinfo
-      page.save_mobile_preview_xml
-      # all_container_xml_page = page.container_xml_page
-    end
-    system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
-    File.open(partial_xml_path + "/partial_Container.xml", 'w'){|f| f.write s}
-    File.open(partial_xml_path + "/partial_updateinfo.xml", 'w'){|f| f.write u}
-    mobile_xml_send
-    # make_mobile_preview_xml_zip
-    # directory_to_zip = mobile_preview_xml_path
-    # output_file = mobile_preview_xml_zip_path
-    # zf = ZipFileGenerator.new(directory_to_zip, output_file)
-    # zf.write()
+    "#{Rails.root}/public/1/issue/#{date}/partial_xml"
   end
 
   def copy_to_xml_ftp
@@ -494,22 +470,22 @@ end
 
   def xml_send
     year          = date.year
-    month         = date.month.to_s.rjust(2, "0")
-    day           = date.day.to_s.rjust(2, "0")
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
     issue_date    = "#{year}#{month}#{day}"
     news_xml      = "#{issue_date}_news_xml"
     preview_xml   = "#{issue_date}_preview_xml"
 
-    puts "sending it to News & Preview Xml.zip"
+    puts 'sending it to News & Preview Xml.zip'
     ip        = '211.115.91.231'
     id        = 'naeil'
     pw        = 'sodlftlsans1!'
     entries = Dir.glob("#{xml_path}/**/*").sort
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.mkdir news_xml
-        entries.each do |name|
+      entries.each do |name|
         base_name = File.basename(name)
-        if File::directory? base_name
+        if File.directory? base_name
           # ftp.mkdir issue_date + "/#{base_name}"
           ftp.mkdir base_name
         else
@@ -520,9 +496,9 @@ end
     entries = Dir.glob("#{preview_xml_path}/**/*").sort
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.mkdir preview_xml
-        entries.each do |name|
+      entries.each do |name|
         base_name = File.basename(name)
-        if File::directory? base_name
+        if File.directory? base_name
           # ftp.mkdir issue_date + "/#{base_name}"
           ftp.mkdir base_name
         else
@@ -532,75 +508,173 @@ end
     end
   end
 
-  def merge_container_xml
-    ip            = '211.115.91.68'
-    id            = 'jimeun'
-    pw            = 'sodlfwlaus2018!@#$'
-    year          = date.year
-    month         = date.month.to_s.rjust(2, "0")
-    day           = date.day.to_s.rjust(2, "0")
-    issue_date    = "#{year}#{month}#{day}"
-    ftp_folder    = "#{year}/#{month}/#{day}/"
-    partial_folder = partial_xml_path
+  def get_newsgo_made_mobile_preview_xml
+    newsgo_content_array = []
+    pages.each do |page|
+      if page.section_name = '전면광고'
+        newsgo_content_array << page.all_container
+      elsif page.page_number == 22 || page.page_number == 22 
+        newsgo_content_array << page.all_container
+      else
+        newsgo_content_array << nil
+      end
+    end
+    newsgo_content_array
+  end
+
+  def generated_pages_array
+    pages = full_page_ad.map{|f| f.page_number}
+    pages << 22
+    pages << 23
+    pages
+  end
+
+  def merge_mobile_page_container
+    container_base_path   = partial_xml_path + '/Container.xml'
+    base_content          = File.open(container_base_path, 'r', &:read)
+    newsgo_partial_array  = get_newsgo_made_mobile_preview_xml
+
+    header =<<EOF
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ContainerML>
+      <WriteAndTime>2018-09-18T12:25:13</WriteAndTime>
+      <NewsID>1</NewsID>
+      <NewsName>내일신문</NewsName>
+      <JeHoNum>4470</JeHoNum>
+      <NewsDate>2018-09-18T00:00:00</NewsDate>
+      <PanID>24</PanID>
+    EOF
+
+    footer =<<EOF
+      </PageList>
+    </ContainerML>
+    EOF
+
+    partial_array = []
+    24.times do |i|
+      @my_variable    = (i + 1).to_s.rjust(2,"0")
+      page_div    = /<Page ID="\d{4}#{@my_variable}">.*?<\/Page>/m
+      result = base_content.match(page_div)
+      if result
+        partial_array << result[0]
+      else
+        partial_array << nil
+      end
+    end
+
+    partial_array = partial_array.map.with_index do |e, i|
+      if e.nil?
+        newsgo_partial_array[i]
+      else
+        e
+      end
+    end
+
+    final_container = header
+    final_container += partial_array.join("\n")
+    final_container += footer
+    File.open(container_base_path, 'w') { |f| f.write final_container }
+  end
+
+  def save_mobile_page_updateinfo(updateinfo_xml_path)
+    @year        = date.year
+    @month       = date.month.to_s.rjust(2, '0')
+    @day         = date.day.to_s.rjust(2, '0')
+    @issue_date  = "#{@year}#{@month}#{@day}"
+@update_info =<<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateInfo>
+	<NewsDate>#{@issue_date}T00:00:00</NewsDate>
+	<PubDate>#{@issue_date}T06:00:00</PubDate>
+	<LastModifyDate>#{@issue_date}T12:25:13</LastModifyDate>
+	<DownLoadList>
+		<NewsClass version="1.00"/>
+		<UpdateCount>24</UpdateCount>
+		<PageKey>#{@issue_date}_01100101</PageKey>
+		<PageKey>#{@issue_date}_01100102</PageKey>
+		<PageKey>#{@issue_date}_01100103</PageKey>
+		<PageKey>#{@issue_date}_01100104</PageKey>
+		<PageKey>#{@issue_date}_01100105</PageKey>
+		<PageKey>#{@issue_date}_01100106</PageKey>
+		<PageKey>#{@issue_date}_01100107</PageKey>
+		<PageKey>#{@issue_date}_01100108</PageKey>
+		<PageKey>#{@issue_date}_01100109</PageKey>
+		<PageKey>#{@issue_date}_01100110</PageKey>
+		<PageKey>#{@issue_date}_01100111</PageKey>
+		<PageKey>#{@issue_date}_01100112</PageKey>
+		<PageKey>#{@issue_date}_01100113</PageKey>
+		<PageKey>#{@issue_date}_01100114</PageKey>
+		<PageKey>#{@issue_date}_01100115</PageKey>
+		<PageKey>#{@issue_date}_01100116</PageKey>
+		<PageKey>#{@issue_date}_01100117</PageKey>
+		<PageKey>#{@issue_date}_01100118</PageKey>
+		<PageKey>#{@issue_date}_01100119</PageKey>
+		<PageKey>#{@issue_date}_01100120</PageKey>
+		<PageKey>#{@issue_date}_01100121</PageKey>
+		<PageKey>#{@issue_date}_01100122</PageKey>
+		<PageKey>#{@issue_date}_01100123</PageKey>
+		<PageKey>#{@issue_date}_01100124</PageKey>
+	</DownLoadList>
+</UpdateInfo>
+EOF
+    updateinfo_base_path  = partial_xml_path + '/updateinfo.xml'
+    File.open(updateinfo_base_path, 'w') { |f| f.write @update_info }
+  end
+
+  def save_mobile_preview_xml
+    ip          = '211.115.91.68'
+    id          = 'jimeun'
+    pw          = 'sodlfwlaus2018!@#$'
+    year        = date.year
+    month       = date.month.to_s.rjust(2, '0')
+    day         = date.day.to_s.rjust(2, '0')
+    issue_date  = "#{year}#{month}#{day}"
+
+    ftp_folder              = "#{year}/#{month}/#{day}/"
+    partial_folder          = partial_xml_path
 
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.chdir(ftp_folder)
-      ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
+      # ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
       ftp.getbinaryfile('Container.xml', "#{partial_xml_path}/Container.xml")
       # ++++++++ Container
       container_base_path     = partial_folder + '/Container.xml'
-      container_partial_path  = partial_folder + '/partial_Container.xml'
-      if File.exist?(container_base_path) && File.exist?(container_partial_path)
-        base_content          = File.open(container_base_path, 'r'){|f| f.read}
-        after_count_change    = base_content.sub(/<PageList Count="22">/, "<PageList Count=\"24\">")
-        partial_content       = File.open(container_partial_path, 'r'){|f| f.read}
-        page_24_and_afer      = /<Page ID="100124">.*<\/ContainerML>/m
-        result = after_count_change.match(page_24_and_afer)
-        final = result.pre_match + partial_content + result.to_s
-        File.open(container_base_path, 'w'){|f| f.write final}
-        FileUtils.rm(container_partial_path)
+      if File.exist?(container_base_path) 
+        merge_mobile_page_container
       else
-        puts "No Container.xml or No partial_Container.xml !!!!"
+        puts 'No Container.xml or No partial_Container.xml !!!!'
       end
       # ++++++++ updateinfo
-      updateinfo_base_path          = partial_folder + '/updateinfo.xml'
-      updateinfo_partial_path       = partial_folder + '/partial_updateinfo.xml'
-      if File.exist?(updateinfo_base_path) && File.exist?(updateinfo_partial_path)
-        updateinfo_content          = File.open(updateinfo_base_path, 'r'){|f| f.read}
-        after_info_change           = updateinfo_content.sub(/<UpdateCount>22<\/UpdateCount>/, "<UpdateCount>24</UpdateCount>")
-        updateinfo_partial_content  = File.open(updateinfo_partial_path, 'r'){|f| f.read}
-        info_page_24_and_afer       = /<PageKey>\d{8}_\d{6}24<\/PageKey>.*<\/UpdateInfo>/m
-        info_result                 = after_info_change.match(info_page_24_and_afer)
-        info_final                  = info_result.pre_match + updateinfo_partial_content + info_result.to_s
-        File.open(updateinfo_base_path, 'w'){|f| f.write info_final}
-        FileUtils.rm(updateinfo_partial_path)
+      updateinfo_base_path  = partial_folder + '/updateinfo.xml'
+      if File.exist?(updateinfo_base_path) 
+        save_mobile_page_updateinfo(updateinfo_base_path)
       else
-        puts "No updateinfo.xml or partial_updateinfo.xml !!!!"
+        puts 'No updateinfo.xml or No partial_updateinfo.xml !!!!'
       end
       # ftp.rename("#{ftp_folder}/.xml", "updateinfo.xml.old")
       # ftp.rename("#{ftp_folder}/Contaiupdateinfoner.xml", "Container.xml.old")
-      ftp.putbinaryfile("#{partial_xml_path}/updateinfo.xml", "updateinfo.xml")
-      ftp.putbinaryfile("#{partial_xml_path}/Container.xml", "Container.xml" )
+      ftp.putbinaryfile("#{partial_xml_path}/updateinfo.xml", 'updateinfo.xml')
+      ftp.putbinaryfile("#{partial_xml_path}/Container.xml", 'Container.xml')
     end
   end
 
   # check target ftp folder every 5 min for 2 hrs (5min x 24 = 2hrs)
   def wait_for_xml_upload
     year          = date.year
-    month         = date.month.to_s.rjust(2, "0")
-    day           = date.day.to_s.rjust(2, "0")
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
     issue_date    = "#{year}#{month}#{day}"
     ip        = '211.115.91.68'
     id        = 'jimeun'
     pw        = 'sodlfwlaus2018!@#$'
-    ftp_folder  = "#{year}/#{month}/#{day}"
+    ftp_folder = "#{year}/#{month}/#{day}"
     found = false
     24.times do
       Net::FTP.open(ip, id, pw) do |ftp|
         ftp.chdir(ftp_folder)
         files_in_folder = ftp.list
         files_in_folder.each do |file|
-          found = true if file.include?("Container.xml")
+          found = true if file.include?('Container.xml')
           break if found
         end
       end
@@ -610,12 +684,12 @@ end
     found
   end
 
-  def mobile_xml_send
+  def save_mobile_preview_xml
     year          = date.year
-    month         = date.month.to_s.rjust(2, "0")
-    day           = date.day.to_s.rjust(2, "0")
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
     issue_date    = "#{year}#{month}#{day}"
-    puts "sending it tp Mobile Preview Xml.zip"
+    puts 'sending it tp Mobile Preview Xml.zip'
     ip        = '211.115.91.68'
     id        = 'jimeun'
     pw        = 'sodlfwlaus2018!@#$'
@@ -623,7 +697,7 @@ end
     # ip        = '211.115.91.231'
     # id        = 'naeil'
     # pw        = 'sodlftlsans1!'
-    ftp_folder  = "#{year}/#{month}/#{day}"
+    ftp_folder = "#{year}/#{month}/#{day}"
     entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.chdir(ftp_folder)
@@ -632,8 +706,8 @@ end
         base_name = File.basename(name)
         dir_name  = File.dirname(name)
         dir_base_name = File.basename(dir_name)
-        if File::directory? name
-          ftp.mkdir "#{base_name}"
+        if File.directory? name
+          ftp.mkdir base_name.to_s
         else
           puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
           File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
@@ -642,10 +716,10 @@ end
     end
     result = wait_for_xml_upload
     if result
-      puts "xml file upload found and proceeding merge"
-      merge_container_xml
+      puts 'xml file upload found and proceeding merge'
+      merge_mobile_container_xml
     else
-      puts "xml file upload not found!!!"
+      puts 'xml file upload not found!!!'
     end
   end
 
@@ -653,12 +727,26 @@ end
     read_issue_plan
   end
 
+  def spread_left_page
+    puts "pages.count:#{pages.count}"
+    return if pages.count == 0
+    half = pages.count/2
+    puts "half:#{half}"
+    pages[half - 1]
+  end
+
+  def spread_right_page
+    return if pages.count == 0
+    half = pages.count/2
+    pages[half]
+  end
+
   private
 
   def read_issue_plan
-
+    __method__
     if File.exist?(default_issue_plan_path)
-      self.plan = File.open(default_issue_plan_path, 'r'){|f| f.read}
+      self.plan = File.open(default_issue_plan_path, 'r', &:read)
       return true
     else
       puts "#{default_issue_plan_path} does not exist!!!"

@@ -2,12 +2,12 @@
 #
 # Table name: reporters
 #
-#  id                :integer          not null, primary key
+#  id                :bigint(8)        not null, primary key
 #  name              :string
 #  email             :string
 #  title             :string
 #  cell              :string
-#  reporter_group_id :integer
+#  reporter_group_id :bigint(8)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

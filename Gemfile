@@ -94,3 +94,18 @@ gem 'mechanize'
 gem 'whenever'
 # gem 'pgreset', '~> 0.1.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
+
+gem 'simplecov', require: false, group: :test
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2', require: false
+  gem 'database_cleaner', '~> 1.7'
+  # gem 'chromedriver-helper'
+  gem 'factory_bot_rails'
+  gem 'launchy'
+  gem 'rails-controller-testing'
+
+end
+
+gem 'bullet', group: 'development'

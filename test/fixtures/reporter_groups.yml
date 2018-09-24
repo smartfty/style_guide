@@ -2,7 +2,7 @@
 #
 # Table name: reporter_groups
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  section       :string
 #  page_range    :string
 #  leader        :string

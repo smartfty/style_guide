@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830020125) do
+ActiveRecord::Schema.define(version: 2018_09_18_080052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180830020125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "color"
+    t.boolean "keep_original_size"
     t.index ["page_id"], name: "index_ad_boxes_on_page_id"
   end
 
@@ -226,6 +227,7 @@ ActiveRecord::Schema.define(version: 20180830020125) do
     t.integer "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["issue_id"], name: "index_page_plans_on_issue_id"
   end
 
@@ -355,6 +357,24 @@ ActiveRecord::Schema.define(version: 20180830020125) do
     t.boolean "draw_divider"
   end
 
+  create_table "spreads", force: :cascade do |t|
+    t.bigint "issue_id"
+    t.integer "left_page_id"
+    t.integer "right_page_id"
+    t.integer "ad_box_id"
+    t.boolean "color_page"
+    t.float "width"
+    t.float "height"
+    t.float "left_margin"
+    t.float "top_margin"
+    t.float "right_margin"
+    t.float "bottom_margin"
+    t.float "page_gutter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_spreads_on_issue_id"
+  end
+
   create_table "stroke_styles", force: :cascade do |t|
     t.string "klass"
     t.string "name"
@@ -472,6 +492,7 @@ ActiveRecord::Schema.define(version: 20180830020125) do
   add_foreign_key "opinion_writers", "publications"
   add_foreign_key "page_plans", "issues"
   add_foreign_key "profiles", "publications"
+  add_foreign_key "spreads", "issues"
   add_foreign_key "stroke_styles", "publications"
   add_foreign_key "text_styles", "publications"
   add_foreign_key "wire_stories", "issues"

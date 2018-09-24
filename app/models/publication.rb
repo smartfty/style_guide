@@ -180,6 +180,10 @@ class Publication < ApplicationRecord
     width - left_margin - right_margin
   end
 
+  def spread_width
+    width*2 + left_margin - right_margin
+  end
+
   def page_heading_width
     page_width
   end

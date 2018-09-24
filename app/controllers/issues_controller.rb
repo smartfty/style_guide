@@ -216,6 +216,11 @@ class IssuesController < ApplicationController
     end
   end
 
+  def spread
+    set_issue
+    @spread = @issue.spread
+  end
+
   def clone_pages
     @clone_pages = Page.clone_pages
   end
@@ -313,7 +318,8 @@ class IssuesController < ApplicationController
     def set_issue
       if params[:id]
         # @issue = Issue.find(params[:id])
-        @issue = Issue.friendly.find(params[:id])
+        # @issue = Issue.friendly.find(params[:id])
+        @issue = Issue.find(params[:id])
 
       else
         @issue = Issue.last

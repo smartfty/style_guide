@@ -2,13 +2,13 @@
 #
 # Table name: profiles
 #
-#  id                :integer          not null, primary key
+#  id                :bigint(8)        not null, primary key
 #  name              :string
 #  profile_image     :string
 #  work              :string
 #  position          :string
 #  email             :string
-#  publication_id    :integer
+#  publication_id    :bigint(8)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  title             :string

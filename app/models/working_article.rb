@@ -48,16 +48,12 @@ class WorkingArticle < ApplicationRecord
   belongs_to :page
   belongs_to :article, optional: true
   has_many :images
-  # before_create :parse_article
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
   include ArticleSplitable
-
   extend FriendlyId
-  # friendly_id :make_frinedly_slug
   friendly_id :make_frinedly_slug, :use => [:slugged]
-
 
   attr_reader :time_stamp
 
@@ -255,9 +251,7 @@ class WorkingArticle < ApplicationRecord
     siblings.each do |sybling|
       sybling.push_line(line_count)
     end
-    # generate_pdf
     generate_pdf_with_time_stamp
-    page.generate_pdf_with_time_stamp
 
     if line_count == 0
       remove_extended_line_count_from_config_yml
@@ -278,10 +272,8 @@ class WorkingArticle < ApplicationRecord
     siblings.each do |sybling|
       sybling.push_line(self.extended_line_count)
     end
-    # generate_pdf
     generate_pdf_with_time_stamp
     add_extended_line_count_to_config_yml(self.extended_line_count)
-    page.generate_pdf_with_time_stamp
 
     if line_count == 0
       remove_extended_line_count_from_config_yml
@@ -321,7 +313,7 @@ class WorkingArticle < ApplicationRecord
     self.email             = h['email']
     self.body              = new_story[:body]
     self.save
-    generate_pdf
+    
   end
 
   def swap
@@ -680,6 +672,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def change_article(new_article)
+    puts __method__
     self.article_id = new_article.id
     article_info_hash   = new_article.attributes
     article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
@@ -697,6 +690,7 @@ class WorkingArticle < ApplicationRecord
     self.pushed_line_count = article_info_hash[:pushed_line_count] || 0
     self.inactive       = false
     self.save
+    generate_pdf
   end
 
   def growable?
@@ -1280,22 +1274,23 @@ EOF
       elsif page_number == 23 && order == 2
         self.subject_head = '내일시론'
       end
+      # self.page_path      = page.path
     end
-      self.title          = '제목은 여기에 여기는 제목'
-      self.subtitle       = '부제는 여기에 여기는 부제목 자리'
-      self.reporter       = '홍길동'
-      self.email          = 'gdhong@gmail.com'
-      self.body =<<~EOF
-      여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    self.title          = '제목은 여기에 여기는 제목'
+    self.subtitle       = '부제는 여기에 여기는 부제목 자리'
+    self.reporter       = '홍길동'
+    self.email          = 'gdhong@gmail.com'
+    self.body =<<~EOF
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
 
-      여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
 
-      여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
 
-      여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
 
-      여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
 
-      EOF
+    EOF
   end
 end

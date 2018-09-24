@@ -2,8 +2,8 @@
 #
 # Table name: article_plans
 #
-#  id           :integer          not null, primary key
-#  page_plan_id :integer
+#  id           :bigint(8)        not null, primary key
+#  page_plan_id :bigint(8)
 #  reporter     :string
 #  order        :integer
 #  title        :string

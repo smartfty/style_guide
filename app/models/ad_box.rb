@@ -2,19 +2,21 @@
 #
 # Table name: ad_boxes
 #
-#  id         :integer          not null, primary key
-#  grid_x     :integer
-#  grid_y     :integer
-#  column     :integer
-#  row        :integer
-#  order      :integer
-#  ad_type    :string
-#  advertiser :string
-#  inactive   :boolean
-#  ad_image   :string
-#  page_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :integer          not null, primary key
+#  grid_x             :integer
+#  grid_y             :integer
+#  column             :integer
+#  row                :integer
+#  order              :integer
+#  ad_type            :string
+#  advertiser         :string
+#  inactive           :boolean
+#  ad_image           :string
+#  page_id            :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  color              :boolean
+#  keep_original_size :boolean
 #
 # Indexes
 #

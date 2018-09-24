@@ -2,11 +2,11 @@
 #
 # Table name: stroke_styles
 #
-#  id             :integer          not null, primary key
+#  id             :bigint(8)        not null, primary key
 #  klass          :string
 #  name           :string
 #  stroke         :text
-#  publication_id :integer
+#  publication_id :bigint(8)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

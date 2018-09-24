@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :spreads
 #api
   namespace :api do
     namespace :v1 do
@@ -123,6 +124,7 @@ Rails.application.routes.draw do
       get 'eighth_group'
       get 'nineth_group'
       get 'ad_group'
+      get 'spread'
       get 'save_story_xml'
       get 'download_story_xml'
       get 'save_preview_xml'

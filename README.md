@@ -4,6 +4,19 @@ Rails app for creating style guide for newspaper publication
 
 ## Tables
 
+### spread
+  issue: references
+  left_page
+  right_page
+  has_many :ad_boxes
+  width
+  height
+  left_margin
+  top_margin
+  right_margin
+  bottom_margin
+  page_gutter
+
 ### publication
   name
   paper_size

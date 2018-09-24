@@ -2,7 +2,7 @@
 #
 # Table name: opinion_writers
 #
-#  id                :integer          not null, primary key
+#  id                :bigint(8)        not null, primary key
 #  name              :string
 #  title             :string
 #  work              :string
@@ -10,7 +10,7 @@
 #  email             :string
 #  cell              :string
 #  opinion_image     :string
-#  publication_id    :integer
+#  publication_id    :bigint(8)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  category_code     :integer

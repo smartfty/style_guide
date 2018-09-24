@@ -44,6 +44,7 @@ namespace :style do
         i.save
         i.make_default_issue_plan
         i.make_pages
+        i.set_color_page
         puts "created new issue at #{Time.now} ..."
       end
     end

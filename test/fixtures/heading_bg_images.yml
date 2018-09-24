@@ -2,9 +2,9 @@
 #
 # Table name: heading_bg_images
 #
-#  id               :integer          not null, primary key
+#  id               :bigint(8)        not null, primary key
 #  heading_bg_image :string
-#  page_heading_id  :integer
+#  page_heading_id  :bigint(8)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

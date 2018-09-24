@@ -2,7 +2,7 @@
 #
 # Table name: wire_stories
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  send_date     :date
 #  content_id    :string
 #  category_code :string
@@ -13,7 +13,7 @@
 #  source        :string
 #  title         :string
 #  body          :text
-#  issue_id      :integer
+#  issue_id      :bigint(8)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

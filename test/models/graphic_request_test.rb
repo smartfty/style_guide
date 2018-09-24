@@ -2,7 +2,7 @@
 #
 # Table name: graphic_requests
 #
-#  id               :integer          not null, primary key
+#  id               :bigint(8)        not null, primary key
 #  date             :date
 #  title            :string
 #  requester        :string

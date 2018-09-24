@@ -38,6 +38,58 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018_9_21
+  - page
+    - add path, issue_date:date, config_hash:text
+    
+  - section
+    - add path, config_hash:text
+
+  - article
+    - path, layout_info:text
+
+  - working_article
+    - path, layout_info:text
+
+  - ad_box 
+    - path, layout_info:text
+
+  - add publication_info to issue and page to reduce fatching parent
+  - add layout_info to working_article
+
+2018_9_20
+
+  - edit page_heading_text
+  - put underline in page_heading_text
+  - issue page_plan
+
+  - change UI
+  - Image Trimming
+  - multiple image upload in one article
+
+  - fix ad_group_oages
+  - put ENV for sending FTP and print PDF
+
+  - allow title and subtle with break at return
+
+  - send PDF to Dropbox when pdf is send to Printer
+
+  - save mobile xml
+
+2018_9_19
+  - update_working_articles
+      generate_pdf or copy  after create
+      generate page_pdf, refresh web page
+
+  - Add Spread Model
+    - issue view
+    - spread_page_heading
+
+2018_9_17
+  - fix holyday
+  - fix copy_heading in page.rb
+  - replace mobile_xml_partials
+
 2018_9_14
   - add rake tasl set_color_page
   - fix sending color page to print

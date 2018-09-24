@@ -17,12 +17,16 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  clone_name   :string
+#  slug         :string
+#  layout       :text
 #
 # Indexes
 #
 #  index_pages_on_issue_id      (issue_id)
 #  index_pages_on_page_plan_id  (page_plan_id)
+#  index_pages_on_slug          (slug) UNIQUE
 #
+
 require 'erb'
 require 'net/ftp'
 
@@ -43,6 +47,14 @@ class Page < ApplicationRecord
 
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
+
+  def friendly_string
+    "#{issue.date.to_s}_#{page_number}"
+  end
+
+  def issue_path
+    issue.path
+  end
 
   def path
     if clone_name == nil
@@ -299,6 +311,7 @@ class Page < ApplicationRecord
   end
 
   def update_working_articles
+    puts __method__
     # delete unused working_articles
     section = Section.find(template_id)
     if section.articles.length == 0
@@ -316,7 +329,8 @@ class Page < ApplicationRecord
           current[:article_id]          = article.id
           current[:extended_line_count] = article.extended_line_count || 0
           current[:pushed_line_count]   = article.pushed_line_count || 0
-          WorkingArticle.create(current)
+          w = WorkingArticle.create(current)
+          w.generate_pdf_with_time_stamp
         end
       end
       # mark unused as inactive
@@ -340,7 +354,6 @@ class Page < ApplicationRecord
   end
 
   def update_ad_boxes
-    puts __method__
 
     section = Section.find(template_id)
     section.ad_box_templates.each_with_index do |ad_box_template, i|
@@ -401,15 +414,22 @@ class Page < ApplicationRecord
     system "cp #{jpg_source} #{jpg_target}"
   end
 
-
   def put_space_between_chars(string)
     s = ""
+    i = 0
+    length = string.length
     string.each_char do |ch|
-      s += ch + " "
+      if i >= length - 1
+        s += ch
+      elsif ch == " "
+        s += ch
+      else
+        s += ch + " "
+      end
+      i += 1
     end
-    s.strip
+    s
   end
-
 
   def copy_heading
     FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
@@ -486,8 +506,8 @@ class Page < ApplicationRecord
     update_ad_boxes
     #TODO
     copy_heading
-    regenerate_pdf
-    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    # regenerate_pdf
+    generate_pdf_with_time_stamp
   end
 
   def change_template(new_template_id)
@@ -525,10 +545,11 @@ class Page < ApplicationRecord
     end
     copy_config_file
     #TODO change heading section_name to full page ad if new template is full page ad
+    copy_heading
     generate_heading_pdf
     update_working_articles
     update_ad_boxes
-    regenerate_pdf
+    generate_pdf
   end
 
   def save_as_default
@@ -1164,6 +1185,7 @@ EOF
         article.save_story_xml
       end
       ad_boxes.each do |ad|
+        ad.order = working_articles.length + 1
         ad.save_ad_xml
       end
     end
@@ -1186,6 +1208,14 @@ EOF
     self.row          = section.row
     self.ad_type      = section.ad_type
     self.story_count  = section.story_count
+
+    # issue_path   = issue.path
+    # if clone_name == nil
+    #   self.path = "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
+    # else
+    #   self.path = "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}-#{clone_name}"
+    # end
+    # self.issue_date = issue.date
     true
   end
 
