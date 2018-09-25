@@ -2,40 +2,48 @@
 #
 # Table name: working_articles
 #
-#  id                  :integer          not null, primary key
-#  grid_x              :integer
-#  grid_y              :integer
-#  column              :integer
-#  row                 :integer
-#  order               :integer
-#  kind                :string
-#  profile             :string
-#  title               :text
-#  title_head          :string
-#  subtitle            :text
-#  subtitle_head       :string
-#  body                :text
-#  reporter            :string
-#  email               :string
-#  personal_image      :string
-#  image               :string
-#  quote               :text
-#  subject_head        :string
-#  on_left_edge        :boolean
-#  on_right_edge       :boolean
-#  is_front_page       :boolean
-#  top_story           :boolean
-#  top_position        :boolean
-#  inactive            :boolean
-#  extended_line_count :integer
-#  pushed_line_count   :integer
-#  article_id          :integer
-#  page_id             :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  quote_box_size      :integer
-#  category_code       :integer
-#  slug                :string
+#  id                           :integer          not null, primary key
+#  grid_x                       :integer
+#  grid_y                       :integer
+#  column                       :integer
+#  row                          :integer
+#  order                        :integer
+#  kind                         :string
+#  profile                      :string
+#  title                        :text
+#  title_head                   :string
+#  subtitle                     :text
+#  subtitle_head                :string
+#  body                         :text
+#  reporter                     :string
+#  email                        :string
+#  personal_image               :string
+#  image                        :string
+#  quote                        :text
+#  subject_head                 :string
+#  on_left_edge                 :boolean
+#  on_right_edge                :boolean
+#  is_front_page                :boolean
+#  top_story                    :boolean
+#  top_position                 :boolean
+#  inactive                     :boolean
+#  extended_line_count          :integer
+#  pushed_line_count            :integer
+#  article_id                   :integer
+#  page_id                      :integer
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  quote_box_size               :integer
+#  category_code                :integer
+#  slug                         :string
+#  publication_name             :string
+#  path                         :string
+#  date                         :date
+#  page_number                  :integer
+#  page_heading_margin_in_lines :integer
+#  grid_width                   :float
+#  grid_height                  :float
+#  gutter                       :float
 #
 # Indexes
 #
@@ -483,9 +491,9 @@ class WorkingArticle < ApplicationRecord
     page.column
   end
 
-  def grid_width
-    publication.grid_width(page_columns)
-  end
+  # def grid_width
+  #   publication.grid_width(page_columns)
+  # end
 
   def grid_height
     publication.grid_height
@@ -511,12 +519,7 @@ class WorkingArticle < ApplicationRecord
     grid_y*grid_height
   end
 
-  def layout_rb
-    page_heading_margin_in_lines = 0
-    if top_position
-        page_heading_margin_in_lines = publication.page_heading_margin_in_lines(page.page_number)
-    end
-
+  def layout_options
     h = {}
     h[:kind]                          = kind if kind
     h[:page_number]                   = page_number
@@ -527,30 +530,28 @@ class WorkingArticle < ApplicationRecord
     h[:grid_height]                   = grid_height
     h[:gutter]                        = gutter
     h[:on_left_edge]                  = on_left_edge
-    if h[:on_left_edge].nil?
-      h[:on_left_edge] = false
-      h[:on_left_edge] = true if grid_x == 0
-    end
     h[:on_right_edge]                 = on_right_edge
-    if h[:on_right_edge].nil?
-      h[:on_right_edge] = false
-      h[:on_right_edge] = true if h[:column] + grid_x == page.column
-    end
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
     h[:top_position]                  = top_position
     h[:bottom_article]                = page.bottom_article?(self)
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+
     h[:extended_line_count]           = extended_line_count if extended_line_count
     h[:pushed_line_count]             = pushed_line_count if pushed_line_count
     h[:quote_box_size]                = quote_box_size if show_quote_box?
-    h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
-    h[:article_line_thickness]        = publication.article_line_thickness
-    h[:article_line_draw_sides]       = publication.article_line_draw_sides
-    h[:draw_divider]                  = publication.draw_divider
+
+    h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
+    h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
+    h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
+    h[:draw_divider]                  = false     #publication.draw_divider
     h
+  end
+
+  def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
+    h = layout_options
     if kind == '사진'
       content = "RLayout::NewsImageBox.new(#{h}) do\n"
       if image_hash = image_options
@@ -1254,6 +1255,7 @@ EOF
 
   private
 
+
   def init_atts
     unless article
 
@@ -1263,6 +1265,9 @@ EOF
       self.kind           = article_info_hash[:kind]
       self.grid_x         = article_info_hash[:grid_x]
       self.grid_y         = article_info_hash[:grid_y]
+      self.grid_width     = article_info_hash[:grid_width]
+      self.grid_height    = article_info_hash[:grid_heights]
+      self.gutter         = article_info_hash[:gutter]
       self.column         = article_info_hash[:column]
       self.row            = article_info_hash[:row]
       self.is_front_page  = article_info_hash[:is_front_page]
@@ -1292,5 +1297,6 @@ EOF
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
 
     EOF
+
   end
 end

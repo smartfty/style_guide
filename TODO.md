@@ -38,24 +38,66 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
-2018_9_21
+2018_9_25
+  add extra fields to model, in order to avoid fetching parent models, so not to do n+1 fetching
   - page
-    - add path, issue_date:date, config_hash:text
-    
+      add_column :pages, :publication_id, :integer
+      add_column :pages, :path, :string
+      add_column :pages, :date, :date
+      add_column :pages, :grid_width, :float
+      add_column :pages, :grid_height, :float
+      add_column :pages, :lines_per_grid, :float
+      add_column :pages, :width, :float
+      add_column :pages, :height, :float
+      add_column :pages, :left_margin, :float
+      add_column :pages, :top_margin, :float
+      add_column :pages, :right_margin, :float
+      add_column :pages, :bottom_margin, :float
+      add_column :pages, :gutter, :float
+      add_column :pages, :article_line_thickness, :float
+
   - section
-    - add path, config_hash:text
+      add_column :sections, :path, :string
+      add_column :sections, :grid_width, :float
+      add_column :sections, :grid_height, :float
+      add_column :sections, :lines_per_grid, :float
+      add_column :sections, :width, :float
+      add_column :sections, :height, :float
+      add_column :sections, :left_margin, :float
+      add_column :sections, :top_margin, :float
+      add_column :sections, :right_margin, :float
+      add_column :sections, :bottom_margin, :float
+      add_column :sections, :gutter, :float
+      add_column :sections, :page_heading_margin_in_lines, :integer
+      add_column :sections, :article_line_thickness, :float
 
   - article
-    - path, layout_info:text
+      add_column :articles, :publication_name, :string
+      add_column :articles, :path, :string
+      add_column :articles, :page_heading_margin_in_lines, :integer
+      add_column :articles, :grid_width, :float
+      add_column :articles, :grid_height, :float
+      add_column :articles, :gutter, :float
 
   - working_article
-    - path, layout_info:text
+      add_column :working_articles, :publication_name, :string
+      add_column :working_articles, :path, :string
+      add_column :working_articles, :date, :date
+      add_column :working_articles, :page_number, :integer
+      add_column :working_articles, :page_heading_margin_in_lines, :integer
+      add_column :working_articles, :grid_width, :float
+      add_column :working_articles, :grid_height, :float
+      add_column :working_articles, :gutter, :float
 
   - ad_box 
-    - path, layout_info:text
+      add_column :ad_boxes, :path, :string
+      add_column :ad_boxes, :date, :date
+      add_column :ad_boxes, :page_heading_margin_in_lines, :integer
+      add_column :ad_boxes, :page_number, :integer
+      add_column :ad_boxes, :grid_width, :float
+      add_column :ad_boxes, :grid_height, :float
+      add_column :ad_boxes, :gutter, :float
 
-  - add publication_info to issue and page to reduce fatching parent
-  - add layout_info to working_article
 
 2018_9_20
 

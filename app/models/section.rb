@@ -2,22 +2,35 @@
 #
 # Table name: sections
 #
-#  id             :integer          not null, primary key
-#  profile        :string
-#  column         :integer
-#  row            :integer
-#  order          :integer
-#  ad_type        :string
-#  is_front_page  :boolean
-#  story_count    :integer
-#  page_number    :integer
-#  section_name   :string
-#  color_page     :boolean          default(FALSE)
-#  publication_id :integer          default(1)
-#  layout         :text
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  draw_divider   :boolean
+#  id                           :integer          not null, primary key
+#  profile                      :string
+#  column                       :integer
+#  row                          :integer
+#  order                        :integer
+#  ad_type                      :string
+#  is_front_page                :boolean
+#  story_count                  :integer
+#  page_number                  :integer
+#  section_name                 :string
+#  color_page                   :boolean          default(FALSE)
+#  publication_id               :integer          default(1)
+#  layout                       :text
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  draw_divider                 :boolean
+#  path                         :string
+#  grid_width                   :float
+#  grid_height                  :float
+#  lines_per_grid               :float
+#  width                        :float
+#  height                       :float
+#  left_margin                  :float
+#  top_margin                   :float
+#  right_margin                 :float
+#  bottom_margin                :float
+#  gutter                       :float
+#  page_heading_margin_in_lines :integer
+#  article_line_thickness       :float
 #
 
 class Section < ApplicationRecord
@@ -42,7 +55,7 @@ class Section < ApplicationRecord
 
   #path from public
   def relative_path
-    "/#{publication.id}/section/#{page_number}/#{profile}/#{id}"
+    "/#{publication_id}/section/#{page_number}/#{profile}/#{id}"
   end
 
   def pdf_image_path
@@ -70,15 +83,7 @@ class Section < ApplicationRecord
   end
 
   def page_heading_width
-    publication.page_heading_width
-  end
-
-  def page_heading_height
-    if page_number == 1
-      publication.front_page_heading_height
-    else
-      publication.inner_page_heading_height
-    end
+    width
   end
 
   def korean_date_string
@@ -98,36 +103,24 @@ class Section < ApplicationRecord
 
   def section_config_hash
     h = {}
-    # h[:issue] = issue.issue_number
-    h['date']  = Date.new(2017,4,10)
-    h['section_name'] = section_name
-    if page_number == 1 || is_front_page == true
-      h['is_front_page']  = true
-      h['page_heading_margin_in_lines']     = publication.front_page_heading_margin
-    elsif page_number == 22 || page_number == 23
-      h['page_heading_margin_in_lines']     = 4
-    else
-      h['is_front_page']  = false
-      h['page_heading_margin_in_lines']     = publication.inner_page_heading_height
-    end
-    h[:ad_type] = ad_type || "no_ad"
-    # grid_key: 7x12/H/5
-    grid_width                          = publication.grid_width(column)
-    grid_height                         = publication.grid_height
+    h['section_name']                   = section_name
+    h['page_heading_margin_in_lines']   = page_heading_margin_in_lines
+    h['ad_type']                        = ad_type || "no_ad"
+    h['is_front_page']                  = is_front_page
     h['profile']                        = profile
     h['section_id']                     = id
     h['page_columns']                   = column
     h['grid_size']                      = [grid_width, grid_height]
-    h['lines_per_grid']                 = publication.lines_per_grid
-    h['width']                          = publication.width
-    h['height']                         = publication.height
-    h['left_margin']                    = publication.left_margin
-    h['top_margin']                     = publication.top_margin
-    h['right_margin']                   = publication.right_margin
-    h['bottom_margin']                  = publication.bottom_margin
-    h['gutter']                         = publication.gutter
+    h['lines_per_grid']                 = lines_per_grid
+    h['width']                          = width
+    h['height']                         = height
+    h['left_margin']                    = left_margin
+    h['top_margin']                     = top_margin
+    h['right_margin']                   = right_margin
+    h['bottom_margin']                  = bottom_margin
+    h['gutter']                         = gutter
     h['story_frames']                   = eval(layout)
-    h['article_line_thickness']         = publication.article_line_thickness
+    h['article_line_thickness']         = article_line_thickness
     h['draw_divider']                   = draw_divider
     h
   end
@@ -263,14 +256,6 @@ class Section < ApplicationRecord
   def self.generate_pdf
     Section.all.each do |sec|
       sec.generate_pdf
-    end
-  end
-
-  def heading_height_in_pt
-    if page_number == 1
-      publication.front_page_heading_height_in_pt
-    else
-      publication.inner_page_heading_height_in_pt
     end
   end
 
@@ -479,8 +464,29 @@ class Section < ApplicationRecord
 
   private
   def parse_profile
-    self.story_count = parse_story_count
-    self.profile     = make_profile
+    self.story_count            = parse_story_count
+    self.profile                = make_profile
+    self.grid_width             = publication.grid_width(column)
+    self.grid_height            = publication.grid_height
+    self.lines_per_grid         = publication.lines_per_grid
+    self.width                  = publication.width
+    self.height                 = publication.height
+    self.left_margin            = publication.left_margin
+    self.top_margin             = publication.top_margin
+    self.right_margin           = publication.right_margin
+    self.bottom_margin          = publication.bottom_margin
+    self.gutter                 = publication.gutter
+    self.article_line_thickness = publication.article_line_thickness
+    self.publication_id         = publication.id
+    if page_number == 1 || is_front_page == true
+      self.is_front_page                    = true
+      self.page_heading_margin_in_lines     = publication.front_page_heading_margin
+    elsif PAGES_WITH_4_LINE_HEADING.include?(page_number) #[18,19,22,23]
+      self.page_heading_margin_in_lines     = 4
+    else
+      self.is_front_page  = false
+      self.page_heading_margin_in_lines     = publication.inner_page_heading_height 
+    end
     true
   end
 end

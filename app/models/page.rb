@@ -2,23 +2,37 @@
 #
 # Table name: pages
 #
-#  id           :integer          not null, primary key
-#  page_number  :integer
-#  section_name :string
-#  column       :integer
-#  row          :integer
-#  ad_type      :string
-#  story_count  :integer
-#  color_page   :boolean
-#  profile      :string
-#  issue_id     :integer
-#  page_plan_id :integer
-#  template_id  :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  clone_name   :string
-#  slug         :string
-#  layout       :text
+#  id                     :integer          not null, primary key
+#  page_number            :integer
+#  section_name           :string
+#  column                 :integer
+#  row                    :integer
+#  ad_type                :string
+#  story_count            :integer
+#  color_page             :boolean
+#  profile                :string
+#  issue_id               :integer
+#  page_plan_id           :integer
+#  template_id            :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  clone_name             :string
+#  slug                   :string
+#  layout                 :text
+#  publication_id         :integer
+#  path                   :string
+#  date                   :date
+#  grid_width             :float
+#  grid_height            :float
+#  lines_per_grid         :float
+#  width                  :float
+#  height                 :float
+#  left_margin            :float
+#  top_margin             :float
+#  right_margin           :float
+#  bottom_margin          :float
+#  gutter                 :float
+#  article_line_thickness :float
 #
 # Indexes
 #
@@ -49,35 +63,22 @@ class Page < ApplicationRecord
   DAYS_IN_ENGLISH = Date::DAYNAMES
 
   def friendly_string
-    "#{issue.date.to_s}_#{page_number}"
-  end
-
-  def issue_path
-    issue.path
-  end
-
-  def path
-    if clone_name == nil
-      "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
-    else
-      "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}-#{clone_name}"
-    end
+    "#{date.to_s}_#{page_number}"
   end
 
   def is_front_page?
     page_number == 1
   end
 
-  def date
-    issue.date.to_s
-  end
-
   def relative_path
-    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
+    # "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
+    #Todo
+    "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
+
   end
 
   def url
-    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
+    "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
   end
 
 
@@ -106,22 +107,19 @@ class Page < ApplicationRecord
 
   def pdf_image_path
     # if @time_stamp
-    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/#{latest_pdf_basename}"
-    # else
-    #   "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/story.pdf"
-    # end
+    "/#{publication_id}/issue/#{date.to_s}/#{page_number}/#{latest_pdf_basename}"
   end
 
   def pdf_path
-    "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.pdf"
+    "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}/#{page_number}/section.pdf"
   end
 
   def jpg_image_path
-    "/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/#{latest_jpg_basename}"
+    "/#{publication_id}/issue/#{date.to_s}/#{page_number}/#{latest_jpg_basename}"
   end
 
   def jpg_path
-    "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}/section.jpg"
+    "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}/#{page_number}/section.jpg"
   end
 
   def to_hash
@@ -192,66 +190,57 @@ class Page < ApplicationRecord
   end
 
   def doc_width
-    publication.width
+    # publication.width
+    width + left_margin + right_margin
   end
 
   def page_width
-    publication.page_width
+    # publication.s
+    width
   end
 
   def doc_height
-    publication.height
+    # publication.height
+    height + top_margin + bottom_margin
   end
 
   def doc_left_margin
-    publication.left_margin
+    # publication.left_margin
+    left_margin
   end
 
   def doc_top_margin
-    publication.top_margin
+    # publication.top_margin
+    top_margin
   end
 
   def page_height
-    publication.page_height
+    # publication.page_height
+    height
   end
 
-  # def page_heading
-  #   publication.page_heading(page_number)
-  # end
   def page_heading_width
-    publication.page_heading_width
-  end
-
-  def page_heading_height
-    if page_number == 1
-      publication.front_page_heading_height_in_pt
-    else
-      publication.inner_page_heading_height_in_pt
-    end
+    # publication.page_heading_width
+    width
   end
 
   def issue_week_day_in_korean
-    date = issue.date
     DAYS_IN_KOREAN[date.wday]
   end
 
   def year
-    date = issue.date
     date.year
   end
 
   def month
-    date = issue.date
     date.month
   end
 
   def day
-    date = issue.date
     date.day
   end
 
   def korean_date_string
-    date = issue.date
     if page_number == 1
       "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean} (#{issue.number}호)"
     else
@@ -271,11 +260,11 @@ class Page < ApplicationRecord
   end
 
   def sample_ad_folder
-    "#{Rails.root}/public/#{publication.id}/ad"
+    "#{Rails.root}/public/#{publication_id}/ad"
   end
 
   def issue_ads_folder
-    "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/ads"
+    "#{Rails.root}/public/#{publication_id}/issue/#{date.to_s}/ads"
   end
 
   def ad_image_string
@@ -307,7 +296,7 @@ class Page < ApplicationRecord
   end
 
   def section_template_folder
-    "#{Rails.root}/public/#{publication.id}/section/#{page_number}/#{profile}/#{template_id}"
+    "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{template_id}"
   end
 
   def update_working_articles
@@ -349,7 +338,7 @@ class Page < ApplicationRecord
     heading_atts[:page_number]    = section.page_number
     heading_atts[:section_name]    = section.page_number
     heading_atts[:page_id]        = self.id
-    heading_atts[:date]           = issue.date
+    heading_atts[:date]           = date
     result                        = PageHeading.where(heading_atts).first_or_create
   end
 
@@ -400,7 +389,7 @@ class Page < ApplicationRecord
   def copy_config_file
     source = section_template_folder + "/config.yml"
     config_hash = YAML::load_file(source)
-    config_hash['date'] = issue.date.to_s
+    config_hash['date'] = date.to_s
     target = path + "/config.yml"
     File.open(target, 'w'){|f| f.write(config_hash.to_yaml)}
   end
@@ -559,22 +548,6 @@ class Page < ApplicationRecord
     File.open(default_issue_plan_path, 'w'){|f| f.write issue_hash.to_s}
   end
 
-  def heading_height_in_pt
-    if page_number == 1
-      publication.front_page_heading_height_in_pt
-    else
-      publication.inner_page_heading_height_in_pt
-    end
-  end
-
-  def page_width
-    publication.page_width
-  end
-
-  def page_height
-    publication.page_height
-  end
-
   def generate_heading_pdf
     page_heading.generate_pdf
   end
@@ -617,7 +590,7 @@ class Page < ApplicationRecord
   end
 
   def site_path
-    File.expand_path("~/Sites/naeil/#{issue.date.to_s}/#{page_number}")
+    File.expand_path("~/Sites/naeil/#{date.to_s}/#{page_number}")
   end
 
   def copy_outputs_to_site
@@ -709,9 +682,9 @@ class Page < ApplicationRecord
   def generate_proof_pdf
     FileUtils.mkdir_p(proof_path) unless File.exist?(proof_path)
     r_page_number = page_number.to_s.rjust(2,"0")
-    date          = issue.date.day.to_s.rjust(2,"0")
-    month         = issue.date.month.to_s.rjust(2,"0")
-    year          = issue.date.year.to_s
+    date          = date.day.to_s.rjust(2,"0")
+    month         = date.month.to_s.rjust(2,"0")
+    year          = date.year.to_s
     proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*")
     if proof_files.length == 0
       target_file   = "proof/#{r_page_number}011001-#{date}#{month}#{year}000.pdf"
@@ -775,7 +748,6 @@ class Page < ApplicationRecord
   end
 
   def dong_a_code
-    date = issue.date
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
@@ -815,7 +787,6 @@ class Page < ApplicationRecord
   end
 
   def jung_ang_code
-    date = issue.date
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
@@ -824,7 +795,7 @@ class Page < ApplicationRecord
      else
       "zn#{m}#{d}#{pg}10001_#{printer_file_version}.pdf"
      end
-   end
+  end
 
   def jung_ang
     puts "sending it to Jung-Ang"
@@ -860,7 +831,7 @@ class Page < ApplicationRecord
 
 
   def news_pdf_code
-    yyyymd = issue.date.strftime("%Y%m%d")
+    yyyymd = date.strftime("%Y%m%d")
     pg = page_number.to_s.rjust(2,"0")
     "#{yyyymd}-#{pg}.pdf"
   end
@@ -870,7 +841,7 @@ class Page < ApplicationRecord
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    yyyymd = issue.date.strftime("%Y%m%d")
+    yyyymd = date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
     end
@@ -878,7 +849,7 @@ class Page < ApplicationRecord
 
   def ex_pdf_code
     jeho = issue.number
-    yymd = issue.date.strftime("%y%m%d")
+    yymd = date.strftime("%y%m%d")
     pg = page_number.to_s.rjust(2,"0")
     "#{jeho}-#{yymd}#{pg}.pdf"
   end
@@ -888,7 +859,7 @@ class Page < ApplicationRecord
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    yyyymd = issue.date.strftime("%Y%m%d")
+    yyyymd = date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")
     end
@@ -918,7 +889,6 @@ class Page < ApplicationRecord
 
 
   def save_preview_xml
-   date = issue.date
    @day = date.day.to_s.rjust(2,"0")
    @month = date.month.to_s.rjust(2,"0")
    @year = date.year % 100
@@ -939,7 +909,7 @@ class Page < ApplicationRecord
    @issue_number = issue.number
    @page_number = page_number
 
-   article_map_path = "#{Rails.root}/public/1/issue/#{issue.date.to_s}/page_preview"
+   article_map_path = "#{Rails.root}/public/1/issue/#{date.to_s}/page_preview"
    article_map = header
    working_articles.sort_by{|x| x.order}.each do |w|
      @order = w.order - 1
@@ -972,7 +942,7 @@ class Page < ApplicationRecord
   end
 
   def mobile_page_preview_path
-    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_number}"
+    "#{Rails.root}/public/1/issue/#{date.to_s}/mobile_page_preview/1001#{page_number}"
   end
 
   def page_info
@@ -980,9 +950,9 @@ class Page < ApplicationRecord
   end
 
   def all_container
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
+    year  = date.year
+    month = date.month.to_s.rjust(2, "0")
+    day   = date.day.to_s.rjust(2, "0")
     @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
 
     container_xml_page_id=<<EOF
@@ -1009,9 +979,9 @@ EOF
   end
 
   def updateinfo
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
+    year  = date.year
+    month = date.month.to_s.rjust(2, "0")
+    day   = date.day.to_s.rjust(2, "0")
     @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
     page_key=<<EOF
     <PageKey><%= @page_key %></PageKey>
@@ -1023,16 +993,15 @@ EOF
 
   def save_mobile_preview_xml
     default_time      = "00:00:00"
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
+    year  = date.year
+    month = date.month.to_s.rjust(2, "0")
+    day   = date.day.to_s.rjust(2, "0")
     # w_updated_at = working_articles.first.updated_at
     updated_date      = "#{year}-#{month}-#{day}"
     updated_time      = updated_at.strftime("%H:%M:%S")
     @date_id          = updated_date
     @day_info         = "#{year}년#{month}월#{day}일"
     @media_info       = publication.name
-    date = issue.date
     @day = date.day.to_s.rjust(2,"0")
     @month = date.month.to_s.rjust(2,"0")
     @year = date.year
@@ -1167,11 +1136,6 @@ EOF
     system("cp #{mobile_page_preview_path} #{mobile_page_preview_path}/#{@filename}.pdf")
   end
 
-  # def container_xml_page
-  #   # page_info        = page_number.to_s.rjust(2,"0")
-  #
-  # end
-
   def save_story_xml
     puts "page_number:#{page_number}"
     puts "section_name:#{section_name}"
@@ -1200,22 +1164,33 @@ EOF
   private
 
   def copy_attributes_from_template
-    section = Section.find(template_id)
+    section         = Section.find(template_id)
+    self.publication_id = issue.publication.id
+    self.date         = issue.date
     self.profile      = section.profile
     self.page_number  = section.page_number
-    self.section_name  = section.section_name
+    self.section_name = section.section_name
     self.column       = section.column
     self.row          = section.row
     self.ad_type      = section.ad_type
     self.story_count  = section.story_count
+    self.grid_width   = section.grid_width
+    self.grid_height  = section.grid_height
+    self.lines_per_grid = section.lines_per_grid
+    self.width        = section.width
+    self.height       = section.height
+    self.left_margin  = section.left_margin
+    self.top_margin   = section.top_margin
+    self.right_margin = section.right_margin
+    self.bottom_margin = section.bottom_margin
+    self.gutter       = section.gutter
+    self.article_line_thickness = section.article_line_thickness 
 
-    # issue_path   = issue.path
-    # if clone_name == nil
-    #   self.path = "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}"
-    # else
-    #   self.path = "#{Rails.root}/public/#{publication.id}/issue/#{issue.date.to_s}/#{page_number}-#{clone_name}"
-    # end
-    # self.issue_date = issue.date
+    if clone_name == nil
+      self.path = "#{Rails.root}/public/#{self.publication_id}/issue/#{self.date.to_s}/#{page_number}"
+    else
+      self.path = "#{Rails.root}/public/#{self.publication_id}/issue/#{self.date.to_s}/#{page_number}-#{clone_name}"
+    end
     true
   end
 

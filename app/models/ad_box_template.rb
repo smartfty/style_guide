@@ -41,7 +41,7 @@ class AdBoxTemplate < ApplicationRecord
   end
 
   def top_position?
-    grid_y == 0 || (grid_y == 1 && page.page_number == 1)
+    grid_y == 0 || (grid_y == 1 && section.page_number == 1)
   end
 
   def on_left_edge?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_18_080052) do
+ActiveRecord::Schema.define(version: 2018_09_24_092331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,13 @@ ActiveRecord::Schema.define(version: 2018_09_18_080052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "color"
-    t.boolean "keep_original_size"
+    t.string "path"
+    t.date "date"
+    t.integer "page_heading_margin_in_lines"
+    t.integer "page_number"
+    t.float "grid_width"
+    t.float "grid_height"
+    t.float "gutter"
     t.index ["page_id"], name: "index_ad_boxes_on_page_id"
   end
 
@@ -109,6 +115,12 @@ ActiveRecord::Schema.define(version: 2018_09_18_080052) do
     t.datetime "updated_at", null: false
     t.integer "extended_line_count"
     t.integer "pushed_line_count"
+    t.string "publication_name"
+    t.string "path"
+    t.integer "page_heading_margin_in_lines"
+    t.float "grid_width"
+    t.float "grid_height"
+    t.float "gutter"
   end
 
   create_table "graphic_requests", force: :cascade do |t|
@@ -248,6 +260,20 @@ ActiveRecord::Schema.define(version: 2018_09_18_080052) do
     t.string "clone_name"
     t.string "slug"
     t.text "layout"
+    t.integer "publication_id"
+    t.string "path"
+    t.date "date"
+    t.float "grid_width"
+    t.float "grid_height"
+    t.float "lines_per_grid"
+    t.float "width"
+    t.float "height"
+    t.float "left_margin"
+    t.float "top_margin"
+    t.float "right_margin"
+    t.float "bottom_margin"
+    t.float "gutter"
+    t.float "article_line_thickness"
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
@@ -355,6 +381,19 @@ ActiveRecord::Schema.define(version: 2018_09_18_080052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "draw_divider"
+    t.string "path"
+    t.float "grid_width"
+    t.float "grid_height"
+    t.float "lines_per_grid"
+    t.float "width"
+    t.float "height"
+    t.float "left_margin"
+    t.float "top_margin"
+    t.float "right_margin"
+    t.float "bottom_margin"
+    t.float "gutter"
+    t.integer "page_heading_margin_in_lines"
+    t.float "article_line_thickness"
   end
 
   create_table "spreads", force: :cascade do |t|
@@ -480,6 +519,14 @@ ActiveRecord::Schema.define(version: 2018_09_18_080052) do
     t.integer "quote_box_size"
     t.integer "category_code"
     t.string "slug"
+    t.string "publication_name"
+    t.string "path"
+    t.date "date"
+    t.integer "page_number"
+    t.integer "page_heading_margin_in_lines"
+    t.float "grid_width"
+    t.float "grid_height"
+    t.float "gutter"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

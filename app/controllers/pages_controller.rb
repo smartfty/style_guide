@@ -129,7 +129,7 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       # @page = Page.find(params[:id])
-      @page = Page.friendly.find(params[:id])
+      @page = Page.includes(:issue, :working_articles).friendly.find(params[:id])
 
     end
 

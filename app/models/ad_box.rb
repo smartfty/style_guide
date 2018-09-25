@@ -2,21 +2,27 @@
 #
 # Table name: ad_boxes
 #
-#  id                 :integer          not null, primary key
-#  grid_x             :integer
-#  grid_y             :integer
-#  column             :integer
-#  row                :integer
-#  order              :integer
-#  ad_type            :string
-#  advertiser         :string
-#  inactive           :boolean
-#  ad_image           :string
-#  page_id            :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  color              :boolean
-#  keep_original_size :boolean
+#  id                           :integer          not null, primary key
+#  grid_x                       :integer
+#  grid_y                       :integer
+#  column                       :integer
+#  row                          :integer
+#  order                        :integer
+#  ad_type                      :string
+#  advertiser                   :string
+#  inactive                     :boolean
+#  ad_image                     :string
+#  page_id                      :integer
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  color                        :boolean
+#  path                         :string
+#  date                         :date
+#  page_heading_margin_in_lines :integer
+#  page_number                  :integer
+#  grid_width                   :float
+#  grid_height                  :float
+#  gutter                       :float
 #
 # Indexes
 #
@@ -26,10 +32,15 @@
 class AdBox < ApplicationRecord
   belongs_to :page
   mount_uploader :ad_image, AdImageUploader
+  before_create :init_atts
   after_create :setup
 
-  def path
-    page.path + "/ad"
+  # def path
+  #   path + "/ad"
+  # end
+
+  def url
+    path.sub("#{Rails.root}/public}", "")
   end
 
   def setup
@@ -52,11 +63,11 @@ class AdBox < ApplicationRecord
   end
 
   def pdf_image_path
-    page.url + "/ad/#{latest_pdf_basename}"
+    url + "/#{latest_pdf_basename}"
   end
 
   def jpg_image_path
-    page.url + "/ad/#{latest_jpg_basename}"
+    url + "/#{latest_jpg_basename}"
   end
 
   def jpg_path
@@ -76,25 +87,25 @@ class AdBox < ApplicationRecord
     end
   end
 
-  def page_number
-    page.page_number
-  end
+  # def page_number
+  #   page.page_number
+  # end
 
-  def gutter
-    publication.gutter
-  end
+  # def gutter
+  #   publication.gutter
+  # end
 
-  def grid_width
-    publication.grid_width(page.column)
-  end
+  # def grid_width
+  #   publication.grid_width(page.column)
+  # end
 
   def width
     grid_width*column
   end
 
-  def grid_height
-    publication.grid_height
-  end
+  # def grid_height
+  #   publication.grid_height
+  # end
 
   def height
     grid_height*row
@@ -113,7 +124,7 @@ class AdBox < ApplicationRecord
   end
 
   def top_position?
-    grid_y == 0 || (grid_y == 1 && page.page_number == 1)
+    grid_y == 0 || (grid_y == 1 && page_number == 1)
   end
 
   def on_left_edge?
@@ -125,7 +136,7 @@ class AdBox < ApplicationRecord
   end
 
   def is_front_page?
-    page.page_number == 1
+    page_number == 1
   end
 
   def layout_rb
@@ -133,7 +144,7 @@ class AdBox < ApplicationRecord
     left_inset    = 0
     right_inset   = 0
     ad_width      = grid_width*column
-    if page.page_number.odd?
+    if page_number.odd?
       x = publication.width - publication.right_margin - ad_width
       if column < page.column
         x += gutter/2
@@ -146,15 +157,15 @@ class AdBox < ApplicationRecord
         right_inset = gutter
       end
     end
-    page_heading_margin_in_lines = 0
-    if top_position?
-      if is_front_page?
-        # front_page_heading_height - lines_per_grid
-        page_heading_margin_in_lines = publication.front_page_heading_margin
-      else
-        page_heading_margin_in_lines = publication.inner_page_heading_height
-      end
-    end
+    # page_heading_margin_in_lines = 0
+    # if top_position?
+    #   if is_front_page?
+    #     # front_page_heading_height - lines_per_grid
+    #     page_heading_margin_in_lines = publication.front_page_heading_margin
+    #   else
+    #     page_heading_margin_in_lines = publication.inner_page_heading_height
+    #   end
+    # end
 
     image_path                                     = ad_image.path if ad_image
     ad_image_hash = {}
@@ -414,6 +425,15 @@ EOF
     two_digit = ad_two_digit_ord
     two_digit = "01" if page.section_name == "전면광고"
     "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit}.xml"
+  end
+
+  private
+
+  def init_atts
+    self.path         = page.path + "/ad"
+    self.page_number  = page.page_number
+    self.grid_width   = publication.grid_width(page.column)
+    self.grid_height  = publication.grid_height
   end
 
 end

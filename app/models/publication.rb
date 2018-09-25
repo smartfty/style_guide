@@ -50,6 +50,8 @@
 
 # 1 in = 72 point; 1 point = 0.013889 in
 # 1 px = 0.75 point; 1 point = 1.333333 px
+PAGES_WITH_4_LINE_HEADING = [18,19,22,23]
+
 class Publication < ApplicationRecord
   has_many :issues
   after_create :setup
@@ -69,6 +71,7 @@ class Publication < ApplicationRecord
     '기획',
     '오피니언',
   ]
+
 
   def path
     "#{Rails.root}/public/#{id}"

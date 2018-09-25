@@ -2,47 +2,54 @@
 #
 # Table name: articles
 #
-#  id                  :integer          not null, primary key
-#  grid_x              :integer
-#  grid_y              :integer
-#  column              :integer
-#  row                 :integer
-#  order               :integer
-#  kind                :string
-#  profile             :integer
-#  title_head          :string
-#  title               :text
-#  subtitle            :text
-#  subtitle_head       :text
-#  body                :text
-#  reporter            :string
-#  email               :string
-#  personal_image      :string
-#  image               :string
-#  quote               :text
-#  subject_head        :string
-#  on_left_edge        :boolean
-#  on_right_edge       :boolean
-#  is_front_page       :boolean
-#  top_story           :boolean
-#  top_position        :boolean
-#  section_id          :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  extended_line_count :integer
-#  pushed_line_count   :integer
+#  id                           :integer          not null, primary key
+#  grid_x                       :integer
+#  grid_y                       :integer
+#  column                       :integer
+#  row                          :integer
+#  order                        :integer
+#  kind                         :string
+#  profile                      :integer
+#  title_head                   :string
+#  title                        :text
+#  subtitle                     :text
+#  subtitle_head                :text
+#  body                         :text
+#  reporter                     :string
+#  email                        :string
+#  personal_image               :string
+#  image                        :string
+#  quote                        :text
+#  subject_head                 :string
+#  on_left_edge                 :boolean
+#  on_right_edge                :boolean
+#  is_front_page                :boolean
+#  top_story                    :boolean
+#  top_position                 :boolean
+#  section_id                   :integer
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  extended_line_count          :integer
+#  pushed_line_count            :integer
+#  publication_name             :string
+#  path                         :string
+#  page_heading_margin_in_lines :integer
+#  grid_width                   :float
+#  grid_height                  :float
+#  gutter                       :float
 #
 
 class Article < ApplicationRecord
   belongs_to :section #, optional: true
+  before_create :init_atts
   after_create :setup
   has_many :images
 
   include ArticleSplitable
 
-  def path
-    section.path + "/#{order}"
-  end
+  # def path
+  #   section.path + "/#{order}"
+  # end
 
   def images_path
     path + "/images"
@@ -147,7 +154,7 @@ class Article < ApplicationRecord
   def generate_pdf
     save_story
     save_layout
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{    publication_name}"
 
     # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
@@ -156,7 +163,7 @@ class Article < ApplicationRecord
     puts __method__
     styles_path     = path + "/custom_style.yml"
     File.open(styles_path, 'w'){|f| f.write current_styles.to_yaml}
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{    publication_name}"
   end
 
   def article_info
@@ -249,87 +256,15 @@ class Article < ApplicationRecord
     end
   end
 
-  #
-  # def layout_rb
-  #   page_heading_margin_in_lines = 0
-  #   if top_position && is_front_page
-  #       page_heading_margin_in_lines = publication.page_heading_margin_in_lines(1)
-  #   elsif top_position
-  #       page_heading_margin_in_lines = 3
-  #   end
-  #
-  #   h = {}
-  #   h[:kind]                          = kind if kind
-  #   h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
-  #   h[:column]                        = column
-  #   h[:row]                           = row
-  #   h[:grid_width]                    = publication.grid_width(column)
-  #   h[:grid_height]                   = publication.grid_height
-  #   h[:gutter]                        = publication.gutter
-  #   h[:on_left_edge]                  = on_left_edge
-  #   if h[:on_left_edge].nil?
-  #     h[:on_left_edge] = false
-  #     h[:on_left_edge] = true if grid_x == 0
-  #   end
-  #   h[:on_right_edge]                 = on_right_edge
-  #   if h[:on_right_edge].nil?
-  #     h[:on_right_edge] = false
-  #     h[:on_right_edge] = true if h[:column] + grid_x == page.column
-  #   end
-  #   h[:is_front_page]                 = is_front_page
-  #   h[:top_story]                     = top_story
-  #   h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
-  #   h[:top_position]                  = top_position
-  #   h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
-  #   h[:article_bottom_spaces_in_lines]= publication.article_bottom_spaces_in_lines
-  #   h[:article_line_thickness]        = publication.article_line_thickness
-  #   h[:article_line_draw_sides]       = publication.article_line_draw_sides
-  #   h[:draw_divider]                  = publication.draw_divider
-  #   h
-  #   # h = h.to_s.gsub("{", "").gsub("}", "")
-  #   if kind == '사진'
-  #     content = "RLayout::NewsImageBox.new(#{h}) do\n"
-  #     if image_hash = image_options
-  #       image_hash[:fit_type] = 4
-  #       image_hash[:expand] = [:width, :height]
-  #       puts "image_hash:#{image_hash}"
-  #       content += "  news_image(#{image_hash})\n"
-  #     end
-  #     content += "end\n"
-  #   elsif kind == '만평'
-  #     content = "RLayout::NewsComicBox.new(#{h}) do\n"
-  #     if image_hash = image_options
-  #       content += "  news_image(#{image_hash})\n"
-  #     end
-  #     content += "end\n"
-  #   elsif kind == '사설' || kind == 'editorial'
-  #     h[:article_line_draw_sides]  = [0,1,0,0]
-  #     content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-  #       # content += "  news_image(#{opinion_profile_options})\n"
-  #     content += "end\n"
-  #   elsif kind == '기고' || kind == 'opinion'
-  #     h[:article_line_draw_sides]  = [0,1,0,1]
-  #     content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-  #       content += "  news_image(#{opinion_profile_options})\n"
-  #     content += "end\n"
-  #   else
-  #     content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-  #     if image_hash = image_options
-  #       content += "  news_image(#{image_hash})\n"
-  #     end
-  #     content += "end\n"
-  #   end
-  #   content
-  # end
-
+  
   def page_number
     section.page_number
   end
 
   def layout_rb
-    grid_width    = publication.grid_width(page_columns)
-    grid_height   = publication.grid_height
-    gutter        = publication.gutter
+    # grid_width    = publication.grid_width(page_columns)
+    # grid_height   = publication.grid_height
+    # gutter        = publication.gutter
     image_options = image_options if image_options
     page_heading_margin_in_lines = 0
     if top_position
@@ -452,6 +387,27 @@ class Article < ApplicationRecord
     profile += "_#{column}x#{row}"
 
     profile
+  end
+
+  private
+
+  def init_atts
+    self.path = section.path + "/#{order}"
+    self.publication_name = publication.name
+    self.grid_width       = publication.grid_width(page_columns)
+    self.grid_height      = publication.grid_height
+    self.gutter           = publication.gutter
+    self.on_left_edge   = on_left_edge
+    if on_left_edge.nil?
+      self.on_left_edge = false
+      self.on_left_edge = true if grid_x == 0
+    end
+    self.on_right_edge    = on_right_edge
+    if on_right_edge.nil?
+      self.on_right_edge = false
+      self.on_right_edge = true if (column + grid_x) == section.column
+    end
+
   end
 
 end

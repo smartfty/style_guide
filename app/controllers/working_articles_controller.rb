@@ -251,8 +251,7 @@ class WorkingArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_working_article
       # @working_article = WorkingArticle.find(params[:id])
-      @working_article = WorkingArticle.friendly.find(params[:id]).includes(:page)
-
+      @working_article = WorkingArticle.includes(:page).friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

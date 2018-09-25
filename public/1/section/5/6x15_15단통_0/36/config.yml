@@ -1,16 +1,15 @@
 ---
-date: 2017-04-10
 section_name: 전면광고
-is_front_page: false
 page_heading_margin_in_lines: 3
-:ad_type: 15단통
+ad_type: 15단통
+is_front_page: false
 profile: 6x15_15단통_0
 section_id: 36
 page_columns: 6
 grid_size:
-- 171.49608299999997
+- 171.496083
 - 96.377964
-lines_per_grid: 7
+lines_per_grid: 7.0
 width: 1114.015878
 height: 1544.88207
 left_margin: 42.51969
