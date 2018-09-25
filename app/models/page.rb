@@ -19,7 +19,6 @@
 #  clone_name             :string
 #  slug                   :string
 #  layout                 :text
-#  publication_id         :integer
 #  path                   :string
 #  date                   :date
 #  grid_width             :float
@@ -215,12 +214,10 @@ class Page < ApplicationRecord
   end
 
   def page_height
-    # publication.page_height
     height
   end
 
   def page_heading_width
-    # publication.page_heading_width
     width
   end
 
