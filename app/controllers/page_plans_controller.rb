@@ -83,7 +83,7 @@ class PagePlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page_plan
-      @page_plan = PagePlan.find(params[:id])
+      @page_plan = PagePlan.includes(:page).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

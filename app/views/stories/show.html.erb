@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @story.user %>
+</p>
+
+<p>
+  <strong>Working article:</strong>
+  <%= @story.working_article %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @story.title %>
+</p>
+
+<p>
+  <strong>Subtile:</strong>
+  <%= @story.subtile %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @story.body %>
+</p>
+
+<p>
+  <strong>Quoute:</strong>
+  <%= @story.quoute %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @story.status %>
+</p>
+
+<p>
+  <strong>Char count:</strong>
+  <%= @story.char_count %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @story.published %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @story.path %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @story.section %>
+</p>
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>

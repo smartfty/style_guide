@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :stories
   resources :spreads
 #api
   namespace :api do

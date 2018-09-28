@@ -79,7 +79,9 @@ class IssuesController < ApplicationController
   end
 
   def current_plan
-    @page_plans = @issue.page_plans.sort_by{|x| x.page_number}
+    half = @issue.pages.count/2
+    @front_page_plans   = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
+    @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse
   end
 
   def images

@@ -38,6 +38,14 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018_9_26
+  - page_plan view with two pairing column
+  - mobile xml preview merge
+  - image crop with zoom and shifting
+  - use ActiveStorage
+  - use RSpec features spec
+  - connect with naeil_cms
+
 2018_9_25
   add extra fields to model, in order to avoid fetching parent models, so not to do n+1 fetching
   - page

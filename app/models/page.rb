@@ -19,6 +19,7 @@
 #  clone_name             :string
 #  slug                   :string
 #  layout                 :text
+#  publication_id         :integer
 #  path                   :string
 #  date                   :date
 #  grid_width             :float
