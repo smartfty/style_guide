@@ -17,6 +17,9 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  role                   :integer          default("reporter")
+#  cell                   :string
+#  title                  :string
+#  reporter_group_id      :integer
 #
 # Indexes
 #

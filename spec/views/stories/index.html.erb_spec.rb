@@ -6,28 +6,30 @@ RSpec.describe "stories/index", type: :view do
       Story.create!(
         :user => nil,
         :working_article => nil,
+        :reporter => "Reporter",
+        :group => "Group",
         :title => "Title",
-        :subtile => "Subtile",
-        :body => "MyText",
-        :quoute => "MyText",
+        :subtitle => "Subtitle",
+        :body => "Body",
+        :quote => "Quote",
         :status => "Status",
         :char_count => 2,
         :published => false,
-        :path => "Path",
-        :section => "Section"
+        :path => "Path"
       ),
       Story.create!(
         :user => nil,
         :working_article => nil,
+        :reporter => "Reporter",
+        :group => "Group",
         :title => "Title",
-        :subtile => "Subtile",
-        :body => "MyText",
-        :quoute => "MyText",
+        :subtitle => "Subtitle",
+        :body => "Body",
+        :quote => "Quote",
         :status => "Status",
         :char_count => 2,
         :published => false,
-        :path => "Path",
-        :section => "Section"
+        :path => "Path"
       )
     ])
   end
@@ -36,14 +38,15 @@ RSpec.describe "stories/index", type: :view do
     render
     assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => "Reporter".to_s, :count => 2
+    assert_select "tr>td", :text => "Group".to_s, :count => 2
     assert_select "tr>td", :text => "Title".to_s, :count => 2
-    assert_select "tr>td", :text => "Subtile".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
+    assert_select "tr>td", :text => "Subtitle".to_s, :count => 2
+    assert_select "tr>td", :text => "Body".to_s, :count => 2
+    assert_select "tr>td", :text => "Quote".to_s, :count => 2
     assert_select "tr>td", :text => "Status".to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "Path".to_s, :count => 2
-    assert_select "tr>td", :text => "Section".to_s, :count => 2
   end
 end

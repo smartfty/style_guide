@@ -11,13 +11,28 @@
 </p>
 
 <p>
+  <strong>Reporter:</strong>
+  <%= @story.reporter %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @story.group %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @story.date %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @story.title %>
 </p>
 
 <p>
-  <strong>Subtile:</strong>
-  <%= @story.subtile %>
+  <strong>Subtitle:</strong>
+  <%= @story.subtitle %>
 </p>
 
 <p>
@@ -26,8 +41,8 @@
 </p>
 
 <p>
-  <strong>Quoute:</strong>
-  <%= @story.quoute %>
+  <strong>Quote:</strong>
+  <%= @story.quote %>
 </p>
 
 <p>
@@ -48,11 +63,6 @@
 <p>
   <strong>Path:</strong>
   <%= @story.path %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @story.section %>
 </p>
 
 <%= link_to 'Edit', edit_story_path(@story) %> |

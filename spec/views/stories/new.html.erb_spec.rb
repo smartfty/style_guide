@@ -5,15 +5,16 @@ RSpec.describe "stories/new", type: :view do
     assign(:story, Story.new(
       :user => nil,
       :working_article => nil,
+      :reporter => "MyString",
+      :group => "MyString",
       :title => "MyString",
-      :subtile => "MyString",
-      :body => "MyText",
-      :quoute => "MyText",
+      :subtitle => "MyString",
+      :body => "MyString",
+      :quote => "MyString",
       :status => "MyString",
       :char_count => 1,
       :published => false,
-      :path => "MyString",
-      :section => "MyString"
+      :path => "MyString"
     ))
   end
 
@@ -26,13 +27,17 @@ RSpec.describe "stories/new", type: :view do
 
       assert_select "input[name=?]", "story[working_article_id]"
 
+      assert_select "input[name=?]", "story[reporter]"
+
+      assert_select "input[name=?]", "story[group]"
+
       assert_select "input[name=?]", "story[title]"
 
-      assert_select "input[name=?]", "story[subtile]"
+      assert_select "input[name=?]", "story[subtitle]"
 
-      assert_select "textarea[name=?]", "story[body]"
+      assert_select "input[name=?]", "story[body]"
 
-      assert_select "textarea[name=?]", "story[quoute]"
+      assert_select "input[name=?]", "story[quote]"
 
       assert_select "input[name=?]", "story[status]"
 
@@ -41,8 +46,6 @@ RSpec.describe "stories/new", type: :view do
       assert_select "input[name=?]", "story[published]"
 
       assert_select "input[name=?]", "story[path]"
-
-      assert_select "input[name=?]", "story[section]"
     end
   end
 end

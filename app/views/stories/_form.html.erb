@@ -4,15 +4,17 @@
   <div class="form-inputs">
     <%= f.association :user %>
     <%= f.association :working_article %>
+    <%= f.input :reporter %>
+    <%= f.input :group %>
+    <%= f.input :date %>
     <%= f.input :title %>
-    <%= f.input :subtile %>
+    <%= f.input :subtitle %>
     <%= f.input :body %>
-    <%= f.input :quoute %>
+    <%= f.input :quote %>
     <%= f.input :status %>
     <%= f.input :char_count %>
     <%= f.input :published %>
     <%= f.input :path %>
-    <%= f.input :section %>
   </div>
 
   <div class="form-actions">

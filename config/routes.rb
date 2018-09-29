@@ -148,6 +148,7 @@ Rails.application.routes.draw do
       get 'clone'
       get 'save_proof_reading_pdf'
       get 'send_pdf_to_printer'
+      get 'assign_stories'
     end
 
   end

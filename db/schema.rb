@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_023149) do
+ActiveRecord::Schema.define(version: 2018_09_29_020957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -240,6 +240,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_023149) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.string "deadline"
     t.index ["issue_id"], name: "index_page_plans_on_issue_id"
   end
 
@@ -415,6 +416,26 @@ ActiveRecord::Schema.define(version: 2018_09_27_023149) do
     t.index ["issue_id"], name: "index_spreads_on_issue_id"
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "working_article_id"
+    t.string "reporter"
+    t.string "group"
+    t.date "date"
+    t.string "title"
+    t.string "subtitle"
+    t.string "body"
+    t.string "quote"
+    t.string "status"
+    t.integer "char_count"
+    t.boolean "published"
+    t.string "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stories_on_user_id"
+    t.index ["working_article_id"], name: "index_stories_on_working_article_id"
+  end
+
   create_table "stroke_styles", force: :cascade do |t|
     t.string "klass"
     t.string "name"
@@ -465,6 +486,9 @@ ActiveRecord::Schema.define(version: 2018_09_27_023149) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "role", default: 0
+    t.string "cell"
+    t.string "title"
+    t.integer "reporter_group_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -541,6 +565,8 @@ ActiveRecord::Schema.define(version: 2018_09_27_023149) do
   add_foreign_key "page_plans", "issues"
   add_foreign_key "profiles", "publications"
   add_foreign_key "spreads", "issues"
+  add_foreign_key "stories", "users"
+  add_foreign_key "stories", "working_articles"
   add_foreign_key "stroke_styles", "publications"
   add_foreign_key "text_styles", "publications"
   add_foreign_key "wire_stories", "issues"

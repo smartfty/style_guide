@@ -5,15 +5,16 @@ RSpec.describe "stories/show", type: :view do
     @story = assign(:story, Story.create!(
       :user => nil,
       :working_article => nil,
+      :reporter => "Reporter",
+      :group => "Group",
       :title => "Title",
-      :subtile => "Subtile",
-      :body => "MyText",
-      :quoute => "MyText",
+      :subtitle => "Subtitle",
+      :body => "Body",
+      :quote => "Quote",
       :status => "Status",
       :char_count => 2,
       :published => false,
-      :path => "Path",
-      :section => "Section"
+      :path => "Path"
     ))
   end
 
@@ -21,14 +22,15 @@ RSpec.describe "stories/show", type: :view do
     render
     expect(rendered).to match(//)
     expect(rendered).to match(//)
+    expect(rendered).to match(/Reporter/)
+    expect(rendered).to match(/Group/)
     expect(rendered).to match(/Title/)
-    expect(rendered).to match(/Subtile/)
-    expect(rendered).to match(/MyText/)
-    expect(rendered).to match(/MyText/)
+    expect(rendered).to match(/Subtitle/)
+    expect(rendered).to match(/Body/)
+    expect(rendered).to match(/Quote/)
     expect(rendered).to match(/Status/)
     expect(rendered).to match(/2/)
     expect(rendered).to match(/false/)
     expect(rendered).to match(/Path/)
-    expect(rendered).to match(/Section/)
   end
 end

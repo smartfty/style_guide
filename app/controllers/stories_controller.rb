@@ -69,6 +69,6 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:user_id, :working_article_id, :title, :subtile, :body, :quoute, :status, :char_count, :published, :path, :section)
+      params.require(:story).permit(:user_id, :working_article_id, :reporter, :group, :date, :title, :subtitle, :body, :quote, :status, :char_count, :published, :path)
     end
 end

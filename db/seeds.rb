@@ -93,8 +93,13 @@ csv.each do |row|
     current_section = section
   end
   g = ReporterGroup.where(section: current_section).first
-  h[:reporter_group] =  g
-  Reporter.where(h).first_or_create
+  if g
+    h[:reporter_group_id]     = g.id
+  end
+  h[:role]                  = 0
+  h[:password]              = "itis" + h[:cell].split("-").last
+  h[:password_confirmation] = h[:password]
+  User.create!(h) unless User.where(email: h[:email]).first
 end
 
 opinion_writer_csv_path = "#{Rails.root}/public/1/opinion/data.csv"
@@ -166,16 +171,16 @@ User.create!(name: "기자1", email: "reporter1@naeil.com", password: 'itis1234'
 User.create!(name: "기자2", email: "reporter2@naeil.com", password: 'itis1234', password_confirmation: "itis1234",)
 User.create!(name: "이동명", email: "leedongmyeong@gmail.com", password: 'itis1234', password_confirmation: "itis1234",)
 
-User.create!(name: "장명국", email: "ceo@naeil.com", password: 'itis6161', password_confirmation: "itis6161", role: 1)
-User.create!(name: "이옥경", email: "okkl@naeil.com", password: 'itis7885', password_confirmation: "itis7885", role: 1)
-User.create!(name: "정세용", email: "csy@naeil.com", password: 'itis4343', password_confirmation: "itis4343", role: 1)
-User.create!(name: "안찬수", email: "khaein@naeil.com", password: 'itis0897', password_confirmation: "itis0897", role: 1)
-User.create!(name: "김종필", email: "jpkim@naeil.com", password: 'itis6318', password_confirmation: "itis6318", role: 1)
-User.create!(name: "홍범택", email: "durumi@naeil.com", password: 'itis9486', password_confirmation: "itis9486", role: 1)
-User.create!(name: "김기수", email: "kskim@naeil.com", password: 'itis8458', password_confirmation: "itis8458", role: 1)
-User.create!(name: "박진범", email: "jbpark@naeil.com", password: 'itis4141', password_confirmation: "itis4141", role: 1)
-User.create!(name: "이선우", email: "leesw@naeil.com", password: 'itis4343', password_confirmation: "itis4343", role: 1)
-User.create!(name: "남봉우", email: "bawoo@naeil.com", password: 'itis7928', password_confirmation: "itis7928", role: 1)
-User.create!(name: "장병호", email: "bhjang@naeil.com", password: 'itis7906', password_confirmation: "itis7906", role: 1)
-User.create!(name: "문진헌", email: "hmun@naeil.com", password: 'itis5489', password_confirmation: "itis5489", role: 1)
-User.create!(name: "남준기", email: "namu@naeil.com", password: 'itis4142', password_confirmation: "itis4142", role: 1)
+# User.create!(name: "장명국", email: "ceo@naeil.com", password: 'itis6161', password_confirmation: "itis6161", role: 1)
+# User.create!(name: "이옥경", email: "okkl@naeil.com", password: 'itis7885', password_confirmation: "itis7885", role: 1)
+# User.create!(name: "정세용", email: "csy@naeil.com", password: 'itis4343', password_confirmation: "itis4343", role: 1)
+# User.create!(name: "안찬수", email: "khaein@naeil.com", password: 'itis0897', password_confirmation: "itis0897", role: 1)
+# User.create!(name: "김종필", email: "jpkim@naeil.com", password: 'itis6318', password_confirmation: "itis6318", role: 1)
+# User.create!(name: "홍범택", email: "durumi@naeil.com", password: 'itis9486', password_confirmation: "itis9486", role: 1)
+# User.create!(name: "김기수", email: "kskim@naeil.com", password: 'itis8458', password_confirmation: "itis8458", role: 1)
+# User.create!(name: "박진범", email: "jbpark@naeil.com", password: 'itis4141', password_confirmation: "itis4141", role: 1)
+# User.create!(name: "이선우", email: "leesw@naeil.com", password: 'itis4343', password_confirmation: "itis4343", role: 1)
+# User.create!(name: "남봉우", email: "bawoo@naeil.com", password: 'itis7928', password_confirmation: "itis7928", role: 1)
+# User.create!(name: "장병호", email: "bhjang@naeil.com", password: 'itis7906', password_confirmation: "itis7906", role: 1)
+# User.create!(name: "문진헌", email: "hmun@naeil.com", password: 'itis5489', password_confirmation: "itis5489", role: 1)
+# User.create!(name: "남준기", email: "namu@naeil.com", password: 'itis4142', password_confirmation: "itis4142", role: 1)

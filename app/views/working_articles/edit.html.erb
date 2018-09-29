@@ -1,7 +1,10 @@
 <div class="row" align='center'>
-  <div class="col md-4">
-    <%= render 'short_form', article: @working_article %>
+  <div class="col-md-4">
   </div>
+  <div class="col-md-4">
+    <%= render 'short_form', article: @working_article %>
+    <%= link_to 'Back', assign_stories_page_path(@working_article.page) %>
+  </div>
+
 </div>
 
-<%= link_to 'Back', assign_reporter_issue_path(Issue.last) %>

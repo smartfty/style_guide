@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :save_proof_reading_pdf, :send_pdf_to_printer, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :save_proof_reading_pdf, :send_pdf_to_printer, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default, :assign_stories]
 
   # GET /pages
   # GET /pages.json
@@ -123,6 +123,12 @@ class PagesController < ApplicationController
   def save_current_as_default
     @page.save_as_default
     redirect_to @page, notice: '현 페이지를 시작 페이지로 설정 하였습니다.'
+  end
+
+
+  def assign_stories
+    @page = Page.includes(:working_articles).friendly.find(params[:id])
+    render :assign_stories
   end
 
   private

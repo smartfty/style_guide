@@ -1,7 +1,6 @@
 
 <p>페이지: <%= article.page.page_number %></p>
 <p>기사 번호: <%= article.order %></p>
-
 <%= form_for(article, :url => assign_reporter_working_article_path(article)) do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -28,5 +27,4 @@
   <div class="actions">
     <button type="submit" class="btn btn-sm btn-success">저장</button>
   </div>
-
 <% end %>
