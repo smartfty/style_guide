@@ -38,11 +38,11 @@
         <li class="divider"></li>
         <li><%= link_to '새로운 호 생성', new_issue_path %></li>
         <li><%= link_to '담당 배정', assign_reporter_issue_path(Issue.last.id) %></li>
-
       <% end %>
     </ul>
   </li>
 
+  <li><%= link_to '오늘가사', stories_path %></li>
 
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">지면편집<span class="caret"></span></a>

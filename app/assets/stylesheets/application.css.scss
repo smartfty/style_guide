@@ -11,15 +11,12 @@
  * file per style scope.
  *
  *= require rails_bootstrap_forms
-
  *= require_tree .
  *= require_self
  */
-
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
- @import 'bootstrap-datetimepicker';
 
 html {
   height: 100% !important;

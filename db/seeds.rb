@@ -94,7 +94,7 @@ csv.each do |row|
   end
   g = ReporterGroup.where(section: current_section).first
   if g
-    h[:reporter_group_id]     = g.id
+    h[:group]     = g.section
   end
   h[:role]                  = 0
   h[:password]              = "itis" + h[:cell].split("-").last
@@ -132,14 +132,12 @@ csv.each do |row|
   # row_h.delete(:divider_position)
   s = Section.where(row_h).first_or_create!
   s.create_articles if s
-  if s.page_number == 22 || s.page_number == 23
-    # puts "s.id:#{s.id}"
-    # puts "s.layout:#{s.layout}"
-    s.regerate_section_preview
-  end
+  # if s.page_number == 22 || s.page_number == 23
+  #   # puts "s.id:#{s.id}"
+  #   # puts "s.layout:#{s.layout}"
+  #   s.regerate_section_preview
+  # end
 end
-
-
 
 SECTIONS = [
   '1면',
@@ -163,24 +161,16 @@ User.create!(name: "양유미", email: "biny@naeil.com", password: 'itis1234', p
 User.create!(name: "안상현", email: "shahn@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "한승효", email: "shhan@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "반수희", email: "shban@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
-User.create!(name: "이지혜", email: "jhlee@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
+# User.create!(name: "이지혜", email: "jhlee@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "지선미", email: "smjee@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
-User.create!(name: "편집1", email: "editor1@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 1)
-User.create!(name: "편집2", email: "editor2@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 1)
-User.create!(name: "기자1", email: "reporter1@naeil.com", password: 'itis1234', password_confirmation: "itis1234",)
-User.create!(name: "기자2", email: "reporter2@naeil.com", password: 'itis1234', password_confirmation: "itis1234",)
 User.create!(name: "이동명", email: "leedongmyeong@gmail.com", password: 'itis1234', password_confirmation: "itis1234",)
 
-# User.create!(name: "장명국", email: "ceo@naeil.com", password: 'itis6161', password_confirmation: "itis6161", role: 1)
-# User.create!(name: "이옥경", email: "okkl@naeil.com", password: 'itis7885', password_confirmation: "itis7885", role: 1)
-# User.create!(name: "정세용", email: "csy@naeil.com", password: 'itis4343', password_confirmation: "itis4343", role: 1)
-# User.create!(name: "안찬수", email: "khaein@naeil.com", password: 'itis0897', password_confirmation: "itis0897", role: 1)
-# User.create!(name: "김종필", email: "jpkim@naeil.com", password: 'itis6318', password_confirmation: "itis6318", role: 1)
-# User.create!(name: "홍범택", email: "durumi@naeil.com", password: 'itis9486', password_confirmation: "itis9486", role: 1)
-# User.create!(name: "김기수", email: "kskim@naeil.com", password: 'itis8458', password_confirmation: "itis8458", role: 1)
-# User.create!(name: "박진범", email: "jbpark@naeil.com", password: 'itis4141', password_confirmation: "itis4141", role: 1)
-# User.create!(name: "이선우", email: "leesw@naeil.com", password: 'itis4343', password_confirmation: "itis4343", role: 1)
-# User.create!(name: "남봉우", email: "bawoo@naeil.com", password: 'itis7928', password_confirmation: "itis7928", role: 1)
-# User.create!(name: "장병호", email: "bhjang@naeil.com", password: 'itis7906', password_confirmation: "itis7906", role: 1)
-# User.create!(name: "문진헌", email: "hmun@naeil.com", password: 'itis5489', password_confirmation: "itis5489", role: 1)
-# User.create!(name: "남준기", email: "namu@naeil.com", password: 'itis4142', password_confirmation: "itis4142", role: 1)
+title = "기사 제목은 여기에..."
+body  = "여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다."
+ReporterGroup.all.each do |group|
+  users = User.where(group: group.section).all
+  10.times do |i|
+    user = users[i]
+    Story.where(date: issue.date, user: user, group: user.group, title: title, body: body).first_or_create if user
+  end
+end

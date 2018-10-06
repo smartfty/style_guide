@@ -1,8 +1,10 @@
 <div class="row" align='center'>
   <div class="col-md-4">
   </div>
+
+  @strories.count: <%= @stories.count%>
   <div class="col-md-4">
-    <%= render 'short_form', article: @working_article %>
+    <%= render 'short_form', article: @working_article , stories: @stories%>
     <%= link_to 'Back', assign_stories_page_path(@working_article.page) %>
   </div>
 

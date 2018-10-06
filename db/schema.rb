@@ -488,7 +488,7 @@ ActiveRecord::Schema.define(version: 2018_09_29_020957) do
     t.integer "role", default: 0
     t.string "cell"
     t.string "title"
-    t.integer "reporter_group_id"
+    t.string "group"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

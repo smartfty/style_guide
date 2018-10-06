@@ -128,6 +128,7 @@ class PagesController < ApplicationController
 
   def assign_stories
     @page = Page.includes(:working_articles).friendly.find(params[:id])
+    @stories = Story.where(date: @page.date, group: @page.section_name)
     render :assign_stories
   end
 

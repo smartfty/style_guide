@@ -254,7 +254,11 @@ class Page < ApplicationRecord
 
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
-    copy_section_template
+    section   = Section.find(template_id)
+    copy_section_template(section)
+    create_heading(section)
+    create_working_articles(section)
+    create_ad_boxes(section)
   end
 
   def sample_ad_folder
@@ -302,9 +306,10 @@ class Page < ApplicationRecord
     # delete unused working_articles
     section = Section.find(template_id)
     if section.articles.length == 0
-      # if new page is full page ad, delete working articles from paeg
+      # if new page is full page ad, delete working articles from page
       working_articles.each do |wa|
-        wa.inactive = true
+        # wa.inactive = true
+        wa.destroy
       end
     else
       sorted_articles = section.articles.sort_by {|article| article.order}
@@ -341,7 +346,6 @@ class Page < ApplicationRecord
   end
 
   def update_ad_boxes
-
     section = Section.find(template_id)
     section.ad_box_templates.each_with_index do |ad_box_template, i|
       current = {page_id: self.id}
@@ -376,10 +380,6 @@ class Page < ApplicationRecord
     #code
   end
 
-  def copy_ad_template
-    #code
-  end
-
   def config_path
     path + "/config.yml"
   end
@@ -391,6 +391,7 @@ class Page < ApplicationRecord
     target = path + "/config.yml"
     File.open(target, 'w'){|f| f.write(config_hash.to_yaml)}
   end
+
 
   def copy_section_pdf
     source = section_template_folder + "/section.pdf"
@@ -438,63 +439,69 @@ class Page < ApplicationRecord
     system "cd #{page_heading_path} && /Applications/rjob.app/Contents/MacOS/rjob ."
   end
 
-  def copy_section_template
+  def copy_section_template(section)
     puts __method__
     source = Dir.glob("#{section_template_folder}/*").first
     old_article_count = working_articles.length
-    section           = Section.find(template_id)
     new_aricle_count  = section.story_count
     if source
       copy_config_file
       new_aricle_count.times do |i|
         source = section_template_folder + "/#{i + 1}"
-        article_foloder = path + "/#{i + 1}"
+        article_folder = path + "/#{i + 1}"
         # if artile folder is empty, copy the whole article template folder
-        unless File.exist?(article_foloder)
-          FileUtils.mkdir_p article_foloder
-          system("cp -r #{source}/ #{article_foloder}/")
+        unless File.exist?(article_folder)
+          FileUtils.mkdir_p article_folder
+          system("cp -r #{source}/ #{article_folder}/")
         # if there are current article, copy layout.rb from article template
         else
           layout_template = source + "/layout.rb"
-          system("cp  #{layout_template} #{article_foloder}/")
+          system("cp  #{layout_template} #{article_folder}/")
         end
       end
-
-      # backup or restore story from previous template change
-      # if there are some left over article from previous layout, delete them.
-      if old_article_count > new_aricle_count
-        FileUtils.mkdir_p story_backup_folder unless File.exist?(story_backup_folder)
-        left_over_count = old_article_count - new_aricle_count
-        puts "left_over_count:#{left_over_count}"
-        left_over_count.times do |i|
-          story_number      = new_aricle_count + i + 1
-          left_over_foloder = path + "/#{story_number}"
-          left_over_stroy   = left_over_foloder + "/story.md"
-          backup_name       = story_backup_folder + "/#{story_number}_story.md"
-          system "rm -r #{left_over_foloder}"
-        end
-      elsif old_article_count < new_aricle_count
-        increased_count = new_aricle_count - old_article_count
-        puts "increased_count:#{increased_count}"
-        increased_count.times do |i|
-          story_number      = old_article_count + i + 1
-          increased_foloder = path + "/#{story_number}"
-          increased_story   = increased_foloder + "/story.md"
-          backup_file_name  = story_backup_folder + "/#{story_number}_story.md"
-          system "cp  #{backup_file_name} #{increased_story}" if File.exist?(backup_file_name)
-        end
-      end
-      #TODO How about ad?
-      copy_ad_template
+      copy_ad_folder
+      copy_heading
     else
-      puts "No template in #{section_template_folder}"
+      puts "no section"
     end
-    update_working_articles
-    update_ad_boxes
-    #TODO
-    copy_heading
-    # regenerate_pdf
-    generate_pdf_with_time_stamp
+
+  end
+
+  def copy_ad_folder
+    ad_folder = section_template_folder + "/ad"
+    system("cp  -r #{ad_folder} #{path}") if File.exist? ad_folder
+  end
+
+  def create_working_articles(section)
+    sorted_articles = section.articles.sort_by {|article| article.order}
+    sorted_articles.each_with_index do |article, i|
+      current = {page_id: self.id, order:i+1}
+      current[:article_id]          = article.id
+      current[:extended_line_count] = article.extended_line_count || 0
+      current[:pushed_line_count]   = article.pushed_line_count || 0
+      w = WorkingArticle.where(current).first_or_create
+    end
+  end
+
+  def create_heading(section)
+    heading_atts                  = {}
+    heading_atts[:page_number]    = section.page_number
+    heading_atts[:section_name]    = section.page_number
+    heading_atts[:page_id]        = self.id
+    heading_atts[:date]           = date
+    result                        = PageHeading.where(heading_atts).first_or_create
+  end
+
+  def create_ad_boxes(section)
+    section.ad_box_templates.each_with_index do |ad_box_template, i|
+      current = {page_id: self.id}
+      current[:grid_x] = ad_box_template.grid_x
+      current[:grid_y] = ad_box_template.grid_y
+      current[:column] = ad_box_template.column
+      current[:row] = ad_box_template.row
+      current[:order] = i
+      AdBox.create(current)
+    end
   end
 
   def change_template(new_template_id)
@@ -504,10 +511,12 @@ class Page < ApplicationRecord
     section_hash                = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
     section_hash[:template_id]  = new_template_id
     section_hash.delete(:id)
-    section_hash.delete(:layout)
+    section_hash.delete(:path)
     section_hash.delete(:order)
     section_hash.delete(:is_front_page)
-    section_hash.delete(:publication_id)
+    section_hash.delete(:page_heading_margin_in_lines)
+    # section_hash.delete(:layout)
+    # section_hash.delete(:publication_id)
     section_hash.delete(:created_at)
     section_hash.delete(:updated_at)
     section_hash.delete(:draw_divider)
@@ -536,7 +545,7 @@ class Page < ApplicationRecord
     generate_heading_pdf
     update_working_articles
     update_ad_boxes
-    generate_pdf
+    generate_pdf_with_time_stamp
   end
 
   def save_as_default

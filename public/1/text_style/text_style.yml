@@ -423,7 +423,15 @@ subject_head_L:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
-  graphic_attributes: ''
+  graphic_attributes:
+    token_union_style:
+      stroke_width: 2
+      stroke_sides:
+        - 0
+        - 1
+        - 0
+        - 0
+      top_line_space: 5
   publication_id: 1
 subject_head_M:
   korean_name: 문패_14

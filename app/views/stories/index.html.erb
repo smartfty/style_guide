@@ -1,48 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stories</h1>
+<div align="center">
+<h3>오늘기사</h3>
 
-<table>
+<p id="notice"><%= notice %></p>
+
+<table id="stories-datatable" data-source="<%= stories_path(format: :json) %>">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Working article</th>
-      <th>Reporter</th>
       <th>Group</th>
-      <th>Date</th>
+      <th>Reporter</th>
       <th>Title</th>
-      <th>Subtitle</th>
-      <th>Body</th>
-      <th>Quote</th>
-      <th>Status</th>
-      <th>Char count</th>
-      <th>Published</th>
-      <th>Path</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @stories.each do |story| %>
-      <tr>
-        <td><%= story.user %></td>
-        <td><%= story.working_article %></td>
-        <td><%= story.reporter %></td>
-        <td><%= story.group %></td>
-        <td><%= story.date %></td>
-        <td><%= story.title %></td>
-        <td><%= story.subtitle %></td>
-        <td><%= story.body %></td>
-        <td><%= story.quote %></td>
-        <td><%= story.status %></td>
-        <td><%= story.char_count %></td>
-        <td><%= story.published %></td>
-        <td><%= story.path %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 

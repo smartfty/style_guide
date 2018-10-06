@@ -19,7 +19,7 @@
 #  role                   :integer          default("reporter")
 #  cell                   :string
 #  title                  :string
-#  reporter_group_id      :integer
+#  group                  :string
 #
 # Indexes
 #

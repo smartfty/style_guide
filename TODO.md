@@ -37,6 +37,36 @@
   - add {: alignment: 'center'} {: 정렬: '중간'}
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
+  
+2018-10-5
+  - fix change_page_template
+    - fix new attribute
+    - let page refresh with generate_pdf_with_time_stamp
+
+2018-10-3
+  - assing story to working_article
+  - add Sidekick
+  - add issue story menu
+  
+2018-10-2
+  - add datatable 
+    - for story view
+
+  - fix mobile preview xml merge
+  - add article number to page svg
+  - add story in menu
+
+2018-9-30
+  - fix edit color_page
+  - upload page_heading image for first_page
+  
+2018-9-29
+  - add Story model
+  - in seed
+    - add reporters as User 
+    - do not regenerate working_article pdf unles when it is missing
+
+
 
 2018_9_26
   - page_plan view with two pairing column

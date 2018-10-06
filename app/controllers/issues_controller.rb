@@ -79,7 +79,7 @@ class IssuesController < ApplicationController
   end
 
   def current_plan
-    half = @issue.pages.count/2
+    half = @issue.page_plans.count/2
     @front_page_plans   = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
     @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse
   end
@@ -211,11 +211,7 @@ class IssuesController < ApplicationController
   def ad_group
     set_issue
     session[:current_group] = 'ad_group'
-    @pages = []
-
-    [6,8,10,23].each do |i|
-      @pages << @issue.pages[i]
-    end
+    @pages = @issue.pages.select{|p| p.section_name == '전면광고'}
   end
 
   def spread
@@ -235,7 +231,7 @@ class IssuesController < ApplicationController
     @reporters        = Reporter.all.order(:division)
     @working_articles = []
     @issue.pages.each do |page|
-      @working_articles += page.working_articles
+      @working_articles += page.working_articles.sort_by{|x| x.order}
     end#code
   end
 

@@ -64,10 +64,10 @@ gem 'griddler'
 gem 'rails_layout'
 gem 'bootstrap-sass'
 # gem 'high_voltage'
-gem 'jquery-ace-rails'
+# gem 'jquery-ace-rails'
 
 gem 'kaminari'
-gem 'victor'
+# gem 'victor'
 gem 'devise'
 # gem 'smart_listing'
 # gem 'css3-progress-bar-rails'
@@ -105,7 +105,12 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'rails-controller-testing'
-
 end
 
 gem 'bullet', group: 'development'
+# gem 'rack-cors', require: 'rack/cors'
+
+gem 'rails-assets-trix', source: 'https://rails-assets.org'
+gem 'jquery-datatables'
+gem 'ajax-datatables-rails'
+gem 'sidekiq'

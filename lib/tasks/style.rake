@@ -1,5 +1,17 @@
 namespace :style do
 
+  desc 'seed stories'
+  task :seed_stories =>:environment do
+    ReporterGroup.all.each do |group|
+    users = User.where(group: group.section).all
+      10.times do |i|
+        user = users[i]
+        date = Issue.last.date
+        Story.where(date: issue.date, user: user, group: group).first_or_create if user
+      end
+    end
+  end
+
   desc 'scrape form gw'
   task :scrape_gw =>:environment do
     Issue.scrape_gw

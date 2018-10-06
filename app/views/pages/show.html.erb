@@ -56,9 +56,14 @@
     </div>
     <div align="center">
       <%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_page_path(@page), method: :get, class: "btn-group btn btn-sm btn-primary" , align: "center"%>
-      <td><%= button_to "기사 배정", assign_stories_page_path(@page), method: :get, class: "btn btn-sm btn-success" %></td>
-
+      <%= button_to "기사 배정", assign_stories_page_path(@page), method: :get, class: "btn btn-sm btn-success" %>
     </div>
+
+    <div>
+      <%= render 'change_page_info', page: @page %>
+    </div>
+
+</div>
   </div>
 
   <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->

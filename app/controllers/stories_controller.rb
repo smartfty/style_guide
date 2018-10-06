@@ -4,7 +4,10 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    respond_to do |format|
+      format.html
+      format.json { render json: StoryDatatable.new(params) }
+    end
   end
 
   # GET /stories/1

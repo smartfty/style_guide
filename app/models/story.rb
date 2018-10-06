@@ -33,17 +33,23 @@
 class Story < ApplicationRecord
   belongs_to :user
   belongs_to :working_article, optional: true
-  befor_create :init_atts
+  before_create :init_atts
 
+  def status_string
+    selected = "X"
+    selected = "O" if status == "published" if 
+    s = "#{selected}| #{reporter}: #{title}"
+    s
+  end
 
   private
 
   def init_atts
     self.reporter = user.name
     self.status   = 'draft'
-    self.date     = DateTime.today
-    if working_articles
-      self.path = working_articles.path
+    self.date     = Date.today
+    if working_article
+      self.path = working_article.path
       self.published = true
     end
   end

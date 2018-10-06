@@ -1,28 +1,61 @@
 
 <h3 align="center">기사 배정: <%= @page.section_name %>(<%= @page.page_number %>)</h3>
-<table border= '1' align="center">
-  <thead>
-    <tr>
-      <th>기사 번호</th>
-      <th>담당기자</th>
-      <th style="text-align:center;">제목</th>
-      <th>예상 자수</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @page.working_articles.each do |working_article| %>
-        <tr style="background-color:#dddddd;">
-          <td style="text-align:center;"><%= working_article.order %></td>
-          <td style="text-align:left;"><%= working_article.reporter %></td>
-          <td style="text-align:left;"><%= working_article.title %></td>
-          <td style="text-align:center;"><%= working_article.character_count %></td>
-          <td><%= button_to " 수정", edit_working_article_path(working_article), method: :get, class: "btn btn-sm btn-warning" %></td>
+@stories: <%= @stories.length%>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-4">
+    <table border= '1' align="center">
+      <thead>
+        <tr>
+          <th>기사 번호</th>
+          <th>담당기자</th>
+          <th style="text-align:center;">제목</th>
+          <th>예상 자수</th>
+          <th colspan="3"></th>
         </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+        <% @page.working_articles.sort_by{|x| x.order}.each do |working_article| %>
+            <tr style="background-color:#dddddd;">
+              <td style="text-align:center;"><%= working_article.order %></td>
+              <td style="text-align:left;"><%= working_article.reporter %></td>
+              <td style="text-align:left;"><%= working_article.title %></td>
+              <td style="text-align:center;"><%= working_article.character_count %></td>
+              <td><%= button_to " 수정", edit_working_article_path(working_article), method: :get, class: "btn btn-sm btn-warning" %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <table border= '1' align="center">
+      <thead>
+        <tr>
+          <th>기사 번호</th>
+          <th>담당기자</th>
+          <th style="text-align:center;">제목</th>
+          <th>예상 자수</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @stories.each do |story| %>
+            <tr style="background-color:#dddddd;">
+              <td style="text-align:center;"><%= story.story %></td>
+              <td style="text-align:left;"><%= story.story %></td>
+              <td style="text-align:left;"><%= story.title %></td>
+              <td style="text-align:center;"><%= story.character_count %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  
+  </div>
+</div>
+
 
 <br>
 <div align='center'>

@@ -56,6 +56,7 @@ class WorkingArticle < ApplicationRecord
   belongs_to :page
   belongs_to :article, optional: true
   has_many :images
+  has_one :story
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
@@ -148,6 +149,11 @@ class WorkingArticle < ApplicationRecord
 
   def issue
     page.issue
+  end
+
+  # stroy from same group
+  def story_candidates
+    Story.where(group: page.section_name)
   end
 
   def save_article

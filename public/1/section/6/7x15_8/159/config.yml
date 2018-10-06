@@ -1,0 +1,54 @@
+---
+section_name: 행정
+page_heading_margin_in_lines: 3
+ad_type: no_ad
+is_front_page: false
+profile: 7x15_8
+section_id: 159
+page_columns: 7
+grid_size:
+- 146.99664257142854
+- 96.377964
+lines_per_grid: 7.0
+width: 1114.015878
+height: 1544.88207
+left_margin: 42.51969
+top_margin: 56.69292
+right_margin: 42.51969
+bottom_margin: 42.51969
+gutter: 12.755907
+story_frames:
+- - 0
+  - 0
+  - 5
+  - 5
+- - 5
+  - 0
+  - 2
+  - 7
+- - 0
+  - 5
+  - 2
+  - 5
+- - 2
+  - 5
+  - 3
+  - 5
+- - 5
+  - 7
+  - 2
+  - 6
+- - 0
+  - 10
+  - 5
+  - 3
+- - 0
+  - 13
+  - 5
+  - 2
+- - 5
+  - 13
+  - 2
+  - 2
+article_line_thickness: 0.3
+draw_divider: 

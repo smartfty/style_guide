@@ -148,7 +148,7 @@ class Issue < ApplicationRecord
   end
 
   def update_plan
-    change_or_make_pages
+    make_pages
     # parse_images
     # parse_ad_images
     # parse_graphics
@@ -157,7 +157,7 @@ class Issue < ApplicationRecord
   def make_pages
     puts 'in make_pages'
     page_plans.each_with_index do |page_plan, _i|
-      Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+      Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id, color_page: page_plan.color_page, ad_type: ad_type.ad_type)
       page_plan.dirty = false
       page_plan.save
     end
@@ -168,7 +168,7 @@ class Issue < ApplicationRecord
     Spread.create!(issue_id: id)
   end
 
-  def change_or_make_pages
+  def make_pages
     page_plans.each_with_index do |page_plan, _i|
       if page_plan.page
         if page_plan.need_update?
