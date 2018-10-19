@@ -17,7 +17,6 @@
 #  body                         :text
 #  reporter                     :string
 #  email                        :string
-#  personal_image               :string
 #  image                        :string
 #  quote                        :text
 #  subject_head                 :string
@@ -44,6 +43,7 @@
 #  grid_width                   :float
 #  grid_height                  :float
 #  gutter                       :float
+#  has_profile_image            :boolean
 #
 # Indexes
 #
@@ -179,6 +179,11 @@ class WorkingArticle < ApplicationRecord
       system("rm #{old}")
     end
   end
+
+  def delete_folder
+    system("rm -rf #{path}")
+  end
+
 
   def generate_pdf_with_time_stamp
     save_article
@@ -528,6 +533,8 @@ class WorkingArticle < ApplicationRecord
   def layout_options
     h = {}
     h[:kind]                          = kind if kind
+    h[:has_profile_image]             = true if reporter
+    h[:has_profile_image]             = false if reporter == ""
     h[:page_number]                   = page_number
     h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
     h[:column]                        = column
@@ -536,18 +543,15 @@ class WorkingArticle < ApplicationRecord
     h[:grid_height]                   = grid_height
     h[:gutter]                        = gutter
     h[:on_left_edge]                  = on_left_edge
-    h[:on_right_edge]                 = on_right_edge
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
     h[:top_position]                  = top_position
     h[:bottom_article]                = page.bottom_article?(self)
     h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
-
     h[:extended_line_count]           = extended_line_count if extended_line_count
     h[:pushed_line_count]             = pushed_line_count if pushed_line_count
     h[:quote_box_size]                = quote_box_size if show_quote_box?
-
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
     h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
@@ -576,7 +580,7 @@ class WorkingArticle < ApplicationRecord
     elsif kind == '사설' || kind == 'editorial'
       h[:article_line_draw_sides]  = [0,1,0,0]
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-      content += "  news_column_image(#{editorial_image_options})\n" if page_number == 22
+      content += "  news_column_image(#{editorial_image_options})\n" if reporter && reporter != "" # if page_number == 22
       content += "end\n"
     elsif kind == '기고' || kind == 'opinion'
       h[:article_line_draw_sides]  = [0,1,0,1]
@@ -642,7 +646,7 @@ class WorkingArticle < ApplicationRecord
     self.body           = @contents
     self.reporter       = @metadata['reporter']
     self.email          = @metadata['email']
-    self.personal_image = @metadata['personal_image']
+    self.has_profile_image = @metadata['has_profile_image']
     self.image          = @metadata['image']
     self.quote          = @metadata['quote']
     self.subject_head   = @metadata['subject_head']

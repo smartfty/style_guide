@@ -14,7 +14,7 @@
 
 class Ad < ApplicationRecord
   belongs_to :publication
-  belongs_to :issue
+  belongs_to :issue, optional: true
   after_create :setup
   validates :column, presence: true
   validates :row, presence: true
@@ -27,6 +27,16 @@ class Ad < ApplicationRecord
 
   def images_path
     path + "/images"
+  end
+
+  def self.seed_ad
+    ad_csv_path = "#{Rails.root}/public/1/ad/ads.csv"
+    csv_text = File.read(ad_csv_path)
+    csv = CSV.parse(csv_text, :headers => true)
+    csv.each do |row|
+      puts "row.to_hash:#{row.to_hash}"
+      Ad.where(row.to_hash).first_or_create
+    end
   end
 
   def setup

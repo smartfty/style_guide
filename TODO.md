@@ -37,7 +37,28 @@
   - add {: alignment: 'center'} {: 정렬: '중간'}
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
+
+2018-10-11
+  - 18면 전면광고 시 면머리 교쳬
   
+   
+2018-10-9
+  - fix issue page view grouping from page_range to section_name based
+  - fix story assignment
+    - based on group, not page
+    - return to story group with session saved into
+    - add change story to working article
+    - show working_article with story with different color in story assignment
+
+2018-10-8
+  - fix editorial_with_profile_image so that it can also be on any page, not just 23
+  - change personal_image to has_profile_image:boolean
+    this should tell whether or not to place person image
+
+2018-10-6
+  - add 6 column editorial
+  - add 2 column opinion
+
 2018-10-5
   - fix change_page_template
     - fix new attribute

@@ -53,7 +53,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'my_story'
+    end
+  end
 
   resources :ad_boxes do
     member do
@@ -97,7 +101,7 @@ Rails.application.routes.draw do
       get 'image_4x4'
       get 'image_5x5'
       get 'image_auto'
-
+      get 'change_story'
     end
   end
 
@@ -126,6 +130,17 @@ Rails.application.routes.draw do
       get 'nineth_group'
       get 'ad_group'
       get 'spread'
+
+      get 'first_group_stories'
+      get 'second_group_stories'
+      get 'third_group_stories'
+      get 'fourth_group_stories'
+      get 'fifth_group_stories'
+      get 'sixth_group_stories'
+      get 'seventh_group_stories'
+      get 'eighth_group_stories'
+      get 'nineth_group_stories'
+
       get 'save_story_xml'
       get 'download_story_xml'
       get 'save_preview_xml'

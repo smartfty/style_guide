@@ -81,6 +81,9 @@ class Publication < ApplicationRecord
     "#{Rails.root}/public/images"
   end
 
+  def sections
+    SECTIONS
+  end
   def library_images
     path_array = Dir.glob("#{images_path}/*[.jpg,.pdf]")
     front = "#{Rails.root}/public"

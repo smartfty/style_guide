@@ -45,7 +45,14 @@ class PagePlansController < ApplicationController
     respond_to do |format|
       if @page_plan.update(page_plan_params)
         @page_plan.set_pair_page_color
-        
+        if (@page_plan.page_number == 12 || @page_plan.page_number == 13)
+          if @page_plan.ad_type == "15단_브릿지"
+            Spread.where(issue: @page_plan.issue).first_or_create
+            @page_plan.set_pair_bridge_ad
+          else
+            @page_plan.spread.destroy if @page_plan.spread
+          end
+        end
         format.html { redirect_to current_plan_issue_path(Issue.last.id)}
         format.json { render :show, status: :ok, location: @page_plan }
       else
@@ -88,6 +95,6 @@ class PagePlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_plan_params
-      params.require(:page_plan).permit(:page_number, :section_name, :ad_type, :advertiser, :color_page, :selected_template_id, :issue_id)
+      params.require(:page_plan).permit(:page_number, :deadline, :section_name, :ad_type, :advertiser, :color_page, :selected_template_id, :issue_id)
     end
 end

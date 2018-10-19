@@ -154,58 +154,66 @@ class IssuesController < ApplicationController
 # 22-23
   def first_group
     set_issue
-    @pages = @issue.pages.order(:id)
-    @page_range = 0..0
+    group = @issue.publication.sections[0]
+    @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_group] = 'first_group'
   end
 
   def second_group
     set_issue
+    group = @issue.publication.sections[1]
+    @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_group] = 'second_group'
-    @page_range = 1..4
   end
 
   def third_group
     set_issue
-    @page_range = 4..5
+    group = @issue.publication.sections[2]
+    @pages = @issue.pages.select{|p| p.section_name == group}    
     session[:current_group] = 'third_group'
   end
 
   def fourth_group
     set_issue
-    @page_range = 7..7
+    group = @issue.publication.sections[3]
+    @pages = @issue.pages.select{|p| p.section_name == group}    
     session[:current_group] = 'fourth_group'
   end
 
   def fifth_group
     set_issue
-    @page_range = 9..12
+    group = @issue.publication.sections[4]
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'fifth_group'
   end
 
   def sixth_group
     set_issue
-    @page_range = 13..16
+    group = @issue.publication.sections[5]
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'sixth_group'
   end
 
   def seventh_group
     set_issue
+    group = @issue.publication.sections[6]
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'seventh_group'
-    @page_range = 17..18
   end
 
   def eighth_group
     set_issue
+    group = @issue.publication.sections[7]
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'eighth_group'
-    @page_range = 19..20
   end
 
   # 오피니언
   def nineth_group
     set_issue
+    group = @issue.publication.sections[8]
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'nineth_group'
-    @page_range = 21..22
   end
 
   def ad_group
@@ -228,11 +236,75 @@ class IssuesController < ApplicationController
   end
 
   def assign_reporter
-    @reporters        = Reporter.all.order(:division)
+    @reporters        = User.select{|u| u.group !=nil}.sort_by{|u| u.group}
     @working_articles = []
     @issue.pages.each do |page|
       @working_articles += page.working_articles.sort_by{|x| x.order}
     end#code
+  end
+
+  def first_group_stories
+    set_issue
+    group = @issue.publication.sections[0]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'first_group'
+  end
+
+  def second_group_stories
+    set_issue
+    group = @issue.publication.sections[1]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'second_group'
+  end
+
+  def third_group_stories
+    set_issue
+    group = @issue.publication.sections[2]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'third_group'
+
+  end
+
+  def fourth_group_stories
+    set_issue
+    group = @issue.publication.sections[3]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'fourth_group'
+  end
+
+  def fifth_group_stories
+    set_issue
+    group = @issue.publication.sections[4]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'fifth_group'
+  end
+
+  def sixth_group_stories
+    set_issue
+    group = @issue.publication.sections[5]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'sixth_group'
+  end
+
+  def seventh_group_stories
+    set_issue
+    group = @issue.publication.sections[6]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'seventh_group'
+  end
+  
+  def eighth_group_stories
+    set_issue
+    group = @issue.publication.sections[7]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'eighth_group'
+  end
+  
+  def nineth_group_stories
+    set_issue
+    group = @issue.publication.sections[8]
+    @pages = @issue.pages.select{|p| p.section_name == group}
+    session[:current_story_group] = 'nineth_group'
   end
 
   def send_to_cms

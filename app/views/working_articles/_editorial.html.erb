@@ -19,11 +19,11 @@
       <% if page_number == 23 %>
         <%= f.text_field :subject_head, size: 8 %>
         <!-- <%= f.text_field :subject_head, size: 8 %> -->
-        <% elsif page_number == 22 %>
+      <% elsif page_number == 22 %>
           <%= f.text_field :subject_head, size: 8 %>
-          <% else f %>
-            <%= f.text_field :subject_head, size: 8 %>
-          <% end %>
+      <% else %>
+          <%= f.text_field :subject_head, size: 8 %>
+      <% end %>
 
         </div>
         <div class="form-group">
@@ -35,12 +35,16 @@
           <%= f.label :부제목 %>
           <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
         </div>
-        <% if page_number != 23 %>
-          <div class="form-group">
-            <%= f.label "글쓴이"%>
-            <%= f.text_field :reporter, size: 20 %>
-          </div>
-        <% end %>
+
+        <div class="form-group">
+            <%= f.label "글쓴이 사진"%>
+            <%= f.check_box :has_profile_image %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "글쓴이"%>
+          <%= f.text_field :reporter, size: 20 %>
+        </div>
 
         <div class="form-group-body">
           <%= f.label :본문 %>
@@ -52,7 +56,7 @@
         </div>
 
         <div class="field">
-          <%= f.text_field :personal_image, type: "hidden" %>
+          <%= f.text_field :has_profile_image, type: "hidden" %>
         </div>
 
         <div class="field">

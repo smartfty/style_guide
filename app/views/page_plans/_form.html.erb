@@ -12,7 +12,10 @@
         </ul>
       </div>
     <% end %>
-
+    <div class="field">
+      <%= f.label :마감시간 %>
+      <%= f.text_field :deadline %>
+    </div>
     <div class="field">
       <%= f.label :섹션이름 %>
       <%= f.text_field :section_name %>
@@ -20,7 +23,7 @@
 
     <div class="field">
       <%= f.label :광고종류 %>
-      <%= f.select :ad_type, Ad.all.collect { |p| p.name }, include_blank: true %>
+      <%= f.select :ad_type, Ad.all.uniq { |p| p.name }.collect{|p| p.name}, include_blank: true %>
     </div>
 
     <div class="field">
@@ -33,6 +36,6 @@
     </div>
 
     <div class="actions">
-      <%= f.button :submit, :label=> "저장"%>
+      <button type="submit" class="btn btn-sm btn-primary">저장</button>
     </div>
   <% end %>

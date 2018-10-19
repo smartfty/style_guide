@@ -25,10 +25,28 @@
         <% end %>
       <% end %>
     </ul>
-
 </li>
 
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">기사배치<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <% if current_user %>
+        <li><%= link_to '오늘기사', stories_path %></li>
+        <li><%= link_to '1면', first_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '정치', second_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '행정', third_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '국제통일', fourth_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '금융', fifth_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '산업', sixth_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '기획', seventh_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '정책', eighth_group_stories_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '오피니언', nineth_group_stories_issue_path(Issue.last.id) %></li>
+        <li class="divider"></li>
+        <li><%= link_to '연합기사', ad_group_issue_path(Issue.last.id) %></li>
 
+      <% end %>
+    </ul>
+</li>
 <% if current_user %>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">오늘의 신문<span class="caret"></span></a>
@@ -37,12 +55,10 @@
         <li><%= link_to '면 배열표', current_plan_issue_path(Issue.last.id) %></li>
         <li class="divider"></li>
         <li><%= link_to '새로운 호 생성', new_issue_path %></li>
-        <li><%= link_to '담당 배정', assign_reporter_issue_path(Issue.last.id) %></li>
       <% end %>
     </ul>
   </li>
 
-  <li><%= link_to '오늘가사', stories_path %></li>
 
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">지면편집<span class="caret"></span></a>

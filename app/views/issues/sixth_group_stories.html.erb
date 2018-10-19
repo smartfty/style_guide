@@ -1,15 +1,8 @@
 
 <div align="center">
-  <h4>담당기자 설정</h4>
-</div>
-
-<div class='row'>
-  <% @issue.pages.each do |page| %>
-  <div class ="col-md-1">
-  </div>
-
-  <div class ="col-md-5">
-    <table border="1" width="90%">
+<h3>산업</h3>
+  <% @pages.each do |page| %>
+    <table border="1" width="50%">
       <thead>
         <tr>
           <th>페이지</th>
@@ -31,11 +24,6 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-
-  <% end %>
-
-</div>
-
+<% end %>
 
 

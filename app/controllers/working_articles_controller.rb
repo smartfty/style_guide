@@ -1,5 +1,5 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview, :assign_reporter, :add_image]
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview,:change_story, :assign_reporter, :add_image]
   layout 'working_article'
   # GET /working_articles
   # GET /working_articles.json
@@ -53,8 +53,10 @@ class WorkingArticlesController < ApplicationController
   def update
     respond_to do |format|
       # if filter_markdown?
+      puts "++++++++++ params['working_article']['has_profile_image':#{params['working_article']['has_profile_image']}"
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
       # end
+      puts "+++++++++++++ working_article_params:#{working_article_params}"
       if @working_article.update(working_article_params)
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp
@@ -78,6 +80,17 @@ class WorkingArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def assign_reporter
+    @working_article.update(working_article_params)
+    redirect_to assign_reporter_issue_path(Issue.last)
+  end
+
+  def change_story
+    #todo
+    # @stories = Story.where(group: , date: date)
+  end
+  
   # download story.pdf
   def download_pdf
     send_file @working_article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
@@ -137,11 +150,6 @@ class WorkingArticlesController < ApplicationController
 
   def zoom_preview
     #code
-  end
-
-  def assign_reporter
-    @working_article.update(working_article_params)
-    redirect_to assign_reporter_issue_path(Issue.last)
   end
 
   def extend_zero
@@ -261,7 +269,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle, :body, :reporter, :email, :personal_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id)
     end
 
     def filter_markdown?

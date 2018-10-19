@@ -93,7 +93,7 @@ Rails app for creating style guide for newspaper publication
   subtitle
   body
   reporter
-  personal_image
+  has_profile_image
   image
   quote
 
@@ -152,7 +152,7 @@ date
   t.text :body
   t.string :reporter
   t.string :email
-  t.string :personal_image
+  t.string :has_profile_image
   t.string :image
   t.string :quote
   t.string :subject_head

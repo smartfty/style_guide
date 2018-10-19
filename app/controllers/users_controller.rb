@@ -12,4 +12,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_story
+    @user = User.find(params[:id])
+    @stories = @user.stories
+  end
+
 end

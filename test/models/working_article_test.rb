@@ -17,7 +17,6 @@
 #  body                         :text
 #  reporter                     :string
 #  email                        :string
-#  personal_image               :string
 #  image                        :string
 #  quote                        :text
 #  subject_head                 :string
@@ -44,6 +43,7 @@
 #  grid_width                   :float
 #  grid_height                  :float
 #  gutter                       :float
+#  has_profile_image            :boolean
 #
 # Indexes
 #

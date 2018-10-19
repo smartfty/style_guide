@@ -302,7 +302,6 @@ class Page < ApplicationRecord
   end
 
   def update_working_articles
-    puts __method__
     # delete unused working_articles
     section = Section.find(template_id)
     if section.articles.length == 0
@@ -506,6 +505,8 @@ class Page < ApplicationRecord
 
   def change_template(new_template_id)
     puts "++++++++ new_template_id:#{new_template_id}"
+    self.template_id            = new_template_id
+    self.save
     new_section                 = Section.find(new_template_id)
     section_hash                = new_section.attributes
     section_hash                = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
@@ -541,11 +542,33 @@ class Page < ApplicationRecord
     end
     copy_config_file
     #TODO change heading section_name to full page ad if new template is full page ad
-    copy_heading
+    # copy_heading
+    change_heading
     generate_heading_pdf
     update_working_articles
     update_ad_boxes
     generate_pdf_with_time_stamp
+  end
+
+  def change_heading
+    section  = Section.find(template_id)
+    FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
+    source = section.page_heading_path
+    target = page_heading_path
+    layout_erb_path     = page_heading_path + "/layout.erb"
+    # unless File.exist? layout_erb_path
+    system "cp -R #{source}/ #{target}/"
+    # end
+    layout_erb_content  = File.open(layout_erb_path, 'r'){|f| f.read}
+    erb                 = ERB.new(layout_erb_content)
+    @date               = korean_date_string
+    # @section_name       = section_name
+    @section_name       = put_space_between_chars(section_name)
+    @page_number        = page_number
+    layout_content      = erb.result(binding)
+    layout_rb_path      = page_heading_path + "/layout.rb"
+    File.open(layout_rb_path, 'w'){|f| f.write layout_content}
+    system "cd #{page_heading_path} && /Applications/rjob.app/Contents/MacOS/rjob ."
   end
 
   def save_as_default

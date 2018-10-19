@@ -31,6 +31,7 @@
 
 class AdBox < ApplicationRecord
   belongs_to :page
+  belongs_to :spread, optional: true
   mount_uploader :ad_image, AdImageUploader
   before_create :init_atts
   after_create :setup
