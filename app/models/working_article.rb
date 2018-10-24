@@ -569,6 +569,7 @@ class WorkingArticle < ApplicationRecord
     h[:grid_height]                   = grid_height
     h[:gutter]                        = gutter
     h[:on_left_edge]                  = on_left_edge
+    h[:on_right_edge]                 = on_right_edge
     h[:is_front_page]                 = is_front_page
     h[:top_story]                     = top_story
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
@@ -1307,6 +1308,8 @@ EOF
       self.column         = article_info_hash[:column]
       self.row            = article_info_hash[:row]
       self.is_front_page  = article_info_hash[:is_front_page]
+      self.on_left_edge   = article_info_hash[:on_left_edge]
+      self.on_right_edge  = article_info_hash[:on_right_edge]
       self.top_story      = article_info_hash[:top_story]
       self.top_position   = article_info_hash[:top_position]
       self.inactive       = false
