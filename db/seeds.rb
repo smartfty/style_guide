@@ -161,16 +161,75 @@ User.create!(name: "양유미", email: "biny@naeil.com", password: 'itis1234', p
 User.create!(name: "안상현", email: "shahn@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "한승효", email: "shhan@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "반수희", email: "shban@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
-# User.create!(name: "이지혜", email: "jhlee@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "지선미", email: "smjee@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 2)
 User.create!(name: "이동명", email: "leedongmyeong@gmail.com", password: 'itis1234', password_confirmation: "itis1234",)
 
-title = "기사 제목은 여기에..."
-body  = "여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다."
-ReporterGroup.all.each do |group|
-  users = User.where(group: group.section).all
-  10.times do |i|
-    user = users[i]
-    Story.where(date: issue.date, user: user, group: user.group, title: title, body: body).first_or_create if user
+User.create!(name: "김정치", email: "k_two@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
+User.create!(name: "김행정", email: "k_three@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "김국제", email: "k_four@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
+User.create!(name: "김금융", email: "k_five@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
+User.create!(name: "김산업", email: "k_six@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
+User.create!(name: "김정책", email: "k_seven@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정책', role: 0)
+User.create!(name: "김기획", email: "k_eight@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '기획', role: 0)
+User.create!(name: "김오피", email: "k_nine@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
+
+User.create!(name: "이정치", email: "l_two@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
+User.create!(name: "이행정", email: "l_three@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "이국제", email: "l_four@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
+User.create!(name: "이금융", email: "l_five@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
+User.create!(name: "이산업", email: "l_six@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
+User.create!(name: "이정책", email: "l_seven@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정책', role: 0)
+User.create!(name: "이기획", email: "l_eight@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '기획', role: 0)
+User.create!(name: "이오피", email: "l_nine@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
+
+User.create!(name: "양정치", email: "y_two@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
+User.create!(name: "양행정", email: "y_three@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "양국제", email: "y_four@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
+User.create!(name: "양금융", email: "y_five@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
+User.create!(name: "양산업", email: "y_six@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
+User.create!(name: "양정책", email: "y_seven@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정책', role: 0)
+User.create!(name: "양기획", email: "y_eight@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '기획', role: 0)
+User.create!(name: "양오피", email: "y_nine@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
+
+User.create!(name: "한정치", email: "h_two@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
+User.create!(name: "한행정", email: "h_three@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "한국제", email: "h_four@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
+User.create!(name: "한금융", email: "h_five@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
+User.create!(name: "한산업", email: "h_six@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
+User.create!(name: "한정책", email: "h_seven@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정책', role: 0)
+User.create!(name: "한기획", email: "h_eight@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '기획', role: 0)
+User.create!(name: "한오피", email: "h_nine@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
+
+User.create!(name: "안정치", email: "a_two@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
+User.create!(name: "안행정", email: "a_three@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "안국제", email: "a_four@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
+User.create!(name: "안금융", email: "a_five@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
+User.create!(name: "안산업", email: "a_six@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
+User.create!(name: "안정책", email: "a_seven@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정책', role: 0)
+User.create!(name: "안기획", email: "a_eight@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '기획', role: 0)
+User.create!(name: "안오피", email: "a_nine@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
+
+# title = "기사 제목은 여기에..."
+# body  = "여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다."
+# ReporterGroup.all.each do |group|
+#   users = User.where(group: group.section).all
+#   10.times do |i|
+#     user = users[i]
+#     Story.where(date: issue.date, user: user, group: user.group, title: title, body: body).first_or_create if user
+#   end
+# end
+
+
+base = "여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다. 여기는 본문입니다.\n\n"
+User.all.each do |user|
+  2.times do |i|
+    next unless user.role == 'reporter'
+    date = Date.today
+    title     = "여기는 #{user.name}의 제목 입니다."
+    subtitle  = "여기는 #{user.name}의 부제목 입니다."
+    status = true if i == 2
+    random_num = (15..30).to_a.sample
+    body = base*random_num
+    Story.where(date: date, user: user, group: user.group, title: title, subtitle: subtitle, body: body, summitted: status).first_or_create if user.group
   end
 end

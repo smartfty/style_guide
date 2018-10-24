@@ -5,17 +5,23 @@
 #  id                 :bigint(8)        not null, primary key
 #  user_id            :bigint(8)
 #  working_article_id :bigint(8)
+#  date               :date
 #  reporter           :string
 #  group              :string
-#  date               :date
 #  title              :string
 #  subtitle           :string
-#  body               :string
 #  quote              :string
-#  status             :string
+#  body               :string
 #  char_count         :integer
+#  status             :string
+#  for_front_page     :boolean
+#  summitted          :boolean
+#  selected           :boolean
 #  published          :boolean
+#  summitted_at       :time
 #  path               :string
+#  order              :integer
+#  image_name         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

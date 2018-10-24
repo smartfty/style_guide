@@ -136,7 +136,7 @@ class Article < ApplicationRecord
     save_layout
   end
 
-  # aooorcimation of character_count
+  # approximation of character_count
   def char_count
     column*row*7*15
   end

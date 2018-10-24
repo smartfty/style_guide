@@ -1,69 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if @story.selected%>
+    <%= render 'selected', story: @story, working_article: @story.working_article %>
+<% else %>
+    <%= render 'form', story: @story %>
+<% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @story.user %>
-</p>
-
-<p>
-  <strong>Working article:</strong>
-  <%= @story.working_article %>
-</p>
-
-<p>
-  <strong>Reporter:</strong>
-  <%= @story.reporter %>
-</p>
-
-<p>
-  <strong>Group:</strong>
-  <%= @story.group %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @story.date %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @story.title %>
-</p>
-
-<p>
-  <strong>Subtitle:</strong>
-  <%= @story.subtitle %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @story.body %>
-</p>
-
-<p>
-  <strong>Quote:</strong>
-  <%= @story.quote %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @story.status %>
-</p>
-
-<p>
-  <strong>Char count:</strong>
-  <%= @story.char_count %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @story.published %>
-</p>
-
-<p>
-  <strong>Path:</strong>
-  <%= @story.path %>
-</p>
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<div align="center">
+    <%= link_to '이전으로', my_stories_path , method: :get, class: "btn btn-md btn-success"%>   
+</div>

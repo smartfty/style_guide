@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_to_cms, :send_xml_to_ebiz, :merge_container_xml]
+  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_xml_to_ebiz, :merge_container_xml]
 
   # GET /issues
   # GET /issues.json
@@ -240,7 +240,7 @@ class IssuesController < ApplicationController
     @working_articles = []
     @issue.pages.each do |page|
       @working_articles += page.working_articles.sort_by{|x| x.order}
-    end#code
+    end #code
   end
 
   def first_group_stories
@@ -305,11 +305,6 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[8]
     @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_story_group] = 'nineth_group'
-  end
-
-  def send_to_cms
-    @issue.request_cms_new_issue
-    redirect_to assign_reporter_issue_path(@issue)
   end
 
   def save_story_xml

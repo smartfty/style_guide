@@ -1,0 +1,49 @@
+<p id="notice"></p>
+
+<div class="row">
+
+  <div class ="col-xs-9 col-sm-2">
+  </div>
+
+  <div class ="col-xs-12 col-sm-5" style="padding-bottom: 40px;" width="100%">
+    <% if working_article.kind == '사설' || working_article.kind == 'editorial' %>
+      <%= render 'editorial', article: working_article, page_number:  working_article.page_number%>
+    <% elsif working_article.kind == '기고' || working_article.kind == 'opinion' %>
+      <%= render 'opinion', article: working_article %>
+    <% else %>
+      <%= render 'selected_form', article: working_article %>
+    <% end %>
+    <% if working_article.kind == '기사' %>
+      <div class="row" align='center'>
+      <% working_article.images.each do |image| %>
+        <div class="col-md-4">
+          <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb), :height => "50%", :width=> "100%"%></a></p>
+          <p><%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      <% end %>
+      <%  link_to "이미지 추가", add_image_article_path(working_article), method: :get, class: "btn btn-sm btn-danger" %>
+      <br> 
+      <hr>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-4">
+    <img src="<%= working_article.jpg_image_path %>" ></img>
+    <% if working_article.article_info && working_article.article_info[:overflow_text] && working_article.article_info[:overflow_text] !=""%>
+      <div align="center" ><p>본문 글자수:<%= working_article.character_count %> | 박스 추가 행: <%= working_article.extended_line_count %> | 발문 추가: <%= working_article.quote_box_size %> | 넘친줄 수: <%=  working_article.article_info[:overflow_line_count] %></p></div>
+      <div align="center" style="color:red;"><%=  working_article.article_info[:overflow_text].html_safe%></div>
+    <% elsif working_article.article_info && working_article.article_info[:empty_lines] %>
+      <p align="center" >본문 글자수:<%= working_article.character_count %> | 박스 추가 행: <%= working_article.extended_line_count %>  | 발문 추가: <%= working_article.quote_box_size %> | 빈줄 수: <%= working_article.article_info[:empty_lines] %></p>
+    <% else %>
+      <p align="center" >본문 글자수:<%= working_article.character_count %> | 박스 추가 행: <%= working_article.extended_line_count %> | 발문 추가: <%= working_article.quote_box_size %> </p>
+    <% end %>
+    <br>
+    <br>
+  </div>
+  
+  <div class="col-xs-12 col-sm-2">
+  </div>
+
+</div>
+

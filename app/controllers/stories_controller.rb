@@ -1,5 +1,9 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy, :assign_position]
+  before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token  
+  # before_action :require_user # require_user will set the current_user in controllers
+  # before_action :set_current_user
 
   # GET /stories
   # GET /stories.json
@@ -28,7 +32,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
-
+    @story.user= current_user
     respond_to do |format|
       if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
@@ -45,6 +49,9 @@ class StoriesController < ApplicationController
   def update
     respond_to do |format|
       if @story.update(story_params)
+        if @story.selected
+          @story.working_article.update_story_content(@story)
+        end
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { render :show, status: :ok, location: @story }
       else
@@ -64,6 +71,43 @@ class StoriesController < ApplicationController
     end
   end
 
+  def my
+    @stories = current_user.stories
+  end
+
+  def assign_position
+    wa = WorkingArticle.friendly.find(params[:box])
+    if wa
+      @story.working_article_id = wa.id
+      @story.order = wa.order
+      @story.selected = true
+      @story.save
+      wa.update_story_content(@story)
+    end
+    case session[:current_story_group]
+      when 'first_group'
+        redirect_to first_group_stories_issue_path(Issue.last)
+      when 'second_group'
+        redirect_to second_group_stories_issue_path(Issue.last)
+      when 'third_group'
+        redirect_to third_group_stories_issue_path(Issue.last)
+      when 'fourth_group'
+        redirect_to fourth_group_stories_issue_path(Issue.last)
+      when 'fifth_group'
+        redirect_to fifth_group_stories_issue_path(Issue.last)
+      when 'sixth_group'
+        redirect_to sixth_group_stories_issue_path(Issue.last)
+      when 'seventh_group'
+        redirect_to seventh_group_stories_issue_path(Issue.last)
+      when 'seventh_group'
+        redirect_to seventh_group_stories_issue_path(Issue.last)
+      when 'eighth_group'
+        redirect_to eigth_group_stories_issue_path(Issue.last)
+      when 'nineth_group'
+        redirect_to nineth_group_stories_issue_path(Issue.last)
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_story
@@ -74,4 +118,5 @@ class StoriesController < ApplicationController
     def story_params
       params.require(:story).permit(:user_id, :working_article_id, :reporter, :group, :date, :title, :subtitle, :body, :quote, :status, :char_count, :published, :path)
     end
+
 end

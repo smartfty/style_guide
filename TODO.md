@@ -38,6 +38,16 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018-10-23
+  - add for_first_page:boolean to story
+  - add sidekiq worker
+  - fix assign_story_to_working_article
+
+2018-10-22
+  - fix slug for working_article
+  - add sidekiq worker
+  - fix assign_story_to_working_article
+
 2018-10-11
   - 18면 전면광고 시 면머리 교쳬
   

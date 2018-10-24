@@ -37,6 +37,8 @@ class Issue < ApplicationRecord
   after_create :setup
   validates_presence_of :date
   validates_uniqueness_of :date
+  
+  include IssueStoryMakeable
 
   def publication_path
     publication.path
@@ -71,7 +73,6 @@ class Issue < ApplicationRecord
   end
 
   def setup
-    __method__
     system "mkdir -p #{path}" unless File.directory?(path)
     system "mkdir -p #{issue_images_path}" unless File.directory?(issue_images_path)
     system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)

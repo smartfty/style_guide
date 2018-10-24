@@ -67,19 +67,14 @@ gem 'bootstrap-sass'
 # gem 'jquery-ace-rails'
 
 gem 'kaminari'
-# gem 'victor'
 gem 'devise'
-# gem 'smart_listing'
-# gem 'css3-progress-bar-rails'
 gem 'bootstrap_form'
 gem 'simple_form'
 gem 'rubypants-unicode'
 gem 'carrierwave'
 gem "font-awesome-rails"
-# gem 'rmagick'
 gem 'seed_dump'
 gem "browser"
-
 gem 'sinatra', '~> 2.0.1'
 gem 'rest-client'
 gem 'faker'
@@ -90,11 +85,9 @@ gem 'ransack'
 gem 'rubyzip', '>= 1.0.0'
 gem 'zip-zip'
 gem 'mechanize'
-# gem "iconv", "~> 1.0.3"
 gem 'whenever'
 # gem 'pgreset', '~> 0.1.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
-
 gem 'simplecov', require: false, group: :test
 
 group :development, :test do

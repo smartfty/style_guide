@@ -153,7 +153,31 @@ class WorkingArticle < ApplicationRecord
 
   # stroy from same group
   def story_candidates
-    Story.where(group: page.section_name)
+    Story.where(date: issue.date, group: page.section_name)
+  end
+
+  def approximate_char_count
+    article.char_count
+  end
+
+  def change_story(new_story)
+    # update content with new story content    
+    # ArticleWorker.perform_async(path, @time_stamp, '내일신문' )
+  end
+
+  def update_story_content(story)
+    # update content with new story content  
+    self.reporter = story.reporter
+    self.title    = story.title
+    self.body     = story.body
+    self.quote    = story.quote  if story.quote
+    self.save  
+    save_article
+    delete_old_files
+    stamp_time
+    ArticleWorker.perform_async(path, @time_stamp, '내일신문' )
+    sleep 3
+    # generate_pdf_with_time_stamp
   end
 
   def save_article
@@ -184,8 +208,8 @@ class WorkingArticle < ApplicationRecord
     system("rm -rf #{path}")
   end
 
-
   def generate_pdf_with_time_stamp
+    puts __method__
     save_article
     delete_old_files
     stamp_time
@@ -418,7 +442,7 @@ class WorkingArticle < ApplicationRecord
     story_md =<<~EOF
     #{story_metadata.to_yaml}
     ---
-    #{RubyPants.new(body).to_html}
+    #{RubyPants.new(body).to_html if body}
     EOF
   end
 
@@ -533,8 +557,10 @@ class WorkingArticle < ApplicationRecord
   def layout_options
     h = {}
     h[:kind]                          = kind if kind
-    h[:has_profile_image]             = true if reporter
-    h[:has_profile_image]             = false if reporter == ""
+    if kind == '사설' || kind == 'editorial'
+        h[:has_profile_image]             = true if reporter
+        h[:has_profile_image]             = false if reporter == ""
+    end
     h[:page_number]                   = page_number
     h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
     h[:column]                        = column
@@ -556,6 +582,7 @@ class WorkingArticle < ApplicationRecord
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
     h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
     h[:draw_divider]                  = false     #publication.draw_divider
+    puts "+++++++++++ h[:has_profile_image]:#{has_profile_image}"
     h
   end
 
@@ -1243,7 +1270,6 @@ EOF
     useage_data.delete[:id]
     useage_data.delete[:updated_at]
     useage_data.delete[:updated_at]
-
     useage_data[:character_count] = character_count
     path = character_count_data_path
     File.open(path, 'w'){|f| f.write useage_data.to_yaml}

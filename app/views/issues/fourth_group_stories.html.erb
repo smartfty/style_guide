@@ -18,7 +18,7 @@
             <td><%= working_article.reporter %></td>
             <td><%= working_article.title %></td>
             <td style="text-align:center;"><%= working_article.order %></td>
-            <td><%= button_to '설정', edit_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
+            <td><%= button_to '설정', change_story_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
           </tr>
         <% end %>
       </tbody>

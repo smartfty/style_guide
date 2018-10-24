@@ -1,5 +1,5 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview,:change_story, :assign_reporter, :add_image]
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
   layout 'working_article'
   # GET /working_articles
   # GET /working_articles.json
@@ -52,11 +52,7 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
-      # if filter_markdown?
-      puts "++++++++++ params['working_article']['has_profile_image':#{params['working_article']['has_profile_image']}"
-      params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
-      # end
-      puts "+++++++++++++ working_article_params:#{working_article_params}"
+
       if @working_article.update(working_article_params)
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp
@@ -82,15 +78,68 @@ class WorkingArticlesController < ApplicationController
   end
 
   def assign_reporter
-    @working_article.update(working_article_params)
-    redirect_to assign_reporter_issue_path(Issue.last)
+    # @working_article.update(working_article_params)
+
+    respond_to do |format|
+      if @working_article.update(working_article_params)
+
+        # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
+        # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
+        format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
+        format.json { render :show, status: :ok, location: @working_article }
+      else
+        format.html { render :edit }
+        format.json { render json: @working_article.errors, status: :unprocessable_entity }
+      end
+    end
+    # redirect_to assign_reporter_issue_path(Issue.last)
   end
 
   def change_story
     #todo
     # @stories = Story.where(group: , date: date)
+    @stories = Story.where(group: @working_article.page.section_name)
   end
-  
+
+  def update_story
+      story_id = params[:story_id]
+      # update working_article with new story
+      case session[:current_story_group]
+      when 'first_group'
+        redirect_to first_group_stories_issue_path(@working_article.issue)
+      when 'second_group'
+        redirect_to second_group_stories_issue_path(@working_article.issue)
+      when 'third_group'
+        redirect_to third_group_stories_issue_path(@working_article.issue)
+      when 'fourth_group'
+        redirect_to fourth_group_stories_issue_path(@working_article.issue)
+      when 'fifth_group'
+        redirect_to fifth_group_stories_issue_path(@working_article.issue)
+      when 'sixth_group'
+        redirect_to sixth_group_stories_issue_path(@working_article.issue)
+      when 'seventh_group'
+        redirect_to seventh_group_stories_issue_path(@working_article.issue)
+      when 'seventh_group'
+        redirect_to seventh_group_stories_issue_path(@working_article.issue)
+      when 'eighth_group'
+        redirect_to eigth_group_stories_issue_path(@working_article.issue)
+      when 'nineth_group'
+        redirect_to nineth_group_stories_issue_path(@working_article.issue)
+      end
+
+        # if @working_article.update(working_article_params)
+
+      #   # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
+      #   # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
+      #   format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
+      #   format.json { render :show, status: :ok, location: @working_article }
+      # else
+      #   format.html { render :edit }
+      #   format.json { render json: @working_article.errors, status: :unprocessable_entity }
+      # end
+    
+  end
+
   # download story.pdf
   def download_pdf
     send_file @working_article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"

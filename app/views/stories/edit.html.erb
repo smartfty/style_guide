@@ -1,6 +1,13 @@
-<h1>Editing Story</h1>
+<% if @story.selected%>
+    <h3 class="">이기사는 면에 배정 되었습니다.</h3>
+    <%= render 'selected', story: @story, working_article: @story.working_article %>
 
-<%= render 'form', story: @story %>
+<% else %>
+    <h3 class="">story is not selected</h3>
+    <%= render 'form', story: @story %>
+
+<% end %>
+
 
 <%= link_to 'Show', @story %> |
 <%= link_to 'Back', stories_path %>

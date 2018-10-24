@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-
-
-  resources :stories
+  resources :stories do
+    member do
+      get 'assign_position'
+    end
+    collection do 
+      get 'my'
+    end
+  end
   resources :spreads
 #api
   namespace :api do
@@ -102,6 +107,8 @@ Rails.application.routes.draw do
       get 'image_5x5'
       get 'image_auto'
       get 'change_story'
+      patch 'update_story'
+
     end
   end
 
@@ -117,7 +124,6 @@ Rails.application.routes.draw do
       get 'clone_pages'
       get 'slide_show'
       get 'assign_reporter'
-      get 'send_to_cms'
 
       get 'first_group'
       get 'second_group'
@@ -148,7 +154,6 @@ Rails.application.routes.draw do
       get 'save_mobile_preview_xml'
       get 'send_xml_to_ebiz'
       get 'merge_container_xml'
-
 
     end
   end

@@ -5,20 +5,25 @@
     <table border="1" width="50%">
       <thead>
         <tr>
-          <th>페이지</th>
+          <th style="text-align:center;">페이지</th>
+          <th style="text-align:center;"> 순서</th>
           <th style="text-align:center;">기자</th>
           <th style="text-align:center;">제목</th>
-          <th style="text-align:center;"> 기사번호</th>
           <th colspan="1"></th>
         </tr>
       </thead>
       <tbody>
-        <% page.working_articles.each do |working_article| %>
+        <% page.working_articles.sort_by{|a| a.order}.each do |working_article| %>
+          <% if working_article.story %>
+          <tr style="background-color:LightGreen;">
+          <% else  %>
           <tr style="background-color: #dddddd">
+          <% end  %>
+
             <td style="text-align:center;"><%= working_article.page.page_number %></td>
-            <td><%= working_article.reporter %></td>
-            <td><%= working_article.title %></td>
             <td style="text-align:center;"><%= working_article.order %></td>
+            <td style="text-align:center;"><%= working_article.reporter %></td>
+            <td><%= working_article.title %></td>
             <td><%= button_to '설정', change_story_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
           </tr>
         <% end %>
