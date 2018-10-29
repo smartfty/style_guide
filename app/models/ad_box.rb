@@ -64,11 +64,11 @@ class AdBox < ApplicationRecord
   end
 
   def pdf_image_path
-    url + "/#{latest_pdf_basename}"
+    "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
   end
 
   def jpg_image_path
-    url + "/#{latest_jpg_basename}"
+     "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
   end
 
   def jpg_path
@@ -431,7 +431,8 @@ EOF
   private
 
   def init_atts
-    self.path         = page.path + "/ad"
+    self.path         = page.path + "/ads"
+    self.page_heading_margin_in_lines = page.page_heading_margin_in_lines || 0
     self.page_number  = page.page_number
     self.grid_width   = publication.grid_width(page.column)
     self.grid_height  = publication.grid_height

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_013038) do
+ActiveRecord::Schema.define(version: 2018_10_26_071314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,22 @@ ActiveRecord::Schema.define(version: 2018_10_08_013038) do
     t.integer "publication_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "announcements", force: :cascade do |t|
+    t.string "name"
+    t.string "kind"
+    t.string "title"
+    t.string "subtitle"
+    t.integer "column"
+    t.integer "lines"
+    t.integer "page"
+    t.string "color"
+    t.text "script"
+    t.bigint "publication_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_announcements_on_publication_id"
   end
 
   create_table "article_plans", force: :cascade do |t|
@@ -563,6 +579,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_013038) do
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
   end
 
+  add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
   add_foreign_key "heading_ad_images", "page_headings"
   add_foreign_key "heading_bg_images", "page_headings"

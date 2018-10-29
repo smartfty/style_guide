@@ -146,6 +146,10 @@ class Publication < ApplicationRecord
     h
   end
 
+  def column_width(page_columns)
+    grid_width(page_columns) - gutter
+  end
+
   def grid_height
     (height - top_margin - bottom_margin)/row
   end

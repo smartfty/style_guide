@@ -4,9 +4,11 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = Section.all.order(:page_number, :section_name)
+    @sections = Section.all.order(:page_number, :column, :ad_type).page(params[:page]).per(20)
     respond_to do |format|
       format.html
+      format.json { render :index}
+
       format.csv { send_data @sections.to_csv }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end

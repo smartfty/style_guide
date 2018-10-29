@@ -38,6 +38,20 @@
   - add {: alignment: 'left'}   {: 정렬: '좌측'}
   - API interface
 
+2018-10-26
+  - 5단면 지원
+  - 안내문 제작 모델과 화면
+  - announcements table
+    - name
+    - kind
+    - title
+    - subtitle
+    - column
+    - lines
+    - color
+    - page
+    - script
+
 2018-10-23
   - add for_first_page:boolean to story
   - add sidekiq worker

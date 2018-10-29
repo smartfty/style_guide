@@ -55,9 +55,9 @@ class Page < ApplicationRecord
   after_create :setup
   scope :clone_page, -> {where("clone_name!=?", nil)}
   attr_reader :time_stamp
-
-  extend FriendlyId
-  friendly_id :friendly_string, :use => [:slugged]
+  include PageSplitable
+  # extend FriendlyId
+  # friendly_id :friendly_string, :use => [:slugged]
 
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES
@@ -1215,7 +1215,7 @@ EOF
     self.bottom_margin = section.bottom_margin
     self.gutter       = section.gutter
     self.article_line_thickness = section.article_line_thickness 
-
+    self.layout       = section.layout
     if clone_name == nil
       self.path = "#{Rails.root}/public/#{self.publication_id}/issue/#{self.date.to_s}/#{page_number}"
     else

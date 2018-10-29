@@ -64,7 +64,6 @@ one:
   body: MyText
   reporter: MyString
   email: MyString
-  personal_image: MyString
   image: MyString
   quote: MyText
   subject_head: MyString
@@ -83,7 +82,6 @@ two:
   body: MyText
   reporter: MyString
   email: MyString
-  personal_image: MyString
   image: MyString
   quote: MyText
   subject_head: MyString

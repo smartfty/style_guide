@@ -7,7 +7,7 @@
     <tr>
       <th style="text-align:center;">페이지</th>
       <th style="text-align:center;">면명</th>
-      <th style="text-align:center;">프로필</th>
+      <th style="text-align:center;">단</th>
       <th style="text-align:center;">광고 종류</th>
       <th style="text-align:center;">기사 수</th>
       <th colspan="3"></th>
@@ -19,7 +19,7 @@
       <tr>
         <td style="text-align:center;"> <%= section.page_number %></td>
         <td style="text-align:center;"> <%= section.section_name %></td>
-        <td style="text-align:center;"> <%= section.profile %></td>
+        <td style="text-align:center;"> <%= section.column %></td>
         <td style="text-align:center;"><%= section.ad_type %></td>
         <td style="text-align:center;"><%= section.story_count %></td>
         <td><%= button_to "보기", section, method: :get, class: "btn btn-sm btn-success" %></td>

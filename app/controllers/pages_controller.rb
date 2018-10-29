@@ -127,7 +127,7 @@ class PagesController < ApplicationController
 
 
   def assign_stories
-    @page = Page.includes(:working_articles).friendly.find(params[:id])
+    @page = Page.includes(:working_articles).find(params[:id])
     @stories = Story.where(date: @page.date, group: @page.section_name)
     render :assign_stories
   end
@@ -136,7 +136,7 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       # @page = Page.find(params[:id])
-      @page = Page.includes(:issue, :working_articles).friendly.find(params[:id])
+      @page = Page.includes(:issue, :working_articles).find(params[:id])
 
     end
 

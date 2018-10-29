@@ -45,7 +45,6 @@ class Article < ApplicationRecord
   after_create :setup
   has_many :images
 
-  include ArticleSplitable
 
   # def path
   #   section.path + "/#{order}"

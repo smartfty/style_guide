@@ -66,15 +66,6 @@
   </li>
 
   <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">지면편집<span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
-      <li><%= link_to '7 단', seven_sections_path %></li>
-      <li class="divider"></li>
-      <li><%= link_to '6 단', six_sections_path %></li>
-    </ul>
-  </li>
-
-  <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">광고<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
       <li><%= link_to '오늘 광고', ad_boxes_issue_path(Issue.last.id) %></li>
@@ -89,6 +80,9 @@
     <ul class="dropdown-menu" role="menu">
       <li><%= link_to '매체 정보', publication_path(1) %></li>
       <li><%= link_to '서체 목록', text_styles_path %></li>
+      <li><%= link_to '페이지 템플렛', sections_path %></li>
+      <li><%= link_to '안내문 템플렛', announcements_path %></li>
+
       <li class="divider"></li>
       <li><%= link_to '테두리 스타일 목록', stroke_styles_path %></li>
     </ul>
@@ -103,6 +97,7 @@
       <li><%= link_to '기자', reporters_path %></li>
     </ul>
   </li>
+
 
   <!-- <li><%= link_to '면머리', page_headings_path %></li> -->
 <% end %>

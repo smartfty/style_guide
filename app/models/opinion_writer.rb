@@ -62,7 +62,9 @@ class OpinionWriter < ApplicationRecord
   end
 
   def layout_erb
+
 layout=<<EOF
+
 RLayout::Container.new(width:158.737,  height: 165.182) do
   line(x: 0 , y:1, width: 158.737, stroke_width: 2, height:0, storke_color:"CMYK=0,0,0,100")
   text('<%= title %>', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170, text_color:"CMYK=0,0,0,100")
@@ -112,6 +114,7 @@ RLayout::Container.new(width:158.737,  height: 165.182) do
   end
 end
 EOF
+
   end
 
   def save_layout
@@ -123,7 +126,7 @@ EOF
 
   def generate_pdf
     save_layout
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/
+    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob"
      #{name}.rb -jpg"
   end
 

@@ -60,14 +60,24 @@ class WorkingArticle < ApplicationRecord
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
-  include ArticleSplitable
-  extend FriendlyId
-  friendly_id :make_frinedly_slug, :use => [:slugged]
+  include WorkingArticleSplitable
+  include PageSplitable
+
+  # extend FriendlyId
+  # friendly_id :make_frinedly_slug, :use => [:slugged]
 
   attr_reader :time_stamp
 
-  def page_friendly_string
-    page.friendly_string
+  # def page_friendly_string
+  #   page.friendly_string
+  # end
+
+  # when working_article is split, we need to bumped up folder names
+  def bump_up_path
+    base_name = File.basename(path)
+    new_base = (base_name.to_i + 1).to_s
+    new_path = File.dirname(path) + "/#{new_base}"
+    system("mv #{path} #{new_path}")
   end
 
   def make_frinedly_slug

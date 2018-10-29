@@ -76,7 +76,7 @@ class StoriesController < ApplicationController
   end
 
   def assign_position
-    wa = WorkingArticle.friendly.find(params[:box])
+    wa = WorkingArticle.find(params[:box])
     if wa
       @story.working_article_id = wa.id
       @story.order = wa.order
