@@ -432,7 +432,6 @@ EOF
 
   def init_atts
     self.path         = page.path + "/ads"
-    self.page_heading_margin_in_lines = page.page_heading_margin_in_lines || 0
     self.page_number  = page.page_number
     self.grid_width   = publication.grid_width(page.column)
     self.grid_height  = publication.grid_height

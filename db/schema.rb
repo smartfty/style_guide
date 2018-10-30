@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_26_071314) do
+ActiveRecord::Schema.define(version: 2018_10_29_230227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -574,6 +574,9 @@ ActiveRecord::Schema.define(version: 2018_10_26_071314) do
     t.float "grid_height"
     t.float "gutter"
     t.boolean "has_profile_image"
+    t.string "announcement_text"
+    t.integer "announcement_column"
+    t.string "announcement_color"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

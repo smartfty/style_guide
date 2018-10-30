@@ -120,7 +120,7 @@ caption:
   font: KoPubDotumPL
   font_size: 7.5
   text_color: CMYK=0,0,0,100
-  alignment: left
+  alignment: justified
   tracking: -0.5
   space_width: 1.0
   scale: 100.0
@@ -163,13 +163,32 @@ reporter:
   space_width: 2.0
   scale: 100.0
   text_line_spacing:
-  space_before_in_lines:
+  space_before_in_lines: 0
   space_after_in_lines:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
   publication_id: 1
+linked_story:
+  korean_name: 연결기사
+  category:
+  font_family: KoPub돋움체_Pro Light
+  font: KoPubDotumPL
+  font_size: 7.0
+  text_color: CMYK=0,0,0,100
+  alignment: right
+  tracking: 0.0
+  space_width: 2.0
+  scale: 100.0
+  text_line_spacing:
+  space_before_in_lines: 0
+  space_after_in_lines:
+  text_height_in_lines:
+  box_attributes: ''
+  markup: ''
+  graphic_attributes: ''
+  publication_id: 1s
 reporter_editorial:
   korean_name: 논설기자
   category:
@@ -182,7 +201,7 @@ reporter_editorial:
   space_width: 2.0
   scale: 100.0
   text_line_spacing:
-  space_before_in_lines:
+  space_before_in_lines: 1
   space_after_in_lines:
   text_height_in_lines:
   box_attributes: ''

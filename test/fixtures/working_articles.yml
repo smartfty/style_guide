@@ -44,6 +44,9 @@
 #  grid_height                  :float
 #  gutter                       :float
 #  has_profile_image            :boolean
+#  announcement_text            :string
+#  announcement_column          :integer
+#  announcement_color           :string
 #
 # Indexes
 #

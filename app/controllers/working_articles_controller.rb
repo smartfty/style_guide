@@ -297,6 +297,24 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '4 행용 발문 박스(12줄 추가) 설정 되었습니다.'
   end
 
+  def announcement_zero
+    set_working_article
+    @working_article.announcement_zero
+    redirect_to working_article_path(@working_article), notice: '1단(내일 쉽니다.) 안내문이 생성 되었습니다.'
+  end
+
+  def announcement_one
+    set_working_article
+    @working_article.announcement_one
+    redirect_to working_article_path(@working_article), notice: '1단(내일 쉽니다.) 안내문이 생성 되었습니다.'
+  end
+
+  def announcement_two
+    set_working_article
+    @working_article.announcement_two
+    redirect_to working_article_path(@working_article), notice: '2단(다음면으로...) 안내문이 생성 되었습니다.'
+  end
+
   def split_article(options)
     @working_article.split(options)
   end
@@ -318,7 +336,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :announcement_text, :announcement_color)
     end
 
     def filter_markdown?

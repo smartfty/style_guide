@@ -26,7 +26,7 @@
     </div>
 
   <% else %>
-    <div class="view">
+    <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <%= f.label :제목 %>
@@ -52,6 +52,24 @@
         </div>
       </div>
     </div>
+
+    <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
+      <div class="form-group">
+        <%= f.label '발문'%>
+        <%= f.text_area :quote, rows: "3", class: 'form-control' %>
+      </div>
+    <% end %>
+
+    <% if  article.announcement_column && article.announcement_column.to_i > 0%>
+      <div class="form-group">
+        <%= f.label '안내문'%>
+        <%= f.text_area :announcement_text, rows: "2", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label '안내문 컬러'%>
+        <%= f.select :announcement_color, ['삘깅', '파랑'] %>
+      </div>
+    <% end %>
 
     <div class="form-group">
       <%= f.label :본문 %>

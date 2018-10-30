@@ -44,6 +44,9 @@
 #  grid_height                  :float
 #  gutter                       :float
 #  has_profile_image            :boolean
+#  announcement_text            :string
+#  announcement_column          :integer
+#  announcement_color           :string
 #
 # Indexes
 #
@@ -405,6 +408,21 @@ class WorkingArticle < ApplicationRecord
     self.save
   end
 
+  def announcement_zero
+    self.announcement_column = 0
+    self.save
+  end
+
+  def announcement_one
+    self.announcement_column = 1
+    self.save
+  end
+
+  def announcement_two
+    self.announcement_column = 2
+    self.save
+  end
+
   def update_page_pdf
     page_path = page.path
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
@@ -436,6 +454,7 @@ class WorkingArticle < ApplicationRecord
     h['title']      = RubyPants.new(title).to_html
     h['subtitle']   = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
     h['quote']      = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
+    h['announcement']= RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0
     h['reporter']   = reporter
     h['email']      = email
     h
@@ -589,11 +608,14 @@ class WorkingArticle < ApplicationRecord
     h[:extended_line_count]           = extended_line_count if extended_line_count
     h[:pushed_line_count]             = pushed_line_count if pushed_line_count
     h[:quote_box_size]                = quote_box_size if show_quote_box?
+    if announcement_column && announcement_column > 0
+      h[:announcement_column]         = announcement_column 
+      h[:announcement_color]          = announcement_color
+    end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
     h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
     h[:draw_divider]                  = false     #publication.draw_divider
-    puts "+++++++++++ h[:has_profile_image]:#{has_profile_image}"
     h
   end
 
