@@ -75,6 +75,43 @@ quote:
   markup: ''
   graphic_attributes: ''
   publication_id: 1
+announcement_1:
+  korean_name: 안내문1단
+  category:
+  font: KoPubDotumPM
+  font_size: 12.0
+  text_color: CMYK=0,0,0,0
+  alignment: center
+  tracking: -0.5
+  space_width: 6.0
+  scale: 100.0
+  text_line_spacing:
+  space_before_in_lines: 2
+  space_after_in_lines: 0
+  text_height_in_lines: 1
+  box_attributes: ''
+  markup: ''
+  graphic_attributes: ''
+  publication_id: 1
+announcement_2:
+  korean_name: 안내문2단
+  category:
+  font: KoPubDotumPM
+  font_size: 14.0
+  font_size_small: 9.6
+  text_color: CMYK=0,0,0,0
+  alignment: center
+  tracking: -0.5
+  space_width: 6.0
+  scale: 100.0
+  text_line_spacing:
+  space_before_in_lines: 2
+  space_after_in_lines: 0
+  text_height_in_lines: 1
+  box_attributes: ''
+  markup: ''
+  graphic_attributes: ''
+  publication_id: 1
 related_story:
   korean_name: 관련기사
   category:
