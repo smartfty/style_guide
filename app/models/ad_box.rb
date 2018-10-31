@@ -158,15 +158,15 @@ class AdBox < ApplicationRecord
         right_inset = gutter
       end
     end
-    # page_heading_margin_in_lines = 0
-    # if top_position?
-    #   if is_front_page?
-    #     # front_page_heading_height - lines_per_grid
-    #     page_heading_margin_in_lines = publication.front_page_heading_margin
-    #   else
-    #     page_heading_margin_in_lines = publication.inner_page_heading_height
-    #   end
-    # end
+    page_heading_margin_in_lines = 0
+    if top_position?
+      if is_front_page?
+        # front_page_heading_height - lines_per_grid
+        page_heading_margin_in_lines = publication.front_page_heading_margin
+      else
+        page_heading_margin_in_lines = publication.inner_page_heading_height
+      end
+    end
 
     image_path                                     = ad_image.path if ad_image
     ad_image_hash = {}
@@ -431,7 +431,7 @@ EOF
   private
 
   def init_atts
-    self.path         = page.path + "/ads"
+    self.path         = page.path + "/ad"
     self.page_number  = page.page_number
     self.grid_width   = publication.grid_width(page.column)
     self.grid_height  = publication.grid_height

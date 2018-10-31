@@ -39,15 +39,18 @@
   - API interface
 
 2018-10-30
-  - upload more than one image
-  - fix working_article order
   - enhence announcement
-  - front_page ad upload
+  - fix working_article order
+  - front_page ad upload 돌출광고
   - fix right side text cut off
-  
+  - upload more than one image
+
 2018-10-26
   - 5단면 지원
-  - 안내문 제작 모델과 화면
+  - 안내문 모델
+    - announcement_text
+    - announcement_column
+    - announcement_color
   - announcements table
     - name
     - kind
@@ -59,7 +62,6 @@
     - page
     - script
 
-  
 2018-10-23
   - add for_first_page:boolean to story
   - add sidekiq worker

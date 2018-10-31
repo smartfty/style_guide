@@ -98,7 +98,6 @@ announcement_2:
   category:
   font: KoPubDotumPM
   font_size: 14.0
-  font_size_small: 9.6
   text_color: CMYK=0,0,0,0
   alignment: center
   tracking: -0.5
