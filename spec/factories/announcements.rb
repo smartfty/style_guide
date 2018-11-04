@@ -7,6 +7,7 @@
 #  kind           :string
 #  title          :string
 #  subtitle       :string
+#  page_column    :integer
 #  column         :integer
 #  lines          :integer
 #  page           :integer

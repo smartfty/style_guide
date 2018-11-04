@@ -4,7 +4,8 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = Section.all.order(:page_number, :column, :ad_type).page(params[:page]).per(20)
+    @q = Section.ransack(params[:q])
+    @sections = @q.result.order(:ad_type, :page_number, :column).page(params[:page]).per(20)
     respond_to do |format|
       format.html
       format.json { render :index}

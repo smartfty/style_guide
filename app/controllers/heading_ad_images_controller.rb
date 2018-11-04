@@ -1,5 +1,5 @@
 class HeadingAdImagesController < ApplicationController
-  before_action :set_heading_ad_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_heading_ad_image, only: [:show, :edit, :update, :destroy, :today]
 
   # GET /heading_ad_images
   # GET /heading_ad_images.json
@@ -25,10 +25,11 @@ class HeadingAdImagesController < ApplicationController
   # POST /heading_ad_images.json
   def create
     @heading_ad_image = HeadingAdImage.new(heading_ad_image_params)
-
+    @heading_ad_image.update_page_heading
     respond_to do |format|
       if @heading_ad_image.save
-        format.html { redirect_to @heading_ad_image, notice: 'Heading ad image was successfully created.' }
+        @heading_ad_image.update_page_heading
+        format.html { redirect_to first_group_issue_path(Issue.last), notice: '당일 돌출광고가 적용 되었습니다.' }
         format.json { render :show, status: :created, location: @heading_ad_image }
       else
         format.html { render :new }
@@ -42,8 +43,7 @@ class HeadingAdImagesController < ApplicationController
   def update
     respond_to do |format|
       if @heading_ad_image.update(heading_ad_image_params)
-        @heading_ad_image.update_change
-
+        @heading_ad_image.update_page_heading
         format.html { redirect_to @heading_ad_image, notice: 'Heading ad image was successfully updated.' }
         format.json { render :show, status: :ok, location: @heading_ad_image }
       else
@@ -63,6 +63,11 @@ class HeadingAdImagesController < ApplicationController
     end
   end
 
+  def today
+    @heading_ad_image.place_ad_for_today
+    redirect_to @heading_ad_image, notice: "#{advertiser}의 #{heading_ad_image}가 1면 돌출광고에 설정 되었슴니다"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_heading_ad_image
@@ -71,6 +76,6 @@ class HeadingAdImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def heading_ad_image_params
-      params.require(:heading_ad_image).permit(:ad_image, :x, :y, :width, :height, :x_in_unit, :y_in_unit, :width_in_unit, :height_in_unit, :page_heading_id, :advertiser)
+      params.require(:heading_ad_image).permit(:heading_ad_image, :x, :y, :width, :height, :x_in_unit, :y_in_unit, :width_in_unit, :height_in_unit, :page_heading_id, :advertiser)
     end
 end

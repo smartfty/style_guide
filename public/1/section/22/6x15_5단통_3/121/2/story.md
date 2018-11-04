@@ -1,6 +1,6 @@
 ---
 subject_head: 기고
-title: 제목은 여기에 여기는 제목
+title: 2번 기사 제목은 여기에 여기는 제목
 email: gdhong@gmail.com
 ---
 

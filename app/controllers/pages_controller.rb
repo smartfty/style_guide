@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def show
     @working_articles = @page.working_articles
     @ad_boxes         = @page.ad_boxes
-    @page_templates   = Section.where(page_number: @page.page_number)
+    @page_templates   = Section.where(ad_type:@page.ad_type, page_number: @page.page_number)
     # respond_to do |format|
     #   format.html
     #   # format.pdf {send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_230227) do
+ActiveRecord::Schema.define(version: 2018_11_02_014944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_230227) do
     t.string "kind"
     t.string "title"
     t.string "subtitle"
+    t.integer "page_column"
     t.integer "column"
     t.integer "lines"
     t.integer "page"
@@ -164,6 +165,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_230227) do
     t.string "advertiser"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
     t.index ["page_heading_id"], name: "index_heading_ad_images_on_page_heading_id"
   end
 
@@ -291,6 +293,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_230227) do
     t.float "bottom_margin"
     t.float "gutter"
     t.float "article_line_thickness"
+    t.integer "page_heading_margin_in_lines"
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true

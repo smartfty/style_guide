@@ -175,7 +175,7 @@ class Article < ApplicationRecord
   end
 
   def story_md
-    title     = '제목은 여기에 여기는 제목'
+    title     = "#{order}번 기사 제목은 여기에 여기는 제목"
     subtitle  = '부제는 여기에 여기는 부제목 자리'
     reporter  = '홍길동'
     email     = 'gdhong@gmail.com'
@@ -396,7 +396,8 @@ class Article < ApplicationRecord
     self.grid_width       = publication.grid_width(page_columns)
     self.grid_height      = publication.grid_height
     self.gutter           = publication.gutter
-    self.on_left_edge   = on_left_edge
+    self.on_left_edge     = on_left_edge
+    self.page_heading_margin_in_lines = section.page_heading_margin_in_lines
     if on_left_edge.nil?
       self.on_left_edge = false
       self.on_left_edge = true if grid_x == 0

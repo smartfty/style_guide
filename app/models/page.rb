@@ -2,37 +2,38 @@
 #
 # Table name: pages
 #
-#  id                     :integer          not null, primary key
-#  page_number            :integer
-#  section_name           :string
-#  column                 :integer
-#  row                    :integer
-#  ad_type                :string
-#  story_count            :integer
-#  color_page             :boolean
-#  profile                :string
-#  issue_id               :integer
-#  page_plan_id           :integer
-#  template_id            :integer
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  clone_name             :string
-#  slug                   :string
-#  layout                 :text
-#  publication_id         :integer
-#  path                   :string
-#  date                   :date
-#  grid_width             :float
-#  grid_height            :float
-#  lines_per_grid         :float
-#  width                  :float
-#  height                 :float
-#  left_margin            :float
-#  top_margin             :float
-#  right_margin           :float
-#  bottom_margin          :float
-#  gutter                 :float
-#  article_line_thickness :float
+#  id                           :integer          not null, primary key
+#  page_number                  :integer
+#  section_name                 :string
+#  column                       :integer
+#  row                          :integer
+#  ad_type                      :string
+#  story_count                  :integer
+#  color_page                   :boolean
+#  profile                      :string
+#  issue_id                     :integer
+#  page_plan_id                 :integer
+#  template_id                  :integer
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  clone_name                   :string
+#  slug                         :string
+#  layout                       :text
+#  publication_id               :integer
+#  path                         :string
+#  date                         :date
+#  grid_width                   :float
+#  grid_height                  :float
+#  lines_per_grid               :float
+#  width                        :float
+#  height                       :float
+#  left_margin                  :float
+#  top_margin                   :float
+#  right_margin                 :float
+#  bottom_margin                :float
+#  gutter                       :float
+#  article_line_thickness       :float
+#  page_heading_margin_in_lines :integer
 #
 # Indexes
 #
@@ -285,7 +286,7 @@ class Page < ApplicationRecord
   end
 
   def select_sample_ad
-    Dir.glob("#{sample_ad_folder}/#{page_columns}#{ad_type}/*{.jpg,.pdf}").sample
+    Dir.glob("#{sample_ad_folder}/#{column}#{ad_type}/*{.jpg,.pdf}").sample
   end
 
   def copy_sample_ad
@@ -316,29 +317,46 @@ class Page < ApplicationRecord
         current = {page_id: self.id, order:i+1}
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
+          wa.generate_pdf_with_time_stamp
         else
-          current[:article_id]          = article.id
-          current[:extended_line_count] = article.extended_line_count || 0
-          current[:pushed_line_count]   = article.pushed_line_count || 0
-          w = WorkingArticle.create(current)
+          #create new working_articles
+          att = article.attributes
+          att.delete('id')
+          att.delete('created_at')
+          att.delete('updated_at')
+          att.delete('personal_image')
+          att.delete('section_id')
+          att.delete('personal_image')
+          att['page_id']              = self.id
+          att['article_id']           = article.id
+          # current[:extended_line_count] = article.extended_line_count || 0
+          # current[:pushed_line_count]   = article.pushed_line_count || 0
+          w = WorkingArticle.create(att)
           w.generate_pdf_with_time_stamp
         end
       end
       # mark unused as inactive
       working_articles.each_with_index do |working_article, i|
         # working_article.extended_line_count = 0
+        working_article.grid_width = grid_width
+        working_article.grid_height = grid_height
         if i >= section.articles.length
           working_article.inactive = true
         else
           working_article.inactive = false
         end
+
         working_article.save
       end
     end
+    # working_articles.each do |working_article|
+    #   working_article.generate_pdf_with_time_stamp
+    # end
+
     # create PageHeading for this page
     heading_atts                  = {}
     heading_atts[:page_number]    = section.page_number
-    heading_atts[:section_name]    = section.page_number
+    heading_atts[:section_name]   = section.section_name
     heading_atts[:page_id]        = self.id
     heading_atts[:date]           = date
     result                        = PageHeading.where(heading_atts).first_or_create
@@ -391,7 +409,6 @@ class Page < ApplicationRecord
     File.open(target, 'w'){|f| f.write(config_hash.to_yaml)}
   end
 
-
   def copy_section_pdf
     source = section_template_folder + "/section.pdf"
     target = path + "/section.pdf"
@@ -435,7 +452,7 @@ class Page < ApplicationRecord
     layout_content      = erb.result(binding)
     layout_rb_path      = page_heading_path + "/layout.rb"
     File.open(layout_rb_path, 'w'){|f| f.write layout_content}
-    system "cd #{page_heading_path} && /Applications/rjob.app/Contents/MacOS/rjob ."
+    system "cd #{page_heading_path} && /Applications/newsman.app/Contents/MacOS/newsman rjob ."
   end
 
   def copy_section_template(section)
@@ -445,6 +462,7 @@ class Page < ApplicationRecord
     new_aricle_count  = section.story_count
     if source
       copy_config_file
+      copy_section_pdf
       new_aricle_count.times do |i|
         source = section_template_folder + "/#{i + 1}"
         article_folder = path + "/#{i + 1}"
@@ -503,7 +521,12 @@ class Page < ApplicationRecord
     end
   end
 
+  def page_heading_margin_in_lines
+
+  end
+
   def change_template(new_template_id)
+    puts __method__
     puts "++++++++ new_template_id:#{new_template_id}"
     self.template_id            = new_template_id
     self.save
@@ -515,7 +538,7 @@ class Page < ApplicationRecord
     section_hash.delete(:path)
     section_hash.delete(:order)
     section_hash.delete(:is_front_page)
-    section_hash.delete(:page_heading_margin_in_lines)
+    # section_hash.delete(:page_heading_margin_in_lines)
     # section_hash.delete(:layout)
     # section_hash.delete(:publication_id)
     section_hash.delete(:created_at)
@@ -523,7 +546,7 @@ class Page < ApplicationRecord
     section_hash.delete(:draw_divider)
     update(section_hash)
     # update ad_box
-    # remove current ad_boxz unless new template has same size ad
+    # remove current ad_boxes unless new template has same size ad
     if ad_boxes.count > 0 && (new_section.ad_box_templates.count == 0 || new_section.ad_box_templates.first.ad_type != ad_boxes.first.ad_type)
       ad_boxes.each do |ad_box|
         ad_box.page_id = nil
@@ -1190,7 +1213,6 @@ EOF
     issue.pages.select{|p| p.section_name == section_name}
   end
 
-
   private
 
   def copy_attributes_from_template
@@ -1216,6 +1238,7 @@ EOF
     self.gutter       = section.gutter
     self.article_line_thickness = section.article_line_thickness 
     self.layout       = section.layout
+    self.page_heading_margin_in_lines = section.page_heading_margin_in_lines
     if clone_name == nil
       self.path = "#{Rails.root}/public/#{self.publication_id}/issue/#{self.date.to_s}/#{page_number}"
     else

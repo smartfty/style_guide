@@ -31,19 +31,32 @@
   - body
     - fit_text
 
-2018_7_??
 
-  - add {: alignment: 'right'}  {: 정렬: '우측'}
-  - add {: alignment: 'center'} {: 정렬: '중간'}
-  - add {: alignment: 'left'}   {: 정렬: '좌측'}
-  - API interface
+2018-11-01
+  - fix caption_column last caption line align to left
+  - page view template, show only the templates with current ad_type
+  - front_page ad upload 돌출광고
+
+  - fix bug when changing page template
+  - fix working_article order
+  
+  - 9단21 홀/짝
+  - page_template thumbnail with box with number
+
+  - mark current article with yellow
+  - upload more than one image
+
+2018-10-31
+  - announcement 안내문 
+    - 안내문 붉은색 20, 100, 50, 10
+    -            100, 50, 0, 10
+    - 14, 9.6, < > 
+  - view page template by category
+
+  
 
 2018-10-30
-  - enhence announcement
-  - fix working_article order
-  - front_page ad upload 돌출광고
   - fix right side text cut off
-  - upload more than one image
 
 2018-10-26
   - 5단면 지원
@@ -869,6 +882,7 @@
           - reading text to speech
 
 
+2017_11_30
 
 2017_11_30
   - add news_view

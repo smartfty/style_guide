@@ -7,6 +7,7 @@
 #  kind           :string
 #  title          :string
 #  subtitle       :string
+#  page_column    :integer
 #  column         :integer
 #  lines          :integer
 #  page           :integer
@@ -56,7 +57,7 @@ class Announcement < ApplicationRecord
 
   def generate_pdf
     save_layout
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob #{name}.rb -jpg"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman rjob #{name}.rb -jpg"
   end
   
   def column_width

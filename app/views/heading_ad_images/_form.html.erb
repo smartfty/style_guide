@@ -1,18 +1,11 @@
+
 <%= simple_form_for(@heading_ad_image) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :heading_ad_image %>
-    <%= f.input :x %>
-    <%= f.input :y %>
-    <%= f.input :width %>
-    <%= f.input :height %>
-    <%= f.input :x_in_unit %>
-    <%= f.input :y_in_unit %>
-    <%= f.input :width_in_unit %>
-    <%= f.input :height_in_unit %>
-    <%= f.association :page_heading %>
-    <%= f.input :advertiser %>
+    <%= f.input :advertiser, label: '광고주' %>
+    <%= f.input :heading_ad_image, label: '돌출광고 이미지' %>
+
   </div>
 
   <div class="form-actions">

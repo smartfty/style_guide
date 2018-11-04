@@ -155,14 +155,7 @@ class Issue < ApplicationRecord
     # parse_graphics
   end
 
-  def make_pages
-    puts 'in make_pages'
-    page_plans.each_with_index do |page_plan, _i|
-      Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id, color_page: page_plan.color_page, ad_type: ad_type.ad_type)
-      page_plan.dirty = false
-      page_plan.save
-    end
-  end
+
 
   def make_spread
     puts 'in make_spread'
@@ -186,6 +179,7 @@ class Issue < ApplicationRecord
       end
     end
   end
+
 
   def page_plan_with_ad
     list = []

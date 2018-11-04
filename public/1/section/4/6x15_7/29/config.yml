@@ -7,13 +7,13 @@ profile: 6x15_7
 section_id: 29
 page_columns: 6
 grid_size:
-- 171.49608299999997
-- 96.377964
+- 171.496083
+- 97.322846
 lines_per_grid: 7.0
 width: 1114.015878
 height: 1544.88207
 left_margin: 42.51969
-top_margin: 56.69292
+top_margin: 42.51969
 right_margin: 42.51969
 bottom_margin: 42.51969
 gutter: 12.755907
@@ -26,22 +26,22 @@ story_frames:
   - 0
   - 2
   - 6
+- - 4
+  - 5
+  - 2
+  - 4
 - - 0
   - 6
   - 4
   - 5
 - - 4
-  - 5
+  - 9
   - 2
-  - 4
+  - 3
 - - 0
   - 11
   - 4
   - 4
-- - 4
-  - 9
-  - 2
-  - 3
 - - 4
   - 12
   - 2

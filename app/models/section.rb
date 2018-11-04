@@ -42,6 +42,7 @@ class Section < ApplicationRecord
 
   after_create :setup
   before_create :parse_profile
+  # before_save :re_order_layout
 
   include PageSplitable
 
@@ -98,7 +99,6 @@ class Section < ApplicationRecord
     system "mkdir -p #{path}" unless File.directory?(path)
     save_section_config_yml
     # update_section_layout
-    # create_articles
   end
 
   def section_config_hash
@@ -411,6 +411,8 @@ class Section < ApplicationRecord
       article_atts[:on_left_edge]   = true if box[0] == 0
       article_atts[:on_right_edge]  = false
       article_atts[:on_right_edge]  = true if box[0] + box[2] == column
+      article_atts[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
+      
       if box.last =~/^extend/
         article_atts[:extended_line_count] = box.last.split("_")[1].to_i
       elsif box.last =~/^push/
@@ -462,8 +464,19 @@ class Section < ApplicationRecord
     self
   end
 
+  def description
+    "#{column}단 기사:#{story_count}개"
+  end
+
+  def re_order_layout
+    layout_array = eval_layout
+    self.layout = layout_array.sort_by {|rect| [rect[1], rect[0]]}.to_s
+  end
+
   private
   def parse_profile
+    layout_array = eval_layout
+    self.layout = layout_array.sort_by {|rect| [rect[1], rect[0]]}.to_s
     self.story_count            = parse_story_count
     self.profile                = make_profile
     self.grid_width             = publication.grid_width(column)

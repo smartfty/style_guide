@@ -507,7 +507,7 @@ subject_head_M:
   markup: ''
   graphic_attributes: ''
   publication_id: 1
-subject_head_S:
+subject_head_editorial:
   korean_name: 문패_12
   category:
   font_family: KoPub돋움체_Pro Bold

@@ -37,7 +37,11 @@ Rails.application.routes.draw do
   end
   resources :graphic_requests
   resources :section_headings
-  resources :heading_ad_images
+  resources :heading_ad_images do
+    member do
+      get 'today'
+    end
+  end
   resources :ad_box_templates
   resources :page_plans do
     member do

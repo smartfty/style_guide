@@ -133,7 +133,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   def latest_pdf_basename
-    # binding.pry
     f = Dir.glob("#{path}/story*.pdf").sort.last
     File.basename(f) if f
   end
@@ -188,9 +187,7 @@ class WorkingArticle < ApplicationRecord
     save_article
     delete_old_files
     stamp_time
-    ArticleWorker.perform_async(path, @time_stamp, '내일신문' )
-    sleep 3
-    # generate_pdf_with_time_stamp
+    generate_pdf_with_time_stamp
   end
 
   def save_article
@@ -223,6 +220,7 @@ class WorkingArticle < ApplicationRecord
 
   def generate_pdf_with_time_stamp
     puts __method__
+    puts "+++++++ order:#{order}"
     save_article
     delete_old_files
     stamp_time
@@ -232,7 +230,6 @@ class WorkingArticle < ApplicationRecord
 
   def generate_pdf
     # @time_stamp =  true
-    # binding.pry
     save_article
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
     # copy_outputs_to_site
@@ -583,34 +580,50 @@ class WorkingArticle < ApplicationRecord
     grid_y*grid_height
   end
 
+  def top_story?
+    page.page_number == 1 && order == 1
+  end
+
+  def is_top_position?
+    return true if grid_y == 0
+    return true if grid_y == 1 && page.page_number == 1
+    false
+  end
+
+  # def get_page_heading_margin_in_lines
+  #   return 0 unless is_top_position?
+  #   page.page_heading_margin_in_lines
+  #   n
+  # end
+
   def layout_options
     h = {}
-    h[:kind]                          = kind if kind
+    h[:kind]                          = self.kind if kind
     if kind == '사설' || kind == 'editorial'
         h[:has_profile_image]             = true if reporter
         h[:has_profile_image]             = false if reporter == ""
     end
-    h[:page_number]                   = page_number
+    h[:page_number]                   = self.page_number
     h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
-    h[:column]                        = column
-    h[:row]                           = row
-    h[:grid_width]                    = grid_width
-    h[:grid_height]                   = grid_height
-    h[:gutter]                        = gutter
-    h[:on_left_edge]                  = on_left_edge
-    h[:on_right_edge]                 = on_right_edge
-    h[:is_front_page]                 = is_front_page
-    h[:top_story]                     = top_story
+    h[:column]                        = self.column
+    h[:row]                           = self.row
+    h[:grid_width]                    = self.grid_width
+    h[:grid_height]                   = self.grid_height
+    h[:gutter]                        = self.gutter
+    h[:on_left_edge]                  = self.on_left_edge
+    h[:on_right_edge]                 = self.on_right_edge
+    h[:is_front_page]                 = self.is_front_page
+    h[:top_story]                     = top_story?
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
-    h[:top_position]                  = top_position
+    h[:top_position]                  = is_top_position?
+    h[:page_heading_margin_in_lines]  = publication.page_heading_margin_in_lines(page.page_number)
     h[:bottom_article]                = page.bottom_article?(self)
-    h[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
-    h[:extended_line_count]           = extended_line_count if extended_line_count
-    h[:pushed_line_count]             = pushed_line_count if pushed_line_count
-    h[:quote_box_size]                = quote_box_size if show_quote_box?
+    h[:extended_line_count]           = self.extended_line_count if extended_line_count
+    h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
+    h[:quote_box_size]                = self.selfquote_box_size if show_quote_box?
     if announcement_column && announcement_column > 0
-      h[:announcement_column]         = announcement_column 
-      h[:announcement_color]          = announcement_color
+      h[:announcement_column]         = self.announcement_column 
+      h[:announcement_color]          = self.announcement_color
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
@@ -666,7 +679,8 @@ class WorkingArticle < ApplicationRecord
   end
 
   def save_layout
-    File.open(layout_path, 'w'){|f| f.write layout_rb}
+    layout = layout_rb
+    File.open(layout_path, 'w'){|f| f.write layout}
   end
 
   def library_images
@@ -676,6 +690,7 @@ class WorkingArticle < ApplicationRecord
   def box_svg
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
@@ -759,9 +774,9 @@ class WorkingArticle < ApplicationRecord
     self.top_position   = article_info_hash[:top_position]
     self.extended_line_count = article_info_hash[:extended_line_count] || 0
     self.pushed_line_count = article_info_hash[:pushed_line_count] || 0
+    self.page_heading_margin_in_lines = article_info_hash[:page_heading_margin_in_lines]
     self.inactive       = false
     self.save
-    generate_pdf
   end
 
   def growable?
@@ -1062,9 +1077,7 @@ class WorkingArticle < ApplicationRecord
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    # if story_xml_template.include?("\u200B")
-    #   binding.pry
-    # end
+
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
@@ -1134,7 +1147,6 @@ class WorkingArticle < ApplicationRecord
     @section_name_code = section_name_code
     @name_plate       = subject_head
     unless @name_plate
-      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
@@ -1245,10 +1257,8 @@ EOF
   end
 
   def xml_group_key_template
-    # binding.pry
     @name_plate       = subject_head
     unless @name_plate
-      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
@@ -1326,6 +1336,7 @@ EOF
 
 
   def init_atts
+
     unless article
 
     else
@@ -1334,8 +1345,8 @@ EOF
       self.kind           = article_info_hash[:kind]
       self.grid_x         = article_info_hash[:grid_x]
       self.grid_y         = article_info_hash[:grid_y]
-      self.grid_width     = article_info_hash[:grid_width]
-      self.grid_height    = article_info_hash[:grid_heights]
+      self.grid_width     = page.grid_width
+      self.grid_height    = page.grid_height
       self.gutter         = article_info_hash[:gutter]
       self.column         = article_info_hash[:column]
       self.row            = article_info_hash[:row]
@@ -1344,6 +1355,8 @@ EOF
       self.on_right_edge  = article_info_hash[:on_right_edge]
       self.top_story      = article_info_hash[:top_story]
       self.top_position   = article_info_hash[:top_position]
+      self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
+
       self.inactive       = false
       if page_number == 22 && order == 2
         self.subject_head = '기고'
@@ -1352,7 +1365,7 @@ EOF
       end
       # self.page_path      = page.path
     end
-    self.title          = '제목은 여기에 여기는 제목'
+    self.title          = "#{order}번 제목은 여기에 여기는 제목"
     self.subtitle       = '부제는 여기에 여기는 부제목 자리'
     self.reporter       = '홍길동'
     self.email          = 'gdhong@gmail.com'

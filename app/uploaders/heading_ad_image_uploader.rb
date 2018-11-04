@@ -11,12 +11,13 @@ class HeadingAdImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "#{model.publication.id}/issue/#{model.issue.date}/heading_ads"
+    "1/issue/#{Issue.last.date.to_s}/1/heading/images"
   end
 
-  version :thumb do
-    process resize_to_fill: [100,100]
+  def filename
+    "heading_ad.#{file.extension}" if original_filename.present?
   end
+
 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

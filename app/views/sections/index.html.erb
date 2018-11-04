@@ -2,6 +2,20 @@
 <div align="center">
 <h3>페이지 템플렛</h3>
 
+<%= search_form_for @q do |f| %>
+<%= f.label '광고' %>
+<%= f.select :ad_type_eq, Ad.all.uniq { |p| p.name }.collect{|p| p.name}, {include_blank: '전체'} %>
+
+<%= f.label '기사박스 수' %>
+<%= f.select :story_count_eq, (1..12).to_a, {include_blank: '전체'} %>
+
+<%= f.label '페이지' %>
+<%= f.select :page_number_eq, (1..24).to_a, {include_blank: '전체'} %>
+
+<%= f.submit "검색" %>
+<% end %>
+<br>
+
 <table border="1" align="center">
   <thead>
     <tr>
@@ -30,11 +44,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Section', new_section_path %>
-
-</div>
-
 
 <div align="center">
   <%= link_to "새항목 생성", new_section_path, method: :get, class: "btn btn-sm btn-info" , align: "center"%>
