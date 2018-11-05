@@ -31,20 +31,23 @@
   - body
     - fit_text
 
+2018-11-05
+  - add subject_head_S to text_style.yml
+
+  - upload more than one image
+  - 9단21 홀/짝
+  - page_template thumbnail with box with number
+
+  - mark current article with yellow
+
 
 2018-11-01
   - fix caption_column last caption line align to left
   - page view template, show only the templates with current ad_type
   - front_page ad upload 돌출광고
-
   - fix bug when changing page template
   - fix working_article order
   
-  - 9단21 홀/짝
-  - page_template thumbnail with box with number
-
-  - mark current article with yellow
-  - upload more than one image
 
 2018-10-31
   - announcement 안내문 

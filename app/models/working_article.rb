@@ -541,6 +541,8 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  
+
   def image_box_options
     if images.first
       images.first.iamge_layout_hash
@@ -632,6 +634,14 @@ class WorkingArticle < ApplicationRecord
     h
   end
 
+  def image_layout
+    content = ""
+    images.each do |image|
+      content += "  news_image(#{image.iamge_layout_hash})\n"
+    end
+    content
+  end
+
   def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
     h = layout_options
@@ -662,8 +672,8 @@ class WorkingArticle < ApplicationRecord
       content += "end\n"
     else
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-      if image_hash = image_options
-        content += "  news_image(#{image_hash})\n"
+      if images.length > 0
+        content += image_layout
       end
       content += "end\n"
     end

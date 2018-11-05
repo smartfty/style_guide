@@ -42,7 +42,7 @@
         </div>
       <% end %>
 
-      <% if  @working_article.images.length == 0%>
+      <% if  @working_article.images.length <= 2%>
         <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
           <%= f.fields_for :images, Image.new do |p| %>
           <br>
