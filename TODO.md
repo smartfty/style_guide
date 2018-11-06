@@ -31,13 +31,24 @@
   - body
     - fit_text
 
+2018-11-06
+  - position 0
+  - fix caption source right margin
+  - image_grid_x position, - image_grid_y position,
+  - update front_page_heading templates with ad_box in layout_rb
+    - make image name as heading_ad.pdf
+  - fix box_size changing bug
+
+  - fix parsing article in Section, parsing ad as article
+
 2018-11-05
   - add subject_head_S to text_style.yml
-
   - upload more than one image
-  - 9단21 홀/짝
-  - page_template thumbnail with box with number
+  - update page_heading template with frontpage_ad with 
+  
+  - 9단21 홀/짝 ad_type
 
+  - page_template thumbnail with box with number
   - mark current article with yellow
 
 

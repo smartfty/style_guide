@@ -264,7 +264,11 @@ class WorkingArticle < ApplicationRecord
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.last =~/^extend/
-      frame_array[-1] = "extend_#{line_count}"
+      if line_count == 0
+        frame_array.pop
+      else
+        frame_array[-1] = "extend_#{line_count}"
+      end
     else
       frame_array << "extend_#{line_count}"
     end
@@ -342,7 +346,11 @@ class WorkingArticle < ApplicationRecord
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.last =~/^push/
-      frame_array[-1] = "push_#{line_count}"
+      if line_count == 0
+        frame_array.pop
+      else
+        frame_array[-1] = "push_#{line_count}"
+      end
     else
       frame_array << "push_#{line_count}"
     end

@@ -126,7 +126,7 @@ class PageHeading < ApplicationRecord
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
       image(local_image: '1.pdf', width: #{page_heading_width}, height: 110)
       text('#{page.korean_date_string}', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
-      image(local_image: 'heading_ad.jpg', x:809.137, y:13.043, width: 219.257, height: 71.2)
+      image(local_image: 'heading_ad.pdf', x:809.137, y:13.043, width: 219.257, height: 71.2)
     end
     EOF
   end
