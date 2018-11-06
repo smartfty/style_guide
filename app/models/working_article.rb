@@ -776,13 +776,14 @@ class WorkingArticle < ApplicationRecord
   end
 
   def change_article(new_article)
-    puts __method__
     self.article_id = new_article.id
     article_info_hash   = new_article.attributes
     article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
     self.kind           = article_info_hash[:kind]
     self.grid_x         = article_info_hash[:grid_x]
     self.grid_y         = article_info_hash[:grid_y]
+    self.grid_width     = article_info_hash[:grid_width]
+    self.grid_height    = article_info_hash[:grid_height]
     self.column         = article_info_hash[:column]
     self.row            = article_info_hash[:row]
     self.on_left_edge   = article_info_hash[:on_left_edge]
