@@ -11,27 +11,19 @@
     </div>
   <% end %>
   <div class="row">
-  <div class="col-xs-12 col-sm-12">
-      <%= image_tag image.image.url, :width => "100%" %>
+  <div class="col-xs-12 col-md-7">
+      <%= image_tag image.image.url, :width => "100%", style: "padding-bottom:20px" %>
  </div>
- <div class="col-xs-12 col-sm-12">
+ <div class="col-xs-12 col-md-5">
         <div class="field">
           <%= f.label :적용됨 %>
           <%= f.check_box :used_in_layout %>
         </div>
 
         <div class="field">
-        <%= f.label :위치 %>
-        <%= f.number_field :position, width: "50px" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :단 %><%= f.number_field :column, width: "50px" %> x <%= f.label :열 %><%= f.number_field :row, width: "50px" %>
-        </div>
-
-        <div class="field">
-          <%= f.label '행 추가높이' %>
-          <%= f.number_field :extra_height_in_lines, width: "50px" %>
+        <%= f.label :위치 %><%= f.text_field :position, style: "width:35px", class: 'form-control' %>
+        <%= f.label :크기 %><%= f.text_field :column, style: "width:35px", class: 'form-control' %>단  x  <%= f.text_field :row, style: "width:35px", class: 'form-control' %>열
+        <%= f.text_field :extra_height_in_lines, style: "width:35px", class: 'form-control' %>행 추가
         </div>
 
         <!-- div class="field">
@@ -45,18 +37,10 @@
         </div -->
 
         <div class="field">
-          <%= f.label :사진제목 %>
-          <%= f.text_field :caption_title, cols: "60" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :사진설명 %>
-          <%= f.text_area :caption, cols: "60", rows: "2", font_size: "16px"%>
-        </div>
-
-        <div class="field">
-          <%= f.label :출처 %>
-          <%= f.text_field :source %>
+          <!-- %= f.label '사진제목과 설명' %-->
+          <%= f.text_field :caption_title, cols: "60", placeholder: "사진제목", class: 'form-control' %>
+          <%= f.text_area :caption, cols: "50", rows: "3", font_size: "12px", placeholder: "사진설명을 여러줄 입력할 수 있습니다", class: 'form-control' %>
+          <%= f.text_field :source, placeholder: "사진출처", class: 'form-control' %>
         </div>
 
         <div class="actions">
