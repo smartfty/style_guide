@@ -64,11 +64,12 @@ class AdBox < ApplicationRecord
   end
 
   def pdf_image_path
-    "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
+    # "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
+    "/1/issue/#{date}/#{page_number}/ad/#{latest_jpg_basename}"
   end
 
   def jpg_image_path
-     "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
+     "/1/issue/#{date}/#{page_number}/ad/#{latest_jpg_basename}"
   end
 
   def jpg_path
@@ -87,18 +88,6 @@ class AdBox < ApplicationRecord
       Publication.first
     end
   end
-
-  # def page_number
-  #   page.page_number
-  # end
-
-  # def gutter
-  #   publication.gutter
-  # end
-
-  # def grid_width
-  #   publication.grid_width(page.column)
-  # end
 
   def width
     grid_width*column
@@ -435,6 +424,9 @@ EOF
     self.page_number  = page.page_number
     self.grid_width   = publication.grid_width(page.column)
     self.grid_height  = publication.grid_height
+    self.gutter       = publication.gutter
+    self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
+    self.date         = page.issue.date
   end
 
 end

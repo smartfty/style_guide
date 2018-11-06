@@ -264,7 +264,11 @@ class WorkingArticle < ApplicationRecord
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.last =~/^extend/
-      frame_array[-1] = "extend_#{line_count}"
+      if line_count == 0
+        frame_array.pop
+      else
+        frame_array[-1] = "extend_#{line_count}"
+      end
     else
       frame_array << "extend_#{line_count}"
     end
@@ -342,7 +346,11 @@ class WorkingArticle < ApplicationRecord
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.last =~/^push/
-      frame_array[-1] = "push_#{line_count}"
+      if line_count == 0
+        frame_array.pop
+      else
+        frame_array[-1] = "push_#{line_count}"
+      end
     else
       frame_array << "push_#{line_count}"
     end
@@ -541,6 +549,8 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  
+
   def image_box_options
     if images.first
       images.first.iamge_layout_hash
@@ -632,6 +642,14 @@ class WorkingArticle < ApplicationRecord
     h
   end
 
+  def image_layout
+    content = ""
+    images.each do |image|
+      content += "  news_image(#{image.iamge_layout_hash})\n"
+    end
+    content
+  end
+
   def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
     h = layout_options
@@ -662,8 +680,8 @@ class WorkingArticle < ApplicationRecord
       content += "end\n"
     else
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-      if image_hash = image_options
-        content += "  news_image(#{image_hash})\n"
+      if images.length > 0
+        content += image_layout
       end
       content += "end\n"
     end
@@ -758,13 +776,14 @@ class WorkingArticle < ApplicationRecord
   end
 
   def change_article(new_article)
-    puts __method__
     self.article_id = new_article.id
     article_info_hash   = new_article.attributes
     article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
     self.kind           = article_info_hash[:kind]
     self.grid_x         = article_info_hash[:grid_x]
     self.grid_y         = article_info_hash[:grid_y]
+    self.grid_width     = article_info_hash[:grid_width]
+    self.grid_height    = article_info_hash[:grid_height]
     self.column         = article_info_hash[:column]
     self.row            = article_info_hash[:row]
     self.on_left_edge   = article_info_hash[:on_left_edge]

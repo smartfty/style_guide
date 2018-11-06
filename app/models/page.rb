@@ -302,9 +302,7 @@ class Page < ApplicationRecord
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{template_id}"
   end
 
-  def update_working_articles
-    # delete unused working_articles
-    section = Section.find(template_id)
+  def change_working_articles(section)
     if section.articles.length == 0
       # if new page is full page ad, delete working articles from page
       working_articles.each do |wa|
@@ -314,7 +312,7 @@ class Page < ApplicationRecord
     else
       sorted_articles = section.articles.sort_by {|article| article.order}
       sorted_articles.each_with_index do |article, i|
-        current = {page_id: self.id, order:i+1}
+        current = {page_id: self.id, order:article.order}
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
           wa.generate_pdf_with_time_stamp
@@ -336,33 +334,37 @@ class Page < ApplicationRecord
         end
       end
       # mark unused as inactive
-      working_articles.each_with_index do |working_article, i|
+      sorted_working_articles = working_articles.sort_by {|article| article.order}
+      sorted_working_articles.each_with_index do |working_article, i|
         # working_article.extended_line_count = 0
-        working_article.grid_width = grid_width
-        working_article.grid_height = grid_height
-        if i >= section.articles.length
-          working_article.inactive = true
-        else
-          working_article.inactive = false
+        # working_article.grid_width = grid_width
+        # working_article.grid_height = grid_height
+        # if working_article.order > section.articles.length
+        #   working_article.inactive = true
+        # else
+        #   working_article.inactive = false
+        # end
+        # working_article.save
+        if working_article.order > section.articles.length
+          # update story and image before destroying
+          working_article.destroy
         end
-
-        working_article.save
       end
     end
     # working_articles.each do |working_article|
     #   working_article.generate_pdf_with_time_stamp
     # end
 
-    # create PageHeading for this page
-    heading_atts                  = {}
-    heading_atts[:page_number]    = section.page_number
-    heading_atts[:section_name]   = section.section_name
-    heading_atts[:page_id]        = self.id
-    heading_atts[:date]           = date
-    result                        = PageHeading.where(heading_atts).first_or_create
+    # # create PageHeading for this page
+    # heading_atts                  = {}
+    # heading_atts[:page_number]    = section.page_number
+    # heading_atts[:section_name]   = section.section_name
+    # heading_atts[:page_id]        = self.id
+    # heading_atts[:date]           = date
+    # result                        = PageHeading.where(heading_atts).first_or_create
   end
 
-  def update_ad_boxes
+  def change_ad_boxes
     section = Section.find(template_id)
     section.ad_box_templates.each_with_index do |ad_box_template, i|
       current = {page_id: self.id}
@@ -521,10 +523,6 @@ class Page < ApplicationRecord
     end
   end
 
-  def page_heading_margin_in_lines
-
-  end
-
   def change_template(new_template_id)
     puts __method__
     puts "++++++++ new_template_id:#{new_template_id}"
@@ -538,38 +536,35 @@ class Page < ApplicationRecord
     section_hash.delete(:path)
     section_hash.delete(:order)
     section_hash.delete(:is_front_page)
-    # section_hash.delete(:page_heading_margin_in_lines)
-    # section_hash.delete(:layout)
-    # section_hash.delete(:publication_id)
     section_hash.delete(:created_at)
     section_hash.delete(:updated_at)
     section_hash.delete(:draw_divider)
     update(section_hash)
     # update ad_box
     # remove current ad_boxes unless new template has same size ad
-    if ad_boxes.count > 0 && (new_section.ad_box_templates.count == 0 || new_section.ad_box_templates.first.ad_type != ad_boxes.first.ad_type)
-      ad_boxes.each do |ad_box|
-        ad_box.page_id = nil
-        ad_box.save
-      end
-    elsif new_section.ad_box_templates.count == 1
-      new_ad_template = new_section.ad_box_templates.first
-      ad_box_hash                = new_ad_template.attributes
-      ad_box_hash                = Hash[ad_box_hash.map{ |k, v| [k.to_sym, v] }]
-      ad_box_hash.delete(:id)
-      ad_box_hash.delete(:section_id)
-      ad_box_hash.delete(:created_at)
-      ad_box_hash.delete(:updated_at)
-      ad_box_hash[:page_id] = id
-      AdBox.create(ad_box_hash)
-    end
+    # if ad_boxes.count > 0 && (new_section.ad_box_templates.count == 0 || new_section.ad_box_templates.first.ad_type != ad_boxes.first.ad_type)
+    #   ad_boxes.each do |ad_box|
+    #     ad_box.page_id = nil
+    #     ad_box.save
+    #   end
+    # elsif new_section.ad_box_templates.count == 1
+    #   new_ad_template = new_section.ad_box_templates.first
+    #   ad_box_hash                = new_ad_template.attributes
+    #   ad_box_hash                = Hash[ad_box_hash.map{ |k, v| [k.to_sym, v] }]
+    #   ad_box_hash.delete(:id)
+    #   ad_box_hash.delete(:section_id)
+    #   ad_box_hash.delete(:created_at)
+    #   ad_box_hash.delete(:updated_at)
+    #   ad_box_hash[:page_id] = id
+    #   AdBox.create(ad_box_hash)
+    # end
     copy_config_file
     #TODO change heading section_name to full page ad if new template is full page ad
     # copy_heading
     change_heading
     generate_heading_pdf
-    update_working_articles
-    update_ad_boxes
+    change_working_articles(new_section)
+    change_ad_boxes
     generate_pdf_with_time_stamp
   end
 

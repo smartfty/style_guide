@@ -40,8 +40,20 @@ class Image < ApplicationRecord
     working_article.page_number
   end
 
-  def order
+  # TODO delete this
+  # def order
+  #   working_article.order
+  # end
+
+  def article_order
     working_article.order
+  end
+
+  # currnt image count
+  # this becomes part of next images's file name
+  # page_number_article_number_image_count.extension
+  def image_count
+    working_article.images.length
   end
 
   def iamge_layout_hash
@@ -187,8 +199,8 @@ class Image < ApplicationRecord
         if parsed_name_array.length >= 2
           self.page_number      = parsed_name_array[0].to_i
           self.story_number     = parsed_name_array[1].to_i
-          self.column           = parsed_name_array[2] if  parsed_name_array.length >= 3
-          self.row              = parsed_name_array[3] if  parsed_name_array.length >= 4
+          self.column           = parsed_name_array[3] if  parsed_name_array.length >= 4
+          self.row              = parsed_name_array[4] if  parsed_name_array.length >= 5
         end
       end
     end
