@@ -42,7 +42,7 @@
     </section>
 
     <section class="section" id="content2">
-      <% if @working_article.kind == '기사' %>
+      <% if @working_article.kind == '기사' || '사진' %>
       <div class="row">
         <% @working_article.images.each do |image| %>
           <%= render 'images/form', image: image %>
