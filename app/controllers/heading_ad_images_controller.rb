@@ -65,7 +65,7 @@ class HeadingAdImagesController < ApplicationController
 
   def today
     @heading_ad_image.place_ad_for_today
-    redirect_to @heading_ad_image, notice: "#{advertiser}의 #{heading_ad_image}가 1면 돌출광고에 설정 되었슴니다"
+    redirect_to @heading_ad_image, notice: "1면 돌출광고에 설정 되었슴니다"
   end
 
   private
