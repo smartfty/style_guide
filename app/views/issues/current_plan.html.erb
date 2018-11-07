@@ -28,7 +28,13 @@
               <td style="text-align:center;"><%= page_plan.section_name %></td>
               <td style="text-align:center;"><%= page_plan.ad_type %></td>
               <td style="text-align:center;"><%= page_plan.advertiser %></td>
-              <td align="right"><%= button_to "수정", edit_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-danger" %></td>
+              <% if page_plan.page%>
+              
+                <td align="right"><%= button_to "수정", edit_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-success" %></td>
+              <% else %>
+                <td align="right"><%= button_to "수정", edit_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-danger" %></td>
+              <% end %>
+
             </tr>
         <% end %>
       </tbody>
@@ -58,7 +64,11 @@
             <td style="text-align:center;"><%= page_plan.section_name %></td>
             <td style="text-align:center;"><%= page_plan.ad_type %></td>
             <td style="text-align:center;"><%= page_plan.advertiser %></td>
-            <td align="right"><%= button_to "수정", edit_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-danger" %></td>
+             <% if page_plan.page%>
+                <td align="right"><%= button_to "수정", edit_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-success" %></td>
+              <% else %>
+                <td align="right"><%= button_to "수정", edit_page_plan_path(page_plan), method: :get, class: "btn btn-sm btn-danger" %></td>
+              <% end %>
           </tr>
       <% end %>
     </tbody>

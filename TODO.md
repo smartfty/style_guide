@@ -34,6 +34,21 @@
 image_position
   - position 0 this places image above the title
 
+2018-11-07
+  - update change made in issue
+    - set color to green if we have page
+    
+  - working_article has_many_graphics
+    - graphic uploader
+    - graphic no frame
+    - tab for graphic uploader view
+
+  - subtile style
+      고딕 보까시 박스
+
+  - image position 0
+  - 
+
 2018-11-06
   - fix caption source right margin
   - image_grid_x position, - image_grid_y position,

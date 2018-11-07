@@ -52,7 +52,7 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
-
+      params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
       if @working_article.update(working_article_params)
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp

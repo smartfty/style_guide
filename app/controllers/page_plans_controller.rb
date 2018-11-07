@@ -41,10 +41,32 @@ class PagePlansController < ApplicationController
   # PATCH/PUT /page_plans/1
   # PATCH/PUT /page_plans/1.json
   def update
-    puts "page_plan_params:#{page_plan_params}"
     respond_to do |format|
+      before_ad_type = @page_plan.ad_type
       if @page_plan.update(page_plan_params)
         @page_plan.set_pair_page_color
+        new_ad_type = @page_plan.ad_type
+        if before_ad_type != new_ad_type
+          #if we have page and ad_type changed, update page layout
+          if @page = @page_plan.page
+            puts "new_ad_type:#{new_ad_type}"
+            puts "page_number:#{@page_plan.page_number}"
+
+            if new_template = Section.where(ad_type:new_ad_type, page_number:@page_plan.page_number ).first
+              puts "found new_template with ad_type and page_number"
+              @page.change_template(new_template.id)
+            else
+              puts "not found new_template with ad_type and page_number"
+              new_template = Section.where(ad_type:new_ad_type).first
+              puts "found new_template with ad_type only"
+              unless new_template
+                puts "can't find any section with ad_type of #{new_ad_type}"
+              else
+                @page.change_template(new_template.id)
+              end
+            end
+          end
+        end
         if (@page_plan.page_number == 12 || @page_plan.page_number == 13)
           if @page_plan.ad_type == "15단_브릿지"
             Spread.where(issue: @page_plan.issue).first_or_create

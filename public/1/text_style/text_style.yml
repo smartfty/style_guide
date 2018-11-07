@@ -76,10 +76,10 @@ quote:
   graphic_attributes: ''
   publication_id: 1
 announcement_1:
-  korean_name: 안내문 내용
+  korean_name: 안내문1단
   category:
   font: KoPubDotumPM
-  font_size: 14.0
+  font_size: 12.0
   text_color: CMYK=0,0,0,0
   alignment: left
   tracking: -0.5
@@ -94,10 +94,10 @@ announcement_1:
   graphic_attributes: ''
   publication_id: 1
 announcement_2:
-  korean_name: 안내문 면번호
+  korean_name: 안내문2단
   category:
   font: KoPubDotumPM
-  font_size: 9.5
+  font_size: 14.0
   text_color: CMYK=0,0,0,0
   alignment: right
   tracking: -0.5
@@ -263,9 +263,9 @@ title_main:
   tracking: -1.0
   space_width: 10.0
   scale: 100.0
-  text_line_spacing: 0
+  text_line_spacing:
   space_before_in_lines: 1
-  space_after_in_lines: 1
+  space_after_in_lines: 0
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
@@ -274,8 +274,8 @@ title_main:
 title_4_5:
   korean_name: 제목_4-5단
   category:
-  font_family: 윤명조140
-  font: YDVYMjOStd14
+  font_family: KoPub바탕체_Pro Medium
+  font: KoPubBatangPM
   font_size: 32.0
   text_color: CMYK=0,0,0,100
   alignment: left
@@ -320,7 +320,7 @@ title_3:
   tracking: -2.0
   space_width: 4.0
   scale: 100.0
-  text_line_spacing: 0
+  text_line_spacing:
   space_before_in_lines: 1
   space_after_in_lines: 2
   text_height_in_lines: 2
@@ -378,8 +378,8 @@ subtitle_main:
   space_width: 5.0
   scale: 100.0
   text_line_spacing: 6.0
-  space_before_in_lines: 0.5
-  space_after_in_lines: 1.5
+  space_before_in_lines: 1
+  space_after_in_lines: 2
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
@@ -500,34 +500,15 @@ subject_head_M:
   space_width: 3.0
   scale: 100.0
   text_line_spacing:
-  space_before_in_lines: 1
-  space_after_in_lines: 0
-  text_height_in_lines: 0.5
-  box_attributes: ''
-  markup: ''
-  graphic_attributes: ''
-  publication_id: 1
-subject_head_S:
-  korean_name: 문패_12
-  category:
-  font_family: KoPub돋움체_Pro Bold
-  font: KoPubDotumPB
-  font_size: 12.0
-  text_color: CMYK=0,0,0,100
-  alignment: left
-  tracking: -0.5
-  space_width: 3.0
-  scale: 100.0
-  text_line_spacing: 1
-  space_before_in_lines: 1
-  space_after_in_lines: 0
-  text_height_in_lines: 0
+  space_before_in_lines:
+  space_after_in_lines:
+  text_height_in_lines:
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
   publication_id: 1
 subject_head_editorial:
-  korean_name: 오피니언 문패
+  korean_name: 문패_12
   category:
   font_family: KoPub돋움체_Pro Bold
   font: KoPubDotumPB
