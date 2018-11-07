@@ -47,6 +47,7 @@
 #  announcement_text            :string
 #  announcement_column          :integer
 #  announcement_color           :string
+#  subtitle_style               :string
 #
 # Indexes
 #

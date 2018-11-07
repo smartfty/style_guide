@@ -47,6 +47,7 @@
 #  announcement_text            :string
 #  announcement_column          :integer
 #  announcement_color           :string
+#  subtitle_style               :string
 #
 # Indexes
 #
@@ -615,6 +616,7 @@ class WorkingArticle < ApplicationRecord
     end
     h[:page_number]                   = self.page_number
     h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
+    h[:subtitle_style]                = self.subtitle_style if self.subtitle_style
     h[:column]                        = self.column
     h[:row]                           = self.row
     h[:grid_width]                    = self.grid_width
