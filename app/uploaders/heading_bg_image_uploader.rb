@@ -12,8 +12,7 @@ class HeadingBgImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "#{model.publication.id}/issue/#{model.issue.date}/heading/images"
-
+    "1/issue/#{model.issue.date}/1/heading/images"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -44,8 +43,9 @@ class HeadingBgImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+ 
+  def filename
+    "heading_ad.#{file.extension}" if original_filename.present?
+  end
 
 end
