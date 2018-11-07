@@ -72,11 +72,12 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
+    working_article = @image.working_article
     issue_id = @image.issue_id
     @image.destroy
     respond_to do |format|
       # format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
-      format.html { redirect_to images_issue_path(issue_id), notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to working_article_path(working_article), notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
