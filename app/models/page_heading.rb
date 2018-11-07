@@ -124,16 +124,10 @@ class PageHeading < ApplicationRecord
     heading_ad_image_path = path + "/1/heading/images/#{issue.date.to_s}"
     first_page=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
-<<<<<<< HEAD
       image(local_image: '1_bg.pdf', x:0, y:0, width: #{page_heading_width}, height: 137.76377952756)
       text('#{page.korean_date_string}', x: 828.00, y: 103.5, width: 200, font: 'KoPubDotumPL', font_size: 9.5, font_color: "CMYK=0,0,0,100", text_alignment: 'right')
-      image(local_image: 'heading_ad.jpg', x:809.137, y:13.043, width: 219.257, height: 71.2)
-=======
-      image(local_image: '1.pdf', width: #{page_heading_width}, height: 110)
-      text('#{page.korean_date_string}', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
       image(local_image: 'heading_ad.pdf', x:809.137, y:13.043, width: 219.257, height: 71.2)
->>>>>>> upstream/master
-    end
+  end
     EOF
   end
 
@@ -147,7 +141,6 @@ class PageHeading < ApplicationRecord
     text('<%= @date %>', x: 828.00, y: 103.5, width: 200, font: 'KoPubDotumPL', font_size: 9.5, font_color: "CMYK=0,0,0,100", text_alignment: 'right')
     image(image_path: 'heading_ad_image_path', x:500, y:30, width: #{200}, height: 100)
   end
-
     EOF
   end
 
