@@ -57,7 +57,7 @@ class Publication < ApplicationRecord
   after_create :setup
   before_save :convert_to_pt
 
-  MM2POINT    = 2.834646
+  MM2POINT    = 2.8346456692913
   INCH2POINT  = 72
   PX2POINT    = 0.75
   SECTIONS = [
