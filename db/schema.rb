@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_191136) do
+ActiveRecord::Schema.define(version: 2018_11_08_005711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,25 @@ ActiveRecord::Schema.define(version: 2018_11_07_191136) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "graphics", force: :cascade do |t|
+    t.integer "grid_x"
+    t.integer "grid_y"
+    t.integer "column"
+    t.integer "row"
+    t.integer "extra_height_in_lines"
+    t.string "graphic"
+    t.string "caption"
+    t.string "source"
+    t.string "position"
+    t.integer "page_number"
+    t.integer "story_number"
+    t.bigint "working_article_id"
+    t.integer "issue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["working_article_id"], name: "index_graphics_on_working_article_id"
   end
 
   create_table "heading_ad_images", force: :cascade do |t|
@@ -588,6 +607,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_191136) do
 
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "graphics", "working_articles"
   add_foreign_key "heading_ad_images", "page_headings"
   add_foreign_key "heading_bg_images", "page_headings"
   add_foreign_key "issues", "publications"

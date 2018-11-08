@@ -29,7 +29,10 @@
     <input class="input_d" id="tab2" type="radio" name="tabs">
     <label class="taplabel" for="tab2">사진</label>
     <input class="input_d" id="tab3" type="radio" name="tabs">
-    <label class="taplabel" for="tab3">미리보기</label>
+    <label class="taplabel" for="tab3">그래픽</label>
+    <input class="input_d" id="tab4" type="radio" name="tabs">
+    <label class="taplabel" for="tab4">미리보기</label>
+
 
    <section class="section" id="content1">
       <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
@@ -74,7 +77,40 @@
       <% end %>
       </section>
 
-      <section class="section" id="content3">
+    <section class="section" id="content3">
+      <% if @working_article.kind == '기사' || '사진' %>
+      <div class="row">
+        <% @working_article.graphics.each do |graphic| %>
+          <%= render 'graphics/form', graphic: graphic %>
+        <% end %>
+      </div>
+      <% if  @working_article.graphics.length <= 2 %>
+      <%= form_with( model: @working_article, :html => { :multipart => true }, :url=> {action: 'upload_graphics'}) do |f| %>
+      <%= f.fields_for :images, Image.new do |p| %>
+      <br>
+      <br>
+      <hr>
+      <div class="field">
+        <%= p.label '사진선택' %><br>
+        <p>
+          <%= p.file_field :image, :multiple => true, name: "images[image][]" %>
+        </p>
+      </div>
+      <% end %>
+      <div class="actions">
+        <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      </div>
+      <% end %>
+      <% end %>
+
+      <% link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+      <% link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+      <br>
+      <hr>
+      <% end %>
+      </section>
+
+      <section class="section" id="content4">
         <img src="<%= @working_article.jpg_image_path %>">
     
         <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>

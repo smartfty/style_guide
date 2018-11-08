@@ -76,7 +76,9 @@
   </div>
 </div>
 <br>
-
-<div align="center">
-  <%= link_to "페이지 생성", update_plan_issue_path(Issue.last.id), method: :get, class: "btn-group btn btn-md btn-info" %>
-</div>
+<% if @front_page_plans.first.page %>
+<% else %>
+  <div align="center">
+    <%= link_to "페이지 생성", update_plan_issue_path(Issue.last.id), method: :get, class: "btn-group btn btn-md btn-info" %>
+  </div>
+<% end %>

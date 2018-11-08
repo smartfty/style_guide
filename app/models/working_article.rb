@@ -60,6 +60,7 @@ class WorkingArticle < ApplicationRecord
   belongs_to :page
   belongs_to :article, optional: true
   has_many :images
+  has_many :graphics
   has_one :story
   before_create :init_atts
   after_create :setup
@@ -651,6 +652,14 @@ class WorkingArticle < ApplicationRecord
     end
     content
   end
+  
+  def graphic_layout
+    content = ""
+    graphics.each do |graphic|
+      content += "  news_image(#{graphic.graphic_layout_hash})\n"
+    end
+    content
+  end
 
   def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
@@ -684,6 +693,9 @@ class WorkingArticle < ApplicationRecord
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
       if images.length > 0
         content += image_layout
+      end
+      if graphics.length > 0
+        content += graphic_layout
       end
       content += "end\n"
     end

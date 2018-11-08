@@ -1,5 +1,5 @@
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
+  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :upload_graphics, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
   layout 'working_article'
   # GET /working_articles
   # GET /working_articles.json
@@ -195,6 +195,17 @@ class WorkingArticlesController < ApplicationController
      end
     redirect_to @working_article
     # images_issue_path(Issue.last.id)
+  end
+
+  def upload_graphics
+    respond_to do |format|
+      format.html do
+         params[:images]['image'].each do |a|
+           @graphic = @working_article.graphics.create!(:graphic => a, :working_article_id => @working_article.id)
+         end
+       end
+     end
+    redirect_to @working_article
   end
 
   def zoom_preview

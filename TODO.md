@@ -36,18 +36,19 @@ image_position
 
 2018-11-07
   - update change made in issue
+    - change page_template
     - set color to green if we have page
-    
+    - do not show create page once it is generated
+  - subtile style
+      고딕 보까시 박스
+      스타일 추가 subtitle_s_gothic
+  - image position 0
+  - image position 7,8,9 fix it to align to bottom
+
   - working_article has_many_graphics
     - graphic uploader
     - graphic no frame
     - tab for graphic uploader view
-
-  - subtile style
-      고딕 보까시 박스
-
-  - image position 0
-  - 
 
 2018-11-06
   - fix caption source right margin

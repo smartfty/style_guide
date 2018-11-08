@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :graphics
   resources :announcements
   resources :stories do
     member do
@@ -86,6 +87,7 @@ Rails.application.routes.draw do
     member do
       get 'download_pdf'
       patch 'upload_images'
+      patch 'upload_graphics'
       get 'zoom_preview'
       patch 'assign_reporter'
       get 'add_image'

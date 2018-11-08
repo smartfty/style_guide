@@ -1,31 +1,23 @@
-class ImageUploader < CarrierWave::Uploader::Base
-
+class GraphicUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
-
-  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
-  # image_count is currnet image count, it becomes last part of next image's file_name
-  # page_number_article_number_image_count.extension
   def filename
-    "#{model.page_number}_#{model.article_order}_#{model.image_count}.#{file.extension}" if original_filename.present?
+    "graphic_#{model.page_number}_#{model.article_order}_#{model.graphic_count}.#{file.extension}" if original_filename.present?
   end
 
   def store_dir
     "#{model.publication.id}/issue/#{model.issue.date}/images"
   end
 
-  # version :thumb do
-  #   process resize_to_fill: [200,200]
-  # end
-
+  def extension_whitelist
+    %w(jpg jpeg gif png pdf eps)
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
@@ -49,14 +41,13 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_whitelist
-    %w(jpg jpeg gif png pdf eps)
-  end
+  # def extension_whitelist
+  #   %w(jpg jpeg gif png)
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

@@ -1,35 +1,41 @@
 # == Schema Information
 #
-# Table name: images
+# Table name: graphics
 #
-#  id                    :integer          not null, primary key
+#  id                    :bigint(8)        not null, primary key
+#  grid_x                :integer
+#  grid_y                :integer
 #  column                :integer
 #  row                   :integer
 #  extra_height_in_lines :integer
-#  image                 :string
-#  caption_title         :string
+#  graphic               :string
 #  caption               :string
 #  source                :string
-#  position              :integer
+#  position              :string
 #  page_number           :integer
 #  story_number          :integer
-#  landscape             :boolean
-#  used_in_layout        :boolean
-#  working_article_id    :integer
+#  working_article_id    :bigint(8)
 #  issue_id              :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  extra_line            :integer
+#
+# Indexes
+#
+#  index_graphics_on_working_article_id  (working_article_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (working_article_id => working_articles.id)
 #
 
-class Image < ApplicationRecord
+class Graphic < ApplicationRecord
   belongs_to :issue, optional: true
   belongs_to :working_article, optional: true
-  mount_uploader :image, ImageUploader
+  mount_uploader :graphic, GraphicUploader
   before_create  :set_default
 
   def image_path
-    "#{Rails.root}/public" + image.url if image
+    "#{Rails.root}/public" + graphic.url if graphic
   end
 
   def publication
@@ -51,12 +57,12 @@ class Image < ApplicationRecord
 
   # currnt image count
   # this becomes part of next images's file name
-  # page_number_article_number_image_count.extension
-  def image_count
-    working_article.images.length
+  # page_number_article_number_graphic_count.extension
+  def graphic_count
+    working_article.graphics.length
   end
 
-  def iamge_layout_hash
+  def graphic_layout_hash
     h = {}
     h[:image_path]        = image_path
     h[:column]            = column
@@ -64,9 +70,6 @@ class Image < ApplicationRecord
     h[:position]          = position
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
-    h[:caption_title]     = caption_title
-    h[:caption]           = caption
-    h[:source]            = source if source
     h
   end
 
@@ -181,19 +184,16 @@ class Image < ApplicationRecord
   private
 
     def set_default
-      self.column                 = 2
+      self.column                 = 1
       self.row                    = 2
       self.extra_height_in_lines  = 0
       self.position               = 3
-      self.landscape              = true
 
       if working_article_id
         wa = WorkingArticle.find(working_article_id)
         self.issue_id         = wa.page.issue.id
         self.page_number      = wa.page.page_number
         self.story_number     = wa.order
-        self.used_in_layout   = true
-
       elsif image
         parsed_name_array = parse_file_name
         if parsed_name_array.length >= 2
