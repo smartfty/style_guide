@@ -75,6 +75,8 @@ class ImagesController < ApplicationController
     working_article = @image.working_article
     issue_id = @image.issue_id
     @image.destroy
+    working_article.generate_pdf_with_time_stamp
+    working_article.page.generate_pdf_with_time_stamp
     respond_to do |format|
       # format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
       format.html { redirect_to working_article_path(working_article), notice: 'Image was successfully destroyed.' }

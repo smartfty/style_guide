@@ -49,6 +49,9 @@ image_position
   - subtile style
       고딕 보까시 박스
       스타일 추가 subtitle_s_gothic
+      cmyk k=10
+      테두리 0.3
+      
   - image position 0
   - image position 7,8,9 fix it to align to bottom
   - working_article has_many_graphics

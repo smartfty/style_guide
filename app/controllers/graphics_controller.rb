@@ -42,7 +42,10 @@ class GraphicsController < ApplicationController
   def update
     respond_to do |format|
       if @graphic.update(graphic_params)
-        format.html { redirect_to @graphic, notice: 'Graphic was successfully updated.' }
+         @graphic.working_article.generate_pdf_with_time_stamp
+         @graphic.working_article.page.generate_pdf_with_time_stamp
+
+        format.html { redirect_to @graphic.working_article, notice: 'Graphic was successfully updated.' }
         format.json { render :show, status: :ok, location: @graphic }
       else
         format.html { render :edit }
@@ -54,9 +57,12 @@ class GraphicsController < ApplicationController
   # DELETE /graphics/1
   # DELETE /graphics/1.json
   def destroy
+    working_article = @graphic.working_article
     @graphic.destroy
+    working_article.generate_pdf_with_time_stamp
+    working_article.page.generate_pdf_with_time_stamp
     respond_to do |format|
-      format.html { redirect_to graphics_url, notice: 'Graphic was successfully destroyed.' }
+      format.html { redirect_to working_article_path(working_article), notice: 'Graphic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
