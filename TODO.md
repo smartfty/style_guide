@@ -33,6 +33,13 @@
 
 image_position
   - position 0 this places image above the title
+2018-11-07
+
+  - image change
+      change image only without deleting captions and everyting else
+      just change the image with same setting
+
+  - expand when sybling is image
 
 2018-11-07
   - update change made in issue
@@ -44,11 +51,12 @@ image_position
       스타일 추가 subtitle_s_gothic
   - image position 0
   - image position 7,8,9 fix it to align to bottom
-
   - working_article has_many_graphics
     - graphic uploader
-    - graphic no frame
     - tab for graphic uploader view
+
+    - graphic no frame
+
 
 2018-11-06
   - fix caption source right margin

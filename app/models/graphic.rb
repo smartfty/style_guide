@@ -70,6 +70,7 @@ class Graphic < ApplicationRecord
     h[:position]          = position
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
+    h[:image_kind]        = 'graphic'
     h
   end
 
