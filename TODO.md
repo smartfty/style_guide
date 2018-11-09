@@ -31,8 +31,15 @@
   - body
     - fit_text
 
-image_position
-  - position 0 this places image above the title
+2018-11-09
+  - image detail mode
+  - image zoom, move, direction
+
+  - section 
+    - delte link to 6, 7, 
+    - download_csv
+    
+
 2018-11-07
 
   - image change
@@ -51,7 +58,8 @@ image_position
       스타일 추가 subtitle_s_gothic
       cmyk k=10
       테두리 0.3
-      
+      고딕_회색바탕
+      고딕_테두리
   - image position 0
   - image position 7,8,9 fix it to align to bottom
   - working_article has_many_graphics

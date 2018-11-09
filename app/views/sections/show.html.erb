@@ -52,15 +52,7 @@
 
     <div class="button-group">
       <%= link_to "수정", edit_section_path(@section), method: :get, class: "btn btn-sm btn-danger" %>
-      <% if @section.column == 7 %>
-        <%= link_to "이전으로", seven_sections_path, method: :get, class: "btn btn-sm btn-primary" %>
-      <% elsif @section.column == 6 %>
-        <%= link_to "이전으로", six_sections_path, method: :get, class: "btn btn-sm btn-primary" %>
-      <% elsif @section.column == 5 %>
-        <%= link_to "이전으로", five_sections_path, method: :get, class: "btn btn-sm btn-primary" %>
-      <% else %>
-        <%= link_to "이전으로", seven_sections_path, method: :get, class: "btn btn-sm btn-primary" %>
-      <% end %>
+      <%= link_to "이전으로", sections_path, method: :get, class: "btn btn-sm btn-primary" %>
     </div>
 
   </div>

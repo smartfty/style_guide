@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_005711) do
+ActiveRecord::Schema.define(version: 2018_11_08_085912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,15 @@ ActiveRecord::Schema.define(version: 2018_11_08_005711) do
     t.integer "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "x_grid"
+    t.integer "y_in_lines"
+    t.integer "height_in_lines"
+    t.boolean "draw_frame"
+    t.boolean "detail_mode"
+    t.integer "zoom_level"
+    t.integer "zoom_direction"
+    t.integer "move_level"
+    t.string "sub_grid_size"
     t.index ["working_article_id"], name: "index_graphics_on_working_article_id"
   end
 
@@ -221,6 +230,15 @@ ActiveRecord::Schema.define(version: 2018_11_08_005711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "extra_line"
+    t.integer "x_grid"
+    t.integer "y_in_lines"
+    t.integer "height_in_lines"
+    t.boolean "detail_mode"
+    t.boolean "draw_frame"
+    t.integer "zoom_level"
+    t.integer "zoom_direction"
+    t.integer "move_level"
+    t.string "sub_grid_size"
   end
 
   create_table "issues", id: :serial, force: :cascade do |t|

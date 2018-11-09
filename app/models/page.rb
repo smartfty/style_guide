@@ -135,9 +135,12 @@ class Page < ApplicationRecord
     grid_x          = article.grid_x
     grid_right_edge = article.grid_x + article.column
     grid_bottom     = article.grid_y + article.row
-    working_articles.select do |wa|
+    siblings_array = working_articles.select do |wa|
       wa.grid_y == grid_bottom && wa.grid_x >= grid_x && wa != article
     end
+    # siblings_array += image_boxes.select do |image_box|
+    #   image_box.grid_y == grid_bottom && wa.grid_x >= grid_x && wa != article
+    # end
   end
 
   def bottom_article?(article)

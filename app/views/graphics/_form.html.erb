@@ -16,11 +16,14 @@
  </div>
  <div class="col-xs-12 col-md-5">
 
+
+
         <div class="field">
         <%= f.label :위치 %><%= f.text_field :position, style: "width:35px", class: 'form-control' %>
         <%= f.label :크기 %><%= f.text_field :column, style: "width:35px", class: 'form-control' %>단  x  <%= f.text_field :row, style: "width:35px", class: 'form-control' %>열
         <%= f.text_field :extra_height_in_lines, style: "width:35px", class: 'form-control' %>행 추가
         </div>
+
 
         <!-- div class="field">
           <%= f.label '페이지' %>
@@ -37,7 +40,11 @@
           <%= link_to '삭제', graphic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>
 
         </div>
+
+
       </div>  
   </div>
 
 <% end %>
+
+

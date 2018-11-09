@@ -98,6 +98,7 @@ class Section < ApplicationRecord
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     save_section_config_yml
+    # create_articles
     # update_section_layout
   end
 
@@ -418,7 +419,8 @@ class Section < ApplicationRecord
       elsif box.last =~/^push/
         article_atts[:pushed_line_count] = box.last.split("_")[1].to_i
       end
-
+      article_atts[:section_id]   = self.id
+      article_atts[:section]   = self
       if box.length >= 5
         if box[4] =~/^광고/ || box[4] =~/^ad/
           ad_box_atts = {}

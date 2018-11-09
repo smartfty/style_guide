@@ -18,6 +18,15 @@
 #  issue_id              :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  x_grid                :integer
+#  y_in_lines            :integer
+#  height_in_lines       :integer
+#  draw_frame            :boolean
+#  detail_mode           :boolean
+#  zoom_level            :integer
+#  zoom_direction        :integer
+#  move_level            :integer
+#  sub_grid_size         :string
 #
 # Indexes
 #

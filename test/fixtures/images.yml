@@ -20,6 +20,15 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  extra_line            :integer
+#  x_grid                :integer
+#  y_in_lines            :integer
+#  height_in_lines       :integer
+#  detail_mode           :boolean
+#  draw_frame            :boolean
+#  zoom_level            :integer
+#  zoom_direction        :integer
+#  move_level            :integer
+#  sub_grid_size         :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

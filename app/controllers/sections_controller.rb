@@ -74,30 +74,11 @@ class SectionsController < ApplicationController
     @new_section = Section.create(@section.attributes.merge({id: nil }))
     respond_to do |format|
       if @new_section
-        if @new_section.column == 7
-          format.html { redirect_to seven_sections_path, notice: 'Section was successfully duplicated.'}
-        elsif @new_section.column == 6
-          format.html { redirect_to six_sections_path, notice: 'Section was successfully duplicated.'}
-        elsif @new_section.column == 5
-          format.html { redirect_to five_sections_path, notice: 'Section was successfully duplicated.'}
-
-        end
+        format.html { redirect_to sections_path, notice: 'Section was successfully duplicated.'}
       else
         format.html { redirect_to sections_url, notice: 'Section could not be duplicated.' }
       end
     end
-  end
-
-  def five
-    @sections = Section.where(column: 5).order(:page_number).page(params[:page]).per(20)
-  end
-
-  def six
-    @sections = Section.where(column: 6).order(:page_number).page(params[:page]).per(20)
-  end
-
-  def seven
-    @sections = Section.where(column: 7).order(:page_number).page(params[:page]).per(20)
   end
 
   # download story.pdf

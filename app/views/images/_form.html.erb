@@ -21,16 +21,6 @@
         <%= f.text_field :extra_height_in_lines, style: "width:35px", class: 'form-control' %>행 추가
         </div>
 
-        <!-- div class="field">
-          <%= f.label '페이지' %>
-          <%= f.text_field :page_number %>
-        </div>
-
-        <div class="field">
-          <%= f.label '기사 번호' %>
-          <%= f.text_field :story_number %>
-        </div -->
-
         <div class="field">
           <!-- %= f.label '사진제목과 설명' %-->
           <%= f.text_field :caption_title, cols: "60", placeholder: "사진제목", class: 'form-control' %>
@@ -41,8 +31,18 @@
         <div class="actions">
           <%= f.button "수정", class: "btn btn-primary btn-sm" %>
           <%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>
-
         </div>
+
+        <div class="field">
+          <%= f.label :가로시작_단 %><%= f.text_field :x_grid, style: "width:35px", class: 'form-control' %>
+          <%= f.label :세로시작_줄 %><%= f.text_field :y_in_lines, style: "width:35px", class: 'form-control' %>단
+        </div>
+
+        <div class="field">
+          <%= f.label :확대방향 %><%= f.text_field :zoom_direction, style: "width:35px", class: 'form-control' %>
+          <%= f.label :확대수치 %><%= f.text_field :zoom_level, style: "width:35px", class: 'form-control' %>단  
+        </div>
+
       </div>  
   </div>
 
