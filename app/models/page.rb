@@ -733,9 +733,9 @@ class Page < ApplicationRecord
   def generate_proof_pdf
     FileUtils.mkdir_p(proof_path) unless File.exist?(proof_path)
     r_page_number = page_number.to_s.rjust(2,"0")
-    date          = date.day.to_s.rjust(2,"0")
-    month         = date.month.to_s.rjust(2,"0")
-    year          = date.year.to_s
+    date          = issue.date.day.to_s.rjust(2,"0")
+    month         = issue.date.month.to_s.rjust(2,"0")
+    year          = issue.date.year.to_s
     proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*")
     if proof_files.length == 0
       target_file   = "proof/#{r_page_number}011001-#{date}#{month}#{year}000.pdf"
