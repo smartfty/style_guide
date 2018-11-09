@@ -193,6 +193,8 @@ class WorkingArticlesController < ApplicationController
          end
        end
      end
+     @image.working_article.generate_pdf_with_time_stamp
+     @image.working_article.page.generate_pdf_with_time_stamp
     redirect_to @working_article
     # images_issue_path(Issue.last.id)
   end
