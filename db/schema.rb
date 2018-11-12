@@ -617,7 +617,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_085912) do
     t.string "announcement_text"
     t.integer "announcement_column"
     t.string "announcement_color"
-    t.string "subtitle_style"
+    t.integer "boxed_subtitle_type"
+    t.string "boxed_subtitle_text"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

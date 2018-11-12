@@ -53,7 +53,6 @@ class AdBox < ApplicationRecord
   end
 
   def latest_pdf_basename
-    # binding.pry
     f = Dir.glob("#{path}/output*.pdf").sort.last
     File.basename(f) if f
   end

@@ -33,7 +33,7 @@
           <%= f.text_field :title, cols: "40", class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :부제목 %> <%= f.select :subtitle_style, ['고딕_회색바탕', '고딕_테두리'], {include_blank: '기본 스타일'} %>
+          <%= f.label :부제목 %> 
           <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
         </div>
         <div class="form-group">
@@ -60,6 +60,12 @@
       </div>
     <% end %>
 
+    <% if  article.boxed_subtitle_type && article.boxed_subtitle_type.to_i > 0%>
+      <div class="form-group">
+        <%= f.label '본문 박스부제'%>
+        <%= f.text_area :boxed_subtitle_text, rows: "2", class: 'form-control' %>
+      </div>
+    <% end %>
     <% if  article.announcement_column && article.announcement_column.to_i > 0%>
       <div class="form-group">
         <%= f.label '안내문'%>

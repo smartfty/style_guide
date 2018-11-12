@@ -47,7 +47,8 @@
 #  announcement_text            :string
 #  announcement_column          :integer
 #  announcement_color           :string
-#  subtitle_style               :string
+#  boxed_subtitle_type          :integer
+#  boxed_subtitle_text          :string
 #
 # Indexes
 #
@@ -65,7 +66,7 @@ class WorkingArticle < ApplicationRecord
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images
-  include WorkingArticleSplitable
+  include ArticleSplitable
   include PageSplitable
 
   # extend FriendlyId
@@ -415,6 +416,21 @@ class WorkingArticle < ApplicationRecord
     self.save
   end
 
+  def boxed_subtitle_zero
+    self.boxed_subtitle_type = 0
+    self.save
+  end
+
+  def boxed_subtitle_one
+    self.boxed_subtitle_type = 1
+    self.save
+  end
+
+  def boxed_subtitle_two
+    self.boxed_subtitle_type = 2
+    self.save
+  end
+
   def announcement_zero
     self.announcement_column = 0
     self.save
@@ -455,15 +471,16 @@ class WorkingArticle < ApplicationRecord
 
   def story_metadata
     h = {}
-    h['extended_line_count'] = extended_line_count if extended_line_count && extended_line_count > 0
-    h['pushed_line_count'] = pushed_line_count if pushed_line_count && pushed_line_count > 0
-    h['subject_head'] = subject_head
-    h['title']      = RubyPants.new(title).to_html
-    h['subtitle']   = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
-    h['quote']      = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
-    h['announcement']= RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0
-    h['reporter']   = reporter
-    h['email']      = email
+    h['extended_line_count']  = extended_line_count if extended_line_count && extended_line_count > 0
+    h['pushed_line_count']    = pushed_line_count if pushed_line_count && pushed_line_count > 0
+    h['subject_head']         = subject_head
+    h['title']                = RubyPants.new(title).to_html
+    h['subtitle']             = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+    h['boxed_subtitle_text']  = RubyPants.new(boxed_subtitle_text).to_html if boxed_subtitle_type && boxed_subtitle_type.to_i > 0
+    h['quote']                = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
+    h['announcement']         = RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0
+    h['reporter']             = reporter
+    h['email']                = email
     h
   end
 
@@ -617,7 +634,6 @@ class WorkingArticle < ApplicationRecord
     end
     h[:page_number]                   = self.page_number
     h[:stroke_width]                  = 1 if kind == '사설' || kind == 'editorial'
-    h[:subtitle_style]                = self.subtitle_style if self.subtitle_style
     h[:column]                        = self.column
     h[:row]                           = self.row
     h[:grid_width]                    = self.grid_width
@@ -634,6 +650,9 @@ class WorkingArticle < ApplicationRecord
     h[:extended_line_count]           = self.extended_line_count if extended_line_count
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
     h[:quote_box_size]                = self.selfquote_box_size if show_quote_box?
+    if boxed_subtitle_type && boxed_subtitle_type > 0
+      h[:boxed_subtitle_type]         = self.boxed_subtitle_type 
+    end
     if announcement_column && announcement_column > 0
       h[:announcement_column]         = self.announcement_column 
       h[:announcement_color]          = self.announcement_color

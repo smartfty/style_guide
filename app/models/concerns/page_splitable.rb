@@ -1,6 +1,31 @@
 module PageSplitable
   extend ActiveSupport::Concern
 
+
+  def self.make_page_with(ad_type, options={})
+    if options[:column] && options[:odd_even]
+      Section.where(ad_type: ad_type, column:column, odd_even: odd_even).first_or_create
+    elsif options[:column]
+      Section.where(ad_type: ad_type, column:column).first_or_create
+    else
+      Section.where(ad_type: ad_type).first_or_create
+    end
+  end
+
+  def article_by_size
+    sorted_articles = articles.sort_by{|x| x.grid_area}
+  end
+
+  def largest_article
+    article_by_size.last
+  end
+
+  def largest_article_random
+    l = largest_article
+    largest_collection = article_by_size.select{|x| x.grid_area}
+    largest_collection.sample
+  end
+
   def insert_new_article_in_page(second_rect, second_article_order)
     story_frames = eval(self.layout)
     story_frames.insert(second_article_order,second_rect)
@@ -33,6 +58,7 @@ module PageSplitable
     profile += story_count.to_s
     profile
   end
+
   # update order by box position
   def update_working_article_order_by_position
     sorted_box = working_articles.sort_by{|article| [article.grid_y, article.grid_x]}

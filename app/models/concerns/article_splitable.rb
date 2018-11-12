@@ -1,5 +1,9 @@
-module WorkingArticleSplitable
+module ArticleSplitable
   extend ActiveSupport::Concern
+
+  def grid_area
+    column*row
+  end
 
   def article_rect
     [grid_x, grid_y, column, row]

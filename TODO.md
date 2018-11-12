@@ -17,21 +17,18 @@
   - short key
   - progress wheel
 
-## create NewsDisplayAdBox
-  NewsDisplayAdBox  < Container
-  NewsDisplayAdItem < Container
-  - title
-    - original
-    - auto_fit
-    - resuce_1
-    - resuce_2
-    - resuce_3
-    - resuce_4
-
   - body
     - fit_text
 
 2018-11-09
+  - 박스문 추가
+    본문박스(고딕_회색)
+    본문박스(고딕_테두리)
+    박스문 삭제
+    ----
+    안내문
+
+
   - image detail mode
   - image zoom, move, direction
 

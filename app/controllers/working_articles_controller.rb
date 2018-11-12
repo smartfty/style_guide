@@ -312,6 +312,25 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '4 행용 발문 박스(12줄 추가) 설정 되었습니다.'
   end
 
+  def boxed_subtitle_one
+    set_working_article
+    @working_article.boxed_subtitle_one
+    redirect_to working_article_path(@working_article), notice: '본문 박스부제가(회색_고딕)가 생성 되었습니다.'
+  end
+  
+  def boxed_subtitle_two
+    set_working_article
+    @working_article.boxed_subtitle_two
+    redirect_to working_article_path(@working_article), notice: '본문 박스부제가(테두리)가 생성 되었습니다.'
+
+  end
+
+  def boxed_subtitle_zero
+    set_working_article
+    @working_article.boxed_subtitle_zero
+    redirect_to working_article_path(@working_article), notice: '본문 박스부제가 삭제 되었습니다.'
+  end
+
   def announcement_zero
     set_working_article
     @working_article.announcement_zero
@@ -351,7 +370,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle, :subtitle_style, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :announcement_text, :announcement_color)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle,  :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color)
     end
 
     def filter_markdown?

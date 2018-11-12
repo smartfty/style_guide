@@ -969,8 +969,6 @@ class Page < ApplicationRecord
      erb = ERB.new(template)
      article_map += erb.result(binding) + "\n"
      article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
-     # binding.pry if w.page_number==22
-     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
      FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
      FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
 
@@ -1099,7 +1097,6 @@ EOF
       <PaperSize>A2</PaperSize>
     </PageInfo>
 EOF
-# binding.pry
      size_array = %w[CoordinateListReal CoordinateListOrg CoordinateListA CoordinateListB CoordinateListC]
      # scale_array = [4.128, 1.148, 2.064, 3.332, 0.286]
      # scale_array = [19.790, 2.023, 0.558, 1, 1.627]
@@ -1137,7 +1134,6 @@ EOF
           @y1 = (publication.top_margin + w.y + w.pushed_line_height)
           @y2 = (@y1 + w.height - w.pushed_line_height)
         end
-        # binding.pry
         scale_map=""
         size_array.each_with_index do |name, i|
           scale = scale_array[i]
