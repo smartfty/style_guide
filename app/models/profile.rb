@@ -60,8 +60,8 @@ class Profile < ApplicationRecord
 
   def layout_erb
     layout =<<~EOF
-    RLayout::Container.new(width:158.737,  height: 75) do
-      rect(x: 0, y: 10, width:158.737, height: 65, fill_color:"CMYK=0,0,0,10")
+    RLayout::Container.new(width:158.74015748031,  height: 75) do
+      rect(x: 0, y: 10, width:158.74015748031, height: 65, fill_color:"CMYK=0,0,0,10")
       image(local_image: '<%= name %>.eps', from_right: 0, y: 0, width: 60, height: 75, fill_color: 'clear')
       container(x: 0, y: 20, width:100, bottom_margin: 10, fill_color: 'clear') do
         <% if name && work && work != "" && position && position != "" %>
@@ -93,7 +93,7 @@ class Profile < ApplicationRecord
 
   def generate_pdf
     save_layout
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob #{name}.rb -jpg"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman rjob #{name}.rb -jpg"
   end
 
   def self.to_csv(options = {})

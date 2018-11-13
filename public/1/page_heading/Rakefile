@@ -30,7 +30,7 @@ rule '.pdf' => '.rb' do |t|
   # puts "t.source:#{t.source}"
   # puts "generate pdf..."
   # puts "t:#{t}"
-  system("cd #{t.name.pathmap("%d")} && /Applications/rjob.app/Contents/MacOS/rjob .")
+  system("cd #{t.name.pathmap("%d")} && /Applications/newsman.app/Contents/MacOS/newsman rjob .")
 end
 
 #
@@ -39,5 +39,5 @@ rule '.pdf' => '.rb' do |t|
   # puts "t.source:#{t.source}"
   # puts "generate pdf..."
   # puts "t:#{t}"
-  system("cd #{t.name.pathmap("%d")} && /Applications/rjob.app/Contents/MacOS/rjob .")
+  system("cd #{t.name.pathmap("%d")} && /Applications/newsman.app/Contents/MacOS/newsman rjob .")
 end

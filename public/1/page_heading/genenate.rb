@@ -47,5 +47,5 @@ Dir.glob("#{File.dirname(__FILE__)}/**/layout.erb").each_with_index do |e, i|
   # puts "layout_rb:#{layout_rb}"
   File.open(layout_path, 'w') { |file| file.write(layout_rb) }
   layout_folder = File.dirname(layout_path)
-  system("cd #{layout_folder} && /Applications/rjob.app/Contents/MacOS/rjob .")
+  system("cd #{layout_folder} && /Applications/newsman.app/Contents/MacOS/newsman rjob .")
 end

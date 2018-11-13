@@ -590,7 +590,7 @@ class Page < ApplicationRecord
     layout_content      = erb.result(binding)
     layout_rb_path      = page_heading_path + "/layout.rb"
     File.open(layout_rb_path, 'w'){|f| f.write layout_content}
-    system "cd #{page_heading_path} && /Applications/rjob.app/Contents/MacOS/rjob ."
+    system "cd #{page_heading_path} && /Applications/newsman.app/Contents/MacOS/newsman rjob ."
   end
 
   def save_as_default

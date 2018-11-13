@@ -58,15 +58,16 @@
       <br>
       <hr>
       <div class="field">
-        <%= p.label '사진선택' %><br>
-        <p>
-          <%= p.file_field :image, :multiple => true, name: "images[image][]" %>
-        </p>
-      </div>
+        <label class="btn btn-warning">
+        사진 파일선택<%= p.file_field :image, style: "display: none;", :multiple => true, name: "images[image][]" %>
+        </label><input type="text" class="form-control width2" readonly>
+        </div>
+
       <% end %>
       <div class="actions">
         <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
       </div>
+
       <% end %>
       <% end %>
 
@@ -91,14 +92,13 @@
       <br>
       <hr>
       <div class="field">
-        <%= p.label '사진선택' %><br>
-        <p>
-          <%= p.file_field :image, :multiple => true, name: "images[image][]" %>
-        </p>
-      </div>
+      <label class="btn btn-warning">
+      그래픽 파일선택<%= p.file_field :image, style: "display: none;", :multiple => true, name: "images[image][]" %>
+      </label><input type="text" class="form-control width2" readonly>
+    </div>
       <% end %>
       <div class="actions">
-        <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+        <%= f.button "그래픽 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
       </div>
       <% end %>
       <% end %>

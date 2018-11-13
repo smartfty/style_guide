@@ -111,7 +111,7 @@ class Spread < ApplicationRecord
   def generate_pdf
     save_layout
     #TODO set output to spread.pdf, spread.jpg
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman rjob ."
   end
 
   private
