@@ -1,2 +1,0 @@
-RLayout::NewsArticleBox.new({:kind=>"사설", :page_number=>23, :column=>6, :row=>4, :grid_width=>171.49606299212348, :grid_height=>97.32283464566807, :gutter=>12.7559055118108, :on_left_edge=>true, :on_right_edge=>true, :is_front_page=>false, :top_story=>false, :top_position=>true, :bottom_article=>false, :page_heading_margin_in_lines=>4, :extended_line_count=>0, :pushed_line_count=>0, :article_bottom_spaces_in_lines=>2, :article_line_thickness=>0.3, :article_line_draw_sides=>[0, 1, 0, 1], :draw_divider=>false}) do
-end

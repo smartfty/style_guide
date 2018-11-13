@@ -40,16 +40,16 @@
 # inner_page_heading_height: height of innerpage heading in lines
 # page_heading_margin_in_lines: actual heading margin for top positined article
 # 393 mm
-# 1114.015748031 pt
+# 1114.0157480315 pt
 # 545 mm
-# 1544.88189 pt
+# 1544.8818897638 pt
 # 15mm  marging
-# 42.519685
+# 42.51968503937
 #
-# 1 mm = 2.834646 point; 1 point = 0.352778 mm
+# 1 mm = 2.8346456692913 point; 1 point = 0.35277777777778 mm
 
-# 1 in = 72 point; 1 point = 0.013889 in
-# 1 px = 0.75 point; 1 point = 1.333333 px
+# 1 in = 72 point; 1 point = 0.013888888888889 in
+# 1 px = 0.75 point; 1 point = 1.3333333333333 px
 PAGES_WITH_4_LINE_HEADING = [18,19,22,23]
 
 class Publication < ApplicationRecord
