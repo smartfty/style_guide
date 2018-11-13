@@ -93,7 +93,7 @@ class Profile < ApplicationRecord
 
   def generate_pdf
     save_layout
-    system "cd #{path} && /Applications/rjob.app/Contents/MacOS/rjob #{name}.rb -jpg"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman rjob #{name}.rb -jpg"
   end
 
   def self.to_csv(options = {})
