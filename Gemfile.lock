@@ -72,6 +72,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     chronic (0.10.2)
+    cmdparse (3.0.3)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -108,11 +109,15 @@ GEM
       railties (>= 3.2, < 6.0)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
+    geom2d (0.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     griddler (1.4.0)
       htmlentities
       rails (>= 3.2.0)
+    hexapdf (0.8.0)
+      cmdparse (~> 3.0, >= 3.0.3)
+      geom2d (~> 0.1)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -365,6 +370,7 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id (~> 5.2, >= 5.2.4)
   griddler
+  hexapdf
   jbuilder (~> 2.5)
   jquery-datatables
   jquery-rails
@@ -405,4 +411,4 @@ DEPENDENCIES
   zip-zip
 
 BUNDLED WITH
-   1.16.1
+   1.16.6

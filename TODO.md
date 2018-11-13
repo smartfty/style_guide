@@ -36,7 +36,11 @@
     - delte link to 6, 7, 
     - download_csv
     
-
+2018-11-12
+  - add boxed_subtitle
+    - add boxed_subtitle menu
+  - add image fit type
+  
 2018-11-07
 
   - image change

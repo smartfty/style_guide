@@ -99,6 +99,14 @@ class PageHeading < ApplicationRecord
     relative_path + "/output.jpg"
   end
 
+  def grid_x
+    0
+  end
+
+  def grid_y
+    0
+  end
+
   def setup
     system("mkdir -p #{path}") unless File.directory?(path)
   end
@@ -107,12 +115,20 @@ class PageHeading < ApplicationRecord
     publication.page_heading_width
   end
 
+  def width
+    page_heading_width
+  end
+
   def heading_height
     if page_number == 1
       publication.front_page_heading_height_in_pt
     else
       publication.inner_page_heading_height_in_pt
     end
+  end
+
+  def height
+    heading_height
   end
 
   def box_svg
