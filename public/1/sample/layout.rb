@@ -6,7 +6,7 @@ RLayout::Container.new({:width=>1114.0158780000002, :height=>1544.88207, :left_m
   x_position = 42.519690000000004
   7.times do
     rectangle(x: x_position, y: 42.519690000000004, width: 136.063008, height: 1459.84269, stroke_width: 0.5, fill_color: 'clear')
-    x_position += 136.063008 + 12.755907
+    x_position += 136.063008 + 12.755905511811
   end
   y = 42.519690000000004
   15.times do |i|
