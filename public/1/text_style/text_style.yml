@@ -282,10 +282,10 @@ title_4_5:
   tracking: -1.5
   space_width: 10.0
   scale: 100.0
-  text_line_spacing:
+  text_line_spacing: 7
   space_before_in_lines: 1
-  space_after_in_lines: 2
-  text_height_in_lines: 2
+  space_after_in_lines: 1
+  text_height_in_lines: 3
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -339,10 +339,10 @@ title_2:
   tracking: -2.0
   space_width: 4.0
   scale: 100.0
-  text_line_spacing:
+  text_line_spacing: 7
   space_before_in_lines: 1
-  space_after_in_lines: 2
-  text_height_in_lines: 2
+  space_after_in_lines: 1
+  text_height_in_lines: 3
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -415,10 +415,10 @@ subtitle_S:
   tracking: -1.0
   space_width: 4.0
   scale: 100.0
-  text_line_spacing: 6.0
+  text_line_spacing: 5
   space_before_in_lines: 0
   space_after_in_lines: 1
-  text_height_in_lines: 2
+  text_height_in_lines: 1
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
