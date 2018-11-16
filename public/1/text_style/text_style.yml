@@ -111,25 +111,25 @@ announcement_2:
   markup: ''
   graphic_attributes: ''
   publication_id: 1s
-related_story:
-  korean_name: 관련기사
-  category:
-  font_family: KoPub돋움체_Pro Medium
-  font: KoPubDotumPM
-  font_size: 10.0
-  text_color: CMYK=0,0,0,100
-  alignment: right
-  tracking: -0.5
-  space_width: 3.0
-  scale: 100.0
-  text_line_spacing:
-  space_before_in_lines:
-  space_after_in_lines:
-  text_height_in_lines:
-  box_attributes: ''
-  markup: ''
-  graphic_attributes: ''
-  publication_id: 1
+# related_story:
+#   korean_name: 관련기사
+#   category:
+#   font_family: KoPub돋움체_Pro Medium
+#   font: KoPubDotumPM
+#   font_size: 9.0
+#   text_color: CMYK=0,0,0,100
+#   alignment: right
+#   tracking: -0.5
+#   space_width: 3.0
+#   scale: 100.0
+#   text_line_spacing:
+#   space_before_in_lines:
+#   space_after_in_lines:
+#   text_height_in_lines:
+#   box_attributes: ''
+#   markup: ''
+#   graphic_attributes: ''
+#   publication_id: 1
 caption_title:
   korean_name: 사진제목
   category:
@@ -209,17 +209,17 @@ reporter:
 linked_story:
   korean_name: 연결기사
   category:
-  font_family: KoPub돋움체_Pro Light
-  font: KoPubDotumPL
-  font_size: 10.0
+  font_family: KoPub돋움체_Pro Medium
+  font: KoPubDotumPM
+  font_size: 9.0
   text_color: CMYK=0,0,0,100
   alignment: right
-  tracking: 0.0
+  tracking: 0
   space_width: 2.0
   scale: 100.0
   text_line_spacing:
   space_before_in_lines: 0
-  space_after_in_lines:
+  space_after_in_lines: 
   text_height_in_lines:
   box_attributes: ''
   markup: ''
@@ -263,7 +263,7 @@ title_main:
   tracking: -1.0
   space_width: 10.0
   scale: 100.0
-  text_line_spacing: 0
+  text_line_spacing: 8
   space_before_in_lines: 0.5
   space_after_in_lines: 0.5
   text_height_in_lines: 3
@@ -284,7 +284,7 @@ title_4_5:
   scale: 100.0
   text_line_spacing: 7
   space_before_in_lines: 1
-  space_after_in_lines: 1
+  space_after_in_lines: 1.5
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
@@ -301,10 +301,10 @@ title_4:
   tracking: -2.0
   space_width: 7.0
   scale: 100.0
-  text_line_spacing:
-  space_before_in_lines: 1
-  space_after_in_lines: 2
-  text_height_in_lines: 2
+  text_line_spacing: 6
+  space_before_in_lines: 1.5
+  space_after_in_lines: 1.5
+  text_height_in_lines: 3
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -320,10 +320,10 @@ title_3:
   tracking: -2.0
   space_width: 4.0
   scale: 100.0
-  text_line_spacing:
-  space_before_in_lines: 1
-  space_after_in_lines: 2
-  text_height_in_lines: 2
+  text_line_spacing: 5
+  space_before_in_lines: 1.5
+  space_after_in_lines: 1.5
+  text_height_in_lines: 3
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -377,7 +377,7 @@ subtitle_main:
   tracking: -1.0
   space_width: 5.0
   scale: 100.0
-  text_line_spacing: 6.0
+  text_line_spacing: 7
   space_before_in_lines: 1
   space_after_in_lines: 1
   text_height_in_lines: 2
@@ -396,8 +396,8 @@ subtitle_M:
   tracking: -1.0
   space_width: 5.0
   scale: 100.0
-  text_line_spacing: 7.0
-  space_before_in_lines: 0
+  text_line_spacing: 6.0
+  space_before_in_lines: 0.4
   space_after_in_lines: 1
   text_height_in_lines: 2
   box_attributes: ''
@@ -415,7 +415,7 @@ subtitle_S:
   tracking: -1.0
   space_width: 4.0
   scale: 100.0
-  text_line_spacing: 5
+  text_line_spacing: 6
   space_before_in_lines: 0
   space_after_in_lines: 1
   text_height_in_lines: 1
@@ -491,10 +491,10 @@ subject_head_L:
   tracking: -0.5
   space_width: 0.0
   scale: 100.0
-  text_line_spacing:
-  space_before_in_lines:
-  space_after_in_lines:
-  text_height_in_lines:
+  text_line_spacing: 10
+  space_before_in_lines: 1
+  space_after_in_lines: 1
+  text_height_in_lines: 0
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -510,7 +510,7 @@ subject_head_M:
   tracking: -0.5
   space_width: 3.0
   scale: 100.0
-  text_line_spacing: 0
+  text_line_spacing: 10
   space_before_in_lines: 1
   space_after_in_lines: 1
   text_height_in_lines: 0
@@ -529,7 +529,7 @@ subject_head_S:
   tracking: -0.5
   space_width: 3.0
   scale: 100.0
-  text_line_spacing: 0
+  text_line_spacing: 10
   space_before_in_lines: 1
   space_after_in_lines: 0
   text_height_in_lines: 0
