@@ -3,11 +3,12 @@
 <%= form_for(@working_article, remote: true) do |f| %>
 
 <div class="view">
-  <div class="col-xs-3 col-sm-1">
+  <div class="col-xs-3 col-sm-2">
     <% @working_article.page.section_pages.each do |page| %>
     <div class="col-xs-12 col-sm-12">
       <div>
-        <a href="<%=  page_path(page) %>"><img width="100%" src="<%= page.jpg_image_path %>"></img>
+      <%= raw page.to_svg_with_jpg %>
+        <a href="<%= page_path(page) %>"><!-- img width="100%" src="<%= page.jpg_image_path %>"></img-->
           <p align=center><%= page.page_number %>
         </a>
       </div>
@@ -15,22 +16,22 @@
     <% end %>
   </div>
 
-  <div class="col-xs-9 col-sm-4">
+  <!--div class="col-xs-9 col-sm-3">
     <div class="button-group">
       <%= raw @working_article.page.to_svg_with_jpg %>
       <p align=center>
         <%= @working_article.page.page_number %> </a>
     </div>
-  </div>
+  </div-->
 
   <div class="col-xs-12 col-sm-6" style="padding-bottom: 40px;" width="100%">
-    <input class="input_d" id="tab1" type="radio" name="tabs" checked>
+    <input class="input_d" id="tab1" type="radio" name="tabs">
     <label class="taplabel" for="tab1">기사</label>
     <input class="input_d" id="tab2" type="radio" name="tabs">
     <label class="taplabel" for="tab2">사진</label>
     <input class="input_d" id="tab3" type="radio" name="tabs">
     <label class="taplabel" for="tab3">그래픽</label>
-    <input class="input_d" id="tab4" type="radio" name="tabs">
+    <input class="input_d" id="tab4" type="radio" name="tabs" checked>
     <label class="taplabel" for="tab4">미리보기</label>
 
 
