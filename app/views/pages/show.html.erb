@@ -3,26 +3,22 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-3 col-md-1">
+  <div class="col-xs-3 col-md-2">
     <% @page.section_pages.each do |page| %>
       <div class="col-xs-12 col-md-12">
         <div>
-          <a href="<%=  page_path(page) %>">
-            <img width="100%" src="<%= page.jpg_image_path %>"></img>
+        <%= raw page.to_svg_with_jpg %>
+          <a href="<%= page_path(page) %>">
             <p align="center"><%= page.page_number %>
             </a>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="col-xs-9 col-md-6">
+    <div class="col-xs-9 col-md-5">
       <% if File.exist?(@page.pdf_path) %>
         <div class="button-group">
-          <% if browser.safari? %>
-            <%= raw @page.to_svg %>
-            <% elsif browser.modern?%>
-              <%= raw @page.to_svg_with_jpg %>
-            <% end %>
+            <%= raw @page.to_svg_with_jpg %>
           </div>
         <% end %>
       </div>
