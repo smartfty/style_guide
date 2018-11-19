@@ -224,6 +224,7 @@ p {
   display: none;
 }
 
+
 .taplabel {
   display: inline-block;
   margin: 0 0 -1px;
@@ -280,6 +281,14 @@ input:checked + label {
 //   }
 // }
 
-.space {
-  padding: 20px;
+
+.width2 {
+  width: 300px !important;
+  border: 0px !important;
+  box-shadow: none !important;
+}
+
+.text-label {
+	color: #cdcdcd;
+	font-weight: bold;
 }

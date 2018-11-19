@@ -7,8 +7,8 @@ profile: 6x15_5단통_3
 section_id: 114
 page_columns: 6
 grid_size:
-- 171.496083
-- 96.377964
+- 171.496062992123
+- 97.322834551181
 lines_per_grid: 7
 width: 1114.0158780000002
 height: 1544.88207
@@ -16,7 +16,7 @@ left_margin: 42.519690000000004
 top_margin: 56.69292
 right_margin: 42.519690000000004
 bottom_margin: 42.519690000000004
-gutter: 12.755907
+gutter: 12.755905511811
 draw_divider: false
 story_frames:
 - - 0
