@@ -3,9 +3,11 @@
 <div class="row">
   <% @issue.pages.each do |page| %>
     <div class="col-xs-6 col-md-2" align='center'>
-      <a href="<%=  page_path(page) %>">
+      <!--a href="<%=  page_path(page) %>">
         <img src="<%= page.jpg_image_path %>" width="100%"></img>
-      </a>
+      </a-->
+      <%= raw page.to_svg_with_jpg %>
+
       <h4 align='center'>
         <a href='<%= page_path(page)%>'><%= page.page_number %></a>
       </h4>
