@@ -263,9 +263,9 @@ title_main:
   tracking: -1.0
   space_width: 10.0
   scale: 100.0
-  text_line_spacing: 8
-  space_before_in_lines: 0.5
-  space_after_in_lines: 0.5
+  text_line_spacing: 3
+  space_before_in_lines: 1
+  space_after_in_lines: 1
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
@@ -282,10 +282,10 @@ title_4_5:
   tracking: -1.5
   space_width: 10.0
   scale: 100.0
-  text_line_spacing: 7
+  text_line_spacing: 3
   space_before_in_lines: 1
-  space_after_in_lines: 1.5
-  text_height_in_lines: 3
+  space_after_in_lines: 1
+  text_height_in_lines: 4
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -301,10 +301,10 @@ title_4:
   tracking: -2.0
   space_width: 7.0
   scale: 100.0
-  text_line_spacing: 6
-  space_before_in_lines: 1.5
-  space_after_in_lines: 1.5
-  text_height_in_lines: 3
+  text_line_spacing: 7
+  space_before_in_lines: 1
+  space_after_in_lines: 0
+  text_height_in_lines: 5
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -321,8 +321,8 @@ title_3:
   space_width: 4.0
   scale: 100.0
   text_line_spacing: 5
-  space_before_in_lines: 1.5
-  space_after_in_lines: 1.5
+  space_before_in_lines: 1
+  space_after_in_lines: 1
   text_height_in_lines: 3
   box_attributes: ''
   markup: ''
@@ -396,9 +396,9 @@ subtitle_M:
   tracking: -1.0
   space_width: 5.0
   scale: 100.0
-  text_line_spacing: 6.0
-  space_before_in_lines: 0.4
-  space_after_in_lines: 1
+  text_line_spacing: 5.0
+  space_before_in_lines: 0
+  space_after_in_lines: 0.5
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
@@ -409,7 +409,7 @@ subtitle_S:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 12.0
+  font_size: 13.5
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
@@ -417,7 +417,7 @@ subtitle_S:
   scale: 100.0
   text_line_spacing: 6
   space_before_in_lines: 0
-  space_after_in_lines: 1
+  space_after_in_lines: 0.5
   text_height_in_lines: 1
   box_attributes: ''
   markup: ''
