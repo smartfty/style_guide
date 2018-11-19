@@ -95,6 +95,14 @@ class Section < ApplicationRecord
     end
   end
 
+   def self.create_section_with(options={})
+    if s = Section.where(options).first
+      s
+    else
+      s = Section.where(options).create
+    end
+  end
+
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     save_section_config_yml

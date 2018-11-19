@@ -601,6 +601,10 @@ class WorkingArticle < ApplicationRecord
     row*grid_height
   end
 
+  def grid_area
+    grid_x*grid_y
+  end
+
   def x
     grid_x*grid_width
   end
