@@ -232,6 +232,17 @@ class Section < ApplicationRecord
     generate_pdf
   end
 
+  def update_section_layout_if
+    return if File.exist?(pdf_path)
+    update_profile
+    save_section_config_yml
+    copy_page_heading
+    create_articles
+    generate_article_pdf
+    generate_ad_box_template_pdf
+    generate_pdf
+  end
+
   def regerate_section_preview
     copy_page_heading
     generate_article_pdf

@@ -20,6 +20,23 @@
   - body
     - fit_text
 
+2018-11-19
+  - image bottom and announcement  body_leading = 4pt
+  - add 4단 section template
+  
+  - overflow bug when image is placed 
+  - save xml
+  - 9단 21 글자 밀어내기 over_lopping_box
+  - 문체매인 1면 top
+  - fix page svg codinate
+  - title column_number
+
+
+2018-11-12
+  - add boxed_subtitle
+    - add boxed_subtitle menu
+  - add image fit type
+
 2018-11-09
   - 박스문 추가
     본문박스(고딕_회색)
@@ -35,12 +52,7 @@
   - section 
     - delte link to 6, 7, 
     - download_csv
-    
-2018-11-12
-  - add boxed_subtitle
-    - add boxed_subtitle menu
-  - add image fit type
-  
+
 2018-11-07
 
   - image change

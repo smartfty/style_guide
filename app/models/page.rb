@@ -195,36 +195,39 @@ class Page < ApplicationRecord
   end
 
   def doc_width
-    # publication.width
-    width + left_margin + right_margin
+    publication.width
+    # width + left_margin + right_margin
   end
 
   def page_width
-    # publication.s
-    width
+    publication.page_width
+    # width
   end
 
   def doc_height
-    # publication.height
-    height + top_margin + bottom_margin
+    publication.height
+    # height + top_margin + bottom_margin
   end
 
   def doc_left_margin
-    # publication.left_margin
-    left_margin
+    publication.left_margin
+    # left_margin
   end
 
   def doc_top_margin
-    # publication.top_margin
-    top_margin
+    publication.top_margin
+    # top_margin
   end
 
   def page_height
-    height
+    publication.page_height
+
+    # height
   end
 
   def page_heading_width
-    width
+    # width
+    publication.page_heading_width
   end
 
   def issue_week_day_in_korean
