@@ -746,7 +746,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
@@ -838,25 +838,26 @@ class WorkingArticle < ApplicationRecord
   def growable?
     true
   end
+  
 
-  def filter_to_markdown(body_text)
-    return unless body_text
-    body_text.strip!
+  def filter_to_markdown(text)
+    return unless text
+    text.strip!
     # body_text.gsub!(/^\n\n/, "\n")
-    body_text.gsub!(/\u200B/, "")
-    body_text.gsub!(/^(\^|-\s)/, "")
-    body_text.gsub!(/^\t/, "")
-    body_text.gsub!(/^\n/, "")
-    body_text.gsub!(/^\s/, "")
-    body_text.gsub!(/^\u3000/, "")
-    body_text.gsub!(/^\s*\n/m, "\n")
-    body_text.gsub!(/^\s*#/, '#' )
-    body_text.gsub!(/^\n/, "")
-    body_text.gsub!(/(\n|\r\n)+/, "\n\n")
-    body_text.gsub!(/^\./, "")
-    # body_text.gsub!(/[.]\s\s\s+/, ".")
-    # body_text.gsub!(/\.$\n\n/, ".")
-    body_text
+    text.gsub!(/\u200B/, "")
+    text.gsub!(/^(\^|-\s)/, "")
+    text.gsub!(/^\t/, "")
+    text.gsub!(/^\n/, "")
+    text.gsub!(/^\s/, "")
+    text.gsub!(/^\u3000/, "")
+    text.gsub!(/^\s*\n/m, "\n")
+    text.gsub!(/^\s*#/, '#' )
+    text.gsub!(/^\n/, "")
+    text.gsub!(/(\n|\r\n)+/, "\n\n")
+    text.gsub!(/^\./, "")
+    # text.gsub!(/[.]\s\s\s+/, ".")
+    # text.gsub!(/\.$\n\n/, ".")
+    text
   end
 
   def newsml_issue_path

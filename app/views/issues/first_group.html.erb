@@ -3,7 +3,8 @@
 <div class="row">
   <% @pages.each do |page| %>
     <div class = "col-xs-6 col-md-4"  align='center'>
-    <a href="<%=  page_path(page) %>"><img  src="<%= page.jpg_image_path %>" width="100%"></img></a>
+    <!--a href="<%=  page_path(page) %>"><img  src="<%= page.jpg_image_path %>" width="100%"></img></a-->
+    <%= raw page.to_svg_with_jpg %>
     <h4 align='center'><a href='<%= page_path(page)%>'><%= page.page_number %></a></h4>
   </div>    <!-- true -->
   <% end %>

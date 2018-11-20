@@ -264,7 +264,7 @@ title_main:
   space_width: 10.0
   scale: 100.0
   text_line_spacing: 3
-  space_before_in_lines: 1
+  space_before_in_lines: 0
   space_after_in_lines: 1
   text_height_in_lines: 3
   box_attributes: ''
@@ -379,7 +379,7 @@ subtitle_main:
   scale: 100.0
   text_line_spacing: 7
   space_before_in_lines: 1
-  space_after_in_lines: 1
+  space_after_in_lines: 2
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
@@ -476,6 +476,25 @@ brand_name:
   space_before_in_lines:
   space_after_in_lines:
   text_height_in_lines:
+  box_attributes: ''
+  markup: ''
+  graphic_attributes: ''
+  publication_id: 1
+subject_head_main:
+  korean_name: 메인_문패
+  category:
+  font_family: KoPub돋움체_Pro Bold
+  font: KoPubDotumPB
+  font_size: 16.0
+  text_color: CMYK=0,0,0,100
+  alignment: left
+  tracking: -0.5
+  space_width: 3.0
+  scale: 100.0
+  text_line_spacing: 10
+  space_before_in_lines: 1
+  space_after_in_lines: 1
+  text_height_in_lines: 0
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
