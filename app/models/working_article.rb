@@ -841,7 +841,9 @@ class WorkingArticle < ApplicationRecord
   
   def filter_to_title(title)
     return unless title
+    title.strip!
     title.gsub!(/^\u3000/, "")
+    title
   end
 
   def filter_to_markdown(text)
