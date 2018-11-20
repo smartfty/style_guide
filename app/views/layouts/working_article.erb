@@ -97,6 +97,18 @@ $('input[type="text"], textarea').each(function(){
 });
 </script> -->
 
+<!-- textarea 자동크기조절 -->
+<script>
+$(document).ready(function() {
+  $('.wrap').on( 'keyup', 'textarea', function (e){
+    $(this).css('height', 'auto' );
+    $(this).height( this.scrollHeight );
+  });
+  $('.wrap').find( 'textarea' ).keyup();
+});
+</script>
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <header id="header" >
