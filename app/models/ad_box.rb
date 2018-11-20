@@ -121,7 +121,7 @@ class AdBox < ApplicationRecord
   end
 
   def on_right_edge?
-    grid_x + column == page.column
+    grid_x + column >= page.column
   end
 
   def is_front_page?

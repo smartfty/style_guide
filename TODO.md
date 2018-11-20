@@ -20,6 +20,9 @@
   - body
     - fit_text
 
+2018-11-20
+  - 1면 4단 광고 우즉 여백
+
 2018-11-19
   - image bottom and announcement  body_leading = 4pt
   - add 4단 section template
