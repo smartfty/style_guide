@@ -121,7 +121,7 @@ class AdBox < ApplicationRecord
   end
 
   def on_right_edge?
-    grid_x + column == page.column
+    grid_x + column >= page.column
   end
 
   def is_front_page?
@@ -161,7 +161,7 @@ class AdBox < ApplicationRecord
     ad_image_hash[:layout_expand]                  = [:width, :height]
     ad_image_hash[:page_heading_margin_in_lines]   = page_heading_margin_in_lines
     content=<<~EOF
-    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, top_position: #{top_position?}, on_right_edge: #{on_right_edge?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
+    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, on_right_edge: #{on_right_edge?}, top_position: #{top_position?}, on_right_edge: #{on_right_edge?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
       image(image_path: '#{image_path}', fit_type: 4, layout_expand: [:width, :height])
       relayout!
     end
