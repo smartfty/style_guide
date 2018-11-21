@@ -8,15 +8,12 @@
   <div class="col-sm-10 col-md-10">
     <div align="center">
       <%= button_to "다운로드 배경 PDF", download_pdf_page_heading_path(@page_heading), method: :get, class: "btn btn-sm btn-danger" %>
-    </div>
     <br>
     <br>
 
     <img src="<%= @page_heading.pdf_image_path %>" height="400px"></img>
     <br>
     <br>
-
-    <div align="center">
 
       <%= form_with( model: @page_heading, :html => { :multipart => true }, :url=> {action: 'upload_images'}) do |f| %>
         <%= f.fields_for :heading_bg_image, HeadingBgImage.new do |p| %>
@@ -33,7 +30,6 @@
 
     </div>
 
-  </div>
 </div>
 
 
