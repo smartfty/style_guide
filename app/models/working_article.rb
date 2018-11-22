@@ -397,6 +397,12 @@ class WorkingArticle < ApplicationRecord
     h[:empty_lines]
   end
 
+  def overflow_line_count
+    h = article_info
+    return nil unless h
+    h[:overflow_line_count]
+  end
+
   def quote_auto
     empty_lines = empty_lines_count
     return  0 unless empty_lines && empty_lines > 4
@@ -449,10 +455,13 @@ class WorkingArticle < ApplicationRecord
       target_image = images.first
     end
     return unless target_image
-    if target_image.auto_size == 0
-
-    else
-
+    image_column = target_image.column
+    if empty_lines_count
+      size_to_extend = empty_lines_count/image_column
+      puts "size_to_extend:#{size_to_extend}"
+    elsif overflow_line_count
+      size_to_reduce = overflow_line_count/image_column
+      puts "size_to_reduce:#{size_to_reduce}"
     end
   end
 
