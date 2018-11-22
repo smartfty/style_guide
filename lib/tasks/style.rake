@@ -204,6 +204,14 @@ namespace :style do
     end
   end
 
+  desc "update section layout for all sections if it is not have layout"
+  task :update_section_layout_if =>:environment do
+    puts "update section layout for all sections"
+    Section.all.each do |section|
+      section.update_section_layout_if
+    end
+  end
+
   desc "generating pdf for all sections"
   task :generate_section_pdf =>:environment do
     puts "generating pdf for all sections"

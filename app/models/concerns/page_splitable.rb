@@ -1,17 +1,6 @@
 module PageSplitable
   extend ActiveSupport::Concern
 
-
-  def self.make_page_with(ad_type, options={})
-    if options[:column] && options[:odd_even]
-      Section.where(ad_type: ad_type, column:column, odd_even: odd_even).first_or_create
-    elsif options[:column]
-      Section.where(ad_type: ad_type, column:column).first_or_create
-    else
-      Section.where(ad_type: ad_type).first_or_create
-    end
-  end
-
   def article_by_size
     sorted_articles = articles.sort_by{|x| x.grid_area}
   end

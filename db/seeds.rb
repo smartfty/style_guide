@@ -130,6 +130,7 @@ keys.map!{|e| e.to_sym}
 csv.each do |row|
   row_h = Hash[keys.zip row]
   # row_h.delete(:divider_position)
+  # puts "row_h:#{row_h}"
   s = Section.where(row_h).first_or_create!
   s.create_articles if s
   # if s.page_number == 22 || s.page_number == 23

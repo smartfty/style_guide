@@ -135,6 +135,9 @@ class Article < ApplicationRecord
     save_layout
   end
 
+  def grid_area
+    grid_x*grid_y
+  end
   # approximation of character_count
   def char_count
     column*row*7*15

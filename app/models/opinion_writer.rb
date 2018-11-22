@@ -65,10 +65,10 @@ class OpinionWriter < ApplicationRecord
 
 layout=<<EOF
 
-RLayout::Container.new(width:158.74015748031, height: 166.83914494488) do
-  line(x: 0 , y:1, width: 158.74015748031, stroke_width: 2, height:0, stroke_color:"CMYK=0,0,0,100")
-  text('<%= title %>', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170, text_color:"CMYK=0,0,0,100")
-  rect(x: 0, y: 70, width:158.74015748031, height: 65,  fill_color:"CMYK=0,0,0,10")
+RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
+  line(x: 0 , y:1, width: 158.74015748031, stroke_width: 2, height:0, stroke_color:'CMYK=0,0,0,100')
+  text('<%= title %>', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170, text_color:'CMYK=0,0,0,100')
+  rect(x: 0, y: 70, width:158.74015748031, height: 65,  fill_color:'CMYK=0,0,0,10')
   <% if name.include?('_')  %>
     <% name_without_rest = name.split('_').first %>
     image(local_image: '<%= name_without_rest %>.eps', y: 60, width: 60, height: 75, fill_color: 'clear')
@@ -80,36 +80,36 @@ RLayout::Container.new(width:158.74015748031, height: 166.83914494488) do
   <% end %>
   container(x: 70, y: 80, width:150, bottom_margin: 10, fill_color: 'clear') do
     <% if name && name.include?('_') %>
-      text('<%= work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100" )
-      text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-    <% elsif name && work && work != "" && position && position != "" %>
+      text('<%= work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100' )
+      text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+    <% elsif name && work && work != '' && position && position != '' %>
       <% if name.include?('=') %>
-        text('<%= name.split('=').first %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.split('=').first %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% elsif name.include?('-') %>
-        text('<%= name.split("-").first %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.split('-').first %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% else  %>
-        text('<%= name.gsub("+", " ") %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.gsub('+', ' ') %>', y:17, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% end  %>
-      text('<%= work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-      text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-    <% elsif position == "" || position == nil %>
+      text('<%= work %>', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+      text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+    <% elsif position == '' || position == nil %>
       <% if name.include?('=') %>
-        text('<%= name.split('=').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.split('=').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% elsif name.include?('-') %>
-        text('<%= name.split("-").first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.split('-').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% else  %>
-        text('<%= name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.gsub('+', ' ') %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% end  %>
-      text('<%= work %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
-    <% elsif work == "" || work == nil %>
+      text('<%= work %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+    <% elsif work == '' || work == nil %>
       <% if name.include?('=') %>
-        text('<%= name.split('=').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.split('=').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% elsif name.include?('-') %>
-        text('<%= name.split("-").first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.split('-').first %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% else  %>
-        text('<%= name.gsub("+", " ") %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+        text('<%= name.gsub('+', ' ') %>', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       <% end  %>
-      text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:"CMYK=0,0,0,100")
+      text('<%= position %>', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
     <% end %>
   end
 end
@@ -120,7 +120,6 @@ EOF
   def save_layout
     erb = ERB.new(layout_erb)
     layout_rb = erb.result(binding)
-    puts layout_rb
     File.open(layout_path, 'w'){|f| f.write layout_rb}
   end
 

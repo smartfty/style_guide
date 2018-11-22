@@ -5,12 +5,12 @@ module ArticleSplitable
     column*row
   end
 
-  def article_rect
+  def article_grid_rect
     [grid_x, grid_y, column, row]
   end
 
   def preferable_direction
-    rect = article_rect
+    rect = article_grid_rect
     if rect[2] >= rect[3]
       direction = 'vertical'
     else
@@ -32,7 +32,7 @@ module ArticleSplitable
   end
 
   def split_rect(options={})
-    rect = article_rect
+    rect = article_grid_rect
     if rect[2] < 2 && rect[3] < 2
       puts "article is too small to split!!!"
       return false
@@ -78,7 +78,7 @@ module ArticleSplitable
     WorkingArticle.create(second_article_atts)
   end
 
-  def update_first_article_rect(new_rect)
+  def update_first_article_grid_rect(new_rect)
     # update size of first split article
     self.grid_x = new_rect[0]
     self.grid_y = new_rect[1]
@@ -91,7 +91,7 @@ module ArticleSplitable
   def split(options={})
     result = split_rect(options)
     if result
-      update_first_article_rect(result[0])
+      update_first_article_grid_rect(result[0])
       if result[2] == "v" || result[2] == "vertical"
         new_order = order + 1
       else

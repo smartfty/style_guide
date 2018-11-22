@@ -95,6 +95,14 @@ class Section < ApplicationRecord
     end
   end
 
+   def self.create_section_with(options={})
+    if s = Section.where(options).first
+      s
+    else
+      s = Section.where(options).create
+    end
+  end
+
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     save_section_config_yml
@@ -215,6 +223,17 @@ class Section < ApplicationRecord
   end
 
   def update_section_layout
+    update_profile
+    save_section_config_yml
+    copy_page_heading
+    create_articles
+    generate_article_pdf
+    generate_ad_box_template_pdf
+    generate_pdf
+  end
+
+  def update_section_layout_if
+    return if File.exist?(pdf_path)
     update_profile
     save_section_config_yml
     copy_page_heading

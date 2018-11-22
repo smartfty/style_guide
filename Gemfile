@@ -108,3 +108,5 @@ gem 'jquery-datatables'
 gem 'ajax-datatables-rails'
 gem 'sidekiq'
 gem 'hexapdf'
+
+# gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  

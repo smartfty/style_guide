@@ -58,10 +58,9 @@
   </div>
   <div class = "col-md-8"  align='left' style="padding-bottom: 40px;">
     <% if File.exist?(@section.pdf_path) %>
-    <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
-    <img width="95%" src="<%= @section.pdf_image_path %>"></img>
-    <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
-
+      <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
+      <img width="95%" src="<%= @section.pdf_image_path %>"></img>
+      <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
     <% end %>
   </div>
 
