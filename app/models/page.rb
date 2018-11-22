@@ -637,8 +637,12 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
+    
     working_articles.each do |working_article|
       working_article.generate_pdf
+    end
+    ad_boxes.each do |ad_box|
+      ad_box.generate_pdf
     end
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
     # copy_outputs_to_site

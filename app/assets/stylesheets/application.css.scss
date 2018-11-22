@@ -62,14 +62,17 @@ body{
   height: 40px !important
 }
 
- textarea.form-control-body {
-   height: 100% !important;
-   width: 100% !important;
- }
+//  textarea.form-control-body {
+//   //  height: 100% !important;
+//    width: 100% !important;
+//    overflow:visible !important;
+//  }
 
-textarea {
-  height: 100% !important;
-}
+// textarea {
+//   // height: 100% !important;
+//   width:100% !important;
+//   overflow:visible !important;
+// }
 
 .form-control {
   font-size: 13px !important;
@@ -87,7 +90,21 @@ textarea {
 }
 
 #working_article_body {
-  height: 100% !important;
+  // height: 100% !important;
+}
+
+.wrap {
+  width: 100%;
+  margin-left: -5px !important;
+  margin-right: -5px !important;
+}
+.wrap textarea {
+  width: 100% !important;
+  resize: none;
+  overflow-y: hidden; /* prevents scroll bar flash */
+  padding: 1.1em; /* prevents text jump on Enter keypress */
+  padding-bottom: 0.2em;
+  line-height: 1.6;
 }
 
 .form-group-body {
