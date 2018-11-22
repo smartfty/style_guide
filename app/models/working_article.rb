@@ -222,8 +222,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   def generate_pdf_with_time_stamp
-    puts __method__
-    puts "+++++++ order:#{order}"
     save_article
     delete_old_files
     stamp_time
@@ -377,7 +375,6 @@ class WorkingArticle < ApplicationRecord
     self.email             = h['email']
     self.body              = new_story[:body]
     self.save
-    
   end
 
   def swap
@@ -444,6 +441,23 @@ class WorkingArticle < ApplicationRecord
   def announcement_two
     self.announcement_column = 2
     self.save
+  end
+
+  def auto_size_image(options={})
+    target_image = options[:image] if options[:image]
+    unless target_image
+      target_image = images.first
+    end
+    return unless target_image
+    if target_image.auto_size == 0
+
+    else
+
+    end
+  end
+
+  def auto_fit_graphic(options={})
+
   end
 
   def update_page_pdf

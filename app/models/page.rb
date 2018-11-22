@@ -57,7 +57,7 @@ class Page < ApplicationRecord
   scope :clone_page, -> {where("clone_name!=?", nil)}
   attr_reader :time_stamp
   include PageSplitable
-  include PagePdfWrite
+  include PageSavePDF
   # extend FriendlyId
   # friendly_id :friendly_string, :use => [:slugged]
 

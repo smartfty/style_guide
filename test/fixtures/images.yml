@@ -29,6 +29,7 @@
 #  zoom_direction        :integer
 #  move_level            :integer
 #  sub_grid_size         :string
+#  auto_size             :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

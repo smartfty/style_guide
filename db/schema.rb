@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_085912) do
+ActiveRecord::Schema.define(version: 2018_11_21_213408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,6 +239,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_085912) do
     t.integer "zoom_direction"
     t.integer "move_level"
     t.string "sub_grid_size"
+    t.integer "auto_size"
   end
 
   create_table "issues", id: :serial, force: :cascade do |t|

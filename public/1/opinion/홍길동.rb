@@ -1,6 +1,7 @@
-RLayout::Container.new(width:158.74015748031,  height: 166.83914494488) do
+
+RLayout::Container.new(width:158.74015748031, height: 166.83914494488) do
   line(x: 0 , y:1, width: 158.74015748031, stroke_width: 2, height:0, stroke_color:"CMYK=0,0,0,100")
-  text('', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170, text_color:"CMYK=0,0,0,100")
+  text('기고', x: 0, y:5, font: 'KoPubDotumPB', font_size: 12, width: 170, text_color:"CMYK=0,0,0,100")
   rect(x: 0, y: 70, width:158.74015748031, height: 65,  fill_color:"CMYK=0,0,0,10")
   
     image(local_image: '홍길동.eps', y: 60, width: 60, height: 75, fill_color: 'clear')
