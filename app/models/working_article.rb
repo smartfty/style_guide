@@ -184,6 +184,7 @@ class WorkingArticle < ApplicationRecord
     # update content with new story content  
     self.reporter = story.reporter
     self.title    = story.title
+    self.subtitle    = story.subtitle
     self.body     = story.body
     self.quote    = story.quote  if story.quote
     self.save  

@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <% page.working_articles.each do |working_article| %>
+        <% page.working_articles.sort_by{|w| w.order}.each do |working_article| %>
           <tr style="background-color: #dddddd">
             <td style="text-align:center;"><%= working_article.page.page_number %></td>
             <td><%= working_article.reporter %></td>

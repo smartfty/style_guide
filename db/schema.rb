@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_213408) do
+ActiveRecord::Schema.define(version: 2018_11_26_010736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,18 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.float "gutter"
   end
 
+  create_table "columns", force: :cascade do |t|
+    t.float "x"
+    t.float "y"
+    t.float "width"
+    t.float "height"
+    t.integer "article_bottom_space_in_lines"
+    t.bigint "working_article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["working_article_id"], name: "index_columns_on_working_article_id"
+  end
+
   create_table "graphic_requests", force: :cascade do |t|
     t.date "date"
     t.string "title"
@@ -254,6 +266,20 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.index ["slug"], name: "index_issues_on_slug", unique: true
   end
 
+  create_table "line_fragments", force: :cascade do |t|
+    t.float "x"
+    t.float "y"
+    t.float "width"
+    t.float "height"
+    t.string "alignment"
+    t.bigint "paragraph_id"
+    t.bigint "column_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["column_id"], name: "index_line_fragments_on_column_id"
+    t.index ["paragraph_id"], name: "index_line_fragments_on_paragraph_id"
+  end
+
   create_table "opinion_writers", force: :cascade do |t|
     t.string "name"
     t.string "title"
@@ -335,6 +361,16 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+  end
+
+  create_table "paragraphs", force: :cascade do |t|
+    t.string "markup"
+    t.string "para_string"
+    t.string "article_type"
+    t.bigint "working_article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["working_article_id"], name: "index_paragraphs_on_working_article_id"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|
@@ -495,6 +531,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.string "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "summitted_section"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end
@@ -532,6 +569,23 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publication_id"], name: "index_text_styles_on_publication_id"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "sting"
+    t.float "x"
+    t.float "y"
+    t.float "width"
+    t.float "height"
+    t.float "font_size"
+    t.float "tracking"
+    t.float "scale"
+    t.bigint "paragraph_id"
+    t.bigint "line_fragment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_fragment_id"], name: "index_tokens_on_line_fragment_id"
+    t.index ["paragraph_id"], name: "index_tokens_on_paragraph_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -627,17 +681,22 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
 
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "columns", "working_articles"
   add_foreign_key "graphics", "working_articles"
   add_foreign_key "heading_ad_images", "page_headings"
   add_foreign_key "heading_bg_images", "page_headings"
   add_foreign_key "issues", "publications"
+  add_foreign_key "line_fragments", "columns"
+  add_foreign_key "line_fragments", "paragraphs"
   add_foreign_key "opinion_writers", "publications"
   add_foreign_key "page_plans", "issues"
+  add_foreign_key "paragraphs", "working_articles"
   add_foreign_key "profiles", "publications"
   add_foreign_key "spreads", "issues"
   add_foreign_key "stories", "users"
   add_foreign_key "stories", "working_articles"
   add_foreign_key "stroke_styles", "publications"
   add_foreign_key "text_styles", "publications"
+  add_foreign_key "tokens", "paragraphs"
   add_foreign_key "wire_stories", "issues"
 end

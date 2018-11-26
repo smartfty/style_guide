@@ -20,6 +20,17 @@
   - body
     - fit_text
 
+2018-11-26
+  - swap story and 사진
+  - swap between andy story and 사진
+
+  - 안내문 템플렛 이동시 자동 위치 유지
+
+  - 부제목 1, 2 단 선택
+  - page_template with box template
+
+  - page thumb, show selected
+  
 2018-11-20
   - 1면 4단 광고 우즉 여백
 
@@ -33,7 +44,6 @@
   - 문체매인 1면 top
   - fix page svg codinate
   - title column_number
-
 
 2018-11-12
   - add boxed_subtitle

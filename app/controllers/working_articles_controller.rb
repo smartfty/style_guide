@@ -100,7 +100,7 @@ class WorkingArticlesController < ApplicationController
   def change_story
     #todo
     # @stories = Story.where(group: , date: date)
-    @stories = Story.where(group: @working_article.page.section_name)
+    @stories = Story.where(summitted_section: @working_article.page.section_name)
   end
 
   def update_story

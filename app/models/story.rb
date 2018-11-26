@@ -24,6 +24,7 @@
 #  image_name         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  summitted_section  :string
 #
 # Indexes
 #
@@ -47,11 +48,23 @@ class Story < ApplicationRecord
     selected = "O" if status == "selected" 
     selected
   end
+  
+  def self.start_story
+    User.all.each do |user|
+      puts "user.role:#{user.role}"
+      if user.role == "reporter"
+        s = Story.where(user: user, date: Issue.last.date, summitted_section: user.group).first_or_create! 
+        puts "s.id:#{s.id}" if s
+
+      end
+    end
+  end 
 
   private
   
   def count_chars
-    self.char_count = body.length
+    self.char_count = 0
+    self.char_count = body.length if body
   end
 
   def init_atts
@@ -59,7 +72,8 @@ class Story < ApplicationRecord
     self.group    = user.group
     self.status   = 'draft'
     self.date     = Date.today unless date
-    self.title    = "제목은 여기에 입력 합니다." unless title
+    self.title    = "#{self.reporter}의 제목 입니다." unless title
+    self.subtitle = "#{self.reporter}의 부제목 입니다." unless title
     self.body     = "본문은 여기에 입력 합니다. "*5 unless body
     self.char_count = self.body.length
     if working_article
