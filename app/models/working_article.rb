@@ -49,6 +49,7 @@
 #  announcement_color           :string
 #  boxed_subtitle_type          :integer
 #  boxed_subtitle_text          :string
+#  subtitle_type                :string
 #
 # Indexes
 #
@@ -366,27 +367,6 @@ class WorkingArticle < ApplicationRecord
     add_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
 
-  def change_story_with(new_story)
-    h = new_story[:heading]
-    self.subject_head      = h['subject_head'] = subject_head
-    self.title             = h['title']
-    self.subtitle          = h['subtitle']
-    self.quote             = h['quote']
-    self.reporter          = h['reporter']
-    self.email             = h['email']
-    self.body              = new_story[:body]
-    self.save
-  end
-
-  def swap
-    return unless siblings.length == 1
-    sybling = siblings.first
-    sybling_story = sybling.story_yml
-    my_story = story_yml
-    sybling.change_story_with(my_story)
-    change_story_with(sybling_story)
-    update_page_pdf
-  end
 
   def show_quote_box?
     quote && quote != "" || quote_box_size && quote_box_size != "0"
@@ -656,6 +636,7 @@ class WorkingArticle < ApplicationRecord
   def layout_options
     h = {}
     h[:kind]                          = self.kind if kind
+    h[:subtitle_type]                 = self.subtitle_type || '1단'
     if kind == '사설' || kind == 'editorial'
         h[:has_profile_image]             = true if reporter
         h[:has_profile_image]             = false if reporter == ""
@@ -796,7 +777,7 @@ class WorkingArticle < ApplicationRecord
     self.title          = @metadata['title']
     self.title_head     = @metadata['title_head'] || nil
     self.subtitle       = @metadata['subtitle']
-    self.subtitle_head  = @metadata['subtitle_head'] || nil
+    self.subtitle_head  = @metadata['subtitle_type'] || nil
     self.body           = @contents
     self.reporter       = @metadata['reporter']
     self.email          = @metadata['email']

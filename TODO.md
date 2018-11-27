@@ -20,15 +20,18 @@
   - body
     - fit_text
 
-2018-11-26
+2018-11-27
+  - fix image position bug
   - swap story and 사진
   - swap between andy story and 사진
-
   - 안내문 템플렛 이동시 자동 위치 유지
-
   - 부제목 1, 2 단 선택
-  - page_template with box template
+    1. 1단
+    2. 2단
+    3. 2단 2단시작
+    4. 제목박스밑 가로
 
+  - page_template with box template
   - page thumb, show selected
   
 2018-11-20
