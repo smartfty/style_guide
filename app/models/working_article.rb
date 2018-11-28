@@ -69,7 +69,7 @@ class WorkingArticle < ApplicationRecord
   accepts_nested_attributes_for :images
   include ArticleSplitable
   include PageSplitable
-
+  include ArticleSwapable
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
 

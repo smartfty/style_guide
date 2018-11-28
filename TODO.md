@@ -21,6 +21,9 @@
     - fit_text
 
 2018-11-27
+  - story 에 관련 사진 추가
+
+2018-11-27
   - fix image position bug
   - swap story and 사진
   - swap between andy story and 사진

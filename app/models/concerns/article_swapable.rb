@@ -6,6 +6,8 @@ module ArticleSwapable
     atts.delete('id')
     atts.delete('create_at')
     atts.delete('updated_at')
+    atts.delete('grid_x')
+    atts.delete('grid_y')
     atts.delete('column')
     atts.delete('row')
     atts.delete('order')
@@ -42,9 +44,10 @@ module ArticleSwapable
 
   # swap with first sibling
   def swap
+    binding.pry
     return unless siblings.length == 1
     target = siblings.first
-    target_attrubutes      = target.swapable_attributes
+    target_attributes      = target.swapable_attributes
     target_images          = target.images
     target_graphics        = target.graphics
     target.swap_with(self)
@@ -62,7 +65,7 @@ module ArticleSwapable
   def swap_with_article_at_order(order)
     target = page.working_articles[order - 1]
     return unless target
-    target_attrubutes      = target.swapable_attributes
+    target_attributes      = target.swapable_attributes
     target_images          = target.images
     target_graphics        = target.graphics
     target.swap_with(self)
@@ -78,13 +81,11 @@ module ArticleSwapable
   end
 
   def swap_with(changing_article)
-    changing_attributes         = changing_article.attrubutes
+    changing_attributes         = changing_article.swapable_attributes
     changing_article_images     = changing_article.images
-    changing_article_graphicss  = changing_article.graphics
-    changing_attributes.delete('id')
-    changing_attributes.delete('created_at')
-    changing_attributes.delete('updated_at')
-    update(changing_attributes)
+    changing_article_graphics   = changing_article.graphics
+    self.update(changing_attributes)
+    self.save
     changing_article_images.each do |image|
       image.working_article_id = id
       image.save
