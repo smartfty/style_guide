@@ -58,10 +58,18 @@
 
   <div class="field">
     <%= f.label '위치정보' %> [ x, y, 단, 열 ]<br> 
-    <%= f.text_area :layout, cols: "80", rows: "10", font_size: "24px"%>
+    <%= f.text_area :layout, cols: "40", rows: "10", font_size: "24px"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit "내용저장"%>
-  </div>
+
+  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-success"><%= link_to "이전으로", sections_path, method: :get %></button>
+    <button type="submit" class="btn btn-primary"><%= link_to "저장", class: "btn btn-primary" %>
+    <button type="button" class="btn btn-danger"><%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_section_path(@section), method: :get %>
+    <button type="button" class="btn btn-warning"><%= link_to "다운로드 PDF", download_pdf_section_path, method: :get %>
+    </button>
+  <div>
+</nav>
 <% end %>

@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<button class="btn-danger large"><%= @issue.date.to_s %> (<%= @issue.number %>)</button>
+<!-- p id="notice"><%= notice %></p-->
+<nav class="navbar navbar-default navbar-fixed-top2">
+    <ul class="nav navbar-nav2 navbar-left float-frame">
+        <li class="float-unit">
+            <button class="btn btn-primary large left"><%= @issue.date.to_s %>(<%= @issue.number %>)</button>
+        </li>
+    </ul>
+</nav>
 <div class="row">
   <% @clone_pages.each do |page| %>
   <div class = "col-md-3"  align='center'>
