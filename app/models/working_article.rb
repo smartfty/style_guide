@@ -478,8 +478,10 @@ class WorkingArticle < ApplicationRecord
     h['extended_line_count']  = extended_line_count if extended_line_count && extended_line_count > 0
     h['pushed_line_count']    = pushed_line_count if pushed_line_count && pushed_line_count > 0
     h['subject_head']         = subject_head
-    h['title']                = RubyPants.new(title).to_html
-    h['subtitle']             = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+    h['title']                = RubyPants.new(title).to_html if title
+    if subtitle
+      h['subtitle']             = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+    end
     h['boxed_subtitle_text']  = RubyPants.new(boxed_subtitle_text).to_html if boxed_subtitle_type && boxed_subtitle_type.to_i > 0
     h['quote']                = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
     h['announcement']         = RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0

@@ -19,6 +19,10 @@
 
   - body
     - fit_text
+    
+2018-11-28
+  - 7단15 ordering bug fix
+    when make article order, skip ad_box, it was causing mixup
 
 2018-11-27
   - story 에 관련 사진 추가

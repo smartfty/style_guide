@@ -448,7 +448,8 @@ class Section < ApplicationRecord
           ad_box_atts[:grid_y]   = box[1]
           ad_box_atts[:column]   = box[2]
           ad_box_atts[:row]      = box[3]
-          ad_box_atts[:order]    = i + 1
+          # ad_box does not count as article order
+          # ad_box_atts[:order]    = i + 1
           ad_box_atts[:ad_type]   = box[4].split("_")[1]
           AdBoxTemplate.where(ad_box_atts).first_or_create!
         else
