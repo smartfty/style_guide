@@ -1,9 +1,0 @@
-<% if @story.selected%>
-    <%= render 'selected', story: @story, working_article: @story.working_article %>
-<% else %>
-    <%= render 'form', story: @story %>
-<% end %>
-
-<div align="center">
-    <%= link_to '이전으로', my_stories_path , method: :get, class: "btn btn-md btn-success"%>   
-</div>
