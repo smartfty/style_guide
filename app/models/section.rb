@@ -409,7 +409,8 @@ class Section < ApplicationRecord
 
   # prefered page for specific page_number
   def create_articles
-    count = 0
+
+    article_count = 0
     box_array = eval_layout
     box_array.each_with_index do |box, i|
       article_atts = {}
@@ -418,7 +419,7 @@ class Section < ApplicationRecord
       article_atts[:grid_y]   = box[1]
       article_atts[:column]   = box[2]
       article_atts[:row]      = box[3]
-      article_atts[:order]    = i + 1
+      article_atts[:order]    = article_count + 1
       article_atts[:kind]     = '기사'
       article_atts[:is_front_page]  = false
       article_atts[:is_front_page]  = true if is_front_page
@@ -455,12 +456,12 @@ class Section < ApplicationRecord
         else
           article_atts[:kind] = box[4]
           Article.where(article_atts).first_or_create!
-          count += 1
+          article_count += 1
         end
       else
         article_atts[:kind] = '기사'
         Article.where(article_atts).first_or_create!
-        count += 1
+        article_count += 1
       end
     end
   end

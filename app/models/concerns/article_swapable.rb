@@ -44,7 +44,6 @@ module ArticleSwapable
 
   # swap with first sibling
   def swap
-    binding.pry
     return unless siblings.length == 1
     target = siblings.first
     target_attributes      = target.swapable_attributes

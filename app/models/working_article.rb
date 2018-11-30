@@ -590,6 +590,9 @@ class WorkingArticle < ApplicationRecord
   # def grid_width
   #   publication.grid_width(page_columns)
   # end
+  def grid_frame
+    [grid_x, grid_y, column, row]
+  end
 
   def grid_height
     publication.grid_height

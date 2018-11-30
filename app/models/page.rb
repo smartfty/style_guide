@@ -319,7 +319,7 @@ class Page < ApplicationRecord
     else
       sorted_articles = section.articles.sort_by {|article| article.order}
       sorted_articles.each_with_index do |article, i|
-        current = {page_id: self.id, order:article.order}
+        current = {page_id: self.id, order: i + 1}
         if wa = WorkingArticle.where(current).first
           wa.change_article(article)
           wa.generate_pdf_with_time_stamp
@@ -371,31 +371,47 @@ class Page < ApplicationRecord
     # result                        = PageHeading.where(heading_atts).first_or_create
   end
 
-  def change_ad_boxes
-    section = Section.find(template_id)
-    section.ad_box_templates.each_with_index do |ad_box_template, i|
-      current = {page_id: self.id}
-      #TODO
+  def change_ad_boxes(section)
+    # assuming only one ad per page,  
+    # TODO handle case when there are multiple ads in a page
+    # section.ad_box_templates.each_with_index do |ad_box_template, i|
+    ad_box_template = section.ad_box_templates.first
+    if ad_box_template
+      current = {page_id: self.id, ad_type: self.ad_type}
       if ad = AdBox.where(current).first
+        puts  "same type found, do nothing"
       else
-        current[:grid_x] = ad_box_template.grid_x
-        current[:grid_y] = ad_box_template.grid_y
-        current[:column] = ad_box_template.column
-        current[:row] = ad_box_template.row
-        current[:order] = i
-        AdBox.create(current)
+        current = {}
+        current['page_id'] = id
+        current['ad_type'] = ad_box_template.ad_type
+        current['grid_x']  = ad_box_template.grid_x
+        current['grid_y']  = ad_box_template.grid_y
+        current['column']  = ad_box_template.column
+        current['row']     = ad_box_template.row
+        current['order']   = 1
+
+        if ad_boxes.length > 0
+          puts "different type of ad exists: #{ad_box_template.ad_type}, change it to new ad type :#{current[:ad_type]}"
+          currnet_ad_box = ad_boxes.first
+          currnet_ad_box.update(current)
+          currnet_ad_box.save
+          currnet_ad_box.generate_pdf_with_time_stamp
+        else
+          puts "create ad"
+          AdBox.create(current)
+        end
       end
     end
 
     # mark unused as inactive
-    ad_boxes.each_with_index do |ad_box, i|
-      if i >= section.ad_box_templates.length
-        ad_box.inactive = true
-      else
-        ad_box.inactive = false
-      end
-      ad_box.save
-    end
+    # ad_boxes.each_with_index do |ad_box, i|
+    #   if i >= section.ad_box_templates.length
+    #     ad_box.inactive = true
+    #   else
+    #     ad_box.inactive = false
+    #   end
+    #   ad_box.save
+    # end
   end
 
   def story_backup_folder
@@ -571,7 +587,7 @@ class Page < ApplicationRecord
     change_heading
     generate_heading_pdf
     change_working_articles(new_section)
-    change_ad_boxes
+    change_ad_boxes(new_section)
     generate_pdf_with_time_stamp
   end
 
@@ -689,7 +705,7 @@ class Page < ApplicationRecord
       next if article.inactive
       box_element_svg += article.box_svg
     end
-    ad_boxes.each do |ad_box|
+    if ad_box = ad_boxes.first
       box_element_svg += ad_box.box_svg
     end
     box_element_svg += '</g>'
