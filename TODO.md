@@ -19,7 +19,13 @@
 
   - body
     - fit_text
-    
+
+2018-11-30
+  - fix 7단-15 bug
+  - on issue_plan, selecting page ad_type for page
+    present only the types available for page
+    100 and 101 for even and odd page type
+
 2018-11-28
   - 7단15 ordering bug fix
     when make article order, skip ad_box, it was causing mixup

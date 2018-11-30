@@ -23,7 +23,7 @@
 
     <div class="field">
       <%= f.label :광고종류 %>
-      <%= f.select :ad_type, Ad.all.uniq { |p| p.name }.collect{|p| p.name}, include_blank: true %>
+      <%= f.select :ad_type, @available_ad_type, include_blank: false %>
     </div>
 
     <div class="field">
