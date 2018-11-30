@@ -49,6 +49,7 @@
 #  announcement_color           :string
 #  boxed_subtitle_type          :integer
 #  boxed_subtitle_text          :string
+#  subtitle_type                :string
 #
 # Indexes
 #
