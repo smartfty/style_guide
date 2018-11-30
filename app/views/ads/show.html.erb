@@ -1,0 +1,24 @@
+<!-- p id="notice"><%= notice %></p-->
+
+<p>
+  <strong>Name:</strong>
+  <%= @ad.name %>
+</p>
+
+<p>
+  <strong>Column:</strong>
+  <%= @ad.column %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @ad.row %>
+</p>
+
+<p>
+  <strong>Page columns:</strong>
+  <%= @ad.page_columns %>
+</p>
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>
