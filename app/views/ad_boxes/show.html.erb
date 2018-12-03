@@ -1,0 +1,51 @@
+<div class="row">
+  <p></p>
+</div>
+
+<div class="view">
+  <div class="col-xs-3 col-md-2">
+    <% @ad_box.page.section_pages.each do |page| %>
+      <div class="col-xs-12 col-md-12">
+      <div>
+      <%= raw page.to_svg_with_jpg %>
+        <a href="<%= page_path(page) %>"><!-- img width="100%" src="<%= page.jpg_image_path %>"></img-->
+          <p align=center><%= page.page_number %>
+        </a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+    <!-- div class="col-xs-9 col-sm-3">
+      <div class="button-group">
+        <% if browser.safari? %>
+          <%= raw @ad_box.page.to_svg %>
+          <% elsif browser.modern?  || browser.ie?%>
+            <%= raw @ad_box.page.to_svg_with_jpg %>
+          <% end %>
+          <p align="center"><%= @ad_box.page.page_number %>
+          </a>
+        </div>
+      </div-->
+
+      <div class="col-xs-12 col-md-2">
+        <h3>광고정보</h3>
+        <%= render 'form', ad_box: @ad_box %>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+
+      <!-- true -->
+      <div class="col-xs-12 col-md-4">
+        <% unless @ad_box.ad_image.nil? %>
+          <% if browser.safari? %>
+            <%= image_tag @ad_box.pdf_image_path %>
+
+            <% elsif browser.modern?  || browser.ie?%>
+              <%= image_tag @ad_box.jpg_image_path %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>

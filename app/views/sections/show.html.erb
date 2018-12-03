@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class = "col-md-4"  align='left' style="padding-bottom: 40px;">
+    <h3>
+      <strong>섹션이름:</strong>
+      <%= @section.section_name %>
+    </h3>
+    <p>
+      <strong>프로필:</strong>
+      <%= @section.profile %>
+    </p>
+
+    <p>
+      <strong>행:</strong>
+      <%= @section.column %>
+    </p>
+
+    <p>
+      <strong>열:</strong>
+      <%= @section.row %>
+    </p>
+
+    <p>
+      <strong>광고종류:</strong>
+      <%= @section.ad_type %>
+    </p>
+
+    <p>
+      <strong>1면:</strong>
+      <%= @section.is_front_page %>
+    </p>
+
+    <p>
+      <strong>가사수:</strong>
+      <%= @section.story_count %>
+    </p>
+
+    <p>
+      <strong>면변호:</strong>
+      <%= @section.page_number %>
+    </p>
+
+    <p>
+      <strong>컬러면:</strong>
+      <%= @section.color_page %>
+    </p>
+
+    <p>
+      <%= raw @section.to_svg %>
+    </p>
+
+    <div class="button-group">
+      <%= link_to "수정", edit_section_path(@section), method: :get, class: "btn btn-sm btn-danger" %>
+      <%= link_to "이전으로", sections_path, method: :get, class: "btn btn-sm btn-primary" %>
+    </div>
+
+  </div>
+  <div class = "col-md-8"  align='left' style="padding-bottom: 40px;">
+    <% if File.exist?(@section.pdf_path) %>
+      <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
+      <img width="95%" src="<%= @section.pdf_image_path %>"></img>
+      <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
+    <% end %>
+  </div>
+
+</div>
+
+<div align="center">
+  <%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_section_path(@section), method: :get, class: "btn-group btn btn-sm btn-primary" , align: "center"%>
+</div>

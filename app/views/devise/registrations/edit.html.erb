@@ -1,0 +1,41 @@
+<div class="authform">
+  <h3>사용자 정보 수정 </h3>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="form-group">
+      <%= f.label :이름 %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :이메일 %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    </div>
+    <fieldset>
+      <p>암호 변경을 원하지 않으시면 다음를 빈 공간으로 나두시면 됩니다.</p>
+      <div class="form-group">
+        <%= f.label :암호 %>
+        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :암호확인 %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </fieldset>
+    <fieldset>
+      <p>암호 수정은 기존 암호를 필요로 합니다.</p>
+      <div class="form-group">
+        <%= f.label :기존암호 %>
+        <%= f.password_field :current_password, class: 'form-control' %>
+      </div>
+    </fieldset>
+    <%= f.submit '수정', :class => 'button right' %>
+  <% end %>
+</div>
+<div class="authform">
+<h3>가입취소 희망 합니다</h3>
+<p>다음 기회에 또 가입하시기를 바랍니다.</p>
+<%= button_to "가입취소", registration_path(resource_name), :data => { :confirm => "정말 가입 취소 원하십니까?" }, :method => :delete, :class => 'button right' %>
+</div>

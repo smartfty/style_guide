@@ -1,0 +1,12 @@
+
+<h3>신규 기고 저자</h3>
+<%= render 'form', profile: @profile %>
+<!-- <%= link_to 'Back', profiles_path %> -->
+<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to "이전으로", profiles_path, method: :get, class: "btn btn-sm btn-success" %>
+        </li>
+      </ul>
+    </nav>

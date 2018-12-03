@@ -1,0 +1,16 @@
+<%= simple_form_for(@graphic_request) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :date, label: '날짜'%>
+    <%= f.input :title, label: '제목' %>
+    <%= f.input :requester, label: '의뢰인'%>
+    <%= f.input :person_in_charge, label: '담당자' %>
+    <%= f.input :status, label: '진행상황' %>
+    <%= f.input :description, label: '비고' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, '의뢰하기', class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>
