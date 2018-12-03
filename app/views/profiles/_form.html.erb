@@ -1,0 +1,22 @@
+<%= simple_form_for(profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label: "분류", :collection => ["기고", "정치시평"], include_blank: false %>
+    <%= f.input :name, label: "이름" %>
+    <%= f.input :work, label: "소속" %>
+    <%= f.input :position, label: "직책" %>
+    <%= f.input :profile_image, label: "EPS선택" %>
+    <%= f.input :profile_jpg_image, label: "JPG선택" %>
+    <%= f.association :publication , :as => :hidden, input_html: {value: 1}%>
+  </div>
+
+  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-success"><%= link_to "이전으로", profiles_path, method: :get %></button>
+    <button type="submit" class="btn btn-primary"><%= link_to "저장" %>
+    <button type="button" class="btn btn-danger"><%= link_to '삭제', @profiles, method: :delete, data: { confirm: '정말 삭제하겠습니까?' } %></button>
+  <div>
+</nav>
+<% end %>

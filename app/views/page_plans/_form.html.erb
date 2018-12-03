@@ -1,0 +1,41 @@
+
+
+  <%= form_for(page_plan) do |f| %>
+    <% if page_plan.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(page_plan.errors.count, "error") %> prohibited this page_planpage_plan from being saved:</h2>
+
+        <ul>
+        <% page_plan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :마감시간 %>
+      <%= f.text_field :deadline %>
+    </div>
+    <div class="field">
+      <%= f.label :섹션이름 %>
+      <%= f.text_field :section_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :광고종류 %>
+      <%= f.select :ad_type, Ad.all.uniq { |p| p.name }.collect{|p| p.name}, include_blank: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :광고주 %>
+      <%= f.text_field :advertiser %>
+    </div>
+    <div class="field">
+      <%= f.label :칼라면 %>
+      <%= f.check_box :color_page %>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-sm btn-primary">저장</button>
+    </div>
+  <% end %>
