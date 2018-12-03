@@ -11,7 +11,12 @@
     <%= f.association :publication , :as => :hidden, input_html: {value: 1}%>
   </div>
 
-  <div class="form-actions">
+  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-success"><%= link_to "이전으로", profiles_path, method: :get %></button>
     <%= f.button :submit, value: "저장"%>
-  </div>
+    <button type="button" class="btn btn-danger"><%= link_to '삭제', @profiles, method: :delete, data: { confirm: '정말 삭제하겠습니까?' } %></button>
+  <div>
+</nav>
 <% end %>

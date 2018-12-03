@@ -92,7 +92,7 @@ main {
 .selected_template {
   border: 4px;
   color: #000;
-  background-color: #f00;
+  background-color: #fffb00;
   padding-top: 2px;
   padding-right: 2px;
   padding-left: 2px;
@@ -100,7 +100,7 @@ main {
 
   &:hover {
     color: #fff;
-    background-color: #f00;
+    background-color: #000;
   }
 }
 
