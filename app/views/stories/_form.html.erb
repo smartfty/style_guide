@@ -19,22 +19,22 @@
 
   <div class="field">
     <%= form.label :제목 %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :size=>"40" %>
   </div>
 
   <div class="field">
     <%= form.label :부제목 %>
-    <%= form.text_field :subtitle %>
+    <%= form.text_field :subtitle, :size=>"40" %>
   </div>
 
   <div class="field">
     <%= form.label :본문 %>
-    <%= form.text_area :body, cols: 60, rows: 30 %>
+    <%= form.text_area :body, cols: 120, rows: 30 %>
   </div>
 
   <div class="field">
-    <%= form.label '1면출고' %>
-    <%= form.check_box :for_front_page %>
+    <%= form.label '출고 섹션' %>
+    <%= form.select :summitted_section, ['미정', '1면','정치','행정','국제통일','금융','산업','정책','기획','오피니언',]%>
   </div>
 
   <div class="actions">

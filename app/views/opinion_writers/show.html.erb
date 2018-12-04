@@ -21,11 +21,12 @@
       <p></p>
     </div>
   </div>
+  
   <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
   <nav class="navbar navbar-default navbar-fixed-top2">
-    <ul class="nav navbar-nav2 float-frame">
-      <li class="float-unit">
-        <%= link_to "이전으로", opinion_writers_path, method: :get, class: "btn btn-md btn-success" %>
-      </li>
-    </ul>
-  </nav>
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-success"><%= link_to "이전으로", opinion_writers_path, method: :get %></button>
+    <%= f.button :submit, class: "btn btn-primary", value: "저장" %>
+    <button type="button" class="btn btn-danger"><%= link_to '삭제', @opinion_writers, method: :delete, data: { confirm: '정말 삭제하겠습니까?' } %></button>
+  <div>
+</nav>

@@ -1,7 +1,7 @@
-  
+
   <div align='center'>
   <h3>페이지 베열 내용 수정</h3>
-    <%= render 'form', page_plan: @page_plan %>
+    <%= render 'form', page_plan: @page_plan , available_ad_type: @available_ad_type %>
 
   <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-md btn-success"  %>
   </div>

@@ -34,6 +34,7 @@
         </div>
         <div class="form-group">
           <%= f.label :부제목 %> 
+          <%= f.select :subtitle_type, ['1단', '2단', '2단-2단시작', '제목밑 가로'] %>
           <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
         </div>
         <div class="form-group">
@@ -79,7 +80,7 @@
 
     <div class="wrap form-group">
       <%= f.label :본문 %>
-      <%= f.text_area :body, class: 'form-control'%>
+      <%= f.text_area :body, rows: "40", class: 'form-control'%>
     </div>
 
     <div class="field">
@@ -95,39 +96,4 @@
     </div>
   <% end %>
 
-  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-  <nav class="navbar navbar-default navbar-fixed-top2">
-    <ul class="nav navbar-nav2 navbar-left float-frame">
-      <li class="float-unit">
-        <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-md btn-success" %>
-      </li>
-      <li class="float-unit">
-        <%= f.button "저장하기", class: "btn btn-md btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-      </li>
-      <li class="float-unit">
-        <%= link_to "페이지 PDF", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-md btn-warning" %>
-      </li>
-      <li class="float-unit">
-        <%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-md btn-danger" %>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <ul class="nav navbar-nav2 navbar-right float-frame">
-      <li class="float-unit">
-        <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-md btn-success" %>
-      </li>
-      <li class="float-unit">
-        <%= f.button "저장하기", class: "btn btn-md btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-      </li>
-      <li class="float-unit">
-        <%= link_to "페이지 PDF", download_pdf_page_path(@working_article.page), method: :get, class: "btn btn-md btn-warning" %>
-      </li>
-      <li class="float-unit">
-        <%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-md btn-danger" %>
-      </li>
-    </ul>
-  </nav>
 <% end %>

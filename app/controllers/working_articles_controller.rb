@@ -100,7 +100,7 @@ class WorkingArticlesController < ApplicationController
   def change_story
     #todo
     # @stories = Story.where(group: , date: date)
-    @stories = Story.where(group: @working_article.page.section_name)
+    @stories = Story.where(summitted_section: @working_article.page.section_name)
   end
 
   def update_story
@@ -278,6 +278,90 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '위 아래 가사가 교체 되었습니다.'
   end
 
+  def swap_with_one
+    set_working_article
+    @working_article.swap_with(1)
+    redirect_to working_article_path(@working_article), notice: '위 아래 가사가 교체 되었습니다.'
+  end
+
+  def swap_with_two
+    set_working_article
+    @working_article.swap_with(2)
+    redirect_to working_article_path(@working_article), notice: '2번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_three
+    set_working_article
+    @working_article.swap_with(3)
+    redirect_to working_article_path(@working_article), notice: '3번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_four
+    set_working_article
+    @working_article.swap_with(4)
+    redirect_to working_article_path(@working_article), notice: '4번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_five
+    set_working_article
+    @working_article.swap_with(5)
+    redirect_to working_article_path(@working_article), notice: '5번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_six
+    set_working_article
+    @working_article.swap_with(6)
+    redirect_to working_article_path(@working_article), notice: '6번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_seven
+    set_working_article
+    @working_article.swap_with(7)
+    redirect_to working_article_path(@working_article), notice: '7번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_eight
+    set_working_article
+    @working_article.swap_with(8)
+    redirect_to working_article_path(@working_article), notice: '8번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_nine
+    set_working_article
+    @working_article.swap_with(9)
+    redirect_to working_article_path(@working_article), notice: '9번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_ten
+    set_working_article
+    @working_article.swap_with(10)
+    redirect_to working_article_path(@working_article), notice: '10번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_eleven
+    set_working_article
+    @working_article.swap_with(11)
+    redirect_to working_article_path(@working_article), notice: '11번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_twelve
+    set_working_article
+    @working_article.swap_with(12)
+    redirect_to working_article_path(@working_article), notice: '12번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_thirteen
+    set_working_article
+    @working_article.swap_with(13)
+    redirect_to working_article_path(@working_article), notice: '13번 가사와 교체 되었습니다.'
+  end
+
+  def swap_with_fourteen
+    set_working_article
+    @working_article.swap_with(14)
+    redirect_to working_article_path(@working_article), notice: '14번 가사와 교체 되었습니다.'
+  end
+
   def quote_auto
     set_working_article
     @working_article.quote_auto
@@ -372,7 +456,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle,  :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title,  :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color)
     end
 
     def filter_markdown?

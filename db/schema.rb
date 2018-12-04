@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_213408) do
+ActiveRecord::Schema.define(version: 2018_11_26_235305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -495,6 +495,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.string "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "summitted_section"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end
@@ -620,6 +621,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_213408) do
     t.string "announcement_color"
     t.integer "boxed_subtitle_type"
     t.string "boxed_subtitle_text"
+    t.string "subtitle_type"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

@@ -1,5 +1,5 @@
-
 <div align="center">
+
 <h3>페이지 템플렛</h3>
 
 <%= search_form_for @q do |f| %>
@@ -16,7 +16,6 @@
 <% end %>
 <br>
 
-<div align="center">
 <table border="1" align="center">
   <thead>
     <tr>
@@ -39,7 +38,7 @@
         <td style="text-align:center;"><%= section.story_count %></td>
         <td style="text-align:center;"><%= section.id %></td>
         <td><%= button_to "보기", section, method: :get, class: "btn btn-sm btn-success" %></td>
-        <td><%= button_to "수정", edit_section_path(section), method: :get, class: "btn btn-sm btn-warning" %></td>
+        <!--td><%= button_to "수정", edit_section_path(section), method: :get, class: "btn btn-sm btn-warning" %></td-->
         <td><%= button_to "복제", duplicate_section_path(section), method: :get, class: "btn btn-sm btn-primary" %></td>
         <td><%= button_to "삭제", section, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
@@ -51,9 +50,14 @@
 <br>
 
 <div align="center">
-  <%= link_to "새항목 생성", new_section_path, method: :get, class: "btn btn-sm btn-info" , align: "center"%>
-  <%= link_to "다운로드 CSV", sections_path(format: "csv"), method: :get, class: "btn btn-sm btn-warning" , align: "center"%>
-</div>
-<div align="center">
   <%= paginate @sections %>
 </div>
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group" role="group" aria-label="기능">
+  <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_section_path, method: :get %></button>
+  <button type="button" class="btn btn-warning"><%= link_to "다운로드 CSV", sections_path(format: "csv"), method: :get %></button>
+  <div>
+</nav>

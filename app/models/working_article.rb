@@ -49,6 +49,7 @@
 #  announcement_color           :string
 #  boxed_subtitle_type          :integer
 #  boxed_subtitle_text          :string
+#  subtitle_type                :string
 #
 # Indexes
 #
@@ -68,7 +69,7 @@ class WorkingArticle < ApplicationRecord
   accepts_nested_attributes_for :images
   include ArticleSplitable
   include PageSplitable
-
+  include ArticleSwapable
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
 
@@ -184,6 +185,7 @@ class WorkingArticle < ApplicationRecord
     # update content with new story content  
     self.reporter = story.reporter
     self.title    = story.title
+    self.subtitle    = story.subtitle
     self.body     = story.body
     self.quote    = story.quote  if story.quote
     self.save  
@@ -365,27 +367,6 @@ class WorkingArticle < ApplicationRecord
     add_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
 
-  def change_story_with(new_story)
-    h = new_story[:heading]
-    self.subject_head      = h['subject_head'] = subject_head
-    self.title             = h['title']
-    self.subtitle          = h['subtitle']
-    self.quote             = h['quote']
-    self.reporter          = h['reporter']
-    self.email             = h['email']
-    self.body              = new_story[:body]
-    self.save
-  end
-
-  def swap
-    return unless siblings.length == 1
-    sybling = siblings.first
-    sybling_story = sybling.story_yml
-    my_story = story_yml
-    sybling.change_story_with(my_story)
-    change_story_with(sybling_story)
-    update_page_pdf
-  end
 
   def show_quote_box?
     quote && quote != "" || quote_box_size && quote_box_size != "0"
@@ -395,6 +376,12 @@ class WorkingArticle < ApplicationRecord
     h = article_info
     return nil unless h
     h[:empty_lines]
+  end
+
+  def overflow_line_count
+    h = article_info
+    return nil unless h
+    h[:overflow_line_count]
   end
 
   def quote_auto
@@ -449,10 +436,13 @@ class WorkingArticle < ApplicationRecord
       target_image = images.first
     end
     return unless target_image
-    if target_image.auto_size == 0
-
-    else
-
+    image_column = target_image.column
+    if empty_lines_count
+      size_to_extend = empty_lines_count/image_column
+      puts "size_to_extend:#{size_to_extend}"
+    elsif overflow_line_count
+      size_to_reduce = overflow_line_count/image_column
+      puts "size_to_reduce:#{size_to_reduce}"
     end
   end
 
@@ -488,8 +478,10 @@ class WorkingArticle < ApplicationRecord
     h['extended_line_count']  = extended_line_count if extended_line_count && extended_line_count > 0
     h['pushed_line_count']    = pushed_line_count if pushed_line_count && pushed_line_count > 0
     h['subject_head']         = subject_head
-    h['title']                = RubyPants.new(title).to_html
-    h['subtitle']             = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+    h['title']                = RubyPants.new(title).to_html if title
+    if subtitle
+      h['subtitle']             = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+    end
     h['boxed_subtitle_text']  = RubyPants.new(boxed_subtitle_text).to_html if boxed_subtitle_type && boxed_subtitle_type.to_i > 0
     h['quote']                = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
     h['announcement']         = RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0
@@ -598,6 +590,9 @@ class WorkingArticle < ApplicationRecord
   # def grid_width
   #   publication.grid_width(page_columns)
   # end
+  def grid_frame
+    [grid_x, grid_y, column, row]
+  end
 
   def grid_height
     publication.grid_height
@@ -646,6 +641,7 @@ class WorkingArticle < ApplicationRecord
   def layout_options
     h = {}
     h[:kind]                          = self.kind if kind
+    h[:subtitle_type]                 = self.subtitle_type || '1단'
     if kind == '사설' || kind == 'editorial'
         h[:has_profile_image]             = true if reporter
         h[:has_profile_image]             = false if reporter == ""
@@ -786,7 +782,7 @@ class WorkingArticle < ApplicationRecord
     self.title          = @metadata['title']
     self.title_head     = @metadata['title_head'] || nil
     self.subtitle       = @metadata['subtitle']
-    self.subtitle_head  = @metadata['subtitle_head'] || nil
+    self.subtitle_head  = @metadata['subtitle_type'] || nil
     self.body           = @contents
     self.reporter       = @metadata['reporter']
     self.email          = @metadata['email']

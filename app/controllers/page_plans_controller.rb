@@ -21,6 +21,11 @@ class PagePlansController < ApplicationController
   def edit
     puts "in edit #{@page_plan.page_number}"
     @page_templates = Section.where(page_number: @page_plan.page_number).all
+    if @page_templates.length == 0
+      @available_ad_type = []
+    else
+      @available_ad_type = @page_templates.map {|p| p.ad_type}.uniq
+    end
   end
 
   # POST /page_plans
