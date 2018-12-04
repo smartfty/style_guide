@@ -153,6 +153,8 @@ Rails.application.routes.draw do
       get 'slide_show'
       get 'assign_reporter'
 
+      get 'generate_stories'
+
       get 'first_group'
       get 'second_group'
       get 'third_group'

@@ -8,6 +8,9 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
+    @stories = Story.where(date:Issue.last.date, summitted: true).all
+    @stories = Story.where(date:Issue.last.date).all
+
     respond_to do |format|
       format.html
       format.json { render json: StoryDatatable.new(params) }

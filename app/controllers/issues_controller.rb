@@ -243,6 +243,11 @@ class IssuesController < ApplicationController
     end #code
   end
 
+  def generate_stories
+    Story.start_story
+    redirect_to stories_path
+  end
+
   def first_group_stories
     set_issue
     group = @issue.publication.sections[0]
@@ -254,6 +259,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[1]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'second_group'
   end
 
