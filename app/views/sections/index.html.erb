@@ -51,6 +51,8 @@
 
 <div align="center">
   <%= paginate @sections %>
+  <%= button_to "다운로드 CSV", sections_path(format: "csv"), method: :get, class: "btn btn-sm btn-warning" , align: "center"%>
+
 </div>
 
 
@@ -59,5 +61,6 @@
   <div class="btn-group" role="group" aria-label="기능">
   <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_section_path, method: :get %></button>
   <button type="button" class="btn btn-warning"><%= link_to "다운로드 CSV", sections_path(format: "csv"), method: :get %></button>
+
   <div>
 </nav>
