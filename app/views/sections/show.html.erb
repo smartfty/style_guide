@@ -1,7 +1,7 @@
 <!-- p id="notice"><%= notice %></p-->
 
 <div class="row">
-  <div class="col-md-3" align='left' style="padding-bottom: 40px;">
+  <div class="col-md-2" align='left' style="padding-bottom: 40px;">
     <h3>
       <strong>섹션이름:</strong>
       <%= @section.section_name %>
@@ -49,10 +49,10 @@
     <p>
       <%= raw @section.to_svg %>
     </p>
-    <div class="button-group">
+    <!-- div class="button-group">
       <%= link_to "수정", edit_section_path(@section), method: :get, class: "btn btn-sm btn-danger" %>
-      <!-- %= link_to "이전으로", sections_path, method: :get, class: "btn btn-sm btn-primary" %-->
-    </div>
+      <%= link_to "이전으로", sections_path, method: :get, class: "btn btn-sm btn-primary" %>
+    </div-->
   </div>
 
   <div class="col-md-3">
@@ -67,3 +67,10 @@
   </div>
 
   </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="btn-group" role="group" aria-label="기능">
+  <button type="button" class="btn btn-danger"><%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_section_path(@section), method: :get %></button>
+  <button type="button" class="btn btn-warning"><%= link_to "다운로드 PDF", download_pdf_section_path, method: :get %></button>
+  <div>
+</nav>

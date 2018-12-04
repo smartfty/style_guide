@@ -15,7 +15,7 @@
   <nav class="navbar navbar-default navbar-fixed-top2">
   <div class="btn-group" role="group" aria-label="기능">
     <button type="button" class="btn btn-success"><%= link_to "이전으로", profiles_path, method: :get %></button>
-    <%= f.button :submit, value: "저장"%>
+    <button type="submit" class="btn btn-primary"><%= link_to "저장" %>
     <button type="button" class="btn btn-danger"><%= link_to '삭제', @profiles, method: :delete, data: { confirm: '정말 삭제하겠습니까?' } %></button>
   <div>
 </nav>

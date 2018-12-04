@@ -25,21 +25,15 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
   </head>
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="nav-space">
+    <!-- p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p-->
     <header id="header">
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main" id="container" >
-      <div class="space">
-      <p> </p>
-      </div>
        <%= render 'layouts/messages' %>
        <%= yield %>
-       <div class="space">
-       <p> </p>
-       </div>
     </main>
     <footer id="footer">
       <p> </p>
