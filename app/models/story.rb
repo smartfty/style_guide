@@ -55,7 +55,6 @@ class Story < ApplicationRecord
       if user.role == "reporter"
         s = Story.where(user: user, date: Issue.last.date, summitted_section: user.group).first_or_create! 
         puts "s.id:#{s.id}" if s
-
       end
     end
   end 

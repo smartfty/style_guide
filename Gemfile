@@ -61,31 +61,34 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'griddler'
-gem 'rails_layout'
-gem 'bootstrap-sass'
+
 # gem 'high_voltage'
 # gem 'jquery-ace-rails'
+gem 'simple_form'
+gem 'bootstrap_form'
+gem 'carrierwave'
+gem 'sinatra', '~> 2.0.1'
+gem 'rest-client'
 
+gem 'rails_layout'
+gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'devise'
-gem 'bootstrap_form'
-gem 'simple_form'
 gem 'rubypants-unicode'
-gem 'carrierwave'
 gem "font-awesome-rails"
 gem 'seed_dump'
 gem "browser"
-gem 'sinatra', '~> 2.0.1'
-gem 'rest-client'
 gem 'faker'
+gem 'ransack'
+gem 'whenever'
+gem 'sidekiq'
+gem 'hexapdf'
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
-gem 'ransack'
 gem 'rubyzip', '>= 1.0.0'
 gem 'zip-zip'
 gem 'mechanize'
-gem 'whenever'
 # gem 'pgreset', '~> 0.1.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 gem 'simplecov', require: false, group: :test
@@ -98,6 +101,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'rails-controller-testing'
+
 end
 
 gem 'bullet', group: 'development'
@@ -106,7 +110,6 @@ gem 'bullet', group: 'development'
 gem 'rails-assets-trix', source: 'https://rails-assets.org'
 gem 'jquery-datatables'
 gem 'ajax-datatables-rails'
-gem 'sidekiq'
-gem 'hexapdf'
+
 
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  

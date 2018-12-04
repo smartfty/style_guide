@@ -42,6 +42,8 @@ class Section < ApplicationRecord
 
   after_create :setup
   before_create :parse_profile
+  # before_update :before_updating_action
+  # after_save :after_save_action
   # before_save :re_order_layout
 
   include PageSplitable
@@ -49,6 +51,16 @@ class Section < ApplicationRecord
   # serialize :layout, Array
   # scope :six_column, -> {where("column==?", 6)}
   # scope :seven_column, -> {where("column==?", 7)}
+
+  def before_updating_action
+    puts __method__
+    binding.pry
+    parse_profile
+  end
+
+  def after_save_action
+    puts __method__
+  end
 
   def path
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}"
@@ -106,6 +118,7 @@ class Section < ApplicationRecord
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     save_section_config_yml
+    update_section_layout_if
     # create_articles
     # update_section_layout
   end
@@ -473,11 +486,23 @@ class Section < ApplicationRecord
       if box.length >= 5  && (box[4] == '기고' || box[4] == 'opinion' || box[4] == '사설' || box[4] == 'editorial')
         count += 1
       elsif box.length == 5 && box[4] =~ /^광고/
+        self.ad_type = box[4].split("_")[1]
       else
         count += 1
       end
     end
     count
+  end
+
+  def parse_ad_type
+    box_array = eval_layout
+    box_array.each_with_index do |box, i|
+      ad_type = ""
+      if box.length >= 5 && box[4] =~ /^광고/
+        ad_type = box[4].split("_")[1]
+      end
+    end
+    ad_type
   end
 
   def update_profile
@@ -500,7 +525,17 @@ class Section < ApplicationRecord
   def parse_profile
     layout_array = eval_layout
     self.layout = layout_array.sort_by {|rect| [rect[1], rect[0]]}.to_s
+    if page_number == 1 || is_front_page == true
+      self.is_front_page                    = true
+      self.page_heading_margin_in_lines     = publication.front_page_heading_margin
+    elsif PAGES_WITH_4_LINE_HEADING.include?(page_number) #[18,19,22,23]
+      self.page_heading_margin_in_lines     = 4
+    else
+      self.is_front_page  = false
+      self.page_heading_margin_in_lines     = publication.inner_page_heading_height 
+    end
     self.story_count            = parse_story_count
+    self.ad_type                = parse_ad_type
     self.profile                = make_profile
     self.grid_width             = publication.grid_width(column)
     self.grid_height            = publication.grid_height
@@ -514,15 +549,6 @@ class Section < ApplicationRecord
     self.gutter                 = publication.gutter
     self.article_line_thickness = publication.article_line_thickness
     self.publication_id         = publication.id
-    if page_number == 1 || is_front_page == true
-      self.is_front_page                    = true
-      self.page_heading_margin_in_lines     = publication.front_page_heading_margin
-    elsif PAGES_WITH_4_LINE_HEADING.include?(page_number) #[18,19,22,23]
-      self.page_heading_margin_in_lines     = 4
-    else
-      self.is_front_page  = false
-      self.page_heading_margin_in_lines     = publication.inner_page_heading_height 
-    end
     true
   end
 end
