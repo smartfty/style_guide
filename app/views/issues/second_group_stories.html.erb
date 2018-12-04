@@ -1,7 +1,9 @@
 
 <div align="center">
 <h3>정치</h3>
-  <% @pages.each do |page| %>
+<div class='row'>
+  <div class='col-md-6'>
+    <% @pages.each do |page| %>
     <table border="1" width="50%">
       <thead>
         <tr>
@@ -30,3 +32,43 @@
       </tbody>
     </table>
 <% end %>
+  </div>
+  <div class='col-md-6'>
+
+     <table border="1">
+      <thead>
+        <tr>
+          <th>페이지</th>
+          <th>순서</th>
+          <th>기자</th>
+          <th>제목</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @stories.each do |story| %>
+          <% if story.selected%>
+            <tr style="color:LightGreen;">
+              <td><%= story.working_article.page.page_number if story.working_article %></td>
+              <td><%= story.working_article.order if story.working_article %></td>
+              <td><%= story.reporter %></td>
+              <td><%= story.title %></td>
+            </tr>
+          <% else %>
+            <tr style="color:red;">
+              <td><%= story.working_article.page.page_number if story.working_article %></td>
+              <td><%= story.working_article.order if story.working_article %></td>
+              <td><%= story.reporter %></td>
+              <td><%= story.title %></td>
+            </tr>
+         <% end %>
+
+          
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+  
