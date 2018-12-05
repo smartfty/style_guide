@@ -20,6 +20,15 @@
   - body
     - fit_text
 
+2018-12-6
+  - fix section.csv seed format
+  - add update_section_layout after create action
+  - add generate_pdf_with_stamp when updating working_article
+  - fix section svg unit_width as 210/column
+  - fix siblings search
+  - handle page 100(even), 101(odd) page template
+  - fix push and pull bug, fix drawing page svg with push and pull
+
 2018-11-30
   - fix 7단-15 bug
   - on issue_plan, selecting page ad_type for page

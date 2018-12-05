@@ -43,23 +43,21 @@ class Section < ApplicationRecord
   after_create :setup
   before_create :parse_profile
   # before_update :before_updating_action
-  # after_save :after_save_action
-  # before_save :re_order_layout
+  # after_commit :after_commit_action
 
   include PageSplitable
 
-  # serialize :layout, Array
-  # scope :six_column, -> {where("column==?", 6)}
-  # scope :seven_column, -> {where("column==?", 7)}
+  # def after_commit_action
+  #   create_articles
+  # end
 
-  def before_updating_action
-    puts __method__
-    binding.pry
-    parse_profile
-  end
-
-  def after_save_action
-    puts __method__
+  def setup
+    system "mkdir -p #{path}" unless File.directory?(path)
+    save_section_config_yml
+    # calling create_articles give validation error Section must exist!!! 
+    # so call it in controller create, and update action
+    # update_section_layout
+    
   end
 
   def path
@@ -113,14 +111,6 @@ class Section < ApplicationRecord
     else
       s = Section.where(options).create
     end
-  end
-
-  def setup
-    system "mkdir -p #{path}" unless File.directory?(path)
-    save_section_config_yml
-    update_section_layout_if
-    # create_articles
-    # update_section_layout
   end
 
   def section_config_hash
@@ -301,7 +291,7 @@ class Section < ApplicationRecord
   end
 
   def svg_unit_width
-    30
+    210/column
   end
 
   def svg_unit_height
@@ -345,13 +335,11 @@ class Section < ApplicationRecord
   def self.to_csv(options = {})
       CSV.generate(options) do |csv|
         # get rif of id, created_at, updated_at
-        filtered = column_names.dup
-        filtered.shift
-        filtered.pop
-        filtered.pop
-        csv << filtered
+        # header = %w[page_number section_name profile column row order ad_type is_front_page story_count color_page draw_divider publication_id layout]
+        header = %w[page_number  column  ad_type  layout]
+        csv << header
         all.each do |item|
-          csv << item.attributes.values_at(*filtered)
+          csv << item.attributes.values_at(*header)
         end
       end
   end
@@ -422,7 +410,8 @@ class Section < ApplicationRecord
 
   # prefered page for specific page_number
   def create_articles
-
+    puts "id:#{id}"
+    puts "self.id:#{self.id}"
     article_count = 0
     box_array = eval_layout
     box_array.each_with_index do |box, i|
@@ -507,6 +496,7 @@ class Section < ApplicationRecord
 
   def update_profile
     self.story_count = parse_story_count
+    self.ad_type     = parse_ad_type
     self.profile     = make_profile
     self.save
     self

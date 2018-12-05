@@ -5,11 +5,12 @@ class SectionsController < ApplicationController
   # GET /sections.json
   def index
     @q = Section.ransack(params[:q])
-    @sections = @q.result.order(:ad_type, :page_number, :column).page(params[:page]).per(20)
+    @sections = @q.result.order(:ad_type, :page_number, :column).page(params[:page]).per(20) 
+    @sections = Section.all  if request.format == 'csv'
+
     respond_to do |format|
       format.html
       format.json { render :index}
-
       format.csv { send_data @sections.to_csv }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
@@ -35,6 +36,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     respond_to do |format|
       if @section.save
+        @section.update_section_layout
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
         format.json { render :show, status: :created, location: @section }
       else

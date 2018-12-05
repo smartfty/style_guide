@@ -431,12 +431,14 @@ end
   end
 
   def save_story_xml
+    pages[0..0].each(&:ƒ)
     full_page_ad.each(&:save_story_xml)
     pages[21..22].each(&:save_story_xml)
     # make_story_xml_zip
   end
 
   def save_preview_xml
+    pages[0..0].each(&:save_preview_xml)
     full_page_ad.each(&:save_preview_xml)
     pages[21..22].each(&:save_preview_xml)
     # make_preview_xml_zip
@@ -448,6 +450,41 @@ end
 
   def partial_xml_path
     "#{Rails.root}/public/1/issue/#{date}/partial_xml"
+  end
+
+    def save_mobile_preview_xml
+    # full page ad
+    s = ''
+    u = ''
+    # page 1 only for now!!
+    pages[0..0].each do |page|
+      s += page.all_container
+      u += page.updateinfo
+      page.save_mobile_preview_xml
+      # all_container_xml_page = page.container_xml_page
+    end
+    full_page_ad.each do |page|
+      s += page.all_container
+      u += page.updateinfo
+      page.save_mobile_preview_xml
+      # all_container_xml_page = page.container_xml_page
+    end
+    # page 22 and 23 only for now!!
+    pages[21..22].each do |page|
+      s += page.all_container
+      u += page.updateinfo
+      page.save_mobile_preview_xml
+      # all_container_xml_page = page.container_xml_page
+    end
+    system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
+    File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
+    File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
+    mobile_xml_send
+    # make_mobile_preview_xml_zip
+    # directory_to_zip = mobile_preview_xml_path
+    # output_file = mobile_preview_xml_zip_path
+    # zf = ZipFileGenerator.new(directory_to_zip, output_file)
+    # zf.write()
   end
 
   def copy_to_xml_ftp
@@ -503,153 +540,61 @@ end
     end
   end
 
-  def get_newsgo_made_mobile_preview_xml
-    newsgo_content_array = []
-    pages.each do |page|
-      if page.section_name = '전면광고'
-        newsgo_content_array << page.all_container
-      elsif page.page_number == 22 || page.page_number == 22 
-        newsgo_content_array << page.all_container
-      else
-        newsgo_content_array << nil
-      end
-    end
-    newsgo_content_array
-  end
+    def merge_container_xml
+    ip = '211.115.91.68'
+    id        = 'jimeun'
+    pw        = 'sodlfwlaus2018!@#$'
 
-  def generated_pages_array
-    pages = full_page_ad.map{|f| f.page_number}
-    pages << 22
-    pages << 23
-    pages
-  end
-
-  def merge_mobile_page_container
-    container_base_path   = partial_xml_path + '/Container.xml'
-    base_content          = File.open(container_base_path, 'r', &:read)
-    newsgo_partial_array  = get_newsgo_made_mobile_preview_xml
-
-    header =<<EOF
-    <?xml version="1.0" encoding="UTF-8"?>
-    <ContainerML>
-      <WriteAndTime>2018-09-18T12:25:13</WriteAndTime>
-      <NewsID>1</NewsID>
-      <NewsName>내일신문</NewsName>
-      <JeHoNum>4470</JeHoNum>
-      <NewsDate>2018-09-18T00:00:00</NewsDate>
-      <PanID>24</PanID>
-    EOF
-
-    footer =<<EOF
-      </PageList>
-    </ContainerML>
-    EOF
-
-    partial_array = []
-    24.times do |i|
-      @my_variable    = (i + 1).to_s.rjust(2,"0")
-      page_div    = /<Page ID="\d{4}#{@my_variable}">.*?<\/Page>/m
-      result = base_content.match(page_div)
-      if result
-        partial_array << result[0]
-      else
-        partial_array << nil
-      end
-    end
-
-    partial_array = partial_array.map.with_index do |e, i|
-      if e.nil?
-        newsgo_partial_array[i]
-      else
-        e
-      end
-    end
-
-    final_container = header
-    final_container += partial_array.join("\n")
-    final_container += footer
-    File.open(container_base_path, 'w') { |f| f.write final_container }
-  end
-
-  def save_mobile_page_updateinfo(updateinfo_xml_path)
-    @year        = date.year
-    @month       = date.month.to_s.rjust(2, '0')
-    @day         = date.day.to_s.rjust(2, '0')
-    @issue_date  = "#{@year}#{@month}#{@day}"
-@update_info =<<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<UpdateInfo>
-	<NewsDate>#{@issue_date}T00:00:00</NewsDate>
-	<PubDate>#{@issue_date}T06:00:00</PubDate>
-	<LastModifyDate>#{@issue_date}T12:25:13</LastModifyDate>
-	<DownLoadList>
-		<NewsClass version="1.00"/>
-		<UpdateCount>24</UpdateCount>
-		<PageKey>#{@issue_date}_01100101</PageKey>
-		<PageKey>#{@issue_date}_01100102</PageKey>
-		<PageKey>#{@issue_date}_01100103</PageKey>
-		<PageKey>#{@issue_date}_01100104</PageKey>
-		<PageKey>#{@issue_date}_01100105</PageKey>
-		<PageKey>#{@issue_date}_01100106</PageKey>
-		<PageKey>#{@issue_date}_01100107</PageKey>
-		<PageKey>#{@issue_date}_01100108</PageKey>
-		<PageKey>#{@issue_date}_01100109</PageKey>
-		<PageKey>#{@issue_date}_01100110</PageKey>
-		<PageKey>#{@issue_date}_01100111</PageKey>
-		<PageKey>#{@issue_date}_01100112</PageKey>
-		<PageKey>#{@issue_date}_01100113</PageKey>
-		<PageKey>#{@issue_date}_01100114</PageKey>
-		<PageKey>#{@issue_date}_01100115</PageKey>
-		<PageKey>#{@issue_date}_01100116</PageKey>
-		<PageKey>#{@issue_date}_01100117</PageKey>
-		<PageKey>#{@issue_date}_01100118</PageKey>
-		<PageKey>#{@issue_date}_01100119</PageKey>
-		<PageKey>#{@issue_date}_01100120</PageKey>
-		<PageKey>#{@issue_date}_01100121</PageKey>
-		<PageKey>#{@issue_date}_01100122</PageKey>
-		<PageKey>#{@issue_date}_01100123</PageKey>
-		<PageKey>#{@issue_date}_01100124</PageKey>
-	</DownLoadList>
-</UpdateInfo>
-EOF
-    updateinfo_base_path  = partial_xml_path + '/updateinfo.xml'
-    File.open(updateinfo_base_path, 'w') { |f| f.write @update_info }
-  end
-
-  def save_mobile_preview_xml
-    ip          = '211.115.91.68'
-    id          = 'jimeun'
-    pw          = 'sodlfwlaus2018!@#$'
-    year        = date.year
-    month       = date.month.to_s.rjust(2, '0')
-    day         = date.day.to_s.rjust(2, '0')
-    issue_date  = "#{year}#{month}#{day}"
+    year          = date.year
+    month         = date.month.to_s.rjust(2, '0')
+    day           = date.day.to_s.rjust(2, '0')
+    issue_date    = "#{year}#{month}#{day}"
 
     ftp_folder              = "#{year}/#{month}/#{day}/"
     partial_folder          = partial_xml_path
 
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.chdir(ftp_folder)
-      # ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
+      ftp.getbinaryfile('updateinfo.xml', "#{partial_xml_path}/updateinfo.xml")
       ftp.getbinaryfile('Container.xml', "#{partial_xml_path}/Container.xml")
+
       # ++++++++ Container
-      container_base_path     = partial_folder + '/Container.xml'
-      if File.exist?(container_base_path) 
-        merge_mobile_page_container
-      else
-        puts 'No Container.xml or No partial_Container.xml !!!!'
-      end
+      # container_base_path     = partial_folder + '/Container.xml'
+      # container_partial_path  = partial_folder + '/partial_Container.xml'
+      # if File.exist?(container_base_path) && File.exist?(container_partial_path)
+      #   base_content          = File.open(container_base_path, 'r', &:read)
+      #   after_count_change    = base_content.sub(/<PageList Count="22">/, '<PageList Count="24">')
+      #   partial_content       = File.open(container_partial_path, 'r', &:read)
+      #   page_24_and_afer      = /<Page ID="100124">.*<\/ContainerML>/m
+      #   result = after_count_change.match(page_24_and_afer)
+      #   final = result.pre_match + partial_content + result.to_s
+      #   File.open(container_base_path, 'w') { |f| f.write final }
+      #   FileUtils.rm(container_partial_path)
+      # else
+      #   puts 'No Container.xml or No partial_Container.xml !!!!'
+      # end
+
       # ++++++++ updateinfo
-      updateinfo_base_path  = partial_folder + '/updateinfo.xml'
-      if File.exist?(updateinfo_base_path) 
-        save_mobile_page_updateinfo(updateinfo_base_path)
-      else
-        puts 'No updateinfo.xml or No partial_updateinfo.xml !!!!'
-      end
+      # updateinfo_base_path          = partial_folder + '/updateinfo.xml'
+      # updateinfo_partial_path       = partial_folder + '/partial_updateinfo.xml'
+      # if File.exist?(updateinfo_base_path) && File.exist?(updateinfo_partial_path)
+      #   updateinfo_content          = File.open(updateinfo_base_path, 'r', &:read)
+      #   after_info_change           = updateinfo_content.sub(/<UpdateCount>22<\/UpdateCount>/, '<UpdateCount>24</UpdateCount>')
+      #   updateinfo_partial_content  = File.open(updateinfo_partial_path, 'r', &:read)
+      #   info_page_24_and_afer       = /<PageKey>\d{8}_\d{6}24<\/PageKey>.*<\/UpdateInfo>/m
+      #   info_result                 = after_info_change.match(info_page_24_and_afer)
+      #   info_final                  = info_result.pre_match + updateinfo_partial_content + info_result.to_s
+      #   File.open(updateinfo_base_path, 'w') { |f| f.write info_final }
+      #   FileUtils.rm(updateinfo_partial_path)
+      # else
+      #   puts 'No updateinfo.xml or No partial_updateinfo.xml !!!!'
+      # end
       # ftp.rename("#{ftp_folder}/.xml", "updateinfo.xml.old")
       # ftp.rename("#{ftp_folder}/Contaiupdateinfoner.xml", "Container.xml.old")
-      ftp.putbinaryfile("#{partial_xml_path}/updateinfo.xml", 'updateinfo.xml')
-      ftp.putbinaryfile("#{partial_xml_path}/Container.xml", 'Container.xml')
+     
+      # 합성만 하고 업로드 안하게 임시 주석처리 2018.10.01
+      # ftp.putbinaryfile("#{partial_xml_path}/updateinfo.xml", 'updateinfo.xml')
+      # ftp.putbinaryfile("#{partial_xml_path}/Container.xml", 'Container.xml')
     end
   end
 
@@ -679,7 +624,8 @@ EOF
     found
   end
 
-  def save_mobile_preview_xml
+  
+  def mobile_xml_send
     year          = date.year
     month         = date.month.to_s.rjust(2, '0')
     day           = date.day.to_s.rjust(2, '0')
@@ -712,7 +658,7 @@ EOF
     result = wait_for_xml_upload
     if result
       puts 'xml file upload found and proceeding merge'
-      merge_mobile_container_xml
+      merge_container_xml
     else
       puts 'xml file upload not found!!!'
     end
