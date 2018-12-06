@@ -612,7 +612,7 @@ class WorkingArticle < ApplicationRecord
       h -= page_heading_margin_in_lines*body_line_height
     end
     puts " after page_heading_margin h:#{h}" if order == 1
-    if pushed_line_count && pushed_line_count > 0
+    if pushed_line_count && pushed_line_count != 0
       h -= pushed_line_count*body_line_height
     end
     puts " after pushed_line h:#{h}" if order == 1

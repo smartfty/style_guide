@@ -414,9 +414,22 @@ class Section < ApplicationRecord
     puts "self.id:#{self.id}"
     article_count = 0
     box_array = eval_layout
+
+    # delete unused articles
+
+    if box_array.length < articles.count
+      unused_count = articles.count - box_array.length
+      sorted = articles.sort_by{|a| a.order}
+      unused_count.times do 
+        article_from_last = sorted.pop
+        # system("rm -rf #{article_from_last.path}")
+        article_from_last.destroy
+      end
+    end
     box_array.each_with_index do |box, i|
       article_atts = {}
       article_atts[:section_id]  = self.id
+      article_atts[:profile]  = self.profile
       article_atts[:grid_x]   = box[0]
       article_atts[:grid_y]   = box[1]
       article_atts[:column]   = box[2]
@@ -451,18 +464,31 @@ class Section < ApplicationRecord
           ad_box_atts[:grid_y]   = box[1]
           ad_box_atts[:column]   = box[2]
           ad_box_atts[:row]      = box[3]
-          # ad_box does not count as article order
-          # ad_box_atts[:order]    = i + 1
           ad_box_atts[:ad_type]   = box[4].split("_")[1]
-          AdBoxTemplate.where(ad_box_atts).first_or_create!
+          if ad_box = ad_box_templates.first
+            ad_box.update(ad_box_atts)
+            ad_box.generate_pdf
+          else
+            AdBoxTemplate.where(ad_box_atts).create!
+          end
         else
           article_atts[:kind] = box[4]
-          Article.where(article_atts).first_or_create!
+          if article_with_order = articles.where(order: article_count + 1).first
+            article_with_order.update(article_atts)
+            article_with_order.generate_pdf
+          else
+            Article.where(article_atts).create!
+          end
           article_count += 1
         end
       else
         article_atts[:kind] = '기사'
-        Article.where(article_atts).first_or_create!
+        if article_with_order = articles.where(order: article_count + 1).first
+          article_with_order.update(article_atts)
+          article_with_order.generate_pdf
+        else
+          Article.where(article_atts).create!
+        end
         article_count += 1
       end
     end
@@ -495,10 +521,13 @@ class Section < ApplicationRecord
   end
 
   def update_profile
+    puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
     self.profile     = make_profile
     self.save
+    puts "__________ after profile:#{profile}"
+
     self
   end
 
