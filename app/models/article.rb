@@ -42,6 +42,7 @@
 class Article < ApplicationRecord
   belongs_to :section #, optional: true
   before_create :init_atts
+  before_save :init_atts
   after_create :setup
   has_many :images
 
@@ -321,6 +322,8 @@ class Article < ApplicationRecord
   end
 
   def save_story
+    dir_path = File.dirname(story_path)
+    FileUtils.mkdir_p(dir_path) unless File.exist?(dir_path)
     File.open(story_path, 'w'){|f| f.write story_md}
   end
 

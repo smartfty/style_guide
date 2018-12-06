@@ -607,7 +607,21 @@ class WorkingArticle < ApplicationRecord
   end
 
   def height
-    row*grid_height
+    h = row*grid_height 
+    if top_position?
+      h -= page_heading_margin_in_lines*body_line_height
+    end
+    puts " after page_heading_margin h:#{h}" if order == 1
+    if pushed_line_count && pushed_line_count != 0
+      h -= pushed_line_count*body_line_height
+    end
+    puts " after pushed_line h:#{h}" if order == 1
+    if extended_line_count && extended_line_count != 0
+      h += extended_line_count*body_line_height
+    end
+    puts "after extended_line h:#{h}" if order == 1
+    puts "after extended_line_count h:#{extended_line_count}" if order == 1
+    h
   end
 
   def grid_area
@@ -618,22 +632,35 @@ class WorkingArticle < ApplicationRecord
     grid_x*grid_width
   end
 
+  #TODO add to db field
+
+
+  def body_line_height
+    grid_height/7
+  end
+
   def y
-    grid_y*grid_height
+    y_position =  grid_y*grid_height
+    if top_position?
+      y_position += page_heading_margin_in_lines*body_line_height
+    elsif pushed_line_count && pushed_line_count != 0
+      y_position += pushed_line_count*body_line_height
+    end
+    y_position
   end
 
   def top_story?
     page.page_number == 1 && order == 1
   end
 
-  def is_top_position?
+  def top_position?
     return true if grid_y == 0
     return true if grid_y == 1 && page.page_number == 1
     false
   end
 
   # def get_page_heading_margin_in_lines
-  #   return 0 unless is_top_position?
+  #   return 0 unless top_position?
   #   page.page_heading_margin_in_lines
   #   n
   # end
@@ -658,7 +685,7 @@ class WorkingArticle < ApplicationRecord
     h[:is_front_page]                 = self.is_front_page
     h[:top_story]                     = top_story?
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
-    h[:top_position]                  = is_top_position?
+    h[:top_position]                  = top_position?
     h[:page_heading_margin_in_lines]  = publication.page_heading_margin_in_lines(page.page_number)
     h[:bottom_article]                = page.bottom_article?(self)
     h[:extended_line_count]           = self.extended_line_count if extended_line_count
@@ -756,7 +783,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml

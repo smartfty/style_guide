@@ -139,18 +139,15 @@
     </section>
 
     <section class="section" id="content4">
-      <% @working_article.page.section_pages.each do |page| %>
       <div class="col-xs-12 col-sm-12">
         <div>
-          <%= raw page.to_svg_with_jpg %>
-          <a href="<%= page_path(page) %>">
-            <!-- img width="100%" src="<%= page.jpg_image_path %>"></img-->
+          <%= raw @working_article.page.to_svg_with_jpg %>
+          <a href="<%= page_path(@working_article.page) %>">
             <p align=center>
-              <%= page.page_number %>
+              <%= @working_article.page.page_number %>
           </a>
         </div>
       </div>
-      <% end %>
   </div>
   </section>
 </div>

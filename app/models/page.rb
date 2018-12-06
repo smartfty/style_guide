@@ -137,7 +137,8 @@ class Page < ApplicationRecord
     grid_right_edge = article.grid_x + article.column
     grid_bottom     = article.grid_y + article.row
     siblings_array = working_articles.select do |wa|
-      wa.grid_y == grid_bottom && wa.grid_x >= grid_x && wa != article
+      wa_right_edge = wa.grid_x + wa.column
+      wa.grid_y == grid_bottom && wa.grid_x >= grid_x && wa_right_edge <= grid_right_edge  && wa != article
     end
     # siblings_array += image_boxes.select do |image_box|
     #   image_box.grid_y == grid_bottom && wa.grid_x >= grid_x && wa != article
@@ -1018,20 +1019,29 @@ class Page < ApplicationRecord
     "#{Rails.root}/public/1/issue/#{date.to_s}/mobile_page_preview/1001#{page_number}"
   end
 
+  def xml_section_name
+    if page_number == 22 || page_number == 23
+      "논설#{page_number - 21}"
+    else
+      section_name
+    end
+  end  
+
+
   def page_info
     page_number.to_s.rjust(2,"0")
   end
 
   def all_container
-    year  = date.year
-    month = date.month.to_s.rjust(2, "0")
-    day   = date.day.to_s.rjust(2, "0")
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
     @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
 
     container_xml_page_id=<<EOF
     <Page ID="1001<%= page_info %>">
       <PageKey><%= @page_key %></PageKey>
-      <PageTitle>논설#{page_number - 21}</PageTitle>
+      <PageTitle>#{xml_section_name}</PageTitle>
       <PaperSize>A2</PaperSize>
 EOF
     page_container_xml = ""
@@ -1065,6 +1075,7 @@ EOF
 
 
   def save_mobile_preview_xml
+    puts "++++++++++++ page_number:#{page_number}"
     default_time      = "00:00:00"
     year  = date.year
     month = date.month.to_s.rjust(2, "0")
