@@ -76,6 +76,7 @@ class SectionsController < ApplicationController
     @new_section = Section.create(@section.attributes.merge({id: nil }))
     respond_to do |format|
       if @new_section
+        @new_section.update_section_layout
         format.html { redirect_to sections_path, notice: 'Section was successfully duplicated.'}
       else
         format.html { redirect_to sections_url, notice: 'Section could not be duplicated.' }

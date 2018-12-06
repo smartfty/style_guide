@@ -607,7 +607,21 @@ class WorkingArticle < ApplicationRecord
   end
 
   def height
-    row*grid_height + height_adjust_value
+    h = row*grid_height 
+    if top_position?
+      h -= page_heading_margin_in_lines*body_line_height
+    end
+    puts " after page_heading_margin h:#{h}" if order == 1
+    if pushed_line_count && pushed_line_count > 0
+      h -= pushed_line_count*body_line_height
+    end
+    puts " after pushed_line h:#{h}" if order == 1
+    if extended_line_count && extended_line_count != 0
+      h += extended_line_count*body_line_height
+    end
+    puts "after extended_line h:#{h}" if order == 1
+    puts "after extended_line_count h:#{extended_line_count}" if order == 1
+    h
   end
 
   def grid_area
@@ -625,25 +639,11 @@ class WorkingArticle < ApplicationRecord
     grid_height/7
   end
 
-  def height_adjust_value
-    adjust = 0
-    if top_position?
-      adjust -= page_heading_margin_in_lines*body_line_height
-    end
-    if pushed_line_count && pushed_line_count > 0
-      adjust -= pushed_line_count*body_line_height
-    end
-    if extended_line_count && extended_line_count > 0
-      adjust += pushed_line_count*body_line_height
-    end
-    adjust
-  end
-
   def y
     y_position =  grid_y*grid_height
     if top_position?
       y_position += page_heading_margin_in_lines*body_line_height
-    elsif pushed_line_count && pushed_line_count > 0
+    elsif pushed_line_count && pushed_line_count != 0
       y_position += pushed_line_count*body_line_height
     end
     y_position
@@ -783,7 +783,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
