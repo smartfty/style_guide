@@ -129,16 +129,12 @@ EOF
   end
 
   def self.to_csv(options = {})
-      CSV.generate(options) do |csv|
-        # get rif of id, created_at, updated_at
-        filtered = column_names.dup
-        filtered.shift
-        filtered.pop
-        filtered.pop
-        csv << filtered
-        all.each do |item|
-          csv << item.attributes.values_at(*filtered)
-        end
+    CSV.generate(options) do |csv|
+      header = %w[name  title  work  position  email  cell  opinion_image  publication_id   category_code]
+      csv << header
+      all.each do |item|
+        csv << item.attributes.values_at(*header)
       end
+    end
   end
 end
