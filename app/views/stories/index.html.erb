@@ -1,10 +1,9 @@
-<!-- p id="notice"><%= notice %></p-->
+<p id="notice"><%= notice %></p>
 
 <div align="center">
 <h3>오늘기사</h3>
 <p><%= button_to "기사 생성", generate_stories_issue_path(Issue.last), method: :get, class: "btn btn-sm btn-warning" %></p>
 
-<!-- p id="notice"><%= notice %></p-->
   <div class='col-md-6'>
 
      <table border="1">
@@ -36,7 +35,7 @@
             </tr>
          <% end %>
 
-
+          
         <% end %>
       </tbody>
     </table>

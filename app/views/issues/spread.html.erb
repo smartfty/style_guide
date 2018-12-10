@@ -1,10 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top2">
-    <ul class="nav navbar-nav2 navbar-left float-frame">
-        <li class="float-unit">
-            <button class="btn btn-primary large left"><%= @issue.date.to_s %>(<%= @issue.number %>)</button>
-        </li>
-    </ul>
-</nav>
+<button class="btn-danger large"><%= @issue.date.to_s %> (<%= @issue.number %>)</button>
 <div class="row">
   <% if @spread %>
     <div class = "col-xs-10 col-md-10 .offset-md-1"  align='center'>

@@ -319,7 +319,6 @@ EOF
         <%= @by_line %>]]>
         </Content>
       </ArticleComponent>
-    <PhotoComponent/>
   </Article>
 EOF
     component = ""
@@ -377,7 +376,7 @@ EOF
     @name_plate      = '광고'
     @section_name_code = section_name_code
 
-    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @money_status     = "0"
     @head_line        = advertiser
 

@@ -14,10 +14,8 @@
     <%= f.association :publication %>
   </div>
 
-  <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-      <div class="btn-group" role="group" aria-label="기능">
-    <button type="button" class="btn btn-warning"><%= link_to '이전으로', announcements_path %></button>
-    <%= f.button :submit, "저장하기"  %>
-  <div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>
 </div>

@@ -52,12 +52,9 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
-      params['working_article']['subject_head'] = @working_article.filter_to_title(params['working_article']['subject_head'])
       params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
-      params['working_article']['boxed_subtitle_text'] = @working_article.filter_to_title(params['working_article']['boxed_subtitle_text'])
-      params['working_article']['announcement_text'] = @working_article.filter_to_title(params['working_article']['announcement_text'])
       if @working_article.update(working_article_params)
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp

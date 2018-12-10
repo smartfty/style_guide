@@ -1,7 +1,7 @@
-<!-- p id="notice"><%= notice %></p-->
+<p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-md-2" align='left' style="padding-bottom: 40px;">
+  <div class = "col-md-4"  align='left' style="padding-bottom: 40px;">
     <h3>
       <strong>섹션이름:</strong>
       <%= @section.section_name %>
@@ -44,28 +44,23 @@
     <p>
       <%= raw @section.to_svg %>
     </p>
-    <!-- div class="button-group">
+
+    <div class="button-group">
       <%= link_to "수정", edit_section_path(@section), method: :get, class: "btn btn-sm btn-danger" %>
       <%= link_to "이전으로", sections_path, method: :get, class: "btn btn-sm btn-primary" %>
-    </div-->
+    </div>
+
+  </div>
+  <div class = "col-md-8"  align='left' style="padding-bottom: 40px;">
+    <% if File.exist?(@section.pdf_path) %>
+      <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
+      <img width="95%" src="<%= @section.pdf_image_path %>"></img>
+      <%= button_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-sm btn-danger" %>
+    <% end %>
   </div>
 
-  <div class="col-md-3">
-  <%= render 'form', section: @section %>
 </div>
 
-
-  <div class = "col-md-3" style="padding-bottom: 40px;">
-  <% if File.exist?(@section.pdf_path) %>
-    <img width="95%" src="<%= @section.pdf_image_path %>"></img>
-  <% end %>
-  </div>
-
-  </div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="btn-group" role="group" aria-label="기능">
-  <button type="button" class="btn btn-danger"><%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_section_path(@section), method: :get %></button>
-  <button type="button" class="btn btn-warning"><%= link_to "다운로드 PDF", download_pdf_section_path, method: :get %></button>
-  <div>
-</nav>
+<div align="center">
+  <%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_section_path(@section), method: :get, class: "btn-group btn btn-sm btn-primary" , align: "center"%>
+</div>

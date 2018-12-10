@@ -431,7 +431,7 @@ end
   end
 
   def save_story_xml
-    pages[0..0].each(&:ƒ)
+    pages[0..0].each(&:save_story_xml)
     full_page_ad.each(&:save_story_xml)
     pages[21..22].each(&:save_story_xml)
     # make_story_xml_zip

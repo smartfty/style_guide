@@ -783,7 +783,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
@@ -883,24 +883,36 @@ class WorkingArticle < ApplicationRecord
     title
   end
 
-  def filter_to_markdown(text)
-    return unless text
-    text.strip!
+
+  def filter_to_markdown(body_text)
+    body_text.strip!
     # body_text.gsub!(/^\n\n/, "\n")
-    text.gsub!(/\u200B/, "")
-    text.gsub!(/^(\^|-\s)/, "")
-    text.gsub!(/^\t/, "")
-    text.gsub!(/^\n/, "")
-    text.gsub!(/^\s/, "")
-    text.gsub!(/^\u3000/, "")
-    text.gsub!(/^\s*\n/m, "\n")
-    text.gsub!(/^\s*#/, '#' )
-    text.gsub!(/^\n/, "")
-    text.gsub!(/(\n|\r\n)+/, "\n\n")
-    text.gsub!(/^\./, "")
-    # text.gsub!(/[.]\s\s\s+/, ".")
-    # text.gsub!(/\.$\n\n/, ".")
-    text
+    body_text.gsub!(/\u200B/, "")
+    body_text.gsub!(/^(\^|-\s)/, "")
+    body_text.gsub!(/^\t/, "")
+    body_text.gsub!(/^\n/, "")
+    body_text.gsub!(/^\s/, "")
+    body_text.gsub!(/^\u3000/, "")
+    body_text.gsub!(/^\s*\n/m, "\n")
+    body_text.gsub!(/^\s*#/, '#' )
+    body_text.gsub!(/^\n/, "")
+    body_text.gsub!(/(\n|\r\n)+/, "\n\n")
+    # body_text.gsub!(/[.]\s\s\s+/, ".")
+    # body_text.gsub!(/\.$\n\n/, ".")
+    body_text.gsub!(/^\./, "")
+    body_text
+  end
+
+  def to_markdown_para
+    body.gsub!(/^(\^|-\s)/, "")
+    body.gsub!(/^\t/, "")
+    body.gsub!(/^\n\n/, "")
+    body.gsub!(/^\u3000/, "")
+    body.gsub!(/^\s*\n/m, "\n")
+    body.gsub!(/^\s*#/, '#' )
+    body.gsub!(/$(\n|\r\n)+/, "\n\n" )
+    body.gsub!(/(\n|\r\n)+/, "\n\n")
+    self.save
   end
 
   def newsml_issue_path
@@ -972,10 +984,9 @@ class WorkingArticle < ApplicationRecord
   #   File.open(path, 'w'){|f| f.write story_xml}
   # end
 
-  #  - [ ] 유니코드 문자 EUC-KR 변환시 체크 https://www.compart.com/en/unicode/
   def covert_euckr_not_suported_chars
-    title.strip!
     body.gsub!("\u200B", "")
+    title.strip!
     title.gsub!("\u200B", "")
     body.gsub!("\u2027", "\u00b7")
     body.gsub!("\u2024", "\u00b7")
@@ -993,6 +1004,18 @@ class WorkingArticle < ApplicationRecord
     body.gsub!("\uFF62", "&#65378;")
     body.gsub!("\uFF63", "&#65379;")
     body.gsub!("\u2613", "&#9747;")
+    body.gsub!("\u9752", "&#38738;")
+    body.gsub!("\u2014", "&#8212;")
+    body.gsub!("\u2013", "&#8211;")
+    title.gsub!("\u2014", "&#8212;")
+    body.gsub!("\u5d1b", "&#23835;")
+    body.gsub!("\u2003", "&#8195;")
+    body.gsub!("\u2022", "&#183;")
+    body.gsub!("\uCAD2", "&#51922;")
+    body.gsub!("\uFF65", "&#65381;")
+    body.gsub!("\u302e", "&#12334;")
+    body.gsub!("\u5e26", "&#24102;")
+    title.gsub!("\u5e26", "&#24102;")
   end
 
   def save_story_xml
@@ -1088,6 +1111,7 @@ class WorkingArticle < ApplicationRecord
     # else
     #   @news_title_info  = page.section_name
     # end
+     
     @news_title_info  = page.section_name
       # reporter_record   = Reporter.where(name:reporter).first
       # if reporter_record
@@ -1111,7 +1135,7 @@ class WorkingArticle < ApplicationRecord
       if @name =~/_/
         @name = @name.split("_")[0]
       end
-      @by_line        = "<br><br>#{@name} #{@work} #{@position}"
+      @by_line        = "<br>#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -1123,23 +1147,29 @@ class WorkingArticle < ApplicationRecord
         if @name =~/_/
           @name = @name.split("_")[0]
         end
-        @by_line        = "<br><br>#{@name} #{@work} #{@position}"
+        @by_line        = "<br>#{@name} #{@work} #{@position}"
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
     if page_number == 23 && order == 2
       @name          = reporter_from_body
       @by_line       = ''
+      reporter       = Reporter.where(name: @name).first
+      @email         = reporter.email if reporter
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
     @name_plate       = subject_head
-    unless @name_plate
-      r = OpinionWriter.where(name: reporter).first
-      puts r
-      category_code = r.category_code
-      @name_plate = r.title
+    if @name_plate == "" || @name_plate == nil
+      # r = OpinionWriter.where(name: reporter).first
+      # puts r
+      if page_number == 22 || page_number == 23
+      category_code = opinion_writer.category_code
+      @name_plate = opinion_writer.title
+      end
     end
+
+    
 
     @money_status     = "30"
     if page_number == 22
@@ -1159,7 +1189,7 @@ class WorkingArticle < ApplicationRecord
       end
     end
     @name_plate_code  = category_code
-    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @head_line        = title
     @sub_head_line    = subtitle
     @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
@@ -1177,7 +1207,9 @@ class WorkingArticle < ApplicationRecord
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-
+    # if story_xml_template.include?("\u200B")
+    #   binding.pry
+    # end
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
@@ -1215,15 +1247,16 @@ class WorkingArticle < ApplicationRecord
       # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
-
     opinion_writer  = OpinionWriter.where(name:@name).first
+
     if opinion_writer
       @work        = opinion_writer.work if opinion_writer.work
-      @position       = opinion_writer.position if opinion_writer.position
+      @position    = opinion_writer.position if opinion_writer.position
+      @email       = opinion_writer.email if opinion_writer.email
       if @name =~/_/
         @name = @name.split("_")[0]
       end
-      @by_line        = "<br><br>#{@name} #{@work} #{@position}"
+      @by_line        = "<br>#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -1235,7 +1268,7 @@ class WorkingArticle < ApplicationRecord
         if @name =~/_/
           @name = @name.split("_")[0]
         end
-        @by_line        = "<br><br>#{@name} #{@work} #{@position}"
+        @by_line        = "<br>#{@name} #{@work} #{@position}"
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
@@ -1247,6 +1280,7 @@ class WorkingArticle < ApplicationRecord
     @section_name_code = section_name_code
     @name_plate       = subject_head
     unless @name_plate
+      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
@@ -1271,18 +1305,24 @@ class WorkingArticle < ApplicationRecord
       end
     end
     @name_plate_code  = category_code
-    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
+    title.strip!
     @head_line        = title
+    @head_line        = @head_line.gsub("\u201C", "&quot;")
+    @head_line        = @head_line.gsub("\u201D", "&quot;")
+    @head_line        = @head_line.gsub("\u0022", "&quot;")
+    @head_line        = @head_line.gsub("\u003C", "&lt;")
+    @head_line        = @head_line.gsub("\u003E", "&gt;")
     @sub_head_line    = subtitle
     @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @page_number = page_number
-    @order = order
+    @order = order.to_s.rjust(2, "0")
 
-    @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
+    @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
-    @article_file_name = "#{year}#{month}#{day}011001#{page_info}00000000#{@order}"
+    @article_file_name = "#{year}#{month}#{day}011001#{page_info}0000000#{@order}"
     @gija_name        = "편집기자명" # 편집기자명
     @news_class_large_id    = news_class_large_id
     @news_class_large_name  = page.section_name
@@ -1290,7 +1330,7 @@ class WorkingArticle < ApplicationRecord
     @news_class_middle_name = subject_head
     @send_modify            = "0"  # 수정횟수
     @new_article            = "1" #뭘까?
-    @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}.01L.jpg"
+    @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
     #해당기사 저자사진: 121 × 160 픽셀, 120 픽셀/인치
     #해당기사 그래픽은 .01L대신 .01S.jpg로 표시
 
@@ -1316,19 +1356,31 @@ EOF
   end
 
   def mobile_preview_xml_three_component
-    if page_number == 23 && order == 2
+#     if page_number == 23 && order == 2
+#       three_component =<<EOF
+#       <TitleComponent>
+#         <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+#       </TitleComponent>
+#       <ArticleComponent>
+#         <Content><![CDATA[<%= @data_content %>
+#   <%= @by_line %>]]>
+#         </Content>
+#       </ArticleComponent>
+#     </Article>
+# EOF
+    if images.length = 0
       three_component =<<EOF
       <TitleComponent>
-        <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
-      </TitleComponent>
-      <ArticleComponent>
-        <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-  <%= @by_line %>]]>
-        </Content>
-      </ArticleComponent>
+      <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+    </TitleComponent>
+    <ArticleComponent>
+      <Content><![CDATA[<%= @data_content %>
+    <%= @by_line %>]]>
+      </Content>
+    </ArticleComponent>
     </Article>
 EOF
-    else
+    else images.length > 0
     three_component =<<EOF
     <TitleComponent>
       <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
@@ -1346,7 +1398,6 @@ EOF
           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
      </PhotoItem>
     </PhotoComponent>
-  end
   </Article>
 EOF
     end
@@ -1357,8 +1408,10 @@ EOF
   end
 
   def xml_group_key_template
+    # binding.pry
     @name_plate       = subject_head
     unless @name_plate
+      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
@@ -1375,8 +1428,8 @@ EOF
     @head_line        = @head_line.gsub("\u0022", "&quot;")
     @head_line        = @head_line.gsub("\u003C", "&lt;")
     @head_line        = @head_line.gsub("\u003E", "&gt;")
-    @order            = order
-    @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
+    @order            = order.to_s.rjust(2, "0")
+    @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="[<%= @name_plate %>] <%= @head_line %>"/>
 EOF
@@ -1395,6 +1448,7 @@ EOF
     target = mobile_page_preview_path + "/#{@photo_file_name}"
     system("cp #{source} #{target}")
   end
+
 
 
   def character_count_data_path
