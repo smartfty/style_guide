@@ -654,7 +654,6 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
-    
     working_articles.each do |working_article|
       working_article.generate_pdf
     end
@@ -1177,8 +1176,8 @@ EOF
         else
           puts "page_number:#{page_number}"
           puts "@order:#{@order}"
-          @y1 = (publication.top_margin + w.y + w.pushed_line_height)
-          @y2 = (@y1 + w.height - w.pushed_line_height)
+          @y1 = (publication.top_margin + w.y )
+          @y2 = (@y1 + w.height)
         end
         # binding.pry
         scale_map=""
