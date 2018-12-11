@@ -20,6 +20,10 @@
   - body
     - fit_text
 
+2018-12-11
+  - embeded article, line above
+  - create empty image box
+
 2018-12-8
   - overlapping box
      overlapping image as separate article
