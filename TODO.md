@@ -20,6 +20,25 @@
   - body
     - fit_text
 
+2018-12-8
+  - overlapping box
+     overlapping image as separate article
+     working_article overlap_box:text
+  - reporter byline
+  - show selected page thumb
+  - download opinion_writer csv with category_code
+
+2018-12-7
+  - 기획, 정책, 순서 반대로
+  - title right side cuts off
+      wrong heading width with non-edge 
+      char cushion value
+  - heading align to grid
+  - fix when pushed and pulled in both
+  - upload image with info intact
+  - for picture box, hide picture size control
+  - announcement vertical alignment
+
 2018-12-6
   - fix section.csv seed format
   - add update_section_layout after create action
@@ -27,7 +46,8 @@
   - fix section svg unit_width as 210/column
   - fix siblings search
   - handle page 100(even), 101(odd) page template
-  - fix push and pull bug, fix drawing page svg with push and pull
+  - fix drawing page svg with push and pull
+  - fix push and pull bug, 
 
 2018-11-30
   - fix 7단-15 bug

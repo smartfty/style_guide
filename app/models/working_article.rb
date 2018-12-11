@@ -50,6 +50,7 @@
 #  boxed_subtitle_type          :integer
 #  boxed_subtitle_text          :string
 #  subtitle_type                :string
+#  overlap                      :text
 #
 # Indexes
 #
@@ -611,16 +612,12 @@ class WorkingArticle < ApplicationRecord
     if top_position?
       h -= page_heading_margin_in_lines*body_line_height
     end
-    puts " after page_heading_margin h:#{h}" if order == 1
     if pushed_line_count && pushed_line_count != 0
       h -= pushed_line_count*body_line_height
     end
-    puts " after pushed_line h:#{h}" if order == 1
     if extended_line_count && extended_line_count != 0
       h += extended_line_count*body_line_height
     end
-    puts "after extended_line h:#{h}" if order == 1
-    puts "after extended_line_count h:#{extended_line_count}" if order == 1
     h
   end
 
@@ -783,7 +780,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml

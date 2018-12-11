@@ -6,12 +6,13 @@ class OpinionWritersController < ApplicationController
   def index
     @q = OpinionWriter.ransack(params[:q])
     @opinion_writers = @q.result
+    @opinion_writers = OpinionWriter.all  if request.format == 'csv'
 
     respond_to do |format|
       format.html
       format.csv do
         writers = OpinionWriter.order(name: :desc).all
-        send_data writers.to_csv
+        send_data @opinion_writers.to_csv
       end
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
