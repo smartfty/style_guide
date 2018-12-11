@@ -212,7 +212,7 @@ class AdBox < ApplicationRecord
   end
 
   def box_svg
-    "<a xlink:href='/ad_boxes/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
+    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
   end
 
   def section_name_code
@@ -306,12 +306,13 @@ EOF
 
 
   def mobile_preview_xml_component
-    @name_plate      = '광고'
+    @name_plate      = '[광고]'
     @head_line       = advertiser
 
     three_component =<<EOF
       <TitleComponent>
-        <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+        <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+        <SubTitle><%= @sub_head_line %></SubTitle>
       </TitleComponent>
       <ArticleComponent>
         <Content><![CDATA[<!--[[--image1--]]//-->
@@ -319,7 +320,6 @@ EOF
         <%= @by_line %>]]>
         </Content>
       </ArticleComponent>
-    <PhotoComponent/>
   </Article>
 EOF
     component = ""
@@ -338,12 +338,12 @@ EOF
         @order = page.working_articles.length + 1
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
-        @name_plate      = '광고'
+        @name_plate      = '[광고]'
         @head_line       = advertiser
 
 
       container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="[<%= @name_plate %>] <%= @head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
@@ -352,7 +352,7 @@ EOF
 
 
   def ad_xml
-    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+    story_erb_path = "#{Rails.root}/public/1/newsml/ad_box_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -374,10 +374,10 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '광고'
+    @name_plate      = '[광고]'
     @section_name_code = section_name_code
 
-    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @money_status     = "0"
     @head_line        = advertiser
 

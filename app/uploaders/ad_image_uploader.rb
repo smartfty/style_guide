@@ -11,7 +11,7 @@ class AdImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "#{model.publication.id}/issue/#{model.issue.date}/1/heading/images"
+    "#{model.publication.id}/issue/#{model.issue.date}/ads"
   end
 
 

@@ -51,6 +51,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
+        
         @section.update_section_layout
         format.html { redirect_to @section, notice: 'Section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }

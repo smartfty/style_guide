@@ -20,9 +20,9 @@
 <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <ul class="nav navbar-nav2 float-frame">
-    <!-- li> <%= button_to "xml 파일 생성", save_story_xml_issue_path, method: :get, class: "btn btn-md btn-warning" %> </li> <li> <%= button_to "xml 파일 다운로드", download_story_xml_issue_path(format: "zip"), method: :get, class: "btn btn-md btn-danger" %>
-    </li> <li> <%= button_to "지면보기 xml 생성", save_preview_xml_issue_path, method: :get, class: "btn btn-md btn-warning" %> </li> <li> <%= button_to "지면보기 xml 파일 다운로드", download_preview_xml_issue_path(format: "zip"), method: :get, class: "btn btn-md
-    btn-danger" %> </li> -->
+    <li> <%= button_to "데스크탑용 xml 파일 생성", save_story_xml_issue_path, method: :get, class: "btn btn-md btn-warning" %> </li><li> <%= button_to "모바일용 xml 생성", save_preview_xml_issue_path, method: :get, class: "btn btn-md btn-warning" %> </li> <!li> <%= button_to "xml 파일 다운로드", download_story_xml_issue_path(format: "zip"), method: :get, class: "btn btn-md btn-danger" %>
+    </li>  <li> <%= button_to "지면보기 xml 파일 다운로드", download_preview_xml_issue_path(format: "zip"), method: :get, class: "btn btn-md
+    btn-danger" %> </li> 
     <li class="float-unit">
       <%= button_to "데스크탑용 xml 전송", send_xml_to_ebiz_issue_path, method: :get, data: { confirm: '정말 보내시겠습니까?'}, class: "btn btn-md btn-success" %>
     </li>

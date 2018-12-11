@@ -64,7 +64,7 @@
     <input class="input_e" id="tab4" type="radio" name="tabs">
     <label class="taplabel" for="tab4">페이지 미리보기</label>
     <section class="section" id="content1">
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-6 col-sm-5">
         <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
         <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
         <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
@@ -73,13 +73,13 @@
         <%= render 'form', article: @working_article %>
         <% end %>
       </div>
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-6 col-sm-7">
         <%= render 'show_prewview', article: @working_article %>
       </div>
     </section>
 
     <section class="section" id="content2">
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-6 col-sm-5">
         <% if @working_article.kind == '기사' || '사진' %>
           <div class="row">
             <% @working_article.images.each do |image| %>
@@ -111,13 +111,13 @@
         <hr>
         <% end %>
       </div>
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-6 col-sm-7">
         <%= render 'show_prewview', article: @working_article %>
       </div>
     </section>
 
     <section class="section" id="content3">
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-6 col-sm-5">
         <% if @working_article.kind == '기사' || '사진' %>
         <div class="row">
           <% @working_article.graphics.each do |graphic| %>
@@ -150,7 +150,7 @@
         <% end %>
       </div>
 
-      <div class="col-xs-6 col-sm-6">
+      <div class="col-xs-6 col-sm-7">
         <%= render 'show_prewview', article: @working_article %>
       </div>
     </section>

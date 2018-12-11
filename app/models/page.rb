@@ -654,7 +654,6 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
-    
     working_articles.each do |working_article|
       working_article.generate_pdf
     end
@@ -823,7 +822,13 @@ class Page < ApplicationRecord
     true
   end
 
+  def send_to_expdf_ftp
+    news_pdf
+    ex_pdf
+  end
+
   def dong_a_code
+    date = issue.date
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
@@ -863,6 +868,7 @@ class Page < ApplicationRecord
   end
 
   def jung_ang_code
+    date = issue.date
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
@@ -871,7 +877,7 @@ class Page < ApplicationRecord
      else
       "zn#{m}#{d}#{pg}10001_#{printer_file_version}.pdf"
      end
-  end
+   end
 
   def jung_ang
     puts "sending it to Jung-Ang"
@@ -907,7 +913,7 @@ class Page < ApplicationRecord
 
 
   def news_pdf_code
-    yyyymd = date.strftime("%Y%m%d")
+    yyyymd = issue.date.strftime("%Y%m%d")
     pg = page_number.to_s.rjust(2,"0")
     "#{yyyymd}-#{pg}.pdf"
   end
@@ -917,7 +923,7 @@ class Page < ApplicationRecord
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    yyyymd = date.strftime("%Y%m%d")
+    yyyymd = issue.date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
     end
@@ -925,7 +931,7 @@ class Page < ApplicationRecord
 
   def ex_pdf_code
     jeho = issue.number
-    yymd = date.strftime("%y%m%d")
+    yymd = issue.date.strftime("%y%m%d")
     pg = page_number.to_s.rjust(2,"0")
     "#{jeho}-#{yymd}#{pg}.pdf"
   end
@@ -935,7 +941,7 @@ class Page < ApplicationRecord
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    yyyymd = date.strftime("%Y%m%d")
+    yyyymd = issue.date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")
     end
@@ -965,11 +971,13 @@ class Page < ApplicationRecord
 
 
   def save_preview_xml
+   date = issue.date
    @day = date.day.to_s.rjust(2,"0")
    @month = date.month.to_s.rjust(2,"0")
    @year = date.year % 100
    @date = "#{@year}#{@month}#{@day}"
-   @filename = "#{issue.number}-#{@date}#{page_number}"
+   @page_number = page_number.to_s.rjust(2,"0")
+   @filename = "#{issue.number}-#{@date}#{@page_number}"
    scale = 1.6
 
    header =<<~EOF
@@ -985,7 +993,7 @@ class Page < ApplicationRecord
    @issue_number = issue.number
    @page_number = page_number
 
-   article_map_path = "#{Rails.root}/public/1/issue/#{date.to_s}/page_preview"
+   article_map_path = "#{Rails.root}/public/1/issue/#{issue.date.to_s}/page_preview"
    article_map = header
    working_articles.sort_by{|x| x.order}.each do |w|
      @order = w.order - 1
@@ -994,6 +1002,8 @@ class Page < ApplicationRecord
      erb = ERB.new(template)
      article_map += erb.result(binding) + "\n"
      article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
+     # binding.pry if w.page_number==22
+     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
      FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
      FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
 
@@ -1015,8 +1025,12 @@ class Page < ApplicationRecord
    system("cp #{pdf_path} #{article_map_path}/#{@filename}.pdf")
   end
 
+  def page_info
+    page_number.to_s.rjust(2,"0")
+  end
+
   def mobile_page_preview_path
-    "#{Rails.root}/public/1/issue/#{date.to_s}/mobile_page_preview/1001#{page_number}"
+    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_info}"
   end
 
   def xml_section_name
@@ -1026,11 +1040,6 @@ class Page < ApplicationRecord
       section_name
     end
   end  
-
-
-  def page_info
-    page_number.to_s.rjust(2,"0")
-  end
 
   def all_container
     year  = issue.date.year
@@ -1058,13 +1067,13 @@ EOF
     end
     # container += container_xml  + "\n" + page_container_xml
     container += container_xml
-    container + page_container_xml + "		</Page>" + "\n"
+    container + page_container_xml + "    </Page>" + "\n"
   end
 
   def updateinfo
-    year  = date.year
-    month = date.month.to_s.rjust(2, "0")
-    day   = date.day.to_s.rjust(2, "0")
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
     @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
     page_key=<<EOF
     <PageKey><%= @page_key %></PageKey>
@@ -1077,21 +1086,22 @@ EOF
   def save_mobile_preview_xml
     puts "++++++++++++ page_number:#{page_number}"
     default_time      = "00:00:00"
-    year  = date.year
-    month = date.month.to_s.rjust(2, "0")
-    day   = date.day.to_s.rjust(2, "0")
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
     # w_updated_at = working_articles.first.updated_at
     updated_date      = "#{year}-#{month}-#{day}"
     updated_time      = updated_at.strftime("%H:%M:%S")
     @date_id          = updated_date
     @day_info         = "#{year}년#{month}월#{day}일"
     @media_info       = publication.name
+    date = issue.date
     @day = date.day.to_s.rjust(2,"0")
     @month = date.month.to_s.rjust(2,"0")
     @year = date.year
     @date = "#{@year}#{@month}#{@day}"
-    @filename = "#{@date}_011001#{page_number}"
-    @article_filename = "#{@date}.011001#{page_number}"
+    @filename = "#{@date}_011001#{page_info}"
+    @article_filename = "#{@date}.011001#{page_info}"
     @jeho_num         = issue.number
     @news_date        = "#{updated_date}T#{default_time}"
     @news_meun        = page_number.to_s.rjust(2,"0")
@@ -1102,7 +1112,7 @@ EOF
 
     system("mkdir -p #{mobile_page_preview_path}") unless File.exist?(mobile_page_preview_path)
     system("cp #{jpg_path} #{mobile_page_preview_path}")
-    resize_name = "#{@date}_011001#{page_number}"
+    resize_name = "#{@date}_011001#{page_info}"
     system "cd #{mobile_page_preview_path} && convert section.jpg -resize 2300x3191  #{resize_name}.jpg"
     system "cd #{mobile_page_preview_path} && convert section.jpg -resize 1856x2575  #{resize_name}c.jpg"
     system "cd #{mobile_page_preview_path} && convert section.jpg -resize 1150x1595  #{resize_name}b.jpg"
@@ -1132,6 +1142,7 @@ EOF
       <PaperSize>A2</PaperSize>
     </PageInfo>
 EOF
+# binding.pry
      size_array = %w[CoordinateListReal CoordinateListOrg CoordinateListA CoordinateListB CoordinateListC]
      # scale_array = [4.128, 1.148, 2.064, 3.332, 0.286]
      # scale_array = [19.790, 2.023, 0.558, 1, 1.627]
@@ -1151,15 +1162,15 @@ EOF
       mobile_layout += erb.result(binding)
 
       working_articles.sort_by{|x| x.order}.each do |w|
-        @order = w.order
+        @order = (w.order).to_s.rjust(2,'0')
         @x1 = (publication.left_margin + w.x)
         @x2 = (@x1 + w.width)
         # if (page_number == 22 || page_number == 23) && (@order == 1 || @order == 2)
         if (page_number == 22 || page_number == 23) && (@order == 1 || @order == 2)
           puts "page_number:#{page_number}"
           puts "@order:#{@order}"
-          @y1 = (publication.top_margin + w.y + 55.613048314961)
-          @y2 = (@y1 + w.height - 55.613048314961 + w.extended_line_height)
+          @y1 = (publication.top_margin + w.y + 55.073)
+          @y2 = (@y1 + w.height - 55.073 + w.extended_line_height)
           puts "@y2:#{@y2}"
           puts "w.extended_line_height:#{w.extended_line_height}"
 
@@ -1169,6 +1180,7 @@ EOF
           @y1 = (publication.top_margin + w.y + w.pushed_line_height)
           @y2 = (@y1 + w.height - w.pushed_line_height)
         end
+        # binding.pry
         scale_map=""
         size_array.each_with_index do |name, i|
           scale = scale_array[i]
@@ -1178,12 +1190,12 @@ EOF
         mobile_layout += "  <Article>" + "\n" + w.mobile_preview_xml_article_info
         mobile_layout += "    <MapComponent>" + "\n" + scale_map + "    </MapComponent>" + "\n"
         mobile_layout += w.mobile_preview_xml_three_component
-        article_map_jpg_image_path = mobile_page_preview_path + "/#{@article_filename}00000#{@order}.jpg"
+        article_map_jpg_image_path = mobile_page_preview_path + "/#{@article_filename}0000#{@order}.jpg"
         system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
     end
 
     ad_boxes.each do |w|
-      @order = working_articles.length + 1
+      @order = (working_articles.length + 1).to_s.rjust(2,'0')
       @x1 = (publication.left_margin + w.x)
       @x2 = (@x1 + w.width)
       @y1 = (publication.top_margin + w.y)
@@ -1202,7 +1214,7 @@ EOF
 
       # erb_map = ERB.new(map_component)
       # article_map += erb_map.result(binding)
-      article_map_jpg_image_path = mobile_page_preview_path + "/#{@article_filename}00000#{@order}.jpg"
+      article_map_jpg_image_path = mobile_page_preview_path + "/#{@article_filename}0000#{@order}.jpg"
       system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
     end
 
@@ -1218,9 +1230,12 @@ EOF
     system("cp #{mobile_page_preview_path} #{mobile_page_preview_path}/#{@filename}.pdf")
   end
 
+  # def container_xml_page
+  #   # page_info        = page_number.to_s.rjust(2,"0")
+  #
+  # end
+
   def save_story_xml
-    puts "page_number:#{page_number}"
-    puts "section_name:#{section_name}"
     if  section_name == "전면광고"
       ad = ad_boxes.first
       ad.order = 1
@@ -1241,6 +1256,7 @@ EOF
   def section_pages
     issue.pages.select{|p| p.section_name == section_name}
   end
+
 
   private
 
