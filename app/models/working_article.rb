@@ -783,7 +783,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
@@ -1068,6 +1068,17 @@ class WorkingArticle < ApplicationRecord
         # name = person.gsub(" ","")[0..2]
         # return opinion_image_path + "/#{name}.jpg"
       end
+    else images.length > 0
+      output = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
+      Dir.glob("#{issue.path}/images/*.jpg").each do |f|
+      puts "================ f:#{f}"
+        base_name = File.basename(f)
+        dirname = File.dirname(f)
+        if base_name.length < 10
+          system("cd #{dirname} && convert #{base_name} -resize 500 #{output} ")
+        end
+      end
+      return issue.path + "/images/#{output}"
     end
   end
 
@@ -1355,67 +1366,139 @@ EOF
     article += erb.result(binding)
   end
 
-  def mobile_preview_xml_three_component
-#     if page_number == 23 && order == 2
+#   def mobile_preview_xml_three_component
+#     if working_article.images.length = 0
 #       three_component =<<EOF
 #       <TitleComponent>
-#         <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
-#       </TitleComponent>
-#       <ArticleComponent>
-#         <Content><![CDATA[<%= @data_content %>
-#   <%= @by_line %>]]>
-#         </Content>
-#       </ArticleComponent>
+#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+#     </TitleComponent>
+#     <ArticleComponent>
+#       <Content><![CDATA[<%= @data_content %>
+#     <%= @by_line %>]]>
+#       </Content>
+#     </ArticleComponent>
 #     </Article>
 # EOF
-    if images.length = 0
-      three_component =<<EOF
-      <TitleComponent>
-      <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
-    </TitleComponent>
-    <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %>
-    <%= @by_line %>]]>
-      </Content>
-    </ArticleComponent>
-    </Article>
-EOF
-    else images.length > 0
+#     else working_article.images.length > 0
+#     three_component =<<EOF
+#     <TitleComponent>
+#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+#     </TitleComponent>
+#     <ArticleComponent>
+#       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+# <%= @by_line %>]]>
+#       </Content>
+#     </ArticleComponent>
+#     <PhotoComponent>
+#      <PhotoItem>
+#        <ImageType>Image</ImageType>
+#          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+#           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+#           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+#      </PhotoItem>
+#     </PhotoComponent>
+#   </Article>
+# EOF
+#     end
+    
+#     component = ""
+
+#     erb = ERB.new(three_component)
+#     component += erb.result(binding)
+#   end
+
+# def mobile_preview_xml_three_component
+#   if page_number == 23 && order == 2
+#     three_component =<<EOF
+#     <TitleComponent>
+#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+#     </TitleComponent>
+#     <ArticleComponent>
+#       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+# <%= @by_line %>]]>
+#       </Content>
+#     </ArticleComponent>
+#   </Article>
+# EOF
+#   else
+#   three_component =<<EOF
+#   <TitleComponent>
+#     <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+#   </TitleComponent>
+#   <ArticleComponent>
+#     <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+# <%= @by_line %>]]>
+#     </Content>
+#   </ArticleComponent>
+#   <PhotoComponent>
+#    <PhotoItem>
+#      <ImageType>Image</ImageType>
+#        <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+#         <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+#         <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+#    </PhotoItem>
+#   </PhotoComponent>
+# </Article>
+# EOF
+#   end
+#   component = ""
+
+#   erb = ERB.new(three_component)
+#   component += erb.result(binding)
+# end
+
+def mobile_preview_xml_three_component
+  if images.length == 0
     three_component =<<EOF
     <TitleComponent>
-      <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+      <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+      <SubTitle> <%= @sub_head_line %></SubTitle>
     </TitleComponent>
     <ArticleComponent>
-      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+      <Content><%= @data_content %>
 <%= @by_line %>]]>
       </Content>
     </ArticleComponent>
-    <PhotoComponent>
-     <PhotoItem>
-       <ImageType>Image</ImageType>
-         <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-          <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-     </PhotoItem>
-    </PhotoComponent>
   </Article>
 EOF
-    end
-    component = ""
-
-    erb = ERB.new(three_component)
-    component += erb.result(binding)
+  else
+  three_component =<<EOF
+  <TitleComponent>
+    <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
+    <SubTitle> <%= @sub_head_line %></SubTitle>
+  </TitleComponent>
+  <ArticleComponent>
+    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+<%= @by_line %>]]>
+    </Content>
+  </ArticleComponent>
+  <PhotoComponent>
+   <PhotoItem>
+     <ImageType>Image</ImageType>
+       <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+   </PhotoItem>
+  </PhotoComponent>
+</Article>
+EOF
   end
+  component = ""
+
+  erb = ERB.new(three_component)
+  component += erb.result(binding)
+end
+
 
   def xml_group_key_template
     # binding.pry
-    @name_plate       = subject_head
+    @name_plate       = '[subject_head]'
     unless @name_plate
       # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
-      @name_plate = r.title
+      @name_plate = '[r.title]'
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -1431,7 +1514,7 @@ EOF
     @order            = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="[<%= @name_plate %>] <%= @head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
