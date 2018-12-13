@@ -306,7 +306,7 @@ EOF
 
 
   def mobile_preview_xml_component
-    @name_plate      = '[광고]'
+    @name_plate      = '광고'
     @head_line       = advertiser
 
     three_component =<<EOF
@@ -338,7 +338,7 @@ EOF
         @order = page.working_articles.length + 1
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
-        @name_plate      = '[광고]'
+        @name_plate      = '광고'
         @head_line       = advertiser
 
 
@@ -374,7 +374,7 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '[광고]'
+    @name_plate      = '광고'
     @section_name_code = section_name_code
 
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"

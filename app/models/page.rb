@@ -1177,7 +1177,9 @@ EOF
         else
           puts "page_number:#{page_number}"
           puts "@order:#{@order}"
-          @y1 = (publication.top_margin + w.y )
+          # @y1 = (publication.top_margin + w.y + w.pushed_line_height)
+          # @y2 = (@y1 + w.height - w.pushed_line_height)
+          @y1 = (publication.top_margin + w.y)
           @y2 = (@y1 + w.height)
         end
         # binding.pry

@@ -479,7 +479,7 @@ end
     system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
     File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
     File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
-    # mobile_xml_send
+    mobile_xml_send
     # make_mobile_preview_xml_zip
     # directory_to_zip = mobile_preview_xml_path
     # output_file = mobile_preview_xml_zip_path

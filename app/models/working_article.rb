@@ -1071,18 +1071,13 @@ class WorkingArticle < ApplicationRecord
       puts "================ f:#{f}"
         base_name = File.basename(f)
         dirname = File.dirname(f)
-        if image_base_name == base_name
+        if base_name.length < 10
           system("cd #{dirname} && convert #{base_name} -resize 500 #{output} ")
         end
       end
       return issue.path + "/images/#{output}"
     end
   end
-
-  def image_base_name
-    "#{page_number}_#{order}_0.jpg"
-  end
-
 
   def save_xml_image
     source = image_source
@@ -1118,7 +1113,7 @@ class WorkingArticle < ApplicationRecord
     # @page_info        = publication.paper_size
     @page_info        = page_number.to_s.rjust(2,"0")
     @jeho_info        = issue.number
-
+ 
     # if page.section_name = '오피니언'
     #   @news_title_info = '논설'
     # else
@@ -1180,9 +1175,8 @@ class WorkingArticle < ApplicationRecord
       category_code = opinion_writer.category_code
       @name_plate = opinion_writer.title
       end
-    end
-
-    
+    end  
+    @sbject_ex       = @name_plate
 
     @money_status     = "30"
     if page_number == 22
@@ -1201,7 +1195,7 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-    @name_plate_code  = category_code
+    @sbject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @head_line        = title
     @sub_head_line    = subtitle
@@ -1217,6 +1211,11 @@ class WorkingArticle < ApplicationRecord
       puts "quote"
     end
 
+    if page_number == 1
+      @name_plate_code = category_code
+      @sbject_ex = ""
+    end
+    
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
@@ -1299,6 +1298,7 @@ class WorkingArticle < ApplicationRecord
       category_code = r.category_code
       @name_plate = r.title
     end
+    @sbject_ex       = @name_plate
 
     @money_status     = "30"
     if page_number == 22
@@ -1317,7 +1317,7 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-    @name_plate_code  = category_code
+    @sbject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     title.strip!
     @head_line        = title
@@ -1457,7 +1457,7 @@ def mobile_preview_xml_three_component
       <SubTitle> <%= @sub_head_line %></SubTitle>
     </TitleComponent>
     <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+      <Content><%= @data_content %>
 <%= @by_line %>]]>
       </Content>
     </ArticleComponent>
@@ -1494,13 +1494,13 @@ end
 
   def xml_group_key_template
     # binding.pry
-    @name_plate       = '[subject_head]'
+    @name_plate       = subject_head
     unless @name_plate
       # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
-      @name_plate = '[r.title]'
+      @name_plate = r.title
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -1524,34 +1524,14 @@ EOF
   end
 
   def mobile_page_preview_path
-    page_info        = page_number.to_s.rjust(2,"0")
-    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_info}"
-
+    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_number}"
   end
 
   def save_mobile_xml_image
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    mobile_output = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
-
-    Dir.glob("#{issue.path}/images/*.jpg").each do |f|
-    puts "================ f:#{f}"
-      base_name = File.basename(f)
-      dirname = File.dirname(f)
-      if image_base_name == base_name
-        system("cd #{dirname} && convert #{base_name} -resize 500 #{mobile_output} ")
-      end
-    end
-    # return issue.path + "/images/#{mobile_output}"
-
-    source = "#{Rails.root}/public/1/issue/#{issue.date.to_s}/images/#{@photo_file_name}"
-    return unless File.exist?(source)
-    target = mobile_page_preview_path
-    puts "+++++ cp #{source} #{target}/#{@photo_file_name}"
-    system("cp #{source} #{target}/#{@photo_file_name}")
-    
+    source = image_source
+    return if source.nil?
+    target = mobile_page_preview_path + "/#{@photo_file_name}"
+    system("cp #{source} #{target}")
   end
 
 
