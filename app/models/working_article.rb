@@ -1592,14 +1592,22 @@ end
 
   def xml_group_key_template
     # binding.pry
+<<<<<<< HEAD
     # @name_plate       = "[#{subject_head}]" if subject_head && subject_head != ""
     @name_plate       = "[#{subject_head}]"
+=======
+    @name_plate       = subject_head
+>>>>>>> 6926dbe109176dd117622dfe1c7bd581f938c7b3
     unless @name_plate
       # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
+<<<<<<< HEAD
       @name_plate = "[#{r.title}]"
+=======
+      @name_plate = r.title
+>>>>>>> 6926dbe109176dd117622dfe1c7bd581f938c7b3
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
