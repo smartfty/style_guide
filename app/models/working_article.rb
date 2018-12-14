@@ -186,7 +186,7 @@ class WorkingArticle < ApplicationRecord
     # update content with new story content  
     self.reporter = story.reporter
     self.title    = story.title
-    self.subtitle    = story.subtitle
+    self.subtitle = story.subtitle
     self.body     = story.body
     self.quote    = story.quote  if story.quote
     self.save  
@@ -687,7 +687,7 @@ class WorkingArticle < ApplicationRecord
     h[:bottom_article]                = page.bottom_article?(self)
     h[:extended_line_count]           = self.extended_line_count if extended_line_count
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
-    h[:quote_box_size]                = self.selfquote_box_size if show_quote_box?
+    h[:quote_box_size]                = self.quote_box_size if show_quote_box?
     if boxed_subtitle_type && boxed_subtitle_type > 0
       h[:boxed_subtitle_type]         = self.boxed_subtitle_type 
     end
@@ -780,7 +780,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
@@ -1113,7 +1113,7 @@ class WorkingArticle < ApplicationRecord
     # @page_info        = publication.paper_size
     @page_info        = page_number.to_s.rjust(2,"0")
     @jeho_info        = issue.number
-
+ 
     # if page.section_name = '오피니언'
     #   @news_title_info = '논설'
     # else
@@ -1135,6 +1135,14 @@ class WorkingArticle < ApplicationRecord
       # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
+     if images.length > 0 
+      @image          = images.first
+      @caption        = ""
+      @caption        = "[#{@image.caption_title}] " if @image.caption_title && @image.caption_title != ""
+      @caption        += "#{@image.caption} " if @image.caption && @image.caption != ""
+      @caption        += "(#{@image.source})" if @image.source && @image.source != ""
+    end
+
 
     opinion_writer  = OpinionWriter.where(name:@name).first
     if opinion_writer
@@ -1167,7 +1175,8 @@ class WorkingArticle < ApplicationRecord
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
-    @name_plate       = subject_head
+    @name_plate       = "[#{subject_head}]" if @name_plate != "" && @name_plate != nil
+    # @name_plate       = subject_head
     if @name_plate == "" || @name_plate == nil
       # r = OpinionWriter.where(name: reporter).first
       # puts r
@@ -1175,9 +1184,8 @@ class WorkingArticle < ApplicationRecord
       category_code = opinion_writer.category_code
       @name_plate = opinion_writer.title
       end
-    end
-
-    
+    end  
+    @sbject_ex       = @name_plate
 
     @money_status     = "30"
     if page_number == 22
@@ -1196,10 +1204,24 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-    @name_plate_code  = category_code
+    @sbject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
-    @head_line        = title
-    @sub_head_line    = subtitle
+    h = covert_to_multiple_line(title)
+    puts "++++++ h: #{h}"
+    if h.class == String
+      @head_line1 = h
+    else
+      puts "+++++++ title: #{title}"
+      @head_line1 = h[0]
+      @head_line2 = h[1]
+    end
+    sh = covert_to_multiple_line(subtitle)
+    if sh.class == String
+      @sub_head_line1 = subtitle
+    else
+      @sub_head_line1 = sh[0]
+      @sub_head_line2 = sh[1]
+    end
     @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
     title.gsub!("\u2024", "")
     puts "=================="
@@ -1212,6 +1234,11 @@ class WorkingArticle < ApplicationRecord
       puts "quote"
     end
 
+    if page_number == 1
+      @name_plate_code = category_code
+      @sbject_ex = ""
+    end
+    
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
@@ -1225,6 +1252,27 @@ class WorkingArticle < ApplicationRecord
     # story_erb = ERB.new(story_xml_template)
     # story_erb.result(binding)
   end
+
+
+  def eliminate_size_option(string)
+    string = string.sub(/\{\s?(-?\d)\s?\}\s?$/, "") if string =~/\{\s?(-?\d)\s?\}\s?$/
+  end
+
+  def covert_to_multiple_line(string)
+    s = string
+    return "" unless s
+    if string.include?("\r\n")
+        s = string.split("\r\n")
+        return s
+    end
+    s
+   end
+
+# sample_title = "this a {-5}"
+# result = eliminate_size_option(sample_title)
+
+# a = "my string"
+
 
   def mobile_preview_xml_article_info
     year  = issue.date.year
@@ -1286,14 +1334,17 @@ class WorkingArticle < ApplicationRecord
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
-    @name_plate       = subject_head
+    @name_plate       = "[#{subject_head}]" if subject_head && subject_head != ""
+    
+    # @name_plate       = "[#{subject_head}]"
     unless @name_plate
       # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
-      @name_plate = r.title
+      @name_plate = "[#{r.title}]"
     end
+    @sbject_ex       = @name_plate
 
     @money_status     = "30"
     if page_number == 22
@@ -1312,16 +1363,38 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-    @name_plate_code  = category_code
+    @sbject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     title.strip!
-    @head_line        = title
-    @head_line        = @head_line.gsub("\u201C", "&quot;")
-    @head_line        = @head_line.gsub("\u201D", "&quot;")
-    @head_line        = @head_line.gsub("\u0022", "&quot;")
-    @head_line        = @head_line.gsub("\u003C", "&lt;")
-    @head_line        = @head_line.gsub("\u003E", "&gt;")
-    @sub_head_line    = subtitle
+    @head_line        = eliminate_size_option(title)
+    @head_line        = title.gsub("\u201C", "&quot;")
+    @head_line        = title.gsub("\u201D", "&quot;")
+    @head_line        = title.gsub("\u0022", "&quot;")
+    @head_line        = title.gsub("\u003C", "&lt;")
+    @head_line        = title.gsub("\u003E", "&gt;")
+    h = covert_to_multiple_line(@head_line)
+    if h.class == String
+      @head_line1 = h
+    else
+      @head_line1 = h[0]
+      @head_line2 = h[1]
+    end
+    if subtitle && subtitle != ""
+      @sub_head_line    = eliminate_size_option(subtitle) 
+      @sub_head_line    = subtitle.gsub("\u201C", "&quot;")
+      @sub_head_line    = subtitle.gsub("\u201D", "&quot;")
+      @sub_head_line    = subtitle.gsub("\u0022", "&quot;")
+      @sub_head_line    = subtitle.gsub("\u003C", "&lt;")
+      @sub_head_line    = subtitle.gsub("\u003E", "&gt;")
+      sh = covert_to_multiple_line(@sub_head_line)
+      if sh.class == String
+        @sub_head_line1 = sh
+      else
+        @sub_head_line1 = sh[0]
+        @sub_head_line2 = sh[1]
+      end
+    end
+     
     @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
@@ -1445,39 +1518,69 @@ EOF
 # end
 
 def mobile_preview_xml_three_component
-  if images.length == 0
+  if (page_number == 22) || (page_number == 23 && order == 1 || order == 3)
     three_component =<<EOF
     <TitleComponent>
-      <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-      <SubTitle> <%= @sub_head_line %></SubTitle>
+      <MainTitle><%= @name_plate %> <%= @head_line1 %></MainTitle>
     </TitleComponent>
     <ArticleComponent>
-      <Content><%= @data_content %>
-<%= @by_line %>]]>
+      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+  <%= @by_line %>]]>
+      </Content>
+    </ArticleComponent>
+    <PhotoComponent>
+     <PhotoItem>
+       <ImageType>Image</ImageType>
+         <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+          <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @by_line %>]]></DataContent>
+     </PhotoItem>
+    </PhotoComponent>
+  </Article>
+EOF
+    
+  elsif images.length == 0
+    three_component =<<EOF
+    <TitleComponent>
+      <MainTitle><%= @name_plate %> <%= @head_line1 %></MainTitle>
+      <% if page_number == 23 && order == 2 %>
+      <% else %>
+      <SubTitle> <%= @sub_head_line1 %></SubTitle>
+      <% end %>
+    </TitleComponent>
+    <ArticleComponent>
+      <Content><![CDATA[<%= @data_content %>
+<%= @caption %>]]>
       </Content>
     </ArticleComponent>
   </Article>
 EOF
+ 
   else
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-    <SubTitle> <%= @sub_head_line %></SubTitle>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-<%= @by_line %>]]>
-    </Content>
-  </ArticleComponent>
-  <PhotoComponent>
-   <PhotoItem>
-     <ImageType>Image</ImageType>
-       <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-   </PhotoItem>
-  </PhotoComponent>
-</Article>
+    three_component =<<EOF
+    <TitleComponent>
+      <MainTitle><%= @name_plate %> <%= @head_line1 %></MainTitle>
+      <% if @sub_head_line2 == nil %>
+      <SubTitle> <%= @sub_head_line1 %></SubTitle>
+      <% else %>
+      <SubTitle> <%= @sub_head_line1 %></SubTitle>
+      <SubTitle> <%= @sub_head_line2 %></SubTitle>
+      <% end %>
+    </TitleComponent>
+    <ArticleComponent>
+      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
+  <%= @by_line %>]]>
+      </Content>
+    </ArticleComponent>
+    <PhotoComponent>
+    <PhotoItem>
+      <ImageType>Image</ImageType>
+        <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+          <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+    </PhotoItem>
+    </PhotoComponent>
+  </Article>
 EOF
   end
   component = ""
@@ -1489,25 +1592,26 @@ end
 
   def xml_group_key_template
     # binding.pry
-    @name_plate       = '[subject_head]'
+    # @name_plate       = "[#{subject_head}]" if subject_head && subject_head != ""
+    @name_plate       = "[#{subject_head}]"
     unless @name_plate
       # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
-      @name_plate = '[r.title]'
+      @name_plate = "[#{r.title}]"
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
+    page_info         = page_number.to_s.rjust(2,"0")
     title.strip!
-    @head_line        = title
-    @head_line        = @head_line.gsub("\u201C", "&quot;")
-    @head_line        = @head_line.gsub("\u201D", "&quot;")
-    @head_line        = @head_line.gsub("\u0022", "&quot;")
-    @head_line        = @head_line.gsub("\u003C", "&lt;")
-    @head_line        = @head_line.gsub("\u003E", "&gt;")
+    # @head_line        = eliminate_size_option(title)
+    @head_line        = title.gsub("\u201C", "&quot;")
+    @head_line        = title.gsub("\u201D", "&quot;")
+    @head_line        = title.gsub("\u0022", "&quot;")
+    @head_line        = title.gsub("\u003C", "&lt;")
+    @head_line        = title.gsub("\u003E", "&gt;")
     @order            = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     container_xml_group_key=<<EOF

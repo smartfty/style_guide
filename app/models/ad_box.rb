@@ -306,13 +306,13 @@ EOF
 
 
   def mobile_preview_xml_component
-    @name_plate      = '[광고]'
-    @head_line       = advertiser
+    @name_plate      = '광고'
+    @head_line1       = advertiser
 
     three_component =<<EOF
       <TitleComponent>
-        <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-        <SubTitle><%= @sub_head_line %></SubTitle>
+      <MainTitle>[<%= @name_plate %>] <%= @head_line1 %></MainTitle>
+      <SubTitle><%= @sub_head_line1 %></SubTitle>
       </TitleComponent>
       <ArticleComponent>
         <Content><![CDATA[<!--[[--image1--]]//-->
@@ -338,12 +338,12 @@ EOF
         @order = page.working_articles.length + 1
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
-        @name_plate      = '[광고]'
-        @head_line       = advertiser
+        @name_plate      = '광고'
+        @head_line1       = advertiser
 
 
       container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line1 %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
@@ -374,12 +374,12 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '[광고]'
+    @name_plate      = '광고'
     @section_name_code = section_name_code
 
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @money_status     = "0"
-    @head_line        = advertiser
+    @head_line1        = advertiser
 
 
     story_erb = ERB.new(story_xml_template)

@@ -62,7 +62,7 @@ class Profile < ApplicationRecord
     layout =<<~EOF
     RLayout::Container.new(width:158.74015748031,  height: 75) do
       rect(x: 0, y: 10, width:158.74015748031, height: 65, fill_color:"CMYK=0,0,0,10")
-      image(local_image: '<%= name %>.eps', x: 93.74015748031, y: 0, width: 60, height: 75, fill_color: 'clear')
+      image(local_image: '<%= name %>.eps', x: 98.74015748031, y: 0, width: 60, height: 75, fill_color: 'clear')
       container(x: 0, y: 20, width:100, bottom_margin: 10, fill_color: 'clear') do
         <% if name && work && work != "" && position && position != "" %>
           <% if name.include?('-') %>
