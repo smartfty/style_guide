@@ -1,5 +1,5 @@
 <% if @story.selected%>
-    <%= render 'selected', story: @story, working_article: @story.working_article %>
+    <%= render 'selected', story: @story, working_article: @working_article %>
 <% else %>
     <%= render 'form', story: @story %>
 <% end %>

@@ -20,6 +20,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    binding.pry
+    @working_article = @story.working_article
   end
 
   # GET /stories/new

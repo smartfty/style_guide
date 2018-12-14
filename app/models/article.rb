@@ -38,6 +38,7 @@
 #  grid_height                  :float
 #  gutter                       :float
 #  overlap                      :text
+#  embedded                     :boolean
 #
 
 class Article < ApplicationRecord
@@ -180,7 +181,7 @@ class Article < ApplicationRecord
   end
 
   def story_md
-    title     = "#{order}번 기사 제목은 여기에 여기는 제목"
+    title     = "#{order}번 기사 제목은 여기에"
     subtitle  = '부제는 여기에 여기는 부제목 자리'
     reporter  = '홍길동'
     email     = 'gdhong@gmail.com'
@@ -300,7 +301,8 @@ class Article < ApplicationRecord
     h[:article_line_draw_sides]       = publication.article_line_draw_sides
     h[:article_line_thickness]        = publication.article_line_thickness
     h[:draw_divider]                  = publication.draw_divider
-
+    h[:overlap]                       = overlap if overlap
+    h[:embedded]                      = embedded if embedded
     content=<<~EOF
     RLayout::NewsArticleBox.new(#{h})
 
@@ -393,6 +395,10 @@ class Article < ApplicationRecord
     profile += "_#{column}x#{row}"
 
     profile
+  end
+
+  def grid_rect
+    [grid_x, grid_y, column, row]
   end
 
   private

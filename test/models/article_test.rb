@@ -38,6 +38,7 @@
 #  grid_height                  :float
 #  gutter                       :float
 #  overlap                      :text
+#  embedded                     :boolean
 #
 
 require 'test_helper'

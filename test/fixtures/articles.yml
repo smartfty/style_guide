@@ -38,6 +38,7 @@
 #  grid_height                  :float
 #  gutter                       :float
 #  overlap                      :text
+#  embedded                     :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

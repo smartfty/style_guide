@@ -51,6 +51,7 @@
 #  boxed_subtitle_text          :string
 #  subtitle_type                :string
 #  overlap                      :text
+#  embedded                     :boolean
 #
 # Indexes
 #
@@ -71,6 +72,7 @@ class WorkingArticle < ApplicationRecord
   include ArticleSplitable
   include PageSplitable
   include ArticleSwapable
+  include RectUtiles
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
 
@@ -687,7 +689,7 @@ class WorkingArticle < ApplicationRecord
     h[:bottom_article]                = page.bottom_article?(self)
     h[:extended_line_count]           = self.extended_line_count if extended_line_count
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
-    h[:quote_box_size]                = self.selfquote_box_size if show_quote_box?
+    h[:quote_box_size]                = self.quote_box_size if show_quote_box?
     if boxed_subtitle_type && boxed_subtitle_type > 0
       h[:boxed_subtitle_type]         = self.boxed_subtitle_type 
     end
@@ -699,6 +701,8 @@ class WorkingArticle < ApplicationRecord
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
     h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
     h[:draw_divider]                  = false     #publication.draw_divider
+    h[:overlap]                       = overlap   if overlap
+    h[:embedded]                      = embedded  if embedded
     h
   end
 
@@ -866,6 +870,7 @@ class WorkingArticle < ApplicationRecord
     self.pushed_line_count = article_info_hash[:pushed_line_count] || 0
     self.page_heading_margin_in_lines = article_info_hash[:page_heading_margin_in_lines]
     self.inactive       = false
+    self.overlap        = article_info_hash[:overlap]
     self.save
   end
 
