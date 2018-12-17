@@ -181,8 +181,9 @@ Rails.application.routes.draw do
       get 'download_story_xml'
       get 'save_preview_xml'
       get 'download_preview_xml'
-      get 'save_mobile_preview_xml'
       get 'send_xml_to_ebiz'
+      get 'save_mobile_preview_xml'
+      get 'send_mobile_preview_xml'
       get 'merge_container_xml'
 
     end
