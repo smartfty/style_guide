@@ -26,20 +26,23 @@
     <li class="float-unit"> 
       <%= button_to "데스크탑용 지면보기 xml 생성", save_preview_xml_issue_path, method: :get, class: "btn btn-md btn-normal" %> 
     </li> 
-    <!-- li class="float-unit"> 
+    <!--li class="float-unit"> 
       <%= button_to "데스크탑용 xml 다운로드", download_story_xml_issue_path(format: "zip"), method: :get, class: "btn btn-md btn-normal" %> 
     </li>  
     <li class="float-unit"> 
       <%= button_to "데스크탑용 지면보기 xml 다운로드", download_preview_xml_issue_path(format: "zip"), method: :get, class: "btn btn-md btn-normal" %> 
-    </li --> 
+    </li--> 
     <li class="float-unit">
       <%= button_to "데스크탑용 xml 전송", send_xml_to_ebiz_issue_path, method: :get, data: { confirm: '정말 보내시겠습니까?'}, class: "btn btn-md btn-success" %>
     </li>
     <li class="float-unit">
-      <%= button_to "모바일용 xml 전송", save_mobile_preview_xml_issue_path, method: :get, class: "btn btn-md btn-danger" %>
+      <%= button_to "모바일용 xml 생성", save_mobile_preview_xml_issue_path, method: :get, class: "btn btn-md btn-normal" %>
     </li>
     <li class="float-unit">
-      <%= button_to "합성", merge_container_xml_issue_path, method: :get, class: "btn btn-md btn-normal" %>
+    <%= button_to "모바일용 xml 전송", send_mobile_preview_xml_issue_path, method: :get, class: "btn btn-md btn-danger" %>
     </li>
+    <!--li class="float-unit">
+      <%= button_to "합성", merge_container_xml_issue_path, method: :get, class: "btn btn-md btn-normal" %>
+    </li-->
   </ul>
 </nav>
