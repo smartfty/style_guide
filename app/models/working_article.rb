@@ -1220,9 +1220,6 @@ class WorkingArticle < ApplicationRecord
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    # if story_xml_template.include?("\u200B")
-    #   binding.pry
-    # end
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
@@ -1293,7 +1290,6 @@ class WorkingArticle < ApplicationRecord
     @section_name_code = section_name_code
     @name_plate       = subject_head
     unless @name_plate
-      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
@@ -1493,10 +1489,8 @@ end
 
 
   def xml_group_key_template
-    # binding.pry
     @name_plate       = '[subject_head]'
     unless @name_plate
-      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code

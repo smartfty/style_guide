@@ -155,8 +155,6 @@ class Issue < ApplicationRecord
     # parse_graphics
   end
 
-
-
   def make_spread
     puts 'in make_spread'
     Spread.create!(issue_id: id)
@@ -173,7 +171,7 @@ class Issue < ApplicationRecord
         next
       else
         # create new page
-        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, page_number:page_plan.page_number,  section_name: page_plan.section_name, template_id: page_plan.selected_template_id)
         page_plan.dirty = false
         page_plan.save
       end

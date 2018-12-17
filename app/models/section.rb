@@ -373,7 +373,7 @@ class Section < ApplicationRecord
   end
 
   def make_profile
-    profile = "#{column}x#{row}_"
+    profile = "#{column}x15_"
     profile += "H_" if is_front_page
     profile += "#{ad_type}_" if ad_type
     profile += story_count.to_s
@@ -537,7 +537,7 @@ class Section < ApplicationRecord
     puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
-    self.profile     = make_profile
+    self.profile     = e
     self.save
     puts "__________ after profile:#{profile}"
 
@@ -566,6 +566,7 @@ class Section < ApplicationRecord
       self.is_front_page  = false
       self.page_heading_margin_in_lines     = publication.inner_page_heading_height 
     end
+    self.row                    = 15
     self.story_count            = parse_story_count
     self.ad_type                = parse_ad_type
     self.profile                = make_profile
