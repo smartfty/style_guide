@@ -687,7 +687,7 @@ class WorkingArticle < ApplicationRecord
     h[:bottom_article]                = page.bottom_article?(self)
     h[:extended_line_count]           = self.extended_line_count if extended_line_count
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
-    h[:quote_box_size]                = self.selfquote_box_size if show_quote_box?
+    h[:quote_box_size]                = self.quote_box_size if show_quote_box?
     if boxed_subtitle_type && boxed_subtitle_type > 0
       h[:boxed_subtitle_type]         = self.boxed_subtitle_type 
     end
@@ -780,7 +780,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
@@ -1113,7 +1113,7 @@ class WorkingArticle < ApplicationRecord
     # @page_info        = publication.paper_size
     @page_info        = page_number.to_s.rjust(2,"0")
     @jeho_info        = issue.number
- 
+
     # if page.section_name = '오피니언'
     #   @news_title_info = '논설'
     # else
@@ -1175,8 +1175,9 @@ class WorkingArticle < ApplicationRecord
       category_code = opinion_writer.category_code
       @name_plate = opinion_writer.title
       end
-    end  
-    @sbject_ex       = @name_plate
+    end
+
+    
 
     @money_status     = "30"
     if page_number == 22
@@ -1195,7 +1196,7 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-    @sbject_ex_code  = category_code
+    @name_plate_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @head_line        = title
     @sub_head_line    = subtitle
@@ -1211,11 +1212,6 @@ class WorkingArticle < ApplicationRecord
       puts "quote"
     end
 
-    if page_number == 1
-      @name_plate_code = category_code
-      @sbject_ex = ""
-    end
-    
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
@@ -1298,7 +1294,6 @@ class WorkingArticle < ApplicationRecord
       category_code = r.category_code
       @name_plate = r.title
     end
-    @sbject_ex       = @name_plate
 
     @money_status     = "30"
     if page_number == 22
@@ -1317,7 +1312,7 @@ class WorkingArticle < ApplicationRecord
         category_code= 2101
       end
     end
-    @sbject_ex_code  = category_code
+    @name_plate_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     title.strip!
     @head_line        = title
@@ -1494,13 +1489,13 @@ end
 
   def xml_group_key_template
     # binding.pry
-    @name_plate       = subject_head
+    @name_plate       = '[subject_head]'
     unless @name_plate
       # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
-      @name_plate = r.title
+      @name_plate = '[r.title]'
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
