@@ -21,6 +21,7 @@
     - fit_text
 
 2018-12-17
+  - add 7x15_9단21_4
   - keep current section selection values
   - add '광고없음' to page_plan edit when selecting ad_type
   - in change_template of page, 

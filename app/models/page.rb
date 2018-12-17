@@ -268,6 +268,8 @@ class Page < ApplicationRecord
     create_heading(section)
     create_working_articles(section)
     create_ad_boxes(section)
+    save_config_file unless File.exist?(config_path)
+    generate_pdf unless File.exist?(pdf_path)
   end
 
   def sample_ad_folder
