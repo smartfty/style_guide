@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<NewsXML>
+	<NewsEnvelope>
+		<NewsPlus Program ="NewsLayout" Version="7.00" />
+		<DateAndTime><%= @date_and_time %></DateAndTime>
+	</NewsEnvelope>
+	<NewsItem>
+		<Identification>
+			<NewsIdentifier>
+				<ProviderId></ProviderId>
+				<DateId><%= @date_id %></DateId>
+				<NewsKeyId><%= @news_key_id %></NewsKeyId>
+				<RevisionNum>0</RevisionNum>
+			</NewsIdentifier>
+			<NewsPublish>
+				<Property FormalName="DayInfo" Value="<%= @day_info %>" />
+				<Property FormalName="MediaInfo" Value="<%= @media_info %>" />
+				<Property FormalName="EditionInfo" Value="EditionInfo" />
+				<Property FormalName="PageInfo" Value="A<%= @page_info %>" />
+				<Property FormalName="JeHoInfo" Value="<%= @jeho_info %>" />
+				<Property FormalName="NewsTitleInfo" Value="<%= @news_title_info %>" />
+			</NewsPublish>
+		</Identification>
+		<NewsComponent>
+			<Role FormalName="Main" />
+			<MediaType FormalName="Text" />
+			<Creator>
+				<Property FormalName="Name" Value="<%= @name %>" />
+				<Property FormalName="Post" Value="<%= @post %>" />
+				<Property FormalName="GijaID" Value="<%= @gija_id %>" />
+				<Property FormalName="ByLine" Value="" />
+			</Creator>
+			<SubjectCode>
+				<Subject FormalName="<%= @section_name_code %>" />
+				<Subject FormalNameString="<%= @news_title_info %>" />
+				<SubjectEx FormalName="<%= @name_plate_code %>" />
+				<SubjectEx FormalNameString="<%= @name_plate %>" />
+				<MoneyStatus><%= @money_status %></MoneyStatus>
+				<GisaStatus>50</GisaStatus>
+				<GisaFileName><%= @gisa_key %>.txt</GisaFileName>
+				<GisaKey><%= @gisa_key %></GisaKey>
+			</SubjectCode>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine>
+<![CDATA[
+[<%= @name_plate %>] <%= @head_line1 %>
+]]>
+</HeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+<![CDATA[<%= @data_content %>
+<%= @by_line %>
+]]>			</DataContent>
+		</NewsComponent>
+	</NewsItem>
+</NewsXML>

@@ -1070,17 +1070,21 @@ class WorkingArticle < ApplicationRecord
         # name = person.gsub(" ","")[0..2]
         # return opinion_image_path + "/#{name}.jpg"
       end
-    else images.length > 0
-      output = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-      Dir.glob("#{issue.path}/images/*.jpg").each do |f|
-      puts "================ f:#{f}"
-        base_name = File.basename(f)
-        dirname = File.dirname(f)
-        if base_name.length < 10
-          system("cd #{dirname} && convert #{base_name} -resize 500 #{output} ")
-        end
-      end
-      return issue.path + "/images/#{output}"
+    else page_number == 1
+      # output = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
+      # Dir.glob("#{issue.path}/images/*.jpg").each do |f|
+      # puts "================ f:#{f}"
+        # base_name = File.basename(f)
+      #   dirname = File.dirname(f)
+        # if base_name.length < 10
+      #   end
+      # end
+      # return issue.path + "/images/#{output}"
+      # binding.pry
+      photo_file_name = "#{page_id}_#{order}_#{images.length-1}.jpg" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      # system("cd #{dirname} && convert #{base_name} -resize 500 #{output} ")
+      system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 500 #{newsml_issue_path}/#{@photo_item}")
+      return issue.path + "/images/#{photo_file_name}"
     end
   end
 
