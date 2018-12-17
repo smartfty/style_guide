@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_072437) do
+ActiveRecord::Schema.define(version: 2018_12_11_235028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_072437) do
     t.float "grid_height"
     t.float "gutter"
     t.text "overlap"
+    t.boolean "embedded"
   end
 
   create_table "graphic_requests", force: :cascade do |t|
@@ -624,6 +625,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_072437) do
     t.string "boxed_subtitle_text"
     t.string "subtitle_type"
     t.text "overlap"
+    t.boolean "embedded"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

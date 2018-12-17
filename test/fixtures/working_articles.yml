@@ -51,6 +51,7 @@
 #  boxed_subtitle_text          :string
 #  subtitle_type                :string
 #  overlap                      :text
+#  embedded                     :boolean
 #
 # Indexes
 #

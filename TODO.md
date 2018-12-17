@@ -20,6 +20,40 @@
   - body
     - fit_text
 
+2018-12-17
+  - add 7x15_9단21_4
+  - keep current section selection values
+  - add '광고없음' to page_plan edit when selecting ad_type
+  - in change_template of page, 
+    - don't copy config from section, generate from page
+    - don't copy ad from section, generate from page
+    - this means we don't have to generate pdf for section
+
+2018-12-14
+  - intersection_rect, adjust to local codinate
+  - save_xml
+    - filter {size} from title, subtitle,
+    - filter multiple line
+  - page 광고없음
+  - Section index keep current selection info
+  
+2018-12-12
+  - overlap rect size should add 2 lines above and draw a line at 2 lines below
+  - overlap y must be adjust to first rect최근 성룡코리건 그러면 소송한평균내가 아니라국고가 100 분이 더 하고 그건그거 그냥 보면 존경을 시도좀 우리 좀아닌가아닌데 몰래몰라요오긴긴 배우의 면면을 cordinate
+  - frame around image 
+
+2018-12-11
+  - embeded article, line above
+  - create empty image box
+
+2018-12-10
+  - fix token breaking rule, prevent it from too tight space
+    pass currnt token(space) count, if space count is less than 4 do not give and cushion 
+  
+  - title and subtitle, text goes beyond right edge
+  - image box with empty picture
+  - image keep image info 
+
 2018-12-8
   - overlapping box
      overlapping image as separate article

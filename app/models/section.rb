@@ -42,14 +42,9 @@ class Section < ApplicationRecord
 
   after_create :setup
   before_create :parse_profile
-  # before_update :before_updating_action
-  # after_commit :after_commit_action
 
   include PageSplitable
-
-  # def after_commit_action
-  #   create_articles
-  # end
+  include RectUtiles
 
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
@@ -57,7 +52,6 @@ class Section < ApplicationRecord
     # calling create_articles give validation error Section must exist!!! 
     # so call it in controller create, and update action
     # update_section_layout
-    
   end
 
   def path
@@ -379,7 +373,7 @@ class Section < ApplicationRecord
   end
 
   def make_profile
-    profile = "#{column}x#{row}_"
+    profile = "#{column}x15_"
     profile += "H_" if is_front_page
     profile += "#{ad_type}_" if ad_type
     profile += story_count.to_s
@@ -456,6 +450,7 @@ class Section < ApplicationRecord
       end
       article_atts[:section_id]   = self.id
       article_atts[:section]   = self
+      current_rect = [box[0], box[1], box[2], box[3]]
       if box.length >= 5
         if box[4] =~/^광고/ || box[4] =~/^ad/
           ad_box_atts = {}
@@ -473,26 +468,44 @@ class Section < ApplicationRecord
           end
         else
           article_atts[:kind] = box[4]
+          article = nil
           if article_with_order = articles.where(order: article_count + 1).first
             article_with_order.update(article_atts)
             article_with_order.generate_pdf
+            current_article = article_with_order
           else
-            Article.where(article_atts).create!
+            current_article = Article.where(article_atts).create!
           end
           article_count += 1
+          overlap = parse_overlap(current_article.grid_rect, i)
+          embedded = parse_embedded(current_rect, i)
         end
       else
         article_atts[:kind] = '기사'
         if article_with_order = articles.where(order: article_count + 1).first
           article_with_order.update(article_atts)
           article_with_order.generate_pdf
+          current_article = article_with_order
         else
-          Article.where(article_atts).create!
+          current_article = Article.where(article_atts).create!
         end
         article_count += 1
+        overlap = parse_overlap(current_rect, i)
+        embedded = parse_embedded(current_rect, i)
+      end 
+      # overlap means current article is overlapping with in another box, usually with ad_box
+      if current_article && overlap
+        current_article.overlap = overlap 
+        current_article.save
+      end
+      # embedded is true means current article is embedded in another article area
+      if current_article && embedded
+        current_article.embedded = true 
+        current_article.save
       end
     end
   end
+
 
   def parse_story_count
     count = 0
@@ -524,7 +537,7 @@ class Section < ApplicationRecord
     puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
-    self.profile     = make_profile
+    self.profile     = e
     self.save
     puts "__________ after profile:#{profile}"
 
@@ -553,6 +566,7 @@ class Section < ApplicationRecord
       self.is_front_page  = false
       self.page_heading_margin_in_lines     = publication.inner_page_heading_height 
     end
+    self.row                    = 15
     self.story_count            = parse_story_count
     self.ad_type                = parse_ad_type
     self.profile                = make_profile

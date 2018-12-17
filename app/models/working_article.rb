@@ -51,6 +51,7 @@
 #  boxed_subtitle_text          :string
 #  subtitle_type                :string
 #  overlap                      :text
+#  embedded                     :boolean
 #
 # Indexes
 #
@@ -71,6 +72,7 @@ class WorkingArticle < ApplicationRecord
   include ArticleSplitable
   include PageSplitable
   include ArticleSwapable
+  include RectUtiles
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
 
@@ -699,6 +701,8 @@ class WorkingArticle < ApplicationRecord
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
     h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
     h[:draw_divider]                  = false     #publication.draw_divider
+    h[:overlap]                       = overlap   if overlap
+    h[:embedded]                      = embedded  if embedded
     h
   end
 
@@ -866,6 +870,7 @@ class WorkingArticle < ApplicationRecord
     self.pushed_line_count = article_info_hash[:pushed_line_count] || 0
     self.page_heading_margin_in_lines = article_info_hash[:page_heading_margin_in_lines]
     self.inactive       = false
+    self.overlap        = article_info_hash[:overlap]
     self.save
   end
 
@@ -1242,9 +1247,6 @@ class WorkingArticle < ApplicationRecord
     @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
     @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    # if story_xml_template.include?("\u200B")
-    #   binding.pry
-    # end
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
@@ -1338,7 +1340,6 @@ class WorkingArticle < ApplicationRecord
     
     # @name_plate       = "[#{subject_head}]"
     unless @name_plate
-      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
@@ -1591,11 +1592,8 @@ end
 
 
   def xml_group_key_template
-    # binding.pry
-    # @name_plate       = "[#{subject_head}]" if subject_head && subject_head != ""
-    @name_plate       = "[#{subject_head}]"
+    @name_plate       = '[subject_head]'
     unless @name_plate
-      # binding.pry
       r = OpinionWriter.where(name: reporter).first
       puts r
       category_code = r.category_code
