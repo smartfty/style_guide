@@ -307,12 +307,12 @@ EOF
 
   def mobile_preview_xml_component
     @name_plate      = '광고'
-    @head_line1       = advertiser
+    @head_line       = advertiser
 
     three_component =<<EOF
       <TitleComponent>
-      <MainTitle>[<%= @name_plate %>] <%= @head_line1 %></MainTitle>
-      <SubTitle><%= @sub_head_line1 %></SubTitle>
+        <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+        <SubTitle><%= @sub_head_line %></SubTitle>
       </TitleComponent>
       <ArticleComponent>
         <Content><![CDATA[<!--[[--image1--]]//-->
@@ -339,11 +339,11 @@ EOF
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
         @name_plate      = '광고'
-        @head_line1       = advertiser
+        @head_line       = advertiser
 
 
       container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line1 %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
@@ -379,7 +379,7 @@ EOF
 
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @money_status     = "0"
-    @head_line1        = advertiser
+    @head_line        = advertiser
 
 
     story_erb = ERB.new(story_xml_template)

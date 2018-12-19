@@ -1177,8 +1177,6 @@ EOF
         else
           puts "page_number:#{page_number}"
           puts "@order:#{@order}"
-          # @y1 = (publication.top_margin + w.y + w.pushed_line_height)
-          # @y2 = (@y1 + w.height - w.pushed_line_height)
           @y1 = (publication.top_margin + w.y)
           @y2 = (@y1 + w.height)
         end
@@ -1189,6 +1187,7 @@ EOF
           erb=ERB.new(map_component)
           scale_map += erb.result(binding)
         end
+        w.covert_euckr_not_suported_chars
         mobile_layout += "  <Article>" + "\n" + w.mobile_preview_xml_article_info
         mobile_layout += "    <MapComponent>" + "\n" + scale_map + "    </MapComponent>" + "\n"
         mobile_layout += w.mobile_preview_xml_three_component

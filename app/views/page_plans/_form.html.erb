@@ -23,7 +23,7 @@
 
     <div class="field">
       <%= f.label :광고종류 %>
-      <%= f.select :ad_type, %w[3단통 4단통 5단통 6단통 7단통 7단15 7단25 8단통 8단27 8단_브릿지 9단21 15단통_전면 15단_브릿지], include_blank: false %>
+      <%= f.select :ad_type, @available_ad_type, include_blank: false %>
     </div>
 
     <div class="field">
