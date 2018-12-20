@@ -20,11 +20,22 @@
   - body
     - fit_text
 
+2018-12-21
+  - add ad_plan
+  
 2018-12-18
-  - fix bug when changing from 사진 to 기사 
+  - fix change to no_ad 
+  - 행정, 광고없음 not showing
+  - image box at top no margin
+  - 15단통_전면 => 15단통
+  - 광고없음 적용않됨
+    면 배열표 이름 이 반영이 안됨
+    자치행정 not updated
+  - 저장된 단란스타일로 재생서시 regenerate heading 
+  - 광고올릴때
+  - 기사 교환
 
 2018-12-17
-  - fix change to no_ad 
   - embargo
   - image trimming
   - automatic timeout

@@ -32,7 +32,7 @@ class AdImageUploader < CarrierWave::Uploader::Base
   # end
 
   def filename
-    "#{Date.today.to_s}.#{file.extension}" if original_filename.present?
+    "#{Date.today.to_s}-#{model.page.page_number}.#{file.extension}" if original_filename.present?
   end
 
   # Create different versions of your uploaded files:

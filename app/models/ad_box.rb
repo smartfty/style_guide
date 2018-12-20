@@ -36,10 +36,6 @@ class AdBox < ApplicationRecord
   before_create :init_atts
   after_create :setup
 
-  # def path
-  #   path + "/ad"
-  # end
-
   def url
     path.sub("#{Rails.root}/public}", "")
   end
