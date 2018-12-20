@@ -39,7 +39,8 @@ class Issue < ApplicationRecord
   validates_uniqueness_of :date
   
   include IssueStoryMakeable
-
+  include IssueGitWorkflow
+  
   def publication_path
     publication.path
   end

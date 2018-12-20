@@ -887,6 +887,7 @@ class WorkingArticle < ApplicationRecord
 
 
   def filter_to_markdown(body_text)
+    return unless body_text
     body_text.strip!
     # body_text.gsub!(/^\n\n/, "\n")
     body_text.gsub!(/\u200B/, "")
@@ -1552,17 +1553,37 @@ EOF
   end
 
   def calculate_fitting_image_size(image_column, image_row, image_extra_line)
-    current_image_occupied_lines = image_column*image_row + image_column*image_extra_line
-    room = empty_lines_count + current_image_occupied_lines
-    if room == 0
-      return image_info.dup
-    elsif room > 0
-      expand_line_count = room/image_info[0].to_i
-      retunn []
+    binding.pry
+    room = empty_lines_count
+    image_info = [image_column, image_row, image_extra_line]
+    if room < image_column
+      # image is at right fit
+      return [image_column, image_row, image_extra_line]
+    elsif room >= image_column
+      # There is a room, so image size can grow
+      extra_line_count = room % image_column
+      extra_line_sum = extra_line_count  + image_extra_line
+      if extra_line_sum > 7
+        extra_rows = (extra_line_sum/7).to_i
+        extra_lines = extra_line_sum % 7
+        return [image_column, image_row + extra_rows, extra_lines]
+      else
+        extra_lines = extra_line_sum % 7
+        return [image_column, image_row, extra_lines]
+      end
     else
-
+      # There is an overflow, so image size should be reduced
+      current_image_occupied_lines = image_column*image_row*7 + image_column*image_extra_line
+      overflow_row_count = (overflow_line_count/(image_column*7)).to_i
+      overflow_extra_lines = overflow_line_count % image_column
+      overflow_extra_lines_sum = overflow_extra_lines - image_extra_line
+      if overflow_line_count > current_image_occupied_lines || overflow_row_count >= image_row
+        # over flow is greater than the total image ares, so make the image as small as we can
+        return [1,1,0]
+      else
+        return  [image_column, reducing_rows - overflow_row_count, overflow_extra_lines_sum]
+      end
     end
-    lines = empty_lines/current_image_column
   end
 
   private
