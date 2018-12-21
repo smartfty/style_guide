@@ -74,8 +74,8 @@ class Image < ApplicationRecord
     h[:position]          = position
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
-    h[:caption_title]     = caption_title
-    h[:caption]           = caption
+    h[:caption_title]     = RubyPants.new(caption_title).to_html if caption_title
+    h[:caption]           = RubyPants.new(caption).to_html if caption_title
     h[:source]            = source if source
     h
   end
@@ -169,17 +169,17 @@ class Image < ApplicationRecord
   def change_size(size)
     return false if size == current_image_size
     if size == 'auto'
-      new_column, new_row, new_lines = working_article.calculate_fitting_image_size(column, row, extra_height_in_lines)
-      return false if column == new_column && row == new_row && lines == new_lines
-      self.column = new_column
-      self.row    = new_row
-      self.lines  = new_lines
+      new_column, new_row, new_extra_lines = working_article.calculate_fitting_image_size(column, row, extra_height_in_lines)
+      return false if column == new_column && row == new_row && extra_height_in_lines == new_extra_lines
+      self.column                 = new_column
+      self.row                    = new_row
+      self.extra_height_in_lines  = new_extra_lines
       self.save
       true
     elsif size.include?("x")
       size_array  = size.split("x")
-      self.column = column[0]
-      self.row    = column[1]
+      self.column = size_array[0].to_i
+      self.row    = size_array[1].to_i
       self.save
       true
     else

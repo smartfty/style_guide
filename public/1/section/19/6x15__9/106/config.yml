@@ -1,0 +1,58 @@
+---
+section_name: 
+page_heading_margin_in_lines: 4
+ad_type: ''
+is_front_page: 
+profile: 6x15__9
+section_id: 106
+page_columns: 6
+grid_size:
+- 171.49606299212348
+- 97.32283464566807
+lines_per_grid: 7.0
+width: 1114.01574803148
+height: 1544.88188976376
+left_margin: 42.5196850393695
+top_margin: 42.5196850393695
+right_margin: 42.5196850393695
+bottom_margin: 42.5196850393695
+gutter: 12.7559055118108
+story_frames:
+- - 0
+  - 0
+  - 4
+  - 6
+- - 4
+  - 0
+  - 2
+  - 5
+- - 4
+  - 5
+  - 2
+  - 4
+- - 0
+  - 6
+  - 4
+  - 4
+- - 4
+  - 9
+  - 2
+  - 4
+- - 0
+  - 10
+  - 4
+  - 3
+- - 0
+  - 13
+  - 2
+  - 2
+- - 2
+  - 13
+  - 2
+  - 2
+- - 4
+  - 13
+  - 2
+  - 2
+article_line_thickness: 0.3
+draw_divider: 

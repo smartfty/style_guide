@@ -60,8 +60,7 @@ class HeadingAdImage < ApplicationRecord
   end
 
   def copy_image
-    return unless "#{heading_ad_image}"
-    image_path = "/#{heading_ad_image.path}"
+    return unless heading_ad_image
     source = heading_ad_image.url
     system("cp #{source} #{target_folder}/") unless target_folder == source
   end

@@ -20,7 +20,32 @@
   - body
     - fit_text
 
+<<<<<<< HEAD
 2018-12-17
+=======
+2018-12-21
+  - add ad_plan
+    date ad:text description
+  - generate heading when changing page template
+  - 저장된 단락스타일로 재생성시 regenerate heading 
+
+  - *, **, markup bug
+  
+2018-12-18
+  - fix change to no_ad 
+  - 행정, 광고없음 not showing
+  - image box at top no margin
+  - 15단통_전면 => 15단통
+  - 광고없음 적용않됨
+    면 배열표 이름 이 반영이 안됨
+    자치행정 not updated
+  - 광고올릴때 동일이름으로 저장
+
+2018-12-17
+  - embargo
+  - image trimming
+  - automatic timeout
+>>>>>>> upstream/master
   - add 7x15_9단21_4
   - keep current section selection values
   - add '광고없음' to page_plan edit when selecting ad_type
