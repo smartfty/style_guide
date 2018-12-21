@@ -1553,7 +1553,6 @@ EOF
   end
 
   def calculate_fitting_image_size(image_column, image_row, image_extra_line)
-    binding.pry
     room = empty_lines_count
     image_info = [image_column, image_row, image_extra_line]
     if room < image_column
