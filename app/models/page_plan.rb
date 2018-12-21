@@ -97,11 +97,18 @@ class PagePlan < ApplicationRecord
     if profile && profile != ""
       selected_section_template = Section.where(page_number: page_number, profile: profile).first
       unless selected_section_template
+        selected_section_template = Section.where(profile: profile).first
+      end
+      unless selected_section_template
         selected_section_template = Section.where(page_number: page_number).first
       end
       unless selected_section_template
-        puts "Np section template for the page: #{page_number} found!!! !!!"
-        return false
+        puts "No section template for profile: #{profile} found!!! !!!"
+        puts "using alternative template"
+        selected_section_template = Section.where(ad_type: ad_type).first
+        unless selected_section_template
+          return false
+        end
       end
       self.selected_template_id = selected_section_template.id
       self.column               = selected_section_template.column

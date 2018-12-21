@@ -155,8 +155,6 @@ class Issue < ApplicationRecord
     # parse_graphics
   end
 
-
-
   def make_spread
     puts 'in make_spread'
     Spread.create!(issue_id: id)
@@ -173,7 +171,7 @@ class Issue < ApplicationRecord
         next
       else
         # create new page
-        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, template_id: page_plan.selected_template_id)
+        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, page_number:page_plan.page_number,  section_name: page_plan.section_name, template_id: page_plan.selected_template_id)
         page_plan.dirty = false
         page_plan.save
       end
@@ -452,24 +450,24 @@ end
     "#{Rails.root}/public/1/issue/#{date}/partial_xml"
   end
 
-    def save_mobile_preview_xml
-    # full page ad
-    s = ''
-    u = ''
-    # page 1 only for now!!
-    pages[0..0].each do |page|
-      s += page.all_container
-      u += page.updateinfo
-      page.save_mobile_preview_xml
-      # all_container_xml_page = page.container_xml_page
-    end
-    full_page_ad.each do |page|
-      s += page.all_container
-      u += page.updateinfo
-      page.save_mobile_preview_xml
-      # all_container_xml_page = page.container_xml_page
-    end
-    # page 22 and 23 only for now!!
+  def save_mobile_preview_xml
+  # full page ad
+  s = ''
+  u = ''
+  # page 1 only for now!!
+  pages[0..0].each do |page|
+    s += page.all_container
+    u += page.updateinfo
+    page.save_mobile_preview_xml
+    # all_container_xml_page = page.container_xml_page
+  end
+  full_page_ad.each do |page|
+    s += page.all_container
+    u += page.updateinfo
+    page.save_mobile_preview_xml
+    # all_container_xml_page = page.container_xml_page
+  end
+  # page 22 and 23 only for now!!
     pages[21..22].each do |page|
       s += page.all_container
       u += page.updateinfo
@@ -540,7 +538,7 @@ end
     end
   end
 
-    def merge_container_xml
+    def merge_container_xml ## 다른면 추가되어 자동 합성 기능은 빼고 만들어진 xml만 가져오게 설정
     ip = '211.115.91.68'
     id        = 'jimeun'
     pw        = 'sodlfwlaus2018!@#$'
@@ -654,13 +652,14 @@ end
         end
       end
     end
-    result = wait_for_xml_upload
-    if result
-      puts 'xml file upload found and proceeding merge'
-      merge_container_xml
-    else
-      puts 'xml file upload not found!!!'
-    end
+    ## 1면, 전면광고 등 다른면이 추가되어 자동 합성 안됨.. 페이지 번호별로 끼워넣기 개발필요.
+    # result = wait_for_xml_upload 
+    # if result
+    #   puts 'xml file upload found and proceeding merge'
+       merge_container_xml 
+    # else
+    #   puts 'xml file upload not found!!!'
+    # end
   end
 
   def prepare

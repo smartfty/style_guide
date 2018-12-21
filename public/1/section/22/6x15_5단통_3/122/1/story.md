@@ -1,5 +1,5 @@
 ---
-title: 1번 기사 제목은 여기에 여기는 제목
+title: 1번 기사 제목은 여기에
 reporter: 홍길동
 email: gdhong@gmail.com
 ---
