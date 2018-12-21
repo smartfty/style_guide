@@ -524,8 +524,8 @@ class Section < ApplicationRecord
 
   def parse_ad_type
     box_array = eval_layout
+    ad_type = ""
     box_array.each_with_index do |box, i|
-      ad_type = ""
       if box.length >= 5 && box[4] =~ /^광고/
         ad_type = box[4].split("_")[1]
       end
@@ -534,7 +534,6 @@ class Section < ApplicationRecord
   end
 
   def update_profile
-    puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
     self.profile     = e

@@ -22,6 +22,11 @@
 
 2018-12-21
   - add ad_plan
+    date ad:text description
+  - generate heading when changing page template
+  - 저장된 단락스타일로 재생성시 regenerate heading 
+
+  - *, **, markup bug
   
 2018-12-18
   - fix change to no_ad 
@@ -31,9 +36,7 @@
   - 광고없음 적용않됨
     면 배열표 이름 이 반영이 안됨
     자치행정 not updated
-  - 저장된 단란스타일로 재생서시 regenerate heading 
-  - 광고올릴때
-  - 기사 교환
+  - 광고올릴때 동일이름으로 저장
 
 2018-12-17
   - embargo

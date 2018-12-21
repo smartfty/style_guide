@@ -656,6 +656,7 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
+    generate_heading_pdf
     working_articles.each do |working_article|
       working_article.generate_pdf
     end

@@ -1,4 +1,14 @@
 namespace :style do
+  
+  desc 'make nil setion ad_type as empty string'
+  task :change_nil_ad_type =>:environment do
+    Section.all.each do |section|
+      if section.ad_type.nil?
+        section.ad_type = ""
+        section.save
+      end
+    end
+  end
 
   desc 'seed stories'
   task :seed_stories =>:environment do
