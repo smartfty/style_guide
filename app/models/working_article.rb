@@ -988,6 +988,7 @@ class WorkingArticle < ApplicationRecord
   # end
 
   def covert_euckr_not_suported_chars
+    return unless body
     body.gsub!("\u200B", "")
     title.strip!
     title.gsub!("\u200B", "")
@@ -1031,7 +1032,7 @@ class WorkingArticle < ApplicationRecord
     path = "#{newsml_issue_path}/#{story_xml_filename}"
     covert_euckr_not_suported_chars
     File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    save_xml_image
+    save_xml_image 
   end
 
 
@@ -1076,39 +1077,19 @@ class WorkingArticle < ApplicationRecord
         # name = person.gsub(" ","")[0..2]
         # return opinion_image_path + "/#{name}.jpg"
       end
-      year  = issue.date.year
-      month = issue.date.month.to_s.rjust(2, "0")
-      day   = issue.date.day.to_s.rjust(2, "0")
-      hour  = updated_at.hour.to_s.rjust(2, "0")
-      min   = updated_at.min.to_s.rjust(2, "0")
-      sec   = updated_at.sec.to_s.rjust(2, "0")
-      page_info        = page_number.to_s.rjust(2,"0")
-      updated_date      = "#{year}#{month}#{day}"
-      @page_info        = page_number.to_s.rjust(2,"0")
-      @jeho_info        = issue.number
-      @date_id          = updated_date
-      @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    elsif images.length > 0
-      # output = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-      # Dir.glob("#{issue.path}/images/*.jpg").each do |f|
-      # puts "================ f:#{f}"
-      #   base_name = File.basename(f)
-      #   dirname = File.dirname(f)
-      #   if base_name.length < 10
-      #     system("cd #{dirname} && convert #{base_name} -resize 500 #{output} ")
-      #   end
-      # end
-      # return issue.path + "/images/#{output}"
-      photo_file_name = "#{page_number}_#{order}_#{images.length-1}.jpg" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 620 #{newsml_issue_path}/#{@photo_item}")
-      # return issue.path + "/images/#{photo_file_name}"
-      return ""
-    else graphics.length > 0
-      graphic_file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      system("cd #{issue.path}/images/ && sip -s format jpeg #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
-      # return issue.path + "/images/#{graphic_file_name}"
-      return ""
     end
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
+    hour  = updated_at.hour.to_s.rjust(2, "0")
+    min   = updated_at.min.to_s.rjust(2, "0")
+    sec   = updated_at.sec.to_s.rjust(2, "0")
+    page_info        = page_number.to_s.rjust(2,"0")
+    updated_date      = "#{year}#{month}#{day}"
+    @page_info        = page_number.to_s.rjust(2,"0")
+    @jeho_info        = issue.number
+    @date_id          = updated_date
+    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
   end
 
   def save_xml_image
@@ -1116,11 +1097,29 @@ class WorkingArticle < ApplicationRecord
     return if source.nil?
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
+    if images.length > 0
+      photo_file_orginal = "#{issue.path}/images/#{page_number}_#{order}_#{images.length-1}.jpg"
+      photo_file_name = "#{page_number}_#{order}_#{images.length-1}.jpg" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      if File.exist?(photo_file_orginal)
+         system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 620 #{newsml_issue_path}/#{@photo_item}")
+      end
+      # return issue.path + "/images/#{photo_file_name}"
+      return ""
+    else graphics.length > 0
+      # binding.pry
+      graphic_file_orginal = "#{issue.path}/images/graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf"
+      graphic_file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      if File.exist?(graphic_file_orginal)
+        system("cd #{issue.path}/images/ && sips -s format jpeg #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
+      end
+        # return issue.path + "/images/#{graphic_file_name}"
+      return ""
+    end
   end
 
   def reporter_from_body
     return unless reporter
-    body.match(/^# (.*)/)
+    body.match(/^# (.*)/) if body && body !=""
     $1.to_s.sub("# ", "")
   end
 
@@ -1161,7 +1160,8 @@ class WorkingArticle < ApplicationRecord
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    @name           = reporter
+    @name             = reporter
+    @name_body        = reporter_from_body
       # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
@@ -1179,7 +1179,8 @@ class WorkingArticle < ApplicationRecord
       if @name =~/_/
         @name = @name.split("_")[0]
       end
-      @by_line        = "<br>#{@name} #{@work} #{@position}"
+      @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+      @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -1191,7 +1192,8 @@ class WorkingArticle < ApplicationRecord
         if @name =~/_/
           @name = @name.split("_")[0]
         end
-        @by_line        = "<br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+        @by_line        = "#{@name} #{@work} #{@position}"  
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
@@ -1208,8 +1210,8 @@ class WorkingArticle < ApplicationRecord
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
-      category_code = opinion_writer.category_code
-      @name_plate = opinion_writer.title
+        category_code = opinion_writer.category_code 
+        @name_plate = opinion_writer.title
       end
     end  
     @subject_ex       = @name_plate
@@ -1232,7 +1234,8 @@ class WorkingArticle < ApplicationRecord
     end
     @subject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
-    @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
+    @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} if body && body != ""
+    @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"} if body && body != ""
     # title.gsub!("\u2024", "")
     # puts "=================="
     # if body.include?("\u2024")
@@ -1243,39 +1246,22 @@ class WorkingArticle < ApplicationRecord
     # if quote && quote.include?("\u2024")
     #   puts "quote"
     # end
-    @head_line      = title.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
-    @sub_head_line  = subtitle.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[") if subtitle && subtitle != nil
-    # h = covert_to_multiple_line(title)
-    # puts "++++++ h: #{h}"
-    # if h.class == String
-    #   @head_line1 = h
-    # else
-    #   puts "+++++++ title: #{title}"
-    #   @head_line1 = h[0]
-    #   @head_line2 = h[1]
-    # end
-    # sh = covert_to_multiple_line(subtitle)
-    # if sh.class == String
-    #   @sub_head_line1 = subtitle
-    # else
-    #   @sub_head_line1 = sh[0]
-    #   @sub_head_line2 = sh[1]
-    #   @sub_head_line3 = sh[2]
-    # end
+    @head_line      = title.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[") if title && title != ""
+    @sub_head_line  = subtitle.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[") if subtitle && subtitle != ""
     @name_plate_code = category_code
     if page_number == 1
       @name_plate_code = category_code
       @sbject_ex = ""
     end
-    @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
-    @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
+    if @body_content && @body_content !=""
+      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
+      @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
+    end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
     story_erb.result(binding)
-    # story_erb = ERB.new(story_xml_template)
-    # story_erb.result(binding)
   end
 
   def eliminate_size_option(string)
@@ -1322,6 +1308,10 @@ class WorkingArticle < ApplicationRecord
       #   @email            = "기자이메일"
       # end
     @name           = reporter
+    @name_body      = reporter_from_body
+      # if reporter = nil || reporter = ""
+      #   @name           = reporter_from_body
+      # end
       # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
@@ -1333,7 +1323,8 @@ class WorkingArticle < ApplicationRecord
       if @name =~/_/
         @name = @name.split("_")[0]
       end
-      @by_line        = "<br>#{@name} #{@work} #{@position}"
+      @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+      @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -1345,13 +1336,14 @@ class WorkingArticle < ApplicationRecord
         if @name =~/_/
           @name = @name.split("_")[0]
         end
-        @by_line        = "<br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+        @by_line        = "#{@name} #{@work} #{@position}"
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
     if page_number == 23 && order == 2
       @name          = reporter_from_body
-      @by_line       = ''
+      @by_line       = reporter_from_body
       @caption       = reporter_from_body
     end
     if images.length > 0 
@@ -1362,12 +1354,13 @@ class WorkingArticle < ApplicationRecord
       @caption        += "(#{@image.source})" if @image.source && @image.source != ""
     end
     @section_name_code = section_name_code
-    @name_plate       = subject_head
+    @name_plate       = "[#{subject_head}]" if subject_head && subject_head != ""
     unless @name_plate
-      r = OpinionWriter.where(name: reporter).first
+      # binding.pry
+      r = OpinionWriter.where(name:reporter).first
       puts r
       category_code = r.category_code
-      @name_plate = r.title
+      @name_plate = "[#{r.title}]"
     end
     @sbject_ex       = @name_plate
     @money_status     = "30"
@@ -1392,12 +1385,6 @@ class WorkingArticle < ApplicationRecord
     if title && title != ""
       title.strip! 
       @head_line        = title.sub(/\{\s?(-?\d)\s?\}\s?$/, "") if title =~/\{\s?(-?\d)\s?\}\s?$/
-      # @head_line        = @head_line.gsub("\u201C", "&quot;")
-      # @head_line        = @head_line.gsub("\u201D", "&quot;")
-      # @head_line        = @head_line.gsub("\u0022", "&quot;")
-      # @head_line        = @head_line.gsub("\u003C", "&lt;")
-      # @head_line        = @head_line.gsub("\u003E", "&gt;")
-      # @head_line        = @head_line.gsub("\u0026", "&amp;")
       @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
     end  
       # h = covert_to_multiple_line(@head_line)
@@ -1407,14 +1394,7 @@ class WorkingArticle < ApplicationRecord
     #   @head_line1 = h[0]
     #   @head_line2 = h[1]
     # end
-    # @sub_head_line    = eliminate_size_option(subtitle)
-    # @sub_head_line    = @sub_head_line.gsub("\u201C", "&quot;")
-    # @sub_head_line    = @sub_head_line.gsub("\u201D", "&quot;")
-    # @sub_head_line    = @sub_head_line.gsub("\u0022", "&quot;")
-    # @sub_head_line    = @sub_head_line.gsub("\u003C", "&lt;")
-    # @sub_head_line    = @sub_head_line.gsub("\u003E", "&gt;")
-    # @sub_head_line    = @sub_head_line.gsub("\u0026", "&amp;")
-    @sub_head_line    = subtitle.gsub("\r\n", "</SubTitle><SubTitle>") if subtitle && subtitle != nil
+    @sub_head_line    = subtitle.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[") if subtitle && subtitle != ""
     # binding.pry
     # sh = covert_to_multiple_line(@sub_head_line)
     #   if sh.class == String
@@ -1424,9 +1404,12 @@ class WorkingArticle < ApplicationRecord
     #     @sub_head_line2 = sh[1]
     #     @sub_head_line3 = sh[2]
     #   end
-    @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
-    @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
-    @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
+   if body && body != ""
+      @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
+      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
+      @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
+      @body_content     = @body_content.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
+    end
     @page_number = page_number
     @order = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
@@ -1461,146 +1444,87 @@ EOF
     erb = ERB.new(article_info)
     article += erb.result(binding)
   end
-#   def mobile_preview_xml_three_component
-#     if working_article.images.length = 0
-#       three_component =<<EOF
-#       <TitleComponent>
-#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#     </TitleComponent>
-#     <ArticleComponent>
-#       <Content><![CDATA[<%= @data_content %>
-#     <%= @by_line %>]]>
-#       </Content>
-#     </ArticleComponent>
-#     </Article>
-# EOF
-#     else working_article.images.length > 0
-#     three_component =<<EOF
-#     <TitleComponent>
-#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#     </TitleComponent>
-#     <ArticleComponent>
-#       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-# <%= @by_line %>]]>
-#       </Content>
-#     </ArticleComponent>
-#     <PhotoComponent>
-#      <PhotoItem>
-#        <ImageType>Image</ImageType>
-#          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-#           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-#           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-#      </PhotoItem>
-#     </PhotoComponent>
-#   </Article>
-# EOF
-#     end
-    
-#     component = ""
 
-#     erb = ERB.new(three_component)
-#     component += erb.result(binding)
-#   end
-
-# def mobile_preview_xml_three_component
-#   if page_number == 23 && order == 2
-#     three_component =<<EOF
-#     <TitleComponent>
-#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#     </TitleComponent>
-#     <ArticleComponent>
-#       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-# <%= @by_line %>]]>
-#       </Content>
-#     </ArticleComponent>
-#   </Article>
-# EOF
-#   else
-#   three_component =<<EOF
-#   <TitleComponent>
-#     <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#   </TitleComponent>
-#   <ArticleComponent>
-#     <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-# <%= @by_line %>]]>
-#     </Content>
-#   </ArticleComponent>
-#   <PhotoComponent>
-#    <PhotoItem>
-#      <ImageType>Image</ImageType>
-#        <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-#         <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-#         <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-#    </PhotoItem>
-#   </PhotoComponent>
-# </Article>
-# EOF
-#   end
-#   component = ""
-
-#   erb = ERB.new(three_component)
-#   component += erb.result(binding)
-# end
-
-
-def mobile_preview_xml_three_component
-  if (page_number == 22) || (page_number == 23 && order == 1 || order == 3)
-    three_component =<<EOF
-    <TitleComponent>
-      <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-    </TitleComponent>
-    <ArticleComponent>
-      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-  <%= @by_line %>]]>
-      </Content>
-    </ArticleComponent>
-    <PhotoComponent>
-     <PhotoItem>
-       <ImageType>Image</ImageType>
-         <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+  def mobile_preview_xml_three_component
+    if page_number == 22
+      three_component =<<EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
+      </ArticleComponent>
+      <PhotoComponent>
+      <PhotoItem>
+        <ImageType>Image</ImageType>
+          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-          <DataContent><![CDATA[ <%= @by_line %>]]></DataContent>
-     </PhotoItem>
-    </PhotoComponent>
-  </Article>
+          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+        </PhotoItem>
+      </PhotoComponent>
+    </Article>
 EOF
-    
-  elsif images.length == 0
+    elsif page_number == 23 && order == 1 || page_number == 23 && order == 3
+      three_component =<<EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
+      </ArticleComponent>
+      <PhotoComponent>
+      <PhotoItem>
+        <ImageType>Image</ImageType>
+          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+          <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+        </PhotoItem>
+      </PhotoComponent>
+    </Article>
+EOF
+   elsif page_number == 23 && order == 2 
     three_component =<<EOF
     <TitleComponent>
-      <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle><% if page_number == 23 && order == 2 %>
-      <% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-        <SubTitle><%= @sub_head_line %></SubTitle><% end %><% end %>
+      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+      <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
     </TitleComponent>
     <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %>
-<%= @caption %>]]>
-      </Content>
+      <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
     </ArticleComponent>
   </Article>
 EOF
- 
-  else
-    three_component =<<EOF
+    elsif images.length < 0 || graphics.length < 0
+      three_component =<<EOF
     <TitleComponent>
-      <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-      <SubTitle><%= @sub_head_line %></SubTitle><% end %>
+      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+      <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
     </TitleComponent>
     <ArticleComponent>
-      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-  <%= @by_line %>]]>
+      <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
+    </ArticleComponent>
+  </Article>
+EOF
+    else
+      three_component =<<EOF
+    <TitleComponent>
+      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+      <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+    </TitleComponent>
+    <ArticleComponent>
+      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]>
       </Content>
     </ArticleComponent>
     <PhotoComponent>
-    <PhotoItem>
-      <ImageType>Image</ImageType>
+      <PhotoItem>
+      <ImageType>Image</ImageType> 
         <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-    </PhotoItem>
+      </PhotoItem>
     </PhotoComponent>
   </Article>
 EOF
+
   end
   component = ""
 
@@ -1608,147 +1532,162 @@ EOF
   component += erb.result(binding)
 end
 
-  def xml_group_key_template
-    @name_plate       = subject_head
-    unless @name_plate
-      r = OpinionWriter.where(name: reporter).first
-      puts r
-      category_code = r.category_code
-      @name_plate = r.title
-    end
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
+def xml_group_key_template
+  # binding.pry
+  # @name_plate       = subject_head
+  @name_plate       = subject_head
+  unless @name_plate
+    # binding.pry
+    r = OpinionWriter.where(name:reporter).first
+    puts r
+    category_code = r.category_code
+    @name_plate = r.title
+  end
+  year  = issue.date.year
+  month = issue.date.month.to_s.rjust(2, "0")
+  day   = issue.date.day.to_s.rjust(2, "0")
+  page_info        = page_number.to_s.rjust(2,"0")
+  if title && title != ""
     title.strip!
-    @head_line        = title
+    @head_line        = title    
     @head_line        = @head_line.gsub("\u201C", "&quot;")
     @head_line        = @head_line.gsub("\u201D", "&quot;")
     @head_line        = @head_line.gsub("\u0022", "&quot;")
     @head_line        = @head_line.gsub("\u003C", "&lt;")
     @head_line        = @head_line.gsub("\u003E", "&gt;")
-    @order            = order.to_s.rjust(2, "0")
-    @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
-    container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}]" if @name_plate && @name_plate !=""  %> <%= @head_line %>"/>
+  end
+  @order            = order.to_s.rjust(2, "0")
+  @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
+  @c_head_line      = title
+  if @c_head_line == nil || @c_head_line == ""
+    i = images.first
+    @c_head_line    = i.caption_title if i.caption_title && i.caption_title !=""
+  end
+  container_xml_group_key=<<EOF
+    <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !=""  %><%= @c_head_line %>"/>
 EOF
-      xml_group_key = ""
-      erb = ERB.new(container_xml_group_key)
-      xml_group_key += erb.result(binding)
+    xml_group_key = ""
+    erb = ERB.new(container_xml_group_key)
+    xml_group_key += erb.result(binding)
+end
+
+def mobile_page_preview_path
+  "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_number.to_s.rjust(2,"0")}"
+end
+
+def save_mobile_xml_image
+  source = image_source
+  return if source.nil?
+  target = mobile_page_preview_path + "/#{@photo_file_name}"
+  system("cp #{source} #{target}")
+  if images.length > 0
+    file_name = "#{page_number}_#{order}_#{images.length-1}.jpg" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+    system("cd #{issue.path}/images/ && convert #{file_name} -resize 620 #{mobile_page_preview_path}/#{@photo_file_name}")
+    # return issue.path + "/images/#{photo_file_name}"
+    return ""
+  else graphics.length > 0
+    # binding.pry
+    file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+    system("cd #{issue.path}/images/ && sips -s format jpeg #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+    # return issue.path + "/images/#{graphic_file_name}"
+    return ""
   end
+end
 
-  def mobile_page_preview_path
-    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_number}"
-  end
+def character_count_data_path
+  publication.publication_info_folder + "/charater_count_data/#{Date.today.to_s}_#{page_number}_#{order}"
+end
 
-  def save_mobile_xml_image
-    source = image_source
-    return if source.nil?
-    target = mobile_page_preview_path + "/#{@photo_file_name}"
-    system("cp #{source} #{target}")
-  end
+# we want to create a compiled database of actual character count on a working_article.
+# save a yaml file of actual instance character data
+# we can average them later as we gather more data
+def save_character_count
+  info = article_info
+  return unless info
+  return unless info[:overflow] == 0
 
+  useage_data   = Hash[attributes.map{ |k, v| [k.to_sym, v] }]
+  useage_data.delete[:id]
+  useage_data.delete[:updated_at]
+  useage_data.delete[:updated_at]
+  useage_data[:character_count] = character_count
+  path = character_count_data_path
+  File.open(path, 'w'){|f| f.write useage_data.to_yaml}
+end
 
-
-  def character_count_data_path
-    publication.publication_info_folder + "/charater_count_data/#{Date.today.to_s}_#{page_number}_#{order}"
-  end
-
-  # we want to create a compiled database of actual character count on a working_article.
-  # save a yaml file of actual instance character data
-  # we can average them later as we gather more data
-  def save_character_count
-    info = article_info
-    return unless info
-    return unless info[:overflow] == 0
-
-    useage_data   = Hash[attributes.map{ |k, v| [k.to_sym, v] }]
-    useage_data.delete[:id]
-    useage_data.delete[:updated_at]
-    useage_data.delete[:updated_at]
-    useage_data[:character_count] = character_count
-    path = character_count_data_path
-    File.open(path, 'w'){|f| f.write useage_data.to_yaml}
-  end
-
-  def calculate_fitting_image_size(image_column, image_row, image_extra_line)
-    binding.pry
-    room = empty_lines_count
-    image_info = [image_column, image_row, image_extra_line]
-    if room < image_column
-      # image is at right fit
-      return [image_column, image_row, image_extra_line]
-    elsif room >= image_column
-      # There is a room, so image size can grow
-      extra_line_count = room % image_column
-      extra_line_sum = extra_line_count  + image_extra_line
-      if extra_line_sum > 7
-        extra_rows = (extra_line_sum/7).to_i
-        extra_lines = extra_line_sum % 7
-        return [image_column, image_row + extra_rows, extra_lines]
-      else
-        extra_lines = extra_line_sum % 7
-        return [image_column, image_row, extra_lines]
-      end
+def calculate_fitting_image_size(image_column, image_row, image_extra_line)
+  room = empty_lines_count
+  image_info = [image_column, image_row, image_extra_line]
+  if room < image_column
+    # image is at right fit
+    return [image_column, image_row, image_extra_line]
+  elsif room >= image_column
+    # There is a room, so image size can grow
+    extra_line_count = room % image_column
+    extra_line_sum = extra_line_count  + image_extra_line
+    if extra_line_sum > 7
+      extra_rows = (extra_line_sum/7).to_i
+      extra_lines = extra_line_sum % 7
+      return [image_column, image_row + extra_rows, extra_lines]
     else
-      # There is an overflow, so image size should be reduced
-      current_image_occupied_lines = image_column*image_row*7 + image_column*image_extra_line
-      overflow_row_count = (overflow_line_count/(image_column*7)).to_i
-      overflow_extra_lines = overflow_line_count % image_column
-      overflow_extra_lines_sum = overflow_extra_lines - image_extra_line
-      if overflow_line_count > current_image_occupied_lines || overflow_row_count >= image_row
-        # over flow is greater than the total image ares, so make the image as small as we can
-        return [1,1,0]
-      else
-        return  [image_column, reducing_rows - overflow_row_count, overflow_extra_lines_sum]
-      end
+      extra_lines = extra_line_sum % 7
+      return [image_column, image_row, extra_lines]
+    end
+  else
+    # There is an overflow, so image size should be reduced
+    current_image_occupied_lines = image_column*image_row*7 + image_column*image_extra_line
+    overflow_row_count = (overflow_line_count/(image_column*7)).to_i
+    overflow_extra_lines = overflow_line_count % image_column
+    overflow_extra_lines_sum = overflow_extra_lines - image_extra_line
+    if overflow_line_count > current_image_occupied_lines || overflow_row_count >= image_row
+      # over flow is greater than the total image ares, so make the image as small as we can
+      return [1,1,0]
+    else
+      return  [image_column, reducing_rows - overflow_row_count, overflow_extra_lines_sum]
     end
   end
+end
 
   private
+private
 
+def init_atts
+  unless article
 
-  def init_atts
-
-    unless article
-
-    else
-      article_info_hash   = article.attributes
-      article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
-      self.kind           = article_info_hash[:kind]
-      self.grid_x         = article_info_hash[:grid_x]
-      self.grid_y         = article_info_hash[:grid_y]
-      self.grid_width     = page.grid_width
-      self.grid_height    = page.grid_height
-      self.gutter         = article_info_hash[:gutter]
-      self.column         = article_info_hash[:column]
-      self.row            = article_info_hash[:row]
-      self.is_front_page  = article_info_hash[:is_front_page]
-      self.on_left_edge   = article_info_hash[:on_left_edge]
-      self.on_right_edge  = article_info_hash[:on_right_edge]
-      self.top_story      = article_info_hash[:top_story]
-      self.top_position   = article_info_hash[:top_position]
-      self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
-
-      self.inactive       = false
-      if page_number == 22 && order == 2
-        self.subject_head = '기고'
-      elsif page_number == 23 && order == 2
-        self.subject_head = '내일시론'
-      end
-      # self.page_path      = page.path
+  else
+    article_info_hash   = article.attributes
+    article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
+    self.kind           = article_info_hash[:kind]
+    self.grid_x         = article_info_hash[:grid_x]
+    self.grid_y         = article_info_hash[:grid_y]
+    self.grid_width     = page.grid_width
+    self.grid_height    = page.grid_height
+    self.gutter         = article_info_hash[:gutter]
+    self.column         = article_info_hash[:column]
+    self.row            = article_info_hash[:row]
+    self.is_front_page  = article_info_hash[:is_front_page]
+    self.on_left_edge   = article_info_hash[:on_left_edge]
+    self.on_right_edge  = article_info_hash[:on_right_edge]
+    self.top_story      = article_info_hash[:top_story]
+    self.top_position   = article_info_hash[:top_position]
+    self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
+    self.inactive       = false
+    if page_number == 22 && order == 2
+      self.subject_head = '기고'
+    elsif page_number == 23 && order == 2
+      self.subject_head = '내일시론'
     end
-    self.title          = "제목"
-    self.subtitle       = "부제"
-    self.reporter       = ""
-    self.email          = ""
-    self.body =<<~EOF
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    EOF
-
-  end
+    # self.page_path      = page.path
+end
+  self.title          = "제목"
+  self.subtitle       = "부제"
+  self.reporter       = ""
+  self.email          = ""
+  self.body =<<~EOF
+  여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+  여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+  여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+  여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다.
+EOF
+end
 end

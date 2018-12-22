@@ -36,6 +36,10 @@ class AdBox < ApplicationRecord
   before_create :init_atts
   after_create :setup
 
+  # def path
+  #   path + "/ad"
+  # end
+
   def url
     path.sub("#{Rails.root}/public}", "")
   end
@@ -303,18 +307,19 @@ EOF
 
   def mobile_preview_xml_component
     @name_plate      = '광고'
+      if page.section_name == "전면광고"
+        @name_plate      = '전면광고'
+      end
     @head_line       = advertiser
 
     three_component =<<EOF
       <TitleComponent>
         <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
-        <SubTitle><%= @sub_head_line %></SubTitle>
+        <% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
       </TitleComponent>
       <ArticleComponent>
-        <Content><![CDATA[<!--[[--image1--]]//-->
-        <%= @data_content %>
-        <%= @by_line %>]]>
-        </Content>
+        <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line %>]]></Content>
       </ArticleComponent>
   </Article>
 EOF
@@ -335,11 +340,14 @@ EOF
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
         @name_plate      = '광고'
+         if page.section_name == '전면광고'
+          @name_plate  = '전면광고'
+         end
         @head_line       = advertiser
 
 
       container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}]" if @name_plate && @name_plate !=""  %> <%= @head_line %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
@@ -370,7 +378,10 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '광고'
+    @name_plate      = '광고' 
+      if page.section_name == "전면광고"
+        @name_plate = '전면광고'
+      end
     @section_name_code = section_name_code
 
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"

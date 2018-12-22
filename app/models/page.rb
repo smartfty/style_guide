@@ -405,6 +405,16 @@ class Page < ApplicationRecord
         end
       end
     end
+
+    # mark unused as inactive
+    # ad_boxes.each_with_index do |ad_box, i|
+    #   if i >= section.ad_box_templates.length
+    #     ad_box.inactive = true
+    #   else
+    #     ad_box.inactive = false
+    #   end
+    #   ad_box.save
+    # end
   end
 
   def story_backup_folder
@@ -451,7 +461,6 @@ class Page < ApplicationRecord
     yaml = config_hash.to_yaml
     File.open(config_yml_path, 'w'){|f| f.write yaml}
   end
-
 
   def copy_config_file
     source = section_template_folder + "/config.yml"
@@ -533,6 +542,7 @@ class Page < ApplicationRecord
     else
       puts "no section"
     end
+
   end
 
   def copy_ad_folder
@@ -1005,6 +1015,8 @@ class Page < ApplicationRecord
      erb = ERB.new(template)
      article_map += erb.result(binding) + "\n"
      article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
+     # binding.pry if w.page_number==22
+     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
      FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
      FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
 
@@ -1105,7 +1117,8 @@ EOF
     @article_filename = "#{@date}.011001#{page_info}"
     @jeho_num         = issue.number
     @news_date        = "#{updated_date}T#{default_time}"
-    @news_meun        = page_number.to_s.rjust(2,"0")
+    @news_meun_2      = page_number.to_s.rjust(2,"0")
+    @news_meun        = page_number
     @issue_title      = section_name
     @writre_and_time  = "#{updated_date}T#{updated_time}"
     @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
@@ -1137,12 +1150,13 @@ EOF
       <Title><%= @issue_title  %></Title>
       <WriteAndTime><%= @writre_and_time %></WriteAndTime>
       <LogOnUser/>
-      <PageID>1001<%= @news_meun %></PageID>
+      <PageID>1001<%= @news_meun_2 %></PageID>
       <PageKey><%= @page_key %></PageKey>
       <ArticleCount><%= @article_count %></ArticleCount>
       <PaperSize>A2</PaperSize>
     </PageInfo>
 EOF
+# binding.pry
      size_array = %w[CoordinateListReal CoordinateListOrg CoordinateListA CoordinateListB CoordinateListC]
      # scale_array = [4.128, 1.148, 2.064, 3.332, 0.286]
      # scale_array = [19.790, 2.023, 0.558, 1, 1.627]
@@ -1180,13 +1194,14 @@ EOF
           @y1 = (publication.top_margin + w.y)
           @y2 = (@y1 + w.height)
         end
+        # binding.pry
         scale_map=""
         size_array.each_with_index do |name, i|
           scale = scale_array[i]
           erb=ERB.new(map_component)
           scale_map += erb.result(binding)
         end
-        w.covert_euckr_not_suported_chars
+        # w.covert_euckr_not_suported_chars
         mobile_layout += "  <Article>" + "\n" + w.mobile_preview_xml_article_info
         mobile_layout += "    <MapComponent>" + "\n" + scale_map + "    </MapComponent>" + "\n"
         mobile_layout += w.mobile_preview_xml_three_component
@@ -1236,7 +1251,7 @@ EOF
   # end
 
   def save_story_xml
-    if  section_name == "전면광고"
+    if section_name == "전면광고"
       ad = ad_boxes.first
       ad.order = 1
       ad.save
