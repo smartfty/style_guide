@@ -1689,30 +1689,28 @@ private
 
 def init_atts
   unless article
-    else
-      article_info_hash   = article.attributes
-      article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
-      self.kind           = article_info_hash[:kind]
-      self.grid_x         = article_info_hash[:grid_x]
-      self.grid_y         = article_info_hash[:grid_y]
-      self.grid_width     = page.grid_width
-      self.grid_height    = page.grid_height
-      self.gutter         = article_info_hash[:gutter]
-      self.column         = article_info_hash[:column]
-      self.row            = article_info_hash[:row]
-      self.is_front_page  = article_info_hash[:is_front_page]
-      self.on_left_edge   = article_info_hash[:on_left_edge]
-      self.on_right_edge  = article_info_hash[:on_right_edge]
-      self.top_story      = article_info_hash[:top_story]
-      self.top_position   = article_info_hash[:top_position]
-      self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
-      self.inactive       = false
-      if page_number == 22 && order == 2
-        self.subject_head = '기고'
-      elsif page_number == 23 && order == 2
-        self.subject_head = '내일시론'
-      end
-      # self.page_path      = page.path
+  else
+    article_info_hash   = article.attributes
+    article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
+    self.kind           = article_info_hash[:kind]
+    self.grid_x         = article_info_hash[:grid_x]
+    self.grid_y         = article_info_hash[:grid_y]
+    self.grid_width     = page.grid_width
+    self.grid_height    = page.grid_height
+    self.gutter         = article_info_hash[:gutter]
+    self.column         = article_info_hash[:column]
+    self.row            = article_info_hash[:row]
+    self.is_front_page  = article_info_hash[:is_front_page]
+    self.on_left_edge   = article_info_hash[:on_left_edge]
+    self.on_right_edge  = article_info_hash[:on_right_edge]
+    self.top_story      = article_info_hash[:top_story]
+    self.top_position   = article_info_hash[:top_position]
+    self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
+    self.inactive       = false
+    if page_number == 22 && order == 2
+      self.subject_head = '기고'
+    elsif page_number == 23 && order == 2
+      self.subject_head = '내일시론'
     end
     # self.page_path      = page.path
     self.title          = "제목"
