@@ -1166,11 +1166,14 @@ class WorkingArticle < ApplicationRecord
       # @name = @name.split("_")[0]
       # end
     if images.length > 0 
-      @image          = images.first
-      @caption        = ""
-      @caption        = "[#{@image.caption_title}] " if @image.caption_title && @image.caption_title != ""
-      @caption        += "#{@image.caption} " if @image.caption && @image.caption != ""
-      @caption        += "(#{@image.source})" if @image.source && @image.source != ""
+      @image           = images.first
+      @caption         = ""
+      @caption         = "[#{@image.caption_title}] " if @image.caption_title && @image.caption_title != ""
+      @caption         += "#{@image.caption} " if @image.caption && @image.caption != ""
+      @caption         += "(#{@image.source})" if @image.source && @image.source != ""
+      @h_caption_title  = @image.caption_title
+      @h_caption        = @image.caption
+      @h_caption_source = @image.source
     end
     opinion_writer  = OpinionWriter.where(name:@name).first
     if opinion_writer
@@ -1246,7 +1249,11 @@ class WorkingArticle < ApplicationRecord
     # if quote && quote.include?("\u2024")
     #   puts "quote"
     # end
-    @head_line      = title.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[") if title && title != ""
+    if title && title != ""
+      @head_line = title.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[") 
+    else 
+      @head_line = @h_caption_title
+    end
     @sub_head_line  = subtitle.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[") if subtitle && subtitle != ""
     @name_plate_code = category_code
     if page_number == 1
@@ -1256,6 +1263,8 @@ class WorkingArticle < ApplicationRecord
     if @body_content && @body_content !=""
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
+    else
+      @body_content     = @h_caption
     end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
     @page_number = page_number
@@ -1489,7 +1498,7 @@ EOF
       <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
     </TitleComponent>
     <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
+      <Content><![CDATA[<%= @data_content %>]]></Content>
     </ArticleComponent>
   </Article>
 EOF
@@ -1500,7 +1509,7 @@ EOF
       <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
     </TitleComponent>
     <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
+      <Content><![CDATA[<%= @data_content %>]]></Content>
     </ArticleComponent>
   </Article>
 EOF
@@ -1511,7 +1520,7 @@ EOF
       <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
     </TitleComponent>
     <ArticleComponent>
-      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]>
+      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
       </Content>
     </ArticleComponent>
     <PhotoComponent>
@@ -1648,46 +1657,44 @@ def calculate_fitting_image_size(image_column, image_row, image_extra_line)
   end
 end
 
-  private
 private
 
 def init_atts
   unless article
-
-  else
-    article_info_hash   = article.attributes
-    article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
-    self.kind           = article_info_hash[:kind]
-    self.grid_x         = article_info_hash[:grid_x]
-    self.grid_y         = article_info_hash[:grid_y]
-    self.grid_width     = page.grid_width
-    self.grid_height    = page.grid_height
-    self.gutter         = article_info_hash[:gutter]
-    self.column         = article_info_hash[:column]
-    self.row            = article_info_hash[:row]
-    self.is_front_page  = article_info_hash[:is_front_page]
-    self.on_left_edge   = article_info_hash[:on_left_edge]
-    self.on_right_edge  = article_info_hash[:on_right_edge]
-    self.top_story      = article_info_hash[:top_story]
-    self.top_position   = article_info_hash[:top_position]
-    self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
-    self.inactive       = false
-    if page_number == 22 && order == 2
-      self.subject_head = '기고'
-    elsif page_number == 23 && order == 2
-      self.subject_head = '내일시론'
+    else
+      article_info_hash   = article.attributes
+      article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
+      self.kind           = article_info_hash[:kind]
+      self.grid_x         = article_info_hash[:grid_x]
+      self.grid_y         = article_info_hash[:grid_y]
+      self.grid_width     = page.grid_width
+      self.grid_height    = page.grid_height
+      self.gutter         = article_info_hash[:gutter]
+      self.column         = article_info_hash[:column]
+      self.row            = article_info_hash[:row]
+      self.is_front_page  = article_info_hash[:is_front_page]
+      self.on_left_edge   = article_info_hash[:on_left_edge]
+      self.on_right_edge  = article_info_hash[:on_right_edge]
+      self.top_story      = article_info_hash[:top_story]
+      self.top_position   = article_info_hash[:top_position]
+      self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
+      self.inactive       = false
+      if page_number == 22 && order == 2
+        self.subject_head = '기고'
+      elsif page_number == 23 && order == 2
+        self.subject_head = '내일시론'
+      end
+      # self.page_path      = page.path
     end
-    # self.page_path      = page.path
-end
-  self.title          = "제목"
-  self.subtitle       = "부제"
-  self.reporter       = ""
-  self.email          = ""
-  self.body =<<~EOF
-  여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-  여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-  여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-  여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다.
+    self.title          = "제목"
+    self.subtitle       = "부제"
+    self.reporter       = ""
+    self.email          = ""
+    self.body =<<~EOF
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다.
 EOF
-end
+  end
 end
