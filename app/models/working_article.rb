@@ -1643,6 +1643,10 @@ def calculate_fitting_image_size(image_column, image_row, image_extra_line)
       return [image_column, image_row, extra_lines]
     end
   else
+    extra_lines = extra_line_sum % 7
+    return [image_column, image_row, extra_lines]
+  end
+  else
     # There is an overflow, so image size should be reduced
     current_image_occupied_lines = image_column*image_row*7 + image_column*image_extra_line
     overflow_row_count = (overflow_line_count/(image_column*7)).to_i
