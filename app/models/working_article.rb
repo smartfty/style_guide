@@ -52,7 +52,7 @@
 #  subtitle_type                :string
 #  overlap                      :text
 #  embedded                     :boolean
-
+#
 # Indexes
 #
 #  index_working_articles_on_article_id  (article_id)
@@ -1686,9 +1686,10 @@ end
 
 private
 
-
 def init_atts
+
   unless article
+
   else
     article_info_hash   = article.attributes
     article_info_hash   = Hash[article_info_hash.map{ |k, v| [k.to_sym, v] }]
@@ -1712,6 +1713,7 @@ def init_atts
     elsif page_number == 23 && order == 2
       self.subject_head = '내일시론'
     end
+  end
     # self.page_path      = page.path
     self.title          = "제목"
     self.subtitle       = "부제"
