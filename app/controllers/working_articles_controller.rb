@@ -148,28 +148,50 @@ class WorkingArticlesController < ApplicationController
   end
 
   def image_1x1
+    set_working_article
     image = @working_article.images.first
-    image.change_size("1x1")
+    result = image.change_size("1x1")
+    @working_article.generate_pdf_with_time_stamp if result
+    redirect_to @working_article
   end
 
   def image_2x2
-    image.change_size("2x2")
+    set_working_article
+    image = @working_article.images.first
+    result = image.change_size("2x2")
+    @working_article.generate_pdf_with_time_stamp if result
+    redirect_to @working_article
   end
 
   def image_3x3
-    image.change_size("3x3")
+    set_working_article
+   image = @working_article.images.first
+   result = image.change_size("3x3")
+   @working_article.generate_pdf_with_time_stamp if result
+
+   redirect_to @working_article
   end
 
   def image_4x4
+    set_working_article
+    image = @working_article.images.first
     image.change_size("4x4")
+    @working_article.generate_pdf_with_time_stamp if result
+    redirect_to @working_article
   end
 
   def image_5x5
+    set_working_article
+    image = @working_article.images.first
     image.change_size("5x5")
+    redirect_to @working_article
   end
 
   def image_auto
+    set_working_article
+    image = @working_article.images.first
     image.change_size("auto")
+    redirect_to @working_article
   end
 
   def add_image

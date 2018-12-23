@@ -39,7 +39,8 @@ class Issue < ApplicationRecord
   validates_uniqueness_of :date
   
   include IssueStoryMakeable
-
+  include IssueGitWorkflow
+  
   def publication_path
     publication.path
   end
@@ -216,8 +217,8 @@ class Issue < ApplicationRecord
       h[:column]            = 2
       h[:column]            = profile_array[2].to_i if profile_array.length > 3
       h[:landscape]         = true
-      h[:caption_title]     = '사진설명 제목'
-      h[:caption]           = '사진설명은 여기에 사진설명은 여기에 사진설명은 여기에 사진설명'
+      h[:caption_title]     = '사진설먕 제목'
+      h[:caption]           = '사진설먕운 여기에 사진설명은 여기에 사진설명은 여기에 사진설명'
       h[:position]          = 3 # top_right 상단_우측
       # TODO read image file and determin orientaion from it.
       h[:used_in_layout]    = false
@@ -477,6 +478,7 @@ end
     system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
     File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
     File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
+    # send_mobile_preview_xml
     # make_mobile_preview_xml_zip
     # directory_to_zip = mobile_preview_xml_path
     # output_file = mobile_preview_xml_zip_path
@@ -484,10 +486,10 @@ end
     # zf.write()
   end
 
-  def copy_to_xml_ftp ## 데스크탑용 XML 전송
-    save_story_xml ### 데스크탑용 기사 XML
-    save_preview_xml ### 데스크탑용 지면보기 XML
-    xml_send #### FTP로 보내기 
+  def copy_to_xml_ftp
+    save_story_xml
+    save_preview_xml
+    xml_send
     true
   end
 
@@ -541,7 +543,6 @@ end
     ip = '211.115.91.68'
     id        = 'jimeun'
     pw        = 'sodlfwlaus2018!@#$'
-
     year          = date.year
     month         = date.month.to_s.rjust(2, '0')
     day           = date.day.to_s.rjust(2, '0')

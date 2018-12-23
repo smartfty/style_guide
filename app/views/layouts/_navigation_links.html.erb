@@ -50,8 +50,8 @@
 
 <% end %> 
 
-<% if current_user && (current_user.role == 'designer' || current_user.role == 'admin') %> 
 
+<% if current_user && (current_user.role == 'designer' || current_user.role == 'admin') %> 
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">오늘의 신문<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
@@ -69,8 +69,7 @@
       <li><%= link_to '돌출광고', heading_ad_images_path %></li>
       <li class="divider"></li>
 
-      <li><%= link_to '오늘 광고', ad_boxes_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '광고 관리', ad_images_path %></li>
+      <li><%= link_to '광고 관리', ad_plans_path %></li>
     </ul>
   </li>
 

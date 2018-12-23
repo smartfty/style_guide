@@ -14,16 +14,11 @@
   <div class="col-xs-12 col-md-12">
       <%= image_tag image.image.url, :width => "100%", style: "padding-bottom:20px" %>
  </div>
- <div class="actions">
-</div>
-
  <div class="col-xs-12 col-md-12">
         <div class="field">
         <%= f.label :위치 %><%= f.text_field :position, style: "width:40px", class: 'form-control' %>
         <%= f.label :크기 %><%= f.text_field :column, style: "width:40px", class: 'form-control' %>단  x  <%= f.text_field :row, style: "width:40px", class: 'form-control' %>열
         <%= f.text_field :extra_height_in_lines, style: "width:50px", class: 'form-control' %>행 추가
-        <%= f.button "수정", class: "btn btn-primary btn-sm" %>
-        <%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>       
         </div>
 
         <div class="field">
@@ -33,14 +28,19 @@
           <%= f.text_field :source, placeholder: "사진출처", class: 'form-control' %>
         </div>
 
+        <div class="actions">
+          <%= f.button "수정", class: "btn btn-primary btn-sm" %>
+          <%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>
+        </div>
+
         <div class="field">
           <%= f.label :가로시작_단 %><%= f.text_field :x_grid, style: "width:35px", class: 'form-control' %>
-          <%= f.label :세로시작_줄 %><%= f.text_field :y_in_lines, style: "width:35px", class: 'form-control' %>단
+          <%= f.label :세로시작_줄 %><%= f.text_field :y_in_lines, style: "width:35px", class: 'form-control' %>
         </div>
 
         <div class="field">
           <%= f.label :확대방향 %><%= f.text_field :zoom_direction, style: "width:35px", class: 'form-control' %>
-          <%= f.label :확대수치 %><%= f.text_field :zoom_level, style: "width:35px", class: 'form-control' %>단  
+          <%= f.label :확대수치 %><%= f.text_field :zoom_level, style: "width:35px", class: 'form-control' %>
         </div>
 
       </div>  

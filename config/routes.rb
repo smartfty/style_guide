@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ad_plans
   resources :graphics
   resources :announcements
   resources :stories do
