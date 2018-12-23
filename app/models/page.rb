@@ -375,7 +375,7 @@ class Page < ApplicationRecord
   end
 
   def change_ad_boxes(section)
-    # assuming only one ad per page,  
+    # assuming only one ad per page,
     # TODO handle case when there are multiple ads in a page
     # section.ad_box_templates.each_with_index do |ad_box_template, i|
     ad_box_template = section.ad_box_templates.first
@@ -845,7 +845,7 @@ class Page < ApplicationRecord
     m = date.month.to_s.rjust(2,"0")
     d = date.day.to_s.rjust(2,"0")
     pg = page_number.to_s.rjust(2,"0")
-    if printer_file_version == 0 
+    if printer_file_version == 0
       if color_page
         "NA#{m}#{d}#{pg}NC01.pdf"
       else
@@ -1052,7 +1052,7 @@ class Page < ApplicationRecord
     else
       section_name
     end
-  end  
+  end
 
   def all_container
     year  = issue.date.year
@@ -1265,7 +1265,7 @@ EOF
         ad.save_ad_xml
       end
     end
-    
+
   end
 
   def section_pages
@@ -1296,7 +1296,7 @@ EOF
     self.right_margin = section.right_margin
     self.bottom_margin = section.bottom_margin
     self.gutter       = section.gutter
-    self.article_line_thickness = section.article_line_thickness 
+    self.article_line_thickness = section.article_line_thickness
     self.layout       = section.layout
     self.page_heading_margin_in_lines = section.page_heading_margin_in_lines
     if clone_name == nil

@@ -42,16 +42,23 @@ class Section < ApplicationRecord
 
   after_create :setup
   before_create :parse_profile
+  # before_update :before_updating_action
+  # after_commit :after_commit_action
 
   include PageSplitable
   include RectUtiles
 
+  # def after_commit_action
+  #   create_articles
+  # end
+
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     save_section_config_yml
-    # calling create_articles give validation error Section must exist!!! 
+    # calling create_articles give validation error Section must exist!!!
     # so call it in controller create, and update action
     # update_section_layout
+
   end
 
   def path
@@ -373,6 +380,7 @@ class Section < ApplicationRecord
   end
 
   def make_profile
+    # profile = "#{column}x#{row}_"
     profile = "#{column}x15_"
     profile += "H_" if is_front_page
     profile += "#{ad_type}_" if ad_type
@@ -414,7 +422,7 @@ class Section < ApplicationRecord
     if box_array.length < articles.count
       unused_count = articles.count - box_array.length
       sorted = articles.sort_by{|a| a.order}
-      unused_count.times do 
+      unused_count.times do
         article_from_last = sorted.pop
         # system("rm -rf #{article_from_last.path}")
         article_from_last.destroy
@@ -442,7 +450,7 @@ class Section < ApplicationRecord
       article_atts[:on_right_edge]  = false
       article_atts[:on_right_edge]  = true if box[0] + box[2] == column
       article_atts[:page_heading_margin_in_lines]  = page_heading_margin_in_lines
-      
+
       if box.last =~/^extend/
         article_atts[:extended_line_count] = box.last.split("_")[1].to_i
       elsif box.last =~/^push/
@@ -475,6 +483,7 @@ class Section < ApplicationRecord
             current_article = article_with_order
           else
             current_article = Article.where(article_atts).create!
+            # Article.where(article_atts).create!
           end
           article_count += 1
           overlap = parse_overlap(current_article.grid_rect, i)
@@ -492,20 +501,19 @@ class Section < ApplicationRecord
         article_count += 1
         overlap = parse_overlap(current_rect, i)
         embedded = parse_embedded(current_rect, i)
-      end 
+      end
       # overlap means current article is overlapping with in another box, usually with ad_box
       if current_article && overlap
-        current_article.overlap = overlap 
+        current_article.overlap = overlap
         current_article.save
       end
       # embedded is true means current article is embedded in another article area
       if current_article && embedded
-        current_article.embedded = true 
+        current_article.embedded = true
         current_article.save
       end
     end
   end
-
 
   def parse_story_count
     count = 0
@@ -534,9 +542,11 @@ class Section < ApplicationRecord
   end
 
   def update_profile
+    puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
-    self.profile     = e
+    # self.profile     = e
+    self.profile     = make_profile
     self.save
     puts "__________ after profile:#{profile}"
 
@@ -563,7 +573,7 @@ class Section < ApplicationRecord
       self.page_heading_margin_in_lines     = 4
     else
       self.is_front_page  = false
-      self.page_heading_margin_in_lines     = publication.inner_page_heading_height 
+      self.page_heading_margin_in_lines     = publication.inner_page_heading_height
     end
     self.row                    = 15
     self.story_count            = parse_story_count
