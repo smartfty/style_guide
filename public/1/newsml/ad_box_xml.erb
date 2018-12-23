@@ -45,34 +45,8 @@
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
 			<HeadLine>
-<![CDATA[
-[<%= @name_plate %>] <%= @head_line %>
-]]>
-</HeadLine>
-		</NewsComponent><% if @page_number == 23 && @order == 2 %>
-		<NewsComponent>
-			<Role FormalName="Article" />
-			<MediaType FormalName="Text" />
-			<DataContent>
-<![CDATA[<%= @data_content %>
-<%= @by_line %>
-]]>			</DataContent>
-		</NewsComponent><% else %>
-		<NewsComponent>
-			<Role FormalName="Article" />
-			<MediaType FormalName="Text" />
-			<DataContent>
-	<![CDATA[[IMG1]<%= @data_content %>
-	<%= @by_line %>
-	]]>			</DataContent>
+				<![CDATA[[<%= @name_plate %>] <%= @head_line %>]]>
+			</HeadLine>
 		</NewsComponent>
-		<NewsComponent>
-			<Role FormalName="Photo" />
-			<MediaType FormalName="Image" />
-			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
-			<PhotoItem Real="<%= @photo_item %>" />
-			<DataContent>
-			<![CDATA[  <%= @caption %> ]]>			</DataContent>
-		</NewsComponent><% end %>
 	</NewsItem>
 </NewsXML>

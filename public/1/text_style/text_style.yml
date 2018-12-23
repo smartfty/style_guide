@@ -61,16 +61,16 @@ quote:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 12.0
+  font_size: 13.0
   text_color: CMYK=0,0,0,100
-  alignment: center
-  tracking: -0.5
-  space_width: 6.0
+  alignment: left
+  tracking: -0.6
+  space_width: 3.0
   scale: 100.0
-  text_line_spacing:
-  space_before_in_lines: 2
+  text_line_spacing: 5
+  space_before_in_lines: 0
   space_after_in_lines: 0
-  text_height_in_lines: 1
+  text_height_in_lines: 0
   box_attributes: ''
   markup: ''
   graphic_attributes: ''
@@ -139,7 +139,7 @@ caption_title:
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.2
-  space_width: 2.0
+  space_width: 2
   scale: 100.0
   text_line_spacing:
   space_before_in_lines:
@@ -397,7 +397,7 @@ subtitle_M:
   space_width: 5.0
   scale: 100.0
   text_line_spacing: 5.0
-  space_before_in_lines: 0
+  space_before_in_lines: -0.1
   space_after_in_lines: 0.5
   text_height_in_lines: 2
   box_attributes: ''
@@ -416,7 +416,7 @@ subtitle_S:
   space_width: 4.0
   scale: 100.0
   text_line_spacing: 6
-  space_before_in_lines: 0
+  space_before_in_lines: -0.1
   space_after_in_lines: 0.5
   text_height_in_lines: 1
   box_attributes: ''
@@ -550,7 +550,7 @@ subject_head_S:
   scale: 100.0
   text_line_spacing: 10
   space_before_in_lines: 1
-  space_after_in_lines: 0
+  space_after_in_lines: 0.5
   text_height_in_lines: 0
   box_attributes: ''
   markup: ''
