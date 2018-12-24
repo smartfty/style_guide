@@ -52,7 +52,7 @@
 #  subtitle_type                :string
 #  overlap                      :text
 #  embedded                     :boolean
-#
+
 # Indexes
 #
 #  index_working_articles_on_article_id  (article_id)
@@ -1160,8 +1160,12 @@ class WorkingArticle < ApplicationRecord
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    @name             = reporter
-    @name_body        = reporter_from_body
+    # @name           = reporter
+    if reporter || reporter !=""
+      @name       = reporter
+    else
+      @name       = reporter_from_body
+    end
       # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
@@ -1171,9 +1175,9 @@ class WorkingArticle < ApplicationRecord
       @caption        = "[#{@image.caption_title}] " if @image.caption_title && @image.caption_title != ""
       @caption        += "#{@image.caption} " if @image.caption && @image.caption != ""
       @caption        += "(#{@image.source})" if @image.source && @image.source != ""
-      @h_caption_title  = @image.caption_title
-      @h_caption        = @image.caption
-      @h_caption_source = @image.source
+      @h_caption_title = @image.caption_title
+      @h_caption       = @image.caption
+      @h_source        = @image.source
     end
     opinion_writer  = OpinionWriter.where(name:reporter).first
     if opinion_writer
@@ -1182,7 +1186,7 @@ class WorkingArticle < ApplicationRecord
       if @name =~/_/
         @name = @name.split("_")[0]
       end
-      @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+      @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
       @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
@@ -1195,7 +1199,7 @@ class WorkingArticle < ApplicationRecord
         if @name =~/_/
           @name = @name.split("_")[0]
         end
-        @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
         @by_line        = "#{@name} #{@work} #{@position}"
         @caption        = "#{@name} #{@work} #{@position}"
       end
@@ -1237,8 +1241,14 @@ class WorkingArticle < ApplicationRecord
     end
     @subject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
-    @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} if body && body != ""
-    @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"} if body && body != ""
+    if body && body != ""
+      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
+      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
+      @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
+    else
+      @body_content     = @h_caption
+    end
     # title.gsub!("\u2024", "")
     # puts "=================="
     # if body.include?("\u2024")
@@ -1276,12 +1286,6 @@ class WorkingArticle < ApplicationRecord
     if page_number == 1
       @name_plate_code = category_code
       @sbject_ex = ""
-    end
-    if @body_content && @body_content !=""
-      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
-      @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
-    else
-      @body_content     = @h_caption
     end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
     # if story_xml_template.include?("\u200B")
@@ -1337,7 +1341,6 @@ class WorkingArticle < ApplicationRecord
       #   @email            = "기자이메일"
       # end
     @name           = reporter
-    @name_body      = reporter_from_body
       # if reporter = nil || reporter = ""
       #   @name           = reporter_from_body
       # end
@@ -1434,10 +1437,10 @@ class WorkingArticle < ApplicationRecord
     #     @sub_head_line3 = sh[2]
     #   end
    if body && body != ""
-      @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
+      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
-      @body_content     = @body_content.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
     end
     @page_number = page_number
     @order = order.to_s.rjust(2, "0")
@@ -1475,9 +1478,10 @@ EOF
   end
 
   def mobile_preview_xml_three_component
+    # binding.pry
     if page_number == 22
       three_component =<<EOF
-      <TitleComponent>
+      <TitleComponent><!-- 22면 -->
         <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
       </TitleComponent>
       <ArticleComponent>
@@ -1493,9 +1497,9 @@ EOF
       </PhotoComponent>
     </Article>
 EOF
-    elsif page_number == 23 && order == 1 || page_number == 23 && order == 3
+    elsif page_number == 23 && order == 1
       three_component =<<EOF
-      <TitleComponent>
+      <TitleComponent><!-- 23면 1 -->
         <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
       </TitleComponent>
       <ArticleComponent>
@@ -1511,38 +1515,46 @@ EOF
       </PhotoComponent>
     </Article>
 EOF
-   elsif page_number == 23 && order == 2
-    three_component =<<EOF
-    <TitleComponent>
-      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-      <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
-    </TitleComponent>
-    <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
-    </ArticleComponent>
-  </Article>
+elsif page_number == 23 && order == 2
+  three_component =<<EOF
+  <TitleComponent><!-- 23면 2 -->
+    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
+  </TitleComponent>
+  <ArticleComponent>
+    <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
+  </ArticleComponent>
+</Article>
 EOF
-    elsif images.length < 0 || graphics.length < 0
+    elsif page_number == 23 && order == 3
       three_component =<<EOF
-    <TitleComponent>
-      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-      <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
-    </TitleComponent>
-    <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %>]]></Content>
-    </ArticleComponent>
-  </Article>
+      <TitleComponent><!-- 23면 3 -->
+        <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
+      </ArticleComponent>
+      <PhotoComponent>
+      <PhotoItem>
+        <ImageType>Image</ImageType>
+          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+          <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+        </PhotoItem>
+      </PhotoComponent>
+    </Article>
 EOF
-    else
+    elsif images.count > 0
       three_component =<<EOF
-    <TitleComponent>
+      <TitleComponent><!-- images -->
       <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
       <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
     </TitleComponent>
-    <ArticleComponent>
-      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
+    <ArticleComponent><% if images.length < 0 || graphics.length < 0 %>
+      <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content><% else %>
+      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]><% end %>
       </Content>
-    </ArticleComponent>
+    </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
     <PhotoComponent>
       <PhotoItem>
       <ImageType>Image</ImageType>
@@ -1550,9 +1562,44 @@ EOF
           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
       </PhotoItem>
-    </PhotoComponent>
+    </PhotoComponent><% end %>
   </Article>
 EOF
+
+elsif graphics.count > 0
+  three_component =<<EOF
+  <TitleComponent><!-- graphic -->
+    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+  </TitleComponent>
+  <ArticleComponent><% if images.length < 0 || graphics.length < 0 %>
+    <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content><% else %>
+    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]><% end %>
+    </Content>
+  </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
+  <PhotoComponent>
+    <PhotoItem>
+    <ImageType>Image</ImageType>
+      <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+    </PhotoItem>
+  </PhotoComponent><% end %>
+</Article>
+EOF
+
+    else
+      three_component =<<EOF
+      <TitleComponent><!-- etc -->
+        <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
+      </ArticleComponent>
+    </Article>
+EOF
+
 
   end
   component = ""
@@ -1576,15 +1623,16 @@ def xml_group_key_template
   month = issue.date.month.to_s.rjust(2, "0")
   day   = issue.date.day.to_s.rjust(2, "0")
   page_info        = page_number.to_s.rjust(2,"0")
-  if title && title != ""
-    title.strip!
-    @head_line        = title
-    @head_line        = @head_line.gsub("\u201C", "&quot;")
-    @head_line        = @head_line.gsub("\u201D", "&quot;")
-    @head_line        = @head_line.gsub("\u0022", "&quot;")
-    @head_line        = @head_line.gsub("\u003C", "&lt;")
-    @head_line        = @head_line.gsub("\u003E", "&gt;")
-  end
+  @head_line        = title
+  # if title && title != ""
+  #   title.strip!
+  #   @head_line        = title
+  #   @head_line        = @head_line.gsub("\u201C", "&quot;")
+  #   @head_line        = @head_line.gsub("\u201D", "&quot;")
+  #   @head_line        = @head_line.gsub("\u0022", "&quot;")
+  #   @head_line        = @head_line.gsub("\u003C", "&lt;")
+  #   @head_line        = @head_line.gsub("\u003E", "&gt;")
+  # end
   @order            = order.to_s.rjust(2, "0")
   @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
   @c_head_line      = title
@@ -1662,13 +1710,13 @@ def calculate_fitting_image_size(image_column, image_row, image_extra_line)
       extra_lines = extra_line_sum % 7
       return [image_column, image_row, extra_lines]
     end
-  # current_image_occupied_lines = image_column*image_row + image_column*image_extra_line
-  # room = empty_lines_count + current_image_occupied_lines
-  # if room == 0
-  #   return image_info.dup
-  # elsif room > 0
-  #   expand_line_count = room/image_info[0].to_i
-  #   retunn []
+    # current_image_occupied_lines = image_column*image_row + image_column*image_extra_line
+    # room = empty_lines_count + current_image_occupied_lines
+    # if room == 0
+    #   return image_info.dup
+    # elsif room > 0
+    #   expand_line_count = room/image_info[0].to_i
+    #   retunn []
   else
     # There is an overflow, so image size should be reduced
     current_image_occupied_lines = image_column*image_row*7 + image_column*image_extra_line
@@ -1686,8 +1734,8 @@ end
 
 private
 
-def init_atts
 
+def init_atts
   unless article
 
   else
@@ -1707,23 +1755,21 @@ def init_atts
     self.top_story      = article_info_hash[:top_story]
     self.top_position   = article_info_hash[:top_position]
     self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
+
     self.inactive       = false
     if page_number == 22 && order == 2
       self.subject_head = '기고'
     elsif page_number == 23 && order == 2
       self.subject_head = '내일시론'
     end
-  end
     # self.page_path      = page.path
-    self.title          = "제목"
-    self.subtitle       = "부제"
-    self.reporter       = ""
-    self.email          = ""
-    self.body =<<~EOF
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다.
+  end
+  self.title          = "제목"
+  self.subtitle       = "부제"
+  self.reporter       = ""
+  self.email          = ""
+  self.body =<<~EOF
+  본문
 EOF
   end
 end
