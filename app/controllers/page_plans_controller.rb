@@ -51,7 +51,6 @@ class PagePlansController < ApplicationController
       if @page_plan.update(page_plan_params)
         @page_plan.set_pair_page_color
         new_ad_type = @page_plan.ad_type
-        binding.pry
         if before_ad_type != new_ad_type
           #if we have page and ad_type changed, update page layout
           if @page = @page_plan.page
