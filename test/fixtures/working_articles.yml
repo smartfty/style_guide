@@ -52,6 +52,7 @@
 #  subtitle_type                :string
 #  overlap                      :text
 #  embedded                     :boolean
+#  heading_columns              :integer
 #
 # Indexes
 #

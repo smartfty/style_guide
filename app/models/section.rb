@@ -536,7 +536,7 @@ class Section < ApplicationRecord
   def update_profile
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
-    self.profile     = e
+    self.profile     = make_profile
     self.save
     puts "__________ after profile:#{profile}"
 

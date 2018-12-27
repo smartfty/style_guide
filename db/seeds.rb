@@ -27,6 +27,8 @@ section_names = [
   '전면광고'
 ]
 
+Category.parse
+
 h = {}
 h[:name]                            = '내일신문'
 h[:paper_size]                      = '신문대판'

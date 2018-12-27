@@ -52,6 +52,7 @@
 #  subtitle_type                :string
 #  overlap                      :text
 #  embedded                     :boolean
+#  heading_columns              :integer
 #
 # Indexes
 #
@@ -668,6 +669,7 @@ class WorkingArticle < ApplicationRecord
     h = {}
     h[:kind]                          = self.kind if kind
     h[:subtitle_type]                 = self.subtitle_type || '1단'
+    h[:heading_columns]               = self.heading_columns if  heading_columns && heading_columns!= column && heading_columns != ""
     if kind == '사설' || kind == 'editorial'
         h[:has_profile_image]             = true if reporter
         h[:has_profile_image]             = false if reporter == ""

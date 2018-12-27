@@ -20,6 +20,14 @@
   - body
     - fit_text
 
+2018-12-27
+  - add heading_columns to working_article
+  
+2018-12-26
+  - add Category
+  - fix speread
+  - fix oveflow count
+
 2018-12-23
   - #, ##, ###, ####
   - *, **, markup 다이아몬드 강조, 고딕강조
