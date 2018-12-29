@@ -58,7 +58,7 @@ class Page < ApplicationRecord
   attr_reader :time_stamp
   include PageSplitable
   include PagePrintable
-  include PageSavePDF
+  include PageSavePdf
   include PageSaveXml
   # extend FriendlyId 
   # friendly_id :friendly_string, :use => [:slugged]
@@ -78,11 +78,13 @@ class Page < ApplicationRecord
     # "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
     #Todo
     "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
+
   end
 
   def url
     "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
   end
+
 
   def latest_pdf
     f = Dir.glob("#{path}/section*.pdf").sort.last
@@ -268,6 +270,8 @@ class Page < ApplicationRecord
     create_heading(section)
     create_working_articles(section)
     create_ad_boxes(section)
+    save_config_file unless File.exist?(config_path)
+    generate_pdf unless File.exist?(pdf_path)
   end
 
   def sample_ad_folder
@@ -373,7 +377,7 @@ class Page < ApplicationRecord
   end
 
   def change_ad_boxes(section)
-    # assuming only one ad per page,
+    # assuming only one ad per page,  
     # TODO handle case when there are multiple ads in a page
     # section.ad_box_templates.each_with_index do |ad_box_template, i|
     ad_box_template = section.ad_box_templates.first
@@ -382,7 +386,7 @@ class Page < ApplicationRecord
       if ad = AdBox.where(current).first
         puts  "same type found, do nothing"
       else
-        current = {}
+        current            = {}
         current['page_id'] = id
         current['ad_type'] = ad_box_template.ad_type
         current['grid_x']  = ad_box_template.grid_x
@@ -398,21 +402,11 @@ class Page < ApplicationRecord
           currnet_ad_box.save
           currnet_ad_box.generate_pdf_with_time_stamp
         else
-          puts "create ad"
-          AdBox.create(current)
+          a = AdBox.create(current)
+          a.generate_pdf
         end
       end
     end
-
-    # mark unused as inactive
-    # ad_boxes.each_with_index do |ad_box, i|
-    #   if i >= section.ad_box_templates.length
-    #     ad_box.inactive = true
-    #   else
-    #     ad_box.inactive = false
-    #   end
-    #   ad_box.save
-    # end
   end
 
   def story_backup_folder
@@ -426,6 +420,40 @@ class Page < ApplicationRecord
   def config_path
     path + "/config.yml"
   end
+
+  def config_hash
+    h = {}
+    h['section_name']                   = section_name
+    h['page_heading_margin_in_lines']   = page_heading_margin_in_lines
+    h['ad_type']                        = ad_type || "no_ad"
+    h['is_front_page']                  = is_front_page?
+    h['profile']                        = profile
+    h['section_id']                     = id
+    h['page_columns']                   = column
+    h['grid_size']                      = [grid_width, grid_height]
+    h['lines_per_grid']                 = lines_per_grid
+    h['width']                          = width
+    h['height']                         = height
+    h['left_margin']                    = left_margin
+    h['top_margin']                     = top_margin
+    h['right_margin']                   = right_margin
+    h['bottom_margin']                  = bottom_margin
+    h['gutter']                         = gutter
+    h['story_frames']                   = eval(layout)
+    h['article_line_thickness']         = article_line_thickness
+    h
+  end
+
+  def config_yml_path
+    path + "/config.yml"
+  end
+
+  def save_config_file
+    system "mkdir -p #{path}" unless File.directory?(path)
+    yaml = config_hash.to_yaml
+    File.open(config_yml_path, 'w'){|f| f.write yaml}
+  end
+
 
   def copy_config_file
     source = section_template_folder + "/config.yml"
@@ -507,7 +535,6 @@ class Page < ApplicationRecord
     else
       puts "no section"
     end
-
   end
 
   def copy_ad_folder
@@ -528,8 +555,8 @@ class Page < ApplicationRecord
 
   def create_heading(section)
     heading_atts                  = {}
-    heading_atts[:page_number]    = section.page_number
-    heading_atts[:section_name]    = section.page_number
+    heading_atts[:page_number]    = page_number
+    heading_atts[:section_name]   = section_name
     heading_atts[:page_id]        = self.id
     heading_atts[:date]           = date
     result                        = PageHeading.where(heading_atts).first_or_create
@@ -548,44 +575,21 @@ class Page < ApplicationRecord
   end
 
   def change_template(new_template_id)
-    puts __method__
-    puts "++++++++ new_template_id:#{new_template_id}"
-    self.template_id            = new_template_id
-    self.save
-    new_section                 = Section.find(new_template_id)
-    section_hash                = new_section.attributes
-    section_hash                = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
-    section_hash[:template_id]  = new_template_id
-    section_hash.delete(:id)
-    section_hash.delete(:path)
-    section_hash.delete(:order)
-    section_hash.delete(:is_front_page)
-    section_hash.delete(:created_at)
-    section_hash.delete(:updated_at)
-    section_hash.delete(:draw_divider)
-    update(section_hash)
-    # update ad_box
-    # remove current ad_boxes unless new template has same size ad
-    # if ad_boxes.count > 0 && (new_section.ad_box_templates.count == 0 || new_section.ad_box_templates.first.ad_type != ad_boxes.first.ad_type)
-    #   ad_boxes.each do |ad_box|
-    #     ad_box.page_id = nil
-    #     ad_box.save
-    #   end
-    # elsif new_section.ad_box_templates.count == 1
-    #   new_ad_template = new_section.ad_box_templates.first
-    #   ad_box_hash                = new_ad_template.attributes
-    #   ad_box_hash                = Hash[ad_box_hash.map{ |k, v| [k.to_sym, v] }]
-    #   ad_box_hash.delete(:id)
-    #   ad_box_hash.delete(:section_id)
-    #   ad_box_hash.delete(:created_at)
-    #   ad_box_hash.delete(:updated_at)
-    #   ad_box_hash[:page_id] = id
-    #   AdBox.create(ad_box_hash)
-    # end
-    copy_config_file
-    #TODO change heading section_name to full page ad if new template is full page ad
-    # copy_heading
-    change_heading
+    new_section                  = Section.find(new_template_id)
+    new_page_hash                = new_section.attributes
+    new_page_hash                = Hash[new_page_hash.map{ |k, v| [k.to_sym, v] }]
+    new_page_hash[:page_number]  = page_number
+    new_page_hash[:section_name] = page_plan.section_name
+    new_page_hash[:template_id]  = new_template_id
+    new_page_hash.delete(:id)
+    new_page_hash.delete(:path)
+    new_page_hash.delete(:order)
+    new_page_hash.delete(:is_front_page)
+    new_page_hash.delete(:created_at)
+    new_page_hash.delete(:updated_at)
+    new_page_hash.delete(:draw_divider)
+    update(new_page_hash)
+    save_config_file
     generate_heading_pdf
     change_working_articles(new_section)
     change_ad_boxes(new_section)
@@ -654,6 +658,7 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
+    generate_heading_pdf
     working_articles.each do |working_article|
       working_article.generate_pdf
     end
@@ -754,6 +759,7 @@ class Page < ApplicationRecord
     issue.pages.select{|p| p.section_name == section_name}
   end
 
+
   private
 
   def copy_attributes_from_template
@@ -761,8 +767,8 @@ class Page < ApplicationRecord
     self.publication_id = issue.publication.id
     self.date         = issue.date
     self.profile      = section.profile
-    self.page_number  = section.page_number
-    self.section_name = section.section_name
+    # self.page_number  = section.page_number
+    # self.section_name = section.section_name
     self.column       = section.column
     self.row          = section.row
     self.ad_type      = section.ad_type
@@ -777,7 +783,7 @@ class Page < ApplicationRecord
     self.right_margin = section.right_margin
     self.bottom_margin = section.bottom_margin
     self.gutter       = section.gutter
-    self.article_line_thickness = section.article_line_thickness
+    self.article_line_thickness = section.article_line_thickness 
     self.layout       = section.layout
     self.page_heading_margin_in_lines = section.page_heading_margin_in_lines
     if clone_name == nil

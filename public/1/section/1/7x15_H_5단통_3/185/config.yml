@@ -1,10 +1,10 @@
 ---
 section_name: 
 page_heading_margin_in_lines: 3
-ad_type: ''
-is_front_page: false
-profile: 7x15__8
-section_id: 54
+ad_type: 5단통
+is_front_page: true
+profile: 7x15_H_5단통_3
+section_id: 185
 page_columns: 7
 grid_size:
 - 146.99662542182014
@@ -19,36 +19,21 @@ bottom_margin: 42.5196850393695
 gutter: 12.7559055118108
 story_frames:
 - - 0
-  - 0
-  - 4
-  - 4
-- - 4
-  - 0
-  - 3
-  - 5
-- - 0
-  - 4
-  - 4
-  - 4
-- - 4
-  - 5
-  - 3
-  - 3
-- - 0
-  - 8
-  - 3
-  - 7
-- - 3
-  - 8
   - 1
   - 4
+  - 6
 - - 4
-  - 8
+  - 1
   - 3
-  - 4
-- - 3
-  - 12
-  - 4
+  - 6
+- - 0
+  - 7
+  - 7
   - 3
+- - 0
+  - 10
+  - 7
+  - 5
+  - 광고_5단통
 article_line_thickness: 0.3
 draw_divider: 
