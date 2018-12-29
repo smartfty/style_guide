@@ -930,7 +930,7 @@ class WorkingArticle < ApplicationRecord
   def character_count_data_path
     publication.publication_info_folder + "/charater_count_data/#{Date.today.to_s}_#{page_number}_#{order}"
   end
-  
+
   # we want to create a compiled database of actual character count on a working_article.
   # save a yaml file of actual instance character data
   # we can average them later as we gather more data
@@ -938,7 +938,7 @@ class WorkingArticle < ApplicationRecord
     info = article_info
     return unless info
     return unless info[:overflow] == 0
-  
+
     useage_data   = Hash[attributes.map{ |k, v| [k.to_sym, v] }]
     useage_data.delete[:id]
     useage_data.delete[:updated_at]
@@ -947,7 +947,7 @@ class WorkingArticle < ApplicationRecord
     path = character_count_data_path
     File.open(path, 'w'){|f| f.write useage_data.to_yaml}
   end
-  
+
   def calculate_fitting_image_size(image_column, image_row, image_extra_line)
     room = empty_lines_count
     image_info = [image_column, image_row, image_extra_line]
@@ -967,10 +967,6 @@ class WorkingArticle < ApplicationRecord
         return [image_column, image_row, extra_lines]
       end
     else
-      extra_lines = extra_line_sum % 7
-      return [image_column, image_row, extra_lines]
-    end
-    else
       # There is an overflow, so image size should be reduced
       current_image_occupied_lines = image_column*image_row*7 + image_column*image_extra_line
       overflow_row_count = (overflow_line_count/(image_column*7)).to_i
@@ -984,10 +980,12 @@ class WorkingArticle < ApplicationRecord
       end
     end
   end
-  
+
   private
 
+
   def init_atts
+
     unless article
 
     else
@@ -1016,13 +1014,17 @@ class WorkingArticle < ApplicationRecord
       end
       # self.page_path      = page.path
     end
-    self.title          = "제목"
-    self.subtitle       = "부제"
-    self.reporter       = ""
-    self.email          = ""
+    self.title          = "#{order}번 제목은 여기에 여기는 제목"
+    self.subtitle       = '부제는 여기에 여기는 부제목 자리'
+    self.reporter       = '홍길동'
+    self.email          = 'gdhong@gmail.com'
     self.body =<<~EOF
-    본문
-EOF
-    end
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    EOF
 
+  end
 end
