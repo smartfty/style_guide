@@ -1,5 +1,5 @@
 
-module ArticleSavePDF
+module ArticleSavePdf
   extend ActiveSupport::Concern
 
   def save_pdf(options={})

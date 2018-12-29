@@ -57,8 +57,10 @@ class Page < ApplicationRecord
   scope :clone_page, -> {where("clone_name!=?", nil)}
   attr_reader :time_stamp
   include PageSplitable
+  include PagePrintable
   include PageSavePDF
-  # extend FriendlyId
+  include PageSaveXml
+  # extend FriendlyId 
   # friendly_id :friendly_string, :use => [:slugged]
 
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
@@ -76,13 +78,11 @@ class Page < ApplicationRecord
     # "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
     #Todo
     "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
-
   end
 
   def url
     "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
   end
-
 
   def latest_pdf
     f = Dir.glob("#{path}/section*.pdf").sort.last
@@ -268,8 +268,6 @@ class Page < ApplicationRecord
     create_heading(section)
     create_working_articles(section)
     create_ad_boxes(section)
-    save_config_file unless File.exist?(config_path)
-    generate_pdf unless File.exist?(pdf_path)
   end
 
   def sample_ad_folder
@@ -384,7 +382,7 @@ class Page < ApplicationRecord
       if ad = AdBox.where(current).first
         puts  "same type found, do nothing"
       else
-        current            = {}
+        current = {}
         current['page_id'] = id
         current['ad_type'] = ad_box_template.ad_type
         current['grid_x']  = ad_box_template.grid_x
@@ -400,8 +398,8 @@ class Page < ApplicationRecord
           currnet_ad_box.save
           currnet_ad_box.generate_pdf_with_time_stamp
         else
-          a = AdBox.create(current)
-          a.generate_pdf
+          puts "create ad"
+          AdBox.create(current)
         end
       end
     end
@@ -427,39 +425,6 @@ class Page < ApplicationRecord
 
   def config_path
     path + "/config.yml"
-  end
-
-  def config_hash
-    h = {}
-    h['section_name']                   = section_name
-    h['page_heading_margin_in_lines']   = page_heading_margin_in_lines
-    h['ad_type']                        = ad_type || "no_ad"
-    h['is_front_page']                  = is_front_page?
-    h['profile']                        = profile
-    h['section_id']                     = id
-    h['page_columns']                   = column
-    h['grid_size']                      = [grid_width, grid_height]
-    h['lines_per_grid']                 = lines_per_grid
-    h['width']                          = width
-    h['height']                         = height
-    h['left_margin']                    = left_margin
-    h['top_margin']                     = top_margin
-    h['right_margin']                   = right_margin
-    h['bottom_margin']                  = bottom_margin
-    h['gutter']                         = gutter
-    h['story_frames']                   = eval(layout)
-    h['article_line_thickness']         = article_line_thickness
-    h
-  end
-
-  def config_yml_path
-    path + "/config.yml"
-  end
-
-  def save_config_file
-    system "mkdir -p #{path}" unless File.directory?(path)
-    yaml = config_hash.to_yaml
-    File.open(config_yml_path, 'w'){|f| f.write yaml}
   end
 
   def copy_config_file
@@ -563,8 +528,8 @@ class Page < ApplicationRecord
 
   def create_heading(section)
     heading_atts                  = {}
-    heading_atts[:page_number]    = page_number
-    heading_atts[:section_name]   = section_name
+    heading_atts[:page_number]    = section.page_number
+    heading_atts[:section_name]    = section.page_number
     heading_atts[:page_id]        = self.id
     heading_atts[:date]           = date
     result                        = PageHeading.where(heading_atts).first_or_create
@@ -583,21 +548,44 @@ class Page < ApplicationRecord
   end
 
   def change_template(new_template_id)
-    new_section                  = Section.find(new_template_id)
-    new_page_hash                = new_section.attributes
-    new_page_hash                = Hash[new_page_hash.map{ |k, v| [k.to_sym, v] }]
-    new_page_hash[:page_number]  = page_number
-    new_page_hash[:section_name] = page_plan.section_name
-    new_page_hash[:template_id]  = new_template_id
-    new_page_hash.delete(:id)
-    new_page_hash.delete(:path)
-    new_page_hash.delete(:order)
-    new_page_hash.delete(:is_front_page)
-    new_page_hash.delete(:created_at)
-    new_page_hash.delete(:updated_at)
-    new_page_hash.delete(:draw_divider)
-    update(new_page_hash)
-    save_config_file
+    puts __method__
+    puts "++++++++ new_template_id:#{new_template_id}"
+    self.template_id            = new_template_id
+    self.save
+    new_section                 = Section.find(new_template_id)
+    section_hash                = new_section.attributes
+    section_hash                = Hash[section_hash.map{ |k, v| [k.to_sym, v] }]
+    section_hash[:template_id]  = new_template_id
+    section_hash.delete(:id)
+    section_hash.delete(:path)
+    section_hash.delete(:order)
+    section_hash.delete(:is_front_page)
+    section_hash.delete(:created_at)
+    section_hash.delete(:updated_at)
+    section_hash.delete(:draw_divider)
+    update(section_hash)
+    # update ad_box
+    # remove current ad_boxes unless new template has same size ad
+    # if ad_boxes.count > 0 && (new_section.ad_box_templates.count == 0 || new_section.ad_box_templates.first.ad_type != ad_boxes.first.ad_type)
+    #   ad_boxes.each do |ad_box|
+    #     ad_box.page_id = nil
+    #     ad_box.save
+    #   end
+    # elsif new_section.ad_box_templates.count == 1
+    #   new_ad_template = new_section.ad_box_templates.first
+    #   ad_box_hash                = new_ad_template.attributes
+    #   ad_box_hash                = Hash[ad_box_hash.map{ |k, v| [k.to_sym, v] }]
+    #   ad_box_hash.delete(:id)
+    #   ad_box_hash.delete(:section_id)
+    #   ad_box_hash.delete(:created_at)
+    #   ad_box_hash.delete(:updated_at)
+    #   ad_box_hash[:page_id] = id
+    #   AdBox.create(ad_box_hash)
+    # end
+    copy_config_file
+    #TODO change heading section_name to full page ad if new template is full page ad
+    # copy_heading
+    change_heading
     generate_heading_pdf
     change_working_articles(new_section)
     change_ad_boxes(new_section)
@@ -666,7 +654,6 @@ class Page < ApplicationRecord
   end
 
   def regenerate_pdf
-    generate_heading_pdf
     working_articles.each do |working_article|
       working_article.generate_pdf
     end
@@ -763,515 +750,9 @@ class Page < ApplicationRecord
     EOF
   end
 
-  def proof_path
-    path + "/proof"
-  end
-
-  def generate_proof_pdf
-    FileUtils.mkdir_p(proof_path) unless File.exist?(proof_path)
-    r_page_number = page_number.to_s.rjust(2,"0")
-    date          = issue.date.day.to_s.rjust(2,"0")
-    month         = issue.date.month.to_s.rjust(2,"0")
-    year          = issue.date.year.to_s
-    proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*")
-    if proof_files.length == 0
-      target_file   = "proof/#{r_page_number}011001-#{date}#{month}#{year}000.pdf"
-    else
-      curernt_index = proof_files.length
-      target_file = "proof/#{r_page_number}011001-#{date}#{month}#{year}000_#{curernt_index}.pdf"
-    end
-    puts "target_file:#{target_file}"
-    system("cd #{path} && cp section.pdf #{target_file}")
-    target_file
-  end
-
-  def printer_file
-    path + "/section.pdf"
-  end
-
-  def copy_to_proof_reading_ftp
-    require 'net/ftp'
-    puts "copying page pdf to proof reading ftp "
-    ip  = '211.115.91.75'
-    id  = 'naeil'
-    pw  = 'sodlftlsans1!'
-    last_generate_file = generate_proof_pdf
-    # upload files
-    latest_proof_file = File.new(path + "/#{last_generate_file}")
-    Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(latest_proof_file, "#{File.basename(latest_proof_file)}")
-    end
-    true
-  end
-
-  def printer_folder
-    path + "/printer"
-  end
-
-  def latest_printer_file
-    Dir.glob("#{printer_folder}/*.pdf").sort.last
-  end
-
-  def printer_file_version
-    File.basename(latest_printer_file).split("_")[1].to_i
-  end
-
-  def backup_printer_file
-    target_file = printer_folder + "/section_0.pdf"
-    FileUtils.mkdir_p(printer_folder) unless File.exist?(printer_folder)
-    current_files = Dir.glob("#{printer_folder}/*.pdf")
-    if current_files.length > 0
-      target_file = printer_folder + "/section_#{current_files.length}.pdf"
-    end
-    FileUtils.cp(printer_file, target_file)
-  end
-
-  def copy_to_printer_ftp
-    backup_printer_file
-    news_pdf
-    ex_pdf
-    jung_ang
-    dong_a
-    true
-  end
-
-  def send_to_expdf_ftp
-    news_pdf
-    ex_pdf
-  end
-
-  def dong_a_code
-    date = issue.date
-    m = date.month.to_s.rjust(2,"0")
-    d = date.day.to_s.rjust(2,"0")
-    pg = page_number.to_s.rjust(2,"0")
-    if printer_file_version == 0 
-      if color_page
-        "NA#{m}#{d}#{pg}NC01.pdf"
-      else
-        "NA#{m}#{d}#{pg}NB01.pdf"
-      end
-    else
-      if color_page
-        "NA#{m}#{d}#{pg}NC0#{printer_file_version + 1}.pdf"
-      else
-        "NA#{m}#{d}#{pg}NB0#{printer_file_version + 1}.pdf"
-      end
-    end
-  end
-
-  def dong_a
-    puts "sending it to Dong-A"
-    ip        = '210.115.142.181'
-    id        = 'naeil'
-    pw        = 'cts@'
-    Net::FTP.open(ip, id, pw) do |ftp|
-      if color_page
-        ftp.putbinaryfile(printer_file, "/color/#{dong_a_code}")
-      else
-        ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
-      end
-    end
-    # ip        = '211.115.91.231'
-    # id        = 'naeil'
-    # pw        = 'sodlftlsans1!'
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   ftp.putbinaryfile(printer_file, "#{dong_a_code}")
-    # end
-  end
-
-  def jung_ang_code
-    date = issue.date
-    m = date.month.to_s.rjust(2,"0")
-    d = date.day.to_s.rjust(2,"0")
-    pg = page_number.to_s.rjust(2,"0")
-    if printer_file_version == 0
-      "zn#{m}#{d}#{pg}10001.pdf"
-     else
-      "zn#{m}#{d}#{pg}10001_#{printer_file_version}.pdf"
-     end
-   end
-
-  def jung_ang
-    puts "sending it to Jung-Ang"
-    # ip        = '112.216.44.45:2121'
-    # id        = 'naeil'
-    # pw        = 'sodlf@2018'
-    # upload files
-    printer_file = path + "/section.pdf"
-    ftp = Net::FTP.new  # don't pass hostname or it will try open on default port
-    ftp.connect('112.216.44.45', '2121')  # here you can pass a non-standard port number
-    ftp.login('naeil', 'sodlf@2018')
-    # ftp.passive = true  # optional, if PASV mode is required
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
-    # end
-  end
-
-
-    # 2018-7-23
-    # puts "sending it to Jung-Ang"
-    # ip        = '112.216.44.45:2121'
-    # id        = 'naeil'
-    # pw        = 'sodlf@2018'
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
-    # end
-    # ip        = '211.115.91.231'
-    # id        = 'naeil'
-    # pw        = 'sodlftlsans1!'
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   ftp.putbinaryfile(printer_file, "#{jung_ang_code}")
-    # end
-
-
-  def news_pdf_code
-    yyyymd = issue.date.strftime("%Y%m%d")
-    pg = page_number.to_s.rjust(2,"0")
-    "#{yyyymd}-#{pg}.pdf"
-  end
-
-  def news_pdf
-    puts "sending it to News PDF"
-    ip        = '211.115.91.231'
-    id        = 'comp'
-    pw        = '*4141'
-    yyyymd = issue.date.strftime("%Y%m%d")
-    Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
-    end
-  end
-
-  def ex_pdf_code
-    jeho = issue.number
-    yymd = issue.date.strftime("%y%m%d")
-    pg = page_number.to_s.rjust(2,"0")
-    "#{jeho}-#{yymd}#{pg}.pdf"
-  end
-
-  def ex_pdf
-    puts "sending it to External PDF"
-    ip        = '211.115.91.231'
-    id        = 'comp'
-    pw        = '*4141'
-    yyyymd = issue.date.strftime("%Y%m%d")
-    Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")
-    end
-  end
-
-
-  def dropbox_path
-    File.expand_path("~/dropbox")
-  end
-
-  def dropbox_page_path
-    dropbox_path + "/#{date}_#{page_number}.pdf"
-  end
-
-  def dropbox_exist?
-    File.exist?(dropbox_path)
-  end
-
-  def copy_to_drop_box
-    unless dropbox_exist?
-      return "드롭박스가 설치되지 않았습니다."
-    else
-      system("cp #{pdf_path} #{dropbox_page_path}")
-      return true
-    end
-  end
-
-
-  def save_preview_xml
-   date = issue.date
-   @day = date.day.to_s.rjust(2,"0")
-   @month = date.month.to_s.rjust(2,"0")
-   @year = date.year % 100
-   @date = "#{@year}#{@month}#{@day}"
-   @page_number = page_number.to_s.rjust(2,"0")
-   @filename = "#{issue.number}-#{@date}#{@page_number}"
-   scale = 1.6
-
-   header =<<~EOF
-   <?xml version="1.0" encoding="UTF-8"?>
-   <PDFScrap version="1.0">
-     <scraps zoom="120">\n
-   EOF
-   template =<<~EOF
-   <Scrap title="<%= @filename %>_1_<%= @order %>.jpg" page="1" type="rectangle">
-     <vertices><%= (@x_position*scale).round(0) %>;<%= (@y_position*scale).round(0) %>;<%=((@x_position + w.width)*scale).round(0) %>;<%= ((@y_position + w.height)*scale).round(0) %></vertices>
-   </Scrap>
-   EOF
-   @issue_number = issue.number
-   @page_number = page_number
-
-   article_map_path = "#{Rails.root}/public/1/issue/#{issue.date.to_s}/page_preview"
-   article_map = header
-   working_articles.sort_by{|x| x.order}.each do |w|
-     @order = w.order - 1
-     @x_position = publication.left_margin + w.x
-     @y_position = publication.top_margin + w.y
-     erb = ERB.new(template)
-     article_map += erb.result(binding) + "\n"
-     article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
-     # binding.pry if w.page_number==22
-     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
-     FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
-     FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
-
-   end
-   ad_boxes.each do |w|
-     @order = working_articles.length
-     @x_position = publication.left_margin + w.x
-     @y_position = publication.top_margin + w.y
-     erb = ERB.new(template)
-     article_map += erb.result(binding) + "\n"
-     article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
-     FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
-     FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
-     # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
-   end
-   article_map += "</scraps><pdf filename='#{@filename}.PDF'/></PDFScrap>"
-   system("mkdir -p #{article_map_path}") unless File.exist?(article_map_path)
-   File.open(article_map_path + "/#{@filename}.xml", 'w'){|f| f.write article_map}
-   system("cp #{pdf_path} #{article_map_path}/#{@filename}.pdf")
-  end
-
-  def page_info
-    page_number.to_s.rjust(2,"0")
-  end
-
-  def mobile_page_preview_path
-    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_info}"
-  end
-
-  def xml_section_name
-    if page_number == 22 || page_number == 23
-      "논설#{page_number - 21}"
-    else
-      section_name
-    end
-  end  
-
-  def all_container
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
-
-    container_xml_page_id=<<EOF
-    <Page ID="1001<%= page_info %>">
-      <PageKey><%= @page_key %></PageKey>
-      <PageTitle>#{xml_section_name}</PageTitle>
-      <PaperSize>A2</PaperSize>
-EOF
-    page_container_xml = ""
-    container_xml = ""
-    container = ""
-    # container_xml_page = ""
-    erb=ERB.new(container_xml_page_id)
-    container_xml += erb.result(binding)
-    working_articles.sort_by{|x| x.order}.each do |w|
-      page_container_xml += w.xml_group_key_template
-    end
-    ad_boxes.each do |w|
-      page_container_xml += w.xml_group_key_template
-    end
-    # container += container_xml  + "\n" + page_container_xml
-    container += container_xml
-    container + page_container_xml + "    </Page>" + "\n"
-  end
-
-  def updateinfo
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
-    page_key=<<EOF
-    <PageKey><%= @page_key %></PageKey>
-EOF
-    erb=ERB.new(page_key)
-    erb.result(binding)
-  end
-
-
-  def save_mobile_preview_xml
-    puts "++++++++++++ page_number:#{page_number}"
-    default_time      = "00:00:00"
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    # w_updated_at = working_articles.first.updated_at
-    updated_date      = "#{year}-#{month}-#{day}"
-    updated_time      = updated_at.strftime("%H:%M:%S")
-    @date_id          = updated_date
-    @day_info         = "#{year}년#{month}월#{day}일"
-    @media_info       = publication.name
-    date = issue.date
-    @day = date.day.to_s.rjust(2,"0")
-    @month = date.month.to_s.rjust(2,"0")
-    @year = date.year
-    @date = "#{@year}#{@month}#{@day}"
-    @filename = "#{@date}_011001#{page_info}"
-    @article_filename = "#{@date}.011001#{page_info}"
-    @jeho_num         = issue.number
-    @news_date        = "#{updated_date}T#{default_time}"
-    @news_meun_2      = page_number.to_s.rjust(2,"0")
-    @news_meun        = page_number
-    @issue_title      = section_name
-    @writre_and_time  = "#{updated_date}T#{updated_time}"
-    @page_key         = "#{year}#{month}#{day}_011001#{page_info}"
-    @article_count    = working_articles.length
-
-    system("mkdir -p #{mobile_page_preview_path}") unless File.exist?(mobile_page_preview_path)
-    system("cp #{jpg_path} #{mobile_page_preview_path}")
-    resize_name = "#{@date}_011001#{page_info}"
-    system "cd #{mobile_page_preview_path} && convert section.jpg -resize 2300x3191  #{resize_name}.jpg"
-    system "cd #{mobile_page_preview_path} && convert section.jpg -resize 1856x2575  #{resize_name}c.jpg"
-    system "cd #{mobile_page_preview_path} && convert section.jpg -resize 1150x1595  #{resize_name}b.jpg"
-    system "cd #{mobile_page_preview_path} && convert section.jpg -resize 640x888  #{resize_name}a.jpg"
-    system "cd #{mobile_page_preview_path} && convert section.jpg -resize 160x222  #{resize_name}s.jpg"
-    system "rm #{mobile_page_preview_path}/section.jpg"
-
-    mobile_layout_ml =<<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-  <MobileLayoutML>
-    <PageInfo>
-      <NewsPlus Program="NewsLayout" Version="12.0"/>
-      <NewsID>1</NewsID>
-      <NewsName>내일신문</NewsName>
-      <JeHoNum><%= @jeho_num %></JeHoNum>
-      <NewsDate><%= @news_date %></NewsDate>
-      <NewsPan>10</NewsPan>
-      <NewsSectionID SectionName="A" DisplayName="A">1</NewsSectionID>
-      <NewsMeun><%= @news_meun %></NewsMeun>
-      <Page>A<%= @news_meun %></Page>
-      <Title><%= @issue_title  %></Title>
-      <WriteAndTime><%= @writre_and_time %></WriteAndTime>
-      <LogOnUser/>
-      <PageID>1001<%= @news_meun_2 %></PageID>
-      <PageKey><%= @page_key %></PageKey>
-      <ArticleCount><%= @article_count %></ArticleCount>
-      <PaperSize>A2</PaperSize>
-    </PageInfo>
-EOF
-# binding.pry
-     size_array = %w[CoordinateListReal CoordinateListOrg CoordinateListA CoordinateListB CoordinateListC]
-     # scale_array = [4.128, 1.148, 2.064, 3.332, 0.286]
-     # scale_array = [19.790, 2.023, 0.558, 1, 1.627]
-     scale_array = [20.423, 2.087, 0.575, 1.032, 1.679]
-     # scale_array = [20.5, 2.1, 0.6, 1.1, 1.7]
-
-
-    map_component=<<EOF
-      <<%= name %>>
-        <List><%= (@x1 * scale).round(0) %>,<%= (@y1 * scale).round(0) %>,<%= (@x2 * scale).round(0) %>,<%= (@y2 * scale).round(0) %></List>
-        <Polygon><%= (@x1 * scale).round(0) %>,<%= (@y1 * scale).round(0) %>;<%= (@x2 * scale).round(0) %>,<%= (@y1 * scale).round(0) %>;<%= (@x2 * scale).round(0) %>,<%= (@y2 * scale).round(0) %>;<%= (@x2 * scale).round(0) %>,<%= (@y2 * scale).round(0) %>;<%= (@x1 * scale).round(0) %>,<%= (@y2 * scale).round(0) %>;</Polygon>
-      </<%= name %>>
-EOF
-
-      mobile_layout = ""
-      erb=ERB.new(mobile_layout_ml)
-      mobile_layout += erb.result(binding)
-
-      working_articles.sort_by{|x| x.order}.each do |w|
-        @order = (w.order).to_s.rjust(2,'0')
-        @x1 = (publication.left_margin + w.x)
-        @x2 = (@x1 + w.width)
-        # if (page_number == 22 || page_number == 23) && (@order == 1 || @order == 2)
-        if (page_number == 22 || page_number == 23) && (@order == 1 || @order == 2)
-          puts "page_number:#{page_number}"
-          puts "@order:#{@order}"
-          @y1 = (publication.top_margin + w.y + 55.073)
-          @y2 = (@y1 + w.height - 55.073 + w.extended_line_height)
-          puts "@y2:#{@y2}"
-          puts "w.extended_line_height:#{w.extended_line_height}"
-
-        else
-          puts "page_number:#{page_number}"
-          puts "@order:#{@order}"
-          @y1 = (publication.top_margin + w.y)
-          @y2 = (@y1 + w.height)
-        end
-        # binding.pry
-        scale_map=""
-        size_array.each_with_index do |name, i|
-          scale = scale_array[i]
-          erb=ERB.new(map_component)
-          scale_map += erb.result(binding)
-        end
-        # w.covert_euckr_not_suported_chars
-        mobile_layout += "  <Article>" + "\n" + w.mobile_preview_xml_article_info
-        mobile_layout += "    <MapComponent>" + "\n" + scale_map + "    </MapComponent>" + "\n"
-        mobile_layout += w.mobile_preview_xml_three_component
-        article_map_jpg_image_path = mobile_page_preview_path + "/#{@article_filename}0000#{@order}.jpg"
-        system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
-    end
-
-    ad_boxes.each do |w|
-      @order = (working_articles.length + 1).to_s.rjust(2,'0')
-      @x1 = (publication.left_margin + w.x)
-      @x2 = (@x1 + w.width)
-      @y1 = (publication.top_margin + w.y)
-      @y2 = (@y1 + w.height)
-      scale_map = ""
-      size_array.each_with_index do |name, i|
-        scale = scale_array[i]
-        erb=ERB.new(map_component)
-        scale_map += erb.result(binding)
-      end
-      # erb=ERB.new(mobile_layout_ml)
-      # mobile_layout += erb.result(binding)
-      mobile_layout += "  <Article>" + "\n" + w.mobile_preview_xml_article_info
-      mobile_layout += "    <MapComponent>" + "\n" + scale_map + "    </MapComponent>" + "\n"
-      mobile_layout += w.mobile_preview_xml_component
-
-      # erb_map = ERB.new(map_component)
-      # article_map += erb_map.result(binding)
-      article_map_jpg_image_path = mobile_page_preview_path + "/#{@article_filename}0000#{@order}.jpg"
-      system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
-    end
-
-
-     # mobile_layout_ml += article_info
-     mobile_layout += "\n" + " </MobileLayoutML>"
-     working_articles.each do |article|
-       article.save_mobile_xml_image
-     end
-
-    File.open(mobile_page_preview_path + "/#{@filename}.xml", 'w'){|f| f.write mobile_layout}
-    system("cp #{pdf_path} #{mobile_page_preview_path}/#{@filename}.pdf")
-    system("cp #{mobile_page_preview_path} #{mobile_page_preview_path}/#{@filename}.pdf")
-  end
-
-  # def container_xml_page
-  #   # page_info        = page_number.to_s.rjust(2,"0")
-  #
-  # end
-
-  def save_story_xml
-    if section_name == "전면광고"
-      ad = ad_boxes.first
-      ad.order = 1
-      ad.save
-      ad.save_ad_xml
-    else
-      working_articles.each do |article|
-        article.save_story_xml
-      end
-      ad_boxes.each do |ad|
-        ad.order = working_articles.length + 1
-        ad.save_ad_xml
-      end
-    end
-    
-  end
-
   def section_pages
     issue.pages.select{|p| p.section_name == section_name}
   end
-
 
   private
 
@@ -1280,8 +761,8 @@ EOF
     self.publication_id = issue.publication.id
     self.date         = issue.date
     self.profile      = section.profile
-    # self.page_number  = section.page_number
-    # self.section_name = section.section_name
+    self.page_number  = section.page_number
+    self.section_name = section.section_name
     self.column       = section.column
     self.row          = section.row
     self.ad_type      = section.ad_type

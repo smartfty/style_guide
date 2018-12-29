@@ -8,7 +8,7 @@ module IssueXmlWeb
     pages.each do |page|
       if page.section_name = '전면광고'
         newsgo_content_array << page.all_container
-      elsif page.page_number == 22 || page.page_number == 22 
+      elsif page.page_number == 22 || page.page_number == 23 
         newsgo_content_array << page.all_container
       else
         newsgo_content_array << nil
@@ -191,9 +191,5 @@ EOF
     #   puts 'xml file upload not found!!!'
     # end
   end
-
-
-
-
 
 end
