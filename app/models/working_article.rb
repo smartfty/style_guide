@@ -52,7 +52,7 @@
 #  subtitle_type                :string
 #  overlap                      :text
 #  embedded                     :boolean
-#
+
 # Indexes
 #
 #  index_working_articles_on_article_id  (article_id)
@@ -180,18 +180,18 @@ class WorkingArticle < ApplicationRecord
   end
 
   def change_story(new_story)
-    # update content with new story content    
+    # update content with new story content
     # ArticleWorker.perform_async(path, @time_stamp, '내일신문' )
   end
 
   def update_story_content(story)
-    # update content with new story content  
+    # update content with new story content
     self.reporter = story.reporter
     self.title    = story.title
     self.subtitle    = story.subtitle
     self.body     = story.body
     self.quote    = story.quote  if story.quote
-    self.save  
+    self.save
     save_article
     delete_old_files
     stamp_time
@@ -604,7 +604,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def height
-    h = row*grid_height 
+    h = row*grid_height
     if top_position?
       h -= page_heading_margin_in_lines*body_line_height
     end
@@ -684,10 +684,10 @@ class WorkingArticle < ApplicationRecord
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
     h[:quote_box_size]                = self.quote_box_size if show_quote_box?
     if boxed_subtitle_type && boxed_subtitle_type > 0
-      h[:boxed_subtitle_type]         = self.boxed_subtitle_type 
+      h[:boxed_subtitle_type]         = self.boxed_subtitle_type
     end
     if announcement_column && announcement_column > 0
-      h[:announcement_column]         = self.announcement_column 
+      h[:announcement_column]         = self.announcement_column
       h[:announcement_color]          = self.announcement_color
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
@@ -706,7 +706,7 @@ class WorkingArticle < ApplicationRecord
     end
     content
   end
-  
+
   def graphic_layout
     content = ""
     graphics.each do |graphic|

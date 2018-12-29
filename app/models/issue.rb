@@ -37,7 +37,7 @@ class Issue < ApplicationRecord
   after_create :setup
   validates_presence_of :date
   validates_uniqueness_of :date
-  
+
   include IssueStoryMakeable
   include IssueGitWorkflow
   include IssueSaveXml
@@ -148,6 +148,8 @@ class Issue < ApplicationRecord
     # parse_ad_images
     # parse_graphics
   end
+
+
 
   def make_spread
     puts 'in make_spread'

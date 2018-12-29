@@ -373,7 +373,7 @@ class Page < ApplicationRecord
   end
 
   def change_ad_boxes(section)
-    # assuming only one ad per page,  
+    # assuming only one ad per page,
     # TODO handle case when there are multiple ads in a page
     # section.ad_box_templates.each_with_index do |ad_box_template, i|
     ad_box_template = section.ad_box_templates.first
@@ -777,7 +777,7 @@ class Page < ApplicationRecord
     self.right_margin = section.right_margin
     self.bottom_margin = section.bottom_margin
     self.gutter       = section.gutter
-    self.article_line_thickness = section.article_line_thickness 
+    self.article_line_thickness = section.article_line_thickness
     self.layout       = section.layout
     self.page_heading_margin_in_lines = section.page_heading_margin_in_lines
     if clone_name == nil
