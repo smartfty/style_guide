@@ -20,17 +20,30 @@
   - body
     - fit_text
 
-<<<<<<< HEAD
-2018-12-17
-=======
+2018-12-27
+  - add heading_columns to working_article
+  
+2018-12-26
+  - add Category
+  - fix speread
+  - fix oveflow count
+
+2018-12-23
+  - #, ##, ###, ####
+  - *, **, markup 다이아몬드 강조, 고딕강조
+  - print status monitoring
+  - article 
+    spit, 
+    expand_grid, expand_grid
+    expand, reduce
+    syblling, cuson
+  
 2018-12-21
   - add ad_plan
     date ad:text description
   - generate heading when changing page template
   - 저장된 단락스타일로 재생성시 regenerate heading 
 
-  - *, **, markup bug
-  
 2018-12-18
   - fix change to no_ad 
   - 행정, 광고없음 not showing
@@ -45,7 +58,6 @@
   - embargo
   - image trimming
   - automatic timeout
->>>>>>> upstream/master
   - add 7x15_9단21_4
   - keep current section selection values
   - add '광고없음' to page_plan edit when selecting ad_type

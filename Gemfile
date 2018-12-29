@@ -112,3 +112,5 @@ gem 'ajax-datatables-rails'
 gem 'celluloid'
 
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
+
+gem 'ancestry'
