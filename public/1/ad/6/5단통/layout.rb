@@ -1,4 +1,4 @@
-RLayout::NewsAdBox.new(is_ad_box: true, width: 1031.81, height:484.72333333333336, top_margin: 13.849238095238096) do
+RLayout::NewsAdBox.new(is_ad_box: true, column: 6, row: 5, page_heading_margin_in_lines: 3) do
   image(image_path: 'some_path', layout_expand: [:width, :height])
   relayout!
 end

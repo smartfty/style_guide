@@ -8,7 +8,7 @@ module IssueXmlWeb
     pages.each do |page|
       if page.section_name = '전면광고'
         newsgo_content_array << page.all_container
-      elsif page.page_number == 22 || page.page_number == 22 
+      elsif page.page_number == 22 || page.page_number == 23 
         newsgo_content_array << page.all_container
       else
         newsgo_content_array << nil
@@ -116,7 +116,7 @@ EOF
     File.open(updateinfo_base_path, 'w') { |f| f.write @update_info }
   end
 
-  def save_mobile_preview_xml
+  def merge_container_xml
     ip          = '211.115.91.68'
     id          = 'jimeun'
     pw          = 'sodlfwlaus2018!@#$'
@@ -153,7 +153,7 @@ EOF
     end
   end
 
-  def save_mobile_preview_xml
+  def wait_for_xml_upload
     year          = date.year
     month         = date.month.to_s.rjust(2, '0')
     day           = date.day.to_s.rjust(2, '0')
@@ -183,17 +183,13 @@ EOF
         end
       end
     end
-    result = wait_for_xml_upload
-    if result
-      puts 'xml file upload found and proceeding merge'
-      merge_mobile_container_xml
-    else
-      puts 'xml file upload not found!!!'
-    end
+    # result = wait_for_xml_upload
+    # if result
+    #   puts 'xml file upload found and proceeding merge'
+    #   merge_mobile_container_xml
+    # else
+    #   puts 'xml file upload not found!!!'
+    # end
   end
-
-
-
-
 
 end

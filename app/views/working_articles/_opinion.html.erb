@@ -13,7 +13,8 @@
 <% end %>
 
 <div class="view">
-  <div class="col-sm-12">
+  <div class="col-sm-6">
+    <div class="col-md-11">
     <div class="form-group">
       <%= f.label :제목 %>
       <!-- <%= f.text_field :title, class: 'form-control' %> -->
@@ -48,8 +49,11 @@
       <%= f.label :기사종류 %>
       <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
     </div>
-
   </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+  <%= render 'show_prewview', article: @working_article %>
+  </div>      
 </div>
 
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->

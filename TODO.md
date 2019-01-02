@@ -42,7 +42,7 @@
     expand_grid, expand_grid
     expand, reduce
     syblling, cuson
-  -
+  
 2018-12-21
   - add ad_plan
     date ad:text description

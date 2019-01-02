@@ -91,16 +91,16 @@ main {
 
 .selected_template {
   border: 4px;
-  color: #000;
-  background-color: #f00;
+  color: #fff;
+  background-color: #000;
   padding-top: 2px;
   padding-right: 2px;
   padding-left: 2px;
   padding-bottom: 2px;
 
   &:hover {
-    color: #fff;
-    background-color: #f00;
+    color: #000;
+    background-color: #ffea00;
   }
 }
 
@@ -118,8 +118,8 @@ main {
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #ffea00;
   }
 }
 

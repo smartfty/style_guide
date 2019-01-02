@@ -13,8 +13,9 @@
 <% end %>
 
 <div class="view">
-  <div class="col-sm-12">
-    <div class="form-group">
+<div class="col-sm-6">
+<div class="col-md-11">
+<div class="form-group">
       <%= f.label :문패 %>
       <% if page_number == 23 %>
         <%= f.text_field :subject_head, size: 8 %>
@@ -67,8 +68,11 @@
           <%= f.label :기사종류 %>
           <%= f.select :kind, ['기사', '사진', '기고', '사설'] %>
         </div>
-
+        </div>
       </div>
+      <div class="col-xs-6 col-sm-6">
+      <%= render 'show_prewview', article: @working_article %>
+      </div>          
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-top2">

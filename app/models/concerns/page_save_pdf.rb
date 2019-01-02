@@ -1,6 +1,6 @@
 require 'hexapdf'
 
-module PageSavePDF
+module PageSavePdf
   extend ActiveSupport::Concern
 
   def save_pdf(options={})

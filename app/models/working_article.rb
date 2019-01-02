@@ -74,6 +74,7 @@ class WorkingArticle < ApplicationRecord
   include PageSplitable
   include ArticleSwapable
   include RectUtiles
+  include ArticleSaveXml
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
 
@@ -150,7 +151,6 @@ class WorkingArticle < ApplicationRecord
     File.basename(f) if f
   end
 
-
   def pdf_image_path
     "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/#{latest_pdf_basename}"
   end
@@ -181,18 +181,18 @@ class WorkingArticle < ApplicationRecord
   end
 
   def change_story(new_story)
-    # update content with new story content    
+    # update content with new story content
     # ArticleWorker.perform_async(path, @time_stamp, '내일신문' )
   end
 
   def update_story_content(story)
-    # update content with new story content  
+    # update content with new story content
     self.reporter = story.reporter
     self.title    = story.title
     self.subtitle    = story.subtitle
     self.body     = story.body
     self.quote    = story.quote  if story.quote
-    self.save  
+    self.save
     save_article
     delete_old_files
     stamp_time
@@ -347,7 +347,6 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
-
   def add_pushed_line_count_to_config_yml(line_count)
     config_path = page.config_path
     config_hash = YAML::load_file(config_path)
@@ -370,7 +369,6 @@ class WorkingArticle < ApplicationRecord
     generate_pdf
     add_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
-
 
   def show_quote_box?
     quote && quote != "" || quote_box_size && quote_box_size != "0"
@@ -481,10 +479,10 @@ class WorkingArticle < ApplicationRecord
     h = {}
     h['extended_line_count']  = extended_line_count if extended_line_count && extended_line_count > 0
     h['pushed_line_count']    = pushed_line_count if pushed_line_count && pushed_line_count > 0
-    h['subject_head']         = subject_head
+    h['subject_head']         = RubyPants.new(subject_head).to_html if subject_head
     h['title']                = RubyPants.new(title).to_html if title
     if subtitle
-      h['subtitle']             = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
+      h['subtitle']           = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
     end
     h['boxed_subtitle_text']  = RubyPants.new(boxed_subtitle_text).to_html if boxed_subtitle_type && boxed_subtitle_type.to_i > 0
     h['quote']                = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
@@ -509,7 +507,6 @@ class WorkingArticle < ApplicationRecord
     EOF
   end
 
-
   def publication
     page.issue.publication
   end
@@ -521,7 +518,6 @@ class WorkingArticle < ApplicationRecord
   def opinion_profile_jpg_path
     publication.path + "/opinion/#{reporter}.jpg"
   end
-
 
   # IMAGE_FIT_TYPE_ORIGINAL       = 0
   # IMAGE_FIT_TYPE_VERTICAL       = 1
@@ -578,8 +574,6 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
-  
-
   def image_box_options
     if images.first
       images.first.iamge_layout_hash
@@ -611,7 +605,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def height
-    h = row*grid_height 
+    h = row*grid_height
     if top_position?
       h -= page_heading_margin_in_lines*body_line_height
     end
@@ -633,7 +627,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   #TODO add to db field
-
 
   def body_line_height
     grid_height/7
@@ -693,10 +686,10 @@ class WorkingArticle < ApplicationRecord
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
     h[:quote_box_size]                = self.quote_box_size if show_quote_box?
     if boxed_subtitle_type && boxed_subtitle_type > 0
-      h[:boxed_subtitle_type]         = self.boxed_subtitle_type 
+      h[:boxed_subtitle_type]         = self.boxed_subtitle_type
     end
     if announcement_column && announcement_column > 0
-      h[:announcement_column]         = self.announcement_column 
+      h[:announcement_column]         = self.announcement_column
       h[:announcement_color]          = self.announcement_color
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
@@ -715,7 +708,7 @@ class WorkingArticle < ApplicationRecord
     end
     content
   end
-  
+
   def graphic_layout
     content = ""
     graphics.each do |graphic|
@@ -786,7 +779,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml
@@ -877,60 +870,6 @@ class WorkingArticle < ApplicationRecord
   def growable?
     true
   end
-  
-  def filter_to_title(title)
-    return unless title
-    title.strip!
-    title.gsub!(/^\u3000/, "")
-    title
-  end
-
-
-  def filter_to_markdown(body_text)
-    return unless body_text
-    body_text.strip!
-    # body_text.gsub!(/^\n\n/, "\n")
-    body_text.gsub!(/\u200B/, "")
-    body_text.gsub!(/^(\^|-\s)/, "")
-    body_text.gsub!(/^\t/, "")
-    body_text.gsub!(/^\n/, "")
-    body_text.gsub!(/^\s/, "")
-    body_text.gsub!(/^\u3000/, "")
-    body_text.gsub!(/^\s*\n/m, "\n")
-    body_text.gsub!(/^\s*#/, '#' )
-    body_text.gsub!(/^\n/, "")
-    body_text.gsub!(/(\n|\r\n)+/, "\n\n")
-    # body_text.gsub!(/[.]\s\s\s+/, ".")
-    # body_text.gsub!(/\.$\n\n/, ".")
-    body_text.gsub!(/^\./, "")
-    body_text
-  end
-
-  def to_markdown_para
-    body.gsub!(/^(\^|-\s)/, "")
-    body.gsub!(/^\t/, "")
-    body.gsub!(/^\n\n/, "")
-    body.gsub!(/^\u3000/, "")
-    body.gsub!(/^\s*\n/m, "\n")
-    body.gsub!(/^\s*#/, '#' )
-    body.gsub!(/$(\n|\r\n)+/, "\n\n" )
-    body.gsub!(/(\n|\r\n)+/, "\n\n")
-    self.save
-  end
-
-  def newsml_issue_path
-    "#{Rails.root}/public/1/issue/#{issue.date}/newsml"
-  end
-
-  def two_digit_ord
-    order.to_s.rjust(2, "0")
-  end
-
-  def story_xml_filename
-    date_without_minus = issue.date.to_s.gsub("-","")
-    two_digit_page_number = page_number.to_s.rjust(2, "0")
-    "#{date_without_minus}.011001#{two_digit_page_number}0000#{two_digit_ord}.xml"
-  end
 
   def section_name_code
     case page.section_name
@@ -980,56 +919,6 @@ class WorkingArticle < ApplicationRecord
     code
   end
 
-  # def save_story_xml
-  #   FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
-  #   path = "#{newsml_issue_path}/#{story_xml_filename}"
-  #   story_xml.encode("utf-8").force_encoding("ANSI")
-  #   File.open(path, 'w'){|f| f.write story_xml}
-  # end
-
-  def covert_euckr_not_suported_chars
-    body.gsub!("\u200B", "")
-    title.strip!
-    title.gsub!("\u200B", "")
-    body.gsub!("\u2027", "\u00b7")
-    body.gsub!("\u2024", "\u00b7")
-    title.gsub!("\u00A0", " ")
-    body.gsub!("\u2043", "-")
-    body.gsub!("\u30FB", "\u00b7")
-    body.gsub!("\u6DB8", "&#28088;")
-    body.gsub!("\u9B92", "&#39826;")
-    body.gsub!("\u00A0", " ")
-    body.gsub!("\u2014", "&mdash;")
-    title.gsub!("\u003C", "&lt;")
-    title.gsub!("\u003E", "&gt;")
-    body.gsub!("\u003C", "&lt;")
-    body.gsub!("\u003E", "&gt;")
-    body.gsub!("\uFF62", "&#65378;")
-    body.gsub!("\uFF63", "&#65379;")
-    body.gsub!("\u2613", "&#9747;")
-    body.gsub!("\u9752", "&#38738;")
-    body.gsub!("\u2014", "&#8212;")
-    body.gsub!("\u2013", "&#8211;")
-    title.gsub!("\u2014", "&#8212;")
-    body.gsub!("\u5d1b", "&#23835;")
-    body.gsub!("\u2003", "&#8195;")
-    body.gsub!("\u2022", "&#183;")
-    body.gsub!("\uCAD2", "&#51922;")
-    body.gsub!("\uFF65", "&#65381;")
-    body.gsub!("\u302e", "&#12334;")
-    body.gsub!("\u5e26", "&#24102;")
-    title.gsub!("\u5e26", "&#24102;")
-  end
-
-  def save_story_xml
-    FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
-    path = "#{newsml_issue_path}/#{story_xml_filename}"
-    covert_euckr_not_suported_chars
-    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    save_xml_image
-  end
-
-
   def opinion_image_path
     publication.path + "/opinion/images"
   end
@@ -1037,499 +926,6 @@ class WorkingArticle < ApplicationRecord
   def profile_image_path
     publication.path + "/profile/images"
   end
-
-  def image_source
-    if page_number == 22
-      if kind == '기고'
-        person = OpinionWriter.where(name:reporter).first
-        name = person.name
-        filtered_name = name
-        filtered_name = name.split("_").first if name.include?("_")
-        filtered_name = name.split("=").first if name.include?("=")
-        puts "filtered_name : #{filtered_name}"
-        return opinion_image_path + "/#{filtered_name}.jpg"
-      elsif kind == '사설'
-        person = Profile.where(name:reporter).first
-        if person
-          name = person.name
-          return profile_image_path + "/#{name}.jpg"
-        else
-          return nil
-        end
-      end
-    elsif page_number == 23
-      if kind == '기고'
-        person = OpinionWriter.where(name:reporter).first
-        name = person.name
-        filtered_name = name
-        filtered_name = name.split("_").first if name.include?("_")
-        filtered_name = name.split("=").first if name.include?("=")
-        return opinion_image_path + "/#{filtered_name}.jpg"
-      elsif kind == '사설'
-        return nil
-        # person = reporter_from_body
-        # name = person.gsub(" ","")[0..2]
-        # return opinion_image_path + "/#{name}.jpg"
-      end
-    else images.length > 0
-      output = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-      Dir.glob("#{issue.path}/images/*.jpg").each do |f|
-      puts "================ f:#{f}"
-        base_name = File.basename(f)
-        dirname = File.dirname(f)
-        if base_name.length < 10
-          system("cd #{dirname} && convert #{base_name} -resize 500 #{output} ")
-        end
-      end
-      return issue.path + "/images/#{output}"
-    end
-  end
-
-  def save_xml_image
-    source = image_source
-    return if source.nil?
-    target = newsml_issue_path + "/#{@photo_item}"
-    system("cp #{source} #{target}")
-  end
-
-  def reporter_from_body
-    return unless reporter
-    body.match(/^# (.*)/)
-    $1.to_s.sub("# ", "")
-  end
-
-  def story_xml
-    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
-    story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    hour  = updated_at.hour.to_s.rjust(2, "0")
-    min   = updated_at.min.to_s.rjust(2, "0")
-    sec   = updated_at.sec.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    updated_date      = "#{year}#{month}#{day}"
-    updated_time      = "#{hour}#{min}#{sec}+0900"
-    @date_and_time    = "#{updated_date}T#{updated_time}"
-    @date_id          = updated_date
-    @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
-    @day_info         = "#{year}년#{month}월#{day}일"
-    @media_info       = publication.name
-    # @edition_info     = page_number.to_s.rjust(2,"0")
-    # @page_info        = publication.paper_size
-    @page_info        = page_number.to_s.rjust(2,"0")
-    @jeho_info        = issue.number
-
-    # if page.section_name = '오피니언'
-    #   @news_title_info = '논설'
-    # else
-    #   @news_title_info  = page.section_name
-    # end
-     
-    @news_title_info  = page.section_name
-      # reporter_record   = Reporter.where(name:reporter).first
-      # if reporter_record
-      #   @post             = reporter_record.reporter_group.name
-      #   @gija_id          = email.split("@").first
-      #   @email            = email
-      # else
-      #   @post             = "소속팀"
-      #   @gija_id          = "기자아이디"
-      #   @email            = "기자이메일"
-      # end
-    @name           = reporter
-      # if @name =~/_/
-      # @name = @name.split("_")[0]
-      # end
-
-    opinion_writer  = OpinionWriter.where(name:@name).first
-    if opinion_writer
-      @work        = opinion_writer.work if opinion_writer.work
-      @position       = opinion_writer.position if opinion_writer.position
-      if @name =~/_/
-        @name = @name.split("_")[0]
-      end
-      @by_line        = "<br>#{@name} #{@work} #{@position}"
-      @caption        = "#{@name} #{@work} #{@position}"
-    end
-    # reporter_record   = Reporter.where(name:reporter).first
-    if page_number == 22 && order == 2
-      profile         = Profile.where(name:@name).first
-      if profile
-        @work        = profile.work if profile.work
-        @position       = profile.position if profile.position
-        if @name =~/_/
-          @name = @name.split("_")[0]
-        end
-        @by_line        = "<br>#{@name} #{@work} #{@position}"
-        @caption        = "#{@name} #{@work} #{@position}"
-      end
-    end
-    if page_number == 23 && order == 2
-      @name          = reporter_from_body
-      @by_line       = ''
-      reporter       = Reporter.where(name: @name).first
-      @email         = reporter.email if reporter
-      @caption       = reporter_from_body
-    end
-    @section_name_code = section_name_code
-    @name_plate       = subject_head
-    if @name_plate == "" || @name_plate == nil
-      # r = OpinionWriter.where(name: reporter).first
-      # puts r
-      if page_number == 22 || page_number == 23
-      category_code = opinion_writer.category_code
-      @name_plate = opinion_writer.title
-      end
-    end
-
-    
-
-    @money_status     = "30"
-    if page_number == 22
-      if kind == '사설'
-        if subject_head == '기고'
-          category_code = 2401
-          @money_status = "0"
-        elsif subject_head == '정치시평'
-          category_code = 2201
-        # elsif subject_head == '경제시평'
-        #   category_code = 2202
-        end
-      end
-    elsif page_number == 23
-      if kind == '사설'
-        category_code= 2101
-      end
-    end
-    @name_plate_code  = category_code
-    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
-    @head_line        = title
-    @sub_head_line    = subtitle
-    @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
-    title.gsub!("\u2024", "")
-    puts "=================="
-    if body.include?("\u2024")
-      puts "body"
-    elsif title.include?("\u2024")
-      puts "title"
-    end
-    if quote && quote.include?("\u2024")
-      puts "quote"
-    end
-
-    @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
-    @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    @page_number = page_number
-    @order = order
-    story_erb = ERB.new(story_xml_template)
-    story_erb.result(binding)
-    # story_erb = ERB.new(story_xml_template)
-    # story_erb.result(binding)
-  end
-
-  def mobile_preview_xml_article_info
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    hour  = updated_at.hour.to_s.rjust(2, "0")
-    min   = updated_at.min.to_s.rjust(2, "0")
-    sec   = updated_at.sec.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    updated_date      = "#{year}#{month}#{day}"
-
-    # if page.section_name = '오피니언'
-    #   @news_title_info = '논설'
-    # else
-    #   @news_title_info  = page.section_name
-    # end
-      # reporter_record   = Reporter.where(name:reporter).first
-      # if reporter_record
-      #   @post             = reporter_record.reporter_group.name
-      #   @gija_id          = email.split("@").first
-      #   @email            = email
-      # else
-      #   @post             = "소속팀"
-      #   @gija_id          = "기자아이디"
-      #   @email            = "기자이메일"
-      # end
-    @name           = reporter
-      # if @name =~/_/
-      # @name = @name.split("_")[0]
-      # end
-    opinion_writer  = OpinionWriter.where(name:@name).first
-
-    if opinion_writer
-      @work        = opinion_writer.work if opinion_writer.work
-      @position    = opinion_writer.position if opinion_writer.position
-      @email       = opinion_writer.email if opinion_writer.email
-      if @name =~/_/
-        @name = @name.split("_")[0]
-      end
-      @by_line        = "<br>#{@name} #{@work} #{@position}"
-      @caption        = "#{@name} #{@work} #{@position}"
-    end
-    # reporter_record   = Reporter.where(name:reporter).first
-    if page_number == 22 && order == 2
-      profile         = Profile.where(name:@name).first
-      if profile
-        @work        = profile.work if profile.work
-        @position       = profile.position if profile.position
-        if @name =~/_/
-          @name = @name.split("_")[0]
-        end
-        @by_line        = "<br>#{@name} #{@work} #{@position}"
-        @caption        = "#{@name} #{@work} #{@position}"
-      end
-    end
-    if page_number == 23 && order == 2
-      @name          = reporter_from_body
-      @by_line       = ''
-      @caption       = reporter_from_body
-    end
-    @section_name_code = section_name_code
-    @name_plate       = subject_head
-    unless @name_plate
-      r = OpinionWriter.where(name: reporter).first
-      puts r
-      category_code = r.category_code
-      @name_plate = r.title
-    end
-
-    @money_status     = "30"
-    if page_number == 22
-      if kind == '사설'
-        if subject_head == '기고'
-          category_code = 2401
-          @money_status = "0"
-        elsif subject_head == '정치시평'
-          category_code = 2201
-        # elsif subject_head == '경제시평'
-        #   category_code = 2202
-        end
-      end
-    elsif page_number == 23
-      if kind == '사설'
-        category_code= 2101
-      end
-    end
-    @name_plate_code  = category_code
-    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
-    title.strip!
-    @head_line        = title
-    @head_line        = @head_line.gsub("\u201C", "&quot;")
-    @head_line        = @head_line.gsub("\u201D", "&quot;")
-    @head_line        = @head_line.gsub("\u0022", "&quot;")
-    @head_line        = @head_line.gsub("\u003C", "&lt;")
-    @head_line        = @head_line.gsub("\u003E", "&gt;")
-    @sub_head_line    = subtitle
-    @body_content     = body.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
-    @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
-    @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
-    @page_number = page_number
-    @order = order.to_s.rjust(2, "0")
-
-    @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
-    @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
-    @article_file_name = "#{year}#{month}#{day}011001#{page_info}0000000#{@order}"
-    @gija_name        = "편집기자명" # 편집기자명
-    @news_class_large_id    = news_class_large_id
-    @news_class_large_name  = page.section_name
-    @news_class_middle_id   = category_code
-    @news_class_middle_name = subject_head
-    @send_modify            = "0"  # 수정횟수
-    @new_article            = "1" #뭘까?
-    @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
-    #해당기사 저자사진: 121 × 160 픽셀, 120 픽셀/인치
-    #해당기사 그래픽은 .01L대신 .01S.jpg로 표시
-
-article_info =<<EOF
-    <ArticleInfo>
-      <GroupKey><%= @group_key %></GroupKey>
-      <CmsFileName><%= @cms_file_name %></CmsFileName>
-      <CmsRelationName/>
-      <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
-      <GisaNumberID/>
-      <GisaRelationID/>
-      <ByLine/>
-      <Gija ID="0" Area="0" Name="<%= @gija_name %>" Email=""/>
-      <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
-      <SendModify><%= @send_modify %></SendModify>
-      <NewArticle><%= @new_article %></NewArticle>
-    </ArticleInfo>
-EOF
-    article = ""
-
-    erb = ERB.new(article_info)
-    article += erb.result(binding)
-  end
-
-#   def mobile_preview_xml_three_component
-#     if working_article.images.length = 0
-#       three_component =<<EOF
-#       <TitleComponent>
-#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#     </TitleComponent>
-#     <ArticleComponent>
-#       <Content><![CDATA[<%= @data_content %>
-#     <%= @by_line %>]]>
-#       </Content>
-#     </ArticleComponent>
-#     </Article>
-# EOF
-#     else working_article.images.length > 0
-#     three_component =<<EOF
-#     <TitleComponent>
-#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#     </TitleComponent>
-#     <ArticleComponent>
-#       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-# <%= @by_line %>]]>
-#       </Content>
-#     </ArticleComponent>
-#     <PhotoComponent>
-#      <PhotoItem>
-#        <ImageType>Image</ImageType>
-#          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-#           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-#           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-#      </PhotoItem>
-#     </PhotoComponent>
-#   </Article>
-# EOF
-#     end
-    
-#     component = ""
-
-#     erb = ERB.new(three_component)
-#     component += erb.result(binding)
-#   end
-
-# def mobile_preview_xml_three_component
-#   if page_number == 23 && order == 2
-#     three_component =<<EOF
-#     <TitleComponent>
-#       <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#     </TitleComponent>
-#     <ArticleComponent>
-#       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-# <%= @by_line %>]]>
-#       </Content>
-#     </ArticleComponent>
-#   </Article>
-# EOF
-#   else
-#   three_component =<<EOF
-#   <TitleComponent>
-#     <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-#   </TitleComponent>
-#   <ArticleComponent>
-#     <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-# <%= @by_line %>]]>
-#     </Content>
-#   </ArticleComponent>
-#   <PhotoComponent>
-#    <PhotoItem>
-#      <ImageType>Image</ImageType>
-#        <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-#         <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-#         <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-#    </PhotoItem>
-#   </PhotoComponent>
-# </Article>
-# EOF
-#   end
-#   component = ""
-
-#   erb = ERB.new(three_component)
-#   component += erb.result(binding)
-# end
-
-def mobile_preview_xml_three_component
-  if images.length == 0
-    three_component =<<EOF
-    <TitleComponent>
-      <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-      <SubTitle> <%= @sub_head_line %></SubTitle>
-    </TitleComponent>
-    <ArticleComponent>
-      <Content><%= @data_content %>
-<%= @by_line %>]]>
-      </Content>
-    </ArticleComponent>
-  </Article>
-EOF
-  else
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><%= @name_plate %> <%= @head_line %></MainTitle>
-    <SubTitle> <%= @sub_head_line %></SubTitle>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>
-<%= @by_line %>]]>
-    </Content>
-  </ArticleComponent>
-  <PhotoComponent>
-   <PhotoItem>
-     <ImageType>Image</ImageType>
-       <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-   </PhotoItem>
-  </PhotoComponent>
-</Article>
-EOF
-  end
-  component = ""
-
-  erb = ERB.new(three_component)
-  component += erb.result(binding)
-end
-
-
-  def xml_group_key_template
-    @name_plate       = '[subject_head]'
-    unless @name_plate
-      r = OpinionWriter.where(name: reporter).first
-      puts r
-      category_code = r.category_code
-      @name_plate = '[r.title]'
-    end
-    year  = issue.date.year
-    month = issue.date.month.to_s.rjust(2, "0")
-    day   = issue.date.day.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    title.strip!
-    @head_line        = title
-    @head_line        = @head_line.gsub("\u201C", "&quot;")
-    @head_line        = @head_line.gsub("\u201D", "&quot;")
-    @head_line        = @head_line.gsub("\u0022", "&quot;")
-    @head_line        = @head_line.gsub("\u003C", "&lt;")
-    @head_line        = @head_line.gsub("\u003E", "&gt;")
-    @order            = order.to_s.rjust(2, "0")
-    @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
-    container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= @name_plate %> <%= @head_line %>"/>
-EOF
-      xml_group_key = ""
-      erb = ERB.new(container_xml_group_key)
-      xml_group_key += erb.result(binding)
-  end
-
-  def mobile_page_preview_path
-    "#{Rails.root}/public/1/issue/#{issue.date.to_s}/mobile_page_preview/1001#{page_number}"
-  end
-
-  def save_mobile_xml_image
-    source = image_source
-    return if source.nil?
-    target = mobile_page_preview_path + "/#{@photo_file_name}"
-    system("cp #{source} #{target}")
-  end
-
-
 
   def character_count_data_path
     publication.publication_info_folder + "/charater_count_data/#{Date.today.to_s}_#{page_number}_#{order}"
@@ -1611,11 +1007,12 @@ EOF
       self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
 
       self.inactive       = false
-      if page_number == 22 && order == 2
-        self.subject_head = '기고'
-      elsif page_number == 23 && order == 2
-        self.subject_head = '내일시론'
-      end
+      # if page_number == 22 && order == 2
+      #   self.subject_head = '기고'
+      # elsif page_number == 23 && order == 2
+      #   self.subject_head = '내일시론'
+      # end
+      
       # self.page_path      = page.path
     end
     self.title          = "#{order}번 제목은 여기에 여기는 제목"
@@ -1624,15 +1021,10 @@ EOF
     self.email          = 'gdhong@gmail.com'
     self.body =<<~EOF
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-
     여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
-
     EOF
 
   end

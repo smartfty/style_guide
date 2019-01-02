@@ -11,17 +11,17 @@
     </div>
   <% end %>
   <div class="row">
-  <div class="col-xs-12 col-md-7">
+  <div class="col-xs-12 col-md-12">
       <%= image_tag graphic.graphic.url, :width => "100%", style: "padding-bottom:20px" %>
  </div>
- <div class="col-xs-12 col-md-5">
+ <div class="col-xs-12 col-md-12">
 
 
 
         <div class="field">
-        <%= f.label :위치 %><%= f.text_field :position, style: "width:35px", class: 'form-control' %>
-        <%= f.label :크기 %><%= f.text_field :column, style: "width:35px", class: 'form-control' %>단  x  <%= f.text_field :row, style: "width:35px", class: 'form-control' %>열
-        <%= f.text_field :extra_height_in_lines, style: "width:35px", class: 'form-control' %>행 추가
+        <%= f.label :위치 %><%= f.text_field :position, style: "width:40px", class: 'form-control' %>
+        <%= f.label :크기 %><%= f.text_field :column, style: "width:40px", class: 'form-control' %>단  x  <%= f.text_field :row, style: "width:40px", class: 'form-control' %>열
+        <%= f.text_field :extra_height_in_lines, style: "width:50px", class: 'form-control' %>행 추가
         </div>
 
 

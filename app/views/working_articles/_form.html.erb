@@ -1,3 +1,5 @@
+<div class="col-md-6">
+
 <%= form_for(article, remote: true) do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +29,7 @@
   
     <% else %>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-11">
           <div class="form-group">
             <%= f.label :문패 %>
             <%= f.text_field :subject_head, class: 'form-control' %>
@@ -41,7 +43,7 @@
           <div class="form-group">
             <%= f.label :부제목 %> 
             <%= f.select :subtitle_type, ['1단', '2단', '2단-2단시작', '제목밑 가로'] %>
-            <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
+            <%= f.text_area :subtitle, cols: "40", rows: "3", class: 'form-control'%>
           </div>
           <!--div class="form-group">
             <%= f.label :편집자주 %>
@@ -55,34 +57,35 @@
       </div>
   
       <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
-        <div class="form-group">
-          <%= f.label :부제목 %> 
-          <%= f.select :subtitle_type, ['1단', '2단', '2단-2단시작', '제목밑 가로'] %>
-          <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
+        <div class="col-md-11">
+          <%= f.label '발문'%>
+          <%= f.text_area :quote, rows: "3", class: 'form-control' %>
         </div>
       <% end %>
   
       <% if  article.boxed_subtitle_type && article.boxed_subtitle_type.to_i > 0%>
-        <div class="form-group">
+        <div class="col-md-11">
           <%= f.label '본문 박스부제'%>
           <%= f.text_area :boxed_subtitle_text, rows: "2", class: 'form-control' %>
         </div>
       <% end %>
       <% if  article.announcement_column && article.announcement_column.to_i > 0%>
-        <div class="form-group">
+        <div class="col-md-11">
           <%= f.label '안내문'%>
           <%= f.text_area :announcement_text, rows: "2", class: 'form-control' %>
         </div>
-        <div class="form-group">
+        <div class="col-md-11">
           <%= f.label '안내문 컬러'%>
           <%= f.select :announcement_color, ['빨강', '파랑'] %>
         </div>
       <% end %>
-  
-      <div class="form-group">
+  </div>
+  <div class="col-md-6">
+      <div class="col-md-11">
         <%= f.label :본문 %>
-        <%= f.text_area :body, rows: "40", class: 'form-control'%>
+        <%= f.text_area :body, rows: "20", class: 'form-control'%>
       </div>
+  </div>
   
       <div class="field">
         <%= f.text_field :image, type: "hidden" %>
@@ -96,6 +99,10 @@
         <%= f.text_field :quote, type: "hidden" %>
       </div>
     <% end %>
+    <div class="col-xs-6 col-sm-12">
+    <%= render 'show_prewview', article: @working_article %>
+    </div>          
+
   
     <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
     <nav class="navbar navbar-default navbar-fixed-top2">

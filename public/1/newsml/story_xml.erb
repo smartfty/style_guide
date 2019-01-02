@@ -28,7 +28,7 @@
 				<Property FormalName="Name" Value="<%= @name %>" />
 				<Property FormalName="Post" Value="<%= @post %>" />
 				<Property FormalName="GijaID" Value="<%= @gija_id %>" />
-				<Property FormalName="ByLine" Value="" />
+				<Property FormalName="ByLine" Value="<%= @r_name %>" />
 			</Creator>
 			<SubjectCode>
 				<Subject FormalName="<%= @section_name_code %>" />
@@ -40,31 +40,18 @@
 				<GisaFileName><%= @gisa_key %>.txt</GisaFileName>
 				<GisaKey><%= @gisa_key %></GisaKey>
 			</SubjectCode>
-		</NewsComponent>
+		</NewsComponent><% if page_number == 22 %>
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine>
-<![CDATA[
-[<%= @name_plate %>] <%= @head_line %>
-]]>
-</HeadLine>
-		</NewsComponent><% if @page_number == 23 && @order == 2 %>
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]"%> <%= @head_line %>]]></HeadLine>
+		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-<![CDATA[<%= @data_content %>
-<%= @by_line %>
-]]>			</DataContent>
-		</NewsComponent><% else %>
-		<NewsComponent>
-			<Role FormalName="Article" />
-			<MediaType FormalName="Text" />
-			<DataContent>
-	<![CDATA[[IMG1]<%= @data_content %>
-	<%= @by_line %>
-	]]>			</DataContent>
+				<![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]>
+			</DataContent>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Photo" />
@@ -72,7 +59,115 @@
 			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
 			<PhotoItem Real="<%= @photo_item %>" />
 			<DataContent>
-			<![CDATA[  <%= @caption %> ]]>			</DataContent>
+			<![CDATA[<%= @caption %>]]> </DataContent>
+		</NewsComponent><% elsif page_number == 23 && order == 1 || page_number == 23 && order == 3%>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]"%> <%= @head_line %>]]></HeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+				<![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]>
+			</DataContent>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Photo" />
+			<MediaType FormalName="Image" />
+			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+			<PhotoItem Real="<%= @photo_item %>" />
+			<DataContent>
+			<![CDATA[<%= @caption %>]]> </DataContent>
+		</NewsComponent><% elsif page_number == 23 && order == 2  %>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]"%> <%= @head_line %>]]></HeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+				<![CDATA[<%= @data_content %><%= @by_line %>]]>
+			</DataContent>
+		</NewsComponent><% elsif kind == "사진" %>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
+			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+				<![CDATA[[IMG1]<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><%= @by_line %><% end %>]]>
+			</DataContent>
+		</NewsComponent>
+		<NewsComponent> 
+			<Role FormalName="Photo" />
+			<MediaType FormalName="Image" />
+			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+			<PhotoItem Real="<%= @photo_item %>" />
+			<DataContent>
+			<![CDATA[ <%= @caption %>]]> </DataContent>
+		</NewsComponent><% elsif images.length > 0 %>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
+			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+				<![CDATA[[IMG1]<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><%= @by_line %><% end %>]]>
+			</DataContent>
+		</NewsComponent>
+		<NewsComponent> 
+			<Role FormalName="Photo" />
+			<MediaType FormalName="Image" />
+			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+			<PhotoItem Real="<%= @photo_item %>" />
+			<DataContent>
+			<![CDATA[ <%= @caption %>]]> </DataContent>
+		</NewsComponent><% elsif graphics.length > 0  %>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><%= @head_line %>]]></HeadLine>
+			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+				<![CDATA[[IMG1]<%= @data_content %><%= @by_line %>]]>
+			</DataContent>
+		</NewsComponent>
+		<NewsComponent> 
+			<Role FormalName="Photo" />
+			<MediaType FormalName="Image" />
+			<Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+			<PhotoItem Real="<%= @photo_item %>" />
+			<DataContent>
+			<![CDATA[ <%= @caption %>]]> </DataContent>
+		</NewsComponent><% else %>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><%= @head_line %>]]></HeadLine>
+			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+		</NewsComponent>
+		<NewsComponent>
+			<Role FormalName="Article" />
+			<MediaType FormalName="Text" />
+			<DataContent>
+				<![CDATA[<%= @data_content %><%= @by_line %>]]>
+			</DataContent>
 		</NewsComponent><% end %>
 	</NewsItem>
 </NewsXML>
