@@ -1,4 +1,4 @@
- module ArticleSaveXml
+module ArticleSaveXml
   extend ActiveSupport::Concern
 
 
@@ -301,7 +301,7 @@
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)\n/){"<br><b>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
@@ -315,8 +315,16 @@
     # if quote && quote.include?("\u2024")
     #   puts "quote"
     # end
-    @head_line      = title.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[") if title && title != ""
-    @sub_head_line  = subtitle.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[") if subtitle && subtitle != ""
+    if title && title != ""
+      title.strip! 
+      @head_line      = eliminate_size_option(title)
+      @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
+    end
+    if subtitle && subtitle != ""
+      subtitle.strip! 
+      @sub_head_line  = eliminate_size_option(subtitle)
+      @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
+    end 
     # h = covert_to_multiple_line(title)
     # puts "++++++ h: #{h}"
     # if h.class == String
@@ -352,7 +360,8 @@
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    string = string.sub(/\{\s?(-?\d)\s?\}\s?$/, "") if string =~/\{\s?(-?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.to_s
   end
 
   # def covert_to_multiple_line(string) # 2행만 가능. 3행일 경우 추가 필요
@@ -409,7 +418,7 @@
       if @name =~/_/
         @name = @name.split("_")[0]
       end
-      @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+      @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
       @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
@@ -422,7 +431,7 @@
         if @name =~/_/
           @name = @name.split("_")[0]
         end
-        @by_line_body   = "<br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
         @by_line        = "#{@name} #{@work} #{@position}"
         @caption        = "#{@name} #{@work} #{@position}"
       end
@@ -473,8 +482,8 @@
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if title && title != ""
       title.strip! 
-      @head_line        = title.sub(/\{\s?(-?\d)\s?\}\s?$/, "") if title =~/\{\s?(-?\d)\s?\}\s?$/
-      @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      t                 = eliminate_size_option(title)
+      @head_line        = t.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
     end  
       # h = covert_to_multiple_line(@head_line)
     # if h.class == String
@@ -483,8 +492,13 @@
     #   @head_line1 = h[0]
     #   @head_line2 = h[1]
     # end
-    @sub_head_line    = subtitle.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[") if subtitle && subtitle != ""
-    # binding.pry
+    if subtitle && subtitle != ""
+      subtitle.strip! 
+      s                 = eliminate_size_option(subtitle)
+      @sub_head_line    = s.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
+    
+    end
+      # binding.pry
     # sh = covert_to_multiple_line(@sub_head_line)
     #   if sh.class == String
     #     @sub_head_line1 = sh
@@ -495,7 +509,7 @@
     #   end
    if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"}
+      @body_content     = @body_content.gsub(/^##(.*).\n/){"<br><b>#{$1}</b><br>"}
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     end
@@ -607,12 +621,22 @@ EOF
   elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent><!-- photobox -->
-    <MainTitle><![CDATA[<%= @name_plate %> <%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %><%= @h_caption %>]]></Content>
-  </ArticleComponent>
+  <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+  <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+</TitleComponent>
+<ArticleComponent><% if images.length < 0 || graphics.length < 0 %>
+  <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content><% else %>
+  <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]><% end %>
+  </Content>
+</ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
+<PhotoComponent>
+  <PhotoItem>
+  <ImageType>Image</ImageType> 
+    <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+      <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+      <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+  </PhotoItem>
+</PhotoComponent><% end %>
 </Article>
 EOF
 

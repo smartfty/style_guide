@@ -1,5 +1,5 @@
 ---
-section_name: 
+section_name: 1면
 page_heading_margin_in_lines: 3
 ad_type: 5단통
 is_front_page: true
@@ -20,15 +20,15 @@ gutter: 12.7559055118108
 story_frames:
 - - 0
   - 1
-  - 5
+  - 4
   - 6
-- - 5
+- - 4
   - 1
-  - 2
-  - 9
+  - 3
+  - 6
 - - 0
   - 7
-  - 5
+  - 7
   - 3
 - - 0
   - 10

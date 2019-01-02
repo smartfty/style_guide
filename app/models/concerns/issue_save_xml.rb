@@ -213,8 +213,8 @@ def save_mobile_preview_xml # 모바일용 지면보기 XML
 end
 
 def copy_to_xml_ftp # 데스크탑용 뉴스/지면보기 XML 전송
-  save_story_xml
-  save_preview_xml
+  # save_story_xml
+  # save_preview_xml
   xml_send
   true
 end
