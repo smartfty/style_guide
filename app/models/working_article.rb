@@ -795,7 +795,6 @@ class WorkingArticle < ApplicationRecord
     "<a xlink:href='/working_articles/#{id}'><rect fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
-
   def parse_story
     source      = read_story
     begin
@@ -821,7 +820,6 @@ class WorkingArticle < ApplicationRecord
     self.quote          = @metadata['quote']
     self.subject_head   = @metadata['subject_head']
   end
-
 
   def parse_article_info
     if article_info_hash = article_info

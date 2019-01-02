@@ -20,6 +20,11 @@
   - body
     - fit_text
 
+2019-1-3
+  - add emphasis on subject_head
+  - add text on top of image?
+  - show image/column and grid size in pixels/cm
+
 2018-12-27
   - add heading_columns to working_article
   
