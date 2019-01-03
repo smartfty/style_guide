@@ -44,7 +44,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]"%> <%= @head_line %>]]></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate %> <%= @head_line %>]]></HeadLine>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Article" />
@@ -64,7 +64,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]"%> <%= @head_line %>]]></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate %> <%= @head_line %>]]></HeadLine>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Article" />
@@ -84,7 +84,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]"%> <%= @head_line %>]]></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate %> <%= @head_line %>]]></HeadLine>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Article" />
@@ -96,7 +96,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate if @name_plate && @name_plate !="" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
 			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
 		</NewsComponent>
 		<NewsComponent>
@@ -117,7 +117,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate if @name_plate && @name_plate !="" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
 			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
 		</NewsComponent>
 		<NewsComponent>
@@ -138,7 +138,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><%= @head_line %>]]></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate if @name_plate && @name_plate !="" %><%= @head_line %>]]></HeadLine>
 			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
 		</NewsComponent>
 		<NewsComponent>
@@ -159,7 +159,7 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %><%= @head_line %>]]></HeadLine>
+			<HeadLine><![CDATA[<%= @name_plate if @name_plate && @name_plate !="" %><%= @head_line %>]]></HeadLine>
 			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
 		</NewsComponent>
 		<NewsComponent>

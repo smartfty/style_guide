@@ -160,20 +160,21 @@ module ArticleSaveXml
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
     if images.length > 0
-      photo_file_orginal = "#{issue.path}/images/#{page_number}_#{order}_#{images.length-1}.jpg"
-      photo_file_name = "#{page_number}_#{order}_#{images.length-1}.jpg" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      if File.exist?(photo_file_orginal)
-         system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 620 #{newsml_issue_path}/#{@photo_item}")
-      end
+      photo_file_orginal = "#{issue.path}/images/#{page_number}_#{order}_#{images.length-1}.*"
+      photo_file_name = "#{page_number}_#{order}_#{images.length-1}.*" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      # if File.exist?(photo_file_orginal)
+        #  system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 620 #{newsml_issue_path}/#{@photo_item}")
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions 100 -Z 720 #{photo_file_name} --out #{newsml_issue_path}/#{@photo_item}")
+      # end
       # return issue.path + "/images/#{photo_file_name}"
       return ""
     else graphics.length > 0
       # binding.pry
-      graphic_file_orginal = "#{issue.path}/images/graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf"
-      graphic_file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      if File.exist?(graphic_file_orginal)
-        system("cd #{issue.path}/images/ && sips -s format jpeg #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
-      end
+      graphic_file_orginal = "#{issue.path}/images/graphic_#{page_number}_#{order}_#{graphics.length-1}.*"
+      graphic_file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.*" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      # if File.exist?(graphic_file_orginal)
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions 100 -Z 720 #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
+      # end
         # return issue.path + "/images/#{graphic_file_name}"
       return ""
     end
@@ -270,13 +271,16 @@ module ArticleSaveXml
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
-    @name_plate       = subject_head
+    if subject_head && subject_head != ""
+      subject_head.strip! 
+      @name_plate       = "[#{eliminate_size_option(subject_head)}]"
+    end
     if @name_plate == "" || @name_plate == nil
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
         category_code = opinion_writer.category_code 
-        @name_plate = opinion_writer.title
+        @name_plate = "[#{opinion_writer.title}]"
       end
     end  
     @subject_ex       = @name_plate
@@ -300,9 +304,11 @@ module ArticleSaveXml
     @subject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if body && body != ""
-      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<br><b>#{$1}</b><br>"} 
+      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
+      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
+      @body_content     = @body_content.gsub(/^#\s(.*)\^/){"#{$1}"} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
     # title.gsub!("\u2024", "")
@@ -452,14 +458,26 @@ module ArticleSaveXml
       @h_source        = @image.source
     end
     @section_name_code = section_name_code
-    @name_plate       = "[#{subject_head}]" if subject_head && subject_head != ""
-    unless @name_plate
-      # binding.pry
-      r = OpinionWriter.where(name:reporter).first
-      puts r
-      category_code = r.category_code
-      @name_plate = r.title
-    end
+    if subject_head && subject_head != ""
+      subject_head.strip! 
+      @name_plate       = eliminate_size_option(subject_head)
+      @name_plate       = "[#{@name_plate}]" 
+    else
+      # r = OpinionWriter.where(name: reporter).first
+      # puts r
+      if page_number == 22 || page_number == 23
+        category_code = opinion_writer.category_code 
+        @name_plate = "[#{opinion_writer.title}]"
+      end
+    end    
+    # unless @name_plate
+    #   # binding.pry
+    #   r = OpinionWriter.where(name:reporter).first
+    #   puts r
+    #   category_code = r.category_code
+    #   @name_plate = "[#{r.title}]"
+    #   binding.pry
+    # end
     @subject_ex       = @name_plate
     @money_status     = "30"
     if page_number == 22
@@ -482,8 +500,8 @@ module ArticleSaveXml
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if title && title != ""
       title.strip! 
-      t                 = eliminate_size_option(title)
-      @head_line        = t.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      @head_line        = eliminate_size_option(title)
+      @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
     end  
       # h = covert_to_multiple_line(@head_line)
     # if h.class == String
@@ -494,9 +512,8 @@ module ArticleSaveXml
     # end
     if subtitle && subtitle != ""
       subtitle.strip! 
-      s                 = eliminate_size_option(subtitle)
-      @sub_head_line    = s.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
-    
+      @sub_head_line    = eliminate_size_option(subtitle)
+      @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
     end
       # binding.pry
     # sh = covert_to_multiple_line(@sub_head_line)
@@ -509,7 +526,7 @@ module ArticleSaveXml
     #   end
    if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^##(.*).\n/){"<br><b>#{$1}</b><br>"}
+      @body_content     = @body_content.gsub(/^##(.*).\n/){"<b>#{$1}</b><br><br>"}
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"}
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"}
     end
@@ -553,7 +570,7 @@ EOF
     if page_number == 22
       three_component =<<EOF
       <TitleComponent><!-- 22면 -->
-        <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
+        <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
       </TitleComponent>
       <ArticleComponent>
         <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -572,7 +589,7 @@ EOF
     elsif page_number == 23 && order == 1 
     three_component =<<EOF
     <TitleComponent><!-- 23면 1 -->
-      <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
+      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
     </TitleComponent>
     <ArticleComponent>
       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -590,7 +607,7 @@ EOF
   elsif page_number == 23 && order == 2 
   three_component =<<EOF
   <TitleComponent><!-- 23면 2 -->
-    <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -602,7 +619,7 @@ EOF
 elsif page_number == 23 && order == 3
   three_component =<<EOF
   <TitleComponent><!-- 23면 3 -->
-    <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
+    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
   </TitleComponent>
   <ArticleComponent>
     <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -750,14 +767,15 @@ EOF
     target = mobile_page_preview_path + "/#{@photo_file_name}"
     system("cp #{source} #{target}")
     if images.length > 0
-      file_name = "#{page_number}_#{order}_#{images.length-1}.jpg" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      system("cd #{issue.path}/images/ && convert #{file_name} -resize 620 #{mobile_page_preview_path}/#{@photo_file_name}")
+      file_name = "#{page_number}_#{order}_#{images.length-1}.*"  # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      # system("cd #{issue.path}/images/ && convert #{file_name} -resize 620 #{mobile_page_preview_path}/#{@photo_file_name}")
+      system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions 100 -Z 720 #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       # return issue.path + "/images/#{photo_file_name}"
       return ""
     else graphics.length > 0
       # binding.pry
-      file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      system("cd #{issue.path}/images/ && sips -s format jpeg #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+      file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.*" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
+      system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions 100 -Z 720 #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       # return issue.path + "/images/#{graphic_file_name}"
       return ""
     end

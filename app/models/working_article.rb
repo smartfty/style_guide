@@ -1007,12 +1007,12 @@ class WorkingArticle < ApplicationRecord
       self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
 
       self.inactive       = false
-      # if page_number == 22 && order == 2
-      #   self.subject_head = '기고'
-      # elsif page_number == 23 && order == 2
-      #   self.subject_head = '내일시론'
-      # end
-      
+      if page_number == 22 && order == 2
+        self.subject_head = '기고'
+      elsif page_number == 23 && order == 2
+        self.subject_head = '내일시론'
+      end
+
       # self.page_path      = page.path
     end
     self.title          = "#{order}번 제목은 여기에 여기는 제목"
