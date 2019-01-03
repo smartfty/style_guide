@@ -532,7 +532,7 @@ class Section < ApplicationRecord
 
   def parse_ad_type
     box_array = eval_layout
-    ad_type = ""
+    ad_type = "광고없음"
     box_array.each_with_index do |box, i|
       if box.length >= 5 && box[4] =~ /^광고/
         ad_type = box[4].split("_")[1]

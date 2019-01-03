@@ -138,6 +138,7 @@ class Issue < ApplicationRecord
       page_hash[:section_name]  = section_names_array[i]
       page_hash[:page_number]   = page_array[0]
       page_hash[:profile]       = page_array[1]
+      page_hash[:color_page]    = page_array[2] if page_array.length > 2
       p = PagePlan.where(page_hash).first_or_create!
     end
   end
@@ -160,6 +161,10 @@ class Issue < ApplicationRecord
     page_plans.each_with_index do |page_plan, _i|
       if page_plan.page
         if page_plan.need_update?
+          if page_plan.page.color_page != page_plan.color_page
+            page_plan.page.color_page = page_plan.color_page
+            page_plan.page.save
+          end
           page_plan.page.change_template(page_plan.selected_template_id)
           page_plan.dirty = false
           page_plan.save
@@ -167,7 +172,7 @@ class Issue < ApplicationRecord
         next
       else
         # create new page
-        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, page_number:page_plan.page_number,  section_name: page_plan.section_name, template_id: page_plan.selected_template_id)
+        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, page_number:page_plan.page_number,  section_name: page_plan.section_name, template_id: page_plan.selected_template_id, color_page:page_plan.color_page)
         page_plan.dirty = false
         page_plan.save
       end

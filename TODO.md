@@ -21,9 +21,17 @@
     - fit_text
 
 2019-1-3
+  - 1, 3, 5,  7,  9, 11 default color page
+  - 24, 20, 18, 16, 14
+  - story list size reporter 
+  - 광고없음
+
   - add emphasis on subject_head
   - add text on top of image?
+
   - show image/column and grid size in pixels/cm
+
+  - fix page heading background image not showing 
 
 2018-12-27
   - add heading_columns to working_article
