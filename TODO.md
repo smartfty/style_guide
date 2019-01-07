@@ -20,6 +20,16 @@
   - body
     - fit_text
 
+2019-1-4
+  - story does not appear on page assignment page
+    put date section 
+    put page order if selected 
+  
+  - fix page heading background image not showing 
+  - ad_plan input by date enter daily add at once per page
+  - fix 저장 to take effect as 수정 botton in image and graphic panel 
+  - 브리지 광고
+
 2019-1-3
   - 1, 3, 5,  7,  9, 11 default color page
   - 24, 20, 18, 16, 14
@@ -28,10 +38,7 @@
 
   - add emphasis on subject_head
   - add text on top of image?
-
   - show image/column and grid size in pixels/cm
-
-  - fix page heading background image not showing 
 
 2018-12-27
   - add heading_columns to working_article

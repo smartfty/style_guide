@@ -1,5 +1,10 @@
+<h3>
+<%= @story.date.to_s%>: <%= @story.summitted_section%>
+</h3> 
 <% if @story.selected%>
+    <h3>페이지:<%= @story.working_article.page.page_number%>-<%= @story.working_article.order%></h3> 
     <%= render 'selected', story: @story, working_article: @working_article %>
+
 <% else %>
     <%= render 'form', story: @story %>
 <% end %>
