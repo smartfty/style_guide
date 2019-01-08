@@ -56,6 +56,7 @@ class WorkingArticlesController < ApplicationController
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
       if @working_article.update(working_article_params)
+
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp
         # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
@@ -127,19 +128,7 @@ class WorkingArticlesController < ApplicationController
         redirect_to eigth_group_stories_issue_path(@working_article.issue)
       when 'nineth_group'
         redirect_to nineth_group_stories_issue_path(@working_article.issue)
-      end
-
-        # if @working_article.update(working_article_params)
-
-      #   # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
-      #   # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
-      #   format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
-      #   format.json { render :show, status: :ok, location: @working_article }
-      # else
-      #   format.html { render :edit }
-      #   format.json { render json: @working_article.errors, status: :unprocessable_entity }
-      # end
-    
+      end    
   end
 
   # download story.pdf
@@ -150,40 +139,60 @@ class WorkingArticlesController < ApplicationController
   def image_1x1
     set_working_article
     image = @working_article.images.first
-    result = image.change_size("1x1")
-    @working_article.generate_pdf_with_time_stamp if result
+    if image
+      need_pdf_update = image.change_size("1x1")
+    else
+      need_pdf_update = @working_article.create_image_place_holder(1,1)
+    end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
 
   def image_2x2
     set_working_article
     image = @working_article.images.first
-    result = image.change_size("2x2")
-    @working_article.generate_pdf_with_time_stamp if result
+    if image
+      need_pdf_update = image.change_size("2x2")
+    else
+      need_pdf_update = @working_article.create_image_place_holder(2,2)
+    end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
 
   def image_3x3
     set_working_article
-   image = @working_article.images.first
-   result = image.change_size("3x3")
-   @working_article.generate_pdf_with_time_stamp if result
-
-   redirect_to @working_article
+    image = @working_article.images.first
+    if image
+      need_pdf_update = image.change_size("3x3")
+    else
+      need_pdf_update = @working_article.create_image_place_holder(3,3)
+    end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update    
+    redirect_to @working_article
   end
 
   def image_4x4
     set_working_article
     image = @working_article.images.first
-    image.change_size("4x4")
-    @working_article.generate_pdf_with_time_stamp if result
+    if image
+      need_pdf_update = image.change_size("4x4")
+    else
+      need_pdf_update = @working_article.create_image_place_holder(4,4)
+    end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update    
     redirect_to @working_article
   end
 
   def image_5x5
     set_working_article
     image = @working_article.images.first
-    image.change_size("5x5")
+    if image
+      need_pdf_update = image.change_size("5x5")
+    else
+      need_pdf_update = @working_article.create_image_place_holder(5,5)
+    end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update    
     redirect_to @working_article
   end
 

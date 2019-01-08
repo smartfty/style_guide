@@ -44,7 +44,11 @@ class Graphic < ApplicationRecord
   before_create  :set_default
 
   def image_path
-    "#{Rails.root}/public" + graphic.url if graphic
+    if graphic
+      "#{Rails.root}/public" + image.url 
+    elsif place_holder
+      "#{Rails.root}/public" + place_holder
+    end
   end
 
   def publication
@@ -107,10 +111,10 @@ class Graphic < ApplicationRecord
       place_image
       # clear image from current_article, if it exits
     end
-    if working_article
-      working_article.generate_pdf
-      working_article.update_page_pdf
-    end
+    # if working_article
+    #   working_article.generate_pdf
+    #   working_article.update_page_pdf
+    # end
   end
 
   def self.current_images
@@ -156,8 +160,8 @@ class Graphic < ApplicationRecord
   # return array of image_basename.split("_")
   # we want to see if page_number and story_number are specified in the file name.
   def parse_file_name
-    return [] unless image
-    image_basename  = File.basename(image.url)
+    return [] unless graphic
+    image_basename  = File.basename(graphic.url)
     if image_basename =~ /^\d/
       image_basename.split("_")
     else
@@ -194,8 +198,8 @@ class Graphic < ApplicationRecord
   private
 
     def set_default
-      self.column                 = 1
-      self.row                    = 2
+      self.column                 = 1 unless column
+      self.row                    = 2 unless row
       self.extra_height_in_lines  = 0
       self.position               = 3
 
@@ -204,7 +208,8 @@ class Graphic < ApplicationRecord
         self.issue_id         = wa.page.issue.id
         self.page_number      = wa.page.page_number
         self.story_number     = wa.order
-      elsif image
+
+      elsif graphic
         parsed_name_array = parse_file_name
         if parsed_name_array.length >= 2
           self.page_number      = parsed_name_array[0].to_i

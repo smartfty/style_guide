@@ -981,6 +981,23 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
+  def create_image_place_holder(column, row)
+    image_place_holder = {}
+    place_holder[:url] = "/place_holder_image.pdf"
+    place_holder[:column] = column
+    place_holder[:row]    = row
+    # place_holder = Image.where(working_article_id: id, place_holder: place_holder, column: column, row: row, position:3).first_or_create
+    return true if place_holder
+  end
+
+  def create_place_holder_graphic(column, row)
+    place_holder= "/place_holder_image.pdf"
+    # place_holder = Graphic.where(working_article_id: id, place_holder: place_holder, column: column, row: row, position:3).first_or_create
+    # place_holder.image = GraphicUploader.new
+    # place_holder.image.url = "/place_holder_image.pdf"
+    return true if place_holder
+  end
+
   private
 
 
