@@ -49,8 +49,8 @@ module ArticleSwapable
     target_attributes      = target.swapable_attributes
     target_images          = target.images
     target_graphics        = target.graphics
-    target.swap_with(swapable_attributes, images, graphics)
-    self.update(target_attributes)
+    target.swap_with(self)
+    swap_with(target)
     target_images.each do |image|
       image.working_article_id = id
     end
@@ -59,22 +59,6 @@ module ArticleSwapable
     end
     generate_pdf_with_time_stamp
     update_page_pdf
-  end
-
-  def swap_with(changing_attributes, changing_article_images, changing_article_graphics)
-    # changing_article_images     = changing_article.images
-    # changing_article_graphics   = changing_article.graphics
-    self.update(changing_attributes)
-    self.save
-    changing_article_images.each do |image|
-      image.working_article_id = id
-      image.save
-    end
-    changing_article_graphics.each do |graphic|
-      graphic.working_article_id = id
-      graphic.save
-    end
-    generate_pdf_with_time_stamp
   end
 
   def swap_with_article_at_order(order)
@@ -93,6 +77,23 @@ module ArticleSwapable
     end
     generate_pdf_with_time_stamp
     update_page_pdf
+  end
+
+  def swap_with(changing_article)
+    changing_attributes         = changing_article.swapable_attributes
+    changing_article_images     = changing_article.images
+    changing_article_graphics   = changing_article.graphics
+    self.update(changing_attributes)
+    self.save
+    changing_article_images.each do |image|
+      image.working_article_id = id
+      image.save
+    end
+    changing_article_graphics.each do |graphic|
+      graphic.working_article_id = id
+      graphic.save
+    end
+    generate_pdf_with_time_stamp
   end
 
 end
