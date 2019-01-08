@@ -13,6 +13,8 @@
           <th>순서</th>
           <th>기자</th>
           <th>제목</th>
+          <th>출고된 섹션</th>
+
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -25,6 +27,8 @@
               <td><%= story.working_article.order if story.working_article %></td>
               <td><%= story.reporter %></td>
               <td><%= story.title %></td>
+              <td><%= story.summitted_section %></td>
+
             </tr>
           <% else %>
             <tr style="color:red;">
@@ -32,6 +36,7 @@
               <td><%= story.working_article.order if story.working_article %></td>
               <td><%= story.reporter %></td>
               <td><%= story.title %></td>
+              <td><%= story.summitted_section %></td>
             </tr>
          <% end %>
 

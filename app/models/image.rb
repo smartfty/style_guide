@@ -50,11 +50,6 @@ class Image < ApplicationRecord
     working_article.page_number
   end
 
-  # TODO delete this
-  # def order
-  #   working_article.order
-  # end
-
   def article_order
     working_article.order
   end
@@ -104,10 +99,10 @@ class Image < ApplicationRecord
       place_image
       # clear image from current_article, if it exits
     end
-    if working_article
-      working_article.generate_pdf
-      working_article.update_page_pdf
-    end
+    # if working_article
+    #   working_article.generate_pdf
+    #   working_article.update_page_pdf
+    # end
   end
 
   def self.current_images
@@ -166,6 +161,7 @@ class Image < ApplicationRecord
     "#{column}x#{row}"
   end
 
+  # return false if new image size is same as old
   def change_size(size)
     return false if size == current_image_size
     if size == 'auto'
@@ -191,11 +187,10 @@ class Image < ApplicationRecord
   private
 
     def set_default
-      self.column                 = 2
-      self.row                    = 2
+      self.column                 = 2 unless column
+      self.row                    = 2 unless row
       self.extra_height_in_lines  = 0
       self.position               = 3
-      self.landscape              = true
 
       if working_article_id
         wa = WorkingArticle.find(working_article_id)

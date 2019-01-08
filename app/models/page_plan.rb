@@ -99,7 +99,17 @@ class PagePlan < ApplicationRecord
     if profile && profile != ""
       selected_section_template = Section.where(page_number: page_number, profile: profile).first
       unless selected_section_template
+        if page_number.odd?
+          selected_section_template = Section.where(profile: profile, page_number: 101).first
+        else
+          selected_section_template = Section.where(profile: profile, page_number: 100).first
+        end
+      end
+      unless selected_section_template
         selected_section_template = Section.where(profile: profile).first
+      end
+      unless selected_section_template
+        selected_section_template = Section.where(ad_type: ad_type).first
       end
       unless selected_section_template
         selected_section_template = Section.where(page_number: page_number).first
@@ -109,7 +119,17 @@ class PagePlan < ApplicationRecord
         puts "using alternative template"
         selected_section_template = Section.where(ad_type: ad_type).first
         unless selected_section_template
-          return false
+          if page_number == 1
+            selected_section_template = Section.where(page_number:1).first
+          elsif page_number.odd?
+            selected_section_template = Section.where(page_number: 101).first
+          else
+            selected_section_template = Section.where(page_number: 100).first
+          end
+          unless selected_section_template
+            puts "No section template for found!!!"
+            return false
+          end
         end
       end
       self.selected_template_id = selected_section_template.id

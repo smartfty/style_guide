@@ -109,7 +109,7 @@ gem 'bullet', group: 'development'
 gem 'rails-assets-trix', source: 'https://rails-assets.org'
 gem 'jquery-datatables'
 gem 'ajax-datatables-rails'
-gem 'celluloid'
+# gem 'celluloid'
 
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
 
