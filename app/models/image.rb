@@ -43,8 +43,8 @@ class Image < ApplicationRecord
   end
 
   def size_string
-    width_in_cm   = (working_article.grid_width*column*0.352778).round(2)
-    height_in_cm  = (working_article.grid_height*row).round(3)
+    width_in_cm   = (working_article.grid_width*column + working_article.gutter*column)*0.352778).round(2)
+    height_in_cm  = (working_article.grid_height*row*0.352778).round(3)
     "#{width_in_cm}mm x #{height_in_cm}mm"
   end
 
