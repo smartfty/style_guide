@@ -19,13 +19,20 @@
 
   - body
     - fit_text
-
+    
+2019-1-5
+  - 기사 배치
+    - 행정 과 정책 바뀜
+  - image size, graphic size
+    - make extra space inside picture area
+  - size of image in cm pt
+  
 2019-1-4
   - story does not appear on page assignment page
     put date section 
     put page order if selected 
   - fix page heading background image not showing 
-  
+
   - ad_plan input by date enter daily add at once per page
   - fix 저장 to take effect as 수정 botton in image and graphic panel 
   - 브리지 광고
