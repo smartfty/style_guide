@@ -190,7 +190,6 @@ EOF
       <PaperSize>A2</PaperSize>
     </PageInfo>
 EOF
-# binding.pry
      size_array = %w[CoordinateListReal CoordinateListOrg CoordinateListA CoordinateListB CoordinateListC]
      # scale_array = [4.128, 1.148, 2.064, 3.332, 0.286]
      # scale_array = [19.790, 2.023, 0.558, 1, 1.627]
@@ -228,7 +227,6 @@ EOF
           @y1 = (publication.top_margin + w.y)
           @y2 = (@y1 + w.height)
         end
-        # binding.pry
         scale_map=""
         size_array.each_with_index do |name, i|
           scale = scale_array[i]
