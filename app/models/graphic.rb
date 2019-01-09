@@ -44,11 +44,13 @@ class Graphic < ApplicationRecord
   before_create  :set_default
 
   def image_path
-    if graphic
-      "#{Rails.root}/public" + image.url 
-    elsif place_holder
-      "#{Rails.root}/public" + place_holder
-    end
+    "#{Rails.root}/public" + graphic.url 
+  end
+
+  def size_string
+    width_in_cm   = (working_article.grid_width*column*0.0352778).round(3)
+    height_in_cm  = (working_article.grid_height*row).round(3)
+    "#{width_in_cm}cmx#{height_in_cm}cm"
   end
 
   def publication

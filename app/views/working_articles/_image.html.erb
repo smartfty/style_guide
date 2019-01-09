@@ -1,3 +1,5 @@
+
+
 <% image =article.images.first%>
 <%= form_for(article.images.first) do |f| %>
   <% if image.errors.any? %>
@@ -11,7 +13,6 @@
       </ul>
     </div>
   <% end %>
-
     <div class="field">
       <%= f.label :사진제목 %>
       <%= f.text_field :caption_title %>
