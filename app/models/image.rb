@@ -43,10 +43,10 @@ class Image < ApplicationRecord
   end
 
   def size_string
-    width_in_cm   = ((working_article.grid_width*column + working_article.gutter*(column-1))*0.352778).round(2)
+    width_in_mm   = ((working_article.grid_width*column - working_article.gutter)*0.352778).round(2)
     # 4 is value adjustef to align image with body text
-    height_in_cm  = ((working_article.grid_height*row + working_article.body_line_height*extra_height_in_lines - 4)*0.352778).round(3)
-    "#{width_in_cm}mm x #{height_in_cm}mm"
+    height_in_mm  = ((working_article.grid_height*row + working_article.body_line_height*extra_height_in_lines - 4)*0.352778).round(3)
+    "#{width_in_mm}mm x #{height_in_mm}mm"
   end
 
 
