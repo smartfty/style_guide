@@ -227,9 +227,12 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-      @name       = reporter
-      @r_name       = reporter_from_body
-      # if @name =~/_/
+      if reporter && reporter != ""  
+        @name       = reporter
+       else  
+        @name       = reporter_from_body
+       end
+         # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
     if images.length > 0 
@@ -413,8 +416,12 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    @name           = reporter
-      # if reporter = nil || reporter = ""
+    if reporter && reporter != ""  
+      @name       = reporter
+    else  
+      @name       = reporter_from_body
+    end
+         # if reporter = nil || reporter = ""
       #   @name           = reporter_from_body
       # end
       # if @name =~/_/

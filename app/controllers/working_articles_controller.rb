@@ -125,7 +125,7 @@ class WorkingArticlesController < ApplicationController
       when 'seventh_group'
         redirect_to seventh_group_stories_issue_path(@working_article.issue)
       when 'eighth_group'
-        redirect_to eigth_group_stories_issue_path(@working_article.issue)
+        redirect_to eighth_group_stories_issue_path(@working_article.issue)
       when 'nineth_group'
         redirect_to nineth_group_stories_issue_path(@working_article.issue)
       end    

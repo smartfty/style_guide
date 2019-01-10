@@ -114,8 +114,8 @@
     </section>
 
     <section class="section" id="content3">
-    <div class="col-sm-12 col-md-5">
-    <% if @working_article.kind == '기사' || '사진' %>
+      <div class="col-sm-12 col-md-5">
+        <% if @working_article.kind == '기사' || '사진' %>
         <div class="row">
           <% @working_article.graphics.each do |graphic| %>
           <%= render 'graphics/form', graphic: graphic %>
@@ -148,7 +148,7 @@
       </div>
       <div class="col-sm-12 col-md-7">
       <%= render 'show_prewview', article: @working_article %>
-      </div>            
+      </div>              
     </section>
 
     <section class="section" id="content4">
