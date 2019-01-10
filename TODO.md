@@ -19,6 +19,11 @@
 
   - body
     - fit_text
+
+2019-1-6
+  - when page template is changed, make sure heading background is copied.
+  - 저장된 단락스타일로 페이지 재생성할때 타임 스켐프로
+
     
 2019-1-5
   - 기사 배치
