@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_051845) do
+ActiveRecord::Schema.define(version: 2019_01_10_085430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ad_bookings", force: :cascade do |t|
+    t.bigint "publication_id"
+    t.date "date"
+    t.text "ad_list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_ad_bookings_on_publication_id"
+  end
 
   create_table "ad_box_templates", id: :serial, force: :cascade do |t|
     t.integer "grid_x"
@@ -74,6 +83,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_051845) do
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ad_booking_id"
+    t.index ["ad_booking_id"], name: "index_ad_plans_on_ad_booking_id"
   end
 
   create_table "ads", id: :serial, force: :cascade do |t|
@@ -650,6 +661,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_051845) do
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
   end
 
+  add_foreign_key "ad_bookings", "publications"
+  add_foreign_key "ad_plans", "ad_bookings"
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
   add_foreign_key "graphics", "working_articles"

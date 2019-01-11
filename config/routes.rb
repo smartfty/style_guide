@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ad_bookings
   resources :categories
   resources :ad_plans
   resources :graphics
