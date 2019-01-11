@@ -1,5 +1,44 @@
 namespace :style do
   
+
+  desc 'import section csv file'
+  task :import_section_csv =>:environment do
+    csv_path = "#{Rails.root}/public/1/section/sections.csv"
+    csv_text = File.read(csv_path)
+    csv = CSV.parse(csv_text)
+    keys  = csv.shift
+    keys.map!{|e| e.to_sym}
+    csv.each do |row|
+      row_h = Hash[keys.zip row]
+      # row_h.delete(:divider_position)
+      # puts "row_h:#{row_h}"
+      row_h[:publication] = 1
+      s = Section.where(row_h).first_or_create!
+      s.create_articles if s
+      # if s.page_number == 22 || s.page_number == 23
+      #   # puts "s.id:#{s.id}"
+      #   # puts "s.layout:#{s.layout}"
+      #   s.regerate_section_preview
+      # end
+    end
+  end  
+
+
+
+  desc 'import opinion csv file'
+  task :import_opinion_csv =>:environment do
+    opinion_writer_csv_path = "#{Rails.root}/public/1/opinion/data.csv"
+      csv_text = File.read(opinion_writer_csv_path)
+      csv = CSV.parse(csv_text, :headers => true)
+      csv.each do |row|
+      h = row.to_hash
+      h = Hash[h.map{ |key, value| [key.to_sym, value] }]
+      h[:publication_id] = 1
+      OpinionWriter.where(h).first_or_create
+    end
+  end  
+
+
   desc 'make nil setion ad_type as empty string'
   task :change_nil_ad_type =>:environment do
     Section.all.each do |section|
