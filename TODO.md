@@ -19,11 +19,17 @@
 
   - body
     - fit_text
-
+  
+2019-1-10
+  - 면배열표 광고 정보 AdBox 로 저장 
+  - 기사 배치 기사에서 설정 할 수 있도록
+  - 정치면 이외면 적용
+  - 왼쪽 9단21 광고 템플렉 꼬임 
+  - 광고 입력 창 날짜별 한번에
+   
 2019-1-6
   - when page template is changed, make sure heading background is copied.
   - 저장된 단락스타일로 페이지 재생성할때 타임 스켐프로
-
     
 2019-1-5
   - 기사 배치

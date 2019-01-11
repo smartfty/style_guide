@@ -4,6 +4,21 @@ Rails app for creating style guide for newspaper publication
 
 ## Tables
 
+### AdBooking
+  publication:references
+  date:date
+  ad_item:text
+  has_many :ad_plans
+
+### AdPlan
+  AdBooking:references
+  Issue:references
+  page:integer
+  ad_type
+  advertiser
+  color:boolean
+
+
 ### spread
   issue: references
   left_page

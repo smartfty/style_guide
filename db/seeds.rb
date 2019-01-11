@@ -55,6 +55,13 @@ h[:cms_server_url]                  = 'http:://localhost:3001'
 p = Publication.where(h).first_or_create
 p.copy_text_style_to_shared_location
 
+issue_date = Date.new(2017,5,30)
+# create ad_bookins for 5 days
+ad_date = issue_date
+5.times do
+  AdBooking.where(publication: p, date: ad_date, ad_list: ad_list).first_or_create
+  ad_date = ad_date + 1.days
+end
 section_names.each_with_index do |section_name, i|
   SectionHeading.where(publication_id:p.id, page_number: i + 1, section_name: section_name, date: Date.new(2017,5,30)).first_or_create
 end
@@ -156,8 +163,10 @@ SECTIONS = [
 ]
 
 
-issue = Issue.where(id: 1, date: Date.new(2017,5,30), number: '00001', publication_id: 1).first_or_create
+issue = Issue.where(id: 1, date: issue_date , number: '00001', publication_id: 1).first_or_create
 issue.make_default_issue_plan if issue
+
+
 
 User.create!(name: "김민수", email: "mskimsid@gmail.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 User.create!(name: "김형규", email: "hgkim@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
