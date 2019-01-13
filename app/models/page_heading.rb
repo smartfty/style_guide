@@ -141,7 +141,7 @@ class PageHeading < ApplicationRecord
     first_page=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
       image(local_image: '1_bg.pdf', x:0, y:0, width: #{page_heading_width}, height: 139.0326207874)
-      text('#{page.korean_date_string}', x: 828.00, y: 109.25, fill_color:'clear', width: 200, font: 'KoPubDotumPL', font_size: 9.5, font_color: "CMYK=0,0,0,100", text_alignment: 'right')
+      text('#{page.korean_date_string}', x: 828.00, y: 109.25, fill_color:'clear', width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'right')
       image(local_image: 'heading_ad.pdf', x:809.137, y:13.043, width: 219.257, height: 71.2)
   end
   EOF
@@ -154,7 +154,7 @@ class PageHeading < ApplicationRecord
     first_page=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
     image(local_image: '1_bg.pdf', x:0, y:0, width: #{page_heading_width}, height: 139.0326207874)
-    text('<%= @date %>', x: 828.00, y: 109.25, fill_color:'clear', width: 200, font: 'KoPubDotumPL', font_size: 9.5, font_color: "CMYK=0,0,0,100", text_alignment: 'right')
+    text('<%= @date %>', x: 828.00, y: 109.25, fill_color:'clear', width: 200, font: 'KoPubDotumPL', font_size: 9.5, text_color: "CMYK=0,0,0,100", text_alignment: 'right')
     image(image_path: 'heading_ad_image_path', x:500, y:30, width: #{200}, height: 100)
   end
   EOF
@@ -165,7 +165,7 @@ class PageHeading < ApplicationRecord
     publication = Publication.first
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    date                = '0000년 0월 0일 0요일'
     page_number         = page.page_number
     section_name        = SECTIONS[page_number - 1]
 
@@ -184,7 +184,7 @@ class PageHeading < ApplicationRecord
     publication = Publication.first
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    date                = '0000년 0월 0일 0요일'
     page_number         = page.page_number
     section_name        = SECTIONS[page_number - 1]
     even=<<~EOF
@@ -203,7 +203,7 @@ class PageHeading < ApplicationRecord
   def odd_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    date                = '0000년 0월 0일 0요일'
     page_number         = page.page_number
     section_name        = page.section_name
     odd=<<~EOF
@@ -222,7 +222,7 @@ class PageHeading < ApplicationRecord
   def even_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'    
+    date                = '0000년 0월 0일 0요일'    
     page_number         = page.page_number
     section_name        = page.section_name
     even=<<~EOF

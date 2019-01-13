@@ -87,7 +87,7 @@ class SectionHeading < ApplicationRecord
     first_page=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
       image(local_image: '1.pdf', width: #{page_heading_width}, height: 110)
-      text('2017년 5월 11일 목요일 (4200호)', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
+      text('0000년 0월 0일 0요일 (4200호)', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
     end
     EOF
   end
@@ -109,7 +109,7 @@ class SectionHeading < ApplicationRecord
   def even_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    date                = '0000년 0월 0일 0요일'
     even=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
       text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
@@ -143,7 +143,7 @@ class SectionHeading < ApplicationRecord
   def odd_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    date                = '0000년 0월 0일 0요일'
     odd=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
       text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')

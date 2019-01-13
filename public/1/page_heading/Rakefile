@@ -13,9 +13,9 @@ rule '.rb' => '.erb' do |t|
   @section_name = '테스트'
   @page_number  = t.name.pathmap("%d").to_i
   if @page_number == 1
-    @date = '2017년 5월 11일 목요일 (4200호)'
+    @date = '0000년 0월 0일 0요일 (4200호)'
   else
-    @date = "2017년 5월 11일 목요일"
+    @date = "0000년 0월 0일 0요일"
   end
   # puts "@page_number:#{@page_number}"
   template_file = File.open(t.source){|f| f.read}
@@ -30,7 +30,7 @@ rule '.pdf' => '.rb' do |t|
   # puts "t.source:#{t.source}"
   # puts "generate pdf..."
   # puts "t:#{t}"
-  system("cd #{t.name.pathmap("%d")} && /Applications/newsman.app/Contents/MacOS/newsman rjob .")
+  system("cd #{t.name.pathmap("%d")} && /Applications/newsman.app/Contents/MacOS/newsman article .")
 end
 
 #
@@ -39,5 +39,5 @@ rule '.pdf' => '.rb' do |t|
   # puts "t.source:#{t.source}"
   # puts "generate pdf..."
   # puts "t:#{t}"
-  system("cd #{t.name.pathmap("%d")} && /Applications/newsman.app/Contents/MacOS/newsman rjob .")
+  system("cd #{t.name.pathmap("%d")} && /Applications/newsman.app/Contents/MacOS/newsman article .")
 end
