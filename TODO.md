@@ -19,6 +19,18 @@
 
   - body
     - fit_text
+
+2019-1-15
+  - image fit_type
+  - image cropping
+  - ad_booking calendar
+  - caption title
+  - story assign UI
+
+  - concurrent-ruby
+  - change pdf engine to ruby-rlayout
+  - wire-service
+  - BoxAd
   
 2019-1-10
   - 면배열표 광고 정보 AdBox 로 저장 

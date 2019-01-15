@@ -27,6 +27,7 @@
 #  zoom_direction        :integer
 #  move_level            :integer
 #  sub_grid_size         :string
+#  fit_type              :string
 #
 # Indexes
 #
@@ -87,6 +88,7 @@ class Graphic < ApplicationRecord
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:image_kind]        = 'graphic'
+    h[:fit_type]          = fit_type if fit_type
     h
   end
 

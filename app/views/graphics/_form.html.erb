@@ -41,6 +41,10 @@
           <%= link_to '삭제', graphic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>
 
         </div>
+        <div class="field">
+          <%= f.label :그래픽정렬 %>
+          <%= f.select :fit_type, %w[최적 가로 세로 우겨넣기], {include_blank: false} %>
+        </div>
 
 
       </div>  
