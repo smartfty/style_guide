@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
 <h3>오피니언 저자</h3>
 <%= search_form_for @q do |f| %>
 <%= f.label '이름에 포함된 글자로' %>
 <%= f.search_field :name_cont %>
 <%= f.label '제목에 포함된 글자로' %>
 <%= f.search_field :title_cont %>
-<%= f.submit %>
+<%= f.submit "검색", class: "btn btn-sm btn-normal"%>
 <% end %>
-<br>
+</div>
 
 <div class="row">
 <% @opinion_writers.each do |writer| %>
@@ -44,12 +45,8 @@ align: "center"%> </div> -->
 
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
 <nav class="navbar navbar-default navbar-fixed-top2">
-<ul class="nav navbar-nav2 float-frame">
-  <li class="float-unit">
-    <%= link_to '새로운 저자등록', new_opinion_writer_path , method: :get, class: "btn btn-md btn-primary" %>
-  </li>
-  <li class="float-unit">
-    <%= link_to "다운로드 CSV", opinion_writers_path(format: "csv"), method: :get, class: "btn-group btn btn-md btn-warning" %>
-  </li>
-</ul>
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-primary"><%= link_to '새로운 저자등록', new_opinion_writer_path , method: :get %></button>
+    <button type="button" class="btn btn-warning"><%= link_to "다운로드 CSV", opinion_writers_path(format: "csv"), method: :get %></button>
+  <div>
 </nav>

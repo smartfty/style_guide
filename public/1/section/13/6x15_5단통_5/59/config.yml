@@ -1,5 +1,5 @@
 ---
-section_name: 
+section_name: ''
 page_heading_margin_in_lines: 3
 ad_type: 5단통
 is_front_page: false
@@ -7,8 +7,8 @@ profile: 6x15_5단통_5
 section_id: 59
 page_columns: 6
 grid_size:
-- 171.49606299212348
-- 97.32283464566807
+- 171.496062992123
+- 97.3228346456681
 lines_per_grid: 7.0
 width: 1114.01574803148
 height: 1544.88188976376
@@ -35,7 +35,7 @@ story_frames:
   - 2
   - 5
 - - 2
-  - 6
+  - 5
   - 2
   - 5
 - - 0
