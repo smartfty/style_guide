@@ -1,46 +1,47 @@
 
 <div class="row">
-  <div class="col-md-1">
-  </div>
-  <div class="col-md-4">
-    <p>섹션: <%= article.page.section_name %></p>
-    <p>페이지: <%= article.page.page_number %></p>
-    <p>기사 번호: <%= article.order %></p>
+  <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-11">
+      <p>섹션: <%= article.page.section_name %></p>
+      <p>페이지: <%= article.page.page_number %></p>
+      <p>기사 번호: <%= article.order %></p>
 
-    <%= form_for(article, :url => { :action => "update_story" }) do |f| %>
-      <% if article.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-          <ul>
-          <% article.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
+      <%= form_for(article, :url => { :action => "update_story" }) do |f| %>
+        <% if article.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+            <ul>
+            <% article.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :기자명 %>
+          <%= f.text_field :reporter %>
         </div>
+
+        <div class="form-group">
+          <%= f.label :제목 %>
+          <%= f.text_field :title %>
+        </div>
+
       <% end %>
-
-      <div class="form-group">
-        <%= f.label :기자명 %>
-        <%= f.text_field :reporter %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :제목 %>
-        <%= f.text_field :title, class: 'form-control' %>
-      </div>
-
-    <% end %>
+    </div>
   </div>
 
-  <div class="col-md-6">
-    <table border="1">
+  <div class="col-xs-12 col-md-6">
+  <div class="col-xs-12 col-md-11">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>페이지</th>
           <th>순서</th>
           <th>기자</th>
           <th>제목</th>
-          <th colspan="3"></th>
+          <th>선택</th>
         </tr>
       </thead>
 
@@ -52,7 +53,7 @@
               <td><%= story.working_article.order if story.working_article %></td>
               <td><%= story.reporter %></td>
               <td><%= story.title %></td>
-              <td><%= link_to "선책", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
+              <td><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
             </tr>
           <% else %>
             <tr style="color:red;">
@@ -60,7 +61,7 @@
               <td><%= story.working_article.order if story.working_article %></td>
               <td><%= story.reporter %></td>
               <td><%= story.title %></td>
-              <td><%= link_to "선책", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
+              <td><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
             </tr>
          <% end %>
 
@@ -70,6 +71,7 @@
     </table>
 
   </div>
+</div>
 </div>
 
 

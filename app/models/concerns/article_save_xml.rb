@@ -168,7 +168,7 @@ module ArticleSaveXml
       photo_file_name = "#{page_number}_#{order}_#{images.length-1}.*" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
       # if File.exist?(photo_file_orginal)
         #  system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 620 #{newsml_issue_path}/#{@photo_item}")
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 620 #{photo_file_name} --out #{newsml_issue_path}/#{@photo_item}")
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{photo_file_name} --out #{newsml_issue_path}/#{@photo_item}")
       # end
       # return issue.path + "/images/#{photo_file_name}"
       return ""
@@ -176,8 +176,9 @@ module ArticleSaveXml
       graphic_file_orginal = "#{issue.path}/images/graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf"
       graphic_file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
       # if File.exist?(graphic_file_orginal)
-      system("cd #{issue.path}/images/ && convert #{graphic_file_name} -density 300 -resize 620 #{newsml_issue_path}/#{@photo_item}")
-        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best best -Z 620 #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
+      system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{graphic_file_name} #{newsml_issue_path}/#{@photo_item}")
+      # system("sips -s #{newsml_issue_path}/#{@photo_item}
+      # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best best -Z 620 #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
       # end
         # return issue.path + "/images/#{graphic_file_name}"
       return ""
@@ -227,12 +228,12 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-      if reporter && reporter != ""  
-        @name       = reporter
-       else  
-        @name       = reporter_from_body
-       end
-         # if @name =~/_/
+    if reporter && reporter != ""  
+     @name       = reporter
+    else  
+     @name       = reporter_from_body
+    end
+     # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
     if images.length > 0 
@@ -280,14 +281,14 @@ module ArticleSaveXml
     @section_name_code = section_name_code
     if subject_head && subject_head != ""
       subject_head.strip! 
-      @name_plate       = "[#{eliminate_size_option(subject_head)}]"
+      @name_plate       = eliminate_size_option(subject_head)
     end
     if @name_plate == "" || @name_plate == nil
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
         category_code = opinion_writer.category_code 
-        @name_plate = "[#{opinion_writer.title}]"
+        @name_plate = opinion_writer.title
       end
     end  
     @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
@@ -315,7 +316,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
-      @body_content     = @body_content.gsub(/^#\s(.*)\^/){"#{$1}"} 
+      @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
     # title.gsub!("\u2024", "")
@@ -338,6 +339,11 @@ module ArticleSaveXml
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
     end 
+    if boxed_subtitle_text && boxed_subtitle_text != ""
+      boxed_subtitle_text.strip!
+      @boxed_subtitle = eliminate_size_option(boxed_subtitle_text)
+    end
+
     # h = covert_to_multiple_line(title)
     # puts "++++++ h: #{h}"
     # if h.class == String
@@ -416,12 +422,8 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    if reporter && reporter != ""  
-      @name       = reporter
-    else  
-      @name       = reporter_from_body
-    end
-         # if reporter = nil || reporter = ""
+    @name           = reporter
+      # if reporter = nil || reporter = ""
       #   @name           = reporter_from_body
       # end
       # if @name =~/_/
@@ -524,6 +526,10 @@ module ArticleSaveXml
       @sub_head_line    = eliminate_size_option(subtitle)
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
     end
+    if boxed_subtitle_text && boxed_subtitle_text != ""
+      boxed_subtitle_text.strip!
+      @boxed_subtitle = eliminate_size_option(boxed_subtitle_text)
+    end
 
     # sh = covert_to_multiple_line(@sub_head_line)
     #   if sh.class == String
@@ -536,12 +542,12 @@ module ArticleSaveXml
    if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
-      @body_content     = @body_content.gsub(/^#\s(.*)\^/){"#{$1}"}
+      @body_content     = @body_content.gsub(/\^$/){""}
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
-    @page_number = page_number
+    @page_number = page_number 
     @order = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
@@ -588,7 +594,7 @@ EOF
       <PhotoComponent>
       <PhotoItem>
         <ImageType>Image</ImageType>
-          <Property ImgClass="[IMG01]" align="right" Class="일반" Size="Large"/>
+          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
           <PhotoFileName><%= @photo_file_name %></PhotoFileName>
           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
         </PhotoItem>
@@ -607,7 +613,7 @@ EOF
     <PhotoComponent>
     <PhotoItem>
       <ImageType>Image</ImageType>
-        <Property ImgClass="[IMG01]" align="right" Class="일반" Size="Large"/>
+        <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
         <PhotoFileName><%= @photo_file_name %></PhotoFileName>
         <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
       </PhotoItem>
@@ -621,7 +627,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %><%= @caption %>]]></Content>
+    <Content><![CDATA[<%= @data_content %>]]></Content>
   </ArticleComponent>
 </Article>
 EOF
@@ -637,7 +643,7 @@ elsif page_number == 23 && order == 3
   <PhotoComponent>
   <PhotoItem>
     <ImageType>Image</ImageType>
-      <Property ImgClass="[IMG01]" align="right" Class="일반" Size="Large"/>
+      <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
       <PhotoFileName><%= @photo_file_name %></PhotoFileName>
       <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
     </PhotoItem>
@@ -648,7 +654,7 @@ EOF
   elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent><!-- photobox -->
-  <MainTitle><![CDATA[<%= @name_plate %> <%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+  <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
   <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
 </TitleComponent>
 <ArticleComponent>
@@ -668,7 +674,7 @@ EOF
   elsif images.count > 0 
   three_component =<<EOF
   <TitleComponent><!-- images -->
-    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -689,7 +695,7 @@ EOF
   elsif graphics.count > 0 
   three_component =<<EOF
   <TitleComponent><!-- graphic -->
-    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -708,10 +714,10 @@ EOF
 EOF
 
 
-  else 
+  else
   three_component =<<EOF
   <TitleComponent><!-- etc -->
-    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -752,7 +758,7 @@ EOF
     @order            = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
-      @c_head_line    = title
+      @c_head_line    = eliminate_size_option(title)
     else 
       @c_head_line    = @h_caption_title    
     end

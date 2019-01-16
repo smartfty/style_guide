@@ -30,7 +30,7 @@ class PageHeading < ApplicationRecord
     '국제통일',
     '전면광고',
     '금융',
-    '전면광고',
+    '금융',
     '금융',
     '금융',
     '산업',

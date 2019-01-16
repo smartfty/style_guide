@@ -66,10 +66,10 @@ module PagePrintable
 
   def copy_to_printer_ftp
     backup_printer_file
-    news_pdf
-    ex_pdf
     jung_ang
     dong_a
+    news_pdf
+    ex_pdf
     true
   end
 

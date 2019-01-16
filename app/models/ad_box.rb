@@ -64,7 +64,7 @@ class AdBox < ApplicationRecord
 
   def pdf_image_path
     # "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
-    "/1/issue/#{date}/#{page_number}/ad/#{latest_jpg_basename}"
+    "/1/issue/#{date}/#{page_number}/ad/#{latest_pdf_basename}"
   end
 
   def jpg_image_path

@@ -13,12 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.button '컬러면', class: "btn btn-md btn-danger" %>
     <%= f.check_box :color_page %>
-  </div>
-
-  <div class="actions">
-    <%= f.button "저장하기", class: "btn btn-md btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+    <%= f.button "컬러면 저장하기", class: "btn btn-md btn-info", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
 <% end %>
 
