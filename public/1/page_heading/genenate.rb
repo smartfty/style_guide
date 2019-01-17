@@ -30,6 +30,23 @@ SECTIONS = [
 @date_1 = '0000년 0월 0일 0요일 (4200호)'
 @date = "0000년 0월 0일 0요일"
 
+def put_space_between_chars(string)
+  s = ""
+  i = 0
+  length = string.length
+  string.each_char do |ch|
+    if i >= length - 1
+      s += ch
+    elsif ch == " "
+      s += ch
+    else
+      s += ch + " "
+    end
+    i += 1
+  end
+  s
+end
+
 Dir.glob("#{File.dirname(__FILE__)}/**/layout.erb").each_with_index do |e, i|
   template_file = File.open(e, 'r').read
   if i == 0
@@ -39,6 +56,7 @@ Dir.glob("#{File.dirname(__FILE__)}/**/layout.erb").each_with_index do |e, i|
   end
   @page_number = e.split("/")[1].to_i
   @section_name = SECTIONS[@page_number - 1]
+  @section_name = put_space_between_chars(@section_name)
   erb = ERB.new(template_file)
   layout_rb = erb.result(binding)
   layout_path = File.expand_path(e.sub(".erb", '.rb'))

@@ -50,7 +50,7 @@
 
 # 1 in = 72 point; 1 point = 0.013888888888889 in
 # 1 px = 0.75 point; 1 point = 1.3333333333333 px
-PAGES_WITH_4_LINE_HEADING = [18,19,22,23]
+PAGES_WITH_4_LINE_HEADING = [22,23]
 
 class Publication < ApplicationRecord
   has_many :issues

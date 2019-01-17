@@ -249,6 +249,7 @@ namespace :style do
   task :update_section_layout =>:environment do
     puts "update section layout for all sections"
     Section.all.each do |section|
+      section.generate_ad_box_template_pdf
       section.update_section_layout
     end
   end

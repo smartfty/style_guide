@@ -92,9 +92,25 @@ class SectionHeading < ApplicationRecord
     EOF
   end
 
+  def put_space_between_chars(string)
+    s = ""
+    i = 0
+    length = string.length
+    string.each_char do |ch|
+      if i >= length - 1
+        s += ch
+      elsif ch == " "
+        s += ch
+      else
+        s += ch + " "
+      end
+      i += 1
+    end
+    s
+  end
+
   def self.front_page_content(page)
     page_number   = page.page_number
-    section_name  = page.section_name
     page_heading_width = page.page_heading_width
     page_heading_height = page.publication.front_page_heading_height_in_pt
     date                = page.korean_date_string
@@ -109,6 +125,7 @@ class SectionHeading < ApplicationRecord
   def even_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
+    section_name        = put_space_between_chars(page.section_name)
     date                = '0000년 0월 0일 0요일'
     even=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
@@ -125,7 +142,7 @@ class SectionHeading < ApplicationRecord
 
   def self.even_content(page)
     page_number         = page.page_number
-    section_name        = page.section_name
+    section_name        = put_space_between_chars(page.section_name)
     page_heading_width  = page.page_heading_width
     page_heading_height = page.heading_height_in_pt
     date                = page.korean_date_string
@@ -143,6 +160,7 @@ class SectionHeading < ApplicationRecord
   def odd_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
+    section_name        = put_space_between_chars(page.section_name)
     date                = '0000년 0월 0일 0요일'
     odd=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
@@ -159,7 +177,7 @@ class SectionHeading < ApplicationRecord
 
   def self.odd_content(page)
     page_number   = page.page_number
-    section_name  = page.section_name
+    section_name        = put_space_between_chars(page.section_name)
     page_heading_width  = page.publication.page_heading_width
     page_heading_height = page.heading_height_in_pt
     date                = page.korean_date_string
@@ -188,7 +206,7 @@ class SectionHeading < ApplicationRecord
 
   def self.layout_content(page)
     page_number = page.page_number
-    section_name = page.section_name
+    section_name  = put_space_between_chars(page.section_name)
     if page_number == 1
       return PageHeading.front_page_content(page)
     elsif page_number.even?
