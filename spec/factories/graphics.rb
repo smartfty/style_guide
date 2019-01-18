@@ -27,6 +27,7 @@
 #  zoom_direction        :integer
 #  move_level            :integer
 #  sub_grid_size         :string
+#  fit_type              :string
 #
 # Indexes
 #

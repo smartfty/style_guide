@@ -35,6 +35,11 @@
         </div>
 
         <div class="field">
+          <%= f.label :사진정렬 %>
+          <%= f.select :fit_type, %w[최적 가로 세로 우겨넣기], {include_blank: false} %>
+        </div>
+
+        <div class="field">
           <%= f.label :가로시작_단 %><%= f.text_field :x_grid, style: "width:35px", class: 'form-control' %>
           <%= f.label :세로시작_줄 %><%= f.text_field :y_in_lines, style: "width:35px", class: 'form-control' %>
         </div>

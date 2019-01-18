@@ -30,6 +30,7 @@
 #  move_level            :integer
 #  sub_grid_size         :string
 #  auto_size             :integer
+#  fit_type              :string
 #
 
 class Image < ApplicationRecord
@@ -80,6 +81,7 @@ class Image < ApplicationRecord
     h[:caption_title]     = RubyPants.new(caption_title).to_html if caption_title
     h[:caption]           = RubyPants.new(caption).to_html if caption
     h[:source]            = source if source
+    h[:fit_type]          = fit_type if fit_type
     h
   end
 
@@ -199,6 +201,7 @@ class Image < ApplicationRecord
       self.row                    = 2 unless row
       self.extra_height_in_lines  = 0
       self.position               = 3
+      self.fit_type               = '최적' #'상하', '좌우', '우겨넣기'
 
       if working_article_id
         wa = WorkingArticle.find(working_article_id)

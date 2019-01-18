@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_085430) do
+ActiveRecord::Schema.define(version: 2019_01_15_014626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_085430) do
     t.integer "zoom_direction"
     t.integer "move_level"
     t.string "sub_grid_size"
+    t.string "fit_type"
     t.index ["working_article_id"], name: "index_graphics_on_working_article_id"
   end
 
@@ -271,6 +272,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_085430) do
     t.integer "move_level"
     t.string "sub_grid_size"
     t.integer "auto_size"
+    t.string "fit_type"
   end
 
   create_table "issues", id: :serial, force: :cascade do |t|
