@@ -654,7 +654,7 @@ EOF
   elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent><!-- photobox -->
-  <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+  <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
   <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
 </TitleComponent>
 <ArticleComponent>
@@ -674,7 +674,7 @@ EOF
   elsif images.count > 0 
   three_component =<<EOF
   <TitleComponent><!-- images -->
-    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -695,7 +695,7 @@ EOF
   elsif graphics.count > 0 
   three_component =<<EOF
   <TitleComponent><!-- graphic -->
-    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -717,7 +717,7 @@ EOF
   else
   three_component =<<EOF
   <TitleComponent><!-- etc -->
-    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " <#{@boxed_subtitle}> " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
