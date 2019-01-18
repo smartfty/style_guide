@@ -11,7 +11,7 @@
           <th style="text-align:center;"> 순서</th>
           <th style="text-align:center;">기자</th>
           <th style="text-align:center;">제목</th>
-          <th colspan="1"></th>
+          <th style="text-align:center;">기사배정</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@
             <td style="text-align:center;"><%= working_article.order %></td>
             <td style="text-align:center;"><%= working_article.reporter %></td>
             <td><%= working_article.title %></td>
-            <td><%= button_to '설정', change_story_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
+            <td><%= button_to '기사배정', change_story_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
           </tr>
         <% end %>
       </tbody>
@@ -42,7 +42,6 @@
           <th>순서</th>
           <th>기자</th>
           <th>제목</th>
-          <th colspan="3"></th>
         </tr>
       </thead>
 

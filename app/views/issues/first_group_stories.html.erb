@@ -7,7 +7,8 @@
           <th>페이지</th>
           <th style="text-align:center;">기자</th>
           <th style="text-align:center;">제목</th>
-          <th style="text-align:center;"> 기사번호</th>
+          <th style="text-align:center;">기사번호</th>
+          <th style="text-align:center;">기사배정</th>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +18,7 @@
             <td><%= working_article.reporter %></td>
             <td><%= working_article.title %></td>
             <td style="text-align:center;"><%= working_article.order %></td>
-            <td><%= button_to '설정', change_story_working_article_path(working_article), method: :get, class: "btn btn-primary" %></td>
+            <td style="text-align:center;"><%= button_to '기사배정', change_story_working_article_path(working_article), method: :get, class: "btn btn-primary" %></td>
           </tr>
         <% end %>
       </tbody>
