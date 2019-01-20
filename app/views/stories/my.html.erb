@@ -3,7 +3,7 @@
 <div align="center">
 <h3>나의기사</h3>
 
-<table border="1">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>날짜</th>
@@ -19,7 +19,7 @@
       <% if story.selected%>
         <tr style="background-color:LightGreen;">
       <% else story.selected%>
-        <tr style="background-color: #dddddd">
+      <tr>
       <% end %>
         <td><%= story.date %></td>
         <td><%= story.title %></td>

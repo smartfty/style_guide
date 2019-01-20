@@ -44,12 +44,9 @@ align: "center"%> </div> -->
 
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
 <nav class="navbar navbar-default navbar-fixed-top2">
-<ul class="nav navbar-nav2 float-frame">
-  <li class="float-unit">
-    <%= link_to '새로운 저자등록', new_announcement_path , method: :get, class: "btn btn-md btn-primary" %>
-  </li>
-  <li class="float-unit">
-    <%= link_to "다운로드 CSV", announcements_path(format: "csv"), method: :get, class: "btn-group btn btn-md btn-warning" %>
-  </li>
-</ul>
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-primary"><%= link_to "새로운 안내문 등록", new_announcement_path, method: :get %></button>
+    <button type="button" class="btn btn-warning"><%= link_to "다운로드 CSV", announcements_path(format: "csv"), method: :get %>
+    </button>
+  <div>
 </nav>

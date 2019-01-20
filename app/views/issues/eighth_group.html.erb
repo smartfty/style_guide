@@ -1,7 +1,11 @@
+<nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group" role="group" aria-label="기능">
+    <button class="btn btn-primary"><%= @issue.date.to_s %>(<%= @issue.number %>)</button>
+  <div>
+</nav>
 
-<button class="btn-danger large"><%= @issue.date.to_s %> (<%= @issue.number %>)</button>
 <div class="row">
-  <% @pages.each.each do |page| %>
+  <% @pages.each do |page| %>
     <div class = "col-xs-6 col-md-4"  align='center'>
     <a href="<%=  page_path(page) %>"><img  src="<%= page.jpg_image_path %>" width="100%"></img></a>
     <h4 align='center'><a href='<%= page_path(page)%>'><%= page.page_number %></a></h4>

@@ -87,14 +87,30 @@ class SectionHeading < ApplicationRecord
     first_page=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{publication.front_page_heading_height_in_pt}, layout_direction: 'horinoztal') do
       image(local_image: '1.pdf', width: #{page_heading_width}, height: 110)
-      text('2017년 5월 11일 목요일 (4200호)', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
+      text('0000년 0월 0일 0요일 (4200호)', x: 886.00, y: #{114.7549 - 20.0}, width: 200, height: 12, font: 'YDVYGOStd12', font_size: 9.5, text_alignment: 'left')
     end
     EOF
   end
 
+  def put_space_between_chars(string)
+    s = ""
+    i = 0
+    length = string.length
+    string.each_char do |ch|
+      if i >= length - 1
+        s += ch
+      elsif ch == " "
+        s += ch
+      else
+        s += ch + " "
+      end
+      i += 1
+    end
+    s
+  end
+
   def self.front_page_content(page)
     page_number   = page.page_number
-    section_name  = page.section_name
     page_heading_width = page.page_heading_width
     page_heading_height = page.publication.front_page_heading_height_in_pt
     date                = page.korean_date_string
@@ -109,7 +125,8 @@ class SectionHeading < ApplicationRecord
   def even_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    section_name        = put_space_between_chars(page.section_name)
+    date                = '0000년 0월 0일 0요일'
     even=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
       text('#{section_name}', x: 464.0 , y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
@@ -125,7 +142,7 @@ class SectionHeading < ApplicationRecord
 
   def self.even_content(page)
     page_number         = page.page_number
-    section_name        = page.section_name
+    section_name        = put_space_between_chars(page.section_name)
     page_heading_width  = page.page_heading_width
     page_heading_height = page.heading_height_in_pt
     date                = page.korean_date_string
@@ -143,7 +160,8 @@ class SectionHeading < ApplicationRecord
   def odd_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
-    date                = '2017년 5월 11일 목요일'
+    section_name        = put_space_between_chars(page.section_name)
+    date                = '0000년 0월 0일 0요일'
     odd=<<~EOF
     RLayout::Container.new(width: #{page_heading_width}, height: #{page_heading_height}, layout_direction: 'horinoztal') do
       text('#{section_name}', x: 464.0, y: 1, width: 100, font: 'YDVYMjOStd14',  font_size: 20, text_color: "CMYK=0,0,0,100", text_alignment: 'center')
@@ -159,7 +177,7 @@ class SectionHeading < ApplicationRecord
 
   def self.odd_content(page)
     page_number   = page.page_number
-    section_name  = page.section_name
+    section_name        = put_space_between_chars(page.section_name)
     page_heading_width  = page.publication.page_heading_width
     page_heading_height = page.heading_height_in_pt
     date                = page.korean_date_string
@@ -188,7 +206,7 @@ class SectionHeading < ApplicationRecord
 
   def self.layout_content(page)
     page_number = page.page_number
-    section_name = page.section_name
+    section_name  = put_space_between_chars(page.section_name)
     if page_number == 1
       return PageHeading.front_page_content(page)
     elsif page_number.even?

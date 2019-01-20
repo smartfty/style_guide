@@ -1,5 +1,5 @@
 class AdBoxesController < ApplicationController
-  before_action :set_ad_box, only: [:show, :edit, :update, :destroy, :upload_ad_image]
+  before_action :set_ad_box, only: [:show, :edit, :update, :destroy, :upload_ad_image, :download_pdf]
 
   # GET /ad_boxes
   # GET /ad_boxes.json
@@ -73,6 +73,10 @@ class AdBoxesController < ApplicationController
        end
      end
     redirect_to @ad_box
+  end
+
+  def download_pdf
+    send_file @ad_box.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
   private

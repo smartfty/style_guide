@@ -61,7 +61,7 @@ quote:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 13.0
+  font_size: 12.0
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.6
@@ -219,7 +219,7 @@ linked_story:
   scale: 100.0
   text_line_spacing:
   space_before_in_lines: 0
-  space_after_in_lines: 
+  space_after_in_lines:
   text_height_in_lines:
   box_attributes: ''
   markup: ''
@@ -250,7 +250,7 @@ reporter_editorial:
         - 1
         - 0
         - 0
-      top_line_space: 3
+      top_line_space: 5
   publication_id: 1
 title_main:
   korean_name: 제목_메인
@@ -271,6 +271,23 @@ title_main:
   markup: ''
   graphic_attributes: ''
   publication_id: 1
+  # category:
+  # font_family: KoPub바탕체_Pro Medium
+  # font: KoPubBatangPM
+  # font_size: 23.0
+  # text_color: CMYK=0,0,0,100
+  # alignment: left
+  # tracking: -1.0
+  # space_width: 4.0
+  # scale: 100.0
+  # text_line_spacing: 7
+  # space_before_in_lines: 1
+  # space_after_in_lines: 1
+  # text_height_in_lines: 3
+  # box_attributes: ''
+  # markup: ''
+  # graphic_attributes: ''
+  # publication_id: 1
 title_4_5:
   korean_name: 제목_4-5단
   category:
@@ -318,7 +335,7 @@ title_3:
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
-  space_width: 4.0
+  space_width: 5.0
   scale: 100.0
   text_line_spacing: 5
   space_before_in_lines: 1
@@ -393,7 +410,7 @@ subtitle_M:
   font_size: 14.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1.0
+  tracking: -0.5
   space_width: 5.0
   scale: 100.0
   text_line_spacing: 5.0
@@ -412,7 +429,7 @@ subtitle_S:
   font_size: 13.5
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1.0
+  tracking: -0.5
   space_width: 4.0
   scale: 100.0
   text_line_spacing: 6
@@ -431,7 +448,7 @@ subtitle_s_gothic:
   font_size: 12.0
   text_color: CMYK=0,0,0,100
   alignment: center
-  tracking: -1.0
+  tracking: -0.5
   space_width: 4.0
   scale: 100.0
   text_line_spacing: 6.0
@@ -561,7 +578,7 @@ subject_head_editorial:
   category:
   font_family: KoPub돋움체_Pro Bold
   font: KoPubDotumPB
-  font_size: 12.0 
+  font_size: 12.0
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0

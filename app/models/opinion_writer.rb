@@ -123,6 +123,29 @@ EOF
     File.open(layout_path, 'w'){|f| f.write layout_rb}
   end
 
+  def stamp_time
+    t = Time.now
+    h = t.hour
+    @time_stamp = "_t_#{t.day.to_s.rjust(2,'0')}#{t.hour.to_s.rjust(2,'0')}#{t.min.to_s.rjust(2,'0')}#{t.sec.to_s.rjust(2,'0')}"
+  end
+
+  def delete_old_files
+    old_pdf_files = Dir.glob("#{path}/#{name}_t_*.pdf")
+    old_jpg_files = Dir.glob("#{path}/#{name}-t-*.jpg")
+    old_pdf_files += old_jpg_files
+    old_pdf_files.each do |old|
+      system("rm #{old}")
+    end
+  end
+
+  def generate_pdf_with_time_stamp
+    save_layout
+    delete_old_files
+    stamp_time
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article .  -time_stamp=#{@time_stamp}"
+  end
+
+
   def generate_pdf
     save_layout
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman rjob #{name}.rb -jpg"

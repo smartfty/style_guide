@@ -100,9 +100,9 @@ class Section < ApplicationRecord
 
   def korean_date_string
     if page_number == 1
-      "2017년 5월 11일 목요일 (4200호)"
+      "0000년 0월 0일 0요일 (4200호)"
     else
-      "2017년 5월 11일 목요일"
+      "0000년 0월 0일 0요일"
     end
   end
 
@@ -568,7 +568,7 @@ class Section < ApplicationRecord
     if page_number == 1 || is_front_page == true
       self.is_front_page                    = true
       self.page_heading_margin_in_lines     = publication.front_page_heading_margin
-    elsif PAGES_WITH_4_LINE_HEADING.include?(page_number) #[18,19,22,23]
+    elsif PAGES_WITH_4_LINE_HEADING.include?(page_number) #[22,23]
       self.page_heading_margin_in_lines     = 4
     else
       self.is_front_page  = false

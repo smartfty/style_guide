@@ -46,7 +46,7 @@ class HeadingAdImage < ApplicationRecord
   def update_page_heading
     puts __method__
     page_heading_path  = Issue.last.pages.first.page_heading.path
-    system "cd #{page_heading_path} && /Applications/newsman.app/Contents/MacOS/newsman rjob ."
+    system "cd #{page_heading_path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
 
     first_page = Issue.last.pages.first
     first_page.generate_pdf_with_time_stamp

@@ -64,7 +64,7 @@ class AdBox < ApplicationRecord
 
   def pdf_image_path
     # "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
-    "/1/issue/#{date}/#{page_number}/ad/#{latest_jpg_basename}"
+    "/1/issue/#{date}/#{page_number}/ad/#{latest_pdf_basename}"
   end
 
   def jpg_image_path
@@ -212,7 +212,7 @@ class AdBox < ApplicationRecord
   end
 
   def box_svg
-    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
+    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='red' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
   end
 
   def section_name_code
