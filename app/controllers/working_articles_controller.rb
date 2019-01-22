@@ -100,8 +100,8 @@ class WorkingArticlesController < ApplicationController
 
   def change_story
     #todo
-    # @stories = Story.where(group: , date: date)
-    @stories = Story.where(summitted_section: @working_article.page.section_name)
+    # @stories = Story.where(group: , date: date) name: :desc
+    @stories = Story.where(summitted_section: @working_article.page.section_name).order(selected: 'asc')
   end
 
   def update_story
@@ -218,12 +218,20 @@ class WorkingArticlesController < ApplicationController
     #code
   end
 
+  def add_empty_image
+
+  end
+
   def upload_images
     respond_to do |format|
       format.html do
-         params[:images]['image'].each do |a|
-           @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
-         end
+        if  params[:images]
+          params[:images]['image'].each do |a|
+            @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
+          end
+        else
+          @image = @working_article.images.create!(:working_article_id => @working_article.id)
+        end
        end
      end
     @image.working_article.generate_pdf_with_time_stamp

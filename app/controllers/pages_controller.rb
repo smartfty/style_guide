@@ -14,7 +14,9 @@ class PagesController < ApplicationController
     @ad_boxes         = @page.ad_boxes
     @page_templates   = Section.where(ad_type:@page.ad_type, page_number: @page.page_number)
     if @page.page_number != 1
-      if @page.page_number.even? && 
+      if @page.page_number == 22 || @page.page_number == 23
+        # do not add any
+      elsif @page.page_number.even? && 
         @page_templates   += Section.where(ad_type:@page.ad_type, page_number: 100)
       else @page.page_number.odd?
         @page_templates   += Section.where(ad_type:@page.ad_type, page_number: 101)
@@ -40,7 +42,6 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
-
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }

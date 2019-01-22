@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :stories do
     member do
       get 'assign_position'
+      get 'un_assign_position'
     end
     collection do 
       get 'my'
@@ -76,7 +77,6 @@ Rails.application.routes.draw do
   resources :ad_boxes do
     member do
       patch 'upload_ad_image'
-      get 'download_pdf'
     end
 
   end
@@ -240,6 +240,9 @@ Rails.application.routes.draw do
   end
 
   resources :images do
+    member do
+      get 'crop'
+    end
     collection do
       get 'current'
       get 'place_all'

@@ -42,6 +42,7 @@
           <th>기자</th>
           <th>제목</th>
           <th>선택</th>
+          <th>선택 해제</th>
         </tr>
       </thead>
 
@@ -54,6 +55,7 @@
               <td><%= story.reporter %></td>
               <td><%= story.title %></td>
               <td><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
+              <td><%= link_to "해제", un_assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-danger") %></td>
             </tr>
           <% else %>
             <tr style="color:red;">

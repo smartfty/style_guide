@@ -2,7 +2,7 @@ module ArticleSwapable
   extend ActiveSupport::Concern
 
   def swapable_attributes
-    atts = attributes
+    atts = attributes.dup
     atts.delete('id')
     atts.delete('create_at')
     atts.delete('updated_at')
@@ -44,56 +44,68 @@ module ArticleSwapable
 
   # swap with first sibling
   def swap
+    # binding.pry
     return unless siblings.length == 1
+
+    self_attributes        = swapable_attributes
+    self_images            = images
+    self_graphics          = graphics
+
     target = siblings.first
     target_attributes      = target.swapable_attributes
     target_images          = target.images
     target_graphics        = target.graphics
-    target.swap_with(self)
-    swap_with(target)
-    target_images.each do |image|
-      image.working_article_id = id
+    self_images.each do |image|
+      image.working_article_id = target.id
+      image.save
     end
-    target_graphics.each do |graphic|
-      graphic.working_article_id = id
+    self_graphics.each do |graphic|
+      graphic.working_article_id = target.id
+      graphic.save
     end
-    generate_pdf_with_time_stamp
-    update_page_pdf
-  end
+    target.update(self_attributes)
+    target.save
+    target.generate_pdf_with_time_stamp
 
-  def swap_with_article_at_order(order)
-    target = page.working_articles[order - 1]
-    return unless target
-    target_attributes      = target.swapable_attributes
-    target_images          = target.images
-    target_graphics        = target.graphics
-    target.swap_with(self)
-    swap_with(temp)
     target_images.each do |image|
-      image.working_article_id = id
-    end
-    target_graphics.each do |graphic|
-      graphic.working_article_id = id
-    end
-    generate_pdf_with_time_stamp
-    update_page_pdf
-  end
-
-  def swap_with(changing_article)
-    changing_attributes         = changing_article.swapable_attributes
-    changing_article_images     = changing_article.images
-    changing_article_graphics   = changing_article.graphics
-    self.update(changing_attributes)
-    self.save
-    changing_article_images.each do |image|
       image.working_article_id = id
       image.save
     end
-    changing_article_graphics.each do |graphic|
+    target_graphics.each do |graphic|
       graphic.working_article_id = id
       graphic.save
     end
+
+    self.update(target_attributes)
+    self.save
     generate_pdf_with_time_stamp
+    page.generate_pdf_with_time_stamp
   end
+
+  # def swap_with(changing_attributes)
+  #   puts "++++++++++ in swap_with"
+  #   self.update(changing_attributes)
+  #   self.save
+  #   generate_pdf_with_time_stamp
+  # end
+
+
+  # def swap_with_article_at_order(order)
+  #   target = page.working_articles[order - 1]
+  #   return unless target
+  #   target_attributes      = target.swapable_attributes
+  #   target_images          = target.images
+  #   target_graphics        = target.graphics
+  #   target.swap_with(self)
+  #   swap_with(temp)
+  #   target_images.each do |image|
+  #     image.working_article_id = id
+  #   end
+  #   target_graphics.each do |graphic|
+  #     graphic.working_article_id = id
+  #   end
+  #   generate_pdf_with_time_stamp
+  #   update_page_pdf
+  # end
 
 end

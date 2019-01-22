@@ -39,14 +39,12 @@
     <ul class="dropdown-menu" role="menu">
       <% if @working_article.kind == '사설' || @working_article.kind == '기고'%>
       <% else %>
-        <li> <%= link_to "내용에 맞추어 크기조절", image_auto_working_article_path(@working_article) %></li>
-        <li class="divider"></li>
+
         <li> <%= link_to "2x2", image_2x2_working_article_path(@working_article) %></li>
         <li> <%= link_to "3x3", image_3x3_working_article_path(@working_article) %></li>
         <li> <%= link_to "1x1", image_1x1_working_article_path(@working_article) %></li>
         <li> <%= link_to "4x4", image_4x4_working_article_path(@working_article) %></li>
-        <li class="divider"></li>
-        <li> <%= link_to "사진정보 수정", edit_image_path(@working_article) %></li>
+
 
       <% end %>    </ul>
   </li>

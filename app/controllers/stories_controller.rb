@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy, :assign_position]
+  before_action :set_story, only: [:show, :edit, :update, :destroy, :assign_position, :un_assign_position]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token  
   # before_action :require_user # require_user will set the current_user in controllers
@@ -111,6 +111,41 @@ class StoriesController < ApplicationController
         redirect_to nineth_group_stories_issue_path(Issue.last)
       end
   end
+
+  def un_assign_position
+    wa = WorkingArticle.find(params[:box])
+    if wa
+      @story.working_article_id = nil
+      @story.order = nil
+      @story.selected = false
+      @story.save
+      # wa.update_story_content(@story)
+    end
+    case session[:current_story_group]
+      when 'first_group'
+        redirect_to first_group_stories_issue_path(Issue.last)
+      when 'second_group'
+        redirect_to second_group_stories_issue_path(Issue.last)
+      when 'third_group'
+        redirect_to third_group_stories_issue_path(Issue.last)
+      when 'fourth_group'
+        redirect_to fourth_group_stories_issue_path(Issue.last)
+      when 'fifth_group'
+        redirect_to fifth_group_stories_issue_path(Issue.last)
+      when 'sixth_group'
+        redirect_to sixth_group_stories_issue_path(Issue.last)
+      when 'seventh_group'
+        redirect_to seventh_group_stories_issue_path(Issue.last)
+      when 'seventh_group'
+        redirect_to seventh_group_stories_issue_path(Issue.last)
+      when 'eighth_group'
+        redirect_to eighth_group_stories_issue_path(Issue.last)
+      when 'nineth_group'
+        redirect_to nineth_group_stories_issue_path(Issue.last)
+      end
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

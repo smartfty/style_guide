@@ -20,6 +20,27 @@
   - body
     - fit_text
 
+2019-1-23
+
+  - update page pdf, when story is assigned
+  - when line number is expanded, 
+    working_article pdf doen't get updated even page pdf is updated
+
+
+2019-1-22
+
+  - empty image box with no uploaded image
+  - replace uploaded image with another one
+  - crop image
+  - image fit_type
+
+  - fix caption title
+  - fix swap story error
+  - story_asign unasign_story
+
+2019-1-17
+  - when page_plan section_name is changed, update page section_name, generate_pdf for page_heding
+  
 2019-1-15
   - image fit_type
   - image cropping
