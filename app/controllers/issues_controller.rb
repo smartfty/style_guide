@@ -252,6 +252,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[0]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'first_group'
   end
 
@@ -267,6 +268,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[2]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'third_group'
 
   end
@@ -275,6 +277,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[3]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'fourth_group'
   end
 
@@ -282,6 +285,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[4]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'fifth_group'
   end
 
@@ -289,6 +293,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[5]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'sixth_group'
   end
 
@@ -296,6 +301,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[6]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'seventh_group'
   end
   
@@ -303,6 +309,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[7]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'eighth_group'
   end
   
@@ -310,6 +317,7 @@ class IssuesController < ApplicationController
     set_issue
     group = @issue.publication.sections[8]
     @pages = @issue.pages.select{|p| p.section_name == group}
+    @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'nineth_group'
   end
 
