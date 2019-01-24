@@ -92,7 +92,7 @@ class SectionsController < ApplicationController
 
   def regenerate_pdf
     @section.regenerate_pdf
-    redirect_to @section, notice: '저장된 다락 스타일을 사용한 페이지가 성공적으로 생성 되었습니다.'
+    redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
   end
 
 

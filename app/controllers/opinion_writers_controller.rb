@@ -40,7 +40,7 @@ class OpinionWritersController < ApplicationController
     respond_to do |format|
       if @opinion_writer.save
         @opinion_writer.generate_pdf
-        format.html { redirect_to @opinion_writer, notice: 'Opinion writer was successfully created.' }
+        format.html { redirect_to @opinion_writer, notice: '오피니언 저자가 생성 되었습니다.' }
         format.json { render :show, status: :created, location: @opinion_writer }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class OpinionWritersController < ApplicationController
     respond_to do |format|
       if @opinion_writer.update(opinion_writer_params)
         @opinion_writer.generate_pdf
-        format.html { redirect_to @opinion_writer, notice: '오피니언 저자 수정 되었습니다.' }
+        format.html { redirect_to @opinion_writer, notice: '오피니언 저자가 수정 되었습니다.' }
         format.json { render :show, status: :ok, location: @opinion_writer }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class OpinionWritersController < ApplicationController
   def destroy
     @opinion_writer.destroy
     respond_to do |format|
-      format.html { redirect_to opinion_writers_url, notice: 'Opinion writer was successfully destroyed.' }
+      format.html { redirect_to opinion_writers_url, notice: '오피니언 저자가 삭제 되었습니다.' }
       format.json { head :no_content }
     end
   end

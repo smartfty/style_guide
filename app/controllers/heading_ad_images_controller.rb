@@ -29,7 +29,7 @@ class HeadingAdImagesController < ApplicationController
     respond_to do |format|
       if @heading_ad_image.save
         @heading_ad_image.update_page_heading
-        format.html { redirect_to first_group_issue_path(Issue.last), notice: '당일 돌출광고가 적용 되었습니다.' }
+        format.html { redirect_to first_group_issue_path(Issue.last), notice: '당일 돌출광고가 적용되었습니다.' }
         format.json { render :show, status: :created, location: @heading_ad_image }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class HeadingAdImagesController < ApplicationController
     respond_to do |format|
       if @heading_ad_image.update(heading_ad_image_params)
         @heading_ad_image.update_page_heading
-        format.html { redirect_to @heading_ad_image, notice: 'Heading ad image was successfully updated.' }
+        format.html { redirect_to @heading_ad_image, notice: '돌출광고가 수정되었습니다.' }
         format.json { render :show, status: :ok, location: @heading_ad_image }
       else
         format.html { render :edit }
@@ -58,14 +58,14 @@ class HeadingAdImagesController < ApplicationController
   def destroy
     @heading_ad_image.destroy
     respond_to do |format|
-      format.html { redirect_to heading_ad_images_url, notice: 'Heading ad image was successfully destroyed.' }
+      format.html { redirect_to heading_ad_images_url, notice: '동출광고가 삭제되었습니다.' }
       format.json { head :no_content }
     end
   end
 
   def today
     @heading_ad_image.place_ad_for_today
-    redirect_to @heading_ad_image, notice: "1면 돌출광고에 설정 되었슴니다"
+    redirect_to @heading_ad_image, notice: "오늘 돌출광고에 설정되었슴니다"
   end
 
   private

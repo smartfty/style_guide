@@ -77,7 +77,8 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="btn-group" role="group" aria-label="전송">
   <button type="button" class="btn btn-danger"><%= link_to "템플릿 변경", "#{page_path(@page)}#template" %></button>
-  <button type="button" class="btn btn-primary"><%= link_to "저장된 단락 스타일로 페이지 재생성", regenerate_pdf_page_path(@page), method: :get %></button>
+  <!-- 섹션 템플릿 저장된 상태로 초기화 되는 기능이 필요한데.. 박스 크기 조절 한게 그대로 있어 일단 주석처리했습니다 -->
+  <!-- button type="button" class="btn btn-primary"><%= link_to "페이지 복원", regenerate_pdf_page_path(@page), method: :get %></button-->
   <button type="button" class="btn btn-success"><%= link_to "기사 배정", assign_stories_page_path(@page), method: :get %></button>
   <div>
 </nav>

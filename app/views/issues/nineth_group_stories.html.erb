@@ -1,18 +1,18 @@
 <div align="center">
-<% @pages.each do |page| %>
 
-<h3><%= "#{page.section_name}" %></h3>
-<div class='row'>
-  <div class='col-xs-12 col-md-7'>
-      <div class='col-xs-12 col-md-3'>
+<h3>오피니언</h3>
+<% @pages.each do |page| %>
+  <div class='col-xs-12 col-md-12'>
+  <button type="button" class="btn btn-success"><%= link_to "#{page.page_number}면 기사 리스트" %></button>
+
+      <div class='col-xs-12 col-md-4'>
         <div class='col-xs-9 col-md-9'>
-        <%= raw page.to_svg_with_jpg %>
+        <%= raw page.to_story_svg %>
         <h4 align='center'><a href='<%= page_path(page)%>'><%= "#{page.page_number}" %></a></h4>
 
         </div>
       </div>
       <div class='col-xs-9 col-md-8 table_h300'>
-      <button type="button" class="btn btn-success"><%= link_to "#{page.page_number}면 기사 리스트", opinion_writers_path, method: :get %></button>
       <table class="table table-striped">
       <thead>
         <tr>
@@ -26,7 +26,7 @@
       <tbody>
         <% page.working_articles.sort_by{|a| a.order}.each do |working_article| %>
           <% if working_article.story %>
-          <tr style="background-color:LightGreen;">
+          <tr style="background-color:skyblue;">
           <% else  %>
           <tr>
           <% end  %>
@@ -41,48 +41,6 @@
     </table>
     </div>
 
-  </div>
-  <button type="button" class="btn btn-info"><%= link_to "#{page.section_name}면으로 출고된 기사 리스트", opinion_writers_path, method: :get %></button>
 
-  <div class='col-md-5'>
-
-     <table class="table table-striped">
-      <thead>
-        <tr>
-          <th style="text-align:center;">페이지</th>
-          <th style="text-align:center;">순서</th>
-          <th style="text-align:center;">기자</th>
-          <th>제목</th>
-          <th style="text-align:center;">글자수</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @stories.each do |story| %> 
-          <% if story.selected%>
-            <tr style="color:Green;">
-              <td style="text-align:center;"><%= story.working_article.page.page_number if story.working_article %></td>
-              <td style="text-align:center;"><%= story.working_article.order if story.working_article %></td>
-              <td style="text-align:center;"><%= story.reporter %></td>
-              <td><%= story.title %></td>
-              <td style="text-align:center;"><%= story.char_count %></td>
-            </tr>
-          <% else %>
-            <tr style="color:red;">
-              <td><%= story.working_article.page.page_number if story.working_article %></td>
-              <td><%= story.working_article.order if story.working_article %></td>
-              <td><%= story.reporter %></td>
-              <td><%= story.title %></td>
-              <td style="text-align:center;"><%= story.char_count %></td>
-            </tr>
-         <% end %>
-
-          
-        <% end %>
-      </tbody>
-    </table>
-
-  </div>
-</div>
 <% end %>
 
