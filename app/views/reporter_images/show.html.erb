@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reporter_image.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @reporter_image.title %>
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @reporter_image.caption %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @reporter_image.source %>
+</p>
+
+<p>
+  <strong>Reporter image:</strong>
+  <%= @reporter_image.reporter_image %>
+</p>
+
+<%= link_to 'Edit', edit_reporter_image_path(@reporter_image) %> |
+<%= link_to 'Back', reporter_images_path %>

@@ -12,6 +12,7 @@ class ImageCrop
   constructor: ->
     width = parseInt($('#cropbox').width())
     height = parseInt($('#cropbox').height())
+    # console.log(width, height)
     $('#cropbox').Jcrop
       aspectRatio: 2
       setSelect: [0, 0, width, height]

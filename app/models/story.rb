@@ -25,6 +25,8 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  summitted_section  :string
+#  category_code      :string
+#  price              :float
 #
 # Indexes
 #
