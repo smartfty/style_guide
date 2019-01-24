@@ -34,13 +34,23 @@
 #
 
 class Image < ApplicationRecord
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
   belongs_to :issue, optional: true
   belongs_to :working_article, optional: true
   mount_uploader :image, ImageUploader
   before_create  :set_default
 
   def image_path
-    "#{Rails.root}/public" + image.url if image
+    if image.url
+     "#{Rails.root}/public" + image.url
+    else
+     "#{Rails.root}/public" + "/place_holder_image.jpg"
+    end
+  end
+
+  def empty_image_url
+    "/place_holder_image.jpg"
   end
 
   def size_string
@@ -86,6 +96,7 @@ class Image < ApplicationRecord
   end
 
   # set current_article_id, if page_number and story_number is given
+  # why do we have to call this?
   def update_change
     return unless page_number
     return unless story_number

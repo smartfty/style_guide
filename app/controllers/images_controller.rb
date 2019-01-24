@@ -51,17 +51,25 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
-        @image.update_change
+        if image_params['crop_x']
+          # binding.pry
+        end
+        # @image.update_change
+        if @image.working_article_id
+          @image.working_article.generate_pdf_with_time_stamp
+          @image.working_article.page.generate_pdf_with_time_stamp
+          # redirect_to working_article_path(@image.working_article_id), notice: '이미지 정보가 수정되었습니다.'
+        end
         format.html do
           if @image.working_article_id
-            @image.working_article.generate_pdf_with_time_stamp
-            @image.working_article.page.generate_pdf_with_time_stamp
             redirect_to working_article_path(@image.working_article_id), notice: '이미지 정보가 수정되었습니다.'
           else
             redirect_to images_issue_path(@image.issue_id), notice: '이미지 정보가 수정되었습니다.'
           end
         end
-        format.json { render :show, status: :ok, location: @image }
+        format.json do
+          render :show, status: :ok, location: @image
+        end
       else
         format.html { render :edit }
         format.json { render json: @image.errors, status: :unprocessable_entity }
@@ -84,6 +92,11 @@ class ImagesController < ApplicationController
     end
   end
 
+  def crop
+    set_image
+    render :crop
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image
@@ -92,6 +105,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id, :fit_type)
+      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id, :fit_type, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

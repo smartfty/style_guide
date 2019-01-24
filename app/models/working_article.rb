@@ -197,6 +197,7 @@ class WorkingArticle < ApplicationRecord
     delete_old_files
     stamp_time
     generate_pdf_with_time_stamp
+    page.generate_pdf_with_time_stamp
   end
 
   def save_article
@@ -567,6 +568,8 @@ class WorkingArticle < ApplicationRecord
   end
 
   def image_options
+    puts "iamge id:#{id}"
+    puts "working_article_id:#{working_article_id}"
     if images.first
       images.first.iamge_layout_hash
     else
@@ -722,7 +725,8 @@ class WorkingArticle < ApplicationRecord
     h = layout_options
     if kind == '사진'
       content = "RLayout::NewsImageBox.new(#{h}) do\n"
-      if image_hash = image_options
+      if images.length > 0
+        image_hash = image_options
         image_hash[:fit_type] = 3 # keep ratio
         image_hash[:expand] = [:width, :height]
         puts "image_hash:#{image_hash}"
@@ -779,7 +783,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def story_svg
@@ -986,19 +990,22 @@ class WorkingArticle < ApplicationRecord
   end
 
   def create_image_place_holder(column, row)
-    image_place_holder = {}
-    place_holder[:url] = "/place_holder_image.pdf"
-    place_holder[:column] = column
-    place_holder[:row]    = row
-    # place_holder = Image.where(working_article_id: id, place_holder: place_holder, column: column, row: row, position:3).first_or_create
+    image_hash                      = {}
+    image_hash[:working_article_id] = id
+    image_hash[:column]             = column
+    image_hash[:row]                = row
+    image_hash[:position]           = 3
+    place_holder = Image.where(image_hash).first_or_create
     return true if place_holder
   end
 
   def create_place_holder_graphic(column, row)
-    place_holder= "/place_holder_image.pdf"
-    # place_holder = Graphic.where(working_article_id: id, place_holder: place_holder, column: column, row: row, position:3).first_or_create
-    # place_holder.image = GraphicUploader.new
-    # place_holder.image.url = "/place_holder_image.pdf"
+    image_hash                      = {}
+    image_hash[:working_article_id] = id
+    image_hash[:column]             = column
+    image_hash[:row]                = row
+    image_hash[:position]           = 3
+    place_holder = Graphic.where(image_hash).first_or_create
     return true if place_holder
   end
 
@@ -1038,8 +1045,8 @@ class WorkingArticle < ApplicationRecord
     end
     self.title          = "#{order}번 제목은 여기에 여기는 제목"
     self.subtitle       = '부제는 여기에 여기는 부제목 자리'
-    self.reporter       = ''
-    self.email          = ''
+    self.reporter       = '홍길동'
+    self.email          = 'gdhong@gmail.com'
     self.body =<<~EOF
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.

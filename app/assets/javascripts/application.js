@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require datatables
 //= require bootstrap-sprockets
+//= require jcrop
 //= require moment
 //= require_tree .

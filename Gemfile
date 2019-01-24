@@ -81,7 +81,6 @@ gem "browser"
 gem 'faker'
 gem 'ransack'
 gem 'whenever'
-gem 'sidekiq'
 gem 'hexapdf'
 
 gem 'momentjs-rails', '>= 2.9.0'
@@ -109,9 +108,9 @@ gem 'bullet', group: 'development'
 gem 'rails-assets-trix', source: 'https://rails-assets.org'
 gem 'jquery-datatables'
 gem 'ajax-datatables-rails'
-# gem 'celluloid'
 
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
 
 gem 'ancestry'
-# gem 'bootstrap', '~> 4.2.1'
+gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
+gem 'sidekiq', '< 6'

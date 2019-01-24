@@ -11,7 +11,7 @@ section_names = [
   '국제통일',
   '전면광고',
   '금융',
-  '금융',
+  '전면광고',
   '금융',
   '금융',
   '산업',
@@ -58,10 +58,8 @@ p.copy_text_style_to_shared_location
 issue_date = Date.new(2017,5,30)
 # create ad_bookins for 5 days
 ad_date = issue_date
-ad_list_path = "#{Rails.root}/public/1/defalut_ad_list.rb"
-ad_list = File.open(ad_list_path, "r"){|f| f.read}
 5.times do
-  AdBooking.where(publication: p, date: ad_date, ad_list: ad_list).first_or_create
+  AdBooking.where(publication: p, date: ad_date).first_or_create
   ad_date = ad_date + 1.days
 end
 section_names.each_with_index do |section_name, i|

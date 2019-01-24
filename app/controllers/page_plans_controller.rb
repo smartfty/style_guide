@@ -47,8 +47,10 @@ class PagePlansController < ApplicationController
   # PATCH/PUT /page_plans/1.json
   def update
     respond_to do |format|
-      current_ad_type = @page_plan.ad_type
-      current_advertiser = @page_plan.advertiser
+      current_ad_type       = @page_plan.ad_type
+      current_advertiser    = @page_plan.advertiser
+      current_section_name  = @page_plan.section_name
+      
       if @page_plan.update(page_plan_params)
         @page_plan.set_pair_page_color
         new_ad_type = @page_plan.ad_type
@@ -75,17 +77,25 @@ class PagePlansController < ApplicationController
           end
         end
         new_advertiser = @page_plan.advertiser
-        if current_advertiser != new_advertiser
+        if new_advertiser && current_advertiser != new_advertiser
           ad_box = @page_plan.page.ad_boxes.first
           ad_box.advertiser = new_advertiser
           ad_box.save
         end
+        new_section_name = @page_plan.section_name
+        if current_section_name != new_section_name
+          @page_plan.page.section_name = new_section_name
+          @page_plan.page.save
+          page_heading = @page_plan.page.page_heading
+          page_heading.generate_pdf
+        end
+
         if (@page_plan.page_number == 12 || @page_plan.page_number == 13)
           if @page_plan.ad_type == "15단_브릿지"
             Spread.where(issue: @page_plan.issue).first_or_create
             @page_plan.set_pair_bridge_ad
           else
-            @page_plan.spread.destroy if @page_plan.spread
+            # @page_plan.spread.destroy if @page_plan.spread
           end
         end
         format.html { redirect_to current_plan_issue_path(Issue.last.id)}
