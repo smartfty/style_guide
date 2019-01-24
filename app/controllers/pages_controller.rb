@@ -44,7 +44,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+        format.html { redirect_to @page, notice: '페이지가 성공적으로 생성 되었습니다.' }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -75,7 +75,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to pages_url, notice: '페이지가 삭제 되었습니다.' }
       format.json { head :no_content }
     end
   end
@@ -88,7 +88,7 @@ class PagesController < ApplicationController
   def save_proof_reading_pdf
     result = @page.copy_to_proof_reading_ftp
     if result
-      redirect_to @page, notice: '교열용 PDF 저장 되었습니다,.'
+      redirect_to @page, notice: '교열용 PDF가 저장 되었습니다,.'
     else
       redirect_to @page, notice: "#{result}"
     end
@@ -98,7 +98,7 @@ class PagesController < ApplicationController
     puts __method__
     result = @page.copy_to_printer_ftp
     if result
-      redirect_to @page, notice: '페이지 #{page_number} 인쇄용 PDF 전송 되었습니다...'
+      redirect_to @page, notice: '#{page_number}페이지의 인쇄용 PDF가 전송 되었습니다...'
     else
       redirect_to @page, notice: "#{result}"
     end
@@ -117,7 +117,7 @@ class PagesController < ApplicationController
   def regenerate_pdf
     @page.regenerate_pdf
     request.referrer
-    redirect_to @page, notice: '저장된 다락 스타일을 사용한 페이지가 성공적으로 생성 되었습니다.'
+    redirect_to @page, notice: '저장된 단락 스타일을 사용한 페이지가 성공적으로 생성 되었습니다.'
   end
 
   def change_template

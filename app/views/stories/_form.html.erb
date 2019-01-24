@@ -1,5 +1,4 @@
-<div align="center">
-<%= form_with(model: @story, local: true) do |form| %>
+<%= form_with(model: @story, local: true) do |f| %>
   <% if @story.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
@@ -13,30 +12,34 @@
   <% end %>
   
   <div class="field">
-    <%= form.label :날짜 %>
-    <%= form.date_select :date %>
+    <%= f.label :날짜 %>
+    <%= f.date_select :date %>
   </div>
 
   <div class="field">
-    <%= form.label :제목 %>
-    <%= form.text_field :title, :size=>"40" %>
+    <%= f.label :제목 %>
+    <%= f.text_field :title, :size=>"40" %>
   </div>
 
   <div class="field">
-    <%= form.label :부제목 %>
-    <%= form.text_field :subtitle, :size=>"40" %>
+    <%= f.label :부제목 %>
+    <%= f.text_field :subtitle, :size=>"40" %>
   </div>
 
   <div class="field">
-    <%= form.label :본문 %>
-    <%= form.text_area :body, cols: 120, rows: 30 %>
+    <%= f.label :본문 %>
+    <%= f.text_area :body, cols: 40, rows: 20 %>
   </div>
 
   <div class="field">
-    <%= form.label '출고 섹션' %>
-    <%= form.select :summitted_section, ['미정', '1면','정치','행정','국제통일','금융','산업','정책','기획','오피니언',]%>
+    <%= f.label '출고 섹션' %>
+    <%= f.select :summitted_section, ['미정', '1면','정치','행정','국제통일','금융','산업','정책','기획','오피니언',]%>
   </div>
 
+  <!-- div class="actions">
+    <%= f.button "저장", class: "btn btn-primary btn-md", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+  </div -->
+  
   <div class="field">
     <%= form.label '분류코드' %>
     <%= form.text_field :category_code%>
@@ -47,8 +50,19 @@
     <%= form.text_field :price %>
   </div>
 
-  <div class="actions">
-    <%= form.button "저장", class: "btn btn-primary btn-md", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-  </div>
+
+  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+    <div class="btn-group" role="group" aria-label="기능">
+      <button type="button" class="btn btn-success"><%= link_to "이전으로", my_stories_path, method: :get %></button>
+      <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+    <div>
+  </nav>
+    <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="btn-group right" role="group" aria-label="기능">
+      <button type="button" class="btn btn-success"><%= link_to "이전으로", my_stories_path, method: :get %></button>
+      <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+    <div>
+    </nav>
 <% end %>
-</div>

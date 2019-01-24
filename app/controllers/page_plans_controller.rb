@@ -129,7 +129,7 @@ class PagePlansController < ApplicationController
     @page_plan.dirty   = false
     @page_plan.save
 
-    redirect_to current_plan_issue_path(@page_plan.issue_id), notice: '페이지 디자인이 성공적으로 바뀌었습니다.'
+    redirect_to current_plan_issue_path(@page_plan.issue_id), notice: '페이지 디자인이 성공적으로 변경 되었습니다.'
   end
 
   private

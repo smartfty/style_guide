@@ -49,7 +49,7 @@
       <tbody>
         <% @stories.each do |story| %>
           <% if story.selected%>
-            <tr style="color:Green;">
+            <tr style="color:red;">
               <td><%= story.working_article.page.page_number if story.working_article %></td>
               <td><%= story.working_article.order if story.working_article %></td>
               <td><%= story.reporter %></td>
@@ -58,7 +58,7 @@
               <td><%= link_to "해제", un_assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-danger") %></td>
             </tr>
           <% else %>
-            <tr style="color:red;">
+            <tr>
               <td><%= story.working_article.page.page_number if story.working_article %></td>
               <td><%= story.working_article.order if story.working_article %></td>
               <td><%= story.reporter %></td>

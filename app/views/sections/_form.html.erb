@@ -69,7 +69,7 @@
     <div class="btn-group" role="group" aria-label="기능">
       <button type="button" class="btn btn-success"><%= link_to "이전으로", sections_path, method: :get %></button>
       <%= f.button "저장하기", class: "btn btn-primary" %>
-      <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_text_style_path, method: :get %></button>
+      <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_section_path, method: :get %></button>
       <button type="button" class="btn btn-danger"><%= link_to "미리보기 갱신", regenerate_pdf_section_path(@section), method: :get %>
       <button type="button" class="btn btn-warning"><%= link_to "다운로드 PDF", download_pdf_section_path, method: :get %>
       </button>

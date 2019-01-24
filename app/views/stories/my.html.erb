@@ -17,7 +17,7 @@
   <tbody>
     <% @stories.each do |story| %>
       <% if story.selected%>
-        <tr style="background-color:LightGreen;">
+        <tr style="background-color:skyblue;">
       <% else story.selected%>
       <tr>
       <% end %>
@@ -32,8 +32,14 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to '새로운 기사 작성', new_story_path, method: :get, class: "btn btn-md btn-success" %>
+</div>
 
+
+<!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+<nav class="navbar navbar-default navbar-fixed-top2">
+<div class="btn-group" role="group" aria-label="기능">
+  <button type="button" class="btn btn-success"><%= link_to "새로운 기사 작성", new_story_path, method: :get %></button>
+<div>
+</nav>
 </div>
