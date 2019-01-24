@@ -20,7 +20,7 @@
               <td style="text-align:center;"><%= working_article.order %></td>
               <td style="text-align:left;"><%= working_article.reporter %></td>
               <td style="text-align:left;"><%= working_article.title %></td>
-              <td style="text-align:center;"><%= working_article.character_count %></td>
+              <td style="text-align:center;"><%= working_article.approximate_char_count %></td>
               <td><%= button_to "기사 배정", change_story_working_article_path(working_article), method: :get, class: "btn btn-sm btn-warning" %></td>
             </tr>
         <% end %>
@@ -37,7 +37,7 @@
           <th>배정</th>
           <th>담당기자</th>
           <th style="text-align:center;">제목</th>
-          <th>예상 자수</th>
+          <th>현재 자수</th>
         </tr>
       </thead>
 

@@ -1,0 +1,16 @@
+<%= simple_form_for(@reporter_image) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label: "제목" %>
+    <%= f.input :caption, label: "사진설명"%>
+    <%= f.input :source, label: "출처" %>
+    <%= f.input :reporter_image, label: "기자 사진" %>
+    <%= f.text_field :remote_reporter_image_url %>
+    <small>원거리 사진 URL</small>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

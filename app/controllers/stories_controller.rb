@@ -76,7 +76,7 @@ class StoriesController < ApplicationController
   end
 
   def my
-    @stories = current_user.stories
+    @stories = current_user.stories.order(date: 'DESC')
   end
 
   def assign_position

@@ -20,12 +20,29 @@
   - body
     - fit_text
 
+2019-1-24
+  - 욱여넣기
+  - in image and graphic size_string
+    extra_height_in_lines = 0 unless extra_height_in_lines
+  - 제목 없으면 제목박스 없이
+  - text 영역별 글자수 계산
+  - reporter_image 추가 
+    - 나의 사진
+
+  - 줄 늘이기 여러개 할 경우 에러
+  - b판
+  - heading 바꾸기
+
+  - 현제 page 를 템플렛 으로 저장/사용
+    페이지 레이아웃 검색 날자별 
+    칼렌더 UI for searching page
+
+
 2019-1-23
 
   - update page pdf, when story is assigned
   - when line number is expanded, 
     working_article pdf doen't get updated even page pdf is updated
-
 
 2019-1-22
 
@@ -929,7 +946,7 @@
   - show menu by login role
   - adjust_size 크기_조절
   - adjust_body_size
-  - copy_fit   우겨넣기
+  - copy_fit   욱여넣기
 
 
 2018_4_3

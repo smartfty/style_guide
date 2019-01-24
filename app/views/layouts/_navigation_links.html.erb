@@ -6,6 +6,7 @@
 
 <% if current_user && current_user.role == 'reporter' %> 
     <li><%= link_to '나의기사', my_stories_path %></li>
+    <li><%= link_to '나의사진', my_reporter_images_path %></li>
 <% end %> 
 
 <% if current_user && current_user.role != 'reporter' %> 

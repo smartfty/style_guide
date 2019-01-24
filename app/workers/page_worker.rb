@@ -1,10 +1,6 @@
 class PageWorker
   include Sidekiq::Worker
 
-  def perform(*args)
-    # Do something
-  end
-
    def perform(path, time_stamp)
     puts "in PageWorker"
     puts "path:#{path}"

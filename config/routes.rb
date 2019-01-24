@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :reporter_images do
+    member do
+    end
+    collection do 
+      get 'my'
+    end
+  end
   resources :ad_bookings
   resources :categories
   resources :ad_plans

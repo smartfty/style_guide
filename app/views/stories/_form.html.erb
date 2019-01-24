@@ -37,6 +37,16 @@
     <%= form.select :summitted_section, ['미정', '1면','정치','행정','국제통일','금융','산업','정책','기획','오피니언',]%>
   </div>
 
+  <div class="field">
+    <%= form.label '분류코드' %>
+    <%= form.text_field :category_code%>
+  </div>
+
+  <div class="field">
+    <%= form.label '가격' %>
+    <%= form.text_field :price %>
+  </div>
+
   <div class="actions">
     <%= form.button "저장", class: "btn btn-primary btn-md", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
