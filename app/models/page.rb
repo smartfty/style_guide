@@ -34,6 +34,7 @@
 #  gutter                       :float
 #  article_line_thickness       :float
 #  page_heading_margin_in_lines :integer
+#  tag                          :string
 #
 # Indexes
 #

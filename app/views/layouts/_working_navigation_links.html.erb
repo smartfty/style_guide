@@ -24,7 +24,7 @@
       <% end %>
     </ul>
 </li>
-<% if current_user %>
+<% if current_user && @working_article%>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">기자정보<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
@@ -37,64 +37,62 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">사진 크기 조절<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
-      <% if @working_article.kind == '사설' || @working_article.kind == '기고'%>
-      <% else %>
-
+      <% if @working_article && (@working_article.kind == '사설' || @working_article.kind == '기고')%>
+      <% elsif @working_article %>
         <li> <%= link_to "2x2", image_2x2_working_article_path(@working_article) %></li>
         <li> <%= link_to "3x3", image_3x3_working_article_path(@working_article) %></li>
         <li> <%= link_to "1x1", image_1x1_working_article_path(@working_article) %></li>
         <li> <%= link_to "4x4", image_4x4_working_article_path(@working_article) %></li>
-
-
       <% end %>    </ul>
   </li>
 
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">발문 추가<span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
-      <li><%= link_to '2행 발문 추가(본문8줄)', quote_two_working_article_path %></li>
-      <li><%= link_to '3행 발문 추가(본문10줄)', quote_three_working_article_path %></li>
-      <li class="divider"></li>
-      <li><%= link_to '자동 추가', quote_auto_working_article_path %></li>
-      <li class="divider"></li>
-      <li><%= link_to '발문 삭제', quote_zero_working_article_path %></li>
-    </ul>
-  </li>
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">박스물 추가<span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
-      <li><%= link_to '본문 부제(고딕_회색)  추가', boxed_subtitle_one_working_article_path %></li>
-      <li><%= link_to '본문 부제(테두리)  추가 추가', boxed_subtitle_two_working_article_path %></li>
-      <li><%= link_to '본문 부제 삭제', boxed_subtitle_zero_working_article_path %></li>
-      <li class="divider"></li>
-      <li><%= link_to '1단 안내문(내일 쉽니다...) 추가', announcement_one_working_article_path %></li>
-      <li><%= link_to '2단 안내문(연속기사...) 추가', announcement_two_working_article_path %></li>
-      <li><%= link_to '안내문 삭제', announcement_zero_working_article_path %></li>
-    </ul>
-  </li>
-  <% if @working_article.siblings.length > 0 %>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">박스 크기 조절<span class="caret"></span></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">발문 추가<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
-        <li>-- 현재 추가 행수: <%= @working_article.extended_line_count %> --</li>
+        <li><%= link_to '2행 발문 추가(본문8줄)', quote_two_working_article_path %></li>
+        <li><%= link_to '3행 발문 추가(본문10줄)', quote_three_working_article_path %></li>
         <li class="divider"></li>
-        <li><%= link_to '1행 추가', extend_one_working_article_path %></li>
-        <li><%= link_to '2행 추가', extend_two_working_article_path %></li>
-        <li><%= link_to '3행 추가', extend_three_working_article_path %></li>
-        <li><%= link_to '4행 추가', extend_four_working_article_path %></li>
+        <li><%= link_to '자동 추가', quote_auto_working_article_path %></li>
         <li class="divider"></li>
-        <li><%= link_to '0행 복구', extend_zero_working_article_path %></li>
-        <li class="divider"></li>
-        <li><%= link_to '1행 줄이기', reduce_one_working_article_path %></li>
-        <li><%= link_to '2행 줄이기', reduce_two_working_article_path %></li>
-        <li><%= link_to '3행 줄이기', reduce_three_working_article_path %></li>
-        <li><%= link_to '4행 줄이기', reduce_four_working_article_path %></li>
-        <% if @working_article.siblings.length == 1 %>
-          <li class="divider"></li>
-          <li><%= link_to '아래 박스와 기사 교환', swap_working_article_path %></li>
-        <% end %>
+        <li><%= link_to '발문 삭제', quote_zero_working_article_path %></li>
       </ul>
     </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">박스물 추가<span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <li><%= link_to '본문 부제(고딕_회색)  추가', boxed_subtitle_one_working_article_path %></li>
+        <li><%= link_to '본문 부제(테두리)  추가 추가', boxed_subtitle_two_working_article_path %></li>
+        <li><%= link_to '본문 부제 삭제', boxed_subtitle_zero_working_article_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to '1단 안내문(내일 쉽니다...) 추가', announcement_one_working_article_path %></li>
+        <li><%= link_to '2단 안내문(연속기사...) 추가', announcement_two_working_article_path %></li>
+        <li><%= link_to '안내문 삭제', announcement_zero_working_article_path %></li>
+      </ul>
+    </li>
+
+    <% if @working_article.siblings.length > 0 %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">박스 크기 조절<span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li>-- 현재 추가 행수: <%= @working_article.extended_line_count %> --</li>
+          <li class="divider"></li>
+          <li><%= link_to '1행 추가', extend_one_working_article_path %></li>
+          <li><%= link_to '2행 추가', extend_two_working_article_path %></li>
+          <li><%= link_to '3행 추가', extend_three_working_article_path %></li>
+          <li><%= link_to '4행 추가', extend_four_working_article_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to '0행 복구', extend_zero_working_article_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to '1행 줄이기', reduce_one_working_article_path %></li>
+          <li><%= link_to '2행 줄이기', reduce_two_working_article_path %></li>
+          <li><%= link_to '3행 줄이기', reduce_three_working_article_path %></li>
+          <li><%= link_to '4행 줄이기', reduce_four_working_article_path %></li>
+          <% if @working_article.siblings.length == 1 %>
+            <li class="divider"></li>
+            <li><%= link_to '아래 박스와 기사 교환', swap_working_article_path %></li>
+          <% end %>
+        </ul>
+      </li>
   <% end %>
 
 

@@ -4,7 +4,9 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all.includes(:issue)
+    @q = Page.ransack(params[:q])
+    @pages = @q.result
+    # @pages = Page.all.includes(:issue)
   end
 
   # GET /pages/1

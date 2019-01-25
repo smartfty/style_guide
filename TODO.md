@@ -20,6 +20,15 @@
   - body
     - fit_text
 
+2019-1-25
+  - 검색 메뉴추가
+    페이지검색, 기사 검색
+    page edit tag
+    
+  - 부고박스
+  - 본문내 기고
+  - 사진 그래픽 xml 용 필드
+
 2019-1-24
   - 욱여넣기
   - in image and graphic size_string
@@ -36,7 +45,6 @@
   - 현제 page 를 템플렛 으로 저장/사용
     페이지 레이아웃 검색 날자별 
     칼렌더 UI for searching page
-
 
 2019-1-23
 

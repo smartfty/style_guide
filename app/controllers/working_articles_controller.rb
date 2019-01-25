@@ -5,8 +5,11 @@ class WorkingArticlesController < ApplicationController
   # GET /working_articles.json
   def index
     # rails controller 에서
-    # ruby 에서 아뭬데나
-    @working_articles = WorkingArticle.all
+    # ruby 
+    @q = WorkingArticle.ransack(params[:q])
+    @working_articles = @q.result
+    # @pages = Page.all.includes(:issue)
+    # @working_articles = WorkingArticle.all
   end
 
   # GET /working_articles/1

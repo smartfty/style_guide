@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title, label: "제목" %>
-    <%= f.input :caption, label: "사진설명"%>
+    <%= f.text_area :caption, cols: "30", rows: "5"%>
     <%= f.input :source, label: "출처" %>
     <%= f.input :reporter_image, label: "기자 사진" %>
     <%= f.text_field :remote_reporter_image_url %>
