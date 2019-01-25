@@ -34,7 +34,7 @@
         <td style="text-align:center;"><%= page.color_page %></td>
         <td style="text-align:center;"><%= page.profile %></td>
         <td style="text-align:center;"><%= page.template_id %></td>
-        <td><%= link_to 'Show', page %></td>
+        <td><%= button_to '페이지 보기', page_path(page), method: :get, class: "btn btn-sm btn-success"  %></td>
 
       </tr>
     <% end %>
