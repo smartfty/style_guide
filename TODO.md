@@ -20,14 +20,39 @@
   - body
     - fit_text
 
+2019-1-28
+  - boxed_subtitle_text delete it from db when not used
+  - space between section_name
+
 2019-1-25
   - 검색 메뉴추가
-    페이지검색, 기사 검색
+    페이지검색, 
     page edit tag
+  - 기사 검색
+    with one word search all field
+  
+  - add to Page closed:boolean
+  -  lock page to make it uneditable
+  - copy page
+    as template
+    with content
+  
+  - page library
+      b 판  heading 수정
+      copy to data and page(template or source)
+  
+  - 사진
+    sub_grid_size
     
-  - 부고박스
+  - 부고/인사 박스
+    제목 업고 부제목 간격
+
   - 본문내 기고
-  - 사진 그래픽 xml 용 필드
+    테두리 [1,2,1,1]
+    2 - 3단 
+    기자사진
+
+    - 사진 그래픽 xml 용 필드
 
 2019-1-24
   - 욱여넣기

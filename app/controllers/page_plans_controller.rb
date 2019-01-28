@@ -73,21 +73,26 @@ class PagePlansController < ApplicationController
                 @page.change_template(new_template.id)
               end
             end
-            
           end
         end
-        new_advertiser = @page_plan.advertiser
-        if new_advertiser && current_advertiser != new_advertiser
-          ad_box = @page_plan.page.ad_boxes.first
-          ad_box.advertiser = new_advertiser
-          ad_box.save
-        end
+       
         new_section_name = @page_plan.section_name
         if current_section_name != new_section_name
           @page_plan.page.section_name = new_section_name
           @page_plan.page.save
           page_heading = @page_plan.page.page_heading
+          page_heading.section_name = new_section_name
+          page_heading.save
           page_heading.generate_pdf
+        end
+
+        new_advertiser = @page_plan.advertiser
+        if new_advertiser && current_advertiser != new_advertiser
+          ad_box = @page_plan.page.ad_boxes.first
+          if ad_box
+            ad_box.advertiser = new_advertiser
+            ad_box.save
+          end
         end
 
         if (@page_plan.page_number == 12 || @page_plan.page_number == 13)

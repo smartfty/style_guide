@@ -1,4 +1,4 @@
-# Useing Previous Page as Template
+# Using Previous Page as Template
 
 1. page searce with word or sentence
     - go to page template selection
