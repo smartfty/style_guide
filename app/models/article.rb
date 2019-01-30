@@ -159,9 +159,8 @@ class Article < ApplicationRecord
   def generate_pdf
     save_story
     save_layout
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{    publication_name}"
-
-    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication_name}"
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
   def generate_custom_style_pdf(current_styles)
@@ -183,7 +182,7 @@ class Article < ApplicationRecord
   def story_md
     title     = "#{order}번 기사 제목은 여기에"
     subtitle  = '부제는 여기에 여기는 부제목 자리'
-    reporter  = '홍길동'
+    reporter  = ''
     email     = 'gdhong@gmail.com'
 
     body =<<~EOF

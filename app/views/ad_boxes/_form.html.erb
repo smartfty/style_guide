@@ -22,7 +22,7 @@
     <button type="button" class="btn btn-success"><%= link_to "이전으로", page_path(@ad_box.page), method: :get %></button>
     <%= f.button :submit, "저장하기", class: "btn btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
     <button type="button" class="btn btn-warning"><%= link_to "페이지 PDF", download_pdf_page_path(@ad_box.page), method: :get %></button>
-    <button type="button" class="btn btn-danger"><%= link_to "광고 PDF", download_pdf_ad_box_path(@ad_box), method: :get %></button>
+    <!-- button type="button" class="btn btn-danger">< link_to "광고 PDF", download_pdf_ad_box_path(@ad_box), method: :get ></button -->
   <div>
 </nav>
 
