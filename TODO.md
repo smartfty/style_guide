@@ -20,6 +20,23 @@
   - body
     - fit_text
 
+2019-1-30
+  - image x_grid
+  - graphic x_grid
+  - when changing page_plan,
+      check for page and ad_type to make sure that first page template does not get applied to inner page with same ad_type
+2019-1-29
+  resources :ad_boxes do
+    member do
+      patch 'upload_ad_image'
+      get 'download_pdf'
+    end
+  end
+
+  - 줄 늘이기 여러개 할 경우 에러
+  - image fit_type
+  - current_page, current_working_article
+
 2019-1-28
   - boxed_subtitle_text delete it from db when not used
   - space between section_name
@@ -47,9 +64,12 @@
   - 부고/인사 박스
     제목 업고 부제목 간격
 
-  - 본문내 기고
+  - 본문내 기고?
     테두리 [1,2,1,1]
     2 - 3단 
+    문페
+    제목 1단에서 시작
+    
     기자사진
 
     - 사진 그래픽 xml 용 필드
@@ -63,7 +83,6 @@
   - reporter_image 추가 
     - 나의 사진
 
-  - 줄 늘이기 여러개 할 경우 에러
   - b판
   - heading 바꾸기
 

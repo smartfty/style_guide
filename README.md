@@ -18,7 +18,6 @@ Rails app for creating style guide for newspaper publication
   advertiser
   color:boolean
 
-
 ### spread
   issue: references
   left_page
@@ -218,6 +217,32 @@ date
 ## holidays
   day
   name
+
+## box_ad
+  advertiser
+  phone
+  kind
+  grid_x
+  grid_y
+  column
+  row
+  order
+  page:references
+  title
+  subtitle
+  body
+  copy1
+  box_ad_image
+  price:float
+  date:date
+  
+## page_library
+  slug
+  tag
+  ad_type
+  page_coumns
+  story_count
+  config:text
 
 # email based layout?
   references:issue

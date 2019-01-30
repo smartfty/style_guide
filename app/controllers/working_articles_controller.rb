@@ -15,6 +15,7 @@ class WorkingArticlesController < ApplicationController
   # GET /working_articles/1
   # GET /working_articles/1.json
   def show
+    # session['current_working_articlde_id'] = @working_article.id
     respond_to do |format|
       format.html
       format.json { render @working_article}

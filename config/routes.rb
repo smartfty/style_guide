@@ -84,9 +84,10 @@ Rails.application.routes.draw do
   resources :ad_boxes do
     member do
       patch 'upload_ad_image'
+      get 'download_pdf'
     end
-
   end
+  
   resources :ad_images do
     collection do
       # get 'current'

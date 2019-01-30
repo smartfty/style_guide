@@ -24,6 +24,8 @@ class PagesController < ApplicationController
         @page_templates   += Section.where(ad_type:@page.ad_type, page_number: 101)
       end
     end
+    # session['current_page_id'] = @page.id
+    
     # respond_to do |format|
     #   format.html
     #   # format.pdf {send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"}
