@@ -282,15 +282,14 @@ module ArticleSaveXml
     if subject_head && subject_head != ""
       subject_head.strip! 
       @name_plate       = eliminate_size_option(subject_head)
-    end
-    if @name_plate == "" || @name_plate == nil
+    else
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
         category_code = opinion_writer.category_code 
         @name_plate = opinion_writer.title
       end
-    end  
+    end 
     @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
     @money_status     = "30"
     if page_number == 22
@@ -474,13 +473,12 @@ module ArticleSaveXml
     if subject_head && subject_head != ""
       subject_head.strip! 
       @name_plate       = eliminate_size_option(subject_head)
-      @name_plate       = "[#{@name_plate}]" 
     else
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
         category_code = opinion_writer.category_code 
-        @name_plate = "[#{opinion_writer.title}]"
+        @name_plate = opinion_writer.title
       end
     end    
     # unless @name_plate
@@ -586,7 +584,7 @@ EOF
     if page_number == 22
       three_component =<<EOF
       <TitleComponent><!-- 22면 -->
-        <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
+        <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle>
       </TitleComponent>
       <ArticleComponent>
         <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -605,7 +603,7 @@ EOF
     elsif page_number == 23 && order == 1 
     three_component =<<EOF
     <TitleComponent><!-- 23면 1 -->
-      <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
+      <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle>
     </TitleComponent>
     <ArticleComponent>
       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -623,7 +621,7 @@ EOF
   elsif page_number == 23 && order == 2 
   three_component =<<EOF
   <TitleComponent><!-- 23면 2 -->
-    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -635,7 +633,7 @@ EOF
 elsif page_number == 23 && order == 3
   three_component =<<EOF
   <TitleComponent><!-- 23면 3 -->
-    <MainTitle><![CDATA[<%= @name_plate %> <%= @head_line %>]]></MainTitle>
+    <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle>
   </TitleComponent>
   <ArticleComponent>
     <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -654,7 +652,7 @@ EOF
   elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent><!-- photobox -->
-  <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+  <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
   <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
 </TitleComponent>
 <ArticleComponent>
@@ -674,7 +672,7 @@ EOF
   elsif images.count > 0 
   three_component =<<EOF
   <TitleComponent><!-- images -->
-    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -695,7 +693,7 @@ EOF
   elsif graphics.count > 0 
   three_component =<<EOF
   <TitleComponent><!-- graphic -->
-    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -717,7 +715,7 @@ EOF
   else
   three_component =<<EOF
   <TitleComponent><!-- etc -->
-    <MainTitle><![CDATA[<%= @name_plate if @name_plate && @name_plate != "" %><%= " | #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -763,7 +761,7 @@ EOF
       @c_head_line    = @h_caption_title    
     end
     container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !=""  %><%= @c_head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>
 EOF
     xml_group_key = ""
     erb = ERB.new(container_xml_group_key)

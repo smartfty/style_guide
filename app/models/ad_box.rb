@@ -212,7 +212,7 @@ class AdBox < ApplicationRecord
   end
 
   def box_svg
-    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='red' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
+    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='red' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
   end
 
   def section_name_code
@@ -347,7 +347,7 @@ EOF
 
 
       container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}]" if @name_plate && @name_plate !=""  %> <%= @head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @head_line %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
