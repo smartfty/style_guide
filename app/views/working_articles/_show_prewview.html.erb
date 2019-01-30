@@ -1,7 +1,8 @@
+<%= render 'character_count', article: @working_article %>
 <img src="<%= @working_article.jpg_image_path %>"></img>
-
+<%= render 'character_count', article: @working_article %>
+<br>
 <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>
-
 <div align="center" style="color:red;">
   <%=  @working_article.article_info[:overflow_text].html_safe%>
 </div>

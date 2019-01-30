@@ -1,5 +1,6 @@
 
-
+  <div align='center'>
+  <h3><%= @page_plan.page_number %>페이지 내용 수정</h3>
   <%= form_for(page_plan) do |f| %>
     <% if page_plan.errors.any? %>
       <div id="error_explanation">
@@ -34,8 +35,13 @@
       <%= f.label :칼라면 %>
       <%= f.check_box :color_page %>
     </div>
+</div>
 
-    <div class="actions">
+    <nav class="navbar navbar-default navbar-fixed-top2">
+    <div class="btn-group" role="group" aria-label="기능">
+      <button type="button" class="btn btn-sm btn-success"><%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get %></button>
       <button type="submit" class="btn btn-sm btn-primary">저장</button>
-    </div>
+    <div>
+  </nav>
+
   <% end %>
