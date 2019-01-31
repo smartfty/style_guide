@@ -82,15 +82,15 @@ class PagePlansController < ApplicationController
         end
        
         new_section_name = @page_plan.section_name
-        if current_section_name != new_section_name
-          @page_plan.page.section_name = new_section_name
-          @page_plan.page.save
-          page_heading = @page_plan.page.page_heading
-          page_heading.section_name = new_section_name
-          page_heading.save
-          page_heading.generate_pdf
-          @page_plan.page.generate_pdf_with_time_stamp
-        end
+        # if current_section_name != new_section_name
+        @page_plan.page.section_name = new_section_name
+        @page_plan.page.save
+        page_heading = @page_plan.page.page_heading
+        page_heading.section_name = new_section_name
+        page_heading.save
+        page_heading.generate_pdf
+        @page_plan.page.generate_pdf_with_time_stamp
+        # end
 
         new_advertiser = @page_plan.advertiser
         if new_advertiser && current_advertiser != new_advertiser
