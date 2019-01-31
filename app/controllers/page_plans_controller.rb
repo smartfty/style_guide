@@ -52,13 +52,17 @@ class PagePlansController < ApplicationController
       current_section_name  = @page_plan.section_name
       
       if @page_plan.update(page_plan_params)
+        if @page = @page_plan.page
+          if @page.color_page != @page_plan.color_page
+            @page.color_page = @page_plan.color_page
+            @page.save
+          end
+        end
         @page_plan.set_pair_page_color
         new_ad_type = @page_plan.ad_type
         if current_ad_type != new_ad_type
           #if we have page and ad_type changed, update page layout
           if @page = @page_plan.page
-            puts "new_ad_type:#{new_ad_type}"
-            puts "page_number:#{@page_plan.page_number}"
 
             if new_template = Section.where(ad_type:new_ad_type, page_number:@page_plan.page_number ).first
               puts "found new_template with ad_type and page_number"
