@@ -568,8 +568,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def image_options
-    puts "iamge id:#{id}"
-    puts "working_article_id:#{working_article_id}"
+    puts "working_article id:#{id}"
     if images.first
       images.first.iamge_layout_hash
     else
@@ -783,7 +782,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='00' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def story_svg
@@ -885,7 +884,7 @@ class WorkingArticle < ApplicationRecord
       code = "0009"
     when '정치'
       code = "0002"
-    when '행정'
+    when '자치행정'
       code = "0003"
     when '국제통일'
       code = "0004"
@@ -909,7 +908,7 @@ class WorkingArticle < ApplicationRecord
       code = "9"
     when '정치'
       code = "2"
-    when '행정'
+    when '자치행정'
       code = "3"
     when '국제통일'
       code = "4"

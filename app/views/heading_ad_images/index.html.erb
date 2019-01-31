@@ -18,9 +18,9 @@
       <tr>
         <td><%= heading_ad_image.date %></td>
         <td><%= heading_ad_image.advertiser %></td>
-        <td><%= heading_ad_image.heading_ad_image %></td>
+        <td><%= heading_ad_image.heading_ad_image.path %></td>
         <td><%= heading_ad_image.x %></td>
-        <td><%= link_to '오늘광고 설정',  today_heading_ad_image_path(heading_ad_image)%></td>
+        <td><%= link_to '오늘광고 설정', today_heading_ad_image_path(heading_ad_image)%></td>
         <td><%= link_to '수정', edit_heading_ad_image_path(heading_ad_image) %></td>
         <td><%= link_to '삭제', heading_ad_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

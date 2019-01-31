@@ -63,7 +63,8 @@ class PagePlansController < ApplicationController
         if current_ad_type != new_ad_type
           #if we have page and ad_type changed, update page layout
           if @page = @page_plan.page
-
+            puts "new_ad_type:#{new_ad_type}"
+            puts "page_number:#{@page_plan.page_number}"
             if new_template = Section.where(ad_type:new_ad_type, page_number:@page_plan.page_number ).first
               puts "found new_template with ad_type and page_number"
               @page.change_template(new_template.id)
@@ -88,6 +89,7 @@ class PagePlansController < ApplicationController
           page_heading.section_name = new_section_name
           page_heading.save
           page_heading.generate_pdf
+          @page_plan.page.generate_pdf_with_time_stamp
         end
 
         new_advertiser = @page_plan.advertiser

@@ -85,6 +85,7 @@ module ArticleSaveXml
     title.gsub!("\u2219", "&#8729;")
     title.gsub!("\u0026", "&amp;")
     body.gsub!("\u0026", "&amp;")
+    body.gsub!("\u0387", "\u00B7")
   end
 
   def newsml_issue_path
