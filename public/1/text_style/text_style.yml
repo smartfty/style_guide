@@ -192,10 +192,10 @@ reporter:
   category:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
-  font_size: 7.0
+  font_size: 8.0
   text_color: CMYK=0,0,0,100
   alignment: right
-  tracking: 0.0
+  tracking: 0
   space_width: 2.0
   scale: 100.0
   text_line_spacing:
