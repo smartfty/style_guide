@@ -20,6 +20,18 @@
   - body
     - fit_text
 
+2019-1-31
+  - combo_box
+    - base_ad
+    - width
+    - height
+    - column
+    - row
+    - layout
+    - profile
+    - sub_ad_count
+
+
 2019-1-30
   - image x_grid
   - graphic x_grid
@@ -58,13 +70,13 @@
       b 판  heading 수정
       copy to data and page(template or source)
   
-  - 사진
+  - 반단 사진 (.5 width)
     sub_grid_size
     
-  - 부고/인사 박스
+  - 부고/인사 박스 (obituary)
     제목 업고 부제목 간격
 
-  - 본문내 기고?
+  - 특집? (special)
     테두리 [1,2,1,1]
     2 - 3단 
     문페
@@ -73,6 +85,11 @@
     기자사진
 
     - 사진 그래픽 xml 용 필드
+
+  - 
+
+  - 책소개 (book_review)
+    - 사진 형태 반쪽 사진설명 우측
 
 2019-1-24
   - 욱여넣기
