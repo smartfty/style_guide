@@ -1,5 +1,7 @@
 class WorkingArticlesController < ApplicationController
   before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :upload_graphics, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
+  # skip_before_action :verify_authenticity_token
+
   layout 'working_article'
   # GET /working_articles
   # GET /working_articles.json
@@ -26,7 +28,7 @@ class WorkingArticlesController < ApplicationController
     @working_article = WorkingArticle.new
   end
 
-  # GET /working_articles/1/edit
+  # GET /working_articles/1/edit 
   def edit
     puts "in edit of working_article"
     puts "@working_article.issue.date:#{@working_article.issue.date}"
