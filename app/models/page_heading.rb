@@ -222,6 +222,44 @@ class PageHeading < ApplicationRecord
     page_heading_erb.result(binding)
   end
 
+  def p22_content
+    page_heading_width  = publication.page_heading_width
+    page_heading_height = publication.inner_page_heading_height_in_pt
+    # date                = '2017년 5월 11일 목요일'    
+    date                = page.korean_date_string #'2017년 5월 11일 목요일'
+    page_number         = page.page_number
+    section_name        = page.section_name
+    section_name_with_sace        = put_space_between_chars(section_name)
+    template=<<~EOF
+    RLayout::Container.new(width: 1028.9763779528, height: 55.613048314961, layout_direction: 'horinoztal') do
+      image(local_image: '22_bg.pdf', x: 0, y: 0, width: 1028.9763779528, height: 55.613048314961, fit_type: 0)
+      text('<%= date %>', x: 864.104, y: 8.88, fill_color: 'clear', tracking: -0.7, width: 110, height: 12, font: 'KoPubDotumPL', text_color: "CMYK=0,0,0,100", font_size: 10.5, text_alignment: 'right')
+      text('22', tracking: -0.2, x: 0, y: -4.97, text_alignment: 'center', fill_color: 'clear', font: 'Helvetica-Light', font_size: 36, text_color: "CMYK=0,0,0,100", width: 40, height: 44)
+    end
+    EOF
+    page_heading_erb = ERB.new(template)
+    page_heading_erb.result(binding)
+  end
+
+  def p23_content
+    page_heading_width  = publication.page_heading_width
+    page_heading_height = publication.inner_page_heading_height_in_pt
+    # date                = '2017년 5월 11일 목요일'    
+    date                = page.korean_date_string #'2017년 5월 11일 목요일'
+    page_number         = page.page_number
+    section_name        = page.section_name
+    section_name_with_sace        = put_space_between_chars(section_name)
+    template=<<~EOF
+    RLayout::Container.new(width: 1028.9763779528, height: 55.613048314961, layout_direction: 'horinoztal') do
+      image(local_image: '23_bg.pdf', x: 0, y: 0, width: 1028.9763779528, height: 55.613048314961, fit_type: 0)
+      text('<%= date %>', x: 50.5693, y: 8.88,  width: 200, height: 12, font: 'KoPubDotumPL', text_color: "CMYK=0,0,0,100", tracking: -0.7, font_size: 10.5, text_alignment: 'left')
+      text('23', x: 988.81, y: -4.97, tracking: -0.2, text_alignment: 'center', fill_color: 'clear', font: 'Helvetica-Light', font_size: 36, text_color: "CMYK=0,0,0,100", width: 40, height: 44)
+    end
+    EOF
+    page_heading_erb = ERB.new(template)
+    page_heading_erb.result(binding)
+  end
+
   def even_content
     page_heading_width  = publication.page_heading_width
     page_heading_height = publication.inner_page_heading_height_in_pt
@@ -265,6 +303,10 @@ class PageHeading < ApplicationRecord
   def layout_content
     if page_number == 1
       return front_page_content
+    elsif page_number == 22
+      return p22_content
+    elsif page_number == 23
+      return p23_content
     elsif page_number.even?
       return even_content
     else
