@@ -15,7 +15,6 @@
   body
   quote
 
-
 ## left_side_bar
 
 ## column_width

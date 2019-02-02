@@ -20,6 +20,15 @@
   - body
     - fit_text
 
+2019-2-2
+  - combo_ad_box
+  
+2019-1-31
+  - make default issue_plan as last issue_plan
+    make marketing ad_plan as issue_plan
+  - when working_article kind is changed to image,
+    delte all text including subject_heading and save it.
+
 2019-1-31
   - combo_box
     - base_ad

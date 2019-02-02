@@ -218,7 +218,27 @@ date
   day
   name
 
-## box_ad
+
+  
+## page_library
+  slug
+  tag
+  ad_type
+  page_coumns
+  story_count
+  config:text
+
+# email based layout?
+  references:issue
+  template_id:integer
+
+## combo_ad_box
+  - base_ad
+  - column
+  - row
+  - layout: text
+
+## editable_ad
   advertiser
   phone
   kind
@@ -235,19 +255,6 @@ date
   box_ad_image
   price:float
   date:date
-  
-## page_library
-  slug
-  tag
-  ad_type
-  page_coumns
-  story_count
-  config:text
-
-# email based layout?
-  references:issue
-  template_id:integer
-
 
 TO: publication_name@naeil.design
 subject: 3x4
