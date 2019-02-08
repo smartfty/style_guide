@@ -86,6 +86,7 @@ module ArticleSaveXml
     title.gsub!("\u0026", "&amp;")
     body.gsub!("\u0026", "&amp;")
     body.gsub!("\u0387", "\u00B7")
+    body.gsub!("\u8f9f", "&#36767;")
   end
 
   def newsml_issue_path
@@ -670,7 +671,7 @@ EOF
   elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent><!-- photobox -->
-  <MainTitle><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= "| #{@boxed_subtitle} |" if @boxed_subtitle && @boxed_subtitle != "" %> <%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+  <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
   <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
 </TitleComponent>
 <ArticleComponent>
