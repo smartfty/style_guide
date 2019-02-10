@@ -63,7 +63,7 @@ class Publication < ApplicationRecord
   SECTIONS = [
     '1면',
     '정치',
-    '행정',
+    '자치행정',
     '국제통일',
     '금융',
     '산업',

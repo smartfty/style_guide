@@ -221,7 +221,7 @@ class AdBox < ApplicationRecord
       code = "0009"
     when '정치'
       code = "0002"
-    when '행정'
+    when '자치행정'
       code = "0003"
     when '국제통일'
       code = "0004"
@@ -245,7 +245,7 @@ class AdBox < ApplicationRecord
       code = "9"
     when '정치'
       code = "2"
-    when '행정'
+    when '자치행정'
       code = "3"
     when '국제통일'
       code = "4"

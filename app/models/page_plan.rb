@@ -109,12 +109,7 @@ class PagePlan < ApplicationRecord
         selected_section_template = Section.where(profile: profile).first
       end
       unless selected_section_template
-        if page_number.odd?
-          selected_section_template = Section.where(ad_type: ad_type, page_number: 101).first
-        else
-          selected_section_template = Section.where(ad_type: ad_type, page_number: 100).first
-        end
-        # selected_section_template = Section.where(ad_type: ad_type).first
+        selected_section_template = Section.where(ad_type: ad_type).first
       end
       unless selected_section_template
         selected_section_template = Section.where(page_number: page_number).first

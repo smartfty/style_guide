@@ -1,4 +1,4 @@
-Sections = [ '1면', '정치', '행정', '국제통일', '금융', '산업', '정책', '기획', '오피니언']
+Sections = [ '1면', '정치', '자치행정', '국제통일', '금융', '산업', '정책', '기획', '오피니언']
 module IssueGitWorkflow
   extend ActiveSupport::Concern
 
