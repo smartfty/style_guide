@@ -162,11 +162,8 @@ SECTIONS = [
   '오피니언',
 ]
 
-
 issue = Issue.where(id: 1, date: issue_date , number: '00001', publication_id: 1).first_or_create
 issue.make_default_issue_plan if issue
-
-
 
 User.create!(name: "김민수", email: "mskimsid@gmail.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
 User.create!(name: "김형규", email: "hgkim@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 3)
@@ -246,4 +243,14 @@ User.all.each do |user|
     body = base*random_num
     Story.where(date: date, user: user, group: user.group, title: title, subtitle: subtitle, body: body, summitted: status).first_or_create if user.group
   end
+end
+
+combo_ad_csv_path = "#{Rails.root}/public/1/combo_ad/combo_ad.csv"
+csv_text          = File.read(combo_ad_csv_path)
+csv               = CSV.parse(csv_text)
+keys              = csv.shift
+keys.map!{|e| e.to_sym}
+csv.each do |row|
+  row_h = Hash[keys.zip row]
+  ca    = ComboAd.where(row_h).first_or_create!
 end

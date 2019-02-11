@@ -7,7 +7,6 @@
   - story_count
   - page_id
 
-  
 
 # create page_library
 def create_page_library

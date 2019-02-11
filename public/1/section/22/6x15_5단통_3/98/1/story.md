@@ -1,6 +1,6 @@
 ---
 title: 1번 기사 제목은 여기에
-reporter: 홍길동
+reporter: 
 email: gdhong@gmail.com
 ---
 

@@ -114,3 +114,5 @@ gem 'ajax-datatables-rails'
 gem 'ancestry'
 gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
 gem 'sidekiq', '< 6'
+
+# gem 'stateful_enum'
