@@ -22,9 +22,10 @@
 
 2019-2-11
   - 7단 일 경우 제목 크기 설정시 본분이 올라감 상단 여백 에라
-  - ㅈㅜㅇㄱㅏㄴ ㅈㅔㅁㅗㄱ ㅎㅐㅇㄱㅏㄹㅇㅣ
+  - 중간제목 행갈이
   - expand pushed for multiple child
-  
+  - x_grid  start at 1, not 0
+
 2019-2-10
   - add status to page
   - add send story, and wire_image from wire_service to newsGo 

@@ -93,7 +93,7 @@ class Image < ApplicationRecord
     h[:caption]           = RubyPants.new(caption).to_html if caption
     h[:source]            = source if source
     # h[:fit_type]          = fit_type if fit_type
-    h[:x_grid]            = x_grid if x_grid
+    h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
 
     h
   end
