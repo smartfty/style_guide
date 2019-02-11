@@ -407,6 +407,12 @@ class Page < ApplicationRecord
           a.generate_pdf
         end
       end
+    else
+      puts "new section has no ad ++++++++++++ "
+      # delete ad_boxwa, if new section has no ad_box
+      ad_boxes.each do |ab|
+        ab.destroy
+      end
     end
   end
 
