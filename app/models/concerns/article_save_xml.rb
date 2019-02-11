@@ -85,6 +85,8 @@ module ArticleSaveXml
     title.gsub!("\u2219", "&#8729;")
     title.gsub!("\u0026", "&amp;")
     body.gsub!("\u0026", "&amp;")
+    body.gsub!("\u0387", "\u00B7")
+    body.gsub!("\u8f9f", "&#36767;")
   end
 
   def newsml_issue_path
@@ -252,7 +254,11 @@ module ArticleSaveXml
       @position       = opinion_writer.position if opinion_writer.position
       if @name =~/_/
         @name = @name.split("_")[0]
-      end
+      elsif @name =~/=/
+        @name = @name.split("=")[0]
+      elsif @name =~/-/
+        @name = @name.split("-")[0]
+      end       
       @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
       @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
@@ -265,7 +271,11 @@ module ArticleSaveXml
         @position       = profile.position if profile.position
         if @name =~/_/
           @name = @name.split("_")[0]
-        end
+        elsif @name =~/=/
+          @name = @name.split("=")[0]
+        elsif @name =~/-/
+          @name = @name.split("-")[0]
+        end         
         @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
         @by_line        = "#{@name} #{@work} #{@position}"  
         @caption        = "#{@name} #{@work} #{@position}"
@@ -336,6 +346,7 @@ module ArticleSaveXml
     if subtitle && subtitle != ""
       subtitle.strip! 
       @sub_head_line  = eliminate_size_option(subtitle)
+      @sub_head_line  = @sub_head_line.gsub(" $", "$")
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
@@ -435,7 +446,11 @@ module ArticleSaveXml
       @email       = opinion_writer.email if opinion_writer.email
       if @name =~/_/
         @name = @name.split("_")[0]
-      end
+      elsif @name =~/=/
+        @name = @name.split("=")[0]
+      elsif @name =~/-/
+        @name = @name.split("-")[0]
+      end  
       @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
       @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
@@ -448,7 +463,11 @@ module ArticleSaveXml
         @position       = profile.position if profile.position
         if @name =~/_/
           @name = @name.split("_")[0]
-        end
+        elsif @name =~/=/
+          @name = @name.split("=")[0]
+        elsif @name =~/-/
+          @name = @name.split("-")[0]
+        end 
         @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
         @by_line        = "#{@name} #{@work} #{@position}"
         @caption        = "#{@name} #{@work} #{@position}"
@@ -584,7 +603,7 @@ EOF
     if page_number == 22
       three_component =<<EOF
       <TitleComponent><!-- 22면 -->
-        <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle>
+        <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
       </TitleComponent>
       <ArticleComponent>
         <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -603,7 +622,7 @@ EOF
     elsif page_number == 23 && order == 1 
     three_component =<<EOF
     <TitleComponent><!-- 23면 1 -->
-      <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle>
+      <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
     </TitleComponent>
     <ArticleComponent>
       <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -621,7 +640,7 @@ EOF
   elsif page_number == 23 && order == 2 
   three_component =<<EOF
   <TitleComponent><!-- 23면 2 -->
-    <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
   <ArticleComponent>
@@ -633,7 +652,7 @@ EOF
 elsif page_number == 23 && order == 3
   three_component =<<EOF
   <TitleComponent><!-- 23면 3 -->
-    <MainTitle><![CDATA[<%= [@name_plate] %> <%= @head_line %>]]></MainTitle>
+    <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
   </TitleComponent>
   <ArticleComponent>
     <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
@@ -744,19 +763,19 @@ EOF
     day   = issue.date.day.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     @head_line        = title    
-    # if title && title != ""
-    #   title.strip!
-    #   @head_line        = title    
-    #   @head_line        = @head_line.gsub("\u201C", "&quot;")
-    #   @head_line        = @head_line.gsub("\u201D", "&quot;")
-    #   @head_line        = @head_line.gsub("\u0022", "&quot;")
-    #   @head_line        = @head_line.gsub("\u003C", "&lt;")
-    #   @head_line        = @head_line.gsub("\u003E", "&gt;")
-    # end
+    if title && title != ""
+      title.strip!
+      @head_line        = title    
+      @head_line        = @head_line.gsub("\u201C", "&quot;")
+      @head_line        = @head_line.gsub("\u201D", "&quot;")
+      @head_line        = @head_line.gsub("\u0022", "&quot;")
+      @head_line        = @head_line.gsub("\u003C", "&lt;")
+      @head_line        = @head_line.gsub("\u003E", "&gt;")
+    end
     @order            = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
-      @c_head_line    = eliminate_size_option(title)
+      @c_head_line    = eliminate_size_option(@head_line)
     else 
       @c_head_line    = @h_caption_title    
     end

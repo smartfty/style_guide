@@ -44,10 +44,15 @@ class HeadingAdImage < ApplicationRecord
   end
 
   def update_page_heading
+    puts __method__
     page_heading_path  = Issue.last.pages.first.page_heading.path
     system "cd #{page_heading_path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+
     first_page = Issue.last.pages.first
     first_page.generate_pdf_with_time_stamp
+
+    # page_heading.generate_pdf
+    # page_heading.update_page_pdf
   end
 
   def target_folder
@@ -72,6 +77,11 @@ class HeadingAdImage < ApplicationRecord
 
   def date
     created_at.to_date
+    # if page_heading
+    #   page_heading.issue.date.to_s
+    # else
+    #   Date.today.to_s
+    # end
   end
 
   private
