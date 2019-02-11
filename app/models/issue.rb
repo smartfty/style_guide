@@ -25,9 +25,9 @@ require 'zip/zip'
 
 class Issue < ApplicationRecord
   belongs_to :publication
-  has_many  :page_plans
-  has_many  :pages, -> { order(page_number: :asc) }
-  has_one :spread
+  has_many  :page_plans, dependent: :delete_all
+  has_many  :pages, -> { order(page_number: :asc) }, dependent: :delete_all
+  has_one :spread, dependent: :delete
   has_many  :images
   accepts_nested_attributes_for :images
   has_many :ad_images

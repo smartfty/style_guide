@@ -57,7 +57,6 @@ class Profile < ApplicationRecord
     "#{Rails.root}/public/#{publication.id}/profile/#{profile.csv}"
   end
 
-
   def layout_erb
     layout =<<~EOF
     RLayout::Container.new(width:158.74015748031,  height: 75) do

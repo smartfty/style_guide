@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :combo_ads
   resources :reporter_images do
     member do
     end

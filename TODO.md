@@ -20,6 +20,12 @@
   - body
     - fit_text
 
+2019-2-10
+  - add status to page
+  - add send story, and wire_image from wire_service to newsGo 
+  - add recieive story to newsGo 
+  - add testing to StyleGuide
+  
 2019-2-2
   - combo_ad_box
   

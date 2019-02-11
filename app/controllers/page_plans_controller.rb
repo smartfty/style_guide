@@ -91,7 +91,7 @@ class PagePlansController < ApplicationController
         # end
 
         new_advertiser = @page_plan.advertiser
-        if new_advertiser && current_advertiser != new_advertiser
+        if new_advertiser && new_advertiser =! "" && current_advertiser != new_advertiser
           ad_box = @page_plan.page.ad_boxes.first
           if ad_box
             ad_box.advertiser = new_advertiser
