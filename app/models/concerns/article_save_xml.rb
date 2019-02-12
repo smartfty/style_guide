@@ -675,16 +675,9 @@ EOF
   <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
 </TitleComponent>
 <ArticleComponent>
-  <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
+  <Content><![CDATA[<%= @h_caption %> <%= @h_source %>]]>
   </Content>
-</ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
-<PhotoComponent>
-  <PhotoItem>
-  <ImageType>Image</ImageType> 
-    <Property ImgClass="[IMG01]" align="center" Class="일반" Size="Large"/>
-      <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-  </PhotoItem>
-</PhotoComponent><% end %>
+</ArticleComponent>
 </Article>
 EOF
 
