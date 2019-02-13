@@ -124,6 +124,41 @@ class Ad < ApplicationRecord
       end
   end
 
+  def svg_unit_width
+    grid_width/3
+  end
+
+  def svg_unit_height
+    grid_height/3
+  end
+
+  def x_grid
+    return 0 if name.include?("_짝")
+    page_columns - column
+  end
+
+  def y_grid
+    publication.row - row
+  end
+
+  def svg_box
+    # TODO put story number on top
+    # make width for 6 column same as 7 column
+    string = ""
+    string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{0}' y='#{0}' width='#{page_columns*svg_unit_width}' height='#{15*svg_unit_height}'/>\n"
+    string += "<rect fill='red' stroke='#000000' stroke-width='4' x='#{x_grid*svg_unit_width}' y='#{y_grid*svg_unit_height}' width='#{column*svg_unit_width}' height='#{row*svg_unit_height}'/>\n"
+    string
+  end
+
+  def to_svg
+    svg=<<~EOF
+    <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0' y='0' stroke='black' stroke-width='4' width='#{page_columns*svg_unit_width}' height='#{15*svg_unit_height}'>
+      #{svg_box}
+    </svg>
+    EOF
+  end
+
+
   def save_current_ads
     csv_path = "#{Rails.root}/public/1/ad/ads.csv"
     File.open(csv_path, 'w'){|f| f.write Ad.to_csv.to_s}
