@@ -294,3 +294,32 @@ input:checked + label {
 	color: #cdcdcd;
 	font-weight: bold;
 }
+
+
+@media print{
+  @page { 
+    size:21cm 29.7cm; /*A4*/ 
+    margin:0
+  }
+  .nav-wrap, 
+  #left-menu,
+  #setColor_area,
+  .mapbtn-container{opacity:0;visibility:hidden;display:none;}
+  #contents-wrap{margin-left: 0}
+  .myDivToPrint {
+  visibility: visible;
+  /*background-color: white;*/
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0px;
+  font-size: 14px;
+  line-height: 18px;
+  }
+  #map_area{
+  -webkit-print-color-adjust: exact; 
+  }
+}
