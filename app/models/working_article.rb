@@ -304,8 +304,7 @@ class WorkingArticle < ApplicationRecord
       sybling.push_line(self.extended_line_count)
     end
     generate_pdf_with_time_stamp
-    add_extended_line_count_to_config_yml(self.extended_line_count)
-    add_extended_line_count_to_config_yml(self.extended_line_count)
+    save_extended_line_count_to_config_yml(self.extended_line_count)
     page.generate_pdf_with_time_stamp
   end
 
