@@ -769,8 +769,9 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
-    else 
-      @c_head_line    = @h_caption_title    
+    else
+      @image          = images.first
+      @c_head_line    = @image.caption_title   
     end
     container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>

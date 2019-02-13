@@ -5,8 +5,8 @@ section_names = [
   '정치',
   '정치',
   '정치',
-  '행정',
-  '행정',
+  '자치행정',
+  '자치행정',
   '전면광고',
   '국제통일',
   '금융',
@@ -153,7 +153,7 @@ end
 SECTIONS = [
   '1면',
   '정치',
-  '행정',
+  '자치행정',
   '국제통일',
   '금융',
   '산업',
@@ -176,7 +176,7 @@ User.create!(name: "이동명", email: "leedongmyeong@naeil.com", password: 'iti
 User.create!(name: "안찬수", email: "khaein@naeil.com", password: 'itis0897', password_confirmation: "itis0897", role: 2)
 
 User.create!(name: "김정치", email: "k_2@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
-User.create!(name: "김행정", email: "k_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "김행정", email: "k_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '자치행정', role: 0)
 User.create!(name: "김국제", email: "k_4@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
 User.create!(name: "김금융", email: "k_5@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
 User.create!(name: "김산업", email: "k_6@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
@@ -185,7 +185,7 @@ User.create!(name: "김기획", email: "k_8@gmail.com", password: 'itis1234', pa
 User.create!(name: "김오피", email: "k_9@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
 
 User.create!(name: "이정치", email: "l_2@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
-User.create!(name: "이행정", email: "l_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "이행정", email: "l_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '자치행정', role: 0)
 User.create!(name: "이국제", email: "l_4@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
 User.create!(name: "이금융", email: "l_5@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
 User.create!(name: "이산업", email: "l_6@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
@@ -194,7 +194,7 @@ User.create!(name: "이기획", email: "l_8@gmail.com", password: 'itis1234', pa
 User.create!(name: "이오피", email: "l_9@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
 
 User.create!(name: "양정치", email: "y_2@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
-User.create!(name: "양행정", email: "y_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "양행정", email: "y_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '자치행정', role: 0)
 User.create!(name: "양국제", email: "y_4@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
 User.create!(name: "양금융", email: "y_5@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
 User.create!(name: "양산업", email: "y_6@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
@@ -203,7 +203,7 @@ User.create!(name: "양기획", email: "y_8@gmail.com", password: 'itis1234', pa
 User.create!(name: "양오피", email: "y_9@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
 
 User.create!(name: "한정치", email: "h_2@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
-User.create!(name: "한행정", email: "h_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "한행정", email: "h_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '자치행정', role: 0)
 User.create!(name: "한국제", email: "h_4@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
 User.create!(name: "한금융", email: "h_5@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
 User.create!(name: "한산업", email: "h_6@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
@@ -212,7 +212,7 @@ User.create!(name: "한기획", email: "h_8@gmail.com", password: 'itis1234', pa
 User.create!(name: "한오피", email: "h_9@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '오피니언', role: 0)
 
 User.create!(name: "안정치", email: "a_2@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 0)
-User.create!(name: "안행정", email: "a_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '행정', role: 0)
+User.create!(name: "안행정", email: "a_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '자치행정', role: 0)
 User.create!(name: "안국제", email: "a_4@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '국제통일', role: 0)
 User.create!(name: "안금융", email: "a_5@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '금융', role: 0)
 User.create!(name: "안산업", email: "a_6@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '산업', role: 0)
