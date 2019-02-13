@@ -292,6 +292,22 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
+  def extend_line(line_count)
+    return if line_count == 0
+    if self.extended_line_count
+      self.extended_line_count += line_count
+    else
+      self.extended_line_count = line_count
+    end
+    self.save
+    siblings.each do |sybling|
+      sybling.push_line(self.extended_line_count)
+    end
+    generate_pdf_with_time_stamp
+    save_extended_line_count_to_config_yml(self.extended_line_count)
+    page.generate_pdf_with_time_stamp
+  end
+
 
   def save_extended_line_count_to_config_yml(line_count)
     config_path = page.config_path
@@ -339,6 +355,7 @@ class WorkingArticle < ApplicationRecord
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
 
+  
   def push_line(line_count)
     self.pushed_line_count = line_count
     self.save
