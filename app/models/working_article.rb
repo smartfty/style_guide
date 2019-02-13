@@ -266,35 +266,6 @@ class WorkingArticle < ApplicationRecord
     body.length
   end
 
-  def add_extended_line_count_to_config_yml(line_count)
-    puts __method__
-    config_path = page.config_path
-    config_hash = YAML::load_file(config_path)
-    frame_array = config_hash['story_frames'][order - 1]
-    if frame_array.last =~/^extend/
-      if line_count == 0
-        frame_array.pop
-      else
-        frame_array[-1] = "extend_#{line_count}"
-      end
-    else
-      frame_array << "extend_#{line_count}"
-    end
-    File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
-  end
-
-  def remove_extended_line_count_from_config_yml
-    config_path = page.config_path
-    config_hash = YAML::load_file(config_path)
-    frame_array = config_hash['story_frames'][order - 1]
-    if frame_array.last =~/^extend/
-      frame_array.pop
-    elsif frame_array.last =~/^push/
-      frame_array.pop
-    end
-    File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
-  end
-
   def extended_line_height
     if extended_line_count.nil?
       return 0
@@ -317,49 +288,53 @@ class WorkingArticle < ApplicationRecord
       sybling.push_line(line_count)
     end
     generate_pdf_with_time_stamp
-
-    if line_count == 0
-      remove_extended_line_count_from_config_yml
-    else
-      add_extended_line_count_to_config_yml(line_count)
-    end
+    save_extended_line_count_to_config_yml(line_count)
     page.generate_pdf_with_time_stamp
   end
 
-  def extend_line(line_count)
-    return if line_count == 0
-    if self.extended_line_count
-      self.extended_line_count += line_count
-    else
-      self.extended_line_count = line_count
-    end
-    self.save
-    siblings.each do |sybling|
-      sybling.push_line(self.extended_line_count)
-    end
-    generate_pdf_with_time_stamp
-    add_extended_line_count_to_config_yml(self.extended_line_count)
 
-    if line_count == 0
-      remove_extended_line_count_from_config_yml
-    else
-      add_extended_line_count_to_config_yml(self.extended_line_count)
-    end
-    page.generate_pdf_with_time_stamp
-  end
-
-  def add_pushed_line_count_to_config_yml(line_count)
+  def save_extended_line_count_to_config_yml(line_count)
     config_path = page.config_path
     config_hash = YAML::load_file(config_path)
     frame_array = config_hash['story_frames'][order - 1]
-    if frame_array.last =~/^push/
-      if line_count == 0
+    if frame_array.length == 4
+        frame_array << {'extend'=> line_count} unless line_count == 0
+    elsif frame_array.length == 5 
+      if  frame_array.last.class == Hash
+        if line_count == 0
+          frame_array.last.delete('extend')
+          frame_array.pop if frame_array.last == {}
+        else
+          frame_array.last['extend'] = line_count
+        end
+      # support lagacy format
+      elsif frame_array.last =~/^extend/
         frame_array.pop
-      else
-        frame_array[-1] = "push_#{line_count}"
+        frame_array << {'extend'=> line_count}  unless line_count == 0
       end
-    else
-      frame_array << "push_#{line_count}"
+    end
+    File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
+  end
+
+  def save_pushed_line_count_to_config_yml(line_count)
+    config_path = page.config_path
+    config_hash = YAML::load_file(config_path)
+    frame_array = config_hash['story_frames'][order - 1]
+    if frame_array.length == 4
+        frame_array << {'push'=> line_count} unless line_count == 0
+    elsif frame_array.length == 5 
+      if  frame_array.last.class == Hash
+        if line_count == 0
+          frame_array.last.delete('push')
+          frame_array.pop if frame_array.last == {}
+        else
+          frame_array.last['push'] = line_count
+        end
+      # support lagacy format
+      elsif frame_array.last =~/^push/
+        frame_array.pop
+        frame_array << {'push'=> line_count}  unless line_count == 0
+      end
     end
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
@@ -368,7 +343,7 @@ class WorkingArticle < ApplicationRecord
     self.pushed_line_count = line_count
     self.save
     generate_pdf
-    add_pushed_line_count_to_config_yml(self.pushed_line_count)
+    save_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
 
   def show_quote_box?

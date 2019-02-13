@@ -20,10 +20,16 @@
   - body
     - fit_text
 
+2019-2-12
+  - expand pushed for multiple child section 118, 119
+  - 사진 fit_type
+  - 전체보기에서  CMYK 
+  - 광고주명 입력
+  - 합성광고 id 표시
+
 2019-2-11
   - 7단 일 경우 제목 크기 설정시 본분이 올라감 상단 여백 에라
   - 중간제목 행갈이
-  - expand pushed for multiple child
   - x_grid  start at 1, not 0
 
 2019-2-10
