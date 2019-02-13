@@ -20,6 +20,10 @@
   - body
     - fit_text
 
+2019-2-13
+  - 광고 목록, show svg layout
+  - sort section layout, move ad box to last
+  
 2019-2-12
   - expand pushed for multiple child section 118, 119
   - 사진 fit_type

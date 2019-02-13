@@ -280,6 +280,7 @@ class WorkingArticle < ApplicationRecord
     pushed_line_count * publication.body_line_height
   end
 
+  # sets extended_line_count as line_count
   def set_extend_line(line_count)
     return if line_count == extended_line_count
     self.extended_line_count = line_count
@@ -292,6 +293,7 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
+  # adds extended_line_count with new line_count
   def extend_line(line_count)
     return if line_count == 0
     if self.extended_line_count
