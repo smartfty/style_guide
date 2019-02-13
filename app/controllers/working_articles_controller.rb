@@ -270,49 +270,49 @@ class WorkingArticlesController < ApplicationController
 
   def extend_one
     set_working_article
-    @working_article.extend_line(1)
+    @working_article.set_extend_line(1)
     redirect_to working_article_path(@working_article), notice: '박스크기 1 행 추가 되었습니다.'
   end
 
   def extend_two
     set_working_article
-    @working_article.extend_line(2)
+    @working_article.set_extend_line(2)
     redirect_to working_article_path(@working_article), notice: '박스크기 2 행 추가 되었습니다.'
   end
 
   def extend_three
     set_working_article
-    @working_article.extend_line(3)
+    @working_article.set_extend_line(3)
     redirect_to working_article_path(@working_article), notice: '박스크기 3 행 추가 되었습니다.'
   end
 
   def extend_four
     set_working_article
-    @working_article.extend_line(4)
+    @working_article.set_extend_line(4)
     redirect_to working_article_path(@working_article), notice: '박스크기 4 행 추가 되었습니다.'
   end
 
   def reduce_one
     set_working_article
-    @working_article.extend_line(-1)
+    @working_article.set_extend_line(-1)
     redirect_to working_article_path(@working_article), notice: '박스크기 -1 행 축소 되었습니다.'
   end
 
   def reduce_two
     set_working_article
-    @working_article.extend_line(-2)
+    @working_article.set_extend_line(-2)
     redirect_to working_article_path(@working_article), notice: '박스크기 -2 행 축소 되었습니다.'
   end
 
   def reduce_three
     set_working_article
-    @working_article.extend_line(-3)
+    @working_article.set_extend_line(-3)
     redirect_to working_article_path(@working_article), notice: '박스크기 -3 행 축소 되었습니다.'
   end
 
   def reduce_four
     set_working_article
-    @working_article.extend_line(-4)
+    @working_article.set_extend_line(-4)
     redirect_to working_article_path(@working_article), notice: '박스크기 -4 행 축소 되었습니다.'
   end
 
