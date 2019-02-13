@@ -47,7 +47,7 @@
 
   <div class="field">
     <%= f.label '가격' %>
-    <%= f.text_field :price %>
+    <%= f.select :price, %w[무료 500원 1000원], {include_blank: false} %>
   </div>
 
 
