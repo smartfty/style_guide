@@ -89,6 +89,7 @@ class Graphic < ApplicationRecord
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:image_kind]        = 'graphic'
+    h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
     # h[:fit_type]          = fit_type if fit_type
     h
   end
