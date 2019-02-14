@@ -23,15 +23,15 @@
 2019-2-14
   - add title, description:text to graphic
   - put options to draw box around or not
-  - add draw_box:booleand to Image and to Graphic
-  
+  - add draw_frame:booleand to Image and to Graphic
+  - 사진 fit_type
+
 2019-2-13
   - 광고 목록, show svg layout
   - sort section layout, move ad box to last
   
 2019-2-12
   - expand pushed for multiple child section 118, 119
-  - 사진 fit_type
   - 전체보기에서  CMYK 
   - 광고주명 입력
   - 합성광고 id 표시

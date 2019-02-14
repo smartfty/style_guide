@@ -75,6 +75,6 @@ class GraphicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def graphic_params
-      params.require(:graphic).permit(:grid_x, :grid_y, :column, :row, :extra_height_in_lines, :graphic, :caption, :source, :position, :page_number, :story_number, :working_article_id, :issue_id, :fit_type, :x_grid, :draw_box, :title, :description)
+      params.require(:graphic).permit(:grid_x, :grid_y, :column, :row, :extra_height_in_lines, :graphic, :caption, :source, :position, :page_number, :story_number, :working_article_id, :issue_id, :fit_type, :x_grid, :draw_frame, :title, :description)
     end
 end

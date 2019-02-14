@@ -31,7 +31,6 @@
 #  sub_grid_size         :string
 #  auto_size             :integer
 #  fit_type              :string
-#  draw_box              :boolean
 #
 
 class Image < ApplicationRecord
@@ -94,6 +93,7 @@ class Image < ApplicationRecord
     h[:source]            = source if source
     # h[:fit_type]          = fit_type if fit_type
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - å1
+    h[:draw_frame]        = draw_frame if draw_frame
 
     h
   end

@@ -28,7 +28,6 @@
 #  move_level            :integer
 #  sub_grid_size         :string
 #  fit_type              :string
-#  draw_box              :boolean
 #  title                 :string
 #  description           :text
 #
