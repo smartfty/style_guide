@@ -20,6 +20,11 @@
   - body
     - fit_text
 
+2019-2-14
+  - add title, description:text to graphic
+  - put options to draw box around or not
+  - add draw_box:booleand to Image and to Graphic
+  
 2019-2-13
   - 광고 목록, show svg layout
   - sort section layout, move ad box to last

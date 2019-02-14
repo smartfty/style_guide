@@ -31,6 +31,7 @@
 #  sub_grid_size         :string
 #  auto_size             :integer
 #  fit_type              :string
+#  draw_box              :boolean
 #
 
 class Image < ApplicationRecord
