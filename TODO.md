@@ -24,17 +24,23 @@
   - add title, description:text to graphic
   - put options to draw box around or not
   - add draw_frame:booleand to Image and to Graphic
-  - 사진 fit_type
 
+  - 사진 implement it fit_type in Newsman
+  - add YTN story
+  - add YTN image
+  - 전체보기에서  CMYK 
+  - 광고주명 입력
+  - 합성광고 id 표시
+  
 2019-2-13
   - 광고 목록, show svg layout
   - sort section layout, move ad box to last
   
+
+
 2019-2-12
   - expand pushed for multiple child section 118, 119
-  - 전체보기에서  CMYK 
-  - 광고주명 입력
-  - 합성광고 id 표시
+
 
 2019-2-11
   - 7단 일 경우 제목 크기 설정시 본분이 올라감 상단 여백 에라
