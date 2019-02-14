@@ -28,6 +28,8 @@
 #  move_level            :integer
 #  sub_grid_size         :string
 #  fit_type              :string
+#  title                 :string
+#  description           :text
 #
 # Indexes
 #

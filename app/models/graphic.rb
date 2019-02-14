@@ -28,6 +28,8 @@
 #  move_level            :integer
 #  sub_grid_size         :string
 #  fit_type              :string
+#  title                 :string
+#  description           :text
 #
 # Indexes
 #
@@ -89,8 +91,9 @@ class Graphic < ApplicationRecord
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:image_kind]        = 'graphic'
-    h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
     # h[:fit_type]          = fit_type if fit_type
+    h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
+    h[:draw_frame]        = draw_frame if draw_frame
     h
   end
 
