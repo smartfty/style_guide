@@ -518,6 +518,7 @@ class Section < ApplicationRecord
   def parse_story_count
     count = 0
     box_array = eval_layout
+    
     box_array.each_with_index do |box, i|
       if box.length >= 5  && (box[4] == '기고' || box[4] == 'opinion' || box[4] == '사설' || box[4] == 'editorial')
         count += 1
@@ -558,13 +559,24 @@ class Section < ApplicationRecord
 
   def re_order_layout
     layout_array = eval_layout
-    self.layout = layout_array.sort_by {|rect| [rect[1], rect[0]]}.to_s
+    # oreder rects by y position and then x position
+    layout_array = layout_array.sort_by {|rect| [rect[1], rect[0]]}
+    # move ad rect to the last
+    rects_with_ad = layout_array.select {|rect| rect.length == 5 && rect[4] =~ /^광고/}
+    if rects_with_ad.length > 0 && !(layout_array.last[4] =~ /^광고/)
+      # we have a rect with ad in the middle of the list
+      ad_rect = layout_array.delete(rects_with_ad.first)
+      # move it to the last position
+      layout_array << ad_rect
+    end
+    self.layout = layout_array.to_s
   end
 
   private
   def parse_profile
-    layout_array = eval_layout
-    self.layout = layout_array.sort_by {|rect| [rect[1], rect[0]]}.to_s
+    re_order_layout
+    # layout_array = eval_layout
+    # self.layout = layout_array.sort_by {|rect| [rect[1], rect[0]]}.to_s
     if page_number == 1 || is_front_page == true
       self.is_front_page                    = true
       self.page_heading_margin_in_lines     = publication.front_page_heading_margin
