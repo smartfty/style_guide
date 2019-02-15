@@ -248,6 +248,11 @@ module ArticleSaveXml
       @h_caption       = @image.caption
       @h_source        = @image.source
     end
+    if graphics.length > 0
+      @graphic          = graphics.first
+      @h_caption_title  = @graphic.title
+      @h_caption        = @graphic.description
+    end
     opinion_writer  = OpinionWriter.where(name:reporter).first
     if opinion_writer
       @work        = opinion_writer.work if opinion_writer.work
@@ -488,6 +493,11 @@ module ArticleSaveXml
       @h_caption       = @image.caption
       @h_source        = @image.source
     end
+    if graphics.length > 0
+      @graphic          = graphics.first
+      @h_caption_title  = @graphic.title
+      @h_caption        = @graphic.description
+    end
     @section_name_code = section_name_code
     if subject_head && subject_head != ""
       subject_head.strip! 
@@ -675,16 +685,9 @@ EOF
   <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
 </TitleComponent>
 <ArticleComponent>
-  <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
+  <Content><![CDATA[<%= @h_caption %> <%= @h_source %>]]>
   </Content>
-</ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
-<PhotoComponent>
-  <PhotoItem>
-  <ImageType>Image</ImageType> 
-    <Property ImgClass="[IMG01]" align="center" Class="일반" Size="Large"/>
-      <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-  </PhotoItem>
-</PhotoComponent><% end %>
+</ArticleComponent>
 </Article>
 EOF
 
@@ -776,8 +779,9 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
-    else 
-      @c_head_line    = @h_caption_title    
+    else
+      @image          = images.first
+      @c_head_line    = @image.caption_title   
     end
     container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>
