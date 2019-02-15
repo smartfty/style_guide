@@ -1,5 +1,6 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :edit, :update, :destroy, :download_pdf]
+  before_action :authenticate_user!
 
   # GET /publications
   # GET /publications.json

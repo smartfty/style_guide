@@ -1,5 +1,6 @@
 class AdBookingsController < ApplicationController
   before_action :set_ad_booking, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /ad_bookings
   # GET /ad_bookings.json

@@ -1,5 +1,6 @@
 class AdPlansController < ApplicationController
   before_action :set_ad_plan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /ad_plans
   # GET /ad_plans.json

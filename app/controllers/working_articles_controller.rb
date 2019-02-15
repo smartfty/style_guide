@@ -1,6 +1,7 @@
 class WorkingArticlesController < ApplicationController
   before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :upload_graphics, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
   # skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   layout 'working_article'
   # GET /working_articles

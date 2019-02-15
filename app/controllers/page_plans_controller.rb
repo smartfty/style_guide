@@ -1,5 +1,6 @@
 class PagePlansController < ApplicationController
   before_action :set_page_plan, only: [:show, :edit, :update, :select_template, :update_page,  :destroy]
+  before_action :authenticate_user!
 
   # GET /page_plans
   # GET /page_plans.json

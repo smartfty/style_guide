@@ -1,5 +1,6 @@
 class TextStylesController < ApplicationController
   before_action :set_text_style, only: [:show, :edit, :update, :destroy, :save_current, :duplicate, :download_pdf]
+  before_action :authenticate_user!
 
   # GET /text_styles
   # GET /text_styles.json

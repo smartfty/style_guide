@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :download_pdf, :fill, :add_image, :select_image, :add_personal_image, :add_quote]
+  before_action :authenticate_user!
 
   # GET /articles
   # GET /articles.json

@@ -1,5 +1,6 @@
 class AdBoxesController < ApplicationController
   before_action :set_ad_box, only: [:show, :edit, :update, :destroy, :upload_ad_image, :download_pdf]
+  before_action :authenticate_user!
 
   # GET /ad_boxes
   # GET /ad_boxes.json

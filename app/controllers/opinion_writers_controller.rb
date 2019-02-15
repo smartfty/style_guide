@@ -1,5 +1,6 @@
 class OpinionWritersController < ApplicationController
   before_action :set_opinion_writer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /opinion_writers
   # GET /opinion_writers.json

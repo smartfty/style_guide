@@ -1,5 +1,6 @@
 class AdImagesController < ApplicationController
   before_action :set_ad_image, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /ad_images
   # GET /ad_images.json

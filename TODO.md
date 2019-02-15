@@ -25,7 +25,8 @@
   - put options to draw box around or not
   - add draw_frame:booleand to Image and to Graphic
 
-  - 사진 implement it fit_type in Newsman
+  - 사진 implement it fit_type in Newsman 
+      - adjust_box_height_to_image
   - add YTN story
   - add YTN image
   - 전체보기에서  CMYK 

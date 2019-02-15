@@ -1,5 +1,6 @@
 class PageHeadingsController < ApplicationController
   before_action :set_page_heading, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images]
+  before_action :authenticate_user!
 
   # GET /page_headings
   # GET /page_headings.json

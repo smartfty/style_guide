@@ -1,5 +1,6 @@
 class ComboAdsController < ApplicationController
   before_action :set_combo_ad, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /combo_ads
   # GET /combo_ads.json

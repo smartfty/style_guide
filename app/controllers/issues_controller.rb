@@ -1,5 +1,6 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_xml_to_ebiz, :merge_container_xml]
+  before_action :authenticate_user!
 
   # GET /issues
   # GET /issues.json
