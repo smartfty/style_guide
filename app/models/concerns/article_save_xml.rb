@@ -248,6 +248,11 @@ module ArticleSaveXml
       @h_caption       = @image.caption
       @h_source        = @image.source
     end
+    if graphics.length > 0
+      @graphic          = graphics.first
+      @h_caption_title  = @graphic.title
+      @h_caption        = @graphic.description
+    end
     opinion_writer  = OpinionWriter.where(name:reporter).first
     if opinion_writer
       @work        = opinion_writer.work if opinion_writer.work
@@ -487,6 +492,11 @@ module ArticleSaveXml
       @h_caption_title = @image.caption_title
       @h_caption       = @image.caption
       @h_source        = @image.source
+    end
+    if graphics.length > 0
+      @graphic          = graphics.first
+      @h_caption_title  = @graphic.title
+      @h_caption        = @graphic.description
     end
     @section_name_code = section_name_code
     if subject_head && subject_head != ""
