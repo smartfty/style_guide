@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :save_proof_reading_pdf, :send_pdf_to_printer, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default, :assign_stories]
   before_action :authenticate_user!
+  protect_from_forgery prepend: true
 
   # GET /pages
   # GET /pages.json
