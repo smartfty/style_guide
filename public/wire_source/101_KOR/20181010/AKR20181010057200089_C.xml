@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010057200089</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102512</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102025" name="중국"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606001" name="사고일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['결혼 4일차' 신혼부부 집어삼킨 중국 싱크홀…4명 숨져]]></Title>
+		<Body><![CDATA['결혼 4일차' 신혼부부 집어삼킨 중국 싱크홀…4명 숨져
+
+
+
+    (상하이=연합뉴스) 차대운 특파원 = 중국 쓰촨성의 한 도시에서 인도에 갑자기 구명이 나는 싱크홀이 발생해 행인 4명이 빠져 숨졌다.
+    10일 중국 현지 매체들에 따르면 지난 7일 쓰촨성 다저우(達州)시의 버스 터미널 근처 인도 한가운데에 싱크홀이 생기면서 행인 4명이 구멍 안으로 빨려 들어갔다.
+    이 사고로 23살 동갑내기 신혼부부와 한 부자가 숨졌다.
+    사고를 당한 부부는 학교 동창 사이로 중국의 국경절 연휴를 맞아 지난 3일 고향에서 결혼식을 치르고 신접살림이 있는 청두(成都)시로 돌아가는 길에 사고를 당한 것으로 전해져 많은 중국 누리꾼들은 안타까움을 나타냈다.
+
+
+    부부의 시신은 사고 당일 수습됐다. 
+    구조대는 이후 실종된 부자 수색을 벌였지만 이들 역시 9일 오후 시신으로 발견됐다. 
+    이들 부자는 떨어져 살다가 사고 전날 오랜만에 재회한 것으로 전해졌다.
+    사고 직후 수색·구조 작업이 벌어지는 동안 싱크홀이 추가로 붕괴하면서 구조 작업이 더디게 진행됐다.
+    충칭일보 인터넷판은 "현지 당국이 아직 이번 사고의 원인을 공개하지 않고 있다"고 전했다.
+    cha@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

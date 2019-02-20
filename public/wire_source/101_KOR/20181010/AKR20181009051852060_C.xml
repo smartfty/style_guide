@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181009051852060</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141052</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005003" name="고양"/>
+			<RegionCode code="7102016" name="스리랑카"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0512001" name="다문화"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경찰 '저유소 화재' 스리랑카인 중실화혐의 구속영장 재신청]]></Title>
+		<Body><![CDATA[경찰 '저유소 화재' 스리랑카인 중실화혐의 구속영장 재신청
+
+
+
+    (고양=연합뉴스) 권숙희 기자 = 고양 저유소 화재 피의자 A(27·스리랑카)씨에 대한 구속영장을 경찰이 재신청했다.
+    장종익 경기 고양경찰서 형사과장은 10일 오늘 오후 2시께 중실화 혐의로 A씨에 대한 구속영장을 의정부지검 고양지청에 재신청했다고 밝혔다.
+
+[https://youtu.be/z6I8lc78KUk]
+
+    A씨는 지난 7일 오전 10시 34분께 고양시 덕양구 대한송유관공사 경인지사 저유소 인근 강매터널 공사장에서 풍등을 날려 폭발 화재를 유발한 혐의를 받고 있다.
+    A씨가 날린 풍등이 휘발유탱크 옆 잔디에 떨어지며 불이 붙었다. 
+    경찰은 이 불씨가 저유탱크 유증환기구를 통해 들어가며 폭발이 발생했을 가능성이 큰 것으로 보고 있다. 
+    A씨는 전날 인근 초등학교에서 진행된 캠프 행사에서 날아온 풍등을 주워 호기심에 불을 붙여 날린 것으로 조사됐다.
+    이 폭발 화재로 인명피해는 없었으나 휘발유와 저유시설 등 약 43억원의 재산 피해가 났다.
+    다만, A씨의 혐의를 중대한 과실로 볼 수 있는지는 계속 논란이 되고 있다.
+    
+[https://youtu.be/TkwYhZ40-cc]
+
+    경찰은 A씨를 지난 8일 오후 4시 30분께 중실화 혐의로 긴급체포해 지난 9일 오후 의정부지검 고양지청에 구속영장을 신청했다가 1차례 보강 수사 지시를 받았다.
+    경찰이 A씨의 신병을 확보할 수 있는 시간은 긴급체포 이후 48시간 이내인 이날 오후 4시 30분까지다.
+    시한 내 검찰이 구속영장을 법원에 청구하지 않으면 A씨는 석방된다.
+
+
+
+[https://youtu.be/syXLjjCWt_U]
+    suki@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

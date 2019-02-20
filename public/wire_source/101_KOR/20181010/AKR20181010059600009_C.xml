@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010059600009</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103552</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["소프트뱅크, 사무실공유 '위워크' 과반지분 노린다"]]></Title>
+		<SubTitle><![CDATA[WSJ "150억∼200억달러 투자 협상"]]></SubTitle>
+		<Body><![CDATA["소프트뱅크, 사무실공유 '위워크' 과반지분 노린다"
+WSJ "150억∼200억달러 투자 협상"
+    
+
+
+    (서울=연합뉴스) 김윤구 기자 = 일본 소프트뱅크그룹이 사무실 공유업체 위워크(WeWork)의 과반지분을 확보하기 위해 협상 중이라고 월스트리트저널(WSJ)이 9일(현지시간) 소식통을 인용해 보도했다.
+    투자액은 150억∼200억달러(약 17조∼22조6천억원)로 소프트뱅크의 비전펀드에서 나올 가능성이 있다고 소식통이 말했다.
+    사우디아라비아와 아부다비의 국부펀드와 소프트뱅크 등이 투자한 920억달러 짜리 비전펀드는 이미 지난해 위워크에 440억달러를 투자해 20%의 지분을 보유하고 있다.
+    이번 투자 계약이 성사되면 스타트업 붐이 일어난 지난 10년간 가장 규모가 크고 중요한 계약 가운데 하나가 된다고 WSJ은 전했다.
+    위워크는 8년 전 미국 뉴욕 맨해튼의 사무실 1개에서 시작해 전 세계 287개 건물에서 책상 26만5천개를 임대하는 큰 기업으로 변화했다. 
+    소프트뱅크가 위워크의 과반지분을 보유하면 업계 선도 기업의 비지배 지분을 보유하는 소프트뱅크 창업자 손 마사요시(손정의)의 기존 전략에서 벗어나는 것이라고 블룸버그통신은 지적했다.
+    소프트뱅크는 우버의 최대 주주이며 차량공유 업체인 중국 디디와 동남아시아 그랩의 지분도 갖고 있다.
+    kimyg@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

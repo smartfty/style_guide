@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010096800005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134148</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712004" name="가요"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['믿듣맘무' 마마무, 일본 투어 성료]]></Title>
+		<Body><![CDATA['믿듣맘무' 마마무, 일본 투어 성료
+
+
+
+    (서울=연합뉴스) 박수윤 기자 = 그룹 마마무가 일본 투어를 성공적으로 마무리했다고 10일 소속사 RBW가 밝혔다.
+    마마무는 지난 5일 오사카를 시작으로 7일 도쿄, 9일 나고야에서 콘서트를 펼쳤다.
+    멤버들은 이 자리에서 '칠해줘', '1cm의 자존심', '별이 빛나는 밤', '나로 말할 것 같으면' 등 히트곡 16곡을 선보였다.
+    또 지난 3일 공개한 일본 데뷔 싱글 '데칼코마니' 일본어 버전과 신곡 '유 돈트 노 미'(You Don't Know Me)를 공개했다.
+    2014년 6월 데뷔곡 'Mr. 애매모호'로 데뷔한 마마무는 '피아노맨', '음오아예', '넌 이즈 뭔들', '데칼코마니', '나로 말할 것 같으면', '별이 빛나는 밤', '너나 해'까지 연속 히트시키며 '믿듣맘무'(믿고 듣는 마마무)란 수식어를 얻었다. 
+
+
+    clap@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

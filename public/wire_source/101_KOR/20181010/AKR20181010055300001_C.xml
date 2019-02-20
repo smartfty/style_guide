@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010055300001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102326</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0106002" name="총리내각"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[이총리 "국정감사는 국회의 정부견제 기능…성실히 받겠다"]]></Title>
+		<SubTitle><![CDATA[국무조정실·총리비서실 국정감사 출석]]></SubTitle>
+		<Body><![CDATA[이총리 "국정감사는 국회의 정부견제 기능…성실히 받겠다"
+국무조정실·총리비서실 국정감사 출석
+
+    (세종=연합뉴스) 성혜미 기자 = 이낙연 국무총리는 10일 "국정감사는 헌법이 국회에 부여한 가장 중요한 정부견제 기능의 하나"라며 "국정감사를 통해 의원님들이 주신 질책과 제안을 정부는 겸허히 수용하고 향후 국정에 반영하겠다"고 말했다.
+    이 총리는 이날 오전 정부세종청사에서 열린 국회 정무위원회의 국무조정실·총리비서실 국정감사에 출석, 이같이 밝혔다.
+    이 총리는 "오늘부터 3주일 동안 국정감사를 계속하실 여야 의원들의 노고에 경의를 표한다"며 "각 부처와 산하기관은 성실하게 국정감사를 받겠다"고 말했다.
+    그는 "올해 국정감사도 정부에는 값진 성찰이, 의원님들께는 보람찬 의정활동의 기회가 되길 바란다"고 덧붙였다. 
+
+
+    noanoa@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

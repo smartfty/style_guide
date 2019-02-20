@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010067200002</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>105957</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0301001" name="금융일반"/>
+			<ClassCode code="0401001" name="산업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['비인가 재정정보 유출' 두고 기재위서 여야 신경전]]></Title>
+		<SubTitle><![CDATA[심재철 "정부, 자료제출 거부"…강병원 "수사에 영향 미칠 수도"]]></SubTitle>
+		<Body><![CDATA['비인가 재정정보 유출' 두고 기재위서 여야 신경전
+심재철 "정부, 자료제출 거부"…강병원 "수사에 영향 미칠 수도"
+
+    (세종=연합뉴스) 민경락 기자 = 비인가 재정정보 무단 유출 사건을 두고 여야가 10일 기획재정위원회 국정감사 시작과 동시에 신경전을 벌였다.
+
+    자유한국당 심재철 의원은 이날 정부세종청사에서 열린 기획재정위원회 국정감사에서 정부와 재정정보원이 관련 자료를 전혀 제출하지 않고 있다며 정부의 협조를 촉구했다.
+    기재부는 김 부총리를 고발인으로 심 의원과 보좌진을 정보통신망법 및 전자정부법 위반 혐의로 검찰에 고발했고, 심 의원도 김 부총리를 포함한 기재부 관계자를 무고 등 혐의로 맞고발한 상태다.
+    심 의원은 "고발은 고발이고 자료 요구까지 거부하는 것은 행정부가 입법부를 무시하는 처사가 아닐 수 없다"며 "재정정보원은 다른 동료 의원의 자료 제출까지 거부하는 것으로 들었다"고 지적했다.
+    이에 대해 더불어민주당 강병원 의원은 "감사위원의 지위가 수사 과정에서 악용돼서는 안 된다"며 관련 자료 요구는 지양돼야 한다고 반박했다.
+    강 의원은 "조만간 이 사안이 재판으로 가야 하는 상황이라면 기재부와 재정정보원 측의 재판 관련된 자료는 지양해야지 않나 생각한다"고 말했다.
+    심 의원은 강 의원의 발언에 대해 "여당 의원으로서 정부에 가이드라인을 제시했다"며 강하게 반발했다.
+    그는 "이번 사건은 일부 언론 등이 지적하는 것처럼 불법도 아니고 탈취도 아니다"며 "이런 지적은 대단히 부적절한 것"이라고 말했다.
+    rock@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

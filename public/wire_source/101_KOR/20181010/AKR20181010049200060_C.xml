@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010049200060</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>095732</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005030" name="포천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0701005" name="학술"/>
+			<ClassCode code="0705001" name="출판일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국립수목원 '베트남 북부 나무도감' 공동 발간]]></Title>
+		<Body><![CDATA[국립수목원 '베트남 북부 나무도감' 공동 발간
+
+
+
+    (포천=연합뉴스) 우영식 기자 = 산림청 국립수목원은 베트남 생태생물자원연구소와 함께 '베트남 북부 나무도감'(Woody Plants of Oac-Phia Den National Park in Vietnam)을 발간하고 10일 베트남 하노이에서 출판기념식을 열었다고 밝혔다.
+    베트남은 전 세계 식물종의 16%를 차지하고 있으며 1만6천 종 이상의 식물 다양성을 보유한 국가다.
+    나무도감은 피아오크 피아덴 국립공원의 수목 식물 60과 139속 200분류군에 대해 영어와 베트남어 2개 국어로 발간됐다.
+    국립수목원은 2008년 열대식물자원연구센터를 설립한 뒤 2011년 베트남 생태식물자원연구소와 협약을 체결, 2014년 베트남 남부 자생식물 도감을 발간한 데 이어 이번에 북부 나무도감을 발간하게 됐다.
+    국립수목원은 충남대학교, 베트남 생태식물자원연구소와 함께 연구를 통해 베트남 남부의 혼바와 북부의 피아오크 지역에만 서식하는 4종의 신종과 4종의 미기록종을 발굴하는 성과도 냈다.
+    이유미 국립수목원장은 "이번 베트남 북부 나무도감 발간으로 베트남 자생식물의 보전과 분류학적 연구의 발판을 마련하고 동아시아 열대식물 연구의 기초자료로 활용되길 희망한다"고 말했다.
+    wyshik@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

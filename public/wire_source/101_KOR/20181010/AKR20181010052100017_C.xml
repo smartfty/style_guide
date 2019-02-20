@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010052100017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>101026</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="04" name="문화"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0701003" name="전시공연"/>
+			<ClassCode code="0708001" name="음악일반"/>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[10주년 맞은 '멜론뮤직어워드', 12월1일 고척돔서 개최]]></Title>
+		<Body><![CDATA[10주년 맞은 '멜론뮤직어워드', 12월1일 고척돔서 개최
+
+    (서울=연합뉴스) 홍지인 기자 = 카카오는 '2018 멜론뮤직어워드'(Melon Music Awards 2018·MMA)를 오는 12월 1일 서울 구로구 고척스카이돔에서 개최한다고 10일 밝혔다.
+    올해로 10회째를 맞는 이번 행사는 '우리의 이야기가 만나는 순간'을 캐치프레이즈로, 그간의 역사를 담은 특별한 콘텐츠와 이벤트 등을 선보일 예정이다. 
+    한희원 카카오 음악사업부문장은 "올해는 멜론을 사랑하는 회원과 아티스트들이 함께 쌓아 온 역사를 기억하고 축하하는 화합과 소통의 장으로 꾸밀 예정"이라고 말했다.
+    2018 멜론뮤직어워드는 JTBC2·JTBC4 채널과 케이팝 채널 원더케이(1theK), 카카오TV를 통해 생중계된다.
+
+    ljungberg@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

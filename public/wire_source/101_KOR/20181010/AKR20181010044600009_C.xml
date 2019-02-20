@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010044600009</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094742</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7104002" name="미국"/>
+		</Region>
+		<Class>
+			<ClassCode code="0109009" name="군수무기"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[미 해외 무기수출 33% 증가...556억 달러 규모]]></Title>
+		<Body><![CDATA[미 해외 무기수출 33% 증가...556억 달러 규모
+                         
+    (서울=연합뉴스) 문정식 기자 = 미국산 무기의 해외 수출이 규제 완화에 힘입어 급증세를 보였다고 로이터 통신이 미 행정부 관리의 말을 인용, 9일 보도했다. 
+    미국 행정부의 한 관리는 지난달 30일로 끝난 회계연도의 수출액이 33% 늘어난 556억 달러에 이른다고 밝혔다. 이는 서명을 마친 계약서를 근거로 한 수치다.  
+    미국의 해외 무기 수출은 외국 정부가 미국의 방산업체와 직접 협상하거나 해당국에 주재하는 미국 대사관의 무관을 접촉하는 2가지 형태로 이뤄지며 모두 행정부의 승인 절차를 요한다.
+
+
+    이처럼 수출이 급증한 데는 트럼프 행정부가 지난 4월 미국 방산업체들이 외국 정부와 직접 거래를 할 수 있도록 규제를 완화하는 한편 방산 업계에 대한 정부 차원의 지원을 강화토록 한 것이 한몫을 한 것으로 보인다.
+    행정부 관리들에 따르면 트럼프 대통령은 인권. 군축 단체들의 우려 제기에도 불구하고 이미 글로벌 무기 시장을 주도하는 미국의 위상을 더욱 확대하기를 원한다는 입장이다.  
+    보잉과 록히드 마틴, 제너럴 다이내믹스, 노스롭 그루먼 등이 해외 수출을 주도하는 업체다. 특히 지난해에는 폴란드와 루마니아 정부가 록히드 마틴과 레이시언이 생산하는 패트리어트 미사일을 구매하는 등 미사일 수출이 활발한 추세였다. 
+    jsmoon@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

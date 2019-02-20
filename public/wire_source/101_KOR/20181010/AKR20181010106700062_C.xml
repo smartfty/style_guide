@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010106700062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141535</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004012" name="정선"/>
+		</Region>
+		<Class>
+			<ClassCode code="0411009" name="카지노"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강원랜드, G2E 2018에 자체개발 게임 테마 출품]]></Title>
+		<Body><![CDATA[강원랜드, G2E 2018에 자체개발 게임 테마 출품
+
+
+
+    (정선=연합뉴스) 배연호 기자 = 강원랜드는 미국 라스베이거스 샌즈 엑스포 컨벤션센터에서 열린 'G2E(Global Gaming Expo) 2018'에 자체 개발한 게임 테마를 출품했다고 10일 밝혔다.
+    출품한 게임 테마는 부채춤77, 노인의 보물, 남사당놀이, 강시, 럭키스트 파이브 등 5종이다.
+    이들 게임 테마는 '한국에서 온 아름다움'이라는 주제로 부채춤, 남사당놀이, 한글 등 한국적 소재를 활용해 개발했다.
+    부채춤77과 노인의 보물은 강원랜드 영업장에서 이미 운영 중인 게임이다.
+    강원랜드 관계자는 "국내 최초로 개발된 카지노 게임 테마의 해외시장 진출 기반 구축에 이바지할 것으로 기대한다"고 말했다.
+    G2E는 세계 4대 게이밍 전시행사 중 하나로 올해는 미국, 중국, 호주, 대만 등 12개국이 참가했다.
+    byh@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

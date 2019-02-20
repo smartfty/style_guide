@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010089800064</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>123616</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7012012" name="청주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503006" name="대학교육"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['자격 미달' 도의원에 장학금 지급…중원대 전 총장 입건]]></Title>
+		<Body><![CDATA['자격 미달' 도의원에 장학금 지급…중원대 전 총장 입건
+
+    (청주=연합뉴스) 이승민 기자 = 충북지방경찰청 지능범죄수사대는 자격 요건을 충족하지 못한 도의원에게 장학금을 지급한 혐의(업무상 배임)로 중원대 전 총장 A(60)씨를 불구속 입건했다고 10일 밝혔다.
+
+    경찰에 따르면 A씨는 지난 2012년부터 2015년까지 중원대 총장 재임 당시 충북도의원 B(61)씨에게 지급 규정·절차를 지키지 않고 총 6차례에 걸쳐 1천200여만원의 장학금을 지급한 혐의를 받는다.
+    B씨는 중원대 재학 당시 최소 이수 학점, 학점 평점 기준을 충족하지 못했음에도 공로·특별장학금을 받았던 것으로 조사됐다.
+    경찰은 A씨와 학교 관계자 등을 상대로 B씨가 학교에 장학금을 요구했는지 등을 수사하고 있다. 
+    B 도의원은 "정상적인 규정에 따라 장학금을 받았으며 학사도 특혜는 받지 않았다"고 진술한 것으로 전해졌다.
+    A씨는 2020년까지였던 총장 임기를 채우지 않고 지난해 4월 사임했다.
+    경찰 관계자는 "다양한 장학금이 지급된 과정에서 절차와 규정이 제대로 지켜지지 않은 점들을 확인했다"며 "장학금을 대가로 특혜가 있었는지에 대해서도 수사하고 있다"고 설명했다.
+    logos@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

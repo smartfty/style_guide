@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010049800017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>120024</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901002" name="과학기술"/>
+			<ClassCode code="0901011" name="인터넷"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인터넷진흥원, 우수 정보보호 기술 지정제도 시행]]></Title>
+		<Body><![CDATA[인터넷진흥원, 우수 정보보호 기술 지정제도 시행
+
+    (서울=연합뉴스) 채새롬 기자 = 한국인터넷진흥원(KISA)은 과학기술정보통신부와 국내 정보보호 산업의 성장을 촉진하기 위한 '우수 정보보호 기술·제품·서비스 지정 제도'를 도입한다고 10일 밝혔다.
+    정보보호산업진흥법에 근거해 혁신기술을 보유한 국내 정보보호 기업의 기술·제품·서비스를 우수 정보보호 기술로 선정하고 중점적으로 지원한다.
+    지정은 연 1회 실시되며, 2년의 지정기간 동안 기술전시·설명회 참여 지원 및 KISA 지원사업 참여 우대, R&D 지원금 등의 혜택이 제공된다. 지정된 기술·제품·서비스에는 홍보 등에 활용할 수 있는 과학기술정보통신부의 지정서 및 지정마크가 부여된다.
+    우수 정보보호 기술·제품·서비스 지정 신청을 원하는 국내 정보보호기업은 24일까지 KISA 홈페이지에서 지정신청서를 내려받아 이메일로 제출해야 한다. 
+    KISA는 11일 오후 서울청사에서 접수 방법 및 지원 내용을 안내하는 설명회를 개최한다. 
+    srchae@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010017600001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>081359</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0103002" name="상임위"/>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0602001" name="군사건"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[병사 자살 줄었지만 軍간부 자살은 오히려 증가]]></Title>
+		<SubTitle><![CDATA[최재성 "간부에도 관심 기울여 자살방지 실효성 높여야"]]></SubTitle>
+		<Body><![CDATA[병사 자살 줄었지만 軍간부 자살은 오히려 증가
+최재성 "간부에도 관심 기울여 자살방지 실효성 높여야"
+
+    (서울=연합뉴스) 한지훈 기자 = 군대 안에서 자살하는 병사 수가 매년 감소하는 반면 자살하는 간부 수는 줄지 않고 있어 대책 마련이 필요하다는 지적이 제기됐다. 
+    국회 국방위원회 소속 더불어민주당 최재성 의원이 10일 국방부에서 제출받은 자료에 따르면 군 전체 자살자 수는 2014년 67명, 2015년 57명, 2016년 54명, 2017년 51명으로 매년 감소했다.
+    이를 병사와 간부, 군무원으로 나눠 보면 차이가 있었다.
+    병사 자살자 수는 2014년 40명, 2015년 22명, 2016년 21명, 2017년 17명으로 눈에 띄게 감소했고, 군무원 자살자 수도 2014년 6명, 2015년 4명, 2016년 4명, 2017년 3명으로 완만하게 줄었다.
+    그러나 간부 자살자 수는 2014년 21명, 2015년 31명, 2016년 29명, 2017년 31명으로 오히려 증가세를 보였다. 
+    이 같은 통계는 군내 자살 방지 대책이 주로 병사에 집중돼 상대적으로 간부에 소홀했기 때문일 수 있다고 최 의원은 지적했다.
+    최 의원은 "병사뿐 아니라 부사관, 장교 등 간부에게도 관심을 기울여 군 자살 방지 대책의 실효성을 높여야 한다"고 강조했다. 
+
+
+    hanjh@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

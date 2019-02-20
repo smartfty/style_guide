@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010072700030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111235</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0409006" name="백화면세"/>
+			<ClassCode code="0801001" name="생활정보"/>
+			<ClassCode code="0801003" name="패션"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[현대百, 300억원 규모 '겨울 겉옷' 행사…최대 60% 할인]]></Title>
+		<Body><![CDATA[현대百, 300억원 규모 '겨울 겉옷' 행사…최대 60% 할인
+
+
+
+    (서울=연합뉴스) 이유미 기자 = 현대백화점이 가을 정기 세일 마지막 주말을 맞아 대규모 의류 행사를 마련했다. 
+    현대백화점은 오는 12일부터 14일까지 압구정본점, 무역센터점, 천호점, 중동점, 미아점 등 5개 점포에서 '아우터(겉옷) 대전'을 진행한다고 10일 밝혔다.
+    이번 행사에는 나이키, 블랙야크, 레노마캐주얼 등 남성패션·스포츠·아웃도어 브랜드 30여 개가 참여한다. 
+    행사 물량은 최초 판매가 기준 300억원 규모로, 브랜드별로 이월상품을 최대 60% 할인 판매한다. 
+    주요 상품은 두노 여성 패딩(47만원부터), 레노마캐주얼 양가죽 재킷(49만6천원), 바쏘 밍크털 점퍼(92만5천원), 블랙야크 다운점퍼(29만원부터), 프로스펙스 오리털 롱패딩(13만9천원) 등이다.
+    프리미엄 패딩 할인행사도 진행한다. 캐나다구스, 무스너클 등 10여 개 브랜드는 올해 신상품을 브랜드별로 5∼10% 할인 판매한다.
+    현대백화점 관계자는 "브랜드별로 행사 물량을 지난해보다 20∼30% 늘려 이른 추위에 대비하려는 고객들의 쇼핑 수요를 맞추려고 한다"고 말했다. 
+    gatsby@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

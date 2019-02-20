@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010026100008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>083412</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302011" name="기업분석"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[NH투자 "엔씨소프트, 내년 신작 기대감…목표가↑"]]></Title>
+		<Body><![CDATA[NH투자 "엔씨소프트, 내년 신작 기대감…목표가↑"
+
+
+    
+    (서울=연합뉴스) 유현민 기자 = NH투자증권은 10일 엔씨소프트에 대해 내년 신작 출시에 따른 호실적이 기대된다며 목표주가를 48만원에서 50만원으로 올렸다. 
+    안재민 연구원은 "올해 신규 게임 라인업 부재와 출시 지연으로 상반기 주가가 부진했다"며 "그러나 내년이 다가오면서 다시 신규 게임 출시에 대한 모멘텀이 부각되고 있다"고 진단했다. 
+    그는 "리니지M의 안정적인 성과가 실적을 탄탄하게 받쳐주고 있어 경쟁사보다 낮은 밸류에이션(가치평가)이 매력으로 작용할 것"이라고 분석했다. 
+    안 연구원은 "내년 중 리니지2M, 블레이드&소울2, 아이온템페스트의 대형 모바일 게임 3종이 출시를 준비하고 있다"며 "PC게임인 프로젝트TL의 비공개테스트도 예정돼 있다"고 설명했다. 
+    그는 "올해 3분기에도 리니지M의 꾸준함으로 무난한 실적을 거둘 것으로 추정된다"며 투자의견 '매수'를 유지했다.
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

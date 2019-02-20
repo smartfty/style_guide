@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010117000007</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>144824</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1201001" name="체육일반"/>
+			<ClassCode code="1211009" name="사격"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[세계사격선수권 2관왕 임하나, MBN 여성스포츠대상 9월 MVP]]></Title>
+		<Body><![CDATA[세계사격선수권 2관왕 임하나, MBN 여성스포츠대상 9월 MVP
+
+
+
+    (서울=연합뉴스) 이영호 기자 = 2018 국제사격연맹(ISSF) 창원세계선수권대회에서 2관왕에 오른 '여고생 소총수' 임하나(18·청주여고)가 2018 MBN 여성스포츠대상 9월 최우수선수(MVP)에 선정됐다.
+    임하나는 10일 중구 퇴계로 매경미디어센터에서 열린 '2018 MBN 여성스포츠대상 9월 MVP' 시상식에 참석해 상금과 상패를 받았다.
+    고등학생인 임하나는 지난달 치러진 세계사격선수권대회에서 여자 10ｍ 공기소총 개인전과 단체전에서 금메달을 목에 걸었다.
+    한국 여자 선수가 세계선수권대회 소총 부문 개인전에서 금메달을 획득한 건 임하나가 최초다. 
+    임하나는 "한발 한발에 집중해서 사격하다 보니 좋은 결과가 따라온 것 같다"면서 "이렇게 상까지 받게 돼 영광이다. 멘탈 훈련을 통해 단점을 보완해 2020년 도쿄올림픽에 나가 좋은 성적을 거두고 싶다"고 소감을 밝혔다.
+    심사위원장인 임신자 한국여성스포츠회 회장은 "임하나는 중학교 시절 국가대표에 뽑혀 한국을 놀라게 했다"면서 "지금까지 보여준 천재성에 노력을 더해 더 큰 무대에서 세계를 놀라게 해주길 바란다"고 말했다.
+    2012년 제정된 MBN 여성 스포츠대상은 매월 한국 여성 스포츠를 빛낸 선수들을 월간 MVP로 선정하며 12월 연말 시상식을 통해 연간 대상을 시상한다.
+    horn90@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

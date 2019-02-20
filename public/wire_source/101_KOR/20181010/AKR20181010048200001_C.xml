@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010048200001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>100543</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0104020" name="민주당"/>
+			<ClassCode code="0704001" name="언론일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[민주, 가짜뉴스대책특위 구성…국감 내용 '팩트체크']]></Title>
+		<SubTitle><![CDATA[위원장에 박광온 최고위원…모니터링단·팩트체크단 등 6개 대책단]]></SubTitle>
+		<Body><![CDATA[민주, 가짜뉴스대책특위 구성…국감 내용 '팩트체크'
+위원장에 박광온 최고위원…모니터링단·팩트체크단 등 6개 대책단
+
+
+    (서울=연합뉴스) 차지연 기자 = 더불어민주당은 10일 가짜뉴스대책특별위원회 구성을 완료해 이날부터 시작되는 국정감사에 맞춰 공식활동을 시작한다고 밝혔다. 
+    민주당 이해식 대변인은 이날 국회에서 열린 최고위원회의에서 모니터링단, 팩트체크단, 법률지원단, 홍보기획단, 제도개선단, 자문위원단 등 6개 대책단으로 가짜뉴스대책특위를 꾸렸다고 밝혔다.
+    박광온 최고위원이 위원장을 맡고, 전현희 의원이 간사를 맡는다. 
+    모니터링 단장은 김병관 의원, 팩트체크단장은 한정애 의원, 법률지원단장은 송기헌 의원, 홍보기획단장은 홍익표 의원, 제도개선단장은 이철희 의원, 자문위원단장은 김종민 의원이 각각 선임됐다.
+    이외에 권칠승·박찬대 의원과 변호사, 교수, 시민단체 인사 등이 특위 명단에 이름을 올렸다. 
+    특위 모니터링단과 팩트체크단, 홍보기획단은 국정감사 내용을 살피며 공식활동을 시작하고, 법률지원단은 가짜뉴스 신고센터에 접수된 내용의 법적 조치를 검토할 예정이다.  
+    제도개선단과 자문위원단은 조만간 당정협의와 국회토론회를 열 계획이다. 
+    charge@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

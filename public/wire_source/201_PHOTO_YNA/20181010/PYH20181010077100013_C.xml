@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010077100013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112928</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0702001" name="유형문화"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['익안대군 영정, 18년 만에 종중 품으로']]></Title>
+		<Comment>NO-2131</Comment>
+		<Body><![CDATA['익안대군 영정, 18년 만에 종중 품으로'
+    (서울=연합뉴스) 김주성 기자 = 정재숙 문화재청장(오른쪽)이 10일 오전 서울 종로구 고궁박물관에서 열린 '도난문화재 익안대군 영정 회수 언론공개회'에서 18년 만에 찾은 '익안대군 영정(충남문화재 자료 제329호)'를 전주 이씨 종중 대표인 이석희 회장에게 돌려주고 있다. 
+    익안대군은 조선을 세운 태조 이성계의 셋째 아들 이방의로 정종의 동생이자 태종의 형이다. 2018.10.10
+    utzza@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101007710001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101007710001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101007710001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

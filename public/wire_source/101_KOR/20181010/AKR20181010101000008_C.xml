@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010101000008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>135432</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0204003" name="부동개발"/>
+			<ClassCode code="0302003" name="자본시장"/>
+			<ClassCode code="0302006" name="펀드"/>
+			<ClassCode code="0303001" name="금기일반"/>
+			<ClassCode code="0303008" name="투신사"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[KKR·이지스운용, 르네상스호텔 부지 개발에 2조1천억 투자]]></Title>
+		<Body><![CDATA[KKR·이지스운용, 르네상스호텔 부지 개발에 2조1천억 투자
+
+    (서울=연합뉴스) 유현민 기자 = 글로벌 사모투자펀드(PEF) 콜버그크래비스로버츠(KKR)와 이지스자산운용은 국민연금과 함께 옛 르네상스호텔 부지 재개발 사업에 2조1천억원을 투자하기로 했다고 10일 밝혔다.
+    해당 자산은 총연면적 23만9천188㎡, 순임대면적 12만1천707㎡에 달하며 완공 시 프라임급 업무시설과 상업시설, 5성급 호텔이 입주할 예정이라고 KKR 측은 설명했다. 
+    총 263개 객실을 보유하게 될 5성급 호텔은 신세계조선호텔이 20년 장기 책임 임대차계약을 맺고 운영할 예정이다. 
+    존 파타 KKR 아시아부동산부문 대표는 "최적의 입지를 갖춘 부지와 상징적인 건물이 자리를 잡을 이번 개발 프로젝트 투자에 업계 최고의 파트너인 이지스자산운용 및 국민연금과 협력하게 돼 기쁘다"고 말했다. 
+    정석우 이지스자산운용 국내투자부문 대표는 "이번 프로젝트는 입지와 사양 면에서 국내 최고의 부동산으로 자리매김할 수 있는 매우 우수한 자산"이라며 "글로벌 부동산 시장의 랜드마크 빌딩이 될 수 있도록 개발할 예정"이라고 말했다. 
+    KKR 아시아 Ⅲ 펀드(KKR Asian Fund III)의 일환으로 집행되는 이번 투자는 KKR가 국내에서 세 번째로 진행하는 부동산 투자다. 
+    KKR가 2014년 6월 투자한 더케이트윈타워는 지난 1월 역대 최고가를 기록하며 삼성SRA자산운용에 매각된 바 있다. 
+    KKR는 2011년 이래 한국을 비롯한 호주, 중국, 인도, 뉴질랜드, 싱가포르 등 아태지역 부동산 시장에서 50여건에 걸쳐 20억달러에 달하는 투자를 집행했다. 
+    현재 아태지역 전역에서 20명 이상의 부동산 투자 전문가들이 전략적인 자산과 신용 관리를 하고 있다.
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

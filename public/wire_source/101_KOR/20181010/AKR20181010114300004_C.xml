@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010114300004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>143848</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0606008" name="안전관리"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[초대 서울기술연구원장에 고인석 前 서울시 안전총괄본부장]]></Title>
+		<Body><![CDATA[초대 서울기술연구원장에 고인석 前 서울시 안전총괄본부장
+
+
+    
+    (서울=연합뉴스) 박초롱 기자 = 서울시는 초대 서울기술연구원장에 고인석(59) 전 서울시 안전총괄본부장을 임명했다고 10일 밝혔다. 
+    서울기술연구원은 안전, 방재, 도시기반시설 유지·관리 등 자연과학 분야에 특화한 서울시 산하 연구 조직이다. 재난 예방·대응, 미세먼지·감염병 대응전략 연구도 맡는다. 
+    고인석 원장은 전남대 토목공학과를 졸업하고 공무원 생활을 시작해 서울시에서 시설안전정책관, 상수도사업본부 부본부장, 도시기반시설본부장, 안전총괄본부장 등 기술 분야 주요 보직을 거쳤다. 
+    서울시는 고 원장이 풍부한 현장 경험을 바탕으로 설립 초기인 서울기술연구원 조직의 안정적 정착에 기여할 것으로 기대한다고 밝혔다. 
+    고 원장은 "서울기술연구원이 과학·기술 분야의 혁신적인 지식 창출과 서울시 정책지원 플랫폼 역할을 충실히 할 수 있도록 연구 기반 구축을 위해 노력하겠다"고 밝혔다. 
+    chopark@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

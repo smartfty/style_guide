@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010076300055</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>113055</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009013" name="전주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0104001" name="정당일반"/>
+			<ClassCode code="0104020" name="민주당"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[민주당 전주병지역위원회 "라돈 검출 아파트 대책 마련하라"]]></Title>
+		<Body><![CDATA[민주당 전주병지역위원회 "라돈 검출 아파트 대책 마련하라"
+
+
+
+    (전주=연합뉴스) 임채두 기자 = 더불어민주당 전북도당 전주병지역위원회가 10일 전주시청에서 기자회견을 열고 라돈 검출 아파트에 대한 대책 마련을 촉구했다. 
+    위원회는 "전주시 한 아파트 145세대 욕실에서 기준치의 10∼15배에 달하는 라돈이 검출됐다"며 "주민은 불안에 떨며 대책 마련을 기다리고 있다"고 말했다. 
+    그러면서 "시공사는 이 문제를 주민과 공유하며 책임 있는 자세로 대응해야 한다"며 "관리 관청인 전주시도 해당 업체를 강력하게 감독해 유해물질 검출 자재가 재사용되지 않도록 해야 한다"고 강조했다. 
+    최근 전주시가 해당 아파트를 직접 찾아 잰 라돈 수치는 2천∼3천 베크렐(QB/㎥)이었다. 
+    이는 권고 기준치 200베크렐의 10배 이상이다.
+    위원회는 "전북도와 전주시는 '건축 자재 라돈 검출 문제 대책 가이드라인'을 만들어 다른 아파트에도 같은 문제가 발생하지 않도록 대책을 마련해 달라"고 요구했다. 
+    doo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

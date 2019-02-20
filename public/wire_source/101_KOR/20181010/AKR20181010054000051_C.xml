@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010054000051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>101641</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0605008" name="사기"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[식비 부풀리고 입시 명목 돈 받아…고교 유도부 코치 입건]]></Title>
+		<Body><![CDATA[식비 부풀리고 입시 명목 돈 받아…고교 유도부 코치 입건
+
+    (부산=연합뉴스) 손형주 기자 = 식비를 부풀려 청구하고 대학교수 소개 비용으로 학부모에게 금품을 받았다 돌려준 고등학교 유도부 코치가 경찰에 적발됐다.
+
+    부산 북부경찰서는 사기, 횡령 등의 혐의로 부산의 한 고등학교 유도부 코치 A(44) 씨와 B(41) 씨 등 2명을 입건했다고 10일 밝혔다.
+    A 씨 등은 2014년께 4월께 학부모에게서 교수 소개 비용으로 300만원을 받았다가 되돌려 준 혐의도 받는다. 
+    경찰에 따르면 이들은 한 학부모에게 아들을 한국체대에 입학시키기 위해 교수에게 인사해야 한다며 돈을 요구했다. 
+    A 씨 등은 학부모에게 300만원을 받았지만 실제로 교수를 만나지 않은 것으로 드러나 1년 뒤 돈을 돌려줬다고 경찰은 설명했다. 
+    이들은 지난해 12월 제주의 한 식당에서 식비를 부풀려 결제해 72만원을 빼돌린 혐의도 받고 있다. 
+    A 씨는 또 학부모들이 청탁 목적으로 모은 돈을 지인 법인계좌로 받아 학교 발전기금으로 보낸 혐의(청탁금지법)도 받는다.
+    A 씨는 지난해 4월 유도부 학부모회 총무인 C(41) 씨에게 지인 법인계좌로 500만원을 보내도록 했다. 
+    당시 학부모 17명은 자녀를 전지훈련에 보내 달라며 1인당 30만원을 모아 C 씨에게 전달했다.
+    경찰 관계자는 "발전기금을 유도부 경비 등에 사용했지만, 법인계좌의 돈이 아닌 학부모들 것이라 정상적인 방법으로 모금한 것이 아니다"고 설명했다.
+    handbrother@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

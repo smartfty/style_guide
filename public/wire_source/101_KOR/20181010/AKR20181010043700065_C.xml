@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010043700065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094322</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7005012" name="부천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0711002" name="애니"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국제영화제 'BIAF2018' 11일 온라인예매 시작]]></Title>
+		<Body><![CDATA[국제영화제 'BIAF2018' 11일 온라인예매 시작
+
+
+
+    (부천=연합뉴스) 김명균 기자 = 아카데미 공식지정 국제영화제로 총 30개국 161편의 애니메이션작품을 상영하는 '제20회 부천국제애니메이션페스티벌'(이하 IBAF 2018)이 이달 11일부터 온라인예매 서비스를 시작한다. 
+    개·폐막식을 비롯한 모든 상영작의 온라인예매는 11∼23일 BIAF 공식 홈페이지(www.biaf.or.kr) 및 모바일 예매를 통해 가능하다. 개·폐막작을 함께 볼 수 있는 패키지는 1만3천원이며, 폐막식은 폐막작 상영티켓만 사면 관람이 가능하다. 
+    일반예매는 오프라인으로도 할 수 있다. 오는 19∼23일 한국만화박물관, CGV부천, 부천시청에서 티켓 구매가 가능하다. 티켓 부스는 오전 9시 30분∼오후 9시, 개·폐막 당일은 오전 9시∼오후 8시 운영된다. 
+    제20회를 맞이한 이번 영화제에 1999년생(20세)은 현장 예매 시 신분증을 보여주면 무료 관람할 수 있다. 
+    티켓 예매를 비롯한 단체관람 및 취소와 환불 등 자세한 안내사항은 BIAF2018 홈페이지에서 확인하면 된다. 
+    대한민국 최초 아카데미 공식지정 국제영화제 BIAF2018은 오는 19∼23일 부천시청, CGV부천, 한국만화박물관, 메가박스COEX 등에서 열린다. 
+    kmg@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

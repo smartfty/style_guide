@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010116500056</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>145245</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402001" name="농축일반"/>
+			<ClassCode code="0402004" name="축산업"/>
+			<ClassCode code="0507007" name="질병"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[제주 돼지유형성설사병 발생주의보…질병 예찰 강화]]></Title>
+		<Body><![CDATA[제주 돼지유형성설사병 발생주의보…질병 예찰 강화
+
+    (제주=연합뉴스) 변지철 기자 = 제주 전역에 돼지유행성설사병(PED) 발생주의보가 내려졌다.
+
+    제주도는 10월 들어 한림읍과 대정읍 등 양돈농가 3곳에서 PED가 연이어 발생함에 따라 다른 농가로 피해가 확산하지 않도록 가축전염병 예찰 실시요령(농림축산식품부고시) 제17조에 근거해 10일자로 'PED 발생주의보'를 발령했다.
+    PED는 1971년 영국에서 처음 보고된 전염병으로, 감염된 돼지는 구토와 심한 설사 증세를 보인다. 특히 1주일령 미만의 젖먹는 새끼돼지는 감염되면 탈수증으로 폐사할 수 있는 전염성 높은 바이러스성 질병이다.
+    감염된 돼지의 분변에 의해 입으로 감염되며, 제3종 법정가축전염병으로 지정 관리되고 있다.
+    도는 최근 큰 일교차로 인한 스트레스와 면역력 저하 때문에 PED 발생건수가 앞으로 늘어날 수 있다고 판단, 차단 방역을 강화하고 있다.
+    아직 발생하지 않은 지역의 양돈농가는 PED가 발생하면 큰 피해로 이어질 수 있는 만큼 농장 내외부 차단방역과 예방접종을 실시야 한다. 
+    도는 새끼돼지를 포함한 비육돈 등이 설사, 구토 등 증상을 보일 경우 즉시 제주도 동물위생시험소(☎ 064-710-8541∼2)로 검사 의뢰하도록 양돈농가에 협조를 당부했다.
+    bjc@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

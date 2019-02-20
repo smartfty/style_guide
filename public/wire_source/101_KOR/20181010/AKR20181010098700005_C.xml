@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010098700005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134608</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712003" name="방송"/>
+			<ClassCode code="0712004" name="가요"/>
+			<ClassCode code="0712009" name="드라마"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[엑소 첸, 도경수 지원사격…'백일의 낭군님' OST 참여]]></Title>
+		<Body><![CDATA[엑소 첸, 도경수 지원사격…'백일의 낭군님' OST 참여
+
+
+    (서울=연합뉴스) 이정현 기자 = 엑소 첸이 같은 그룹 멤버 도경수(디오)가 주연으로 출연 중인 tvN 월화극 '백일의 낭군님' OST(오리지널사운드트랙)에 참여한다.
+    드라마 측은 지난 8일 방송 중 원득(도경수 분)과 홍심(남지현)의 키스신에서 먼저 등장해 화제를 모은 곡을 첸이 부른다고 10일 밝혔다.
+    첸이 부른 '백일의 낭군님' 세 번째 삽입곡은 오는 16일 오후 6시 공개된다.
+    lisa@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

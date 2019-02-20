@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010104400005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141055</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712010" name="코미디"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[개그맨 이수지 결혼…라디오서 직접 공개]]></Title>
+		<Body><![CDATA[개그맨 이수지 결혼…라디오서 직접 공개
+    
+
+    (서울=연합뉴스) 이도연 기자 = 개그맨 이수지(33)가 일반인 남자친구와 결혼한다.
+    이수지는 10일 자신이 진행하는 '이수지의 가요광장' 오프닝에서 "저 결혼합니다"고 밝혔다.
+    그는 "친한 사람에게는 가장 먼저 받고 싶고 가장 먼저 주고 싶은 것이 청첩장이다. '가요광장' 가족들에게 가장 먼저 알리고 싶었다"고 말했다.
+    이날 앞서 이수지는 자신의 인스타그램에 "저 이수지가 품절되었음을 알립니다. 사랑하는 짝꿍과 평생을 함께 해보려 합니다. 좀 더 많은 분께 축복을 받고 싶어서 라디오를 통해 전해 드리려고 합니다"는 글을 올렸다. 
+    dylee@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

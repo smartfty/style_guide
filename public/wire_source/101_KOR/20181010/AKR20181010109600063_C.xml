@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010109600063</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142204</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003004" name="대전"/>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503003" name="초등교육"/>
+			<ClassCode code="0503011" name="교육행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대전 초등교사 임용시험 경쟁률 상승…세종은 하락]]></Title>
+		<SubTitle><![CDATA[대전 평균 경쟁률 7.3대 1…세종 4.61대 1]]></SubTitle>
+		<Body><![CDATA[대전 초등교사 임용시험 경쟁률 상승…세종은 하락
+대전 평균 경쟁률 7.3대 1…세종 4.61대 1
+
+    (대전=연합뉴스) 김준호 기자 = 대전지역 공립 초등교사 임용시험 경쟁률이 지난해보다 상승했다.
+
+    대전시교육청은 2019학년도 공립 유치원·초등학교·특수학교(초등·유치원) 교사 임용후보자 선정 경쟁시험 원서접수 결과, 93명을 선발하는 데 688명이 접수했다고 10일 밝혔다.
+    평균 경쟁률은 7.3대 1로, 지난해 5.2 대 1보다 높아졌다.
+    유치원교사(일반)가 35명 선발에 446명이 몰려 12.7대 1의 경쟁률을 보였다.
+    세종지역 경쟁률은 다소 하락했다.
+    162명을 선발하는데 747명이 지원해 4.61대 1의 경쟁률을 보였다. 이는 지난해 경쟁률 5.35대 1보다 하락한 것이다.
+
+    유치원교사(일반) 28명을 모집하는데 311명이 몰려 11.11대 1의 경쟁률을 기록했다.
+    대전과 세종 모두 11월 10일 열리는 제1차 시험 시험장소는 11월 2일 홈페이지에 각각 공고될 예정이다.
+    수험생은 오전 8시 30분까지 수험표와 신분증을 지참하고 시험실에 입실해야 한다.
+    kjunho@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

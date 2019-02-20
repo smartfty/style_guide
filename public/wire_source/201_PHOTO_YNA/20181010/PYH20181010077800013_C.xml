@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010077800013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112942</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Region>
+			<RegionCode code="7005004" name="과천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901002" name="과학기술"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[선서하는 유영민 장관]]></Title>
+		<Comment>NO-2134</Comment>
+		<Body><![CDATA[선서하는 유영민 장관
+    (과천=연합뉴스) 김인철 기자 = 유영민 과학기술정보통신부 장관과 직원들이 10일 오전 경기도 정부과천청사 과학기술정보통신부 청사에서 열린 과학기술정보통신부 국정감사에서 선서를 하고 있다. 2018.10.10
+    yatoya@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101007780001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101007780001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101007780001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010113300062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>143628</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004013" name="철원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0701004" name="축제"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[백두산·한라산 물이 철원에서 만나다…평화통일기원 합수제]]></Title>
+		<Body><![CDATA[백두산·한라산 물이 철원에서 만나다…평화통일기원 합수제
+
+
+    (철원=연합뉴스) 양지웅 기자 = 백두산 천지와 한라산 백록담 물이 만나 한탄강에서 함께 흐르는 행사가 11일 철원에서 열린다.
+    철원군은 11일 갈말읍 내대리 승일공원 일원에서 '제16회 평화통일기원 합수제'를 연다.
+    합수제는 한라산 백록담과 백두산 천지에서 떠온 물을 모아 철원군 한탄강에 뿌리는 통일기원 행사다.
+    이를 위해 지난 8월 철원군 여성단체가 백두산을, 9월에는 서귀포시 여성단체가 한라산을 각각 찾았다.
+    이날 행사에는 평화예술공연단의 물동이 춤을 시작으로 통일염원 풍선 날리기, '우리의 소원은 통일' 합창 등이 함께 열린다.
+    이현종 철원군수는 "한반도의 평화와 번영이 눈앞에 있는 가운데 남북을 관통하는 철원군에서 열리는 이번 행사가 평화통일을 앞당기는 계기가 되길 바란다"고 말했다.
+    yangdoo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

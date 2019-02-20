@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010120200002</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>151059</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0302003" name="자본시장"/>
+			<ClassCode code="0302006" name="펀드"/>
+			<ClassCode code="0303003" name="은행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[사모펀드 IMM, 케이뱅크 주주 된다…1천200억 유증 실권주 인수]]></Title>
+		<SubTitle><![CDATA[지분율 12월 최종 확정]]></SubTitle>
+		<Body><![CDATA[사모펀드 IMM, 케이뱅크 주주 된다…1천200억 유증 실권주 인수
+지분율 12월 최종 확정
+
+    (서울=연합뉴스) 한혜원 기자 = 국내 사모펀드인 IMM프라이빗에쿼티(IMM PE)가 인터넷전문은행 케이뱅크 주요 주주로 참여한다. 
+
+    케이뱅크는 10일 이사회에서 총 1천200억원 규모 증자를 추진하기로 결의했다고 밝혔다. 
+    이사회는 보통주 1천936만3천200주(968억1천600만원), 전환주 463만6천800주(231억8천400만원)를 새로 발행하기로 의결했다. 
+    이번 증자에서 IMM PE는 케이뱅크 새 주요 주주로 참여하게 된다. 
+    새 주식은 케이뱅크 설립 당시 초기자본금의 주주사별 지분율에 따라 기존 주주에 먼저 배정된다. 
+    IMM PE는 이 가운데 기존 주주가 사들이지 못한 실권주를 인수하는 방식으로 증자에 참여할 예정이다. 
+    전환주는 주금납입일 10월 30일, 보통주는 주금납입일 12월 21일 이후 증자 결과가 최종 확정된다. 
+
+    IMM PE는 누적 운용자산 규모 3조3천억원의 사모펀드로 총 14개 펀드를 운용하고 있다. 
+    특히 우리은행 지분 6%를 보유하는 등 은행 등 금융업 투자 경험이 풍부한 투자자라고 케이뱅크는 설명했다. 
+    케이뱅크는 지난 8월 1천500억원 규모로 계획한 유상증자가 불발돼 300억원 전환주 발행에 그쳤다. 
+    이후 IMM PE 등을 상대로 투자 의사를 타진해 왔다. 
+    hye1@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

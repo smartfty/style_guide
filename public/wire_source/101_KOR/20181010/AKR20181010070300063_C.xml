@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010070300063</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111436</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001200" name="단신"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[세종소식] 11월 10일 도담동서 김장 한마당]]></Title>
+		<Body><![CDATA[[세종소식] 11월 10일 도담동서 김장 한마당
+
+
+    (세종=연합뉴스) 세종시는 다음 달 10일 도담동 싱싱장터에서 제4회 로컬푸드 김장 한마당을 한다고 10일 밝혔다.
+    절임 배추 김장가격은 1박스 당 11만원(20㎏)이다. 시 홈페이지(www.sejong.go.kr)에서 사전 예약을 받는다.
+    2016년 이후 결혼한 새내기 부부와 다문화 가정을 대상으로 김장김치 담그기 요리교실도 운영한다.
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

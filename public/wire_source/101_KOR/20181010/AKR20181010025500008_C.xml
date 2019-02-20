@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010025500008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>083338</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0303002" name="증권사"/>
+			<ClassCode code="0409002" name="물류택배"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[KTB투자 "CJ대한통운 3분기 실적 부진…투자의견 중립"]]></Title>
+		<Body><![CDATA[KTB투자 "CJ대한통운 3분기 실적 부진…투자의견 중립"
+
+    (서울=연합뉴스) 임은진 기자 = KTB투자증권은 10일 CJ대한통운의 3분기 실적이 시장 예상치를 밑돌 것으로 전망했다.
+    이한준 연구원은 "CJ대한통운 3분기 영업이익은 작년 동기보다 13.8% 줄어든 540억원, 순이익은 28.8% 감소한 77억원으로 예상된다"며 그 이유로 "택배 부문의 일회성 요인"을 꼽았다.
+    그는 "택배 총이익마진(GPM)이 8.5%로 부진할 것으로 전망되고, 8월 대전 물류센터 안전사고 관련 가동중단에 따른 고정비 부담 및 간선 영업비용 증가도 있었다"고 설명했다.
+    이 연구원은 다만 "4분기에는 큰 규모의 단가 인상이 있는 데다 곤지암 메가허브(HUB) 본격 가동의 실적 기여가 4분기부터 확인 가능할 것"이라며 투자의견 '중립'(Hold)과 목표주가 15만원을 각각 유지했다.
+
+
+
+    engine@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

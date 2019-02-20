@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010015800057</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>073632</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울산시 "구·군이 4급 승진 결정"…인사지침 확정]]></Title>
+		<Body><![CDATA[울산시 "구·군이 4급 승진 결정"…인사지침 확정
+
+
+
+    (울산=연합뉴스) 김근주 기자 = 울산시는 4급 승진을 구·군이 자체적으로 결정하는 내용 등을 담은 인사지침을 확정했다고 10일 밝혔다.
+    시는 지난 8월부터 구·군과 인사교류 실무협의회를 구성해 이번 안을 확정했다.
+    개정안은 구·군 행정 4급 승진을 기존 시에서 결정하던 것을 구·군 자체 승진토록 했다.
+    시 전입시험은 기존 미실시에서 구·군 행정 7·8급(세무, 사회복지직 포함)은 실시하도록 조정됐다.
+    기술직 6급 이상 통합 인사는 유지하기로 했다.
+    또 사회복지직 6급 이상 통합 인사는 직원 의견을 반영해 통합 인사에서 제외한다.
+    시는 "구·군과 대등한 협의를 통해 앞으로 울산이 하나라는 광역행정체제를 원활히 뒷받침하도록 소통하고 공정한 통합 인사를 시행해 나가겠다"고 밝혔다.
+    canto@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

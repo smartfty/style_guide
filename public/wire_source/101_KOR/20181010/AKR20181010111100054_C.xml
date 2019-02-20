@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010111100054</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142459</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008005" name="광양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0408003" name="주류"/>
+			<ClassCode code="0411002" name="관광"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광양 와인동굴, 체험학습장 진화…내년 2월까지 공사 휴장]]></Title>
+		<Body><![CDATA[광양 와인동굴, 체험학습장 진화…내년 2월까지 공사 휴장
+
+
+
+    (광양=연합뉴스) 손상원 기자 = 전남 광양의 대표 관광지로 떠오른 와인 동굴이 면적을 넓혀 동굴 체험 학습장으로 거듭난다.
+    10일 광양시에 따르면 나르샤 관광개발은 석정 제2터널을 추가로 개발해 학생, 가족 단위 관광객을 위한 체험 시설을 확충하기로 했다. 
+    석정 제2터널은 길이 290ｍ, 높이 6.5ｍ 규모로 광양 와인 동굴(석정 제1터널)과 인접했다.
+    공사 기간 관광객 안전을 위해 제1터널은 다음 달부터 내년 2월까지 임시 휴장한다.
+    나르샤 관광개발은 이달 말까지 용역을 완료하고 다른 시설을 벤치마킹해 체험 학습장을 조성할 예정이다.
+    광양시는 안내판 설치, 인근 억만천 정비, 와인 동굴∼사라실 예술촌 2km 구간 연결 사업 등을 구상하고 있다.
+    광양 와인 동굴은 나르샤 관광개발에서 35억원을 투자해 폐터널을 와인 전시·판매장, 트릭아트, 미디어 파사드 등을 갖춘 문화공간으로 조성, 지난해 7월 개장했다.
+    세계의 다양한 와인을 보고 맛보는 시설로 인기를 끌어 지금까지 30만여명이 방문한 것으로 집계됐다.
+    sangwon700@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

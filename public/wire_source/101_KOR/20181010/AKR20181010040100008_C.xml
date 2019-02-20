@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010040100008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>092511</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0301002" name="금융기구"/>
+			<ClassCode code="0302004" name="증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[3분기 증권결제대금 하루평균 22조원…4.3% 감소]]></Title>
+		<Body><![CDATA[3분기 증권결제대금 하루평균 22조원…4.3% 감소
+
+    (서울=연합뉴스) 임은진 기자 = 한국예탁결제원은 3분기 예탁원을 통한 증권결제대금이 하루 평균 22조원으로 전 분기보다 4.3% 줄었다고 10일 밝혔다.
+    장내 주식시장 하루 평균 결제대금은 5천억원으로 전 분기보다 19.6% 줄었고 장외 주식시장도 7천억원으로 20.5% 감소했다.
+    장내 채권시장 결제대금은 하루 평균 1조8천억원에 달해 전 분기보다 16.0% 늘었다. 그러나 증권결제대금의 대부분(86.3%)을 차지하는 장외 채권 결제규모는 하루 평균 19조원으로 전 분기 대비 4.8% 감소했다.
+    채권 종류별 결제대금은 국채 4조5천억원(44.5%), 통안채 2조6천억원(25.9%), 금융채 2조원(19.6%), 특수채 4천억원(4.1%) 등의 순이었다.
+
+
+
+    engine@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

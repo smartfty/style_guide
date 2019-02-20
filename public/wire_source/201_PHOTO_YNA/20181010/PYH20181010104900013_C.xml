@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010104900013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>122322</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1205004" name="장애아시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전민재 대회 2관왕]]></Title>
+		<Comment>NO-2413</Comment>
+		<Body><![CDATA[전민재 대회 2관왕
+    (자카르타=연합뉴스) 윤동진 기자 = 10일 오전(현지시간) 자카르타 겔로라 붕 카르노(GBK) 주경기장에서 열린 2018 인도네시아 장애인아시아게임 여자 100m T36 달리기 결승. 한국 전민재가 1등으로 결승선을 통과하고 있다. 2018.10.10
+    mon@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101010490001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101010490001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101010490001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

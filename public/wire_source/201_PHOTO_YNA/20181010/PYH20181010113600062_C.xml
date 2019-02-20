@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010113600062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>132128</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7004008" name="양양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[단풍으로 물들어가는 설악산]]></Title>
+		<Comment>NO-2785</Comment>
+		<Body><![CDATA[단풍으로 물들어가는 설악산
+    (양양=연합뉴스) 양지웅 기자 = 10일 강원 양양군 설악산 오색령 정상에서 바라본 설악산 일대가 단풍으로 물들고 있다. 설악산 국립공원관리공단은 오는 18일께 설악산 단풍이 절정에 이를 것으로 예상하고 있다. 2018.10.10
+    yangdoo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101011360006200.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101011360006200_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101011360006200_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

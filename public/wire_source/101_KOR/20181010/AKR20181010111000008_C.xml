@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010111000008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142432</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0303002" name="증권사"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[증시신상품] 한투증권, 연 5.4% 수익 추구 ELS]]></Title>
+		<Body><![CDATA[[증시신상품] 한투증권, 연 5.4% 수익 추구 ELS
+
+    (서울=연합뉴스) 전명훈 기자 = 한국투자증권은 홍콩지수(HSCEI), 스탠더드앤드푸어스(S&P)500 지수, 유럽지수(EUROSTOXX50) 등을 기초자산으로 하는 '트루(TRUE) 주가연계증권(ELS) 10914회'를 50억원 한도로 오는 12일까지 모집한다고 10일 밝혔다.
+    이 상품은 3년 만기 스텝다운형 ELS다. 
+    6개월 단위로 모든 기초자산이 기준가의 90%(6개월·12개월), 85%(18개월·24개월), 80%(30개월·36개월) 이상이면 연 5.4%의 수익을 지급하고 상환된다. 조기상환이 없어도 기초자산이 만기까지 55% 미만으로 하락하지 않으면 16.2%(연 5.4%) 수익을 준다.
+    한투증권은 이 기간에 ELS 6종, 파생결합증권(DLS) 4종, 주가연계파생결합사채(ELB) 1종 등을 모집한다. 각 상품의 최소 가입금액은 100만원이다.
+
+
+    id@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

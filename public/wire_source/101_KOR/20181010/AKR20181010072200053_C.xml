@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010072200053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112357</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7007007" name="김천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0506003" name="철도교통"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[김천 복전터널 115년 만에 넓힌다…주민 숙원사업 해결]]></Title>
+		<SubTitle><![CDATA[2020년까지 1차로→2차로, 상습체증 완화 기대  ]]></SubTitle>
+		<Body><![CDATA[김천 복전터널 115년 만에 넓힌다…주민 숙원사업 해결
+2020년까지 1차로→2차로, 상습체증 완화 기대  
+    
+
+
+    (김천=연합뉴스) 박순기 기자 = 경북 김천 직지사 입구의 경부선 복전터널이 115년 만에 2차로로 확장된다. 
+    10일 한국철도시설공단과 김천시에 따르면 사업비 80억원을 들여 대항면 복전리를 지나는 철도 아래 복전터널(남전천 지하차도)을 1차로에서 2차로로 넓힌다.
+    주민설명회를 거쳐 이달 중 설계를 마무리한 뒤 올해 말 공사에 들어가 2020년 하반기 완공할 계획이다.
+    터널은 1905년 경부선 철도 개통 때 직지사에서 시내 방향 1차로로 건설돼 교통체증이 심했다.
+    길이 62ｍ, 폭 3.3ｍ로 차로가 좁아 보행이나 자전거 통행이 어려웠고 특히 주말에는 직지사와 직지문화공원을 찾는 관광객과 등산객, 예식장 방문객 차가 몰려 통행에 불편을 겪었다.
+    총연장 72ｍ, 높이 7.6ｍ, 폭 13ｍ의 2차로와 인도를 완공하면 차와 자전거 통행은 물론 보행이 편리해질 것으로 기대한다.
+    사업비는 한국철도시설공단이 75%, 김천시가 25%를 부담한다. 
+    
+
+
+    김충섭 김천시장은 "복전터널 내부 콘크리트 노후로 안전사고 우려마저 제기되고 있다"며 "시 분담금 20억원을 철도시설공단에 빨리 교부해 하반기 사업 착공에 차질이 없도록 했다"고 말했다.
+    parksk@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

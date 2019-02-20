@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010059300371</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104305</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="10" name="민족"/>
+		<Region>
+			<RegionCode code="7102012" name="베트남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0504001" name="복지일반"/>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0705001" name="출판일반"/>
+			<ClassCode code="1008002" name="동포"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[재외동포재단, 한-베 다문화가정 자녀 위해 도서 6천500권 기증]]></Title>
+		<Body><![CDATA[재외동포재단, 한-베 다문화가정 자녀 위해 도서 6천500권 기증
+
+    (서울=연합뉴스) 강성철 기자 = 재외동포재단(이사장 한우성)은 청소년 도서 출판사의 공동체인 청소년출판협의회(대표 신성종)와 협력해 베트남에 거주하는 한-베 다문화가정 자녀들을 위해 6천500여 권의 한글 도서를 기증했다고 10일 밝혔다.
+    이번에 지원된 도서는 한국어 학습 교재를 비롯해 아동·청소년 대상 문고들이다. 이 책들은 베트남 껀터시에 올 초 설립된 '한-베 함께 돌봄센터' 내 도서관에 비치돼 한-베 다문화가정 자녀들의 교육에 활용된다. 
+    재단이 지난 3월 지원한 1천500여 권을 합하면 도서관은 8천여 권의 한글 도서를 소장하게 됐다. 
+    한 이사장은 "책을 통해 한-베 다문화가정 아이들이 우리말과 문화를 배워 한국과의 연결고리를 잃지 않게 되길 바란다"며 "재단은 인권의 사각지대에 놓은 한-베 다문화가정 아동의 정체성 함양을 위해 앞으로 지원을 더욱 강화하겠다"고 밝혔다. 
+
+
+    wakaru@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

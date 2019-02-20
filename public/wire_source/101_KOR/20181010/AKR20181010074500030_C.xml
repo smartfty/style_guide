@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010074500030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112215</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0202003" name="중소기업"/>
+			<ClassCode code="0411001" name="서비스업"/>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0411004" name="숙박"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[용평리조트, 관계·계열사 연계 사업 확대한다]]></Title>
+		<SubTitle><![CDATA[신달순 CEO, 일상해양산업ㆍ세일여행사ㆍ진흥레저파이리즈 대표 겸직]]></SubTitle>
+		<Body><![CDATA[용평리조트, 관계·계열사 연계 사업 확대한다
+신달순 CEO, 일상해양산업ㆍ세일여행사ㆍ진흥레저파이리즈 대표 겸직
+
+    (서울=연합뉴스) 윤선희 기자 = 리조트 운영·개발 전문 기업 용평리조트가 계열사와 관계사 레저사업체를 연계한 사업 시너지 창출과 리조트 사업 확대에 나선다.
+    용평리조트는 신달순 대표이사가 그룹 계열사인 일상해양산업과 세일여행사, 관계사인 진흥레저파인리즈 대표이사를 겸직한다고 10일 밝혔다.
+    일상해양산업는 전남 여수에 위치한 디오션리조트를 운영하는 기업으로 리조트 운영매출이 연평균 3.8% 성장세를 보이며 작년 말 기준 전남 여수시 화양면에 300만 평의 토지를 보유해 개발 잠재력이 높은 것으로 분석되고 있다. 
+    디오션리조트는 137실의 특급호텔과 128실의 콘도미니엄과 18홀 골프장, 워터파크 등 다양한 레저시설을 갖춘 종합 휴양지이다. 진흥레저파인리즈는 강원도 고성에 위치한 파인리즈리조트를 운영한다. 
+    세일여행사는 패키지여행과 자유여행, 허니문 등 여행상품을 취급하고 있으며 1998년 금강산 관광 사업부를 두고 금강산과 평양, 백두산 등 관광 사업도 했다. 
+    신달순 대표이사는 "이번 대표이사 겸직이 리조트 전국 체인망 구축과 개발 영역 확대의 첫걸음이라고 생각한다"며 "앞으로 용평리조트 등 4개사의 수익성 향상과 브랜드 경쟁력 강화를 위한 경영혁신에 힘쓸 것"이라고 밝혔다.
+    indigo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

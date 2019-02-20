@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010055700054</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102603</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7008021" name="함평"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402002" name="농업"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0801001" name="생활정보"/>
+			<ClassCode code="0803002" name="풍경"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[함평군 서울 조계사서 내달 20일까지 '국화향기 나눔전']]></Title>
+		<Body><![CDATA[함평군 서울 조계사서 내달 20일까지 '국화향기 나눔전'
+
+
+    (함평=연합뉴스) 조근영 기자 = 전남 함평군이 9일부터 서울 종로구 조계사에서 '제8회 국화향기 나눔전'을 시작했다.
+    '시월국화는 시월에 핀다더라'를 주제로 다음달 20일까지 열린다. 
+    국향대전으로 유명한 함평에서 만든 국화분재 20점, 국화조형물 91점 등 다양한 국화작품을 접할 좋은 기회가 될 것으로 보인다.
+    11일까지 친환경 농·특산물 판매장을 마련해 조계사를 찾은 관람객에게 함평 나비쌀 등의 함평 대표 농산물도 판매할 예정이다.
+    함평군과 조계사는 2011년부터 올해까지 8년간 국화 전시회와 농·특산물 판매 등으로 인연을 이어오고 있다. 
+    특히 함평쌀이 조계사 공양미로 사용돼 불자들과 관광객에게 함평을 알리는 역할을 톡톡히 하고 있다. 
+    '2018 대한민국 국향대전'은 오는 19일부터 다음달 4일까지 17일간 함평엑스포공원에서 열린다.
+    chogy@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

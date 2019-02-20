@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181009026400004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>060016</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0504003" name="장애복지"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] '장애인 인권증진 2기 기본계획' 공청회]]></Title>
+		<Body><![CDATA[[게시판] '장애인 인권증진 2기 기본계획' 공청회
+
+    ▲ 서울시는 11일 오후 2시 서울 글로벌센터 9층 국제회의실에서 장애인, 인권분야 전문가, 장애인 단체, 일반시민, 공무원 등 100여명이 참여하는 '장애인 인권증진 2기 기본계획' 수립 시민 공청회를 개최한다. 2기 기본계획 세부 내용은 서울시복지재단 누리집(www.welfare. seoul.kr)에서 확인할 수 있다. 시는 공청회에서 나오는 의견을 수렴해 오는 12월 '서울시 장애인 인권증진위원회' 심의를 거친 뒤 기본계획을 확정해 내년 1월 최종 기본계획을 발표한다.(서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

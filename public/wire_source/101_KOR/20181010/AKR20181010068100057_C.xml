@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010068100057</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>105820</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0405004" name="자동차"/>
+			<ClassCode code="0410005" name="철도운수"/>
+			<ClassCode code="0506003" name="철도교통"/>
+			<ClassCode code="0509001" name="노동일반"/>
+			<ClassCode code="1007001" name="남북교류"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[현대차 노조 '평화철도' 침목 기증 캠페인 동참]]></Title>
+		<Body><![CDATA[현대차 노조 '평화철도' 침목 기증 캠페인 동참
+
+
+    
+    (울산=연합뉴스) 김근주 기자 = 현대자동차 노조는 '평화철도' 침목 기증 캠페인을 벌인다고 10일 밝혔다.
+    노조는 오는 11∼12일 사단법인 평화철도 권영길 대표와 천영세 고문 등이 참석한 가운데 울산공장에서 평화철도 가입 행사를 연다.
+    노조는 "끊어진 남북철도 연결하고 한반도 평화체제를 실현해 평화번영을 이루자는 취지의 휴전선 철길 복원 추진사업을 적극 지지한다"고 밝혔다.
+    지난 3월 창립한 평화철도는 민주노총, 한국노총, 종교계, 시민단체 인사들이 참여해 남북철도 연결 운동을 벌이는 사단법인이다.
+    평화철도는 100만명이 1만원씩 내 경원선 복원 침목을 깔자는 운동을 펴고 있다.
+    문재인 대통령과 북한 김정은 국무위원장은 '9월 평양공동선언'에서 판문점 선언에 담긴 동해선·경의선 철도·도로 연결 현대화 사업의 착공식을 연내 갖기로 합의했다.
+    canto@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

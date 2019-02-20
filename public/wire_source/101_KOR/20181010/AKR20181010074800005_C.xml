@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010074800005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>114254</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0712001" name="영화"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[여성영화채널 씨네프 '소확행 영화제']]></Title>
+		<Body><![CDATA[여성영화채널 씨네프 '소확행 영화제'
+
+
+    (서울=연합뉴스) 이정현 기자 = 여성 영화채널 씨네프가 올해 제3회 무비 페스티벌을 개최한다.
+    태광그룹 티캐스트 계열 씨네프는 오는 15일부터 17일까지 사흘간 서울 광화문에 위치한 예술 영화 전문 상영관 씨네큐브에서 '소확행 영화'를 주제로 세 편의 영화를 선보인다고 10일 밝혔다.
+    이번 영화제에서는 '작은 행복'(소확행, 소소하지만 확실한 행복)을 주는 영화들을 선별해 상영한다. 
+    청년들의 아픔을 유머러스하게 조명해 주목받은 독립영화 '소공녀'와 연기자뿐만 아니라 이제는 어엿한 감독으로 영화 세계를 넓히고 있는 그레타 거윅의 '프란시스 하', 대표 여성 영화인인 임순례 감독이 연출하고 김태리, 류준열이 주연한 힐링 드라마 '리틀 포레스트'까지가 상영된다.
+    씨네프 관계자는 "수많은 영화제 사이에서 느낄 수 있는 씨네프의 영화제만의 감성은 '작지만 확실한 행복' 이었다" 며 "영화제의 경쟁력 확보를 위해 앞으로도 우리 채널의 강점을 영화제 주제에 녹여낼 예정"이라고 말했다.
+    lisa@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

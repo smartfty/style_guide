@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010047200014</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>095938</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Region>
+			<RegionCode code="7004013" name="철원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="1007002" name="남북회담"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[브룩스 유엔군사령관, DMZ 지뢰제거 화살머리고지 방문]]></Title>
+		<SubTitle><![CDATA["화살머리고지 지뢰제거·유해발굴 전폭적으로 지지"]]></SubTitle>
+		<Body><![CDATA[브룩스 유엔군사령관, DMZ 지뢰제거 화살머리고지 방문
+"화살머리고지 지뢰제거·유해발굴 전폭적으로 지지"
+
+
+
+    (서울=연합뉴스) 김호준 기자 = 빈센트 브룩스 유엔군사령관 겸 주한미군사령관이 지난 9일 비무장지대(DMZ) 남북 공동유해발굴을 위한 지뢰제거 작업이 진행 중인 강원도 철원 소재 화살머리고지를 방문했다고 10일 유엔사가 밝혔다. 
+    브룩스 사령관은 화살머리고지에서의 지뢰제거와 공동유해발굴에 대해 "역사적인 화살머리고지로 향하는 길목을 개척하려는 노력을 전폭적으로 지지한다"고 말했다.
+    그는 또한 "많은 (남북) 합의 사안 중에서도 이 조치는 한국전쟁 당시 전사한 장병들의 유해발굴을 가능하게 함으로 매우 중요하다"며 "화살머리고지 주위에는 다른 국가 장병들의 유해도 있으며, 그들을 본국으로 송환하는 것이 나의 최우선 사항"이라고 강조했다. 
+    유엔사도 이날 보도자료를 통해 "지뢰제거 작업은 문재인 대통령과 김정은 북한 국무위원장의 세 번째 정상회담 후에 남북  국방장관이 서명한 군사분야 합의서의 일환으로서 유해발굴 프로젝트가 이어진다"며 "지뢰제거 작업은 공동유해발굴을 위한 안전한 접근성을 확보하고 군사긴장 완화와 우발적인 충돌 예방, 그리고 남북 간의 신뢰 구축을 가능하게 할 것"이라고 평가했다. 
+    hojun@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

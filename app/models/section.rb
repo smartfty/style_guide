@@ -288,7 +288,8 @@ class Section < ApplicationRecord
   end
 
   def generate_pdf
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    PageWorker.perform_async(path, nil)
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def svg_unit_width

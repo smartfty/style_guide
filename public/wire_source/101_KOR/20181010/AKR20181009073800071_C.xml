@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181009073800071</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>000304</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[트럼프 "2차 정상회담 후보지, 싱가포르 아닌 3∼4곳 검토중"]]></Title>
+		<Body><![CDATA[트럼프 "2차 정상회담 후보지, 싱가포르 아닌 3∼4곳 검토중"
+
+    (워싱턴=연합뉴스) 송수경 특파원 = 도널드 트럼프 미국 대통령은 9일(현지시간) 2차 북미정상회담 개최지로 3∼4곳의 장소가 검토되고 있다고 밝혔다.
+    트럼프 대통령은 이날 백악관에서 기자들에게 2차 북미정상회담과 관련, 장소가 싱가포르는 아닐 것이라며 이같이 밝혔다고 로이터통신이 보도했다.
+    트럼프 대통령은 마이크 폼페이오 국무장관의 지난 7일(한국시간) 제4차 방북에 대해 "폼페이오 장관의 (김정은 북한 국무위원장과의) 만남은 매우 좋았다"고 평가했다.
+    hanksong@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

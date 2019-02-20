@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010033600063</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>090449</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003004" name="대전"/>
+		</Region>
+		<Class>
+			<ClassCode code="0901002" name="과학기술"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[인사] 한국연구재단]]></Title>
+		<Body><![CDATA[[인사] 한국연구재단
+
+    ▲ 기초연구본부장 이희윤 (대전=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

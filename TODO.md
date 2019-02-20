@@ -20,17 +20,45 @@
   - body
     - fit_text
 
+2019-2-20
+  - save text_style.yml to local folder
+  - add partial seed rake task
+    migrate:down ,  migrate:up, seed table
+  - add YTM story, YTN image
+  - add wait_for_stamped_pdf for page
+  - graphic file name 6-2, 7-2 ????
+    when uploading graphic, detect filename and make the graphic box
+  - add graphic_request
+        date
+        user
+        designer
+        instruction
+          size
+        data
+        status 
+          request_made, designer_started, designer_finished, accepted
+        graphic
+
+2019-2-18
+  - add sucker_punch gem
+      add ArticleWorker
+      change generate_pdf_with_time_stamp to call ArticleWorker
+      add wait_for_stamped_pdf
+  - change text_style path to local rails_root/1/text_style/text_style.yml
+      extract this path from article_path or section_path
+
 2019-2-14
   - add title, description:text to graphic
   - put options to draw box around or not
-  - add draw_frame:booleand to Image and to Graphic
 
   - 사진 implement it fit_type in Newsman 
-      - adjust_box_height_to_image
+      - adjust_box_height_to_image (image, graphic)
+      - add draw_frame to Image and to Graphic
+
   - add YTN story
   - add YTN image
-  - 전체보기에서  CMYK 
-  - 광고주명 입력
+  - 전체보기에서  CMYK 표시
+  - 광고주명 입력 혹 display selection 
   - 합성광고 id 표시
   
 2019-2-13

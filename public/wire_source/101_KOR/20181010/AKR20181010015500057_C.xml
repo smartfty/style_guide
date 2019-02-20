@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010015500057</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>074635</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0505011" name="동식물"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울산시-환경부, '철새 서식지 관리자 국제 워크숍' 11일 개최]]></Title>
+		<Body><![CDATA[울산시-환경부, '철새 서식지 관리자 국제 워크숍' 11일 개최
+
+
+
+    (울산=연합뉴스) 김근주 기자 = 울산시는 환경부, 동아시아-대양주 철새이동경로 파트너십(EAAFP)과 공동으로 11∼12일 울산 롯데호텔에서 '철새서식지 관리자 국제 워크숍'을 개최한다.
+    이번 워크숍은 세계 철새의 날(10월 13일)을 맞아 국내 철새 보호를 위한 당면 문제를 논의하고 탐조 문화 활성화 등 해결 방안을 찾기 위해 계획됐다.
+    '철새 보호를 위한 하나 된 우리의 목소리'를 주제로 열리는 워크숍에는 울산시, 환경부, EAAFP 사무국을 비롯해 국내외 전문가, 지자체 철새서식지 담당자, 민간단체 관계자 등 100여 명이 참석할 예정이다.
+    행사에선 루영(Lew Young) 동아시아 대양주 철새이동경로 파트너십 사무국장이 '왜 우리가 철새와 그 서식지를 보호해야 하는가'를 주제로 기조 연설한다.
+    딩리용(Ding Li Yong) 버드라이프 인터내셔널 박사와 시아 샤오샤(Xia Shaoxia) 박사는 최근 이동성 철새 현황과 황해지역 철새 보호 중요성에 대해 강연한다.
+    또 일본 야츄 히가타 센터에선 철새서식지 보호 우수사례를 발표한다.
+    이번 워크숍에선 시·군 철새서식지 담당자를 대상으로 국제서식지(FNS) 관리자 실무교육과 울산 태화강 일대 탐조 활동도 이뤄질 예정이다.
+    시 관계자는 "이번 워크숍을 통해 철새 보호를 위한 다양한 목소리를 모으는 계기를 마련하고 정부와 타지자체, EAAFP 등과 협력을 강화할 계획이다"고 말했다.
+    canto@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

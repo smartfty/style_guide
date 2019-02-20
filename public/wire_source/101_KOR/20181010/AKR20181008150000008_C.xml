@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181008150000008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>060500</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001019" name="공시"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[코스피·코스닥 전 거래일(8일) 주요 공시]]]></Title>
+		<Body><![CDATA[[코스피·코스닥 전 거래일(8일) 주요 공시]
+
+    ▲ 모트렉스에 전진중공업 공동인수 추진설 조회공시 요구
+    ▲ 윈팩 "최대주주 지분 매각설 사실무근"
+    ▲ 모비스에 현저한 주가급등 조회공시 요구
+    ▲ 유니테스트, 30억원 태양광발전소 건설공사 해지
+    ▲ 뉴보텍, 최대주주 등 지분율 15%로 확대 계획
+    ▲ 위너지스, 상폐절차 진행금지 가처분 기각에 항고
+    ▲ 대성미생물, 30억원 동물용백신 10종 공급계약
+    ▲ 지엠비코리아, 1천325억원 워터펌프 공급계약
+    ▲ 코스닥 6개사 상폐 절차 중단…5개사는 퇴출 확정
+    ▲ 윈팩에 최대주주 지분 매각 추진설 조회공시 요구
+    ▲ 비에이치 3분기 연결 영업익 420억원…81% 증가
+    ▲ 레이젠 등 상장폐지절차 진행금지 가처분신청 기각
+    (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

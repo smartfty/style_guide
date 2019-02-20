@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :yh_pictures
+  resources :yh_articles
   resources :combo_ads
   resources :reporter_images do
     member do

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010032700001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>090655</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0106002" name="총리내각"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[인사] 국무조정실·국무총리비서실]]></Title>
+		<Body><![CDATA[[인사] 국무조정실·국무총리비서실
+
+    ◇ 부이사관 승진
+    ▲ 국정상황과장 권혜린 ▲ 언론소통행정관 박효건 ▲ 시민사회기획행정관 김영선 ▲ 조세심판원 조사관 오광표
+
+    ◇ 서기관 승진
+    ▲ 국정과제관리관실 김진한
+
+    ◇ 과·팀장급
+    ▲ 민정기획행정관 차동민 ▲ 시민사회지원행정관 정재훈 (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

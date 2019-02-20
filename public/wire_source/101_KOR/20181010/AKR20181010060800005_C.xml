@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010060800005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104420</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0701008" name="문화정책"/>
+			<ClassCode code="0801001" name="생활정보"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전국 민속예술 한자리에…제주서 '한국민속예술축제']]></Title>
+		<SubTitle><![CDATA['전국청소년민속예술축제'도 함께 열려]]></SubTitle>
+		<Body><![CDATA[전국 민속예술 한자리에…제주서 '한국민속예술축제'
+'전국청소년민속예술축제'도 함께 열려
+
+    (서울=연합뉴스) 이웅 기자 = 전국 민속예술이 한자리에 모이는 한국민속예술축제 올해 제52회 행사와 전국청소년민속예술제 제25회 행사가 오는 12~14일 제주 성읍민속마을에서 열린다.
+    
+
+    
+    올해 축제에는 이북 5도를 포함해 전국 20개 시도 대표 1천200여 명이 참여하며, 전국청소년민속예술축제에는 12개 시도 대표 700여 명이 참여해 각 지역을 대표해 경연을 펼친다.
+    제주도민과 관광객들이 함께 어우러지는 여러 체험 프로그램과 먹거리마당도 마련한다. 
+    축제 개·폐막 공연과 '김율희&노선택과 소울소스', '이희문&프렐류드 한국남자', '아시안체어샷' 등의 공연이 무대에 오른다.
+    문화체육관광부와 제주특별자치도가 주최하고 한국민속예술제 추진위원회와 전통공연예술진흥재단이 주관하는 한국민속예술축제는, 국내 최대 규모 민속축제로 60여 년 동안 전국 곳곳에서 전래되는 민속예술을 적극적으로 발굴·보존하고 전승하는 데 기여했다.
+    '전국청소년민속예술제'는 미래를 이끌어갈 청소년들이 민속예술에 관심을 갖고 참여하는 축제다.
+    자세한 사항은 한국민속예술축제 누리집(www.kfaf.or.kr)에서 확인할 수 있다.
+    
+
+    abullapia@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

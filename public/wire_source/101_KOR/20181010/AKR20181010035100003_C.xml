@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010035100003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>092929</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0605005" name="폭행살인"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[5년간 임대아파트 관리원 폭언·폭행 3천702건]]></Title>
+		<Body><![CDATA[5년간 임대아파트 관리원 폭언·폭행 3천702건
+  
+    (세종=연합뉴스) 윤종석 기자 = 최근 10대 청소년이 70대 상가 경비원을 폭행한 사건으로 공분이 이는 가운데, 임대아파트 관리사무소 직원 등이 최근 5년간 입주자의 폭행과 폭언 피해를 본 사례는 연평균 740건이 넘는 것으로 나타났다.
+    10일 국회 국토교통위원회 소속 자유한국당 박완수 의원이 주택관리공단으로부터 제출받은 자료에 따르면 2013년부터 작년까지 임대아파트 관리사무소 직원과 경비 근무자들이 일부 민원인으로부터 폭행이나 폭언을 당한 사례는 3천702건에 달하는 것으로 조사됐다.
+    이중 폭언이 1천464건으로 가장 많았고 주취 폭언이 1천330건, 주취 행패가 688건, 행패 184건 등의 순이었다.
+    주취 폭행은 81건, 흉기 협박은 32건, 자해는 20건이었다.
+    2013년도에 194건이었던 폭언·폭행 건수는 2016년 1천209건으로 6배 넘게 급증했다.
+    작년에는 906건으로 줄어든 데 이어 올해는 6월 말까지 358건이 발생하는 등 감소 추세이기는 하다.
+    박완수 의원은 "임대아파트 관리사무소 직원과 경비원에 대한 폭행 등 피해사례가 감소하고 있긴 하지만 그 빈도가 낮은 수준이 아니다"라며 "직원들에 대한 폭행은 다른 입주민들의 안전에도 위협이 되는 만큼 폭행과 폭언 등을 일삼는 악성 민원인을 제재할 방안이 필요하다"고 말했다.
+    banana@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

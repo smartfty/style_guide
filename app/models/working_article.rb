@@ -182,7 +182,19 @@ class WorkingArticle < ApplicationRecord
 
   def change_story(new_story)
     # update content with new story content
-    # ArticleWorker.perform_async(path, @time_stamp, '내일신문' )
+    # ArticleWorker.perform(path, @time_stamp, '내일신문' )
+  end
+
+  # def run_generate_pdf
+  #   ArticleWorker.new.perform(path, nil)
+  # end
+
+  def mac_pdf
+    ArticleWorker.perform_async(path, nil)
+  end
+
+  def ruby_pdf
+    ArticleRubyWorker.perform_async(path, nil)
   end
 
   def update_story_content(story)
@@ -228,18 +240,39 @@ class WorkingArticle < ApplicationRecord
     system("rm -rf #{path}")
   end
 
+  def stamped_pdf_file
+    path + "/story#{@time_stamp}.pdf"
+  end
+
+  def wait_for_stamped_pdf
+    starting = Time.now
+    times_up = starting + 60*3
+    while !File.exist?(stamped_pdf_file)
+      sleep(1)
+      if Time.now > times_up
+        puts "Waited for 5 seconds!!! Time is up brake"
+        break
+      end
+    end
+    puts "found stamped_pdf file ..."
+  end
+
   def generate_pdf_with_time_stamp
     save_article
     delete_old_files
     stamp_time
     # session[:time_stamp] = @stamp_time
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article .  -custom=#{publication.name} -time_stamp=#{@time_stamp}"
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article .  -custom=#{publication.name} -time_stamp=#{@time_stamp}"
+    ArticleWorker.perform_async(path, @time_stamp)
+    wait_for_stamped_pdf
   end
 
   def generate_pdf
     # @time_stamp =  true
     save_article
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
+    ArticleWorker.perform_async(path, nil)
+
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication.name}"
     # copy_outputs_to_site
   end
 

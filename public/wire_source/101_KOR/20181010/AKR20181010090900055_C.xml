@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010090900055</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>132337</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009007" name="부안"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0506005" name="해상교통"/>
+			<ClassCode code="0606001" name="사고일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["잊지 않겠습니다"…292명 숨진 서해훼리호 참사 25주기 위령제]]></Title>
+		<Body><![CDATA["잊지 않겠습니다"…292명 숨진 서해훼리호 참사 25주기 위령제
+
+    (부안=연합뉴스) 김동철 기자 = 서해훼리호 침몰 희생자를 추모하는 '제25주기 서해훼리호 참사 추모 위령제'가 10일 전북 부안군 위도면 위령탑 앞에서 열렸다.
+
+    위령제에는 유가족과 주민 등이 참석해 위령탑에 헌화하며 희생자들을 추모했다.
+    서해훼리호는 1993년 10월 10일 위도면 파장금항을 출발한 직후 높은 파도와 거센 바람 등으로 침몰했다. 이 사고로 승객 292명이 숨졌다.
+    부안군은 1995년 사고해역이 보이는 위도 진리마을에 위령탑을 건립하고 매년 10월 10일 위령제를 열고 있다.
+    sollenso@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

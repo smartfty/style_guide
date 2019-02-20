@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010063300013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110402</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[삼성 '더 프레임' TV, '반 고흐' 작품 담은 전시회 개최]]></Title>
+		<Comment>NO-1964</Comment>
+		<Body><![CDATA[삼성 '더 프레임' TV, '반 고흐' 작품 담은 전시회 개최
+    (서울=연합뉴스) 삼성전자가 네덜란드 '반 고흐 미술관(Van Gogh Museum)'과 파트너십을 맺고 내년 1월 31일까지 미국 대형 쇼핑몰에서 '더 프레임(The Frame)' TV를 활용한 팝업 전시회 투어를 진행한다고 10일 전했다. 미국 필라델피아 쇼핑몰 '킹 오브 프러시아(King of Prussia Mall)'에서 관람객들이 삼성전자의 라이프스타일 TV '더 프레임'을 통해 반 고흐의 생애와 작품을 감상하고 있다. 2018.10.10 [삼성전자 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101006330001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101006330001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101006330001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

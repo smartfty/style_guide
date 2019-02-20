@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010045600030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094454</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0205001" name="고용취업"/>
+			<ClassCode code="0408002" name="식품"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[농심그룹, 하반기 신입·경력사원 공개채용]]></Title>
+		<Body><![CDATA[농심그룹, 하반기 신입·경력사원 공개채용
+
+
+    (서울=연합뉴스) 이태수 기자 = 농심그룹은 10일부터 22일까지 13일간 채용 홈페이지(http://recruit.nongshim.com)에서 2018년 하반기 신입·경력사원 공개채용 서류를 접수한다고 밝혔다.
+    채용 부문은 경영관리, 마케팅, 해외영업, 국내영업, 생산품질관리, 전기관리, 농심그룹식품연구소 등이다.
+    지원 대상은 내년 2월 졸업 예정자와 기졸업자다. 채용 인원은 총 100여명이다.
+    이번 채용은 농심 외에도 태경농산, NDS, 농심엔지니어링(경력직) 등 그룹사도 동시에 진행된다. 그룹사 간 중복 지원도 가능하다.
+    서류전형 합격자는 이달 31일 오후에 발표된다. 이후 필기전형(적성검사, 인성검사, 논술시험), 실무진 면접, 경영진 면접, 채용검진을 거쳐 내년 1월 중 입사하게 된다.
+    tsl@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

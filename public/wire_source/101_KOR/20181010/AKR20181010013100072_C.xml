@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010013100072</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>072254</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[트럼프 "금리 빨리 올릴 필요없다"…또 연준 압박]]></Title>
+		<Body><![CDATA[트럼프 "금리 빨리 올릴 필요없다"…또 연준 압박
+
+
+
+    (뉴욕=연합뉴스) 이준서 특파원 = 도널드 트럼프 미국 대통령이 9일(현지시간) 미 중앙은행인 연방준비제도(Fed·연준)의 금리인상 기조를 또다시 비판했다.
+    트럼프 대통령은 이날 오후 백악관에서 기자들을 만나 "연준이 하는 일이 마음에 들지 않는다"면서 "너무 빨리 가서는 안 된다. 금리를 빨리 올릴 필요가 없다"고 말했다.
+    그러면서 "경기가 둔화하는 것을 원하지 않는다"면서 "물가 상승 압력도 없다"고 덧붙였다.
+    트럼프 대통령이 연준의 긴축 행보를 비판한 것은 새로운 것이 아니다. 트럼프 대통령은 지난 8월에도 로이터통신 및 CNBC 방송과의 인터뷰에서 연준의 긴축 기조를 노골적으로 비판한 바 있다. 
+    다만 채권금리 오름세와 맞물려 뉴욕증시가 조정 압력을 받는 상황에서 또다시 비판을 재개한 모양새여서 주목된다.
+    연준은 올해 들어 3차례 기준금리를 인상했고, 연말에도 추가 인상을 예고한 상태다. 제롬 파월 의장을 비롯한 연준 수뇌부는 트럼프 대통령의 금리인상 비판에 개의치 않는다는 입장을 잇달아 밝힌 바 있다.
+    jun@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

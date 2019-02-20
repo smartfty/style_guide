@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010073700062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111858</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004012" name="정선"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0509001" name="노동일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[정선군, 한국형 청소차 전국 최초 도입]]></Title>
+		<Body><![CDATA[정선군, 한국형 청소차 전국 최초 도입
+  
+
+
+    (정선=연합뉴스) 배연호 기자 = 강원 정선군은 전국 최초로 한국형 청소차를 도입·운영한다고 10일 밝혔다.
+    한국형 청소차는 짧은 거리에서 잦은 승·하차하고, 시가지 골목과 농촌 지역 좁은 도로 등 국내 작업 환경을 고려해 올해 환경부가 개발했다. 
+    안전한 탑승공간, 360도 어라운드뷰, 압축덮개 안전장치 등 환경미화원의 안전사고를 예방할 수 있도록 설계됐다.
+    정선군은 우선 4대를 도입해 12일부터 운영하고, 2023년까지 단계적으로 모든 청소차량을 한국형 청소차로 교체할 계획이다.
+    현재 정선군은 9개 읍·면에서 청소차 15대를 운영 중이다.
+    홍규학 환경산림과장은 "직무수련회·체육대회 개최, 환경 명예 감시원 운영, 주간근무 전환 등 환경미화원의 복지·작업 환경 개선을 위해 노력하겠다"고 말했다.
+    byh@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

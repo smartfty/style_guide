@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010117700002</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>145337</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0201006" name="조세"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국세청장, '유튜버' 과세 강화 지적에 "동의한다"]]></Title>
+		<SubTitle><![CDATA[구글세에 대해선 "국제적 과세기준 있어…매출동향 파악 중"]]></SubTitle>
+		<Body><![CDATA[국세청장, '유튜버' 과세 강화 지적에 "동의한다"
+구글세에 대해선 "국제적 과세기준 있어…매출동향 파악 중"
+
+    (세종=연합뉴스) 이대희 기자 = 한승희 국세청장은 10일 높은 소득을 올리는 것으로 알려진 '유튜버'에 대한 과세 활동을 강화하겠다는 뜻을 밝혔다.
+
+    한 청장은 이날 정부세종청사에서 열린 국회 기획재정위원회 국정감사에서 유튜버에 대한 과세 강화를 해야 한다는 지적에 "동의한다"고 말했다.
+    한 청장은 "구독자 10만명이면 월 280만원을 번다는 유튜버에 대한 개인 과세가 잘 되느냐"는 더불어민주당 이원욱 의원의 질문에 "세원 동향을 인식하고 있다. 탈루 소득이 없도록 하겠다"고 답했다.
+    실제 과세 사례가 있느냐는 질문에는 "513명에게 신고 안내를 한 적이 있다"고 답했다. 다만 세무조사는 한 적이 없다고 말했다.
+    한 청장은 "자진신고를 하지 않는다면 세무조사를 할 수밖에 없다는 시그널을 보내야 한다"는 지적에 "동의한다"고 말했다.
+    한 청장은 다국적 기업의 역외탈세를 방지하기 위한 이른바 '구글세'와 관련해서는 "과세할 부분은 하고 있지만, 애플리케이션 마켓 수수료 등은 국제적 과세 기준과 관련해 단독 과세는 어려운 상황"이라며 "업체의 매출 등 동향을 파악하고 있다"고 말했다.
+    네이버가 구글보다 법인세를 20배 더 많이 낸다는 지적에는 "일반적인 차원에서 말하면 기업의 매출이 어떤 요소로 구성되느냐에 따라 달라진다"며 원론적인 답변을 했다.
+    2vs2@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

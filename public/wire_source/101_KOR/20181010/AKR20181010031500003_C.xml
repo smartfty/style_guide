@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010031500003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>090313</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7103034" name="영국"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0403003" name="대체력"/>
+			<ClassCode code="0403006" name="전력"/>
+			<ClassCode code="0505001" name="환경일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한화큐셀, 런던 '주택 태양광 프로젝트'에 고출력 모듈 공급]]></Title>
+		<Body><![CDATA[한화큐셀, 런던 '주택 태양광 프로젝트'에 고출력 모듈 공급
+
+    (서울=연합뉴스) 이승관 기자 = 한화큐셀은 영국 런던시가 진행하는 1.5㎿ 규모의 주택용 태양광 프로젝트 '솔라 투게더 런던'(Solar Together London)에 고출력 프리미엄 모듈을 공급한다고 10일 밝혔다.
+    이번 프로젝트는 오는 2050년까지 '무탄소 도시' 전환을 목표로 하는 런던의 에너지 정책 가운데 하나로, 공동구매를 통해 각 가정의 태양광 설치 비용을 절감함으로써 보급률을 높인다는 취지에서 지난 3월 시작됐다.
+    한화큐셀은 현지 공급업체들과 파트너십을 체결하고 런던 내 5개 자치구, 약 600개 가구에 고출력 모듈 '큐피크 듀오'(Q.PEAK DUO)를 공급할 예정이다.
+    지난 7월 국내에도 출시된 '큐피크 듀오'는 기존 제품보다 출력이 대폭 향상돼 일반 주택의 좁은 지붕에서도 많은 발전량을 보장하며, 특히 한쪽이 그늘에 가려져도 다른 한쪽에서 전기를 생산할 수 있어 구조물이 많은 도심에 적합한 제품이라고 회사 측은 설명했다.
+    '큐피크 듀오'는 지난 6월 독일 뮌헨에서 열린 '인터솔라 어워드 2018'에서 태양광 모듈 가운데서는 유일하게 수상하기도 했다. 
+    
+
+    humane@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

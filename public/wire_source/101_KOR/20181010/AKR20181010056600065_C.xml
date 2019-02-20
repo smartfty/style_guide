@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010056600065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102617</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0606005" name="화재"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인천 개 사육장서 불…식용견·투견 20여마리 폐사]]></Title>
+		<Body><![CDATA[인천 개 사육장서 불…식용견·투견 20여마리 폐사
+
+
+    
+    (인천=연합뉴스) 홍현기 기자 = 10일 오전 5시 33분께 인천시 서구 오류동 한 개 사육장에서 불이 나 32분 만에 진화됐다.
+    이 불로 부상자는 없었지만 개 사육장 내부 33㎡가 탔으며 식용견과 투견 20여마리도 폐사해 300여만원(소방서 추산)의 재산 피해가 발생했다.
+    소방당국은 "'퍽'하는 소리와 함께 사육장에서 화염이 보인다"는 인근 공장 주인 A(62)씨 신고를 받고 소방인력 51명과 소방차량 18대를 동원해 화재를 진압했다.
+    소방당국 관계자는 "전기 문제로 불이 난 것으로 추정한다"며 "정확한 화재 원인은 추후 조사할 예정"이라고 말했다.
+    hong@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

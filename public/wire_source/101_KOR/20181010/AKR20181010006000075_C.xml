@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010006000075</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>054432</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7104002" name="미국"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[美 옐로스톤 간헐천 분출…80년 된 동전·쓰레기 튀어 올라와]]></Title>
+		<Body><![CDATA[美 옐로스톤 간헐천 분출…80년 된 동전·쓰레기 튀어 올라와
+
+    (로스앤젤레스=연합뉴스) 옥철 특파원 = 미국 북서부의 명승지인 옐로스톤 국립공원에 있는 이어스프링 간헐천이 용솟음치면서 무려 80여 년 전에 관광객들이 던진 동전이나 쓰레기가 튀어 올라왔다고 폭스뉴스가 9일(현지시간) 전했다.
+    공원 관리국이 페이스북에 올린 사진을 보면 이 간헐천은 지난달 15일 상공 10ｍ까지 물기둥이 치솟았는데 격렬한 분천 활동과 함께 여러 이물질이 주변에 흩어졌다.
+
+
+    공원 관리들이 수거한 것 중에는 관광객이 소원을 빌면서 던진 동전과 함께 알루미늄 캔, 플라스틱 컵, 담배꽁초, 깨진 병, 유아용 고무 젖꼭지 등이 포함됐다.
+    동전은 수십 개가 발견됐다. 일부 쓰레기에서 제조연도가 1930년대인 것이 발견됐다고 공원 관리들은 전했다.
+    옐로스톤의 한 파크 레인저(공원 관리원)는 "물론 역사적으로 가치가 있는 것도 있지만, 대부분은 그저 평범한 쓰레기"라면서 "다음 간헐천 분천 때는 자연에서 발견되는 암석 같은 순수한 물질만 올라왔으면 한다"라고 말했다.
+    미 지질조사국(USGS)은 옐로스톤의 이어스프링 간헐천이 지난 60년간 네 차례 크게 용솟음치는 분천 활동을 했다고 전했다.
+    oakchul@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

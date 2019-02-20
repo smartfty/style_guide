@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010053900001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104555</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0103003" name="국감"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["작년부터 중국산 유채꽃가루 4천548t 부정수입…GMO 검사 안해"]]></Title>
+		<SubTitle><![CDATA[김현권 의원 국감 자료]]></SubTitle>
+		<Body><![CDATA["작년부터 중국산 유채꽃가루 4천548t 부정수입…GMO 검사 안해"
+김현권 의원 국감 자료
+
+    (서울=연합뉴스) 설승은 기자 = 중국산 유채꽃가루가 국내에 대거 유통되는 가운데 유전자변형(GMO) 꽃가루에 대해서는 무방비라는 지적이 나왔다.
+    
+
+
+    10일 국회 농림축산식품해양수산위원회 소속 더불어민주당 김현권 의원이 관세청에서 받은 자료에 따르면 관세청은 작년부터 올해 8월까지 사료용 중국산 유채꽃가루 부정수입 4천548t, 398억원어치를 적발해 검찰에 고발했다.
+    중국산 유채꽃가루가 불법으로 대거 반입돼 사료용이 식용으로 둔갑하거나 원산지를 속이는 사례가 많은 가운데 GMO 유채꽃가루 역시 대거 유통되고 있을 가능성이 크다고 김 의원은 밝혔다.
+    이와 관련해 식품의약품안전처와 농림축산식품부가 김 의원에게 제출한 답변서에 따르면 식용 중국산 유채꽃가루에 대해서는 농약 잔류 여부는 검사하지만 GMO검사는 하지 않고 있고, 사료용 역시 GMO 검사를 한 적이 없다. 
+    수입통계와 검역통계 상 수입량이 달라 중국산 유채꽃가루의 정확한 유통 실태를 파악하기 어렵다는 점도 지적됐다.
+    지난해 수입된 중국산 꽃가루는 농림축산검역본부의 검역통계상 총 2천640t이지만, 관세청 수입통관 통계에 따르면 1천972t으로, 두 통계의 수입량 차이는 668t에 달했다. 
+    김 의원은 "중국산 GMO 유채 씨앗 수입은 엄격하게 통제하면서 정작 유채꽃가루에 대한 관리는 허술하기 짝이 없다"며 "GMO 꽃가루를 사람들이 먹도록 방치해서는 안된다"고 말했다. 
+    ses@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010052200056</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104341</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0701004" name="축제"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[탐라문화기원제 봉행]]></Title>
+		<Comment>NO-1812</Comment>
+		<Body><![CDATA[탐라문화기원제 봉행
+
+    (제주=연합뉴스) 백나용 기자 = 제57회 탐라문화제 개막일인 10일 오전 제주시 탐라문화광장 산지천무대에서 탐라문화제의 성공적인 개최를 기원하는 탐라문화기원제가 봉행되고 있다. 2018.10.10
+    dragon.me@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101005220005600.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101005220005600_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101005220005600_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

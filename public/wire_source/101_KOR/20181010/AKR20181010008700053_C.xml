@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010008700053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>062138</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7007013" name="안동"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0606005" name="화재"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[안동서 주택에 불…부자 사망 추정]]></Title>
+		<Body><![CDATA[안동서 주택에 불…부자 사망 추정
+
+
+
+    (안동=연합뉴스) 이덕기 기자 = 10일 오전 3시 55분께 경북 안동시 길안면 구수리 A(55)씨 집에서 불이 나 50㎡ 규모의 주택을 모두 태우고 1시간 10여분만에 진화됐다. 
+    A씨 어머니는 "아들이 미처 대피하지 못한 남편(85)을 구하기 위해 다시 집으로 뛰어들었지만 나오지 않았다"고 말했다. 
+    경찰과 119구조대는 화재 현장을 수색 중이지만 주택이 완전 붕괴해 어려움을 겪고 있다. 
+    duck@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

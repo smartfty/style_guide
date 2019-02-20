@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010081300064</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>115004</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012004" name="보은"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0701004" name="축제"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[충북소식] 충북 대표 '장안농요' 한국민속예술축제 참가]]></Title>
+		<Body><![CDATA[[충북소식] 충북 대표 '장안농요' 한국민속예술축제 참가
+
+    (보은=연합뉴스) 보은 장안민요가 제59회 한국민속예술축제에 충북 대표로 참가한다.
+
+
+    10일 보은군에 따르면 장안면 전통민속보존회(회장 고옥진)가 이 축제에 출전해 장안농요를 시연할 예정이다.
+    장안농요는 이 지역서 행해지던 전통 두레농악이다. 지난해 충북민속예술축제에서 일반부와 개인부 대상을 차지했다.
+    고 회장은 "이번 대회에서 충청도 농요의 진수를 선보이겠다"고 말했다.
+
+    보은군 신품종 엔비사과 재배농가 모집
+    (보은=연합뉴스) 보은군은 12월 31일까지 엔비사과 재배단지 조성사업에 참여할 농가를 모집한다고 10일 밝혔다.
+
+
+    엔비사과는 뉴질랜드에서 개발된 신품종으로 기존 사과보다 1.5배 이상 수확량이 많다. 당도도 17브릭스로 일반 사과보다 훨씬 달고 아삭거리는 식감 역시 뛰어나다.
+    군은 지난해 엔비사과 국내 생산을 맡는 ST-아시아 측과 업무협약해 100㏊ 규모의 재배지를 확보하는 중이다.
+    이 사업에 참여하는 농가는 묘목 구입비, 관정 설치비 등을 지원받고, 야생동물 피해를 막는 전기울타리 설치 우선권도 있다.
+    군 관계자는 "신청 농가의 생산기반과 사업 적정성 등을 분석해 지원농가를 확정할 계획"이라고 말했다.
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

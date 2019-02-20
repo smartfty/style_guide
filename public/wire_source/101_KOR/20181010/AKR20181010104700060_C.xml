@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010104700060</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141457</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0507009" name="응급의료"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경기북부 일반인 심폐소생술 대회, 파주 성영훈·나영승씨 우승]]></Title>
+		<Body><![CDATA[경기북부 일반인 심폐소생술 대회, 파주 성영훈·나영승씨 우승
+
+    (의정부=연합뉴스) 노승혁 기자 = 경기도 북부소방재난본부는 '2018 경기 북부 일반인 심폐소생술 경연대회'에서 파주지역 성영훈, 나영주씨가 최우수상을 차지했다고 10일 밝혔다.
+
+
+
+    북부소방재난본부는 지난 8일 양주소방서 대회의실에서 일반인 11개 팀(22명)을 대상으로 심폐소생술 경연대회를 열었다.
+    이번 대회는 심폐소생술의 중요성을 알리고 119구급대 도착 전 심정지 환자의 소생률을 향상하는데 목적을 뒀다.
+    대회에는 경기북부 거주자와 사업장 근무자가 2인 1조로 팀을 구성, 심폐소생술과 자동 심장충격기 사용방법에 대해 경연을 펼쳤다.
+    평가단은 인공호흡과 심폐소생술의 적절성, 안전성, 팀워크 등 총 14개의 평가항목을 종합적으로 심사했다.
+    결과 파주소방서 대표로 출전한 성영훈, 나영승씨가 최우수상을 받았다. 
+    파주LCD산업단지에서 근무하는 이들은 자칫 안전사고가 발생하기 쉬운 산단 특성을 고려해 평소 안전의식을 높이기 위해 연습을 부지런히 해 온 것으로 알려졌다.
+    이밖에 고양소방서 대표로 출전한 유소영, 김수정씨가 우수상, 포천소방서 대표로 출전한 김미경, 조경화 씨가 장려상을 받았다.
+    nsh@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

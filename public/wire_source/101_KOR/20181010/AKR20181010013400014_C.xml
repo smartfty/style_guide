@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010013400014</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>072143</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1002002" name="북중관계"/>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[中, 北노동당 창건일 축하 꽃바구니…노동신문 1면에 보도]]></Title>
+		<Body><![CDATA[中, 北노동당 창건일 축하 꽃바구니…노동신문 1면에 보도
+
+    (서울=연합뉴스) 정빛나 기자 = 중국 공산당 중앙위원회가 북한 노동당 창건 기념일(10월 10일) 73주년을 맞아 노동당 중앙위원회에 꽃바구니를 보냈다고 조선중앙통신이 10일 보도했다.
+    중앙통신은 이와 함께 북한 주재 중국 대사관 명의로 된 꽃바구니도 전달됐다고 덧붙였다.
+    노동신문도 이날 1면에 사진과 함께 관련 기사를 게재했다.
+    
+
+    
+    중국은 관례에 따라 매년 북한 노동당 창건 기념일에 축하 전문을 보내온 것으로 알려졌다. 
+    북한 매체들은 통상 당 창건일 다음 날인 11일 축전을 받은 사실을 공개했지만, 중국이 유엔 안전보장이사회의 대북제재결의 이행에 동참하면서 북·중 관계가 악화했던 2016년과 2017년에는 축전을 받고도 이를 지면에 싣지 않았다.
+    shine@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

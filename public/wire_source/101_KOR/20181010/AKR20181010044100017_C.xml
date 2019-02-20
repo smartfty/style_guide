@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010044100017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>095339</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0202004" name="공기업"/>
+			<ClassCode code="0712003" name="방송"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 코바코, 하반기 신입사원 공채]]></Title>
+		<Body><![CDATA[[게시판] 코바코, 하반기 신입사원 공채
+
+    ▲ 한국방송광고진흥공사(코바코)는 2018년도 하반기 일반직 및 전문직 신입사원을 채용한다. 분야별로 일반직은 '마케팅·조사' 3명, '일반행정(경영)' 3명, 'IT' 1명 등 총 7명이며, 전문직은 '미디어연구(박사급)' 2명, '시설관리' 1명 등이다. 스펙과 성별·출신지역·연령 제한 없는 블라인드 채용으로, 비수도권 지역인재와 장애인을 우대한다. 지원서 접수는 19일까지로, 자세한 내용은 홈페이지(www.kobaco.co.kr)에서 볼 수 있다. (서울=연합뉴스)
+
+
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

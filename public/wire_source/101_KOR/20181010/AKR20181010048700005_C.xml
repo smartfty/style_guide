@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010048700005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>100539</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7011008" name="부여"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701005" name="학술"/>
+			<ClassCode code="0701006" name="역사"/>
+			<ClassCode code="0702001" name="유형문화"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부여 동나성 성벽 내부 조사 착수]]></Title>
+		<Body><![CDATA[부여 동나성 성벽 내부 조사 착수
+
+
+
+    (서울=연합뉴스) 박상현 기자 = 백제 사비도성 외곽에 경계를 표시하려고 쌓은 부여 나성(羅城·사적 제58호) 동쪽 내부 조사가 시작된다.
+    문화재청은 백제고도문화재단이 백제왕도핵심유적 보존·관리 사업 일환으로 충남 부여군 부여읍 가탑리 8-20번지 일대를 10일부터 조사한다고 밝혔다.
+    조사 지역은 나성 동문터 주변으로, 왕릉급 무덤이 모인 능산리 고분군 남쪽이다. 조사단은 9천여㎡를 대상으로 시굴조사를 한 뒤 유구(遺構·건물의 자취)가 확인되면 발굴조사로 전환할 방침이다.
+    유네스코 세계유산 '백제역사유적지구'에 포함된 나성은 1991년부터 지금까지 30여 차례 조사가 이뤄져 성벽 축조 기법은 파악됐으나, 성 안쪽 조사는 진행된 적이 없다.
+    정수옥 문화재청 학예연구사는 "이번에 조사하는 지역에서는 과거에 도로 유구가 나온 바 있으나, 전모가 드러나지는 않았다"고 설명했다.
+    이어 "부소산성이나 관북리로 연결되는 도로 유적이 나올 수도 있다"며 "도로 외에도 주거지나 생산시설 등 사비도성 내부 생활 모습을 유추할 유적이 발견되기를 기대한다"고 말했다.
+
+
+    psh59@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

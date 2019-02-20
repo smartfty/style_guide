@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010101400073</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>140135</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102024" name="일본"/>
+			<RegionCode code="7103001" name="유럽"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아베, 내주 스페인·프랑스·벨기에 방문…ASEM도 참석]]></Title>
+		<SubTitle><![CDATA[23일 중국 방문·시진핑과 정상회담도 최종 조율]]></SubTitle>
+		<Body><![CDATA[아베, 내주 스페인·프랑스·벨기에 방문…ASEM도 참석
+23일 중국 방문·시진핑과 정상회담도 최종 조율
+
+    (도쿄=연합뉴스) 최이락 특파원 = 아베 신조(安倍晋三) 일본 총리가 오는 16일부터 5일간 스페인과 프랑스, 벨기에를 방문한다.
+    교도통신에 따르며 아베 총리는 10일 당정회의에 참석해 이런 외교 일정을 소개했다. 그는 벨기에 방문 중에는 아셈(ASEM·아시아유럽정상회의) 정상회의에도 참가한다.
+    아베 총리는 방문 목적과 관련해 "북한을 비롯한 국제정세에 대해 논의하고 자유롭고 공정한 룰에 기반을 둔 경제 질서 강화가 필요하다는 일본의 입장을 호소해 나갈 것"이라고 말했다.
+    그는 "다음다음주 후반에는 중국을 방문하는 방안도 최종 조율하고 있다. 중일관계를 새로운, 높은 곳으로 끌어올리고 싶다"고 말했다.
+    중일 정부는 양국간 평화우호조약 발효 40주년이 되는 오는 23일이나 그 직후 아베 총리의 중국 방문 일정을 최종 조율하고 있다. 
+    방문이 성사되면 아베 총리와 시진핑(習近平) 중국 국가 주석의 회담이 열릴 것으로 알려졌다.
+
+    아베 총리는 또 다음 달에는 호주 북부 다윈을 방문할 예정이다.
+    다윈은 2차대전 중에 연합군의 거점이 있었다. 일본군은 1942년 2월 19일 이곳을 공습해 240여명을 숨지게 했다. 이후에도 일본군은 여러 차례 다윈을 공습했다.
+    그는 이에 앞서 같은 달 싱가포르에서 열리는 아세안(ASEAN·동남아시아국가연합) 정상회의, 파푸아뉴기니에서 열리는 아시아·태평양경제협력체(APEC)에도 참석할 예정이다.
+    choinal@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

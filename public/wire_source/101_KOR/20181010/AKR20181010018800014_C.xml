@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010018800014</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>075641</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="0801002" name="날씨"/>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[북한날씨] 흐린 후 갬…평양 낮 14도]]></Title>
+		<Body><![CDATA[[북한날씨] 흐린 후 갬…평양 낮 14도
+
+    (서울=연합뉴스) 정빛나 기자 = 북한은 10일 흐린 후 개겠으나 북부 지역은 아침까지 비가 내릴 전망이라고 기상청이 예보했다.
+    조선중앙방송은 이날 북부내륙 지역과 함경북도 지방에서 때때로 비가 내리겠으며 백두산 지구에서는 눈이 내리겠다고 전했다.
+    함경남도, 강원도는 오전에 비가 내리다가 개겠으며 그 밖의 지역에서는 개겠으나 한두 차례 흐리겠다고 덧붙였다.
+    이날 평양의 아침 최저기온은 9도로 평년과 같았고, 낮 최고기온은 14도로 예상된다.
+    아래는 기상청이 전한 지역별 날씨 전망. <날씨, 낮 최고기온(℃), 강수확률(％)순>(날씨·강수확률은 오후 기준)
+    ▲평양 : 구름 조금, 14, 10
+    ▲중강 : 구름 많음, 9, 20
+    ▲해주 : 구름 조금, 15, 10
+    ▲개성 : 구름 조금, 15, 10
+    ▲함흥 : 구름 조금, 17, 10
+    ▲청진 : 구름 많음, 18, 20
+    shine@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

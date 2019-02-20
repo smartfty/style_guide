@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010011500051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>070002</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[민선 7기 100일 기념 부산시청사 개방]]></Title>
+		<Body><![CDATA[민선 7기 100일 기념 부산시청사 개방
+
+    (부산=연합뉴스) 김상현 기자 = 부산시는 민선 7기 출범 100일을 기념해 10일 시청사를 개방한다.
+    시는 10일 정오부터 오후 7시까지 시청과 경찰청 사이 중앙통로에 소고기 불초밥, 버거, 닭강정 등을 판매하는 푸드트럭 4곳과 다양한 액세서리와 그릇, 비누, 샴푸, 손뜨개 물건 등을 판매하는 프리마켓 13곳을 운영한다.
+    10일 오후 4시 시청 1층 로비에서는 오거돈 부산시장의 부산갈매기 독창을 비롯해 박인영 부산시의회 의장과 시의원이 출연해 합창과 독창을 선보인다.
+    부산시는 10일부터 12일까지 매일 오후 7시부터 3시간 동안 시청사 정문 외벽에 야간경관조명을 운영해 시민들에게 볼거리를 제공한다.
+    시는 이에 앞서 민선 7기 출범 100일의 시정성과와 추진사항을 알리는 사진전을 지난 8일부터 10일까지 시청 지하철 연결통로에서 열고 있다.
+
+
+    joseph@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

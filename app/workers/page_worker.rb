@@ -1,5 +1,6 @@
 class PageWorker
-  include Sidekiq::Worker
+  # include Sidekiq::Worker
+  include SuckerPunch::Job
 
    def perform(path, time_stamp)
     puts "in PageWorker"

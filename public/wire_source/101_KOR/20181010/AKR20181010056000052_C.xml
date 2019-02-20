@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010056000052</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102830</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006020" name="합천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0107002" name="지방의회"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0501002" name="사회문제"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[군의원 형 대표 여행사와 해외연수 수의계약…합천군의회 도마]]></Title>
+		<SubTitle><![CDATA[해당 의원 "부적절하다는 비판 받아들인다" 해명]]></SubTitle>
+		<Body><![CDATA[군의원 형 대표 여행사와 해외연수 수의계약…합천군의회 도마
+해당 의원 "부적절하다는 비판 받아들인다" 해명
+
+
+
+    (합천=연합뉴스) 김선경 기자 = 경남 합천군의회가 현직 군의원의 친형이 대표인 여행사와 해외연수 계약을 한 것으로 나타나 도마 위에 올랐다.
+    10일 합천군의회에 따르면 군의회는 오는 22일부터 26일까지 4박 5일 일정의 대만 연수에 나선다.
+    전체 군의원 11명 중 임춘지(자유한국당)·장진영(더불어민주당) 의원을 제외한 9명이 참여한다.
+    군의회 사무과장을 포함한 사무과 공무원 6명도 동행한다.
+    연수에 쓰이는 예산은 의장·부의장은 각 189만원, 의원 1인당 167만원이다.
+    군의회 공무원 1인당 예산도 100만원이 넘는 금액으로 책정됐다.
+    군의회 사무과는 군의원 정례 간담회 때 대구 소재 모 여행사를 선정하자는 의견이 나와 해당 업체와 수의계약을 했다고 설명했다.
+    문제는 해당 여행사가 현직인 모 군의원의 친형이 대표로 있다는 점이다. 
+    사무과 관계자는 "의원 간담회 당시 지역 업체와 계약하자는 의견도 있었지만 아는 여행사가 있으면 현지에서 어려움을 당하더라도 문제를 쉽게 해결할 수 있지 않겠느냐는 의견도 있어 해당 업체를 선정하게 됐다"고 해명했다.
+    해당 의원은 이날 연합뉴스 통화에서 "부적절하다는 비판을 받아들인다. (여행사 선정 당시) 강력히 반대했어야 했는데 생각이 짧았다"고 해명했다.
+    ksk@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

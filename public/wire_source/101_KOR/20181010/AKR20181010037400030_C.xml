@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010037400030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>092246</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0409004" name="대형마트"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0801001" name="생활정보"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[일회용컵 사용 규제 두 달…롯데마트 "머그잔·텀블러 매출↑"]]></Title>
+		<Body><![CDATA[일회용컵 사용 규제 두 달…롯데마트 "머그잔·텀블러 매출↑"
+
+
+
+    (서울=연합뉴스) 이유미 기자 = 지난 8월부터 정부의 일회용컵 사용 규제가 시작되면서 대형마트에서 머그잔, 텀블러 등 일회용품 대체 상품 매출이 많이 증가한 것으로 나타났다. 
+    롯데마트는 지난 8월 1일부터 이달 7일까지 규제 시행 후 약 2개월간 텀블러 매출이 지난해 같은 기간보다 10.7% 늘었고 머그잔 매출은 17.0% 증가했다고 10일 밝혔다. 
+    특히 최근 쌀쌀한 날씨가 이어지면서 이달 들어 텀블러 매출은 지난해 동기 대비 18.9% 증가한 것으로 나타났다. 
+    이에 롯데마트는 식기류 전문 자체 브랜드(PB)인 '룸바이홈 키친'을 통해 원터치 텀블러, 머그잔, 보온병 등 다양한 신상품을 선보인다. 
+    이 중 원터치 텀블러 2종은 오는 11일부터, 나머지 신상품은 18일부터 롯데마트 전 점에서 판매한다. 
+    gatsby@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

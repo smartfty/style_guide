@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010058900004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111503</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0504003" name="장애복지"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['흰 지팡이의 날' 기념…11일 시각장애인 재활복지대회]]></Title>
+		<Body><![CDATA['흰 지팡이의 날' 기념…11일 시각장애인 재활복지대회
+
+
+
+    (서울=연합뉴스) 박초롱 기자 = '흰 지팡이의 날'인 15일을 앞두고 시각장애인의 권리와 사회적 책임을 촉구하는 '시각장애인 재활복지대회'가 오는 11일 서울 어린이대공원에서 열린다.
+    흰 지팡이의 날은 세계시각장애인연합회(WBU)가 시각장애인의 권리를 보장하기 위해 1980년 공식 제정해 선포한 날로, 올해로 39회를 맞이한다. 흰 지팡이는 1차 세계대전 당시 프랑스에서 시각장애인의 눈 역할을 하는 상징으로 채택해 영국, 북미로 퍼져 나갔다. 
+    오전 10시부터 오후 5시까지 어린이대공원 능동 숲속의 무대에서 열리는 올해 시각장애인대회에는 시각장애인과 가족, 시민 등 2천800여명이 참석한다.
+    흰 지팡이 헌장 낭독에 이어 시각장애인에 대한 인식 개선에 앞장선 송남용 씨 등 10명에게 서울시장상을 수여한다. 시각장애인인 송 씨는 장애를 입기 전부터 지역 자율방범대 활동을 활발히 펼쳐 왔으며, 시력을 잃은 후에도 안마 봉사단을 만들어 어려운 어르신들을 위해 15년간 꾸준히 봉사했다. 
+    행사에 참여한 시각장애인들에게는 필수 보조기구지만, 고장이 잦고 잃어버리는 경우도 많은 안테나형 흰 지팡이를 나눠준다.
+    바리스타 체험 부스와 노래자랑 대회, 가수 김국환 씨가 참여하는 축하 공연도 열린다. 
+    chopark@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

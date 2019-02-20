@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010065700009</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>105821</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0507002" name="의학"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["나쁜 콜레스테롤 제거엔 종자 기름이 최고"]]></Title>
+		<Body><![CDATA["나쁜 콜레스테롤 제거엔 종자 기름이 최고"
+
+    (서울=연합뉴스) 한성간 기자 = 나쁜 콜레스테롤인 저밀도 지단백(LDL) 콜레스테롤을 줄이는 데는 종자 기름(seed oil)이 최고라는 연구결과가 나왔다.
+    독일 인간영양연구소의 루카스 슈빙스하클 박사 연구팀은 혈중 LDL 수치를 떨어뜨리려면 섭취하는 지방을 포화지방에서 불포화지방으로 바꾸어야 하지만 불포화지방 중에서도 해바라기 씨, 평지 씨, 홍화 씨, 아마 씨 등 종자 기름이 가장 효과가 크다는 연구결과를 발표했다고 메디컬 익스프레스가 9일 보도했다.
+    2가지 이상의 다른 지방을 같은 칼로리 섭취했을 때 혈중 지질에 미치는 영향을 다룬 연구논문 55편을 종합분석한 결과 이 같은 사실이 나타났다고 슈빙스하클 박사는 밝혔다. 
+    일반 메타분석에서 이용되는 직접비교가 아닌 간접비교와 혼합비교를 통한 네트워크 메타분석(network meta-analysis)으로 이 같은 결론이 도출됐다고 그는 밝혔다.
+    네트워크 메타분석이란 이를테면 버터와 해바라기 씨 기름의 효과를 올리브유와 대비했을 때 버터와 해바라기 씨 기름 사이의 정량적 비교(quantitative comparison)를 추론해 내는 것이라고 그는 설명했다.
+    이 연구결과는 미국 생화학·분자생물학회(American Society for Biochemistry and Molecular Biology) 학술지 '지질 연구 저널'(Journal of Lipid Research) 10월호에 실렸다. 
+    
+
+    skhan@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

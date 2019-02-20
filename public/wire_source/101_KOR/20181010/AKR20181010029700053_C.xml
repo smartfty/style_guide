@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010029700053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>085932</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인형뽑기방 돌며 1천400만원 턴 20대 철창행]]></Title>
+		<Body><![CDATA[인형뽑기방 돌며 1천400만원 턴 20대 철창행
+
+
+
+    (대구=연합뉴스) 김용민 기자 = 대구 동부경찰서는 10일 전국 인형뽑기방을 돌며 지폐교환기에서 현금을 훔친 혐의(절도)로 A(21)씨를 구속했다.
+    A씨는 지난달 10일 오전 2시께 울산의 한 인형뽑기방에 들어가 드라이버로 지폐교환기를 파손한 뒤 현금 300만원 가량을 훔치는 등 두 달간 서울, 대구, 창원 등에서 20여 차례에 걸쳐 1천400여만원을 훔친 혐의를 받고 있다.
+    경찰은 A씨를 상대로 추가범행 여부를 캐고 있다.
+    yongmin@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010094700005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>133357</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0606009" name="차사고"/>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0804002" name="음주흡연"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[백성현측 "음주운전 동승 사실…군복무 중 물의 죄송"]]></Title>
+		<Body><![CDATA[백성현측 "음주운전 동승 사실…군복무 중 물의 죄송"
+
+
+    (서울=연합뉴스) 이정현 기자 = 의경 복무 중인 배우 백성현이 음주운전 차량에 동승했다는 사실을 인정하고 사과했다.
+    앞서 스포츠경향은 백성현이 탑승한 음주운전 차량이 이날 오전 제1자유로에서 미끄러져 중앙분리대를 들이받았다고 보도했다.
+    이와 관련해 백성현 소속사 싸이더스HQ는 10일 입장을 내고 "백성현이 좋지 않은 일로 물의를 일으켜 많은 분께 심려와 실망을 끼쳐드린 점 죄송스럽게 생각하며 깊이 반성하고 있다"고 밝혔다.
+    소속사는 그러면서 "군 복무 중인 백성현이 정기 외박을 나와 지인들과 모임 후 음주운전자 차에 동승해 사고가 발생했다"며 "그릇된 일임에도 동승한 자신의 과실을 인정하고 군인 신분으로서 복무 중 물의를 일으킨 점 깊이 반성하고 있다"고 덧붙였다.
+    소속사는 이어 "음주운전을 방조한 죄 또한 무겁다는 것을 다시 한번 인정하고 다시는 이런 일이 발생하지 않도록 하겠다"고 했다.
+    lisa@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

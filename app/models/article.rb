@@ -159,8 +159,10 @@ class Article < ApplicationRecord
   def generate_pdf
     save_story
     save_layout
+    ArticleWorker.perform_async(path, nil)
+
     # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article . -custom=#{publication_name}"
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
 
   def generate_custom_style_pdf(current_styles)

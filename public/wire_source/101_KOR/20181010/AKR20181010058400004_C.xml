@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010058400004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103223</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0503006" name="대학교육"/>
+			<ClassCode code="0507003" name="약학"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울대연구팀, 대장암 전이 '비밀'풀다…"면역세포와 상호작용"]]></Title>
+		<Body><![CDATA[서울대연구팀, 대장암 전이 '비밀'풀다…"면역세포와 상호작용"
+
+
+    (서울=연합뉴스) 최평천 기자 = 서울대는 약학대학 이정원 교수 연구팀이 대장암 세포가 주변 면역세포와 상호작용을 통해 암 전이를 일으키는 것을 규명했다고 10일 밝혔다.    
+    연구팀은 암세포와 면역세포를 공동배양하는 실험을 통해 대장암 세포에서 발현되는 합성효소가 암세포 주변의 면역세포를 변형시키는 것을 확인했다.
+    연구팀은 암세포 주변의 미세환경에 존재하는 다양한 세포 등이 대장암 세포의 전이 기능에 어떠한 영향을 미치는지 기존에 연구된 바 없다고 밝혔다.     
+    이 교수는 "암세포와 면역세포와의 상호작용을 억제할 수 있는 후보 물질을 투입했을 때 대장암 전이를 억제할 수 있었다"며 "이번 연구가 대장암 전이 억제제 개발에 큰 도움이 될 것"이라고 말했다.
+    연구 결과는 세계적 의학지 '저널 오브 클리니컬 인베스티게이션' 온라인판에 지난 8일 게재됐다.
+    pc@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

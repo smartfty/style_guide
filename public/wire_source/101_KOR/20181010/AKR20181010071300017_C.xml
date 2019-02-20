@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010071300017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111546</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 메조미디어, '옥토콘 2018' 콘퍼런스 18일 개최]]></Title>
+		<Body><![CDATA[[게시판] 메조미디어, '옥토콘 2018' 콘퍼런스 18일 개최
+
+    ▲ 디지털 마케팅 솔루션 기업 메조미디어는 오는 18일 서울 강남구 파르나스 타워에서 '옥토콘 2018' 콘퍼런스를 개최한다. 이번 행사에서는 텐센트와 구글, 아이클릭, 데일리모션 등 7개 미디어·플랫폼 기업이 참석해 지역별 마케팅 특성에 따른 솔루션을 발표한다. (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

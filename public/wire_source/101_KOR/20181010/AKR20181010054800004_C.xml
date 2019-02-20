@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010054800004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>101424</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0303003" name="은행"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510002" name="검찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['신한은행 채용비리' 조용병 회장 영장심사 출석…묵묵부답(속보)]]></Title>
+		<Body><![CDATA['신한은행 채용비리' 조용병 회장 영장심사 출석…묵묵부답(속보)
+
+
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010095600017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>133213</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 코리아스타트업포럼, 16일 2주년 기념 포럼]]></Title>
+		<Body><![CDATA[[게시판] 코리아스타트업포럼, 16일 2주년 기념 포럼
+
+    ▲ 코리아스타트업포럼은 출범 2주년을 맞아 16일 서울 명동 우리은행 본점에서 오픈 포럼을 연다. 500여 개 스타트업 회원사가 참여한 가운데 김봉진 의장이 출범 2주년 선언문을 발표하고 한훈 기획재정부 혁신성장정책관, 서경미 링크샵스 대표, 박희은 알토스벤처스 수석심사역 등이 스타트업 혁신 생태계를 주제로 논의한다. (서울=연합뉴스)
+
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

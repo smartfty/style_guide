@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010052800055</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>101617</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009003" name="군산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0412001" name="해양항만"/>
+			<ClassCode code="0412002" name="수산업"/>
+			<ClassCode code="0510004" name="경찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[군산해경, 낚시어선 불법개조 특별단속…"승객·해양안전 위협"]]></Title>
+		<Body><![CDATA[군산해경, 낚시어선 불법개조 특별단속…"승객·해양안전 위협"
+
+    (군산=연합뉴스) 최영수 기자 = 군산해양경찰서는 낚시어선을 불법으로 개조하거나 증축하는 행위를 다음 달까지 특별단속한다고 10일 밝혔다.
+    
+
+
+    해경에 따르면 일부 낚시어선이 선박검사를 통과한 뒤 조선소에서 선체를 불법개조하고 햇볕을 막기 위해 지붕, 차양, 벽, 문 등을 설치하고 있다.
+    해경은 불법개조가 선체 복원성을 심각하게 낮추고 배 무게가 늘어 전복 우려가 커진다고 설명했다.
+    이에 따라 선박검사 기관과 합동으로 관내 낚시어선 137척을 전수조사해 불법개조, 임의변경, 증ㆍ개축을 단속할 방침이다.
+    군산해경은 최근 2년간 불법 증·개축 낚시어선을 6척을 적발했다.
+    박종묵 서장은 "승객 편의를 명목으로 낚싯배 불법개조가 빈번하다"며 "승객과 해양안전을 위협하는 범죄행위를 철저하게 단속하겠다"고 말했다.
+    kan@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

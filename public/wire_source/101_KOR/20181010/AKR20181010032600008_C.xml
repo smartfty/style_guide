@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010032600008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>090127</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>2</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302004" name="증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA-연합인포맥스]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[코스피] 2.20p(0.10%) 오른 2,256.03(개장)]]></Title>
+		<Body><![CDATA[[코스피] 2.20p(0.10%) 오른 2,256.03(개장)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

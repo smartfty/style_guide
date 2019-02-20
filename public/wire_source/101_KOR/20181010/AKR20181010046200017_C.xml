@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010046200017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>095416</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Region>
+			<RegionCode code="7102030" name="태국"/>
+		</Region>
+		<Class>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 후후앤컴퍼니, 태국서 스팸차단앱 '후후' 출시]]></Title>
+		<Body><![CDATA[[게시판] 후후앤컴퍼니, 태국서 스팸차단앱 '후후' 출시
+
+    ▲ 후후앤컴퍼니는 태국 스마트폰 이용자를 위한 '후후'앱을 출시했다고 10일 밝혔다. 후후는 스마트폰 기반의 발신자 정보식별 및 스팸차단 서비스로, 스팸, 보이스피싱 등 악성 전화번호를 사전에 식별한다. 후후앤컴퍼니는 태국 스마트폰 이용자의 특성을 고려해 스팸신고 및 차단 기능뿐만 아니라 듀얼 유심에 특화된 통화·문자 수발신 이력을 제공한다. (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

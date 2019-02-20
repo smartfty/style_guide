@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010010500007</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>065011</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="1201001" name="체육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[◇내일의 경기(11일)]]></Title>
+		<Body><![CDATA[◇내일의 경기(11일)
+
+    ◆11일(목)
+    △프로야구= 롯데-KIA(광주) SK-두산(잠실·이상 18시30분)
+    △골프= LPGA 투어 KEB하나은행 챔피언십(인천 스카이72)
+    △스피드스케이팅= 2018 공인기록회(18시·태릉국제빙상장)
+    (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

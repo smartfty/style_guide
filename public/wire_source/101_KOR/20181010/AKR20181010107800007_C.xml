@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010107800007</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141441</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210002" name="야구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[프로야구 NC 퓨처스팀, 창원에 새 둥지 튼다]]></Title>
+		<Body><![CDATA[프로야구 NC 퓨처스팀, 창원에 새 둥지 튼다
+
+
+    (서울=연합뉴스) 최인영 기자 = 프로야구 NC 다이노스가 2군 퓨처스팀의 연고지를 경남 창원시로 이전한다.
+    NC는 10일 창원시청에서 창원시와 NC 퓨처스팀 창원 이전 업무협약을 체결했다. 협약식에는 허성무 창원시장과 황순현 NC 대표 등 10여명이 참석했다.
+    NC 퓨처스팀은 2013·2014년에는 포항구장에서 경기하다가 2015년부터 올해까지 경기도 고양으로 홈을 이전했고, 내년에는 창원에 새 둥지를 틀게 됐다. 
+    NC는 내년 시즌부터 국내 처음으로 KBO 정규리그 구장과 퓨처스리그 구장을 도심 내 같은 지역에서 통합 운영한다.
+    NC 1군은 내년 신축하는 새 야구장에서, 퓨처스팀은 2012년부터 올해까지 1군 홈으로 사용하던 마산구장에서 경기를 한다. 기존 마산구장과 신축 구장은 서로 이웃해 있다.
+    NC는 1·2군 선수단을 동시 운영하면서 더욱 효율적으로 의사소통과 선수 육성을 할 수 있을 것으로 기대하고 있다.
+    창원시는 퓨처스팀 이전으로 인구 유입과 일자리 창출 등 효과를 기대하고 있다.
+    NC는 엔씨문화재단과 함께 프로야구를 통한 지역 내 사회공헌활동을 확대해 창원시가 '야구 메카'로 발전해나가도록 힘쓰기로 했다. 엔씨소프트 게임 '블레이드앤소울' e스포츠 대회와 문화행사를 창원에서 개최하는 방안도 추진한다.
+    abbie@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

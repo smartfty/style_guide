@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010057700008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102301</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001019" name="공시"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아이쓰리시스템, 100억원 규모 신규시설투자]]></Title>
+		<Body><![CDATA[아이쓰리시스템, 100억원 규모 신규시설투자
+
+    (서울=연합뉴스) 유현민 기자 = 코스닥 상장사인 아이쓰리시스템은 100억원 규모의 신규시설투자를 결정했다고 10일 공시했다.
+    이는 작년 말 연결기준 자기자본의 15.70%에 해당한다. 
+    회사 측은 "자동차 시장 등 미래시장을 대비하기 위한 첨단 비냉각형 영상센서 시설투자 목적"이라고 설명했다. 
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

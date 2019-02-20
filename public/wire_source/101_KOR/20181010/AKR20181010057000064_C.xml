@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010057000064</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103216</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7012012" name="청주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0104020" name="민주당"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충북 교통 약자 위한 저상버스·장애인 택시 도입 저조]]></Title>
+		<Body><![CDATA[충북 교통 약자 위한 저상버스·장애인 택시 도입 저조
+
+    (청주=연합뉴스) 변우열 기자 = 장애인과 노약자 등 교통 약자를 위한 저상버스와 '장애인 택시'의 충북지역 보급률이 전국 평균을 밑도는 것으로 나타났다.
+    국회 국토교통위원회 소속 더불어민주당 이후삼(제천·단양) 의원이 10일 국토교통부로부터 제출받은 국정감사 자료에 따르면 제2차 교통약자 이동편의 증진계획이 추진된 2012∼2016년 충북에서 폐차된 일반버스의 저상버스 전환율이 58.3%에 그쳤다.
+    이는 전국 평균 68.3%를 밑도는 것이고, 전국 시·도 가운데 전남, 부산, 인천, 경남에 이어 5번째로 낮은 것이다.
+    이 기간에 광주는 폐차된 일반 버스를 모두 저상버스로 전환했고, 서울, 강원, 충남 등도 전환율이 90%를 웃돌았다.
+    교통약자를 위한 특별교통수단인 일명 '장애인 택시' 보급 역시 충북은 법정 기준을 밑도는 것으로 조사됐다.
+    충북의 장애인 택시는 법정 기준(103대)의 85.4%인 88대에 불과하다. 
+    이런 장애인 택시 보급률은 전국 평균(126.0%)보다 턱없이 저조하고, 전국 시·도 가운데 3번째로 낮은 것이다.
+    bwy@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

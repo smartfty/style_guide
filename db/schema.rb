@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_002057) do
+ActiveRecord::Schema.define(version: 2019_02_19_201100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -687,6 +687,50 @@ ActiveRecord::Schema.define(version: 2019_02_14_002057) do
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
+  end
+
+  create_table "yh_articles", force: :cascade do |t|
+    t.string "action"
+    t.string "service_type"
+    t.string "content_id"
+    t.date "date"
+    t.string "time"
+    t.string "urgency"
+    t.string "category"
+    t.string "class_code"
+    t.string "attriubute_code"
+    t.string "source"
+    t.string "credit"
+    t.string "region"
+    t.string "title"
+    t.text "body"
+    t.string "writer"
+    t.integer "char_count"
+    t.string "taken_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "yh_pictures", force: :cascade do |t|
+    t.string "action"
+    t.string "service_type"
+    t.string "content_id"
+    t.date "date"
+    t.time "time"
+    t.string "urgency"
+    t.string "category"
+    t.string "class_code"
+    t.string "attriubute_code"
+    t.string "source"
+    t.string "credit"
+    t.string "region"
+    t.string "title"
+    t.string "comment"
+    t.string "body"
+    t.string "picture"
+    t.string "taken_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "ad_bookings", "publications"

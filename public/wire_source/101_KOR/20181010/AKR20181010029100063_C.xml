@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010029100063</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>091635</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402003" name="임업"/>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0701003" name="전시공연"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[도심 속서 목재와 함께 가을을 즐기세요…14일 목재문화페스티벌]]></Title>
+		<SubTitle><![CDATA[산림청, 서울 용산가족공원서 개최…목혼식 등 행사 다채 ]]></SubTitle>
+		<Body><![CDATA[도심 속서 목재와 함께 가을을 즐기세요…14일 목재문화페스티벌
+산림청, 서울 용산가족공원서 개최…목혼식 등 행사 다채 
+
+
+    (대전=연합뉴스) 유의주 기자 = 산림청이 오는 14일 서울 용산구 용산가족공원 제2 공원 일대에서 '제2회 목재문화페스티벌'을 연다.
+    목재문화페스티벌은 목재의 우수성을 알리고 일상에서 목재제품 사용이 자리 잡도록 2012년부터 진행하는 '아이 러브 우드'(I LOVE WOOD) 캠페인 프로그램의 하나다.
+    페스티벌에는 제6회 목혼식과 함께 실생활에서 유용하게 쓸 수 있는 목공예품 만들기 체험, 목재 관련 퀴즈를 풀면 기념품을 증정하는 '스탬프 투어' 등 다채로운 행사가 이어진다.
+    메인 프로그램인 목혼식은 결혼 5주년을 기념해 부부가 목재로 된 선물을 주고받는 서양 풍습에서 유래한 행사로 부부 20쌍이 참여할 예정이다.
+    지난달 말까지 아이 러브 우드 페이스북에서 참가 접수를 했으며, 신청자들의 사연을 검토해 프러포즈를 하지 못한 부부와 결혼식을 올리지 못한 부부 등 대상자를 최종 선정했다.
+    영·유아를 위해 친환경 목재로 만든 놀이 공간인 '키즈 존'(나무 상상놀이터)과 아이 러브 우드 캠페인의 성과와 취지를 알리기 위한 사진·영상 전시회도 마련된다. 
+    김원수 목재산업과장은 "이번 행사로 도심 속에서 목재를 느끼고 체험하며 목재에 대한 올바른 지식을 얻길 바란다"며 "생활 속 목재 이용에 대한 긍정적 인식이 확산하도록 많은 관심과 참여를 부탁한다"고 말했다.
+    yej@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

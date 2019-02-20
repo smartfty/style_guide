@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010091900065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>132008</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606001" name="사고일반"/>
+			<ClassCode code="0606009" name="차사고"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인천 사거리서 살수차가 카니발 추돌…1명 숨져]]></Title>
+		<Body><![CDATA[인천 사거리서 살수차가 카니발 추돌…1명 숨져
+
+
+    (인천=연합뉴스) 최은지 기자 = 10일 오전 10시께 인천시 미추홀구 주안동 한 사거리에서 A(61)씨가 몰던 살수차가 카니발 승합차를 들이받고 옆으로 넘어졌다.
+    이 사고로 A씨가 인근 병원으로 옮겨져 치료를 받던 중 숨졌다. B(34·여)씨 등 카니발에 탄 2명도 다쳐 인근 병원에서 치료를 받고 있다.
+    경찰은 A씨가 몰던 살수차가 신호 대기 중인 카니발을 들이받은 것으로 보고 사고 경위를 조사하고 있다.
+    chamse@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

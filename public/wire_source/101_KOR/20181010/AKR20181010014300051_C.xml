@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010014300051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>072706</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+			<RegionCode code="7003006" name="울산"/>
+			<RegionCode code="7006001" name="경남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107004" name="지방일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0504004" name="여성복지"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산서 육아 맘 초청 영화감상·공감토크 행사]]></Title>
+		<Body><![CDATA[부산서 육아 맘 초청 영화감상·공감토크 행사
+
+    (부산=연합뉴스) 김상현 기자 = 육아 맘들이 아이와 함께 영화를 감상하고 명사를 초청해 다양한 주제로 이야기를 나누는 '맘스 컬처데이'행사가 부산에서 열린다. 
+    부산시는 육아 맘들이 많이 사는 사하구, 북구, 부산진구에서 24일부터 다음 달 7일까지 매주 수요일 3차례에 걸쳐 '맘스 컬쳐데이'를 연다고 10일 밝혔다.
+    24일 사하구에서 열리는 1회 행사는 영화 '로드 투 로마'를 감상하고 '셀프트래블 이탈리아'의 저자 송윤경 여행작가와 '여행지의 로망'이라는 주제로 이야기를 나눈다.
+    부산진구에서 열리는 2회 행사는 영화 '엘리제 궁의 요리사'를 상영한 뒤 홍신애 요리연구가와 함께 '당당한 엄마로 살기' 주제를 놓고 공감 토크를 한다.
+    3회 북구 행사는 영화 'B급 며느리'를 만든 선호빈 감독을 초청해 영화를 감상한 뒤 '고부갈등, 고부자랑'을 주제로 강연과 토론을 한다.
+    부산에 거주하는 5세 이하 아이를 키우는 엄마라면 누구나 참가할 수 있다.
+    참가 신청은 부산시 홈페이지 '맘에게 마음으로'(www.busan.go.kr/mom)에 하면 된다.
+
+   joseph@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

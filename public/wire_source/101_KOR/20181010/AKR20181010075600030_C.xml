@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010075600030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112232</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7007019" name="울릉"/>
+		</Region>
+		<Class>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[GS리테일, 울릉군 특산물 개발해 판매 지원 나선다]]></Title>
+		<Body><![CDATA[GS리테일, 울릉군 특산물 개발해 판매 지원 나선다
+
+
+
+    (서울=연합뉴스) 이유미 기자 = GS리테일은 10일 경북 울릉군과 지역 특산물 유통망 확충과 판매 촉진을 위한 상생협력 업무협약(MOU)을 체결했다고 밝혔다. 
+    GS리테일은 이번 협약에 따라 울릉군의 주요 특산물인 명이나물, 고로쇠 수액, 건오징어 등을 활용한 상품을 개발하고, 울릉군 주민들의 판로를 적극적으로 지원할 계획이다. 
+    GS25와 GS수퍼마켓을 운영하는 GS리테일은 울릉도 특산물 관련 매출을 5년 안에 100억 원 수준으로 끌어올리고 취급 품목 수도 50개 이상으로 확대할 예정이다.
+    GS리테일이 지난 8월 울릉군과 손잡고 출시한 '독도사랑 새우맛 라면'은 현재까지 60만 개 가량의 판매고를 올렸다. 
+    gatsby@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

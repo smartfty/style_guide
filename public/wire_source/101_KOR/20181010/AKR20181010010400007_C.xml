@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010010400007</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>064957</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="1201001" name="체육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[◇오늘의 경기(10일)]]></Title>
+		<Body><![CDATA[◇오늘의 경기(10일)
+
+    ◆10일(수)
+    △프로야구= kt-롯데 더블헤더 1·2차전(15시·사직) 한화-KIA(광주) SK-두산(잠실·이상 18시30분)
+    △스피드스케이팅= 2018 공인기록회(18시·태릉국제빙상장)
+    (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

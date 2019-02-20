@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010004200072</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>041101</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[석유회사가 기후변화 대응 캠페인…엑손모빌, 100만달러 기부]]></Title>
+		<Body><![CDATA[석유회사가 기후변화 대응 캠페인…엑손모빌, 100만달러 기부
+
+
+
+    (뉴욕=연합뉴스) 이귀원 특파원 = 미국 최대 석유업체인 엑손 모빌이 기후변화에 대응해 탄소세 도입 캠페인을 벌이고 있는 단체에 향후 2년에 걸쳐 100만 달러(약 11억여 원)를 기부하기로 했다고 미 월스트리트저널(WSJ)이 9일(현지시간) 보도했다.
+    기후변화의 주범인 화석연료를 주력으로 하는 미 석유회사가 기후변화 대응 캠페인에 나선 것으로 WSJ은 '이례적인 기부'라고 평가했다.
+    엑손 모빌이 100만 달러를 기부하는 단체는 탄소 배출 미 기업에 세금을 부과하고, 탄소세로 모인 재원을 소비자들에게 배당금 형태로 환원하자는 캠페인을 벌이고 있는 ACD(Americans for Carbon Dividends)이다.
+    지난 6월 결성된 ACD는 미 상원 공화당 원내총무를 지낸 트렌트 롯 전 의원이 공동의장을 맡고 있다.
+    ACD가 추진하는 탄소세와 공공 배당 제안은 '베이커-슐츠 계획'의 일환이다. 조지 H.W 부시와 로널드 레이건 정부에서 국무장관을 지낸 제임스 베이커와 조지 슐츠가 있던 그룹이 냈던 아이디어다.
+    공공 배당은 기업에 대한 탄소세 부과로 이전될 수 있는 소비자 부담을 덜기 위한 것으로 연간 미 가구당 2천 달러의 배당을 받을 수 있다는 추산도 나왔다.
+    WSJ은 전 세계적으로 화석연료 기업에 대한 강화된 규제를 추진하고 있는 가운데 엑손 모빌은 탄소세를 규제의 불확실성을 제거하는 대안으로 보고 있다고 평가했다.
+    엑손 모빌은 지난달 셰브런, 옥시덴털 등 다른 석유 기업과 함께 온실가스 감축을 위해 2014년 결성된 '석유가스 기후 이니셔티브'(Oil and Gas Climate Initiative)에 참여했다. 엑손 모빌은 또 2020년까지 메탄가스 배출을 15% 줄이겠다는 계획을 지난해 발표했다.
+    lkw777@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

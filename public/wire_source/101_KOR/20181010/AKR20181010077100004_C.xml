@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010077100004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112410</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0701005" name="학술"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 한국외대 통번역연구소, '한류와 통번역' 국제학술대회]]></Title>
+		<Body><![CDATA[[게시판] 한국외대 통번역연구소, '한류와 통번역' 국제학술대회
+
+
+    ▲ 한국외대 통번역연구소는 이달 12일 오전 9시 30분 서울캠퍼스 애경홀에서 해외홍보문화원과 한국외대미주동문연합회 후원으로 '한류와 통번역'을 주제로 국제학술대회를 연다. 송승환 PMC프러덕션 예술총감독과 제임스 베어 영국 켄트대 교수가 기조연설을 맡는다. 영어·러시아어·일본어·아랍어·마인어·베트남어권 등 10개국 학자 33명이 발표할 예정이며 분과별 언어에 따라 다국어로 동시통역이 지원된다. (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

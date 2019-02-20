@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010076600065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112238</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0605013" name="아동학대"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인천서 1살 아동학대 의혹…경찰 50대 보육교사 조사]]></Title>
+		<Body><![CDATA[인천서 1살 아동학대 의혹…경찰 50대 보육교사 조사
+
+
+
+    (인천=연합뉴스) 홍현기 기자 = 인천 한 어린이집에서 보육교사가 1살 아동을 학대했다는 신고가 접수돼 경찰이 수사에 나섰다.
+    인천 서부경찰서는 아동복지법상 아동학대 혐의로 보육교사 A(46·여)씨를 수사하고 있다고 10일 밝혔다.
+    A씨는 지난달 14일 오후 2시께 인천시 서구 한 어린이집에서 밥을 먹이던 A(1)양의 귀를 앞뒤로 2∼3차례 잡아당기는 등 신체적으로 학대한 혐의를 받고 있다.
+    그는 올해 8월 10일에도 이 어린이집에서 B(1)양 상체를 자신의 몸쪽으로 강하게 끌어당기는 등 학대한 혐의도 받는다.
+    인천시 서구는 이 어린이집에서 아동학대가 있었다는 민원을 받고 해당 어린이집의 폐쇄회로(CC)TV 화면을 확인해 8일 오후 경찰에 신고했다.
+    경찰 관계자는 "어린이집으로부터 CCTV를 임의로 제출받아 영상을 확인하고 있다"며 "보육교사, 원장, 학부모를 조사한 뒤 아동보호전문기관의 도움을 받아 학대 여부를 판단할 것"이라고 말했다.
+    hong@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

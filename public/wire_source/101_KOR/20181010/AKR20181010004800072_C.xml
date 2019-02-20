@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010004800072</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>041920</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["뉴요커에게 한국의 매콤한 맛 알린다"…뉴욕서 퓨전한식 이벤트]]></Title>
+		<SubTitle><![CDATA[맨해튼 곳곳서 대추순대·고추장아이스크림 등 인기메뉴 시식]]></SubTitle>
+		<Body><![CDATA["뉴요커에게 한국의 매콤한 맛 알린다"…뉴욕서 퓨전한식 이벤트
+맨해튼 곳곳서 대추순대·고추장아이스크림 등 인기메뉴 시식
+
+
+
+    (뉴욕=연합뉴스) 이준서 특파원 = 미국 뉴욕에 한국의 달고 매운 맛을 알리는 행사가 열린다.
+    농림축산식품부와 한국농수산식품유통공사는 10일(현지시간)부터 2주간 뉴욕 맨해튼에서 뉴요커들의 입맛에 맞는 퓨전 한식을 소개하는 '스위트 히트 코리아'(Sweet Heat Korea) 캠페인을 개최한다고 9일 밝혔다.
+    오미자와 대추자, 배, 유자차 등을 이용한 단맛(Sweet)과 고춧가루, 고추장을 활용한 매운맛(Heat)을 알리겠다는 취지다.
+    뉴욕대와 컬럼비아대, 하이라인 등 맨해튼 곳곳의 명소에서 무료시식을 위한 푸드트럭이 운영되며, 뉴욕에서 활동하는 한국계 유명 셰프 8명이 한국 식재료로 개발한 메뉴를 내놓는다.
+    특히 젊은 뉴요커들에게 입소문을 타고 있는 유자차 비빔면, 신고배 불고기, 대추 순대, 고추장 아이스크림 등이 소개된다.
+    셰프들은 유튜브를 통해 조리법을 공개하고, 푸드트럭에서도 시연할 예정이다.
+    jun@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

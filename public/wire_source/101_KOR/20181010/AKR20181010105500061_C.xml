@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010105500061</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>145101</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005014" name="수원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605005" name="폭행살인"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경찰, 70대 경비원 폭행한 만취 10대에 사전구속영장]]></Title>
+		<Body><![CDATA[경찰, 70대 경비원 폭행한 만취 10대에 사전구속영장
+
+    (수원=연합뉴스) 최해민 기자 = 술에 취해 70대 경비원을 마구 폭행한 10대에 대해 경찰이 구속수사 하기로 했다.
+
+
+    경기 수원중부경찰서는 10일 상해 혐의로 신모(18·무직)군에 대해 사전 구속영장을 신청했다.
+    신군은 지난달 28일 오전 4시 50분께 경기도 수원시 장안구 한 상가건물에서 경비원 A(79)씨를 수차례 폭행해 전치 4주의 상처를 입힌 혐의를 받고 있다.
+    신군은 친구 최모(18·무직)군과 함께 일행 2명을 찾으려고 건물에 들어가려다가 A씨가 저지하며 "나가달라"고 하자 폭행한 것으로 조사됐다.
+    경찰은 폭행에 가담한 혐의로 함께 입건한 최군은 직접적인 폭행이 없었던 것으로 결론 내렸다.
+    경찰 관계자는 "신군이 범행에 이르게 된 동기를 봤을 때 죄질이 가볍지 않고, 고령의 피해자가 전치 4주의 상처를 입는 등 피해가 중하다고 판단해 구속수사를 하기로 했다"라고 설명했다.
+    경찰은 피해자 A씨의 가족이 SNS에 글을 올려 폭행 당시 가해자 측이 "우리 아빠가 변호사인데 죽여줘?"라고 하는 등 협박했다고 주장한 부분은 확인결과 신군과 함께 있던 최군이 신군을 말리면서 "이러면 변호사를 사야 한다. 그만하라"고 말한 부분이 잘못 전해진 것으로 판단했다.
+    goals@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010069500008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110134</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001019" name="공시"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[엠씨넥스, 보통주·기타주 0.5주씩 무상증자 결정]]></Title>
+		<Body><![CDATA[엠씨넥스, 보통주·기타주 0.5주씩 무상증자 결정
+
+    (서울=연합뉴스) 유현민 기자 = 코스닥 상장사인 엠씨넥스는 1주당 보통주식 0.5주와 기타주식 0.5주의 무상증자를 결정했다고 10일 공시했다. 
+    신주 상장 예정일은 다음 달 20일이다.
+    한국거래소 코스닥시장본부는 이에 따라 이날 오전 10시 52분부터 30분간 엠씨넥스의 주권 매매거래를 정지했다. 
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -109,10 +109,10 @@ gem 'rails-assets-trix', source: 'https://rails-assets.org'
 gem 'jquery-datatables'
 gem 'ajax-datatables-rails'
 
-# gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
-
 gem 'ancestry'
 gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
-gem 'sidekiq', '< 6'
-
+gem 'sucker_punch'
+gem 'happymapper'
 # gem 'stateful_enum'
+# gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
+

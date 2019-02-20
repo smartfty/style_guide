@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010111800030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142640</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0202003" name="중소기업"/>
+			<ClassCode code="0408019" name="가구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[보일러업계, 태풍 피해 영덕 수해복구 지원]]></Title>
+		<Body><![CDATA[보일러업계, 태풍 피해 영덕 수해복구 지원
+
+    (서울=연합뉴스) 윤선희 기자 = 보일러업체들이 제25호 태풍 '콩레이'로 침수 피해를 본 경북 영덕에 보일러 점검과 수리에 나섰다. 
+    귀뚜라미는 제25호 태풍 '콩레이'로 침수 피해를 본 경북 영덕군에 특별 서비스 캠프를 설치하고 전담팀 10여 명을 긴급 투입했다고 10일 밝혔다. 
+    귀뚜라미는 수해복구가 완료될 때까지 캠프를 유지하고, 보일러 무상 점검과 수리를 하기로 했다. 인근 피해 지역에서도 지사 주관으로 서비스팀을 구성해 지역주민의 피해 복구를 지원할 수 있도록 협력해 나갈 방침이다.
+    경동나비엔도 8일부터 '수해지역 긴급 복구 서비스 캠프'를 운영하고 있다. 
+    대리점과 협력을 통한 서비스 체계를 구축해 신속한 서비스를 지원함으로써 침수로 인해 온수 사용과 난방 공급에 어려움을 겪는 수재민들의 불편을 최소화하기 위해서다.
+    특히 경동나비엔은 캠프 현장 접수와 상담 활동은 물론, 수재민들의 불편함을 최대한 신속히 해결하기 위해 직접 가정을 방문해 무상 점검과 수리 서비스를 진행하고 있다.
+    경동나비엔 측은 365일 24시간 운영되는 행복나눔센터(1588-1144)나 강구 하나로마트에 설치된 베이스캠프를 통해 서비스를 접수하면 된다고 설명했다. 
+    indigo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

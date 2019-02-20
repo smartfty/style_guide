@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010113600055</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>143639</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009013" name="전주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510002" name="검찰"/>
+			<ClassCode code="0510003" name="법원"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[노래방서 흉기 난동…경찰관 등 8명 다치게 한 40대 징역 4년]]></Title>
+		<Body><![CDATA[노래방서 흉기 난동…경찰관 등 8명 다치게 한 40대 징역 4년
+
+    (전주=연합뉴스) 김동철 기자 = 노래방에서 흉기 난동을 부려 경찰관 등 8명을 다치게 한 40대가 항소심에서 감형됐다.
+    광주고법 전주 제1형사부는 특수공무집행방해치상 등의 혐의로 기소된 A(47)씨에 대한 항소심에서 징역 5년을 선고한 원심을 깨고 징역 4년을 선고했다고 10일 밝혔다.
+
+    A씨는 지난 1월 24일 자정께 전주 시내 한 노래방에서 헤어진 동거녀와 동거녀 지인을 흉기로 찔러 각각 전치 4주와 3주의 상처를 입힌 혐의로 기소됐다.
+    그는 출동한 경찰관들과 대치하던 중 무차별적으로 흉기를 휘둘러 경찰관 6명이 다쳤다.
+    피해 경찰관들은 각각 전치 2주에서 6주의 상처를 입었다.
+    그는 전 동거녀가 자신의 외도를 추궁하자 범행한 것으로 드러났다.
+    재판부는 "피고인은 인질극을 벌이다 체포를 시도한 경찰관들에게 흉기를 휘둘러 그 죄질이 나쁘다"며 "다만, 일부 피해자와 합의했고 잘못을 반성하는 점 등을 참작했다"고 원심 파기 이유를 설명했다.
+    sollenso@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

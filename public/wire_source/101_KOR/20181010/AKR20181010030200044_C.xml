@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010030200044</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>085529</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201017" name="대출채무"/>
+			<ClassCode code="0204001" name="부동일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 가계부채 보유자 1인당 8천만원 대출]]></Title>
+		<Body><![CDATA[[그래픽] 가계부채 보유자 1인당 8천만원 대출
+
+    (서울=연합뉴스) 김토일 기자 = 10일 국회 정무위원회 소속 더불어민주당 김병욱 의원이 나이스(NICE)평가정보로부터 제출받은 '담보건수별 주택담보대출 현황' 자료에 따르면 올 6월말 현재 우리나라 국민의 37%인 1천903만명이 가계부채를 보유하고 있었다. 
+    kmtoil@yna.co.kr
+    페이스북 tuney.kr/LeYN1 트위터 @yonhap_graphics
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

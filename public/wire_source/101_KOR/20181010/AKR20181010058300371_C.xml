@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010058300371</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102624</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="10" name="민족"/>
+		<Class>
+			<ClassCode code="0108001" name="외교일반"/>
+			<ClassCode code="0512001" name="다문화"/>
+			<ClassCode code="0701001" name="문화일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국립어린이청소년도서관 "영국·라트비아 문화여행 오세요"]]></Title>
+		<Body><![CDATA[국립어린이청소년도서관 "영국·라트비아 문화여행 오세요"
+    
+
+    (서울=연합뉴스) 오수진 기자 = 국립어린이청소년도서관은 오는 13일과 14일 이틀간 외국문화여행 프로그램으로 '서울에서 영국을 만나요!'와 '합창의 나라, 라트비아'를 개최한다. 
+    주한외국대사관과 협력해 만드는 이 프로그램은 어린이들에게 여러 나라의 독특한 문화를 소개하고 국내 거주 외국 어린이·청소년과의 문화 교류 기회를 제공하기 위한 것이다. 
+    '서울에서 영국을 만나요!'는 세계문화교육 전문 단체 글로벌유스페어가 영국의 언어, 경제, 생활 등을 소개하고, '합창의 나라, 라트비아'에서는 라트비아 독립 100주년을 기념해 주한라트비아대사관이 초청한 '파 사울레이'(Pa Saulei)」합창단이 공연할 예정이다. 
+    행사 신청은 국립어린이청소년도서관 홈페이지(www.nlcy.go.kr)에서 할 수 있으며  참가비는 무료다.     
+
+    sujin5@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

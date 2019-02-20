@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010139200013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>144324</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0503001" name="교육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[시·도 교육청 관계자들과 간담회 하는 유은혜]]></Title>
+		<Comment>NO-3148</Comment>
+		<Body><![CDATA[시·도 교육청 관계자들과 간담회 하는 유은혜
+    (서울=연합뉴스) 김인철 기자 = 유은혜 사회부총리 겸 교육부 장관이 10일 오후 서울 서초구 더케이호텔에서 열린 혁신교육지방정부협의회 정기총회 및 지방정부 컨퍼런스에 앞서 조희연 서울시교육감 및 시·도교육청 관계자들과 간담회를 위해 간담회장으로 입장하고 있다. 2018.10.10
+    yatoya@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101013920001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101013920001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101013920001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

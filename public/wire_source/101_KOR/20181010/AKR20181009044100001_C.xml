@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181009044100001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>050002</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0103002" name="상임위"/>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0109001" name="국방일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[육·해·공군사관생도 1인당 양성비용 2억3천만원]]></Title>
+		<SubTitle><![CDATA[해군＞공군＞육군 순 수백만원씩 차이…ROTC는 1천765만원 
+국방위 민홍철 의원 분석 자료 ]]></SubTitle>
+		<Body><![CDATA[육·해·공군사관생도 1인당 양성비용 2억3천만원
+해군＞공군＞육군 순 수백만원씩 차이…ROTC는 1천765만원 
+국방위 민홍철 의원 분석 자료 
+
+    (서울=연합뉴스) 한지훈 기자 = 육·해·공군사관학교에서 사관생도 1명을 길러내는 데 4년간 2억3천만원 이상의 비용이 소요되는 것으로 나타났다.
+    국회 국방위원회 소속 더불어민주당 민홍철 의원이 10일 국방부에서 제출받은 자료에 따르면, 해군사관학교는 사관생도 1명당 4년간 2억3천956만원의 양성비용을 쓰고 있다.
+    이 비용은 급여, 급식, 피복, 개인용품, 탄약, 교육자료 등 직접비와 인력운영, 장비 및 시설유지, 유류 등 간접비를 모두 포함한 것이다. 
+    공군사관학교는 해군사관학교보다 조금 적은 2억3천710만원을, 육군사관학교는 또 공군사관학교보다 조금 적은 2억3천431만원을 각각 양성비용으로 쓰고 있다. 
+    한편 간호사관학교는 1억2천481만원을, 육군3사관학교는 1억166만원을, 학생군사훈련단(ROTC)은 1천765만원을 각각 양성비용으로 책정한 것으로 조사됐다.
+    ROTC는 입영 훈련 기간에 한해서만 3학년에게는 55만9천원, 4학년에게는 65만3천500원의 월급을 지급해 사관생도와 양성비용에서 차이가 컸다. 
+
+
+    hanjh@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010068800017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>105949</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0202004" name="공기업"/>
+			<ClassCode code="0712003" name="방송"/>
+			<ClassCode code="0901002" name="과학기술"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[과기부·코바코, 스마트광고 창업 릴레이특강]]></Title>
+		<Body><![CDATA[과기부·코바코, 스마트광고 창업 릴레이특강
+
+    (서울=연합뉴스) 홍지인 기자 = 과학기술정보통신부와 한국방송광고진흥공사는 '스마트광고 창업 릴레이특강'을 공동 개최한다고 10일 밝혔다.
+    첫날인 10월 11일에는 박창신 캐리소프트 대표, 18일에는 임정민 500스타트업코리아 대표, 24일에는 최윤섭 디지털헬스케어 파트너스 대표가 각각 연사로 나선다. 
+    서울 잠실 한국광고문화회관에서 열리는 이번 특강은 누구나 참여 가능한 무료 행사로, 참가 신청은 코바코 광고교육원 홈페이지(https://edu.kobaco.co.kr)에서 하면 된다.
+    ljungberg@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

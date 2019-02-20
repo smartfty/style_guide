@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010089800062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>115005</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7004014" name="춘천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107002" name="지방의회"/>
+			<ClassCode code="0403002" name="광업"/>
+			<ClassCode code="0411009" name="카지노"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강원도의회 "강원랜드 '폐광지 경제 회생' 이행하라"]]></Title>
+		<Comment>NO-2278</Comment>
+		<Body><![CDATA[강원도의회 "강원랜드 '폐광지 경제 회생' 이행하라"
+    (춘천=연합뉴스) 박영서 기자 = 강원도의회가 10일 오전 도의회 세미나실에서 강원랜드에 '폐광지역 경제 회생'이라는 설립 목적 이행을 촉구하는 성명을 발표하고 있다. 도의회는 강원랜드의 기업 성장에 중점을 둔 경영방식 개선과 지역경제 회생이라는 본래 목적에 충실할 것을 촉구했다. 2018.10.10
+    conanys@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101008980006200.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101008980006200_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101008980006200_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

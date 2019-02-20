@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010032800044</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>090137</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0503001" name="교육일반"/>
+			<ClassCode code="0504001" name="복지일반"/>
+			<ClassCode code="0504004" name="여성복지"/>
+			<ClassCode code="0504005" name="아동복지"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 국공립어린이집 이용률 추이]]></Title>
+		<Body><![CDATA[[그래픽] 국공립어린이집 이용률 추이
+
+    (서울=연합뉴스) 박영석 기자 = 10일 국회 보건복지위원회 정춘숙 의원(더불어민주당)이 보건복지부에서 받은 자료를 분석한 결과를 보면, 국공립어린이집 확충에 속도를 내지 않는 한 전체 어린이집 이용 아동 가운데 국공립어린이집 이용아동 비율 40% 달성은 어려운 것으로 나왔다.
+    zeroground@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

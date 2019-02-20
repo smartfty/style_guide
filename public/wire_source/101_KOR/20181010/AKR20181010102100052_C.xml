@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010102100052</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>140548</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0701003" name="전시공연"/>
+			<ClassCode code="0701010" name="인문학"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['비운의 천재 최치원을 떠올리며…' 창원의 집 인문학 향연]]></Title>
+		<Body><![CDATA['비운의 천재 최치원을 떠올리며…' 창원의 집 인문학 향연
+
+
+    
+    (창원=연합뉴스) 이정훈 기자 = 경남 창원문화재단은 19일 '창원의 집'에서 '비운의 천재 최치원'을 주제로 인문학 콘서트를 개최한다고 밝혔다.
+    창원의 집 마당이 행사장이다.
+    오후 8시부터 임영주 고운최치원기념사업회장(마산문화원장)이 신분의 벽에 막혀 뜻을 펼치지 못한 신라 대문장가 고운 최치원을 주제로 강연한다.
+    강연에 앞서 세종국악회관은 국악 동요 메들리 등 우리 가락을 들려준다.
+    좌석 200석은 벌써 마감됐고 입석(창원문화재단 전통문화팀 ☎ 055-714-7644) 신청을 받는다.
+    최치원 선생은 창원과 인연이 깊다.
+    그가 제자들을 가르쳤거나 노닐었다는 월영대, 고운대, 최치원 영정이 있는 두곡선원 등이 현재까지 남아 있다.
+    창원의 집은 200여 년 전 순홍 안 씨 5대조인 안두철 선생이 살던 전통 기와집으로 창원 시내 유일 고택 문화공간이다.
+    솟을대문, 사랑채, 안채 등 건물 14채가 그대로 남아 있다.
+
+
+    seaman@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

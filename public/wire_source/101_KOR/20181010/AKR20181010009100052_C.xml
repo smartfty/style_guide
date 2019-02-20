@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010009100052</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>062941</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[해안가 강한 바람…출근길 쌀쌀한 경남]]></Title>
+		<Body><![CDATA[해안가 강한 바람…출근길 쌀쌀한 경남
+
+
+
+    (창원=연합뉴스) 박정헌 기자 = 10일 경남지역은 해안가로부터 바람이 강하게 불면서 쌀쌀한 날씨를 보이겠다.
+    창원기상대에 따르면 이날 경남지역 아침 최저기온은 지리산 9.9도, 가야산 10.3도, 함양 10.7도 등 10∼15도 사이에 분포하면서 쌀쌀하겠다.
+    낮 최고기온도 17∼21도로 예년보다 3∼5도가량 낮겠다.
+    남해를 중심으로 초속 9.1ｍ에 달하는 강한 바람이 불겠으니 시설물 관리에 유의해야 한다.
+    창원기상대 관계자는 "모레까지 남해안이 천문조에 의해 바닷물 높이가 높은 기간으로 저지대의 경우 밀물 때 침수 피해가 우려되니 유의해야 한다"고 당부했다.
+    home1223@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

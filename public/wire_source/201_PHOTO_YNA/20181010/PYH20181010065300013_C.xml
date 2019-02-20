@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010065300013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110934</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0409004" name="대형마트"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전자랜드프라이스킹, '아낙 복합식가습기' 출시]]></Title>
+		<Comment>NO-2007</Comment>
+		<Body><![CDATA[전자랜드프라이스킹, '아낙 복합식가습기' 출시
+    (서울=연합뉴스) 전자랜드프라이스킹이 PB 브랜드 '아낙'을 통해 2019년형 '아낙(ANAC) 복합식 가습기'를 출시했다고 10일 전했다. 아낙 복합식 가습기는 차가운 초음파 가습과 따뜻한 가열식 가습 모두 사용할 수 있는 복합식으로, 따뜻하고 포근한 분무 가습이 가능해 호흡기가 약한 아기에게 적합하고 분무량은 1~3단계까지 설정할 수 있으며, 360° 회전되는 2개 분무구로 풍부한 가습이 가능하다. 특히 아낙 복합식 가습기에는 정수기에 쓰이는 정수 필터를 적용해 안심하고 사용할 수 있다. 2018.10.10 [전자랜드 프라이스킹 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101006530001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101006530001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101006530001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

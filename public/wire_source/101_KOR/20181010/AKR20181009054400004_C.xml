@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181009054400004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>075500</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510002" name="검찰"/>
+			<ClassCode code="0510004" name="경찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["수사기관 가혹 행위 기소율 저조…제 식구 감싸기"]]></Title>
+		<Body><![CDATA["수사기관 가혹 행위 기소율 저조…제 식구 감싸기"
+
+
+    (서울=연합뉴스) 방현덕 기자 = 경찰과 검찰 등 수사당국이 업무수행 중 저지른 가혹 행위 의혹 대부분이 '솜방망이' 처분으로 결론 나고 있다는 지적이 나왔다.
+    10일 국회 법제사법위원회 이은재 자유한국당 의원은 법무부에서 받은 자료를 토대로 "법 집행자인 경찰과 검찰이 독직폭행 등 사건으로 대부분 '혐의없음'과 '각하' 처분받고 있다"며 검경의 '제 식구 감싸기' 관행을 근절해야 한다고 밝혔다.
+    이 의원에 따르면 2014년부터 올해 7월까지 약 5년간 불법체포·감금 혐의로 접수된 사건은 모두 1만2천450건이다. 
+    그러나 이중 정식·약식 재판에 넘겨진 경우는 1천565건으로 12.6%에 불과했다. 기소유예, 혐의없음, 각하 등 사유로 불기소된 사건은 8천847건으로 전체의 71.1%였다. 나머지는 미제 등이다.
+    수사기관 공무원의 독직폭행·가혹 행위 사건의 경우 같은 기간 5천356건이 접수됐다. 이 역시 기소된 사례는 11건에 불과해 기소율이 0.2%에 그쳤다. 불기소는 4천569건으로 전체의 85.3%였다.
+    이 의원은 "경찰과 검찰은 법과 인권을 수호해야 하는 기관"이라며 "공권력 행사가 적법하게 이뤄질 수 있도록 엄격한 처벌뿐만 아니라 내부 감찰 및 교육 등을 강화해야 한다"고 강조했다.
+
+    banghd@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010150500013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>151032</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7005029" name="평택"/>
+		</Region>
+		<Class>
+			<ClassCode code="0106002" name="총리내각"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[쌍용차 현장 방문한 이낙연 국무총리]]></Title>
+		<Comment>NO-3261</Comment>
+		<Body><![CDATA[쌍용차 현장 방문한 이낙연 국무총리
+    (평택=연합뉴스) 안정원 기자 = 이낙연 국무총리가 10일 오후 경기도 평택시 동삭로 쌍용자동차를 방문, 인사말을 하고 있다. 2018.10.10
+    jeong@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101015050001301.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101015050001301_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101015050001301_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

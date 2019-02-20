@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010034900064</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094155</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012001" name="충북"/>
+			<RegionCode code="7012013" name="충주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충주시 민선 7기 공약사업 74개 확정]]></Title>
+		<Body><![CDATA[충주시 민선 7기 공약사업 74개 확정
+
+    (충주=연합뉴스) 김형우 기자 = 충주시가 민선 7기 공약사업을 확정했다.
+    공약사업은 6개 분야다.
+
+
+    충주시는 일자리 5천개 만들기, 향토기업 신·증설 투자비 지원, 도심 주차장 증설 및 확대, 충주역∼충청내륙 고속화 도로 연결 등 지역경제 분야 27개 사업을 추진한다.
+    시는 또 문화관광 분야 17개, 복지 분야 14개, 균형발전 분야 9개, 농업·농촌 분야 5개, 소통행정 분야 2개 사업을 진행한다.
+    공약사업은 사업 추진 검토 보고회와 시정조정위원회의 심의, 민간전문가로 구성된 충주시 공약평가위원회심의를 거쳤다.
+    조 시장은 "충주 발전에 필요한 사업들을 공약에 반영하기 위해 노력했다"며 "공정하고 투명하게 실용 행정을 펼치겠다"고 말했다.
+    vodcast@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

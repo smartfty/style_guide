@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010027700008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>084201</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한투증권 "SK머티리얼즈 3분기 호실적 예상…매수"]]></Title>
+		<Body><![CDATA[한투증권 "SK머티리얼즈 3분기 호실적 예상…매수"
+
+    (서울=연합뉴스) 전명훈 기자 = 한국투자증권은 10일 SK머티리얼즈가 3분기에 호실적을 발표할 전망이라며 '매수' 의견과 목표주가 25만원을 기존대로 유지했다.
+    유종우 연구원은 "SK머티리얼즈의 올해 3분기 영업이익은 518억원으로 작년 같은 분기보다 29% 증가할 전망"이라며 "메모리 업황 둔화가 나타나고 있지만 SK하이닉스의 신공장이 가동하면서 SK머티리얼즈 자회사의 실적 개선이 내년까지 계속될 것"이라고 분석했다.
+    유 연구원은 "SK머티리얼즈의 하반기 영업이익은 1천84억원으로 상반기보다 45% 증가하고 연간 기준으로도 연결 영업이익이 1천830억원으로 전망돼 작년보다 24% 증가할 것"이라며 "반도체 제조 등에 필수적인 삼불화질소(NF3) 물량이 늘면서 자회사의 실적 개선 폭이 꾸준히 확대되고 있다"고 설명했다.
+    id@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

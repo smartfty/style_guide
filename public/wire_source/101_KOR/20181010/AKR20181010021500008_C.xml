@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010021500008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>080800</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001019" name="공시"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[삼우엠스, 30억원 증자·50억원 CB 발행 결정]]></Title>
+		<Body><![CDATA[삼우엠스, 30억원 증자·50억원 CB 발행 결정
+
+    (서울=연합뉴스) 유현민 기자 = 코스닥 상장사인 삼우엠스가 운영자금 30억원을 조달하기 위해 제3자배정 방식의 유상증자를 결정했다고 10일 공시했다.
+    이은주씨가 주당 1천235원에 보통주 242만9천149주를 배정받는다. 
+    삼우엠스는 또 운영자금 50억원 조달을 목적으로 무기명식 이권부 무보증 사모 전환사채(CB)를 발행하기로 했다. 
+    표면이자율은 0.0%, 만기이자율은 4.0%다. 사채 만기일은 2021년 11월 30일이다.
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

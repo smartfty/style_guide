@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010108900004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141956</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605007" name="성범죄"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[가택 침입 성범죄 최근 3년간 약 1천건…"예방책 시급"]]></Title>
+		<Body><![CDATA[가택 침입 성범죄 최근 3년간 약 1천건…"예방책 시급"
+
+
+    (서울=연합뉴스) 이효석 기자 = 가택에 침입해 성폭행 등을 저지르는 주거침입 성범죄가 최근 3년간 1천건에 육박하는 것으로 나타났다.
+    10일 국회 행정안전위원회 소속 소병훈(더불어민주당) 의원이 경찰청에서 제출받은 국정감사 자료에 따르면, 2015∼2017년 주거침입 성범죄가 981건 발생했다.
+    범죄 유형별로 보면 주거침입 강제추행 범죄가 483건(49.2%)으로 가장 많았고, 주거침입 강간이 335건(34.1%)으로 그다음으로 많았다.
+    소 의원은 "최근 셉테드(CPTED·범죄예방 환경설계) 등 귀갓길과 감시 사각지대의 안전을 확보하기 위한 방안은 다각도로 논의되는 반면, 주거침입 성범죄에 대한 대책은 부족하다"면서 "특단의 예방대책을 마련해야 한다"고 강조했다.
+    hyo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

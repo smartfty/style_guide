@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010046700008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094915</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0303002" name="증권사"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 키움증권, 레이니스트와 자산관리 협력MOU]]></Title>
+		<Body><![CDATA[[게시판] 키움증권, 레이니스트와 자산관리 협력MOU
+
+    ▲ 키움증권은 개인통합자산관리 서비스인 '뱅크샐러드'를 운영 중인 ㈜레이니스트와 금융자산관리 서비스 사업협력을 위한 업무협약(MOU)을 맺었다고 10일 밝혔다. (서울=연합뉴스)
+
+
+
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

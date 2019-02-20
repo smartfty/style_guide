@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010028900052</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>085211</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0605004" name="강절도"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["도박 빚 갚으려고" 풋살운동장서 휴대전화 훔친 20대 구속]]></Title>
+		<Body><![CDATA["도박 빚 갚으려고" 풋살운동장서 휴대전화 훔친 20대 구속
+
+
+
+    (양산=연합뉴스) 박정헌 기자 = 경남 양산경찰서는 야간에 풋살운동장을 돌아다니며 이용객들 휴대전화를 훔친 혐의(절도)로 A(22)씨를 구속했다고 10일 밝혔다.
+    A씨는 지난 2일 오후 8시께 양산에 있는 한 풋살운동장에서 B(25)씨가 운동장 외곽 의자 위에 올려둔 휴대전화 등 60만원 상당 금품을 가져간 혐의를 받고 있다.
+    이 같은 수법으로 그는 9월 말부터 10월 초까지 양산 풋살운동장 2곳에서 3회에 걸쳐 휴대전화 4대 등 400만원 상당 금품을 훔쳤다.
+    A씨는 "온라인 스포츠 도박으로 빚이 3천여만원 생겨 이를 갚기 위해 범행을 저질렀다"고 경찰에 진술했다.
+    home1223@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

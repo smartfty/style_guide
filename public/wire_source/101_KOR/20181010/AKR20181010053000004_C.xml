@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010053000004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110004</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0509001" name="노동일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[민주노총 '재벌개혁 국감' 촉구…순회 규탄집회 시작]]></Title>
+		<Body><![CDATA[민주노총 '재벌개혁 국감' 촉구…순회 규탄집회 시작
+
+
+    (서울=연합뉴스) 이영재 기자 = 전국민주노동조합총연맹(민주노총)은 국회 국정감사가 시작된 10일 '국정감사 재벌개혁 촉구 순회 투쟁'을 시작했다.
+    민주노총은 이날 국회 앞에서 기자회견을 열어 "국정감사에서 재벌개혁 의제가 많은 상임위에서 논의될 것"이라며 "앞에서 호통치고 뒤에서 손잡는 기만적 재벌개혁 쇼가 아니라 국민의 눈높이에서 제대로 된 재벌개혁을 요구한다"고 밝혔다.
+    민주노총은 총수 일가의 일감 몰아주기를 통한 사익 편취, 법의 허점을 이용한 경영권 상속, 문어발식 사업 확장, 재벌 일가의 뇌물수수 등 불법행위와 갑질 횡포 등을 재벌의 폐해로 거론했다.
+    이어 "재벌 자본은 가장 악랄한 방법으로 노동자들의 노동권을 짓밟고 있는 주범"이라며 "가장 많은 간접고용 비정규직을 고용하고 있고 노골적으로 노조파괴를 자행하며 노조 할 권리를 짓밟고 있다"고 지적했다.
+    민주노총은 이날 기자회견을 시작으로 오는 12일까지 한국경영자총협회와 대한상공회의소 등 주요 경제단체와 삼성, 현대·기아차, LG, SK 등 대기업 그룹을 순회하며 규탄집회를 열어 재벌개혁을 이번 국감의 주요 쟁점으로 만들 계획이다.
+    ljglory@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

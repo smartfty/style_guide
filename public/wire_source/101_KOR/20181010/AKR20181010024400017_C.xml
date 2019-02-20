@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010024400017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>100008</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['1초에 화면 144장 표현'…LG 게이밍 노트북 신제품 출시]]></Title>
+		<Body><![CDATA['1초에 화면 144장 표현'…LG 게이밍 노트북 신제품 출시
+
+    (서울=연합뉴스) 채새롬 기자 = LG전자는 10일 게이밍 노트북 신제품을 국내 출시했다.
+
+
+    이 제품은 게이밍 모니터 수준의 화면 주사율(144㎐)을 구현해 1초에 화면을 144장까지 보여준다. 화면이 빠르게 변하는 슈팅게임 등에서 부드러운 전환을 느낄 수 있다.
+    또 엔비디아사의 G-싱크 기술을 적용해 게임 화면이 찢어지거나 깨지는 현상을 최소화했다.
+    인텔 프로세서 최상위 버전인 i7-8750H를 탑재해 데이터 처리 속도가 빠르다. 메모리는 DDR4 2666㎒, 용량은 16GB, 배터리는 81Wh(와트시)다. 엔비디아의 GTX 1060 그래픽카드는 복잡한 게임 화면을 지체 없이 정확하게 표현한다.
+    기가비트 와이파이를 지원해 이론상 16GB 용량의 UHD 화질 영화를 1분 만에 다운로드받을 수 있다. 이는 기존 제품의 2배 속도다.
+    USB 3.1 C-타입, HDMI, 미니 DP 등 단자를 갖췄고 모든 단자가 4K 게임 화면을 모니터로 전송할 수 있는 속도를 낸다. 
+    출고가는 289만원이다.
+    LG전자 한국HE마케팅 손대기 담당은 "어떠한 게임도 최고의 환경에서 즐길 수 있는 LG 게이밍 노트북은 고객에게 차별화된 경험을 선사할 것"이라고 말했다.
+    srchae@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

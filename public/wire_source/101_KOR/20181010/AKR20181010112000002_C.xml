@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010112000002</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142819</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0201006" name="조세"/>
+			<ClassCode code="0301001" name="금융일반"/>
+			<ClassCode code="0401001" name="산업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국세청장, 다스 증여세 부과 요구에 "심도있게 검토"]]></Title>
+		<SubTitle><![CDATA["국세청에 심판·심사청구 통합 결정 권한 없다"]]></SubTitle>
+		<Body><![CDATA[국세청장, 다스 증여세 부과 요구에 "심도있게 검토"
+"국세청에 심판·심사청구 통합 결정 권한 없다"
+
+    (세종=연합뉴스) 민경락 기자 = 한승희 국세청장은 10일 법원이 이명박 전 대통령을 실소유주로 판단한 다스에 증여세를 부과하는 안을 검토하겠다고 말했다.
+
+    한 청장은 이날 정부세종청사에서 열린 국회 기획재정위원회 국정감사에서 다스에 증여세를 부과해야 한다는 의원들의 요구에 "증여 요건에 해당하는지 심도 있게 검토할 것"이라고 말했다.
+    이날 국감에서는 최근 1심 판결을 통해 드러난 이명박 전 대통령의 차명재산에 증여세를 부과해야 한다는 요구가 빗발쳤다.
+    다스의 실소유주가 이 전 대통령으로 밝혀진 만큼 이상은 씨 등이 가진 주식을 명의신탁 주식으로 보고 증여세를 부과해야 한다는 것이다.
+    다스를 수혜법인으로 한 일감 몰아주기 조사도 국세청이 간과한 만큼 이에 대한 엄정한 조사가 필요하다는 지적도 쏟아졌다.
+    국세청이 심사청구와 심판청구 통합을 추진하고 있다는 지적에 대해서는 "국세청이 결정할 수 있는 권한이 없다"고 말했다.
+    이어 "논의가 있다면 구성원의 하나로 참석할 수는 있을 것"이라며 "행정 불복제도는 필요하다고 본다"라고 답했다.
+    납세자는 과세 고지서를 받은 뒤 세무서나 지방국세청 이의 신청을 거쳐 국세청에 심사청구를 하거나 조세심판원에 심판청구를 할 수 있다.
+    정부는 국세청과 조세심판원으로 나뉜 과세 불복절차를 통합·개선하기 위한 논의를 진행 중이다.
+    rock@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

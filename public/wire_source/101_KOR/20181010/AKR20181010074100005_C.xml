@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010074100005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111726</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0703001" name="종교일반"/>
+			<ClassCode code="0703008" name="원불교"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[원불교, 28대 오도철 교정원장 선임]]></Title>
+		<SubTitle><![CDATA[감찰원장에 최정안 교무]]></SubTitle>
+		<Body><![CDATA[원불교, 28대 오도철 교정원장 선임
+감찰원장에 최정안 교무
+
+
+
+    (서울=연합뉴스) 강종훈 기자 = 원불교는 제28대 교정원장에 홍산(洪山) 오도철 교무, 제21대 감찰원장에 율타원(律陀圓) 최정안 교무를 각각 선임했다고 10일 밝혔다.
+    원불교 임시수위단회는 전날 임기 3년의 신임 교정원장과 감찰원장 임명동의안을 승인했다.
+    오 신임 교정원장은 1979년 출가해 중앙중도훈련원 부원장, 기획실장, 신촌교당 주임교무 등을 역임했다.
+    최 신임 감찰원장은 1979년 출가해 미주서부교구 교구장, 만덕산훈련원장, 이리지구 지구장 등을 지냈다.
+    원불교는 교단 행정을 담당하는 교정원과 교단 기강을 담당하는 감찰원 양원 체제로 구성된다. 
+    double@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

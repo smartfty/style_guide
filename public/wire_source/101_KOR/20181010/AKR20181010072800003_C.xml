@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010072800003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111354</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0202002" name="대기업"/>
+			<ClassCode code="0302006" name="펀드"/>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0502003" name="기부봉사"/>
+			<ClassCode code="0504005" name="아동복지"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[행복얼라이언스, 결식아동 후원 자원봉사·크라우드펀딩]]></Title>
+		<SubTitle><![CDATA[참여자에게 '함께해서행복해' 콘서트 초청 혜택]]></SubTitle>
+		<Body><![CDATA[행복얼라이언스, 결식아동 후원 자원봉사·크라우드펀딩
+참여자에게 '함께해서행복해' 콘서트 초청 혜택
+
+    (서울=연합뉴스) 윤보람 기자 = SK그룹 등이 참여한 사회공헌 연합체인 행복얼라이언스는 결식 우려 아동을 돕기 위해 자원봉사 모집과 크라우드 펀딩을 진행한다고 10일 밝혔다.
+    오는 14일까지 모집하는 자원봉사는 전국 28개 행복도시락 센터에서 결식 우려 아동에게 전달할 도시락을 포장하고 이를 해당 가정에 직접 배달하는 내용이다.
+    행복얼라이언스 홈페이지에서 지원할 수 있으며 6시간 이상 활동해야 참여한 것으로 인정된다.
+    크라우드 펀딩은 지난 5일부터 텀블벅 사이트에서 진행 중이다.
+    행복얼라이언스에서 출시한 전용상품인 4종 숄더백과 공정무역 커피, 친환경 비누 등을 구매하면 구매금 전액으로 행복도시락을 통해 결식 우려 아동에게 도시락을 전달한다.
+    이번 프로그램 참여자는 오는 27일 부산 영화의 전당과 11월 10일 서울 세종대에서 열리는 '2018 행복얼라이언스 데이 - 함께해서행복해' 콘서트 티켓을 받을 수 있다.
+    콘서트는 방송인이자 사회적 기업가인 알베르토 몬디, 건축가 유현준, 가수 루나 등 국내 유명 인사들이 일상 속 나눔의 가치를 공유하는 '토크 콘서트'와 가수 보아, 뮤지컬 배우 정선아·한지상, 가수 엔시티 드림(NCT DREAM), 볼빨간사춘기, 박정현 등 다양한 아티스트가 참여하는 '뮤직 콘서트'로 구성된다.
+
+
+    bryoon@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

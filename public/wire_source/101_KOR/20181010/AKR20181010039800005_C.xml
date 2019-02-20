@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010039800005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>092935</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712003" name="방송"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[박한별, 이보영과 한솥밥…플라이업 전속계약]]></Title>
+		<Body><![CDATA[박한별, 이보영과 한솥밥…플라이업 전속계약
+    
+
+    (서울=연합뉴스) 이도연 기자 = 배우 박한별(34)이 이보영, 최강희와 한솥밥을 먹는다. 
+    10일 플라이업 엔터테인먼트는 박한별과 전속계약을 체결했다고 밝혔다.
+    이 회사에는 류수영, 김서형, 왕빛나 등도 소속됐다.
+    박한별은 2002년 패션잡지 모델로 데뷔해 다수 작품에 출연했다. 지난해에는 MBC TV 드라마 '보그맘'에서 사이보그 엄마 역할을 맡았다. 
+    dylee@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

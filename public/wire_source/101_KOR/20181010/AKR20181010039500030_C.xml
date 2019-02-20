@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010039500030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110012</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402001" name="농축일반"/>
+			<ClassCode code="0402004" name="축산업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한우 경쟁력 높이려면…한·미·일 공동 학술토론회]]></Title>
+		<Body><![CDATA[한우 경쟁력 높이려면…한·미·일 공동 학술토론회
+
+
+    (서울=연합뉴스) 이태수 기자 = 농촌진흥청은 12일 오전 10시 30분 국립축산과학원 5층 대강당에서 '한우 고급육 신 사양 전략 수립을 위한 한국·미국·일본 국제 공동 학술토론회'를 연다고 10일 밝혔다.
+    농진청은 "최근 한우 산업은 곡물 사료 수급 불안정으로 농가 생산비 부담은 커지고 수입 소고기 공세에 자급률은 하락해 어려움을 겪고 있다"며 "지속적인 성장과 재도약을 위한 새로운 기술과 전략을 찾는 일이 시급하다"고 행사 취지를 설명했다.
+    토론회에는 국내·외 전문가와 관련 단체, 협회, 농민 등이 참여한다.
+    1부에서는 루이스 테데스키 미국 텍사스대 교수가 '미국 육우 NRC 주요 개정 현황', 김경훈 서울대 교수가 '한국 사양표준 개정 현황 및 발전 방안', 백열창 국립축산원 농업연구사가 '표준사료성분표 및 영양가 추정 모델 개발'을 주제로 각각 발표한다.
+    2부에서는 노상건 일본 토호쿠대학 교수가 '화우의 성장 특성과 비육 프로그램', 정기용 국립축산과학원 농업연구사와 이현정 농업연구관이 '한우 유전능력에 따른 육량·형질형 사양 체계'·'한우 산육 특성을 고려한 비육 기간 단축 기술'을 각각 소개한다.
+    tsl@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

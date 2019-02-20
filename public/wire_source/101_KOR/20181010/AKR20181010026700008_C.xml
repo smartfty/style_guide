@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010026700008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>083749</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0302011" name="기업분석"/>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[미래에셋대우 "롯데쇼핑 3분기 호실적…흑자전환"]]></Title>
+		<Body><![CDATA[미래에셋대우 "롯데쇼핑 3분기 호실적…흑자전환"
+
+
+
+    (서울=연합뉴스) 김아람 기자 = 미래에셋대우는 10일 롯데쇼핑에 대해 시장 전망치를 웃도는 호실적을 예상하며 기존 목표주가 24만원과 투자의견 '단기 매수'(Trading Buy)를 유지했다.
+    김명주 연구원은 "올해 3분기 롯데쇼핑 연결기준 영업이익은 1천523억원으로 흑자전환을 예상한다"며 "중국 할인점 매각 완료에 따른 손실 폭 감소, 추석 효과에 따른 외형 성장과 비용 절감 효과로 시장 전망치 영업이익 1천418억원을 소폭 상회할 것"이라고 예상했다.
+    그러면서 "중국 할인점 사업 관련 불확실성은 사라졌다"며 "향후 롯데쇼핑 주가는 본업 추가 개선 가능성에 크게 좌우되고 3분기는 그 가능성을 확인하는 시기가 될 것"이라고 전망했다.
+    그는 "3분기에 백화점, 할인점 비용 절감 효과가 이어져 양호한 실적이 예상된다"면서도 "현재 비용 절감 효과에 따른 오프라인 유통 채널 영업이익 개선은 이미 주가에 반영됐다고 판단해 당분간 제한적인 주가 회복을 예상한다"고 설명했다.
+    rice@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

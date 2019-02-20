@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010090800017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>131855</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["국내 IoT기기 취약점 정보 대량 노출…정부 대응해야"]]></Title>
+		<Body><![CDATA["국내 IoT기기 취약점 정보 대량 노출…정부 대응해야"
+
+    (과천=연합뉴스) 채새롬 기자 = 사물인터넷(IoT) 검색엔진 '쇼단'(shodan.io)에 국내 IoT 기기의 취약점 정보가 대량 노출되고 있다는 지적이 나왔다.
+    국회 과학기술정보방송통신위원회 자유한국당 송희경 의원은 10일 "쇼단에서 'CCTV'로 검색한 결과 한국에서 1천140개가 검색돼 1위였고 '웹캠' 검색 결과는 404개로 3위였다"고 밝혔다.
+    이 중 비밀번호가 설정돼 있지 않은 카메라는 별도의 해킹 없이도 바로 접근해 영상을 실시간으로 볼 수 있다.
+    송 의원은 "쇼단에서 검색한 정보를 토대로 군사기밀 노출, 디도스 공격, 랜섬웨어 공격 등 피해사례가 발견된 바 있다"며 "산업제어시스템, 교통관제 시스템 등 24시간 가동되는 장치의 피해가 우려된다"고 지적했다.
+    이어 "정부는 쇼단에 노출되는 국내 IoT 기기 취약점을 인지, 분석해 적극적인 대응에 나서야 한다"고 말했다.
+    한국인터넷진흥원은 IoT 기기 보안 취약점 정보를 검색하는 한국형 쇼단을 개발 중인 것으로 전해졌다. 
+    유영민 과기정통부 장관은 이날 국정감사에서 IoT 기기 취약점에 대한 질의를 받고 "보안 관련 문제는 중요한 부분이다. 심도 있게 검토하겠다"고 말했다. 
+
+    srchae@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

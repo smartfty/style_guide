@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010043900061</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094542</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[안산시, 민간위탁 회계관리 부실 등 25건 적발]]></Title>
+		<Body><![CDATA[안산시, 민간위탁 회계관리 부실 등 25건 적발
+
+    (안산=연합뉴스) 이복한 기자 = 경기도 안산시 민간위탁 기관의 사무관리가 소홀한 것으로 드러났다.
+    
+
+
+    10일 시에 따르면 지난 6월 18일부터 29일까지 7개 민간 위탁기관과 담당 부서를 대상으로 감사한 결과 회계처리 소홀 등 25건을 적발해 시정 및 주의조치 했다.
+    A기관은 박람회 등을 개최하며 단일 사업을 2천만원 이하의 소규모 행사로 나눠 수의로 계약했고, B기관은 근거 없이 특별 복지수당을 지급하다 적발됐다.
+    C기관은 보조금, 사용료, 이자 수입 등을 반영하지 않고 예산을 편성했으며 D기관은 임용일을 임의로 계산해 1년 미만 직원에서 퇴직금을 지급했다.
+    시는 부적절하게 집행한 예산을 회수토록 하는 등 민간위탁 기관에 대한 지도 감독을 강화하기로 했다.       
+    bhlee@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

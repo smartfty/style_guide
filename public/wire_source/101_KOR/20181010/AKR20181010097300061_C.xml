@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010097300061</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134046</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005029" name="평택"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107002" name="지방의회"/>
+			<ClassCode code="0409007" name="소상공"/>
+			<ClassCode code="0411001" name="서비스업"/>
+			<ClassCode code="0504001" name="복지일반"/>
+			<ClassCode code="0506002" name="도로교통"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[평택 전통시장 공영주차장 1시간30분 무료 추진]]></Title>
+		<Body><![CDATA[평택 전통시장 공영주차장 1시간30분 무료 추진
+
+    (평택=연합뉴스) 김종식 기자 = 경기도 평택 시내 전통시장을 이용할 경우 공영주차장 무료 이용시간이 1시간에서 1시간 30분으로 30분 연장된다.
+    평택시의회 이관우(산업 건설위 소속) 의원은 10일 전통시장 이용객이 공영주차장을 무료로 이용할 수 있는 근거를 마련하기 위해 '평택시 주차장 설치 및 관리 조례 일부 개정 조례안'을 대표 발의했다.
+    이 조례안은 전통시장 및 상점가 육성을 위한 특별법 제19조(공영주차장 주차요금 감면 등)를 근거로, 전통시장 이용객이 인근 공영주차장 이용할 경우 최소 1시간 30분까지 무료로 이용할 수 있도록 했다.
+    
+
+
+    평택 시내에는 통북·서정리·송탄·중앙·안중 등 5개 전통시장이 있으며, 인근에 송탄시장 제2 공영주차장·신장쇼핑 제1 공영주차장·중앙시장 제1 공영주차장 등 6개소가 있다.
+    전통시장 이용객들은 그동안 상인회와 평택시가 협의를 거쳐 1시간까지 무료로 이용해왔다.
+    이 조례안은 제202회 임시회 산업건설위원회의 심의를 거쳐 오는 22일 본회의에서 통과되면 공고일부터 바로 시행된다.
+    이관우 의원은 "전통시장 이용객의 공영주차장 무료 이용 근거를 마련하기 위해 조례안을 상정하게 됐다"며 "이 조례안이 통과되면 전통시장 활성화에 크게 기여할 것으로 기대된다"고 말했다.
+    jongsk@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

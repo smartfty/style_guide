@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181008153700003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>060000</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0401002" name="산업전시"/>
+			<ClassCode code="0403001" name="자원일반"/>
+			<ClassCode code="0403003" name="대체력"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[미래 신에너지 산업의 장…'에너지플러스 2018' 개막]]></Title>
+		<Body><![CDATA[미래 신에너지 산업의 장…'에너지플러스 2018' 개막
+
+    (서울=연합뉴스) 고은지 기자 = 미래 신에너지 산업의 최신 제품과 기술을 한자리에 모아놓은 '에너지플러스 2018' 통합 전시회가 10일 개막했다.
+    산업통상자원부에 따르면 올해로 4회를 맞는 에너지플러스에는 23개국 450개 기업이 참가해 이차전지, 전기·발전기자재, 스마트그리드 관련 1천500여종의 최신 제품과 기술정보를 소개했다.
+    LG화학은 차세대 전기차용 배터리를, 테슬라·현대자동차·한국GM·쎄미시스코 등은 국내에 보급된 전기차와 해당 차량 탑재 배터리를 전시했다.
+    분야별 세계 전문가가 참여하는 에너지산업의 글로벌 동향을 공유하는 국제 콘퍼런스와 전기기기·발전 관련 대북 진출 전략 세미나도 열렸다.
+    성윤모 산업부 장관은 개막식 영상메시지에서 "안전하고 깨끗한 에너지 공급을 늘리는 에너지믹스로의 전환과 에너지 다소비 구조를 바꾸는 수요 혁신이 필요한 시점"이라며 "에너지효율을 최적화하고 최고의 기술로 에너지 전환을 뒷받침해야 한다"고 당부했다. 
+    아울러 "에너지 신산업을 통한 혁신성장과 일자리 창출을 위해 이차전지, 전기기기, 스마트그리드를 상호 연결하고 지능화하는 강도 높은 기술혁신과 과감한 투자가 필요하다"고 강조했다.
+    개막식 후에는 전지산업, 전기기기와 스마트그리드 분야 유공자 60인에게 산업포장, 대통령표창, 국무총리표창 등을 수여했다.
+    eun@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

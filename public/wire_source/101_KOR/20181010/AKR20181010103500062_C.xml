@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010103500062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141342</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004010" name="원주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0403002" name="광업"/>
+			<ClassCode code="0505003" name="수질환경"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광해관리공단, 태백 보성탄광 갱내수 정비·황지천 복원]]></Title>
+		<Body><![CDATA[광해관리공단, 태백 보성탄광 갱내수 정비·황지천 복원
+    
+
+
+    (원주=연합뉴스) 김영인 기자 = 한국광해관리공단이 강원 태백시 보성탄광 갱내수 정비와 황지천 복원작업에 나선다. 
+    한국광해관리공단은 두문동 터널을 지나 태백시로 진입하는 초입 도로변 옹벽에서 보성탄광 갱내수가 계속 용출되는 현상과 관련해 원인을 조사하고 수질정화시설 설치 전 정비사업을 한다고 10일 밝혔다. 
+    이를 위해 공단은 우선 옹벽 유출수 차집관로 실시설계용역을 추진할 예정이다.
+    공단은 또 폐탄광으로 오염된 황지천 복원을 위해 2020년까지 총 229억원을 들여 3개소에 수질정화시설을 설치할 예정이다.
+    보성탄광과 협성탄광 등 갱내수 정화시설은 2025년까지 마무리할 계획이다. 
+    김정필 수질지반실장은 "이번 조치는 지역 환경단체와 태백시의 지속적인 요구를 반영한 것"이라며 "향후에도 지역주민과 협력해 쾌적한 생활환경을 조성하기 위해 노력하겠다"고 말했다. 
+    kimyi@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -641,6 +641,23 @@ class Page < ApplicationRecord
     @time_stamp = "#{t.day.to_s.rjust(2,'0')}#{t.hour.to_s.rjust(2,'0')}#{t.min.to_s.rjust(2,'0')}#{t.sec.to_s.rjust(2,'0')}"
   end
 
+  def stamped_pdf_file
+    path + "/section#{@time_stamp}.pdf"
+  end
+
+  def wait_for_stamped_pdf
+    starting = Time.now
+    times_up = starting + 60*2
+    while !File.exist?(stamped_pdf_file)
+      sleep(1)
+      if Time.now > times_up
+        puts "Waited for 5 seconds!!! Time is up brake"
+        break
+      end
+    end
+    puts "found stamped_pdf file ..."
+  end
+
   def delete_latest_files
     pdf_file_to_delete = Dir.glob("#{path}/section*.pdf")
     jpg_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
@@ -655,12 +672,16 @@ class Page < ApplicationRecord
   def generate_pdf_with_time_stamp
     delete_latest_files
     stamp_time
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
+    PageWorker.perform_async(path, @time_stamp)
+    wait_for_stamped_pdf
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
   end
 
   def generate_pdf
     puts "generate_pdf for page"
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    PageWorker.perform_async(path, nil)
+
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
     # copy_outputs_to_site
   end
 
@@ -672,7 +693,9 @@ class Page < ApplicationRecord
     ad_boxes.each do |ad_box|
       ad_box.generate_pdf
     end
-    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    PageWorker.perform_async(path, nil)
+
+    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
     # copy_outputs_to_site
   end
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010095300005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134236</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712004" name="가요"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[NCT 127 'AMA' 레드카펫 밟아]]></Title>
+		<Comment>NO-2874</Comment>
+		<Body><![CDATA[NCT 127 'AMA' 레드카펫 밟아
+    (서울=연합뉴스) 9일(이하 현지시간) 미국 로스앤젤레스 마이크로소프트 극장에서 열린 '2018 아메리칸 뮤직 어워즈'(AMA) 레드카펫 행사에서 '2018 AMA'가 주목하는 K팝 스타로 초청된 NCT 127이 포즈를 취하고 있다. 2018.10.10 [SM엔터테인먼트 제공] 
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101009530000500.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101009530000500_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101009530000500_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

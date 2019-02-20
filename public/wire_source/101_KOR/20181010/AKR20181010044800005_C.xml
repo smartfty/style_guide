@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010044800005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>094340</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712003" name="방송"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[윤시윤, 노래부터 토크까지 뽐낸 국내 팬미팅 마무리]]></Title>
+		<Body><![CDATA[윤시윤, 노래부터 토크까지 뽐낸 국내 팬미팅 마무리
+    
+
+    (서울=연합뉴스) 이도연 기자 = 배우 윤시윤(32)이 팬들과 진솔하게 소통하는 시간을 가졌다.
+    소속사 모아 엔터테인먼트는 윤시윤이 지난 6일 서울 서초구 흰물결아트센터에서 연 국내 팬미팅을 성공적으로 마쳤다고 10일 밝혔다.
+    이번 팬미팅은 '시유니즘'(siyoonism)이라는 주제로 팬들이 질문하면 윤시윤이 대답하는 토크 형식으로 진행됐다. 
+    윤시윤은 팬들에게 노래를 불러주고 한 사람씩 손을 잡고 눈을 마주치며 인사를 건넸다. '대학특집 캠퍼스 특강 2탄'을 준비해 자신의 진심이 담긴 이야기를 들려주기도 했다.
+    윤시윤은 SBS TV '친애하는 판사님께'를 마치고 차기작을 검토 중이다. 
+    dylee@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010011100053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>065520</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대구·경북 수은주 '뚝'…낮부터 추워져]]></Title>
+		<Body><![CDATA[대구·경북 수은주 '뚝'…낮부터 추워져
+
+
+
+    (대구=연합뉴스) 이덕기 기자 = 10일 오후부터 대구·경북 대부분 지역에서 수은주가 큰 폭으로 내려갈 전망이다.    
+    대구기상지청에 따르면 이날 아침 최저기온은 봉화 10도, 영주 11.4도, 청송 11.5도, 상주 12.5도, 포항 15.5도 등으로 평년과 비슷한 수준을 보였다. 대구도 14.2도를 기록했다. 
+    그러나 대구와 경북지역 낮 최고기온은 15∼20도 분포로 평년보다 3∼4도가량 낮아질 전망이다. 
+    또 대구와 경북 내륙지역은 이날 오전까지 5㎜가량의 강수량을 기록하고 동해안 등 일부 지역은 강한 바람도 불겠다. 
+    강길봉 예보관은 "당분간 북서쪽에서 찬 공기가 유입되면서 기온이 평년보다 4∼7도가량 낮아 추워지겠고 바람도 강하게 불어 체감온도는 더욱 낮겠다"고 밝혔다. 
+    duck@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

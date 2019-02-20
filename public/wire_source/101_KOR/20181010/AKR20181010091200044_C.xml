@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010091200044</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>130956</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0202002" name="대기업"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 60개 대기업집단 작년 내부거래 191조]]></Title>
+		<Body><![CDATA[[그래픽] 60개 대기업집단 작년 내부거래 191조
+
+    (서울=연합뉴스) 김토일 기자 = 총수가 있는 상위 10대 집단의 내부거래가 작년 크게 증가한 것으로 나타났다.
+    공정거래위원회는 10일 이런 내용이 담긴 '2018년 공시대상기업집단 내부거래 현황'을 공개했다.
+    kmtoil@yna.co.kr
+    페이스북 tuney.kr/LeYN1 트위터 @yonhap_graphics
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

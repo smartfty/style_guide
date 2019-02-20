@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010035600017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>091533</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901007" name="무선통신"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[SKT AI '누구'에 한컴 자동번역 '지니톡' 담는다]]></Title>
+		<Body><![CDATA[SKT AI '누구'에 한컴 자동번역 '지니톡' 담는다
+
+    (서울=연합뉴스) 신선미 기자 = 한글과컴퓨터의 자동통번역 솔루션 '말랑말랑 지니톡'이 SK텔레콤의 인공지능(AI) 플랫폼 '누구'(NUGU)에 담긴다.
+    한컴과 SK텔레콤은 10일 서울 중구 T타워에서 이를 위한 업무협약을 맺었다고 밝혔다.
+    한컴은 지니톡의 음성인식 기술과 통번역 기술을 누구 AI 스피커, AI 셋톱박스 등에 탑재키로 했다. 
+    이에 누구 사용자들은 앞으로 한국어, 영어, 중국어, 일본어로 된 문장이나 단어에 대한 자동통번역 서비스를 이용할 수 있게 된다. 누구 스피커로 외국어 공부를 하거나 택시기사가 'T맵x누구'로 외국인 승객에게 경로와 요금을 안내하는 데 활용되는 식이다.
+    SK텔레콤 박명순 AI사업유닛장은 "앞으로도 고객의 삶에 인공지능이 자연스럽게 녹아들 수 있도록 다양한 산업 분야에서 협력을 이어가겠다"고 말했다.
+    노진호 한컴 대표이사는 "사용자들의 자동 통번역 서비스 이용 방식과 명령 패턴에 대해 지속적으로 분석해 서비스 질과 사용자 편의성 향상에 힘쓰겠다"고 밝혔다. 
+
+    sun@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

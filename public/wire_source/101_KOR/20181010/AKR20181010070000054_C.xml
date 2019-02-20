@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010070000054</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111321</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0707001" name="미술일반"/>
+			<ClassCode code="0802005" name="등산"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[무등산 국립공원 "탐방객 300명에게 인물화 그려드립니다"]]></Title>
+		<Body><![CDATA[무등산 국립공원 "탐방객 300명에게 인물화 그려드립니다"
+
+
+    (광주=연합뉴스) 정회성 기자 = 무등산국립공원사무소는 탐방객 300명을 대상으로 인물화를 그려서 선물하는 '희희락락' 행사를 오는 13일 진행한다.
+    10일 무등산공원사무소에 따르면 증심사지구 잔디광장에서 오전 10시부터 오후 4시까지 이어지는 행사는 선착순으로 참가자를 모집한다.
+    전남대학교 미술학과에서 한국화를 전공한 화가 40명이 다양한 미술기법과 화구로 무등산 풍광 속 탐방객의 표정을 화폭에 담아낸다.
+    그림은 오는 14일부터 20일까지 광주시립미술관 금남로분관에서 전시한 뒤 집으로 배송한다.
+    행사장 주변에서는 나만의 머그컵 만들기, 국립공원 가상현실(VR) 체험, 사진전 등 여러 참여 행사도 함께 열린다.
+    hs@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

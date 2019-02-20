@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010118600004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>150339</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0202006" name="벤처기업"/>
+			<ClassCode code="0402002" name="농업"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[박원순 "서울시내 옥상의 3분의1에 텃밭·태양광시설 들어서길"]]></Title>
+		<SubTitle><![CDATA[농식품 스타트업 지원 강화 의사 밝혀 ]]></SubTitle>
+		<Body><![CDATA[박원순 "서울시내 옥상의 3분의1에 텃밭·태양광시설 들어서길"
+농식품 스타트업 지원 강화 의사 밝혀 
+
+
+
+    (서울=연합뉴스) 박초롱 기자 = 박원순 서울시장이 "하늘에서 내려다보면 이 좋은 서울시 내 옥상이 다 비어있다"며 "그 면적의 3분의 1만이라도 텃밭을 만들고 태양광시설을 놓아야 한다"고 말했다. 
+    박 시장은 10일 서울시민청 태평홀에서 '미세먼지에 대응한 도시농업의 역할'을 주제로 열린 서울시도시농업전문가회 정책토론회에 참석해 "많은 분들이 도시농업에 종사하고 있지만 절대 만족할 수 없다"며 이같이 밝혔다. 
+    박 시장은 "선인장을 가장 많이 수출하는 나라가 바로 대한민국"이라며 "그러나 아직 일본이 분재 시장을 세계적으로 점령하고 있기에 우리가 나아가야 할 바가 많다"고 말했다.
+    그러면서 "새로운 농업 재배 기술, 농업 스타트업이 식품의 세계를 바꿔놓을 것으로 확신한다"며 "앞으로 농업의 수도는 서울이 될 것"이라고 강조했다.
+    서울시는 가락동농수산물시장을 현대화하면서 지은 건물에 '서울먹거리창업센터'를 만들어 2016년부터 농식품 산업 스타트업을 입주시켜 지원하고 있다.
+    박 시장은 "(서울먹거리창업센터가 입주한) 가락몰보다 더 큰 건물에 통째로 음식과 식품의 미래를 만들어내는 스타트업이 들어서야 한다"며 "서울이 도시농업으로 빛나는 도시가 될 수 있었으면 한다"고 말했다.
+    chopark@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

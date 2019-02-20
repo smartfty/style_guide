@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010123100013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>135848</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[담요 덮은 채 구호 외치는 할머니]]></Title>
+		<Comment>NO-2950</Comment>
+		<Body><![CDATA[담요 덮은 채 구호 외치는 할머니
+
+    (서울=연합뉴스) 김주성 기자 = 쌀쌀한 날씨를 보인 10일 오후 서울 종로구 옛 일본대사관터 앞에서 열린 '제1356차 일본군 성노예제 문제해결을 위한 정기 수요시위'에서 이옥선, 이용수 할머니가 일본 정부의 사과를 촉구하며 구호를 외치고 있다. 2018.10.10
+    utzza@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012310001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012310001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012310001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

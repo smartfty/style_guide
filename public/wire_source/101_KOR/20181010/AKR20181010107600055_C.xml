@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010107600055</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141824</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009006" name="무주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0107004" name="지방일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[인사] 전북 무주군]]></Title>
+		<Body><![CDATA[[인사] 전북 무주군
+
+    ◇ 국장
+    ▲ 행정복지국장 박희영 ▲ 산업건설국장 오종석
+    ◇ 실·과장 
+    ▲ 기획실장 이종현 ▲ 자치행정과장 주홍규 ▲ 문화관광과장 강창수 ▲ 재무과장 최원희 ▲ 사회복지과장 최병현 ▲ 민원봉사과장 장효순 ▲ 산업경제과장 직무대리 김대식 ▲ 농업정책과장 한광철 ▲ 농축산유통과장 이상목 ▲ 산림녹지과장 강근석 ▲ 건설과장 직무대리 김광영 ▲ 안전재난과장 황두연 ▲ 환경위생과장 송승용 ▲ 의회사무과 전문위원 직무대리 최현식 ▲ 보건행정과장 직무대리 김동필 ▲ 의료지원과장 이해심
+    (무주=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

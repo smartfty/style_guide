@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010009300051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>063419</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801001" name="생활정보"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산도 당분간 쌀쌀한 날씨…오전에 산발적 빗방울]]></Title>
+		<Body><![CDATA[부산도 당분간 쌀쌀한 날씨…오전에 산발적 빗방울
+
+    (부산=연합뉴스) 김재홍 기자 = 10일 부산지역은 오전부터 흐린 가운데 산발적으로 빗방울이 떨어지는 곳이 있겠다.
+ 
+
+
+    부산지방기상청에 따르면 이날 아침 최저기온은 17.2도를 기록했고, 낮 최고기온은 21도로 예상된다. 
+    흐린 날씨는 오후부터 맑아지겠다. 
+    북서쪽에서 찬 공기가 유입되면서 당분간 기온이 평년(최저기온 8∼16도, 최고기온 22∼24도)보다 3∼7도가량 낮겠고, 강한 바람에 체감온도는 더욱 낮아 춥겠다.
+    기상청은 이번 추위가 이번 주 내내 이어질 것으로 내다봤다. 
+    오는 11일까지 해안지역은 물론 해상에 강한 바람과 높은 물결이 예상돼 시설물 관리는 물론 항해나 조업에 유의해야 한다.
+    pitbull@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

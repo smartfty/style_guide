@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010102500011</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>140002</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="00" name="기타"/>
+		<Class>
+			<ClassCode code="1501001" name="편집일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001014" name="요약"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[전국 주요 신문 톱뉴스](10일 석간)]]></Title>
+		<Body><![CDATA[[전국 주요 신문 톱뉴스](10일 석간)
+
+    ▲ 문화일보(서울) = 디스플레이 영업益도 中에 추월당했다
+    ▲ 내일신문(서울) = 남북평화와 민족번영의 길
+    ▲ 아시아경제(서울) = 트럼프 "북미회담, 중간선거 이후"
+    ▲ 헤럴드경제(서울) = 기업 옥죄는 최저임금…귀막은 정부
+
+                                                    (서울=연합뉴스)
+
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

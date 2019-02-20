@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010069600051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110634</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202004" name="공기업"/>
+			<ClassCode code="0204003" name="부동개발"/>
+			<ClassCode code="0404001" name="건설일반"/>
+			<ClassCode code="0412001" name="해양항만"/>
+			<ClassCode code="0508001" name="NGO"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["부산항만공사 사옥건립 등 공공부문이 북항재개발 선도해야"]]></Title>
+		<Body><![CDATA["부산항만공사 사옥건립 등 공공부문이 북항재개발 선도해야"
+
+    (부산=연합뉴스) 이영희 기자 = 부산 북항 재개발사업이 착공 10년이 되도록 지지부진한 가운데 시민단체가 항만공사 사옥 건립 등으로 공공부문이 투자를 선도해야 한다고 주장했다.
+
+    부산항을 사랑하는 시민모임은 10일 성명을 내고 "현재 북항 재개발지역의 민간투자 유치가 쉽지 않은 상태"라며 "재개발지역 활성화를 위한 마중물 역할을 공공부문이 맡아야 한다"고 밝혔다.
+    시민모임은 공공 투자의 하나로 개발 주체인 부산항만공사의 신사옥 건립을 제시했다.
+    박인호 시민모임 공동대표는 "공공부문이 먼저 투자하고 나서 민간투자를 끌어낸 외국의 항만 재개발 사례를 벤치마킹할 필요가 있다"고 말했다.
+    시민모임은 항만공사가 새 사옥을 지어 항만물류 분야 공기업은 물론 민간기업들을 집적함으로써 북항 재개발지역의 랜드마크 역할을 하고 시너지 효과를 창출할 수 있다고 강조했다.
+
+    부산항만공사는 2004년 6월 설립 이후 자체 사옥이 없어 13년 동안 민간건물을 연간 10억원 이상 주고 빌려서 사용하다가 지난해 옛 연안여객터미널 건물을 임시 사옥으로 이용하고 있다.
+    임시 사옥은 낡고 좁은 데다 북항 재개발 계획에 따라 해양관광센터로 사용될 예정이어서 향후 몇 년 내에 비켜줘야 한다.
+    인천, 울산, 여수·광양 등 다른 지역 항만공사는 부산보다 늦게 설립됐음에도 자체 사옥을 가지고 있거나 건립을 추진 중이다.
+    lyh9502@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

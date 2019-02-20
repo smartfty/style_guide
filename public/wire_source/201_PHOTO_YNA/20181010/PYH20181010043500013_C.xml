@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010043500013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102532</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[KDI 50주년 위원회 출범식]]></Title>
+		<Comment>NO-1670</Comment>
+		<Body><![CDATA[KDI 50주년 위원회 출범식
+    (서울=연합뉴스) 10일 열린 'KDI(한국개발연구원) 50주년 위원회' 출범식에서 최정표 KDI 원장과 위원들이 기념촬영을 하고 있다. 왼쪽부터 임영재 KDI 부원장, 안경환 서울대 명예교수, 민병관 보광 대표이사, 이정우 경북대 명예교수, 김수현 KAIST 부총장, 홍은주 한양사이버대 교수, 최정표 KDI 원장, 남상우 전 KDI국제정책대학원장, 송대희 전 한국조세연구원장, 조성욱 서울대 교수, 안경태 삼일회계법인 전임회장, 김낙회 전 제일기획 대표이사. 2018.10.10 [KDI 제공] 
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101004350001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101004350001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101004350001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

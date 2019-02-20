@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010074600003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111959</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0202002" name="대기업"/>
+			<ClassCode code="0202011" name="기업윤리"/>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0503006" name="대학교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[두산연강재단, 서울대 의대에 10억원 지원키로]]></Title>
+		<Body><![CDATA[두산연강재단, 서울대 의대에 10억원 지원키로
+
+    (서울=연합뉴스) 정성호 기자 = 두산연강재단은 10일 서울 종로구 연지동 서울대 의과대학 행정관에서 교육 및 연구환경 개선을 위한 지원 약정서를 체결했다고 밝혔다.
+    이에 따라 두산연강재단은 올해부터 2027년까지 매년 1억원씩 총 10억원을 서울대 의대에 지원하며, 지원금은 전액 의학도서 구입과 학생들을 위한 교육·연구환경 개선에 쓰인다.
+    박용현 두산연강재단 이사장은 "한국의 의학기술이 발전하려면 미래의 의학도들이 연구하고 공부할 수 있는 환경이 잘 마련돼 있어야 한다"고 말했다.
+
+
+    sisyphe@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

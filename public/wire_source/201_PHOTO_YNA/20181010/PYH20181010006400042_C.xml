@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010006400042</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>071903</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001121" name="NKNT"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA-북한매체]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[中, 北노동당 창건일 73주년 축하 꽃바구니 보내]]></Title>
+		<Comment>NO-0971</Comment>
+		<Body><![CDATA[中, 北노동당 창건일 73주년 축하 꽃바구니 보내
+   (서울=연합뉴스) 중국 공산당 중앙위원회가 북한 노동당 창건 기념일(10월 10일) 73주년을 맞아 북한 노동당 중앙위원회에 꽃바구니를 보냈다고 조선중앙통신과 노동신문이 10일 보도했다. 사진은 노동신문 1면에 실린 사진. 2018.10.10 
+    [국내에서만 사용가능. 재배포 금지. For Use Only in the Republic of Korea. No Redistribution]
+    nkphoto@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101000640004200.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101000640004200_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101000640004200_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

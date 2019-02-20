@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010045400017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>095250</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0606008" name="안전관리"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[KT, 기가코리아 사업 참여…재난대응·자율주행 등 기술 개발]]></Title>
+		<Body><![CDATA[KT, 기가코리아 사업 참여…재난대응·자율주행 등 기술 개발
+
+    (서울=연합뉴스) 채새롬 기자 = KT는 올해 범부처 기가코리아 사업에 참여한다고 10일 밝혔다.
+    기가코리아 사업은 2020년까지 개인이 무선으로 기가급 서비스를 누릴 수 있는 스마트 ICT 환경 구축을 목표로 범정부 차원에서 추진하는 프로젝트다. 5G 재난안전, 자율주행, 스마트시티, 스마트미디어, 스마트 제조·물류 5개 분야 중심으로 사업이 진행된다.
+    KT는 이 중 재난안전, 자율주행, 스마트시티 분야 기술 개발과 실증을 담당한다.
+    재난안전 분야에서는 5G 네트워크를 기반으로 요구조자의 위치를 명확히 안내하고 요구조자가 자신의 핸드폰으로 탈출 가능한 경로를 안내받게 돕는 '종합 재난 대응 솔루션'을 개발한다.
+    지진으로 인한 붕괴사고 대응을 위해 '사물인터넷 센서 박스'를 활용해 건물의 기울어짐, 변형 및 균열 등 빅데이터를 수집하고 이 데이터에 지능형 진동 알고리즘을 도입해 위험 등급을 세분화하는 시스템도 개발할 계획이다.
+    자율주행차 분야에서는 17개 참여 기관과 협력해 5G V2X 기술 기반의 자율주행 핵심 기술을 확보하고 서비스 모델을 발굴한다. 스마트시티 분야에서는 5G 네트워크와 연결된 드론을 활용해 안전 감시 체계를 구축한다.'
+    KT는 올해 재난 대응 솔루션 개발을 마치고 2020년에는 재난 상황별 맞춤형 대응 정보 제공 기능을 고도화해 강원소방본부, 알펜시아 리조트 등에 시뮬레이션을 진행할 예정이다. 
+
+    srchae@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

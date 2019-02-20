@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010040600013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103915</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0901008" name="PC.HW"/>
+			<ClassCode code="0901009" name="게임"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[LG전자, '1초에 144장 표현' 게이밍 노트북 출시]]></Title>
+		<Comment>NO-1787</Comment>
+		<Body><![CDATA[LG전자, '1초에 144장 표현' 게이밍 노트북 출시 
+    (서울=연합뉴스) LG전자가 10일 게이밍 노트북 신제품을 출시했다. 
+    이 제품의 모니터는 1초에 화면을 144장까지 보여줘, 화면을 부드럽게 전환한다. 엔비디아의 G-싱크를 탑재해 화면이 찢어지거나 깨지는 현상을 최소화했으며 인텔 최상급 CPU인 i7-8750H, DDR4 2666Mhz 16GB 메모리, 엔비디아 GTX 1060 그래픽카드 등을 갖췄다. 2018.10.10 [LG전자 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101004060001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101004060001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101004060001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

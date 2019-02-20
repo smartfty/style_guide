@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010064500064</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104959</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012002" name="괴산"/>
+			<RegionCode code="7012010" name="진천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0702007" name="문화재"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[충북소식] 괴산 취업박람회 11일 개최]]></Title>
+		<Body><![CDATA[[충북소식] 괴산 취업박람회 11일 개최
+
+
+    (괴산=연합뉴스) 괴산군은 11일 중원대 잔디광장에서 '2018년 괴산 취업박람회'를 연다고 10일 밝혔다.
+    박람회에는 군내 17개 기업이 참여, 현장 면접을 통해 179명을 채용할 계획이다.
+    지문적성검사, 메이크업, 취업컨설팅 프로그램도 열린다.
+    
+    주철장 기능보유자 원광식 선생 전통 밀랍주조기술 시연 
+
+
+    (진천=연합뉴스) 진천군은 국가 무형문화재 주철장(제112호) 기능보유자 원광식 선생이 12∼14일 주철장 전수교육관 일원에서 전통 밀랍주조 기술 공개 시연행사를 연다고 10일 밝혔다. 
+    일반인이 범종 주조 과정을 체험하는 행사도 마련됐다. 
+    국내 최고 범종 제작자 원광식 선생은 한국 전통 주종기술의 복원과 전승에 헌신한 공로를 인정받아 2001년 국가 무형문화재로 지정됐다.
+    주철장은 녹인 쇳물을 일정한 틀에 굳혀 각종 기물을 만드는 기술을 지닌 장인을 뜻한다. 
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

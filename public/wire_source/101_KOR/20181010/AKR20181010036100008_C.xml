@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010036100008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>091448</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302013" name="특징주"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[특징주] 엔씨소프트 내년 신작 기대감에 상승]]></Title>
+		<Body><![CDATA[[특징주] 엔씨소프트 내년 신작 기대감에 상승
+
+    (서울=연합뉴스) 전명훈 기자 = 엔씨소프트가 신작 출시 기대감에 10일 장 초반 오르고 있다. 
+    이날 오전 9시 10분 현재 유가증권시장에서 엔씨소프트는 전 거래일보다 1.66% 오른 42만7천500원에 거래되고 있다.
+    정호윤 유진투자증권 연구원은 "내년 상반기 리니지2M을 시작으로 블소2, 아이온 템페스트와 같은 엔씨소프트의 대형 라인업이 출시될 예정"이라며 "올해 4분기, 내년 1분기를 저점으로 내년 2분기 이후부터는 신작 출시에 따른 실적 개선을 기대할 수 있다"고 분석했다.
+    정 연구원은 내년 엔씨소프트의 연간 매출액이 1조9천400억원, 영업이익이 6천936억원으로 올해보다 각각 18.0%, 18.7% 증가할 것으로 전망된다며 '매수' 의견과 목표주가 47만원을 기존대로 유지했다. 
+    id@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

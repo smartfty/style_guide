@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010110700057</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142825</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0510003" name="법원"/>
+			<ClassCode code="0510005" name="판결"/>
+			<ClassCode code="0605005" name="폭행살인"/>
+			<ClassCode code="0804002" name="음주흡연"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[시비 끝에 서로 술병 던지고 휘두른 2명 각각 징역·벌금형]]></Title>
+		<Body><![CDATA[시비 끝에 서로 술병 던지고 휘두른 2명 각각 징역·벌금형
+
+
+    
+    (울산=연합뉴스) 허광무 기자 = 술자리에서 벌어진 시비로 서로 술병을 던지거나 휘두른 혐의로 40대 남성 2명이 1심에서 각각 실형과 벌금형을 선고받았다.
+    울산지법 형사4단독 이준영 판사는 특수상해 혐의로 재판에 넘겨진 A(44)씨에게 징역 10개월을, 특수폭행 혐의로 기소된 B(45)씨에게 벌금 200만원을 선고했다고 10일 밝혔다.
+    A씨와 B씨는 지난 4월 22일 오후 9시 30분께 울산시 중구의 한 음식점에서 채무 변제 문제로 말다툼을 했다.
+    이 과정에서 A씨는 B씨가 의자를 들어 자신을 때리려 한다는 이유로 맥주병을 집어 던져 B씨 머리에 상처를 입혔다.
+    B씨도 이에 대응해 맥주병으로 A씨 머리를 내리쳤다.
+    재판부는 "A씨는 폭력으로 인한 징역형 실형과 벌금형 전력이 많고, 앞서 같은 음식점에서 술병으로 다른 손님을 때린 범죄로 징역형 복역 후 누범기간이었다"면서 "다만 피해자 상해 정도가 아주 크지 않은 점과 피해자와 합의한 점 등을 참작했다"고 양형 이유를 밝혔다.
+    hkm@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

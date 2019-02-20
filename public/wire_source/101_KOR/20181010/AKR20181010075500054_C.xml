@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010075500054</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112843</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7008014" name="여수"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0509001" name="노동일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[취업했지만 실업자 행세 실업 급여 타낸 근로자 첫 검찰 송치]]></Title>
+		<SubTitle><![CDATA[고용부 여수지청, 4대 보험 미신고 사업주도 함께 송치…고용보험수사관 첫 독자 수사 사례   ]]></SubTitle>
+		<Body><![CDATA[취업했지만 실업자 행세 실업 급여 타낸 근로자 첫 검찰 송치
+고용부 여수지청, 4대 보험 미신고 사업주도 함께 송치…고용보험수사관 첫 독자 수사 사례   
+
+
+
+    (여수=연합뉴스) 손상원 기자 = 고용노동부 여수지청은 10일 취업 사실을 숨기고 실업 급여를 챙긴 혐의(고용보험법 위반)로 사업주 A씨와 근로자 B씨를 기소 의견으로 검찰에 송치했다.
+    B씨는 A씨가 운영하는 업체에 취업하고 이 사실을 숨긴 채 고용센터에 거짓으로 실업 인정 신청서를 낸 것으로 조사됐다.
+    A씨는 B씨가 실업 급여를 받는 사실을 알면서도 B씨의 취업 사실을 숨긴 채 4대 보험 신고를 하지 않아 지난 1∼7월 모두 810만원의 실업 급여를 받아 챙기도록 한 것으로 드러났다.
+    여수지청 관계자는 "처벌과 별도로 A씨는 고용보험 미신고에 따른 과태료, B씨는 추가징수금 등 모두 1천600만원을 내야 할 것"이라고 말했다.
+    이번 사건은 고용보험 수사관이 수사해 검찰에 넘긴 사례다.
+    정부는 지난해 12월 사법경찰직무법을 개정해 지난 4월 기존 부정수급 조사관에게 사법경찰관의 직무를 추가, 고용보험 수사관의 독자적인 수사가 가능하도록 했다.
+    sangwon700@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

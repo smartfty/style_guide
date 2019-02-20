@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010086100001</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>114743</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0102001" name="청와일반"/>
+			<ClassCode code="0102002" name="대통령"/>
+			<ClassCode code="1007002" name="남북회담"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강성천 청와대 신임 산업정책비서관]]></Title>
+		<Comment>NO-2265</Comment>
+		<Body><![CDATA[강성천 청와대 신임 산업정책비서관
+    (서울=연합뉴스) 청와대가 10일 신임 산업정책비서관에 강성천 산업통상자원부 통상차관보를 임명했다. 2018.10.10 [청와대 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101008610000100.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101008610000100_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101008610000100_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010018200063</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>091408</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Region>
+			<RegionCode code="7003004" name="대전"/>
+		</Region>
+		<Class>
+			<ClassCode code="0901002" name="과학기술"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한국연구재단 기초연구본부장에 이희윤 교수]]></Title>
+		<Comment>NO-1251</Comment>
+		<Body><![CDATA[한국연구재단 기초연구본부장에 이희윤 교수
+    (대전=연합뉴스) 한국연구재단 기초연구본부장에 10일 선임된 한국과학기술원(KAIST) 이희윤 교수. 이 신임 본부장은 앞으로 2년 동안 기획과 예산배분·집행, 사업관리와 평가, 성과 활용 촉진 등에 대한 총괄·조정 업무를 한다. 2018.10.10 [한국연구재단 제공]
+    walden@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101001820006300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101001820006300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101001820006300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

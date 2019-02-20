@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010054100004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>101747</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510003" name="법원"/>
+			<ClassCode code="0510005" name="판결"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['동료직원 추행' 검찰 수사관 집행유예…"의도적 접근"]]></Title>
+		<SubTitle><![CDATA[검찰 조사단 기소 사건…"거부 의사에도 여러 차례 추행"]]></SubTitle>
+		<Body><![CDATA['동료직원 추행' 검찰 수사관 집행유예…"의도적 접근"
+검찰 조사단 기소 사건…"거부 의사에도 여러 차례 추행"
+
+
+
+    (서울=연합뉴스) 고동욱 기자 = 동료 여직원을 추행한 혐의로 재판에 넘겨진 검찰 수사관이 1심에서 징역형의 집행유예를 선고받았다.
+    서울중앙지법 형사14단독 추성엽 판사는 10일 강제추행 혐의로 기소된 검찰 수사관 A씨에게 징역 6개월에 집행유예 2년을 선고했다. 40시간의 성폭력 치료강의 수강도 명했다.
+    A씨는 대검찰청에 근무하던 2014년 동료 검찰 공무원에게 부적절한 신체접촉을 한 혐의로 기소됐다.
+    재판부는 "추행한 신체 부위가 손·발에 불과하긴 하지만, 피해자와의 관계나 계속된 거부 의사에도 여러 차례 걸쳐 추행했다는 점 등을 고려해야 한다"며 "의도적으로 자리를 마련해 범행한 것으로 보이고, 피해자의 정신적 충격도 적지 않았다"고 양형 이유를 밝혔다.
+    A씨의 범행은 검찰 '성추행 사건 진상규명 및 피해회복 조사단'이 조직 내 성범죄 피해 사례를 접수하는 과정에서 제보를 받아 수사한 결과 드러났다.
+    A씨는 검찰 수사관 중에서는 조사단이 기소한 첫 사례인 것으로 알려졌다.
+    sncwook@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

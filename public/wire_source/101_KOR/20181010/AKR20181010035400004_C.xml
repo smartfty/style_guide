@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010035400004</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>120041</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503001" name="교육일반"/>
+			<ClassCode code="0503011" name="교육행정"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 서울학생메이커괴짜축제 12~13일 상암문화광장서 개최]]></Title>
+		<Body><![CDATA[[게시판] 서울학생메이커괴짜축제 12~13일 상암문화광장서 개최
+
+    ▲ '2018 서울학생메이커괴짜축제'가 12~13일 마포구 상암문화광장에서 열린다. 서울시교육청이 주최하는 이번 행사에서는 3D프린터로 물건 만들기 등 메이커교육 현황을 짚어볼 수 있는 전시가 이뤄진다. 메이커교육은 학생들이 다양한 제품을 기획하고 디지털 도구를 이용해 직접 제작해보게 함으로써 창의력과 문제해결 능력을 길러주는 프로젝트 교육을 말한다. (서울=연합뉴스)
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

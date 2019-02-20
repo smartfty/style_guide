@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010023800008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>081901</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[유진투자 "한국전력 실적 부진…목표주가 31% 하향"]]></Title>
+		<Body><![CDATA[유진투자 "한국전력 실적 부진…목표주가 31% 하향"
+
+    (서울=연합뉴스) 전명훈 기자 = 유진투자증권은 10일 한국전력이 부진한 실적을 발표할 전망이라며 목표주가를 3만8천원에서 3만원으로 30.6% 내렸다. '매수' 의견은 종전대로 유지했다.
+    황성현 연구원은 "한국전력의 3분기 매출액은 16조원, 영업이익 1조3천억원으로 작년 같은 분기 대비 각각 1.2%, 52.9% 감소할 전망"이라며 "하반기 원전 가동률이 회복하겠지만 에너지 가격 상승이 지속해 감익 추세는 이어질 것"이라고 분석했다.
+    황 연구원은 "석탄과 액화천연가스(LNG) 투입 단가 상승으로 연료비는 작년보다 16.1% 증가했고 전력 구입비는 23.4% 증가한 것으로 예상된다"며 "여름 한시적으로 적용된 누진제 완화 영향으로 4천억원의 매출액 감소도 발생한 것으로 추정된다"고 설명했다.
+    황 연구원은 "기획재정부는 공공기관 재무관리 계획(2018∼2022년)을 통해 한국전력의 별도 순이익이 올해 24천408억원 적자, 2022년 66억원 흑자 전환한다는 보수적 예상을 내놨다"며 "이를 참고하면 2022년까지 의미 있는 배당은 어려워 주가 상승 여력이 축소된 것으로 판단한다"고 말했다.
+    id@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

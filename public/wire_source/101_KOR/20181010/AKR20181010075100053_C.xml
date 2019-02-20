@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010075100053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>112455</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7007001" name="경북"/>
+			<RegionCode code="7007013" name="안동"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0606001" name="사고일반"/>
+			<ClassCode code="0606005" name="화재"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아버지 구하려고 아들이 불구덩이 뛰어들었다가 부자 참변(종합2보)]]></Title>
+		<SubTitle><![CDATA[안동 주택에서 불…송이 따러 집에 들렀다가]]></SubTitle>
+		<Body><![CDATA[아버지 구하려고 아들이 불구덩이 뛰어들었다가 부자 참변(종합2보)
+안동 주택에서 불…송이 따러 집에 들렀다가
+
+
+    (안동=연합뉴스) 김효중 기자 = 아들이 아버지를 구하려고 불길에 뛰어들었다가 빠져나오지 못해 함께 숨졌다.
+    10일 오전 3시 55분께 경북 안동시 길안면 A(80)씨 집에서 불이 나 A씨와 아들(54)이 목숨을 잃었다. 
+    진화에 나선 소방 당국은 오전 6시께 안방에서 A씨를, 오전 8시께 처마가 있던 곳에서 아들 시신을 발견했다. 
+    불은 주택 50㎡를 태우고 1시간 10여분 만에 꺼졌다.
+    안동 시내에 사는 아들은 송이를 따기 위해 집에 들러다가 불이 난 것을 보고 거동이 불편해 빠져나오지 못한 아버지를 구하려다가 변을 당한 것으로 알려졌다. 
+    경찰은 "A씨 부인 B(80)씨가 마침 집에 온 아들에게 아버지가 방 안에 있다고 하자 구하려고 들어갔지만 결국 나오지 못했다고 말했다"고 밝혔다.  
+    불이 난 집 부근에는 아들이 타고 온 승용차가 운전석 문이 열리고 시동이 켜진 채로 서 있었다고 한다.
+    안동소방서는 불이 나자 소방차 12대와 인력 30여명을 투입했으나 지붕이 무너져 진압과 부자 수색에 어려움을 겪었다. 
+    경찰은 화재 원인과 피해 규모를 조사하고 있다.
+    kimhj@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

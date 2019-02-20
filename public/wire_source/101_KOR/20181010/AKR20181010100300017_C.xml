@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010100300017</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>135426</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="07" name="지방"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0301003" name="전자금융"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[KT-하동군, 내년 전자형 지역화폐 '하동페이' 발행]]></Title>
+		<Body><![CDATA[KT-하동군, 내년 전자형 지역화폐 '하동페이' 발행
+
+    (서울=연합뉴스) 채새롬 기자 = KT는 경남 하동군과 전자형 지역화폐 구현을 위한 업무협약을 체결했다고 10일 밝혔다.
+    KT와 하동군은 블록체인 기술 기반의 지역화폐 플랫폼을 올해 말까지 구축하고 '하동페이'를 내년부터 발행, 유통하기로 했다.
+    하동페이는 휴대폰 앱 내 QR코드와 체크카드 방식의 IC카드 등 두 가지 결제 수단으로 운영된다. 카드 단말기를 가진 하동군 내 모든 상점에서 결제가 가능하다.
+    하동군은 향후 군민들에게 주는 각종 복지 수당을 하동페이로 지급할 방침이다. 또 하동페이를 활용한 관광객을 대상으로 상품 가격을 할인해주는 이벤트 등을 진행할 계획이다.
+    윤상기 하동군수는 "지역화폐가 군민들의 편의와 소상공인 지원 외에 외부 관광객 유치 및 활성화에도 크게 기여를 할 것으로 기대된다"고 전했다. 
+    KT 부산고객본부 이준성 상무는 "지역화폐를 준비하고 있는 전국의 중소 도시에 안정적이고 지속 가능한 지역화폐 플랫폼을 제공하겠다"고 말했다.
+
+    srchae@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

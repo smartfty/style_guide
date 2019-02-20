@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010066600030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>105452</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[큰 일교차에 스타킹·레깅스 인기…CJ ENM 주문량 50%↑]]></Title>
+		<Body><![CDATA[큰 일교차에 스타킹·레깅스 인기…CJ ENM 주문량 50%↑
+
+    (서울=연합뉴스) 박성진 기자 = 환절기에 일교차가 커지면서 스타킹, 레깅스 등 보온 효과가 있는 레그웨어(leg wear)가 인기를 끌고 있다.
+    CJ ENM 오쇼핑부문이 일교차가 10도 안팎이었던 지난 9월29일부터 10월 5일까지 일주일간 온라인 몰인 CJ몰에서 레그웨어 주문량을 집계한 결과 전월 동기(8월 29일∼9월 5일)보다 50% 늘었다고 10일 밝혔다.
+    스타킹 주문량은 150%, 스타킹보다 조금 더 두꺼운 레깅스는 20% 각각 증가했다.
+    CJ ENM은 "아침저녁으로 일교차가 커지자 보온과 몸매보정 효과가 있는 레그웨어를 찾는 고객이 크게 늘었다"고 분석했다.
+   
+
+    sungjinpark@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

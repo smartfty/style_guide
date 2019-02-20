@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010123000013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>135841</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0409004" name="대형마트"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['임금님이 먹던 보은 왕대추 나왔어요']]></Title>
+		<Comment>NO-2949</Comment>
+		<Body><![CDATA['임금님이 먹던 보은 왕대추 나왔어요'
+    (서울=연합뉴스) SSG푸드마켓·PK마켓이 대추 중 가장 명품으로 꼽히는 보은 왕대추 판매에 나선다고 10일 전했다. 보은 왕대추는 밤낮의 일교차가 큰 속리산 자락 황토 토질에서 자라 평균 당도 30Brix 이상으로 당도가 매우 높고 과형이 큰 것이 특징이다. 2018.10.10 [이마트 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012300001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012300001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012300001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

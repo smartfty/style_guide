@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010096700054</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>133924</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008017" name="완도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0107003" name="지방정가"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0412002" name="수산업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[신우철 완도군수 '대한민국 경제리더 대상' 수상]]></Title>
+		<SubTitle><![CDATA[해양치유산업 육성과 아시아 최초 전복 ASC 인증 높이 평가]]></SubTitle>
+		<Body><![CDATA[신우철 완도군수 '대한민국 경제리더 대상' 수상
+해양치유산업 육성과 아시아 최초 전복 ASC 인증 높이 평가
+
+
+
+    (완도=연합뉴스) 조근영 기자 = 신우철 전남 완도군수가 10일 서울 밀레니엄 힐튼호텔에서 열린 '2018 대한민국 경제리더 대상' 시상식에서 미래경영 부문 대상을 받았다.
+    이 대상은 조직 경쟁력을 높이고 시대적 트렌드에 부응하는 사회·경제 분야 역량 있는 한국형 리더를 발굴하고자 학계와 언론계 심사위원단이 엄정한 심사를 거쳐 선정한다. 
+    신우철 군수는 '모두가 잘사는 희망찬 미래완도'를 군정 목표로 미래성장 해양치유, 지속가능 지역경제, 사람우선 포용복지, 생태중심 문화관광, 가치보전 청정환경 5대 방침을 정하고 민선 7기 군정을 이끌고 있다. 
+    신 군수는 문재인 정부의 100대 국정 과제인 해양치유산업 선도 지자체로 선정돼 완도만의 다양한 해양자원을 의료·관광·바이오산업과 연계, 미래 완도 100년 신성장 동력을 확보한 점에서 높은 평가를 받았다. 
+    완도전복이 우리나라 및 아시아 최초 친환경 수산물 국제 인증(ASC)을 획득할 수 있도록 행정력을 지원한 점도 좋은 점수를 받았다.
+    신우철 군수는 "이번 수상은 군민과 전 공직자의 헌신적인 노력으로 미래를 대비하는 군정의 우수성이 입증된 결과"라면서 "앞으로도 지속적인 변화와 혁신으로 '모두가 잘사는 희망찬 미래완도'를 만들어 가는 데 최선을 다하겠다"고 말했다.
+    chogy@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

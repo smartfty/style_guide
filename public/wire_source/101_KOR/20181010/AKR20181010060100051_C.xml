@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010060100051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103225</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+			<RegionCode code="7009003" name="군산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0405003" name="조선"/>
+			<ClassCode code="0412002" name="수산업"/>
+			<ClassCode code="0503007" name="사회교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[해양수산연수원 실습선 제2갈매기호 27년 항해 마치고 퇴역]]></Title>
+		<Body><![CDATA[해양수산연수원 실습선 제2갈매기호 27년 항해 마치고 퇴역
+
+    (부산=연합뉴스) 이영희 기자 = 한국해양수산연수원은 10일 어선실습선 제2갈매기호가 27년의 항해를 마치고 퇴역했다고 밝혔다.
+
+    제2갈매기호는 1992년 7월에 첫 항해에 나선 이후 올해 10월까지 오션폴리텍 해기사 양성과정 교육생과 수산계고교 학생 등 총 1천500여명의 항해 및 어로 실습을 지원했다. 
+    지난 5일 올해 수산계 고고생 2차 승선실습을 끝으로 27년의 항해를 마무리했다. 
+    해양수산연수원은 제2갈매기호를 대신할 실습선 한미르호(1천520t)를 11월 29일 인수해 운항할 예정이다.
+    한미르호는 국내 최초의 다목적 어선 실습선으로 전북 군산의 삼원중공업에서 건조 중이다.
+    이 실습선은 어선 조업 시뮬레이터, 기관실 시뮬레이터, 멀티미디어실 등 첨단 장비를 갖춰 교육환경이 크게 개선될 것이라고 해양수산연수원은 설명했다.
+    lyh9502@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

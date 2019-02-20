@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010030400044</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>085600</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201003" name="경제단체"/>
+			<ClassCode code="0509001" name="노동일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 직장인 회사 업무방식 인식 조사 결과]]></Title>
+		<Body><![CDATA[[그래픽] 직장인 회사 업무방식 인식 조사 결과
+
+    (서울=연합뉴스) 김토일 기자 = 대한상공회의소는 10일 직장인 약 4천명을 대상으로 조사한 업무방식 실태와 직장인·전문가 인터뷰를 통해 도출한 해법 등을 담아 '국내 기업의 업무방식 실태보고서'를 발표했다.
+    kmtoil@yna.co.kr
+    페이스북 tuney.kr/LeYN1 트위터 @yonhap_graphics
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

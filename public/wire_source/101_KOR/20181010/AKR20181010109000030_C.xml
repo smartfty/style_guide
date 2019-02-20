@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010109000030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141833</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0201003" name="경제단체"/>
+			<ClassCode code="0202003" name="중소기업"/>
+			<ClassCode code="0408001" name="기타제조"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[중진공, 내일채움공제 커피트럭 한달간 운영]]></Title>
+		<Body><![CDATA[중진공, 내일채움공제 커피트럭 한달간 운영
+
+    (서울=연합뉴스) 윤선희 기자 = 중소기업진흥공단은 '청년재직자 내일채움공제'를 알리는 커피트럭을 다음 달 9일까지 전국에서 운영하기로 했다고 10일 밝혔다.
+    공단은 경기도 반월·시화공단을 시작으로 기업이 밀집해있는 산업단지를 직접 찾아가기로 했다.
+    청년재직자 내일채움공제는 중소벤처기업 재직 청년이 5년간 3천만원을 모을 수 있도록 도와 장기근속을 유도하기 위한 사업이다. 운영방식은 5년 동안 청년근로자는 월 12만원, 기업은 월 20만원을, 정부가 적립기간 3년간 1천80만원을 각각 적립한다. 
+    청년근로자는 5년 만기 재직 후 본인 납입금 대비 4배 이상인 3천만원 이상을 수령하고, 공제 만기금 중 근로소득세 50% 상당을 감면받는다. 기업에는 부담한 공제납입금에 대해 100% 손비인정과 25%의 세액공제 등 세제혜택을 준다.
+    김형수 일자리지원본부장은 "내일채움공제사업에 대한 인지도를 높이고, 중소벤처기업 근로자들이 실질적인 도움을 받을 수 있도록 다양한 채널을 통해 홍보를 강화하겠다"고 말했다. 
+    indigo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

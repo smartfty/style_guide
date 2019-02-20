@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010039200030</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>092329</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0409003" name="전자거래"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[롯데닷컴, 해외시계 전문관 오픈…60여개 브랜드 8천여품목 판매]]></Title>
+		<Body><![CDATA[롯데닷컴, 해외시계 전문관 오픈…60여개 브랜드 8천여품목 판매
+
+    (서울=연합뉴스) 박성진 기자 = 롯데쇼핑 e커머스 사업본부는 11일 온라인 쇼핑몰 롯데닷컴에 해외 시계브랜드 전문관 '타임메카'를 오픈한다고 10일 밝혔다.
+    '타임메카'는 시계, 보석을 비롯해 구두, 지갑 등 다양한 패션잡화를 전문적으로 선보이는 온라인 쇼핑몰이다.
+    롯데닷컴의 '타임메카' 전문관에서는 태그호이어, 오메가, 에르메스, 띠쏘 등 60여개 브랜드 상품 8천200여 품목을 선보인다. 
+    롯데닷컴에서는 오는 15∼28일 '타임메카' 오픈을 기념하는 프로모션도 진행한다. 
+    행사 기간 50만원 이상 구매하는 고객을 대상으로 5명을 추첨해 프라다 사피아노 핸드백(1명), 프라다 사피아노 레드 중지갑(4명)을 증정한다.
+    심지혜 롯데쇼핑 e커머스 사업본부 잡화셀 MD(상품기획자)는 "온라인 몰에 대한 신뢰가 커지면서 가격대가 높은 시계를 온라인 또는 모바일로 구매하는 고객이 꾸준히 늘고 있다"라며 "특히 여러 브랜드 시계의 디자인과 가격을 쉽게 비교해 보고 구매할 수 있다는 장점으로 인해 온라인 몰을 이용한 시계 구매는 지속해서 증가할 것으로 예상된다"라고 말했다. 
+
+
+    sungjinpark@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

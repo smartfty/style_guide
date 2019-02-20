@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010109700044</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141925</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0501003" name="인권"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 사형제도에 대한 의견 변화]]></Title>
+		<Body><![CDATA[[그래픽] 사형제도에 대한 의견 변화
+
+    (서울=연합뉴스) 장예진 기자 = 10일 국가인권위원회가 발표한 사형제도 폐지와 대체 형벌에 관한 국민인식 조사 결과를 보면 우리 국민의 사형제에 관한 찬성 의견이 지난 10여년 사이 늘어난 것으로 조사됐다.
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

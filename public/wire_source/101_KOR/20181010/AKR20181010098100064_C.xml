@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010098100064</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134134</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012006" name="옥천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[충북소식] 옥천군, 중소기업 우수제품 전시회]]></Title>
+		<Body><![CDATA[[충북소식] 옥천군, 중소기업 우수제품 전시회
+
+    (옥천=연합뉴스) 옥천군은 13일 관성회관에서 중소기업 우수제품 전시회를 연다고 10일 밝혔다.
+
+
+    이 행사에는 관내 24개 업체에서 생산되는 식료품, 나무, 화학, 가구류 등이 전시되고 구매상담도 이뤄진다.
+    부대행사로 충북기업진흥원, 군 일자리센터, 금융기관, 기업인연합회 등이 참여하는 상담창구도 운영될 예정이다.
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

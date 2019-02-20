@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010067800008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>105802</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001019" name="공시"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[라이트론, 50억원 상당 자사주 취득하기로]]></Title>
+		<Body><![CDATA[라이트론, 50억원 상당 자사주 취득하기로
+
+    (서울=연합뉴스) 유현민 기자 = 코스닥 상장사인 라이트론은 주가 안정과 주주가치 제고를 위해 보통주 66만2천251주를 내년 1월 10일까지 장내 취득하기로 했다고 10일 공시했다. 
+    취득 예정 금액은 50억원이다. 
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

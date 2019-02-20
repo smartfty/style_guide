@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010067300053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111021</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+			<RegionCode code="7007001" name="경북"/>
+			<RegionCode code="7007014" name="영덕"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0508001" name="NGO"/>
+			<ClassCode code="0607002" name="풍수해"/>
+			<ClassCode code="0607006" name="태풍"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[태풍 피해 영덕에 전국 자원봉사자 달려와 구슬땀]]></Title>
+		<SubTitle><![CDATA[10일 하루 27개 단체 1천278명 지원…응급복구 91%]]></SubTitle>
+		<Body><![CDATA[태풍 피해 영덕에 전국 자원봉사자 달려와 구슬땀
+10일 하루 27개 단체 1천278명 지원…응급복구 91%
+
+
+
+    (영덕=연합뉴스) 손대성 기자 = 태풍 '콩레이'로 큰 피해가 난 경북 영덕에 지원 손길이 이어지고 있다.
+    10일 영덕군에 따르면 이날 영덕에는 전국 27개 단체 1천278명이 찾아 복구 작업을 돕고 있다.
+    충북도 자율방재단 120명은 강구면 오포리를 찾아 청소와 정리를, 경기도 성남 자율방재단 20명은 강구면 화전1리에서 농작물 복구를 하고 있다.
+    적십자사 경북지사 40명은 강구면 강구2리에서 물에 젖은 가재도구와 물품 정리에 구슬땀을 흘리고 있다.
+    영천, 구미, 칠곡, 경산, 김천, 청송, 안동, 성주, 포항, 울진, 군위, 예천, 대구 등 대구·경북에서 달려온 자원봉사자들도 토사 제거와 침수 물품 정리에 힘을 보태고 있다.
+    경북도에 따르면 응급복구 대상 1천620곳 가운데 현재까지 1천478곳 복구가 끝나 91.2% 복구율을 보이고 있다.
+    공공시설 343곳은 복구가 끝났고 사유시설도 1천277곳 가운데 1천135곳의 복구가 마무리됐다.
+    도내 태풍 피해 지역에는 9일까지 공무원, 군인, 경찰, 소방 관계자와 자원봉사자 약 3천600명이 찾아 봉사활동을 했다.
+    sds123@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

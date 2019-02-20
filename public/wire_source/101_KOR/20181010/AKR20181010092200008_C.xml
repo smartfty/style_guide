@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010092200008</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>131835</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201009" name="금융테크"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001019" name="공시"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[초록뱀 최대주주 더블유홀딩컴퍼니로 변경]]></Title>
+		<Body><![CDATA[초록뱀 최대주주 더블유홀딩컴퍼니로 변경
+
+    (서울=연합뉴스) 유현민 기자 = 초록뱀은 최대주주가 DMG(홍콩)그룹에서 더블유홀딩컴퍼니로 변경됐다고 10일 공시했다. 
+    변경 후 최대주주의 보유주식 수는 3천231만177주(지분율 32.85%)로 1년간 보호예수될 예정이다.
+    hyunmin623@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

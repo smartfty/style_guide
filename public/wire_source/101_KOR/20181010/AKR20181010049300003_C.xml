@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010049300003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>100239</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202002" name="대기업"/>
+			<ClassCode code="0202011" name="기업윤리"/>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0502003" name="기부봉사"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한화, 창립 66주년 맞아 전국서 임직원 '릴레이 봉사활동']]></Title>
+		<SubTitle><![CDATA[김승연 회장 "혼자가 아닌 함께 가는 문화 정착시켜야"]]></SubTitle>
+		<Body><![CDATA[한화, 창립 66주년 맞아 전국서 임직원 '릴레이 봉사활동'
+김승연 회장 "혼자가 아닌 함께 가는 문화 정착시켜야"
+
+    (서울=연합뉴스) 이승관 기자 = 한화그룹은 이달(9일) 창립 66주년을 맞아 한 달간 전국 22개 계열사, 61개 사업장에서 3천400여명의 임직원이 참여하는 '릴레이 봉사활동'을 펼친다고 10일 밝혔다.
+    한화그룹의 창립 기념 릴레이 봉사활동은 2007년 시작돼 올해로 12년째 이어지는 대표적 사회공헌 활동이다.
+    올해는 임직원들이 각 지역에서 취약계층 지원을 비롯해 주거환경 개선, 멘토링 및 교육, 환경정화 등을 벌인다.
+    지난 6일 서울 여의도에서 열린 '한화와 함께하는 서울세계불꽃축제' 현장에서도 임직원 700여명으로 구성된 봉사단이 행사 후 자정까지 남아 쓰레기를 정리하는 활동을 벌였다.
+    한화케미칼은 서울 서대문장애인복지관에서 장애인들과 도예체험을, 한화호텔앤드리조트 설악사업본부는 지역 어르신을 위한 무료급식 활동을, 한화손해보험·한화투자증권은 릴레이 헌혈을 각각 진행했다.
+    이밖에 각 계열사 임직원은 이달 말까지 연탄 기부 활동, 낙후 지역 골목길에 태양광 가로등 설치 등의 다양한 활동을 이어갈 예정이다.
+    김승연 회장은 지난 9일 발표한 창립기념사를 통해 "혼자가 아닌 함께 가는 문화를 정착시켜야 한다"면서 '진정성에 기반한 믿음과 신의'를 강조했다고 회사 측은 전했다.
+
+
+    humane@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20181010052500065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>100834</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510003" name="법원"/>
+			<ClassCode code="0510005" name="판결"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[이탈리아 고가의류 '짝퉁' 85억어치 판매…50대 징역형]]></Title>
+		<Body><![CDATA[이탈리아 고가의류 '짝퉁' 85억어치 판매…50대 징역형
+
+
+    
+    (인천=연합뉴스) 손현규 기자 = 이탈리아 고가 패딩 브랜드 '몽클레르'의 상표를 위조한 이른바 '짝퉁' 의류 80여억원어치를 국내에서 불법 유통한 혐의로 50대 남성이 재판에 넘겨져 징역형을 선고받았다. 
+    인천지법 형사6단독 임정윤 판사는 관세법 위반 및 상표법 위반 혐의로 기소된 A(52)씨에게 징역 1년 6월에 집행유예 3년을 선고했다고 10일 밝혔다.
+    임 판사는 또 A씨에 대해 120시간의 사회봉사와 9억여원 추징을 명령했다.
+    A씨는 2015년 10월부터 지난해 12월까지 몽클레르 상표를 위조한 점퍼 등 의류 1만600여점(시가 85억원 상당)을 국내에서 불법 유통한 혐의 등으로 기소됐다.
+    그가 판매한 짝퉁 몽클레르 의류 중에는 밀수입한 제품도 상당수 포함돼 있었다. 
+    임 판사는 "피고인은 유명 브랜드의 위조 밀수품을 판매했다"며 "정당한 상표권자의 권리를 침해하고 소비자 신뢰를 훼손해 죄질이 좋지 않다"고 판단했다.
+    그러나 "수사 단계에서부터 잘못을 모두 인정하며 반성하고 있고 같은 전과가 없는 점 등은 고려했다"고 양형 이유를 밝혔다.
+    son@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+	</NewsContent>
+</YNewsML>
