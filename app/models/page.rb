@@ -63,7 +63,6 @@ class Page < ApplicationRecord
   include PageSaveXml
   # extend FriendlyId 
   # friendly_id :friendly_string, :use => [:slugged]
-  
 
   DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
   DAYS_IN_ENGLISH = Date::DAYNAMES

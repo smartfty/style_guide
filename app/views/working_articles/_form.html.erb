@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-sm-6">
 
 <%= form_for(article, remote: true) do |f| %>
   <% if article.errors.any? %>
@@ -30,7 +30,7 @@
 
     <% else %>
       <div class="row">
-        <div class="col-xs-11 col-md-11">
+        <div class="col-xs-12 col-sm-12">
           <div class="form-group">
             <%= f.label :문패 %>
             <%= f.text_field :subject_head, class: 'form-control', autocomplete: 'off' %>
@@ -57,39 +57,36 @@
       </div>
 
       <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
-        <div class="col-md-11">
+        <div class="col-sm-12">
           <%= f.label '발문'%>
           <%= f.text_area :quote, rows: "3", class: 'form-control', autocomplete: 'off' %>
         </div>
       <% end %>
 
       <% if  article.boxed_subtitle_type && article.boxed_subtitle_type.to_i > 0%>
-        <div class="col-md-11">
+        <div class="col-sm-12">
           <%= f.label '본문 박스부제'%>
           <%= f.text_area :boxed_subtitle_text, rows: "2", class: 'form-control', autocomplete: 'off' %>
         </div>
       <% end %>
       <% if  article.announcement_column && article.announcement_column.to_i > 0%>
-        <div class="col-md-11">
+        <div class="col-md-12">
           <%= f.label '안내문' %>
           <%= f.text_area :announcement_text, rows: "2", class: 'form-control', autocomplete: 'off' %>
         </div>
-        <div class="col-md-11">
+        <div class="col-md-12">
           <%= f.label '안내문 컬러'%>
           <%= f.select :announcement_color, ['빨강', '파랑'] %>
         </div>
       <% end %>
   </div>
-  <div class="col-xs-12 col-md-6">
-      <div class="col-xs-12 col-md-11">
+  <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12">
       <!-- f.label :본문 -->
       <div class="letter">문자표 <span class="box">&#8216;</span><span class="box">&#8217;</span><span class="box">&#8220;</span><span class="box">&#8221;</span><span class="box">&#12685;</span><span class="box">&#8943;</span><span class="box">&#8195;</span></div>
       <%= render 'character_count', article: @working_article %>
       <%= f.text_area :body, rows: "20", class: 'form-control', autocomplete: 'off' %>
       </div>
-  </div>
-  <div class="col-sm-12 col-md-12">
-  <%= render 'show_prewview', article: @working_article %>
   </div>
 
 

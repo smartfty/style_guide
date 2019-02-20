@@ -18,8 +18,3 @@
 //= require jcrop
 //= require moment
 //= require_tree .
-
-
-// $( document ).ready( function() {
-//     $( 'form' ).removeAttr( 'action' );
-//   } );

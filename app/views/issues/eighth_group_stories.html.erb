@@ -1,3 +1,15 @@
+<nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group btn-right" role="group" aria-label="기능">
+    <button class="btn btn-primary">
+    <% if @issue.pages.first == nil || @issue.pages.first == "" %>
+    <%= link_to "#{@issue.date.to_s} (#{@issue.number})", issues_path %>
+    <% else %>
+    <%= link_to "#{@issue.pages.first.korean_date_string}", issues_path %>
+    <% end %>
+    </button>
+  </div>
+</nav>
+
 <div align="center">
 
 <h3>기획</h3>
