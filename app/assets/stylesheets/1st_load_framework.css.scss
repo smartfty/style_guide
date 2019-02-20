@@ -89,6 +89,10 @@ main {
   @extend .btn-xs;
 }
 
+.btn-right {
+  float:right;
+}
+
 .selected_template {
   border: 4px;
   color: #fff;

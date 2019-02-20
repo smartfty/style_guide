@@ -66,18 +66,27 @@
         <% else %>
         <button type="button" class="btn btn-success"><%= link_to "이전으로", issue_path(@page.issue), method: :get %></button>
         <% end %>
-        <button type="button" class="btn btn-warning"><%= link_to "교정 전송", save_proof_reading_pdf_page_path, method: :get, data: { confirm: '정말 보내시겠습니까?'} %></button>
-        <button type="button" class="btn btn-danger"><%= link_to "인쇄 전송", send_pdf_to_printer_page_path, method: :get, data: { confirm: '정말 보내시겠습니까?'} %></button>
-      <div>
+        <button type="button" class="btn btn-danger"><%= link_to "템플릿 변경", "#{page_path(@page)}#template" %></button>
+        <button type="button" class="btn btn-primary"><%= link_to "페이지 재생성", regenerate_pdf_page_path(@page), method: :get %></button>
+        <button type="button" class="btn btn-warning"><%= link_to "기사 배정", assign_stories_page_path(@page), method: :get %></button>      
+      </div>
+      <div class="btn-group btn-right" role="group" aria-label="기능">
+      <button class="btn btn-primary">
+      <% if @page.issue.pages.first == nil || @page.issue.pages.first == "" %>
+      <%= link_to "#{@page.issue.date.to_s} (#{@page.issue.number})", issues_path %>
+      <% else %>
+      <%= link_to "#{@page.issue.pages.first.korean_date_string}", issues_path %>
+      <% end %>
+      </button>
+    </div>
     </nav>  
 
 
     <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-<nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="btn-group" role="group" aria-label="전송">
-  <button type="button" class="btn btn-danger"><%= link_to "템플릿 변경", "#{page_path(@page)}#template" %></button>
-  <button type="button" class="btn btn-primary"><%= link_to "페이지 재생성", regenerate_pdf_page_path(@page), method: :get %></button>
-  <button type="button" class="btn btn-info"><%= link_to "페이지 PDF", download_pdf_page_path, method: :get %></button>
-  <button type="button" class="btn btn-success"><%= link_to "기사 배정", assign_stories_page_path(@page), method: :get %></button>
-  <div>
-</nav>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="btn-group" role="group" aria-label="전송">
+        <button type="button" class="btn btn-primary"><%= link_to "교정 전송", save_proof_reading_pdf_page_path, method: :get, data: { confirm: '정말 보내시겠습니까?'} %></button>
+      <button type="button" class="btn btn-danger"><%= link_to "인쇄 전송", send_pdf_to_printer_page_path, method: :get, data: { confirm: '정말 보내시겠습니까?'} %></button>
+      <button type="button" class="btn btn-warning"><%= link_to "페이지 PDF", download_pdf_page_path, method: :get %></button>
+      </div>
+    </nav>

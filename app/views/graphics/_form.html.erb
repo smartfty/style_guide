@@ -70,7 +70,7 @@
       <%= f.button "저장하기", class: "btn btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
       <button type="button" class="btn btn-warning"><%= link_to "페이지 PDF", download_pdf_page_path(@working_article.page), method: :get %></button>
       <button type="button" class="btn btn-danger"><%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get %></button>
-    <div>
+    </div>
   </nav>
     <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
     <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -79,7 +79,7 @@
       <%= f.button "저장하기", class: "btn btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
       <button type="button" class="btn btn-warning"><%= link_to "페이지 PDF", download_pdf_page_path(@working_article.page), method: :get %></button>
       <button type="button" class="btn btn-danger"><%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get %></button>
-    <div>
+    </div>
     </nav>
 
 <% end %>

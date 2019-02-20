@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<div align='center'>
+<div align='center', style="margin:0px 100px">
 <h3>기사 검색</h3>
 <%= search_form_for @q do |f| %>
   <%= f.label '제목에 포함된 글자로' %>
   <%= f.search_field :title_cont %>
-  <%= f.label '본문애 포함된 글자로' %>
+  <%= f.label '본문에 포함된 글자로' %>
   <%= f.search_field :body_cont %>
   <%= f.submit "검색", class: "btn btn-sm btn-normal"%>
 <% end %>
-<table border='1'>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>날짜</th>

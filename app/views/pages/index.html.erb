@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
-<div align='center'>
+<div align='center', style="margin:0px 100px">
 <h3>페이지</h3>
 <%= search_form_for @q do |f| %>
-<%= f.label '테그에 포함된 글자로' %>
+<%= f.label '태그에 포함된 글자로' %>
 <%= f.search_field :tag_cont %>
 <%= f.submit "검색", class: "btn btn-sm btn-normal"%>
 <% end %>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>날짜</th>

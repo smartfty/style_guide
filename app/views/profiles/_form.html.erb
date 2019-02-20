@@ -17,6 +17,6 @@
     <button type="button" class="btn btn-success"><%= link_to "이전으로", profiles_path, method: :get %></button>
     <%= f.button :submit, class: "btn btn-primary", value: "저장"%>
     <button type="button" class="btn btn-danger"><%= link_to '삭제', @profiles, method: :delete, data: { confirm: '정말 삭제하겠습니까?' } %></button>
-  <div>
+  </div>
 </nav>
 <% end %>
