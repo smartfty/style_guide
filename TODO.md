@@ -20,8 +20,20 @@
   - body
     - fit_text
 
-2019-2-20
+2019-2-21
+  - 면배열표 저장
+  - 9단21 짣구 홀짝 광고
+  - 연홥 뉴스 연합 사진
+  - fix multiple image upload bug
+    - 기획 팀 사진 3개
+  - delete story from working_article, when story is un-assigned
+  - update story from working_article
+  - cms category
+
+  - 메뉴얼
   - save text_style.yml to local folder
+
+2019-2-20
   - add partial seed rake task
     migrate:down ,  migrate:up, seed table
   - add YTM story, YTN image
@@ -30,12 +42,12 @@
     when uploading graphic, detect filename and make the graphic box
   - add graphic_request
         date
-        user
-        designer
-        instruction
+        user:references
+        designer:string
+        instruction:text
           size
-        data
-        status 
+        data:text
+        status :integer
           request_made, designer_started, designer_finished, accepted
         graphic
 
@@ -65,8 +77,6 @@
   - 광고 목록, show svg layout
   - sort section layout, move ad box to last
   
-
-
 2019-2-12
   - expand pushed for multiple child section 118, 119
 
@@ -101,7 +111,6 @@
     - layout
     - profile
     - sub_ad_count
-
 
 2019-1-30
   - image x_grid
