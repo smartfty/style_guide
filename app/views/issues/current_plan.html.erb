@@ -32,7 +32,7 @@
               <td style="text-align:center; font-size: 18px;"><%= page_plan.page_number %></td>
               <td style="text-align:center;"><%= f.check_box :color_page %></td>
               <td style="text-align:center;"><%= f.select :section_name, %w[1면 정치 자치행정 국제통일 금융 산업 정책 기획 오피니언 전면광고], {include_blank: false} %></td>
-              <td style="text-align:center;"><%= f.select :ad_type, %w[광고없음 3단통 4단통 5단통 6단통 7단통 7단15 7단25 8단통 8단27 8단_브릿지 9단21 15단통 15단_브릿지], {include_blank: false} %></td>
+              <td style="text-align:center;"><%= f.select :ad_type, @available_ads_for_pages[page_plan.page_number - 1 ], {include_blank: false} %></td>
               <td style="text-align:center;"><%= f.select :advertiser, %w[사계절 부영 이마트 삼성 농협은행 일동제약 삼성 CJ KT LG하우시스 SK이노베이션 SK하이닉스 SK텔레콤 YTN 연합뉴스 내일교육 석간내일신문 내일이비즈 굿네이버스 녹십자 기아차 현대차 국민지주 하나은행 다상대상 근로복지공단 산업안전보건공단 산업인력공단 한국관광공사 한수원 한마당서림 공고 청산공고 분실공고 서부발전 도서관협회 유한양행 애경], {include_blank: true} %></td>
               <!-- td style="text-align:center;"><%= f.text_field :deadline ,class: 'page-plan-form' %></td -->
               <% if page_plan.page%>

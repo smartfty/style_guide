@@ -69,6 +69,6 @@ class GraphicRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def graphic_request_params
-      params.require(:graphic_request).permit(:date, :title, :requester, :person_in_charge, :status, :description)
+      params.require(:graphic_request).permit(:date, :user_id, :designer, :request, :data, :status)
     end
 end

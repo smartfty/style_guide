@@ -6,7 +6,7 @@ class SectionsController < ApplicationController
   # GET /sections.json
   def index
     @q = Section.ransack(params[:q])
-    @sections = @q.result.order(:ad_type, :page_number, :column).page(params[:page]).per(20) 
+    @sections = @q.result.order(:id :desc, :create_at :desc, :ad_type, :page_number, :column).page(params[:page]).per(20) 
     @sections = Section.all  if request.format == 'csv'
 
     respond_to do |format|

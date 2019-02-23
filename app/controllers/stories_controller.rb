@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy, :assign_position, :un_assign_position]
+  before_action :set_story, only: [:show, :edit, :update, :destroy, :assign_position, :un_assign_position, :backup, :recover_backup]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token  
   # before_action :require_user # require_user will set the current_user in controllers
@@ -10,7 +10,7 @@ class StoriesController < ApplicationController
   def index
     @stories = Story.where(date:Issue.last.date, summitted: true).all
     @stories = Story.where(date:Issue.last.date).all
-
+    @date    = Issue.last.korean_date_string
     respond_to do |format|
       format.html
       format.json { render json: StoryDatatable.new(params) }
@@ -115,6 +115,7 @@ class StoriesController < ApplicationController
   def un_assign_position
     wa = WorkingArticle.find(params[:box])
     if wa
+      wa.clear_story
       @story.working_article_id = nil
       @story.order = nil
       @story.selected = false
@@ -145,6 +146,16 @@ class StoriesController < ApplicationController
       end
   end
 
+  def backup
+    @story.backup
+    redirect_to story_path(@story)
+  end
+
+  def recover_backup
+    @story.recover_backup
+    redirect_to story_path(@story)
+  end
+
 
 
   private
@@ -155,7 +166,7 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:user_id, :working_article_id, :reporter, :group, :date, :title, :subtitle, :body, :quote, :status, :summitted_section, :char_count, :published, :path)
+      params.require(:story).permit(:user_id, :working_article_id, :reporter, :group, :date, :title, :subtitle, :body, :quote, :status, :summitted_section, :char_count, :published, :path, :category_code, :price)
     end
 
 end

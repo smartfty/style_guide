@@ -25,4 +25,9 @@
 #
 
 class YhArticle < ApplicationRecord
+
+  def taken_by(user)
+    self.taken_by = user.name
+    self.save
+  end
 end

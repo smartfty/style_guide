@@ -73,6 +73,7 @@ gem 'rest-client'
 gem 'rails_layout'
 gem 'bootstrap-sass'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'devise'
 gem 'rubypants-unicode'
 gem "font-awesome-rails"
@@ -116,3 +117,4 @@ gem 'happymapper'
 # gem 'stateful_enum'
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
 
+gem 'guard'

@@ -15,7 +15,7 @@ RSpec.describe "yh_pictures/edit", type: :view do
       :region => "MyString",
       :title => "MyString",
       :comment => "MyString",
-      :bpdy => "MyString",
+      :body => "MyString",
       :file_name => "MyString",
       :taken_by => "MyString"
     ))
@@ -50,7 +50,7 @@ RSpec.describe "yh_pictures/edit", type: :view do
 
       assert_select "input[name=?]", "yh_picture[comment]"
 
-      assert_select "input[name=?]", "yh_picture[bpdy]"
+      assert_select "input[name=?]", "yh_picture[body]"
 
       assert_select "input[name=?]", "yh_picture[file_name]"
 

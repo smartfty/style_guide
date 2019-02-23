@@ -1,89 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Action:</strong>
-  <%= @yh_picture.action %>
-</p>
+<div align="center">
+  <%= link_to "이전으로", yh_pictures_path, method: :get, class: "btn btn-md btn-success" %>
+  <%= link_to "사진선텍", taken_yh_picture_path, method: :get, class: "btn btn-md btn-primary" %>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-1">
+  </div>
 
-<p>
-  <strong>Service type:</strong>
-  <%= @yh_picture.service_type %>
-</p>
+  <div class="col-md-5">
+   <img  src="<%= @yh_picture.preview_path %>" width="100%"></img>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
 
-<p>
-  <strong>Content:</strong>
-  <%= @yh_picture.content_id %>
-</p>
+    <h3>
+      <strong>제목:</strong>
+      <%= @yh_picture.title %>
+    </h3>
 
-<p>
-  <strong>Date:</strong>
-  <%= @yh_picture.date %>
-</p>
+    <p>
+      <strong>설명:</strong>
+      <%= @yh_picture.body %>
+    </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @yh_picture.time %>
-</p>
+    <p>
+      <strong>출고자:</strong>
+      <%= @yh_picture.taken_by %>
+    </p>
 
-<p>
-  <strong>Urgency:</strong>
-  <%= @yh_picture.urgency %>
-</p>
+  </div>  
+  </div>  
 
-<p>
-  <strong>Category:</strong>
-  <%= @yh_picture.category %>
-</p>
 
-<p>
-  <strong>Class code:</strong>
-  <%= @yh_picture.class_code %>
-</p>
-
-<p>
-  <strong>Attriubute code:</strong>
-  <%= @yh_picture.attriubute_code %>
-</p>
-
-<p>
-  <strong>Source:</strong>
-  <%= @yh_picture.source %>
-</p>
-
-<p>
-  <strong>Credit:</strong>
-  <%= @yh_picture.credit %>
-</p>
-
-<p>
-  <strong>Region:</strong>
-  <%= @yh_picture.region %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @yh_picture.title %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @yh_picture.comment %>
-</p>
-
-<p>
-  <strong>Bpdy:</strong>
-  <%= @yh_picture.bpdy %>
-</p>
-
-<p>
-  <strong>File name:</strong>
-  <%= @yh_picture.file_name %>
-</p>
-
-<p>
-  <strong>Taken by:</strong>
-  <%= @yh_picture.taken_by %>
-</p>
-
-<%= link_to 'Edit', edit_yh_picture_path(@yh_picture) %> |
-<%= link_to 'Back', yh_pictures_path %>

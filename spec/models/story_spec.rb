@@ -27,6 +27,7 @@
 #  summitted_section  :string
 #  category_code      :string
 #  price              :float
+#  backup             :text
 #
 # Indexes
 #

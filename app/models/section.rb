@@ -61,6 +61,38 @@ class Section < ApplicationRecord
     copy_page_heading
   end
 
+  def self.fix_ad_names
+    Section.all.each do |section|
+      next unless Ad.side_ads.include?(section.ad_type)
+      section.fix_ad_type
+    end
+  end
+
+  def fix_ad_type
+    return unless Ad.side_ads.include?(ad_type)
+    if section.page_number.odd?
+      new_ad_type = ad_type + "_홀"
+    elsif section.page_number.even?
+      new_ad_type = ad_type + "_짝"
+    end
+    self.ad_type = new_ad_type
+    self.profile = make_profile
+    self.save
+    self
+  end
+
+  def self.available_ads_for(page_number)
+    ad_type_array = []
+    ad_type_array << Section.where(page_number: page_number).all.map{|s| s.ad_type}
+    if page_number == 1
+    elsif page_number.odd?
+      ad_type_array << Section.where(page_number: 101).all.map{|s| s.ad_type}
+    else
+      ad_type_array << Section.where(page_number: 100).all.map{|s| s.ad_type}
+    end
+    ad_type_array.flatten.uniq.sort
+  end
+
   def path
     "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{id}"
   end

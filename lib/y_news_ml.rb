@@ -84,7 +84,7 @@ class Metadata
     h[:urgency] = self.Urgency if self.Urgency
     h[:category] = self.Category.to_hash if self.Category
     h[:region] = self.Region if self.Urgency
-    h[:class] = self.Class.to_s if self.Class
+    # h[:class] = self.Class.to_s if self.Class
     h[:credit] = self.Credit if self.Credit
     h[:source] = self.Source if self.Source
     h
@@ -95,14 +95,17 @@ class NewsContent
   include HappyMapper
   tag 'NewsContent'
   has_one :Title, String
-  has_one :SubTitle, String
+  # has_one :SubTitle, String
   has_one :Body, String
+  has_one :MultiMedia, String
 
   def to_hash
     h = {}
     h[:title]     = self.Title if self.Title
-    h[:subtitle]  = self.SubTitle if self.SubTitle
+    # h[:subtitle]  = self.SubTitle if self.SubTitle
     h[:body]      = self.Body if self.Body
+    h[:picture]   = self.MultiMedia if self.MultiMedia
+
     h
   end
 end
@@ -121,49 +124,35 @@ class YNewsML
     h.merge! self.NewsContent.to_hash
     h
   end
+
+  def self.parse_file
+    directory = "#{Rails.root}/style_guide/public/wire_source/101_KOR/20181010"
+    # xml_file = Dir.glob("#{directory}/*.xml").first
+    # xml = File.open(xml_file, 'r'){|f| f.read}
+    # story_hash = YNewsML.parse(xml).to_hash
+
+    Dir.glob("#{directory}/*.xml").each do |xml_file|
+      xml = File.open(xml_file, 'r'){|f| f.read}
+      story_hash = YNewsML.parse(xml).to_hash
+      YhArticle.where(date: story_hash[:date], time: story_hash[:time], title:story_hash[:title], body:story_hash[:body]).first_or_create
+    end
+  end
+
+  def self.parse_picture
+    directory = "#{Rails.root}/public/wire_source/201_PHOTO_YNA/20181010"
+    puts "parsing 201_PHOTO_YNA/20181010..."
+
+    # xml_file = Dir.glob("#{directory}/*.xml").first
+    # xml = File.open(xml_file, 'r'){|f| f.read}
+    # puts xml_file
+    # story_hash = YNewsML.parse(xml).to_hash
+    # puts story_hash
+    # puts story_hash[:picture]
+    Dir.glob("#{directory}/*.xml").each do |f|
+      xml = File.open(f, 'r'){|f| f.read}
+      h = YNewsML.parse(xml).to_hash
+      YhPicture.create!(h)
+    end
+  end
+
 end
-#
-
-# news_content = NewsContent.parse(NewsContent_XML)
-# puts news_content.Title
-# puts news_content.Body
-
-# ytm = YNewsML.parse(YTM_XML)
-# puts ytm.to_hash
-directory = "/Users/mskim/Development/style_guide/public/wire_source/101_KOR/20181010"
-puts File.exist? directory
-xml_file = Dir.glob("#{directory}/*.xml").first
-# puts xml_file
-xml = File.open(xml_file, 'r'){|f| f.read}
-
-puts yml = YNewsML.parse(xml).to_hash
-
-# Dir.glob("#{directory}/*.xml").each do |f|
-#   xml = File.open(f, 'r'){|f| f.read}
-#   yml = YNewsML.parse(xml).to_hash
-#   puts yml
-#   # yml_path = f.sub(".xml", ".yml")
-#   # File.open(yml_path, 'w'){|f| f.write yml}
-# end
-
-
-# describe YNewsML do
-#   it "parses xml file" do
-#     f = 
-#     xml = File.open(f, 'r'){|f| f.read}
-#     YNewsML.parse(xml).to_hash
-#     parser = YNewsML.new(File.dirname(__FILE__) + '/sample.xml')
-#     expect(parser.hash).to be_instance_of(Hash)
-#     # expect(parser).to be_instance_of(Hash)
-#   end
-# end
-
-
-# require 'active_support/core_ext'
-# require 'xml/to/json'
-# require 'json'
-# xml = Nokogiri::XML xml
-# puts JSON.pretty_generate(xml.root) # Use xml for information about the document, like DTD and stuff
-
-
-# npm install -g xml2json-cli

@@ -2,9 +2,9 @@
 <div class="row">
   <div class="col-xs-12 col-md-4">
     <div class="col-xs-12 col-md-11">
-      <p>섹션: <%= article.page.section_name %></p>
-      <p>페이지: <%= article.page.page_number %></p>
-      <p>기사 번호: <%= article.order %></p>
+      <h1>섹션: <%= article.page.section_name %></h1>
+      <h2>페이지: <%= article.page.page_number %></h2>
+      <h2>기사 번호: <%= article.order %></h2>
 
       <%= form_for(article, :url => { :action => "update_story" }) do |f| %>
         <% if article.errors.any? %>

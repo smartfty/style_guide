@@ -1,31 +1,26 @@
-<h1>Yh Pictures</h1>
-
-<table class="responsive nowrap table table-hover" id="dttb-yh_pictures" data-sort="true" data-source="<%= url_for(format: :json)%>">
-  <thead>
-    <tr>
-      <th data-data="action">Action</th>
-      <th data-data="service_type">Service type</th>
-      <th data-data="content_id">Content</th>
-      <th data-data="date">Date</th>
-      <th data-data="time">Time</th>
-      <th data-data="urgency">Urgency</th>
-      <th data-data="category">Category</th>
-      <th data-data="class_code">Class code</th>
-      <th data-data="attriubute_code">Attriubute code</th>
-      <th data-data="source">Source</th>
-      <th data-data="credit">Credit</th>
-      <th data-data="region">Region</th>
-      <th data-data="title">Title</th>
-      <th data-data="comment">Comment</th>
-      <th data-data="bpdy">Bpdy</th>
-      <th data-data="file_name">File name</th>
-      <th data-data="taken_by">Taken by</th>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
-    </tr>
-  </thead>
-
-</table>
-
+<p id="notice"><%= notice %></p>
+<h3 align="center">연합사진</h3>
+<%= search_form_for @q do |f| %>
+<%= f.label '카테고리' %>
+<%= f.select :category_cont, options_for_select(%w[정치 경제 사회 문화 스포츠/레저 국제 지방 IT/과학 북한 민족], session[:current_yh_picture_category]), :include_blank => '전체' %>
+<%= f.submit %>
+<% end %>
 <br>
 
-<%= link_to 'New Yh Picture', new_yh_picture_path %>
+<div align="center">
+  <%= paginate @yh_pictures %>
+</div>
+
+<div class="row">
+  <% @yh_pictures.each do |yh_picture| %>
+    <div class="col-md-2">
+      <a href="<%=  yh_picture_path(yh_picture) %>"><img style="object-fit:cover",  src="<%= yh_picture.thumb_path %>" width="200px" height="200px"></img></a>
+      <p align="center"><%= yh_picture.title %></p>
+    </div>
+  <% end %>
+</div>
+
+<div align="center">
+  <%= paginate @yh_pictures %>
+</div>
+

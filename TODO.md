@@ -20,16 +20,29 @@
   - body
     - fit_text
 
+2019-2-22
+  - group image, 반박수 이미지
+
+2019-2-22
+  - 제목 넘침
+  - 기사 배치 
+    선택 된 기사는 다른 기사 보여주지 않음, 해지만 
+  - section order id and created_at desc
+
 2019-2-21
   - 면배열표 저장
-  - 9단21 짣구 홀짝 광고
+  - 9단21 홀짝 광고
+  - delete story from working_article, when story is un-assigned
+
+  - update story from working_article
+
   - 연홥 뉴스 연합 사진
   - fix multiple image upload bug
     - 기획 팀 사진 3개
-  - delete story from working_article, when story is un-assigned
-  - update story from working_article
-  - cms category
 
+  - cms category
+  - create advertisers list
+  
   - 메뉴얼
   - save text_style.yml to local folder
 

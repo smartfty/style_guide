@@ -16,7 +16,7 @@ RSpec.describe "yh_pictures/index", type: :view do
         :region => "Region",
         :title => "Title",
         :comment => "Comment",
-        :bpdy => "Bpdy",
+        :body => "Bpdy",
         :file_name => "File Name",
         :taken_by => "Taken By"
       ),
@@ -33,7 +33,7 @@ RSpec.describe "yh_pictures/index", type: :view do
         :region => "Region",
         :title => "Title",
         :comment => "Comment",
-        :bpdy => "Bpdy",
+        :body => "Bpdy",
         :file_name => "File Name",
         :taken_by => "Taken By"
       )
