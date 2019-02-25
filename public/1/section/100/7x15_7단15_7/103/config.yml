@@ -1,0 +1,55 @@
+---
+section_name: 
+page_heading_margin_in_lines: 3
+ad_type: 7단15
+is_front_page: false
+profile: 7x15_7단15_7
+section_id: 103
+page_columns: 7
+grid_size:
+- 146.99662542182
+- 97.3228346456681
+lines_per_grid: 7.0
+width: 1114.01574803148
+height: 1544.88188976376
+left_margin: 42.5196850393695
+top_margin: 42.5196850393695
+right_margin: 42.5196850393695
+bottom_margin: 42.5196850393695
+gutter: 12.7559055118108
+story_frames:
+- - 0
+  - 0
+  - 4
+  - 5
+- - 4
+  - 0
+  - 3
+  - 5
+- - 0
+  - 5
+  - 4
+  - 3
+- - 4
+  - 5
+  - 3
+  - 3
+- - 3
+  - 8
+  - 1
+  - 7
+- - 4
+  - 8
+  - 3
+  - 4
+- - 4
+  - 12
+  - 3
+  - 3
+- - 0
+  - 8
+  - 3
+  - 7
+  - 광고_7단15_짝
+article_line_thickness: 0.3
+draw_divider: 

@@ -389,6 +389,20 @@ class Section < ApplicationRecord
     profile
   end
 
+  def self.fix_un_finished_sections
+    un_finished_sections = []
+    Section.all.each do |section|
+      section.update_section_layout if section.un_finished?
+    end
+
+  end
+
+  def un_finished?
+    articles.each do |article|
+      return true unless article.has_pdf?
+    end
+    false
+  end
 
   def has_overlapping_rect?
     #code
