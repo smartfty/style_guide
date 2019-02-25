@@ -26,6 +26,11 @@ story_frames:
   - 6
   - 3
   - 5
+- - 3
+  - 6
+  - 4
+  - 9
+  - 광고_9단21
 - - 0
   - 11
   - 3
@@ -34,10 +39,5 @@ story_frames:
   - 11
   - 1
   - 4
-- - 3
-  - 6
-  - 4
-  - 9
-  - 광고_9단21
 article_line_thickness: 0.3
 draw_divider: 

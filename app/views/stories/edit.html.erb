@@ -1,3 +1,4 @@
+<div class="row"">
 <% if @story.selected%>
     <h3 class="">이기사는 면에 배정 되었습니다.</h3>
     <%= render 'selected', story: @story, working_article: @story.working_article %>
@@ -11,3 +12,4 @@
 
 <%= link_to 'Show', @story %> |
 <%= link_to 'Back', stories_path %>
+</div>

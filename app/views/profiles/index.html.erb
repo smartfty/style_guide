@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
+<p id="notice"><%= notice %></p>
 <h3>기고 저자</h3>
 <%= search_form_for @q do |f| %>
 <%= f.label '이름에 포함된 글자로' %>
 <%= f.search_field :name_cont %>
 <%= f.submit "검색", class: "btn btn-sm btn-normal"%>
 <% end %>
-</div>
+<p></p>
 
-<div class="row">
 <% @profiles.each do |writer| %>
   <div class="col-xs-6 col-md-3" align='center'>
     <% if browser.safari? %>

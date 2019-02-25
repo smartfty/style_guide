@@ -1,16 +1,16 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
-<h3>오피니언 저자</h3>
-<%= search_form_for @q do |f| %>
-<%= f.label '이름에 포함된 글자로' %>
-<%= f.search_field :name_cont %>
-<%= f.label '제목에 포함된 글자로' %>
-<%= f.search_field :title_cont %>
-<%= f.submit "검색", class: "btn btn-sm btn-normal"%>
-<% end %>
-</div>
+  <p id="notice"><%= notice %></p>
+  <h3>오피니언 저자</h3>
+  <%= search_form_for @q do |f| %>
+  <%= f.label '이름에 포함된 글자로' %>
+  <%= f.search_field :name_cont %>
+  <%= f.label '제목에 포함된 글자로' %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit "검색", class: "btn btn-sm btn-normal"%>
+  <% end %>
+<p></p>
 
-<div class="row">
+<div class="view">
 <% @opinion_writers.each do |writer| %>
   <div class="col-xs-6 col-md-3" align='center'>
     <% if browser.safari? %>

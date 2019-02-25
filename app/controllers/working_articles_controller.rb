@@ -20,7 +20,8 @@ class WorkingArticlesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render @working_article}
+      format.json {render @working_article}
+      @ko_date = @working_article.issue.pages.first.korean_date_string
     end
   end
 

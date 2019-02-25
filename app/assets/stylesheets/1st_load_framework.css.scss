@@ -234,7 +234,7 @@ p {
 .taplabel {
   display: inline-block;
   margin: 0 0 -1px;
-  padding: 15px 25px;
+  padding: 10px 20px;
   font-weight: 600;
   text-align: center;
   color: #bbb;
@@ -247,10 +247,17 @@ label:before {
   margin-right: 10px;
 }
 
-label[for*='1']:before { content: '\f0f6'; }
+
+label[for*='1']:before { content: '\f034'; }
 label[for*='2']:before { content: '\f03e'; }
-label[for*='3']:before { content: '\f1ea'; }
-// label[for*='4']:before { content: '\f1a9'; }
+label[for*='3']:before { content: '\f080'; }
+label[for*='4']:before { content: '\f0f6'; }
+label[for*='5']:before { content: '\f1ea'; }
+label[for*='6']:before { content: '\f1a8'; }
+label[for*='7']:before { content: '\f1c5'; }
+label[for*='8']:before { content: '\f181'; }
+label[for*='9']:before { content: '\f00a'; }
+
 
 label:hover {
   color: #888;
@@ -267,7 +274,12 @@ input:checked + label {
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
-#tab4:checked ~ #content4 {
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5, 
+#tab6:checked ~ #content6, 
+#tab7:checked ~ #content7,
+#tab8:checked ~ #content8,
+#tab9:checked ~ #content9 {
   display: block;
 }
 

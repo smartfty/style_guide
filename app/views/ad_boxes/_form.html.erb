@@ -22,6 +22,10 @@
     <button type="button" class="btn btn-success"><%= link_to "이전으로", page_path(@ad_box.page), method: :get %></button>
     <%= f.button :submit, "저장하기", class: "btn btn-primary", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
+  <div class="btn-group btn-right" role="group" aria-label="기능">
+  <button class="btn btn-primary"><%= link_to "#{@ko_date}", issues_path %></button>
+  </div>
+
 </nav>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

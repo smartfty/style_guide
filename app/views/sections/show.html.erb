@@ -1,10 +1,12 @@
-<p id="notice"><%= notice %></p>
+<!-- p id="notice"><%= notice %></p-->
+<div class="row">
 
 <div class="view">
   <div class="col-xs-6 col-md-3">
     <div class="col-xs-6 col-md-5">
       <%= raw @section.to_svg %><br>
       <!-- strong>섹션이름 </strong><%= @section.section_name %><br-->
+      <strong>- ID </strong><%= @section.id %><br>
       <strong>- 프로필 </strong><%= @section.profile %><br>
       <strong>- 행 </strong><%= @section.column %><br>
       <strong>- 열 </strong><%= @section.row %><br>
@@ -33,4 +35,5 @@
 <% end %>
 </div>
 
+</div>
 </div>

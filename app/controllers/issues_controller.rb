@@ -18,6 +18,7 @@ class IssuesController < ApplicationController
       format.html
       format.json { render @issue}
     end
+    @ko_date = @issue.pages.first.korean_date_string
   end
 
   # GET /issues/new

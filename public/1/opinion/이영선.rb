@@ -11,7 +11,7 @@ RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
       
         text('이영선', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       
-      text('인천코트라지원단장', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+      text('코트라 투자기획실장', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
     
   end
 end

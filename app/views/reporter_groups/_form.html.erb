@@ -2,12 +2,20 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :section %>
-    <%= f.input :leader %>
-    <%= f.input :page_range %>
+    <%= f.input :section, label: "섹션"%>
+    <%= f.input :leader, label: "팀장" %>
+    <%= f.input :page_range, label: "페이지 영역" %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+  <nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group" role="group" aria-label="기능">
+    <button type="button" class="btn btn-success"><%= link_to "이전으로", reporter_groups_path, method: :get %></button>
+    <%= f.button :submit, class: "btn btn-primary", value: "저장"%>
+  </div>
+</nav>
 <% end %>
