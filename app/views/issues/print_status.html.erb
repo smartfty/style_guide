@@ -1,0 +1,20 @@
+
+<h3 align='center'>출력 현황</h3>
+
+
+<div class="row">
+<div class="view">
+  <% @issue.pages.each do |page| %>
+    <div class="col-xs-3 col-md-2" align='center'>
+      <img src="<%= page.printer_file_to_show %>" width="100%"></img>
+      <!-- %= raw page.to_svg_with_jpg % -->
+
+      <h4 align='center'>
+        <%= page.print_status %>
+      </h4>
+    </div>
+    <!-- true -->
+  <% end %>
+
+</div>
+</div>

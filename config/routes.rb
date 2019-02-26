@@ -181,6 +181,7 @@ Rails.application.routes.draw do
       get 'clone_pages'
       get 'slide_show'
       get 'assign_reporter'
+      get 'print_status'
 
       get 'generate_stories'
 

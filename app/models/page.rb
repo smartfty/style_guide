@@ -86,7 +86,6 @@ class Page < ApplicationRecord
     "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
   end
 
-
   def latest_pdf
     f = Dir.glob("#{path}/section*.pdf").sort.last
     File.basename(f) if f

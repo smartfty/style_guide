@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_xml_to_ebiz, :merge_container_xml]
+  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_xml_to_ebiz, :merge_container_xml, :print_status]
   before_action :authenticate_user!
 
   # GET /issues
@@ -85,6 +85,10 @@ class IssuesController < ApplicationController
     @front_page_plans = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
     @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse
     @available_ads_for_pages = @issue.available_ads_for_pages
+  end
+
+  def print_status
+    @pages = @issue.pages
   end
 
   def images
