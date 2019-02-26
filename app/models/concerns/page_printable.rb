@@ -1,6 +1,39 @@
 module PagePrintable
   extend ActiveSupport::Concern
 
+
+  def print_status
+    
+    s = "#{page_number}:"
+    if color_page
+        s += "(칼러)-" 
+    else
+      s += "(흑백)-" 
+    end
+    s += "출력:#{print_count}"
+  end
+
+  def printed_files
+    Dir.glob("#{printer_folder}/*.pdf").sort
+  end
+  
+  def printer_file_to_show
+    return latest_printer_file if print_count > 0
+    blank_print_image
+  end
+
+  def latest_printer_file
+    printed_files.last
+  end
+
+  def blank_print_image
+    "/1/blank_print_image.pdf"
+  end
+
+  def print_count
+    printed_files.length
+  end
+
   def proof_path
     path + "/proof"
   end
@@ -44,10 +77,6 @@ module PagePrintable
   
   def printer_folder
     path + "/printer"
-  end
-
-  def latest_printer_file
-    Dir.glob("#{printer_folder}/*.pdf").sort.last
   end
 
   def printer_file_version
