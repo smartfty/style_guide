@@ -40,7 +40,7 @@ FactoryBot.define do
     region { "MyString" }
     title { "MyString" }
     comment { "MyString" }
-    bpdy { "MyString" }
+    body { "MyString" }
     file_name { "MyString" }
     taken_by { "MyString" }
   end

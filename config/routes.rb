@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  resources :yh_pictures
-  resources :yh_articles
+  resources :yh_pictures do
+    member do
+      get 'taken'
+    end
+  end
+  resources :yh_articles do
+    member do
+      get 'taken'
+    end
+  end
   resources :combo_ads
   resources :reporter_images do
     member do
@@ -18,6 +26,8 @@ Rails.application.routes.draw do
     member do
       get 'assign_position'
       get 'un_assign_position'
+      get 'backup'
+      get 'recover_backup'
     end
     collection do 
       get 'my'
@@ -50,7 +60,11 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :graphic_requests
+  resources :graphic_requests do
+    collection do 
+      get 'my'
+    end
+  end
   resources :section_headings
   resources :heading_ad_images do
     member do

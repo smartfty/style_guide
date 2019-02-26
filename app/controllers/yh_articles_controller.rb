@@ -1,10 +1,13 @@
 class YhArticlesController < ApplicationController
-  before_action :set_yh_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_yh_article, only: [:show, :edit, :update, :destroy, :taken]
 
   # GET /yh_articles
   # GET /yh_articles.json
   def index
-    @yh_articles = YhArticle.all
+    @q = YhArticle.ransack(params[:q])
+    @yh_articles = @q.result.order(:date, :time).page(params[:page]).per(20) 
+
+    # @yh_articles = YhArticle.all
   end
 
   # GET /yh_articles/1
@@ -59,6 +62,12 @@ class YhArticlesController < ApplicationController
       format.html { redirect_to yh_articles_url, notice: 'Yh article was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def taken
+    @yh_article.taken_by(current_user)
+    Story.story_from_wire(current_user, @yh_article)
+    redirect_to yh_article_path(@yh_article)
   end
 
   private

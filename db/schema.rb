@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_201100) do
+ActiveRecord::Schema.define(version: 2019_02_21_025537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,13 +183,17 @@ ActiveRecord::Schema.define(version: 2019_02_19_201100) do
 
   create_table "graphic_requests", force: :cascade do |t|
     t.date "date"
-    t.string "title"
-    t.string "requester"
-    t.string "person_in_charge"
-    t.string "status"
-    t.text "description"
+    t.bigint "user_id"
+    t.string "designer"
+    t.text "request"
+    t.text "data"
+    t.integer "status", default: 0
+    t.integer "page_column"
+    t.integer "column"
+    t.integer "row"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_graphic_requests_on_user_id"
   end
 
   create_table "graphics", force: :cascade do |t|
@@ -555,6 +559,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_201100) do
     t.string "summitted_section"
     t.string "category_code"
     t.float "price"
+    t.text "backup"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end
@@ -737,6 +742,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_201100) do
   add_foreign_key "ad_plans", "ad_bookings"
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "graphic_requests", "users"
   add_foreign_key "graphics", "working_articles"
   add_foreign_key "heading_ad_images", "page_headings"
   add_foreign_key "heading_bg_images", "page_headings"

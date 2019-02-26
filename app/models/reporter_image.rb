@@ -24,4 +24,9 @@ class ReporterImage < ApplicationRecord
   belongs_to :user
   mount_uploader :reporter_image, ReporterImageUploader
 
+  def self.story_from_wire(user, wire)
+    s = Image.where(user: user, date: Issue.last.date).first_or_create! 
+    s.title = wire.title
+    s.save
+  end
 end

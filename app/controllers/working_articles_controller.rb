@@ -109,6 +109,13 @@ class WorkingArticlesController < ApplicationController
     #todo
     # @stories = Story.where(group: , date: date) name: :desc
     @stories = Story.where(summitted_section: @working_article.page.section_name).order(selected: 'asc')
+    assigned = @stories.select{|s| s.working_article_id == @working_article.id}
+    if assigned.length > 0
+      @stories = assigned
+    end
+    #TODO
+    # if story is assigned, to current_article, no need to display other stories
+
   end
 
   def update_story

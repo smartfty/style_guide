@@ -43,6 +43,7 @@ class Section < ApplicationRecord
   after_create :setup
   before_create :parse_profile
   # before_update :before_updating_action
+  # after_update :before_updating_action
   # after_commit :after_commit_action
 
   include PageSplitable
@@ -59,6 +60,52 @@ class Section < ApplicationRecord
     # so call it in controller create, and update action
     # update_section_layout
     copy_page_heading
+  end
+
+  def self.fix_ad_names
+    Section.all.each do |section|
+      next unless Ad.side_ads.include?(section.ad_type)
+      section.fix_ad_type
+    end
+  end
+
+  def self.fix_un_finished_sections
+    un_finished_sections = []
+    Section.all.each do |section|
+      section.update_section_layout if section.un_finished?
+    end
+  end
+
+  def un_finished?
+    articles.each do |article|
+      return true unless article.has_pdf?
+    end
+    false
+  end
+
+  def fix_ad_type
+    return unless Ad.side_ads.include?(ad_type)
+    if section.page_number.odd?
+      new_ad_type = ad_type + "_홀"
+    elsif section.page_number.even?
+      new_ad_type = ad_type + "_짝"
+    end
+    self.ad_type = new_ad_type
+    self.profile = make_profile
+    self.save
+    self
+  end
+
+  def self.available_ads_for(page_number)
+    ad_type_array = []
+    ad_type_array << Section.where(page_number: page_number).all.map{|s| s.ad_type}
+    if page_number == 1
+    elsif page_number.odd?
+      ad_type_array << Section.where(page_number: 101).all.map{|s| s.ad_type}
+    else
+      ad_type_array << Section.where(page_number: 100).all.map{|s| s.ad_type}
+    end
+    ad_type_array.flatten.uniq.sort
   end
 
   def path
@@ -482,7 +529,14 @@ class Section < ApplicationRecord
           ad_box_atts[:grid_y]   = box[1]
           ad_box_atts[:column]   = box[2]
           ad_box_atts[:row]      = box[3]
-          ad_box_atts[:ad_type]   = box[4].split("_")[1]
+          ad_string_array = box[4].split("_")
+          if ad_string_array.length == 3
+            ad_string_array.shift
+            ad_type = ad_string_array.join("_")
+          else ad_string_array.length == 2
+            ad_type = ad_string_array[1]
+          end
+          ad_box_atts[:ad_type]   = ad_type
           if ad_box = ad_box_templates.first
             ad_box.update(ad_box_atts)
             ad_box.generate_pdf
@@ -551,7 +605,13 @@ class Section < ApplicationRecord
     ad_type = "광고없음"
     box_array.each_with_index do |box, i|
       if box.length >= 5 && box[4] =~ /^광고/
-        ad_type = box[4].split("_")[1]
+        ad_string_array = box[4].split("_")
+        if ad_string_array.length == 3
+          ad_string_array.shift
+          ad_type = ad_string_array.join("_")
+        else ad_string_array.length == 2
+          ad_type = ad_string_array[1]
+        end
       end
     end
     ad_type
@@ -564,7 +624,6 @@ class Section < ApplicationRecord
     self.profile     = make_profile
     self.save
     puts "__________ after profile:#{profile}"
-
     self
   end
 

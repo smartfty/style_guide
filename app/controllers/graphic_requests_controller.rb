@@ -25,6 +25,7 @@ class GraphicRequestsController < ApplicationController
   # POST /graphic_requests.json
   def create
     @graphic_request = GraphicRequest.new(graphic_request_params)
+    @graphic_request.user= current_user
 
     respond_to do |format|
       if @graphic_request.save
@@ -61,6 +62,10 @@ class GraphicRequestsController < ApplicationController
     end
   end
 
+  def my
+    @graphic_requests = current_user.graphic_requests.order(date: 'DESC')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_graphic_request
@@ -69,6 +74,6 @@ class GraphicRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def graphic_request_params
-      params.require(:graphic_request).permit(:date, :title, :requester, :person_in_charge, :status, :description)
+      params.require(:graphic_request).permit(:date, :user_id, :designer, :request, :data, :status)
     end
 end

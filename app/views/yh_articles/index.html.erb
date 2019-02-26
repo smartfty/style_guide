@@ -1,31 +1,56 @@
-<h1>Yh Articles</h1>
 
-<table class="responsive nowrap table table-hover" id="dttb-yh_articles" data-sort="true" data-source="<%= url_for(format: :json)%>">
+<div align="center">
+<div class="col-xs-12 col-sm-12">
+<div class="col-xs-12 col-sm-3">
+</div>
+<div class="col-xs-12 col-sm-6">
+
+<h3 align="center">연합기사</h3>
+
+<%= search_form_for @q do |f| %>
+<%= f.label '카테고리' %>
+<%= f.select :category_eq, ['정치', '경제', '국제', '문화', '스포츠', '지방'], {include_blank: '전체'} %>
+
+<%= f.label '제목' %>
+<%= f.text_field :title_eq, style: "width:40px" %>
+
+<%= f.submit "검색", class: "btn btn-sm btn-normal"%>
+<% end %>
+<br>
+
+<table class="table table-striped" align="center">
   <thead>
     <tr>
-      <th data-data="action">Action</th>
-      <th data-data="service_type">Service type</th>
-      <th data-data="content_id">Content</th>
-      <th data-data="date">Date</th>
-      <th data-data="time">Time</th>
-      <th data-data="urgency">Urgency</th>
-      <th data-data="category">Category</th>
-      <th data-data="class_code">Class code</th>
-      <th data-data="attriubute_code">Attriubute code</th>
-      <th data-data="source">Source</th>
-      <th data-data="credit">Credit</th>
-      <th data-data="region">Region</th>
-      <th data-data="title">Title</th>
-      <th data-data="body">Body</th>
-      <th data-data="writer">Writer</th>
-      <th data-data="char_count">Char count</th>
-      <th data-data="taken_by">Taken by</th>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+      <th style="text-align:center;">날짜</th>
+      <th style="text-align:center;">시간</th>
+      <th style="text-align:center;">제목</th>
+      <th style="text-align:center;">선택된 기사</th>
+
+      <th colspan="4"></th>
     </tr>
   </thead>
 
+  <tbody>
+    <% @yh_articles.each do |article| %>
+      <tr>
+        <td style="text-align:center;"><%= article.date %></td>
+        <td style="text-align:center;"><%= article.time %></td>
+        <td style="text-align:center;"><%= article.title %></td>
+        <td style="text-align:center;"><%= article.taken_by %></td>
+        <td><%= button_to "보기", article, method: :get, class: "btn btn-sm btn-success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Yh Article', new_yh_article_path %>
+  <div align="center">
+    <%= paginate @yh_articles %>
+  </div>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-3">
+</div>
+

@@ -74,10 +74,30 @@ class Issue < ApplicationRecord
     end
   end
 
+  # this is used in issue_plan for selecting available ad_types for given page
+  # array of arrays of ad_types
+  def available_ads_for_pages
+    page_ads = []
+    24.times do |index|
+      page_ads << Section.available_ads_for(index + 1)
+    end
+    page_ads
+  end
+
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
     system "mkdir -p #{issue_images_path}" unless File.directory?(issue_images_path)
     system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)
+  end
+
+  DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
+
+  def issue_week_day_in_korean
+    DAYS_IN_KOREAN[date.wday]
+  end
+
+  def korean_date_string
+    "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean} (#{number}호)"
   end
 
   def section_path

@@ -27,6 +27,7 @@
 #  summitted_section  :string
 #  category_code      :string
 #  price              :float
+#  backup             :text
 #
 # Indexes
 #
@@ -59,7 +60,31 @@ class Story < ApplicationRecord
         puts "s.id:#{s.id}" if s
       end
     end
-  end 
+  end
+
+  def update_story_from_article(body)
+    self.body = body
+    self.save
+  end
+
+  def backup
+    puts __method__
+    self.backup = body
+    self.save
+  end
+
+  def recover_backup
+    puts __method__
+    self.body  = backup
+    self.save
+  end
+
+  def self.story_from_wire(user, wire)
+    s = Story.where(user: user, date: Issue.last.date, summitted_section: user.group).first_or_create! 
+    s.title = wire.title
+    s.body = wire.body
+    s.save
+  end
 
   private
   

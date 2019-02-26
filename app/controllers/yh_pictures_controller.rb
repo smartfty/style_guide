@@ -1,10 +1,15 @@
 class YhPicturesController < ApplicationController
-  before_action :set_yh_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_yh_picture, only: [:show, :edit, :update, :destroy, :taken]
 
   # GET /yh_pictures
   # GET /yh_pictures.json
   def index
-    @yh_pictures = YhPicture.all
+    @q = YhPicture.ransack(params[:q])
+    @yh_pictures = @q.result
+    session[:current_yh_picture_category] = params[:q]['category_cont'] if params[:q]
+    @yh_pictures = @yh_pictures.order(:date).page(params[:page]).per(20)
+
+    # @yh_pictures = YhPicture.all
   end
 
   # GET /yh_pictures/1
@@ -61,6 +66,11 @@ class YhPicturesController < ApplicationController
     end
   end
 
+  def taken
+    ReporterImage.image_from_wire(current_user, @yh_picture)
+    redirect_to yh_picture_path(@yh_picture)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_yh_picture
@@ -69,6 +79,6 @@ class YhPicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yh_picture_params
-      params.require(:yh_picture).permit(:action, :service_type, :content_id, :date, :time, :urgency, :category, :class_code, :attriubute_code, :source, :credit, :region, :title, :comment, :bpdy, :file_name, :taken_by)
+      params.require(:yh_picture).permit(:action, :service_type, :content_id, :date, :time, :urgency, :category, :class_code, :attriubute_code, :source, :credit, :region, :title, :comment, :body, :file_name, :taken_by)
     end
 end

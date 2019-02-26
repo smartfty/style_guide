@@ -210,6 +210,13 @@ class WorkingArticle < ApplicationRecord
     stamp_time
     generate_pdf_with_time_stamp
     page.generate_pdf_with_time_stamp
+    update_reporter_story(story.body)
+  end
+
+  def update_reporter_story(body)
+    if story
+      story.update_story_from_article(body)
+    end
   end
 
   def save_article
@@ -859,7 +866,6 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
-  # private
 
   # parse working_article info from copied article_template files
   def parse_article
@@ -1035,6 +1041,26 @@ class WorkingArticle < ApplicationRecord
     return true if place_holder
   end
 
+
+  # this is called when story was un_assigned from working_article
+  def clear_story
+    self.title          = "#{order}번 제목은 여기에 여기는 제목"
+    self.subtitle       = '부제는 여기에 여기는 부제목 자리'
+    self.reporter       = ''
+    self.email          = 'gdhong@gmail.com'
+    self.body =<<~EOF
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.
+    EOF
+    self.save
+    generate_pdf_with_time_stamp
+    page.generate_pdf_with_time_stamp
+  end
+
+
   private
 
 
@@ -1066,7 +1092,6 @@ class WorkingArticle < ApplicationRecord
       elsif page_number == 23 && order == 2
         self.subject_head = '내일시론'
       end
-
       # self.page_path      = page.path
     end
     self.title          = "#{order}번 제목은 여기에 여기는 제목"

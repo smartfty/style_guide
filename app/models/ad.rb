@@ -25,6 +25,10 @@ class Ad < ApplicationRecord
     "#{Rails.root}/public/#{publication_id}/ad/#{page_columns}/#{name}"
   end
 
+  def self.side_ads
+    %w[7단15 7단27 8단27 9단21]
+  end
+
   def images_path
     path + "/images"
   end

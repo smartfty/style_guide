@@ -6,28 +6,28 @@
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @graphic_request.title %>
+  <strong>User:</strong>
+  <%= @graphic_request.user %>
 </p>
 
 <p>
-  <strong>Requester:</strong>
-  <%= @graphic_request.requester %>
+  <strong>Designer:</strong>
+  <%= @graphic_request.designer %>
 </p>
 
 <p>
-  <strong>Person in charge:</strong>
-  <%= @graphic_request.person_in_charge %>
+  <strong>Request:</strong>
+  <%= @graphic_request.request %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @graphic_request.data %>
 </p>
 
 <p>
   <strong>Status:</strong>
   <%= @graphic_request.status %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @graphic_request.description %>
 </p>
 
 <%= link_to 'Edit', edit_graphic_request_path(@graphic_request) %> |
