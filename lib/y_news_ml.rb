@@ -125,8 +125,28 @@ class YNewsML
     h
   end
 
-  def self.parse_file
-    directory = "#{Rails.root}/style_guide/public/wire_source/101_KOR/20181010"
+  def self.parse_new_story_xml(file)
+    puts "in parse_new_story_xml:#{file}"
+    source_dir = '/Volumes/d_naeil/wire_source'
+    xml_file = "#{source_dir}/" + file
+    puts "xml_file:#{xml_file}"
+    xml = File.open(xml_file, 'r'){|f| f.read}
+    story_hash = YNewsML.parse(xml).to_hash
+    YhArticle.where(date: story_hash[:date], time: story_hash[:time], title:story_hash[:title], body:story_hash[:body]).first_or_create
+  end
+
+  def self.parse_new_picture_xml(file)
+    puts "in parse_new_picture_xml:#{file}"
+    source_dir = '/Volumes/d_naeil/wire_source'
+    xml_file = "#{source_dir}/" + file
+    xml = File.open(xml_file, 'r'){|f| f.read}
+    picture_hash = YNewsML.parse(xml).to_hash
+    puts "picture_hash:#{picture_hash}"
+    YhPicture.where(picture_hash).first_or_create
+  end
+
+  def self.parse_wire_story
+    directory = "#{Rails.root}/public/wire_source/101_KOR/20181010"
     # xml_file = Dir.glob("#{directory}/*.xml").first
     # xml = File.open(xml_file, 'r'){|f| f.read}
     # story_hash = YNewsML.parse(xml).to_hash
@@ -138,7 +158,7 @@ class YNewsML
     end
   end
 
-  def self.parse_picture
+  def self.parse_wire_picture
     directory = "#{Rails.root}/public/wire_source/201_PHOTO_YNA/20181010"
     puts "parsing 201_PHOTO_YNA/20181010..."
 

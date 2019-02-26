@@ -20,9 +20,16 @@
   - body
     - fit_text
 
+2019-2-25
+  - graphic_request attachment file
+  - file should 
+  - 기사에 사진 그래프 여부
+  
 2019-2-22
-  - group image, 반박수 이미지
-
+  - group image, 반단 이미지 0.5 for right, -0.5 for left
+  - graphic_request
+    - table_maker
+    
 2019-2-22
   - 제목 넘침
   - 기사 배치 

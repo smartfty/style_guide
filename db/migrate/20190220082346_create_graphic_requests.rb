@@ -6,7 +6,10 @@ class CreateGraphicRequests < ActiveRecord::Migration[5.2]
       t.string :designer
       t.text :request
       t.text :data
-      t.integer :status
+      t.integer :status, :default => 0
+      t.integer :page_column
+      t.integer :column
+      t.integer :row
 
       t.timestamps
     end

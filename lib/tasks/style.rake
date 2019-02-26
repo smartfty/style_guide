@@ -23,7 +23,10 @@ namespace :style do
     end
   end  
 
-
+  desc 'prints hi wonho'
+  task :hi_wonho do
+    puts "Hi wonho!!!!!"
+  end
 
   desc 'import opinion csv file'
   task :import_opinion_csv =>:environment do

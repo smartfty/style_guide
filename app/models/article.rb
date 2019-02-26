@@ -53,6 +53,10 @@ class Article < ApplicationRecord
   #   section.path + "/#{order}"
   # end
 
+  def has_pdf?
+    File.exist?(pdf_path)
+  end
+
   def images_path
     path + "/images"
   end

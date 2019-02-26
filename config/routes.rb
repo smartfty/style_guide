@@ -60,7 +60,11 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :graphic_requests
+  resources :graphic_requests do
+    collection do 
+      get 'my'
+    end
+  end
   resources :section_headings
   resources :heading_ad_images do
     member do

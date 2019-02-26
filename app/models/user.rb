@@ -37,6 +37,7 @@ class User < ApplicationRecord
 
   has_many :stories
   has_many :reporter_images
+  has_many :graphic_requests
 
   def self.current
     Thread.current[:user]

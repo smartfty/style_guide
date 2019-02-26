@@ -25,6 +25,7 @@ class GraphicRequestsController < ApplicationController
   # POST /graphic_requests.json
   def create
     @graphic_request = GraphicRequest.new(graphic_request_params)
+    @graphic_request.user= current_user
 
     respond_to do |format|
       if @graphic_request.save
@@ -59,6 +60,10 @@ class GraphicRequestsController < ApplicationController
       format.html { redirect_to graphic_requests_url, notice: 'Graphic request was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def my
+    @graphic_requests = current_user.graphic_requests.order(date: 'DESC')
   end
 
   private

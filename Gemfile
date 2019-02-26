@@ -114,7 +114,10 @@ gem 'ancestry'
 gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
 gem 'sucker_punch'
 gem 'happymapper'
-# gem 'stateful_enum'
-# gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
+gem 'stateful_enum'
 
 gem 'guard'
+gem 'guard-rake'
+gem 'guard-shell'
+
+# gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  

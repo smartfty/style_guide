@@ -187,7 +187,10 @@ ActiveRecord::Schema.define(version: 2019_02_21_025537) do
     t.string "designer"
     t.text "request"
     t.text "data"
-    t.integer "status"
+    t.integer "status", default: 0
+    t.integer "page_column"
+    t.integer "column"
+    t.integer "row"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_graphic_requests_on_user_id"
