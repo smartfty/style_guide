@@ -10,6 +10,7 @@ class StoriesController < ApplicationController
   def index
     @stories = Story.where(date:Issue.last.date, summitted: true).all
     @stories = Story.where(date:Issue.last.date).all
+    # @ko_date = Issue.last.pages.first.korean_date_string
     @date    = Issue.last.korean_date_string
     respond_to do |format|
       format.html

@@ -1,8 +1,12 @@
+<nav class="navbar navbar-default navbar-fixed-top2">
+  <div class="btn-group btn-right" role="group" aria-label="기능">
+    <button class="btn btn-primary"><%= link_to "#{@ko_date}", issues_path %></button>
+  </div>
+</nav>
 
-<div align="center">
 <p id="notice"><%= notice %></p>
 
-<div align="center">
+<div class="row" align="center" style="padding: 0px 100px;">
 <h3>오늘기사</h3>
 <p><%= button_to "기사 생성", generate_stories_issue_path(Issue.last), method: :get, class: "btn btn-sm btn-warning" %></p>
 

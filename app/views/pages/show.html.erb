@@ -3,22 +3,23 @@
 <%= render 'change_page_info', page: @page %>
 </div>
 
-<div class="col-xs-9 col-md-12">
+<div class="col-xs-9 col-sm-3">
       <% if File.exist?(@page.pdf_path) %>
         <div class="button-group">
             <%= raw @page.to_svg_with_jpg %>
           </div>
         <% end %>
       </div>
-      <div class="col-xs-12 col-md-12" name="template" id="template">
+      <div class="col-xs-12 col-sm-9" name="template" id="template">
         <h3 align="center"><%= @page.page_number %>페이지 광고:<%= @page.ad_type %></h3>
-        <div class="row">
+        <div class="view">
           <% @page_templates.each do |template| %>
-            <div class="col-xs-3 col-md-2">
+            <div class="col-xs-3 col-sm-2">
               <% if template.id == @page.template_id %>
                 <div class='selected_template'>
                 <div align="center">
                     <p><%= raw template.to_svg %></p>
+                    <!--img width="100%"  src="<%= template.pdf_image_path %>" alt=""-->
                     <h5><%= template.description %>(<%= template.id %>)</h5>
                   </div>
                 </div>
@@ -26,6 +27,7 @@
                 <div class='unselected_template'>
                 <div align="center">
                   <p><%= raw template.to_svg %></p>
+                  <!--img width="100%"  src="<%= template.pdf_image_path %>" alt="" -->
                     <p><%= template.description %>(<%= template.id %>)</p>
                   </div>
                   <div align="center">
@@ -71,14 +73,8 @@
         <button type="button" class="btn btn-warning"><%= link_to "기사 배정", assign_stories_page_path(@page), method: :get %></button>      
       </div>
       <div class="btn-group btn-right" role="group" aria-label="기능">
-      <button class="btn btn-primary">
-      <% if @page.issue.pages.first == nil || @page.issue.pages.first == "" %>
-      <%= link_to "#{@page.issue.date.to_s} (#{@page.issue.number})", issues_path %>
-      <% else %>
-      <%= link_to "#{@page.issue.pages.first.korean_date_string}", issues_path %>
-      <% end %>
-      </button>
-    </div>
+      <button class="btn btn-primary"><%= link_to "#{@ko_date}", issues_path %></button>
+      </div>
     </nav>  
 
 

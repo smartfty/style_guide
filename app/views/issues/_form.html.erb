@@ -1,4 +1,6 @@
-<div class="authform">
+<div class="row">
+
+<div class="authform" align="center">
   <h3>오늘자 신문 만들기</h3>
   <h4>지난호 <%= "#{previous_date}(#{previous_number}호)" %>  </h4>
 
@@ -24,7 +26,7 @@
   <div class="form-group">
     <%= f.label :호수 %>
     <% if new_issue_number %>
-      <%= f.text_field :number, class: 'form-control', value: new_issue_number%>
+      <%= f.text_field :number, class: 'form-control', value: new_issue_number, style: "width:200px" %>
     <% else %>
       <%= f.text_field :number, class: 'form-control', value: 1%>
     <% end %>
@@ -32,8 +34,10 @@
   </div>
 
   <div class="actions">
+  <br />
     <%= f.button "오늘자 신문 생성", class: "btn btn-sm btn-primary navbar-btn", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>오늘자 신문 생성중..."} %>
   </div>
 <% end %>
 
+</div>
 </div>
