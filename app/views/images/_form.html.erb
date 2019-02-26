@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="col-xs-3 col-sm-4", style="height: 200px;">
+  <div class="col-xs-3 col-sm-5", style="height: 200px;">
     <p><%= image.size_string %></p>
     <% if  image.image && image.image.url%>
       <%= image_tag image.image.url, :width => "100%", style: "padding-bottom:20px" %>
@@ -18,8 +18,9 @@
       <%= image_tag image.empty_image_url, :width => "100%", style: "padding-bottom:20px" %>
     <% end %>
  </div>
- <div class="col-xs-9 col-sm-8">
+ <div class="col-xs-9 col-sm-7">
 
+        <% if @working_article.kind != '사진' %>
         <div class="field">
         <%= f.label :위치 %><%= f.text_field :position, style: "width:40px", class: 'form-control' %>
         <%= f.label :가로시작_단 %><%= f.text_field :x_grid, style: "width:35px", class: 'form-control' %>
@@ -30,7 +31,7 @@
         <%= f.label :크기 %><%= f.text_field :column, style: "width:40px", class: 'form-control' %>단  x  <%= f.text_field :row, style: "width:40px", class: 'form-control' %>열
         <%= f.text_field :extra_height_in_lines, style: "width:50px", class: 'form-control' %>행 추가
         </div>
-
+        <% end %>
         <div class="field">
           <!-- %= f.label '사진제목과 설명' %-->
           <%= f.text_field :caption_title, cols: "60", placeholder: "사진제목", class: 'form-control', autocomplete: 'off' %>
