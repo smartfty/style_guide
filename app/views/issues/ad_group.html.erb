@@ -10,7 +10,6 @@
   </div>
 </nav>
 
-<div class="row">
 <div class="view">
   <% @pages.each do |page| %>
     <div class = "col-xs-6 col-md-3"  align='center'>
@@ -19,5 +18,4 @@
     <h4 align='center'><a href='<%= page_path(page)%>'><%= page.page_number %></a></h4>
   </div>    <!-- true -->
   <% end %>
-</div>
 </div>

@@ -497,7 +497,13 @@ class Page < ApplicationRecord
 
   def copy_heading
     FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
-    source = issue.publication.heading_path + "/#{page_number}"
+    if page_number == 1 || page_number == 22 || page_number == 23
+      source = issue.publication.heading_path + "/#{page_number}"
+    elsif page_number.even?
+      source = issue.publication.heading_path + "/100"
+    else
+      source = issue.publication.heading_path + "/101"
+    end
     target = page_heading_path
     layout_erb_path     = page_heading_path + "/layout.erb"
     # unless File.exist? layout_erb_path
