@@ -23,7 +23,6 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  detail_mode           :boolean
 #  draw_frame            :boolean
 #  zoom_level            :integer
 #  zoom_direction        :integer
@@ -31,6 +30,7 @@
 #  sub_grid_size         :string
 #  auto_size             :integer
 #  fit_type              :string
+#  image_kind            :string
 #
 
 class Image < ApplicationRecord
@@ -94,7 +94,10 @@ class Image < ApplicationRecord
     # h[:fit_type]          = fit_type if fit_type
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame if draw_frame
-
+    if image_kind #인물_우, 인물_좌
+      h[:image_kind]      = personal_image_left if image_kind == '인물_좌'
+      h[:image_kind]      = personal_image_right if image_kind == '인물_우'
+    end
     h
   end
 

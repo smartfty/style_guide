@@ -69,10 +69,26 @@ class Section < ApplicationRecord
     end
   end
 
-  def self.fix_un_finished_sections
-    un_finished_sections = []
+  def need_update?
+    section_time = File.birthtime(path)
+    articles.each do |article|
+      article_time = File.birthtime(article.pdf_path)
+      return true if article_time > section_time
+    end
+    false
+  end
+
+  def self.update_section_pdfs
     Section.all.each do |section|
-      section.update_section_layout if section.un_finished?
+      section.generate_pdf if section.need_update?
+    end
+  end
+
+  
+
+  def self.fix_un_finished_sections
+    Section.all.each do |section|
+      section.update_pdf_section
     end
   end
 
@@ -383,7 +399,7 @@ class Section < ApplicationRecord
 
   def self.to_csv(options = {})
       CSV.generate(options) do |csv|
-        # get rif of id, created_at, updated_at
+        # get rid of id, created_at, updated_at
         # header = %w[page_number section_name profile column row order ad_type is_front_page story_count color_page draw_divider publication_id layout]
         header = %w[page_number  column  ad_type  layout]
         csv << header
@@ -405,18 +421,19 @@ class Section < ApplicationRecord
       section_list
   end
 
-  def save_current_sections
-    section_list = Section.to_hash_list
-    # save yml
-    yml_path = "#{Rails.root}/public/1/section/sections.yml"
-    File.open(yml_path, 'w'){|f| f.write section_list.to_yaml}
-    # save rb
-    rb_path = "#{Rails.root}/public/1/section/sections.rb"
-    File.open(rb_path, 'w'){|f| f.write section_list.to_s}
+  def self.save_sections_for_seed
+    # section_list = Section.to_hash_list
+    # # save yml
+    # yml_path = "#{Rails.root}/public/1/section/sections.yml"
+    # File.open(yml_path, 'w'){|f| f.write section_list.to_yaml}
+    # # save rb
+    # rb_path = "#{Rails.root}/public/1/section/sections.rb"
+    # File.open(rb_path, 'w'){|f| f.write section_list.to_s}
     # save csv
     csv_path = "#{Rails.root}/public/1/section/sections.csv"
     File.open(csv_path, 'w'){|f| f.write Section.to_csv.to_s}
   end
+
 
   def eval_layout
     eval(layout)
@@ -644,6 +661,15 @@ class Section < ApplicationRecord
       layout_array << ad_rect
     end
     self.layout = layout_array.to_s
+  end
+
+  # save text_sty;es tp local folder
+  def self.save_text_styles
+    folder = "/#{Rails.root}/public/1/text_style"
+    system("mkdir -p #{folder}") unless File.directory?(folder)
+    path = folder + "/text_style.yml"
+    styles_hash = TextStyle.current_styles_with_english_key
+    File.open(path, 'w'){|f| f.write styles_hash.to_yaml}
   end
 
   private

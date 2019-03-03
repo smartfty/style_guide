@@ -145,6 +145,11 @@ class YNewsML
     YhPicture.where(picture_hash).first_or_create
   end
 
+  def self.load_ytn_sample
+    self.parse_wire_story
+    self.parse_wire_picture
+  end
+
   def self.parse_wire_story
     directory = "#{Rails.root}/public/wire_source/101_KOR/20181010"
     # xml_file = Dir.glob("#{directory}/*.xml").first

@@ -323,6 +323,8 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.1.3)
       activesupport (>= 4.0.0)
+    simple_calendar (2.3.0)
+      rails (>= 3.0)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -435,6 +437,7 @@ DEPENDENCIES
   sass-rails
   seed_dump
   shoulda-matchers (~> 3.1, >= 3.1.2)
+  simple_calendar (~> 2.0)
   simple_form
   simplecov
   sinatra (~> 2.0.1)
@@ -451,4 +454,4 @@ DEPENDENCIES
   zip-zip
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

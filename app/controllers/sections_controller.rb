@@ -91,6 +91,11 @@ class SectionsController < ApplicationController
     send_file @section.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
+  # save section yml fir next seed 
+  def save
+    Section.save_sections_for_seed
+  end
+
   def regenerate_pdf
     @section.regenerate_pdf
     redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'

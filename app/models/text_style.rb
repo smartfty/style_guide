@@ -100,6 +100,14 @@ class TextStyle < ApplicationRecord
     styles_hash
   end
 
+  # save text_sty;es tp local folder
+  def self.save_text_styles
+    folder = "/#{Rails.root}/public/1/text_style"
+    system("mkdir -p #{folder}") unless File.directory?(folder)
+    path = folder + "/text_style.yml"
+    styles_hash = TextStyle.current_styles_with_english_key
+    File.open(path, 'w'){|f| f.write styles_hash.to_yaml}
+  end
 
   def self.save_current_styles_with_name_key
     path = "#{Rails.root}/public/1" + "/text_style/current_qtext_styles_with_name_key.rb"

@@ -678,8 +678,15 @@ class WorkingArticle < ApplicationRecord
     y_position
   end
 
+  # def top_story?
+  #   page.page_number == 1 && order == 1
+  # end
+
+  #TODO
   def top_story?
-    page.page_number == 1 && order == 1
+    return true if top_story
+    return true if page.working_articles.first.kind != '기사' && order == 2
+    false
   end
 
   def top_position?
@@ -875,12 +882,6 @@ class WorkingArticle < ApplicationRecord
     else
       #code
     end
-  end
-
-  def top_story?
-    return true if top_story
-    return true if page.working_articles.first.kind != '기사' && order == 2
-    false
   end
 
   def change_article(new_article)

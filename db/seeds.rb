@@ -254,3 +254,6 @@ csv.each do |row|
   row_h = Hash[keys.zip row]
   ca    = ComboAd.where(row_h).first_or_create!
 end
+
+# load sample YTN articles and images
+YNewsML.load_ytn_sample

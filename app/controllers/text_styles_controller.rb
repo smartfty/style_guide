@@ -79,7 +79,8 @@ class TextStylesController < ApplicationController
   end
 
   def save_current
-    @text_style.save_current_styles_with_english_key
+    # @text_style.save_current_styles_with_english_key
+    TextStyle.save_text_styles
     redirect_to text_styles_url,  notice: 'Current text style was successfully saved.'
   end
 
