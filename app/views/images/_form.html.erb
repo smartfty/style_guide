@@ -51,6 +51,20 @@
           </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2" readonly>
         </div>
 
+        <div class="field">
+          <%= f.label :종류 %>
+          <%= f.select :image_kind, %w[일반 인물_좌 인물_우 구릅], {include_blank: false} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :관련없는_사진 %>
+          <%= f.check_box :not_related %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "사진정보 저장"%>
+        </div>
+
         <%= link_to '사진 크롭', crop_image_path(image), method: :get, class: "btn btn-md btn-success"  %>
         <div class="field">
           <%= f.label :사진정렬 %>
