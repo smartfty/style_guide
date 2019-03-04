@@ -18,6 +18,8 @@ class WorkingArticlesController < ApplicationController
   # GET /working_articles/1
   # GET /working_articles/1.json
   def show
+    @pages = @working_article.issue.pages.order(:id, 'desc')
+    @pages = @working_article.issue.pages
     respond_to do |format|
       format.html
       format.json {render @working_article}
