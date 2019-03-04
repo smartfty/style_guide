@@ -20,6 +20,26 @@
   - body
     - fit_text
 
+2019-3-2
+  - make page_plan for future 14 days
+    - add simple_calendar
+  - add personal_image (left, right)
+    - add imge_kind:string to image table
+    - rearange subtiltle and personal_image
+    - 시작 단
+  - add image_group
+    - add new tab for image_group
+
+2019-2-26
+  - 1번이 그래픽이나 사진이면 2번이 top 기사
+  - save text_style to local yml
+  - save section to local yml
+  pront_status
+    - add last printed time
+
+  인물사진_좌, 인물사진_우
+    - 제목 부제목 인물사진 
+
 2019-2-25
   - graphic_request attachment file
   - file should 

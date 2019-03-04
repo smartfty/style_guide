@@ -42,6 +42,8 @@ class AdBoxesController < ApplicationController
   # PATCH/PUT /ad_boxes/1
   # PATCH/PUT /ad_boxes/1.json
   def update
+    # binding.pry
+    # puts "params:#{params}"
     respond_to do |format|
       if @ad_box.update(ad_box_params)
         @ad_box.generate_pdf_with_time_stamp

@@ -138,28 +138,6 @@ class IssuesController < ApplicationController
     #code
   end
 
-  #
-  # SECTIONS = [
-  #   '1면',
-  #   '정치',
-  #   '행정',
-  #   '국제통일',
-  #   '금융',
-  #   '산업',
-  #   '정책',
-  #   '기획',
-  #   '오피니언',
-  # ]
-  #
-#   1
-# 2_4
-# 5_6
-# 8
-# 10_13
-# 14-17
-# 18_19
-# 20_21
-# 22-23
   def first_group
     set_issue
     group = @issue.publication.sections[0]

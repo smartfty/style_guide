@@ -23,14 +23,14 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  detail_mode           :boolean
 #  draw_frame            :boolean
 #  zoom_level            :integer
 #  zoom_direction        :integer
 #  move_level            :integer
-#  sub_grid_size         :string
 #  auto_size             :integer
 #  fit_type              :string
+#  image_kind            :string
+#  not_related           :boolean
 #
 
 class Image < ApplicationRecord
@@ -94,7 +94,7 @@ class Image < ApplicationRecord
     # h[:fit_type]          = fit_type if fit_type
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame if draw_frame
-
+    h[:image_kind]        = image_kind if image_kind 
     h
   end
 

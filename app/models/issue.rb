@@ -54,12 +54,20 @@ class Issue < ApplicationRecord
     "#{publication_id}/issue/#{date}"
   end
 
+  # def self.convert_default_path_to_yml
+  #   binding.pry
+  #   rb_path = "#{Rails.root}/public/1/default_issue_plan.rb"
+  #   yml_path = "#{Rails.root}/public/1/default_issue_plan.yml"
+  #   rb_file = File.open(rb_path, 'r'){|f| f.read}
+  #   File.open(yml_path, 'w'){|f| f.write rb_file.to_yaml}
+  # end
+
+  # def default_issue_plan_yml_path
+  #   "#{Rails.root}/public/#{publication_id}/default_issue_plan.yml"
+  # end
+
   def default_issue_plan_path
     "#{Rails.root}/public/#{publication_id}/default_issue_plan.rb"
-  end
-
-  def default_issue_path
-    "#{Rails.root}/public/#{publication_id}/default_issue_plan"
   end
 
   def set_color_page
@@ -106,6 +114,7 @@ class Issue < ApplicationRecord
 
   def eval_issue_plan
     eval(plan)
+    # YAML::load(plan)
   end
 
   def issue_images_path
@@ -148,33 +157,17 @@ class Issue < ApplicationRecord
   end
 
   def make_default_issue_plan
-    # binding.pry
-    # # page_array = [page_number, profile]
-    # previous_issue = Issue.find(id - 1)
-    # if previous_issue
-    #   previous_issue.page_plans.each do |p_plan|
-    #     binding.pry
-    #     prev_hash = p_plan.attribures.dup
-    #     prev_hash.delete('id')
-    #     prev_hash.delete('created_at')
-    #     prev_hash.delete('updated_at')
-    #     new_hash = Hash[prev_hash.map{ |k, v| [k.to_sym, v] }]
-    #     new_hash[:issue_id] = id
-    #     p = PagePlan.where(new_hash).first_or_create!
-    #   end
-    # else
-      section_names_array = eval(publication.section_names)
-      eval_issue_plan.each_with_index do |page_array, i|
-        page_hash = {}
-        page_hash[:issue_id] = id
-        page_hash[:section_name]  = section_names_array[i]
-        page_hash[:page_number]   = page_array[0]
-        page_hash[:profile]       = page_array[1]
-        page_hash[:color_page]    = page_array[2] if page_array.length > 2
-        p = PagePlan.where(page_hash).first_or_create!
-      end
-    # end
-    
+    section_names_array = eval(publication.section_names)
+    eval_issue_plan.each_with_index do |page_array, i|
+      page_hash = {}
+      page_hash[:issue_id] = id
+      page_hash[:section_name]  = section_names_array[i]
+      page_hash[:page_number]   = page_array[0]
+      page_hash[:profile]       = page_array[1]
+      page_hash[:color_page]    = page_array[2] if page_array.length > 2
+      puts "page_hash:#{page_hash}"
+      p = PagePlan.where(page_hash).first_or_create!
+    end
   end
 
   def update_plan
@@ -192,7 +185,7 @@ class Issue < ApplicationRecord
   end
 
   def make_pages
-    page_plans.each_with_index do |page_plan, _i|
+    page_plans.each_with_index do |page_plan, i|
       if page_plan.page
         if page_plan.need_update?
           if page_plan.page.color_page != page_plan.color_page
@@ -338,7 +331,7 @@ class Issue < ApplicationRecord
   def read_issue_plan
 
     if File.exist?(default_issue_plan_path)
-      self.plan = File.open(default_issue_plan_path, 'r', &:read)
+      self.plan = File.open(default_issue_plan_path, 'r'){|f| f.read}
       return true
     else
       puts "#{default_issue_plan_path} does not exist!!!"

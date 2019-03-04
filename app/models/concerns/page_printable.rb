@@ -2,23 +2,37 @@ module PagePrintable
   extend ActiveSupport::Concern
 
 
-  def print_status
-    
+  def page_status
     s = "#{page_number}:"
     if color_page
-        s += "(칼러)-" 
+        s += "(칼러)" 
     else
-      s += "(흑백)-" 
+      s += "(흑백)" 
     end
     s += "출력:#{print_count}"
+    s
+  end
+
+  def print_status
+    s = ""
+    s +=  "시간:#{print_time}"   if print_count > 0
+    s
+  end
+
+  def print_time
+    if latest_printer_file
+      File.birthtime(latest_printer_file).to_s.split("+")[0].split(" ")[1]
+    end
   end
 
   def printed_files
     Dir.glob("#{printer_folder}/*.pdf").sort
   end
-  
+
   def printer_file_to_show
-    return latest_printer_file if print_count > 0
+    if print_count > 0
+      return relative_path + "/#{File.basename(latest_printer_file)}" 
+    end
     blank_print_image
   end
 

@@ -309,9 +309,20 @@ class Page < ApplicationRecord
       system "cp #{sample} #{issue_ads_folder}/ad_name"
     end
   end
+  
+  def template_page_number
+    if page_number == 1 || page_number == 22 || page_number == 23
+      number = page_number
+    elsif page_number.even?
+      number = 100
+    else
+      number = 101
+    end
+    number
+  end
 
   def section_template_folder
-    "#{Rails.root}/public/#{publication_id}/section/#{page_number}/#{profile}/#{template_id}"
+    "#{Rails.root}/public/#{publication_id}/section/#{template_page_number}/#{profile}/#{template_id}"
   end
 
   def change_working_articles(section)
@@ -339,41 +350,17 @@ class Page < ApplicationRecord
           att.delete('personal_image')
           att['page_id']              = self.id
           att['article_id']           = article.id
-          # current[:extended_line_count] = article.extended_line_count || 0
-          # current[:pushed_line_count]   = article.pushed_line_count || 0
           w = WorkingArticle.create(att)
           w.generate_pdf_with_time_stamp
         end
       end
-      # mark unused as inactive
       sorted_working_articles = working_articles.sort_by {|article| article.order}
       sorted_working_articles.each_with_index do |working_article, i|
-        # working_article.extended_line_count = 0
-        # working_article.grid_width = grid_width
-        # working_article.grid_height = grid_height
-        # if working_article.order > section.articles.length
-        #   working_article.inactive = true
-        # else
-        #   working_article.inactive = false
-        # end
-        # working_article.save
         if working_article.order > section.articles.length
-          # update story and image before destroying
           working_article.destroy
         end
       end
     end
-    # working_articles.each do |working_article|
-    #   working_article.generate_pdf_with_time_stamp
-    # end
-
-    # # create PageHeading for this page
-    # heading_atts                  = {}
-    # heading_atts[:page_number]    = section.page_number
-    # heading_atts[:section_name]   = section.section_name
-    # heading_atts[:page_id]        = self.id
-    # heading_atts[:date]           = date
-    # result                        = PageHeading.where(heading_atts).first_or_create
   end
 
   def change_ad_boxes(section)
@@ -460,7 +447,6 @@ class Page < ApplicationRecord
     File.open(config_yml_path, 'w'){|f| f.write yaml}
   end
 
-
   def copy_config_file
     source = section_template_folder + "/config.yml"
     config_hash = YAML::load_file(source)
@@ -495,6 +481,30 @@ class Page < ApplicationRecord
     s
   end
 
+  def template_page_number
+    template_path = "#{Rails.root}/public/1/section/#{page_number}" 
+    if File.exist?(template_path)
+      number = page_number
+    elsif page_number.even?
+      number = 100
+    else
+      number = 101
+    end
+    number
+  end
+
+  def heading_page_number
+    page_heading_path = "#{Rails.root}/public/1/page_heading/#{page_number}" 
+    if File.exist?(page_heading_path)
+      number = page_number
+    elsif page_number.even?
+      number = 100
+    else
+      number = 101
+    end
+    number
+  end
+
   def copy_heading
     FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
     if page_number == 1 || page_number == 22 || page_number == 23
@@ -506,13 +516,10 @@ class Page < ApplicationRecord
     end
     target = page_heading_path
     layout_erb_path     = page_heading_path + "/layout.erb"
-    # unless File.exist? layout_erb_path
     system "cp -R #{source}/ #{target}/"
-    # end
     layout_erb_content  = File.open(layout_erb_path, 'r'){|f| f.read}
     erb                 = ERB.new(layout_erb_content)
     @date               = korean_date_string
-    # @section_name       = section_name
     @section_name       = put_space_between_chars(section_name)
     @page_number        = page_number
     layout_content      = erb.result(binding)
@@ -522,35 +529,30 @@ class Page < ApplicationRecord
   end
 
   def copy_section_template(section)
-    puts __method__
-    source = Dir.glob("#{section_template_folder}/*").first
+    
     old_article_count = working_articles.length
     new_aricle_count  = section.story_count
-    if source
-      copy_config_file
-      copy_section_pdf
-      new_aricle_count.times do |i|
-        source = section_template_folder + "/#{i + 1}"
-        article_folder = path + "/#{i + 1}"
-        # if artile folder is empty, copy the whole article template folder
-        unless File.exist?(article_folder)
-          FileUtils.mkdir_p article_folder
-          system("cp -r #{source}/ #{article_folder}/")
-        # if there are current article, copy layout.rb from article template
-        else
-          layout_template = source + "/layout.rb"
-          system("cp  #{layout_template} #{article_folder}/")
-        end
+    copy_config_file
+    copy_section_pdf
+    new_aricle_count.times do |i|
+      source = section.path + "/#{i + 1}"
+      article_folder = path + "/#{i + 1}"
+      # if artile folder is empty, copy the whole article template folder
+      unless File.exist?(article_folder)
+        FileUtils.mkdir_p article_folder
+        system("cp -r #{source}/ #{article_folder}/")
+      # if there are current article, copy layout.rb from article template
+      else
+        layout_template = source + "/layout.rb"
+        system("cp  #{layout_template} #{article_folder}/")
       end
-      copy_ad_folder
-      copy_heading
-    else
-      puts "no section"
     end
+    copy_ad_folder(section)
+    copy_heading
   end
 
-  def copy_ad_folder
-    ad_folder = section_template_folder + "/ad"
+  def copy_ad_folder(section)
+    ad_folder = section.path + "/ad"
     system("cp  -r #{ad_folder} #{path}") if File.exist? ad_folder
   end
 

@@ -257,6 +257,7 @@ Rails.application.routes.draw do
       get 'five'
       get 'six'
       get 'seven'
+      get 'save'
     end
     member do
       get 'download_pdf'
@@ -314,11 +315,11 @@ Rails.application.routes.draw do
     collection do
       get 'style_view'
       get 'style_update'
+      get 'save_current'
     end
     member do
       get 'download_pdf'
       get 'duplicate'
-      get 'save_current'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

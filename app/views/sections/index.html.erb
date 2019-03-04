@@ -3,6 +3,7 @@
   <div class="btn-group" role="group" aria-label="기능">
     <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_section_path, method: :get %></button>
     <button type="button" class="btn btn-warning"><%= link_to "다운로드 CSV", sections_path(format: "csv"), method: :get %>
+    <button type="button" class="btn btn-danger"><%= link_to "Seed 저장", save_sections_path(format: "csv"), method: :get %>
     </button>
   </div>
 </nav>

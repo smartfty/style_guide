@@ -51,6 +51,8 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
+    # binding.pry
+    # puts params
     respond_to do |format|
       if @image.update(image_params)
         if image_params['crop_x']
@@ -107,6 +109,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id, :x_grid, :fit_type, :crop_x, :crop_y, :crop_w, :crop_h, :draw_frame)
+      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id, :x_grid, :fit_type, :crop_x, :crop_y, :crop_w, :crop_h, :draw_frame, :imge_kind)
     end
 end

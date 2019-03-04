@@ -23,14 +23,14 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  detail_mode           :boolean
 #  draw_frame            :boolean
 #  zoom_level            :integer
 #  zoom_direction        :integer
 #  move_level            :integer
-#  sub_grid_size         :string
 #  auto_size             :integer
 #  fit_type              :string
+#  image_kind            :string
+#  not_related           :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
