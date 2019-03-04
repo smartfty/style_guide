@@ -1,5 +1,4 @@
 
-<div class="row">
   <div class = "col-md-6"  align='left' style="padding-bottom: 40px;">
     <%= render 'form', article: @article %>
 
@@ -27,7 +26,6 @@
       <%= button_to "다운로드 PDF", download_pdf_article_path(@article), method: :get, class: "btn btn-sm btn-danger" %>
     </div>
   </div>
-</div>
 
 <%= link_to "이미지 추가", add_image_article_path(@article), method: :get, class: "btn btn-sm btn-danger" %>
 <%= link_to "저자 이미지 추가", add_personal_image_article_path(@article), method: :get, class: "btn btn-sm btn-danger" %>

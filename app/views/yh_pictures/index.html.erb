@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- p id="notice"><%= notice %></p-->
 <h3 align="center">연합사진</h3>
 <%= search_form_for @q do |f| %>
 <%= f.label '카테고리' %>
@@ -11,7 +11,7 @@
   <%= paginate @yh_pictures %>
 </div>
 
-<div class="row">
+<div class="view">
   <% @yh_pictures.each do |yh_picture| %>
     <div class="col-md-2">
       <a href="<%=  yh_picture_path(yh_picture) %>"><img style="object-fit:cover",  src="<%= yh_picture.thumb_path %>" width="200px" height="200px"></img></a>

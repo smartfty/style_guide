@@ -1,5 +1,5 @@
-<div class="row" align="center" style="padding: 0px 100px;">
-<p id="notice"><%= notice %></p>
+<div class="view" align="center">
+<!-- p id="notice"><%= notice %></p-->
 
 
 <h3 align="center">
@@ -36,9 +36,9 @@
               <td style="text-align:center;"><%= f.select :advertiser, %w[사계절 부영 이마트 삼성 농협은행 일동제약 삼성 CJ KT LG하우시스 SK이노베이션 SK하이닉스 SK텔레콤 YTN 연합뉴스 내일교육 석간내일신문 내일이비즈 굿네이버스 녹십자 기아차 현대차 국민지주 하나은행 다상대상 근로복지공단 산업안전보건공단 산업인력공단 한국관광공사 한수원 한마당서림 공고 청산공고 분실공고 서부발전 도서관협회 유한양행 애경], {include_blank: true} %></td>
               <!-- td style="text-align:center;"><%= f.text_field :deadline ,class: 'page-plan-form' %></td -->
               <% if page_plan.page%>
-              <td align="right"><button type="submit" class="btn btn-sm btn-primary">저장</button></td>
+              <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>
               <% else %>
-                <td align="right"><button type="submit" class="btn btn-sm btn-primary">저장</button></td>
+              <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>
               <% end %>
             </tr><% end %>
         <% end %>
@@ -74,10 +74,10 @@
         <td style="text-align:center;"><%= f.select :advertiser, %w[사계절 부영 이마트 삼성 농협은행 일동제약 삼성 CJ KT LG하우시스 SK이노베이션 SK하이닉스 SK텔레콤 YTN 연합뉴스 내일교육 석간내일신문 내일이비즈 굿네이버스 녹십자 기아차 현대차 국민지주 하나은행 다상대상 근로복지공단 산업안전보건공단 산업인력공단 한국관광공사 한수원 한마당서림 공고 청산공고 분실공고 서부발전 도서관협회 유한양행 애경], {include_blank: true} %></td>
         <!-- td style="text-align:center;"><%= f.text_field :deadline ,class: 'page-plan-form' %></td-->
         <% if page_plan.page%>
-                <td align="right"><button type="submit" class="btn btn-sm btn-primary">저장</button></td>
-              <% else %>
-                <td align="right"><button type="submit" class="btn btn-sm btn-primary">저장</button></td>
-              <% end %>
+        <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>
+        <% else %>
+        <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>
+        <% end %>
           </tr><% end %>
       <% end %>
     </tbody>

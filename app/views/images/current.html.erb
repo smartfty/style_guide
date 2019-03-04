@@ -1,13 +1,5 @@
 <h2>당일 면-기사 별 사용/미사용 사진들</h2>
 
-<div class="row">
-  <div class="">
-
-  </div>
-
-</div>
-
-<div class="row">
   <% @current_images.each do |image| %>
   <div class = "col-md-2"  align='center'>
     <button class="btn-danger large"><%= image.page_number %>-<%= image.story_number %></button>
@@ -15,7 +7,6 @@
   </div>    <!-- true -->
   <% end %>
 
-</div>
 <%= form_for(@issue, :html => { :multipart => true }) do |f| %>
    <div class="field">
      <%= f.label :title %><br>

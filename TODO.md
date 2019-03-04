@@ -20,6 +20,13 @@
   - body
     - fit_text
 
+2019-3-4
+  - 사진 종류: 일반, 인물_좌, 인물_우, 구룹
+  - 관련없는_사진
+  - heading_folder
+  - template_folder
+  - 연합기사 sample
+  
 2019-3-2
   - make page_plan for future 14 days
     - add simple_calendar
@@ -27,8 +34,7 @@
     - add imge_kind:string to image table
     - rearange subtiltle and personal_image
     - 시작 단
-  - add image_group
-    - add new tab for image_group
+
 
 2019-2-26
   - 1번이 그래픽이나 사진이면 2번이 top 기사

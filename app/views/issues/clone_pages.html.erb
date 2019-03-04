@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
+<!-- p id="notice"><%= notice %></p-->
 
 <button class="btn-danger large"><%= @issue.date.to_s %> (<%= @issue.number %>)</button>
-<div class="row">
   <% @clone_pages.each do |page| %>
   <div class = "col-md-3"  align='center'>
   <a href="<%=  page_path(page) %>"><img  src="<%= page.jpg_image_path %>" width="100%"></img></a>
@@ -9,4 +8,3 @@
   </div>    <!-- true -->
   <% end %>
 
-</div>

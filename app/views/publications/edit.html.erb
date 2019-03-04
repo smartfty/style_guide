@@ -1,6 +1,3 @@
-
-<p id="notice"><%= notice %></p>
-<div class="row">
   <div class ="col-md-4" align='left' style="padding-bottom: 40px;">
     <%= render 'form', publication: @publication %>
   </div>
@@ -12,5 +9,4 @@
     <div align="center">
       <%= button_to "다운로드 PDF", download_pdf_publication_path(@publication), method: :get, class: "btn btn-sm btn-danger" %>
     </div>
-  </div>
 </div>

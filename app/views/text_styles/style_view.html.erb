@@ -6,7 +6,6 @@
 </div>
 
 <% @sample_articles.each do |article| %>
-  <div class="row">
     <div class = "col-md-6">
       <% if File.exist?(article.pdf_path) %>
         <h4>설정갑</h4>
@@ -24,7 +23,6 @@
 
     </div>
 
-  </div>
 
 
 <% end %>

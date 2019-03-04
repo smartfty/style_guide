@@ -1,13 +1,10 @@
-<p id="notice"><%= notice %></p>
 
-<div class="row">
   <div class = "col-sm-1">
     <p>"   "</p>
   </div>
   <div class = "col-sm-5" style="padding-bottom: 40px;" width="100%">
     <%= render 'form', article: @working_article %>
     <br>
-    <div class="row">
       <% @working_article.images.each do |image| %>
         <div class="col-md-3">
           <p><a href="<%=  edit_image_path(image) %>"><%= image_tag image.image.url(:thumb) %></a></p>
@@ -71,7 +68,6 @@
     </div>
 
   </div>
-</div>
 
 <div class="button-group">
     <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-md btn-success" %>

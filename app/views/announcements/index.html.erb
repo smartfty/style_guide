@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- p id="notice"><%= notice %></p-->
 <h3>안내문</h3>
 <%= search_form_for @q do |f| %>
 <%= f.label '이름에 포함된 글자로' %>
@@ -9,7 +9,6 @@
 <% end %>
 <br>
 
-<div class="row">
 <% @announcements.each do |writer| %>
   <div class="col-xs-6 col-md-3" align='center'>
     <% if browser.safari? %>
@@ -37,7 +36,6 @@
   </div>
   <!-- true -->
 <% end %>
-</div>
 
 <!-- <br> <div align="center"> <%= link_to '새로운 저자등록', new_announcement_path , method: :get, class: "btn btn-md btn-success" %> <%= link_to "다운로드 CSV", announcements_path(format: "csv"), method: :get, class: "btn-group btn btn-sm btn-warning" ,
 align: "center"%> </div> -->
