@@ -28,6 +28,14 @@
       <%= f.text_field :source %>
     </div>
 
+    <div class="field">
+      <%= f.label :종류 %>
+      <%= f.select :image_kind, %w[인물_좌 인물_우 구릅], , {include_blank: true} %>
+    </div>
+    <div class="field">
+      <%= f.label :관련없는 사진 %>
+      <%= f.check_box :not_related %>
+    </div>
 
     <div class="actions">
       <%= f.submit "사진정보 저장"%>
