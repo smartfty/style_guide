@@ -147,6 +147,76 @@ class WorkingArticlesController < ApplicationController
       end    
   end
 
+  def first_group
+    set_issue
+    group = @working_article.issue.publication.sections[0]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}
+    session[:current_group] = 'first_group'
+  end
+
+  def second_group
+    set_issue
+    group = @working_article.issue.publication.sections[1]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}
+    session[:current_group] = 'second_group'
+  end
+
+  def third_group
+    set_issue
+    group = @working_article.issue.publication.sections[2]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}    
+    session[:current_group] = 'third_group'
+  end
+
+  def fourth_group
+    set_issue
+    group = @working_article.issue.publication.sections[3]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}    
+    session[:current_group] = 'fourth_group'
+  end
+
+  def fifth_group
+    set_issue
+    group = @working_article.issue.publication.sections[4]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
+    session[:current_group] = 'fifth_group'
+  end
+
+  def sixth_group
+    set_issue
+    group = @working_article.issue.publication.sections[5]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
+    session[:current_group] = 'sixth_group'
+  end
+
+  def seventh_group
+    set_issue
+    group = @working_article.issue.publication.sections[6]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
+    session[:current_group] = 'seventh_group'
+  end
+
+  def eighth_group
+    set_issue
+    group = @working_article.issue.publication.sections[7]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
+    session[:current_group] = 'eighth_group'
+  end
+
+  # 오피니언
+  def nineth_group
+    set_issue
+    group = @working_article.issue.publication.sections[8]
+    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
+    session[:current_group] = 'nineth_group'
+  end
+
+  def ad_group
+    set_issue
+    session[:current_group] = 'ad_group'
+    @pages = @working_article.issue.pages.select{|p| p.section_name == '전면광고'}
+  end
+
   # download story.pdf
   def download_pdf
     send_file @working_article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
