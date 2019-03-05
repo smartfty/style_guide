@@ -23,7 +23,7 @@ class WorkingArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.json {render @working_article}
-      @ko_date = @working_article.issue.pages.first.korean_date_string
+      @ko_date = Issue.last.korean_date_string
     end
   end
 

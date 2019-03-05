@@ -11,7 +11,7 @@ class AdBoxesController < ApplicationController
   # GET /ad_boxes/1
   # GET /ad_boxes/1.json
   def show
-    @ko_date = Issue.last.pages.first.korean_date_string
+    @ko_date = Issue.last.korean_date_string
   end
 
   # GET /ad_boxes/new

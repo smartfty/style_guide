@@ -5,7 +5,7 @@ class GraphicsController < ApplicationController
   # GET /graphics.json
   def index
     @graphics = Graphic.all
-    @ko_date = Issue.last.pages.first.korean_date_string
+    @ko_date = Issue.last.korean_date_string
   end
 
   # GET /graphics/1
