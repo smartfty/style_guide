@@ -248,7 +248,7 @@ label:before {
 }
 
 
-label[for*='1']:before { content: '\f034'; }
+label[for*='1']:before { content: '\f035'; }
 label[for*='2']:before { content: '\f03e'; }
 label[for*='3']:before { content: '\f080'; }
 label[for*='4']:before { content: '\f0f6'; }
@@ -257,6 +257,8 @@ label[for*='6']:before { content: '\f1a8'; }
 label[for*='7']:before { content: '\f1c5'; }
 label[for*='8']:before { content: '\f181'; }
 label[for*='9']:before { content: '\f00a'; }
+label[for*='10']:before { content: '\f035'; }
+label[for*='11']:before { content: '\f034'; }
 
 
 label:hover {
@@ -279,7 +281,9 @@ input:checked + label {
 #tab6:checked ~ #content6, 
 #tab7:checked ~ #content7,
 #tab8:checked ~ #content8,
-#tab9:checked ~ #content9 {
+#tab9:checked ~ #content9,
+#tab10:checked ~ #content10,
+#tab11:checked ~ #content11 {
   display: block;
 }
 

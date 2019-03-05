@@ -43,11 +43,17 @@
     <input class="input_e" id="tab9" type="radio" name="tabs">
     <label class="taplabel" for="tab9"><% if @working_article.page.page_number == 1 %><%= "#{@working_article.page.page_number}" %><% else %><%= "#{@working_article.page.section_name}" %><% end %>면</label>
 
+    <!-- input class="input_e" id="tab10" type="radio" name="tabs">
+    <label class="taplabel" for="tab10">전체 기사배정</label-->
+
     <input class="input_e" id="tab5" type="radio" name="tabs">
     <label class="taplabel" for="tab5"><%= "#{@working_article.page.page_number}" %>페이지</label>
 
     <input class="input_e" id="tab1" type="radio" name="tabs" checked>
-    <label class="taplabel" for="tab1"><%= "#{@working_article.order}" %>번 기사</label>
+    <label class="taplabel" for="tab1"><%= "#{@working_article.order}" %>번 기사 편집</label>
+
+    <input class="input_e" id="tab11" type="radio" name="tabs">
+    <label class="taplabel" for="tab11">기사배정</label>
 
     <!--input class="input_e" id="tab4" type="radio" name="tabs">
     <label class="taplabel" for="tab4">기사 미리보기</label -->
@@ -58,6 +64,60 @@
     <input class="input_d" id="tab3" type="radio" name="tabs">
     <label class="taplabel" for="tab3">그래픽</label>
     
+    <section class="section" id="content11">
+      <div class="col-sm-12 col-md-12">
+        <div class="col-sm-12 col-md-7">
+          <%= render 'change_story_form', article: @working_article , stories: @stories%>
+        </div>
+        <div class="col-sm-12 col-md-5">
+          <p><%= render 'show_prewview', article: @working_article %></p>
+      </div>  
+    </div>
+  </section>
+  
+
+    <section class="section" id="content10">
+    <% @pages.each do |page| %>
+      <div class='col-xs-12 col-sm-12'>
+          <div class='col-xs-12 col-sm-3'>
+            <div>
+            <%= raw page.to_story_svg %>
+            <h4 align='center'><a href='<%= page_path(page)%>'><%= "#{page.page_number}" %></a></h4>
+            </div>
+          </div>
+          <div class='col-xs-9 col-sm-9 table_h300' align="center">
+          <button type="button" class="btn btn-success"><%= link_to "#{page.section_name} #{page.page_number}페이지 기사 리스트" %></button>
+          <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="text-align:center;">순서</th>
+              <th style="text-align:center;">기자</th>
+              <th style="text-align:center;">제목</th>
+              <th style="text-align:center;">예상 글자수</th>
+              <th style="text-align:center;">기사배정</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% page.working_articles.sort_by{|a| a.order}.each do |working_article| %>
+              <% if working_article.story %>
+              <tr style="background-color:skyblue;">
+              <% else  %>
+              <tr>
+              <% end  %>
+                <td style="text-align:center;"><%= working_article.order %></td>
+                <td style="text-align:center;"><%= working_article.reporter %></td>
+                <td><%= working_article.title %></td>
+                <td style="text-align:center;"><%= working_article.approximate_char_count %></td>
+                <td style="text-align:center;"><button type="button" class="btn btn-sm btn-primary"><%= link_to '배정', change_story_working_article_path(working_article), method: :get %></button></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+    <% end %>
+    </section>
+
+
     <section class="section" id="content9">
       <div class="col-xs-12 col-sm-12">
           <% @pages.each do |page| %>
@@ -72,7 +132,7 @@
 
 
     <section class="section" id="content1">
-      <div class="col-xs-3 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <div class="col-xs-12 col-sm-12">
           <div>
             <%= raw @working_article.page.to_svg_with_jpg %>
@@ -97,7 +157,7 @@
     </section>
 
     <section class="section" id="content2">
-      <div class="col-xs-3 col-sm-4">
+      <div class="col-xs-12 col-sm-4">
         <div class="col-xs-12 col-sm-12">
           <div>
             <%= raw @working_article.page.to_svg_with_jpg %>
@@ -141,7 +201,7 @@
     </section>
 
     <section class="section" id="content3">
-    <div class="col-xs-3 col-sm-4">
+    <div class="col-xs-12 col-sm-4">
       <div class="col-xs-12 col-sm-12">
         <div>
           <%= raw @working_article.page.to_svg_with_jpg %>
@@ -186,7 +246,7 @@
     </section>
 
     <section class="section" id="content4">
-    <div class="col-xs-3 col-sm-4">
+    <div class="col-xs-12 col-sm-4">
       <div class="col-xs-12 col-sm-12">
         <div>
           <%= raw @working_article.page.to_svg_with_jpg %>

@@ -19,12 +19,14 @@ class WorkingArticlesController < ApplicationController
   # GET /working_articles/1.json
   def show
     @pages = @working_article.issue.pages.order(:id, 'desc')
-    @pages = @working_article.issue.pages
+    section_name = @working_article.page.section_name
+    @pages = @working_article.issue.pages.select {|p| p.section_name == section_name}
     respond_to do |format|
       format.html
       format.json {render @working_article}
       @ko_date = Issue.last.korean_date_string
     end
+    change_story
   end
 
   # GET /working_articles/new
