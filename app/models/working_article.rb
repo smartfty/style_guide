@@ -261,7 +261,6 @@ class WorkingArticle < ApplicationRecord
         break
       end
     end
-    puts "found stamped_pdf file ..."
   end
 
   def generate_pdf_with_time_stamp

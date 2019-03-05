@@ -38,6 +38,23 @@ class AdBooking < ApplicationRecord
     end
   end
 
+  # create AdBooking for month of give date, first day of month
+  def self.create_ad_plan_for_month(date)
+    first_day = AdBooking.where(date: date).take
+    unless first_day
+
+    end
+  end
+
+  def self.create_ad_plan_for_day(date)
+    AdBooking.create(date)
+  end
+
+  # get non-holidays in month
+  def self.publishing_days_in_month(date)
+
+  end
+
   def sample_ad_list
     list=<<~EOF
     [

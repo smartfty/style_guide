@@ -20,13 +20,23 @@
   - body
     - fit_text
 
+2019-3-5
+  - 인물사진
+  - 본문내_기고
+  - 부고
+  
+  - 그래픽, 이미지 욱여넣기
+  - 연합연동
+  - 광고예약
+  - 배열표 
+
 2019-3-4
   - 사진 종류: 일반, 인물_좌, 인물_우, 구룹
   - 관련없는_사진
   - heading_folder
   - template_folder
   - 연합기사 sample
-  
+
 2019-3-2
   - make page_plan for future 14 days
     - add simple_calendar
