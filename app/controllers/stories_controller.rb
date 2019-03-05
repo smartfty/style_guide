@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
     @stories = Story.where(date:Issue.last.date, summitted: true).all
     @stories = Story.where(date:Issue.last.date).all
     # @ko_date = Issue.last.pages.first.korean_date_string
-    @date    = Issue.last.korean_date_string
+    @ko_date    = Issue.last.korean_date_string
     respond_to do |format|
       format.html
       format.json { render json: StoryDatatable.new(params) }
@@ -22,6 +22,8 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @working_article = @story.working_article
+    @story.backup
+    redirect_to story_path(@story)
   end
 
   # GET /stories/new
