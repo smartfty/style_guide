@@ -662,7 +662,6 @@ class Page < ApplicationRecord
         break
       end
     end
-    puts "found stamped_pdf file ..."
   end
 
   def delete_latest_files

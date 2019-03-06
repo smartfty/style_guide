@@ -54,18 +54,6 @@ class Issue < ApplicationRecord
     "#{publication_id}/issue/#{date}"
   end
 
-  # def self.convert_default_path_to_yml
-  #   binding.pry
-  #   rb_path = "#{Rails.root}/public/1/default_issue_plan.rb"
-  #   yml_path = "#{Rails.root}/public/1/default_issue_plan.yml"
-  #   rb_file = File.open(rb_path, 'r'){|f| f.read}
-  #   File.open(yml_path, 'w'){|f| f.write rb_file.to_yaml}
-  # end
-
-  # def default_issue_plan_yml_path
-  #   "#{Rails.root}/public/#{publication_id}/default_issue_plan.yml"
-  # end
-
   def default_issue_plan_path
     "#{Rails.root}/public/#{publication_id}/default_issue_plan.rb"
   end

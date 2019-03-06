@@ -53,6 +53,11 @@
 #  overlap                      :text
 #  embedded                     :boolean
 #  heading_columns              :integer
+#  quote_position               :integer
+#  quote_x_grid                 :integer
+#  quote_v_extra_space          :integer
+#  quote_alignment              :string
+#  quote_line_type              :string
 #
 # Indexes
 #

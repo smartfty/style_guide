@@ -53,6 +53,11 @@
 #  overlap                      :text
 #  embedded                     :boolean
 #  heading_columns              :integer
+#  quote_position               :integer
+#  quote_x_grid                 :integer
+#  quote_v_extra_space          :integer
+#  quote_alignment              :string
+#  quote_line_type              :string
 #
 # Indexes
 #
@@ -261,7 +266,6 @@ class WorkingArticle < ApplicationRecord
         break
       end
     end
-    puts "found stamped_pdf file ..."
   end
 
   def generate_pdf_with_time_stamp
@@ -719,6 +723,10 @@ class WorkingArticle < ApplicationRecord
     h[:gutter]                        = self.gutter
     h[:on_left_edge]                  = self.on_left_edge
     h[:on_right_edge]                 = self.on_right_edge
+    if kind == '박스기고'
+      h[:on_left_edge]                = false
+      h[:on_right_edge]               = false
+    end
     h[:is_front_page]                 = self.is_front_page
     h[:top_story]                     = top_story?
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
@@ -727,13 +735,20 @@ class WorkingArticle < ApplicationRecord
     h[:bottom_article]                = page.bottom_article?(self)
     h[:extended_line_count]           = self.extended_line_count if extended_line_count
     h[:pushed_line_count]             = self.pushed_line_count if pushed_line_count
-    h[:quote_box_size]                = self.quote_box_size if show_quote_box?
     if boxed_subtitle_type && boxed_subtitle_type > 0
       h[:boxed_subtitle_type]         = self.boxed_subtitle_type
     end
     if announcement_column && announcement_column > 0
       h[:announcement_column]         = self.announcement_column
       h[:announcement_color]          = self.announcement_color
+    end
+    if show_quote_box?
+      h[:quote_box_size]              = self.quote_box_size 
+      h[:quote_position]              = self.quote_position || 5 
+      h[:quote_x_grid]                = self.quote_x_grid if self.quote_x_grid
+      h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
+      h[:quote_alignment]             = self.quote_alignment || 'left'
+      h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness

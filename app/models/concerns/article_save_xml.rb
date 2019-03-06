@@ -382,9 +382,6 @@ module ArticleSaveXml
       @sbject_ex = ""
     end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
-    # if story_xml_template.include?("\u200B")
-    #   binding.pry
-    # end
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
@@ -807,11 +804,8 @@ EOF
       # return issue.path + "/images/#{photo_file_name}"
       return ""
     else graphics.length > 0
-      # binding.pry
       file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
       system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{file_name} #{mobile_page_preview_path}/#{@photo_file_name}")
-      # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
-      # return issue.path + "/images/#{graphic_file_name}"
       return ""
     end
   end
