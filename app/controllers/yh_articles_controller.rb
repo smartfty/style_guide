@@ -65,7 +65,7 @@ class YhArticlesController < ApplicationController
   end
 
   def taken
-    @yh_article.taken_by(current_user)
+    @yh_article.taken(current_user)
     Story.story_from_wire(current_user, @yh_article)
     redirect_to yh_article_path(@yh_article)
   end

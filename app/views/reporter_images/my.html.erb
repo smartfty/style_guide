@@ -15,18 +15,16 @@
   </thead>
 
   <tbody>
-    <% @reporter_images.each do |story| %>
-      <% if story.selected%>
-        <tr style="background-color:LightGreen;">
-      <% else story.selected%>
+    <% @reporter_images.each do |image| %>
+      <tr style="background-color:LightGreen;">
+      </tr>
       <tr>
-      <% end %>
-        <td><%= story.date_created %></td>
-        <td><%= story.title %></td>
-        <td><%= story.caption %></td>
-        <td><%= story.source %></td>
-        <td><%= button_to '수정', story , class: "btn btn-sm btn-warning", method: :get%></td>
-        <td><%= button_to '삭제', story, class: "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image.created_at %></td>
+        <td><%= image.title %></td>
+        <td><%= image.caption %></td>
+        <td><%= image.source %></td>
+        <td><%= button_to '수정', image , class: "btn btn-sm btn-warning", method: :get%></td>
+        <td><%= button_to '삭제', image, class: "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
