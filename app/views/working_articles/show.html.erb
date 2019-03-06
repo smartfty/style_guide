@@ -55,8 +55,10 @@
                 <% else %><%= "#{@working_article.page.section_name}" %>
                 <% end %>면</label>
 
-            <!-- input class="input_e" id="tab10" type="radio" name="tabs"> <label
-            class="taplabel" for="tab10">전체 기사배정</label-->
+            <input class="input_e" id="tab10" type="radio" name="tabs"> <label class="taplabel" for="tab10">
+                <% if @working_article.page.page_number == 1 %><%= "#{@working_article.page.page_number}" %>
+                <% else %><%= "#{@working_article.page.section_name}" %>
+                <% end %>면 전체 기사배정</label>
 
             <input class="input_e" id="tab5" type="radio" name="tabs">
             <label class="taplabel" for="tab5"><%= "#{@working_article.page.page_number}" %>페이지</label>

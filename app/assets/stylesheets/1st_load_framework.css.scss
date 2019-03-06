@@ -3,11 +3,27 @@
 @import "bootstrap";
 
 
-make all images responsive by default
-img {
-  @extend .img-responsive;
-  margin: 0 auto;
-  }
+// make all images responsive by default
+// img {
+//   @extend .img-responsive;
+//   margin: 0 auto;
+//   }
+
+.img-crop {
+    height: 210px;
+    width: 100%;
+    // object-fit: cover;
+    object-fit: contain;
+    // object-position: top;
+    border: 1px solid #000
+    }
+
+.img-bg {
+  background-color: #e1e1e1; 
+  margin: 2px;
+  padding: 20px;
+}
+  
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
