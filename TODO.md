@@ -20,11 +20,38 @@
   - body
     - fit_text
 
+2019-3-7
+  - image uploade, show image_kind before uploading
+
+2019-3-6
+  - 부고-인사: show subject_head and body
+    fix f.select so that the item shows up first
+  - load 연합 sample
+  - fix personal image
+  - add quote columns to working_article
+  - add partial views
+    박스기고, 
+    특집, 책소개
+      quote 
+       quote_box_size # 2단 3단
+       quote_position
+       quote_x_grid
+       quote_v_extra_space # 
+       quote_alignment # 
+       quote_line_type # 
+
+2019-3-5
+  - 박스기고
+      양측 여백
+  - 부고
+    subject head space_after 
+  - 특집,책소개
+      - 1단 본문없이
+
 2019-3-5
   - 인물사진
-  - 본문내_기고
   - 부고
-  
+
   - 그래픽, 이미지 욱여넣기
   - 연합연동
   - 광고예약
@@ -44,7 +71,6 @@
     - add imge_kind:string to image table
     - rearange subtiltle and personal_image
     - 시작 단
-
 
 2019-2-26
   - 1번이 그래픽이나 사진이면 2번이 top 기사

@@ -51,18 +51,13 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-    # binding.pry
-    # puts params
     respond_to do |format|
       if @image.update(image_params)
         if image_params['crop_x']
-          # binding.pry
         end
-        # @image.update_change
         if @image.working_article_id
           @image.working_article.generate_pdf_with_time_stamp
           @image.working_article.page.generate_pdf_with_time_stamp
-          # redirect_to working_article_path(@image.working_article_id), notice: '이미지 정보가 수정되었습니다.'
         end
         format.html do
           if @image.working_article_id
