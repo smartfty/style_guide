@@ -66,7 +66,6 @@ class Class
     # h[:class_code]     = self.class_code if self.class_code
     h
   end
-
 end
 
 class Metadata
