@@ -1,18 +1,15 @@
-
 <div class="view" align="center">
     <h3>기사 배정</h3>
     기사를 배정한다.
 </div>
 
-
 <div class="col-sm-12 col-md-12">
-  <div class="col-sm-12 col-md-7">
-    <%= render 'change_story_form', article: @working_article , stories: @stories%>
-  </div>
-  <div class="col-sm-12 col-md-5">
-    <p><%= render 'show_prewview', article: @working_article %></p>
- </div>
-
+    <div class="col-sm-12 col-md-7">
+        <%= render 'change_story_form', article: @working_article , stories: @stories%>
+    </div>
+    <div class="col-sm-12 col-md-5">
+        <p><%= render 'show_prewview', article: @working_article %></p>
+    </div>
 </div>
 
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
