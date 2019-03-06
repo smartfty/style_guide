@@ -50,8 +50,6 @@ module PageSaveXml
       erb = ERB.new(template)
       article_map += erb.result(binding) + "\n"
       article_map_jpg_image_path = article_map_path + "/#{@filename}_1_#{@order}.jpg"
-      # binding.pry if w.page_number==22
-      # system("cp #{w.jpg_path} #{article_map_jpg_image_path}")
       FileUtils.mkdir_p(article_map_path) unless File.exist?(article_map_path)
       FileUtils.cp(w.jpg_path, article_map_jpg_image_path)
  

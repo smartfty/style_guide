@@ -1,0 +1,42 @@
+<%= form_for(article, remote: true) do |f| %>
+<% if article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(article.errors.count, "error") %>
+      prohibited this article from being saved:</h2>
+
+    <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="view">
+  <div class="col-sm-6">
+    <div class="col-md-11">
+      <div class="form-group">
+        <%= f.label :기사종류 %>
+        <%= f.select :kind, ['기사', '사진', '기고', '사설', '박스기고', '부고-인사', '특집', '책소개']%>
+        <button type="submit">저장</button>
+      </div>
+      <div class="form-group">
+        <%= f.label :문패 %>
+        <!-- <%= f.text_field :title, class: 'form-control' %> -->
+        <%= f.text_field :subject_head, size: 34 %>
+      </div>
+
+      <div class="form-group-body">
+        <%= f.label :본문 %>
+        <%= f.text_area :body, col: "40", rows: "20", class: 'form-control' %>
+      </div>
+
+  </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+  <%= render 'show_prewview', article: @working_article %>
+  </div>      
+</div>
+
+</nav>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_002907) do
+ActiveRecord::Schema.define(version: 2019_03_05_213019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -689,6 +689,11 @@ ActiveRecord::Schema.define(version: 2019_03_04_002907) do
     t.text "overlap"
     t.boolean "embedded"
     t.integer "heading_columns"
+    t.integer "quote_position"
+    t.integer "quote_x_grid"
+    t.integer "quote_v_extra_space"
+    t.string "quote_alignment"
+    t.string "quote_line_type"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

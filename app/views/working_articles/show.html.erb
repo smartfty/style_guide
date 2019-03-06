@@ -144,11 +144,17 @@
     
       <div class="col-xs-12 col-sm-8">
         <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
-        <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
+          <%= render 'editorial', article: @working_article, page_number:  @working_article.page_number%>
         <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
-        <%= render 'opinion', article: @working_article %>
+          <%= render 'opinion', article: @working_article %>
+        <% elsif @working_article.kind == '부고-인사'  %>
+          <%= render 'obituary', article: @working_article %>
+        <% elsif @working_article.kind == '특집'  %>
+          <%= render 'special', article: @working_article %>
+        <% elsif @working_article.kind == '책소개'  %>
+          <%= render 'book', article: @working_article %>
         <% else %>
-        <%= render 'form', article: @working_article %>
+          <%= render 'form', article: @working_article %>
         <% end %>
       </div>
       <div class="col-xs-12 col-sm-12">
@@ -168,7 +174,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-8">
-        <% if @working_article.kind == '기사' || @working_article.kind == '사진' %>
+        <% if @working_article.kind == '기사' || @working_article.kind == '사진' || @working_article.kind == '박스기고' || @working_article.kind == '특집' || @working_article.kind == '책소개' %>
             <% @working_article.images.sort_by{|x| x.id}.each do |image| %>
               <%= render 'images/form', image: image %>
             <% end %>

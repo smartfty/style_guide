@@ -138,7 +138,6 @@ class PagePlan < ApplicationRecord
   private
 
   def parse_profile
-    # binding.pry
     if profile && profile != ""
       puts "profile:#{profile}"
       puts "profile.length:#{profile.length}"
@@ -148,7 +147,6 @@ class PagePlan < ApplicationRecord
         # "6x15_광고없음_9".length should give us 11, but it returns 18 
         # lets just put sample profile
         #TODO
-        # binding.pry if self.profile.length >= 18
         profile = fix_profile_encoding(self.profile)
         selected_section_template = Section.where(page_number: page_number, profile: profile).take    
         unless selected_section_template
