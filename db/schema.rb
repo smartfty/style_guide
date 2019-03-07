@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_213019) do
+ActiveRecord::Schema.define(version: 2019_03_07_010200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -461,6 +461,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_213019) do
     t.string "reporter_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "wire_pictures"
     t.index ["user_id"], name: "index_reporter_images_on_user_id"
   end
 
@@ -560,6 +561,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_213019) do
     t.string "category_code"
     t.float "price"
     t.text "backup"
+    t.string "subject_head"
+    t.string "kind"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end

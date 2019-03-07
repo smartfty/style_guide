@@ -4,7 +4,7 @@ class ReporterImagesController < ApplicationController
   # GET /reporter_images
   # GET /reporter_images.json
   def index
-    @reporter_images = ReporterImage.all
+     @reporter_images = ReporterImage.all
   end
 
   # GET /reporter_images/1
@@ -63,7 +63,11 @@ class ReporterImagesController < ApplicationController
   end
 
   def my
-    @reporter_images = current_user.reporter_images.order(id: 'DESC')
+    @q = ReporterImage.ransack(params[:q])
+    @reporter_images = @q.result
+    @reporter_images = @reporter_images.order(:id).page(params[:page]).per(20)
+
+    # @reporter_images = current_user.reporter_images.order(id: 'DESC')
   end
 
   private

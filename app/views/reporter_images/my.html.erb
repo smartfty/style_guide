@@ -1,37 +1,26 @@
-<!-- p id="notice"><%= notice %></p-->
 
-<div align="center", style="padding: 0px 100px;">
-<h3>나의 사진</h3>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>날짜</th>
-      <th>제목</th>
-      <th>사진설명</th>
-      <th>출처</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= search_form_for @q do |f| %>
+  <%= f.label '제목에 포함된 글자로' %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit "검색", class: "btn btn-sm btn-normal"%>
+<% end %>
 
-  <tbody>
-    <% @reporter_images.each do |image| %>
-      <tr style="background-color:LightGreen;">
-      </tr>
-      <tr>
-        <td><%= image.created_at %></td>
-        <td><%= image.title %></td>
-        <td><%= image.caption %></td>
-        <td><%= image.source %></td>
-        <td><%= button_to '수정', image , class: "btn btn-sm btn-warning", method: :get%></td>
-        <td><%= button_to '삭제', image, class: "btn btn-sm btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div align="center">
+  <%= paginate @reporter_images %>
+</div>
 
-<br>
+<div class="view">
+  <% @reporter_images.each do |picture| %>
+    <div class="col-md-2">
+      <a href="<%=  reporter_image_path(picture) %>"><img style="object-fit:cover",  src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
+      <p align="center"><%= picture.title %></p>
+    </div>
+  <% end %>
+</div>
+
+<div align="center">
+  <%= paginate @reporter_images %>
+</div>
 
 <%= link_to '새로운 기자 사진 생성', new_reporter_image_path, method: :get, class: "btn btn-md btn-success" %>
-
-</div>
