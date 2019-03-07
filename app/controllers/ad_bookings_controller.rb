@@ -6,6 +6,7 @@ class AdBookingsController < ApplicationController
   # GET /ad_bookings.json
   def index
     @ad_bookings = AdBooking.all
+    @ko_date = Issue.last.korean_date_string
   end
 
   # GET /ad_bookings/1

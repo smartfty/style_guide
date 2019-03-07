@@ -8,6 +8,7 @@ class SectionsController < ApplicationController
     @q = Section.ransack(params[:q])
     @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(20) 
     @sections = Section.all  if request.format == 'csv'
+    @ko_date = Issue.last.korean_date_string
 
     respond_to do |format|
       format.html
@@ -20,6 +21,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
+    @ko_date = Issue.last.korean_date_string
   end
 
   # GET /sections/new

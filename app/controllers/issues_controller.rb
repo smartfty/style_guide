@@ -6,6 +6,8 @@ class IssuesController < ApplicationController
   # GET /issues.json
   def index
     @issues = Issue.page(params[:page]).per(20) 
+    @ko_date = Issue.last.korean_date_string
+
     # @issues = Issue.order(:id, 'DESC').page(params[:page]).per(20) 
   end
 
@@ -82,6 +84,7 @@ class IssuesController < ApplicationController
   end
 
   def current_plan
+    @ko_date = Issue.last.korean_date_string
     half = @issue.page_plans.count/2
     @front_page_plans = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
     @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse
@@ -89,6 +92,7 @@ class IssuesController < ApplicationController
   end
 
   def print_status
+    @ko_date = Issue.last.korean_date_string
     @pages = @issue.pages
   end
 
@@ -143,6 +147,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[0]
     @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_group] = 'first_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def second_group
@@ -150,6 +155,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[1]
     @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_group] = 'second_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def third_group
@@ -157,6 +163,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[2]
     @pages = @issue.pages.select{|p| p.section_name == group}    
     session[:current_group] = 'third_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def fourth_group
@@ -164,6 +171,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[3]
     @pages = @issue.pages.select{|p| p.section_name == group}    
     session[:current_group] = 'fourth_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def fifth_group
@@ -171,6 +179,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[4]
     @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'fifth_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def sixth_group
@@ -178,6 +187,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[5]
     @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'sixth_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def seventh_group
@@ -185,6 +195,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[6]
     @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'seventh_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def eighth_group
@@ -192,6 +203,7 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[7]
     @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'eighth_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   # 오피니언
@@ -200,12 +212,14 @@ class IssuesController < ApplicationController
     group = @issue.publication.sections[8]
     @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'nineth_group'
+    @ko_date = Issue.last.korean_date_string
   end
 
   def ad_group
     set_issue
     session[:current_group] = 'ad_group'
     @pages = @issue.pages.select{|p| p.section_name == '전면광고'}
+    @ko_date = Issue.last.korean_date_string
   end
 
   def spread

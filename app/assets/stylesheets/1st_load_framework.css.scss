@@ -4,10 +4,10 @@
 
 
 // make all images responsive by default
-// img {
-//   @extend .img-responsive;
-//   margin: 0 auto;
-//   }
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
 
 .img-crop {
     height: 210px;
@@ -56,7 +56,7 @@ main {
   @extend .container;
   background-color: #eee;
   padding-bottom: 80px;
-  padding-top: 50px;
+  // padding-top: 50px;
   width: 100%;
   // margin-top: 51px; // accommodate the navbar
   margin-top: 0px; // accommodate the navbar

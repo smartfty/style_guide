@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @q = Page.ransack(params[:q])
     @pages = @q.result
     # @pages = Page.all.includes(:issue)
+    @ko_date = Issue.last.korean_date_string
   end
 
   # GET /pages/1

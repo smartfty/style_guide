@@ -86,14 +86,15 @@ class Issue < ApplicationRecord
     system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)
   end
 
-  DAYS_IN_KOREAN = %w{일요일 월요일 화요일 수요일 목요일 금요일 토요일 }
+  DAYS_IN_KOREAN = %w{(일) (월) (화) (수) (목) (금) (토)}
 
   def issue_week_day_in_korean
     DAYS_IN_KOREAN[date.wday]
   end
 
   def korean_date_string
-    "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean} (#{number}호)"
+    # "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean} (#{number}호)"
+    "#{date.month}월 #{date.day}일 #{issue_week_day_in_korean} #{number}호"
   end
 
   def section_path

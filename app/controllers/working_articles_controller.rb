@@ -13,6 +13,7 @@ class WorkingArticlesController < ApplicationController
     @working_articles = @q.result
     # @pages = Page.all.includes(:issue)
     # @working_articles = WorkingArticle.all
+    @ko_date = Issue.last.korean_date_string
   end
 
   # GET /working_articles/1
