@@ -1,7 +1,7 @@
 class WorkingArticlesController < ApplicationController
   before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :upload_graphics, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
-  # skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
 
   layout 'working_article'
   # GET /working_articles
@@ -67,11 +67,10 @@ class WorkingArticlesController < ApplicationController
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
       if @working_article.update(working_article_params)
-
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp
-        # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
-        # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
+        # format.html { render @working_article, notice: 'Working article was successfully updated.' }
+        format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
         format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
         format.json { render :show, status: :ok, location: @working_article }
       else
