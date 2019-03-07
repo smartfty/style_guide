@@ -10,6 +10,7 @@
 #  reporter_image :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  wire_pictures  :string
 #
 # Indexes
 #
@@ -26,10 +27,34 @@ class ReporterImage < ApplicationRecord
 
   def self.image_from_wire(user, wire)
     s = ReporterImage.where(user_id: user.id, title: wire.title).first_or_create! 
-    # s.caption       = wire.caption
-    s.source        = wire.source
-    # s.reporter_image = wire.source
+    s.title           = wire.title
+    s.caption         = wire.body
+    s.source          = wire.source
+    s.wire_pictures   = wire.picture
     s.save
+  end
+
+  #TODO
+  def sorce_path
+    "/wire_source/201_PHOTO_YNA/20181010"
+  end
+
+  def full_size_path
+    return unless wire_pictures
+    full_size = wire_pictures.split(" ").first
+    sorce_path + "/#{full_size}"
+  end
+
+  def preview_path
+    return unless wire_pictures
+    preview = wire_pictures.split(" ")[1]
+    sorce_path + "/#{preview}"
+  end
+
+  def thumb_path
+    return unless wire_pictures
+    thumb = wire_pictures.split(" ").last
+    sorce_path + "/#{thumb}"
   end
   
 end

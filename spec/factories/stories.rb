@@ -28,6 +28,8 @@
 #  category_code      :string
 #  price              :float
 #  backup             :text
+#  subject_head       :string
+#  kind               :string
 #
 # Indexes
 #

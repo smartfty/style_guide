@@ -21,8 +21,20 @@
     - fit_text
 
 2019-3-7
-  - image uploade, show image_kind before uploading
+  - reporter input add 문페 field, kind
 
+  - ytn image selecting
+    - fix fields names
+    - show the image
+
+  - graphic_request attachement
+  
+  - select image from collected
+  - image 출고
+  - image uploade, show image attributes before uploading
+
+  - quote_box
+  
 2019-3-6
   - 부고-인사: show subject_head and body
     fix f.select so that the item shows up first

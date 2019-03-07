@@ -10,6 +10,7 @@
 #  reporter_image :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  wire_pictures  :string
 #
 # Indexes
 #
