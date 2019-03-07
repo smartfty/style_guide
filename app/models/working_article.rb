@@ -518,15 +518,15 @@ class WorkingArticle < ApplicationRecord
     h = {}
     h['extended_line_count']  = extended_line_count if extended_line_count && extended_line_count > 0
     h['pushed_line_count']    = pushed_line_count if pushed_line_count && pushed_line_count > 0
-    h['subject_head']         = RubyPants.new(subject_head).to_html if subject_head
+    h['subject_head']         = RubyPants.new(subject_head).to_html if subject_head && subject_head !=""
     h['title']                = RubyPants.new(title).to_html if title
     if subtitle
       h['subtitle']           = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
     end
     h['boxed_subtitle_text']  = RubyPants.new(boxed_subtitle_text).to_html if boxed_subtitle_type && boxed_subtitle_type.to_i > 0
-    h['quote']                = RubyPants.new(quote).to_html  if quote_box_size.to_i > 0
+    h['quote']                = RubyPants.new(quote).to_html  if quote && quote !=""# if quote_box_size.to_i > 0
     h['announcement']         = RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0
-    h['reporter']             = reporter
+    h['reporter']             = reporter if reporter &&  reporter !=""
     h['email']                = email
     h
   end
@@ -749,6 +749,15 @@ class WorkingArticle < ApplicationRecord
       h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
       h[:quote_alignment]             = self.quote_alignment || 'left'
       h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
+    elsif @kind == '특집' || @kind == '첵소개'
+      if !quote.nil? &&  quote != ""
+        h[:quote_box_size]              = self.quote_box_size || 1
+        h[:quote_position]              = self.quote_position || 1 
+        h[:quote_x_grid]                = self.quote_x_grid if self.quote_x_grid
+        h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
+        h[:quote_alignment]             = self.quote_alignment || 'left'
+        h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
+      end
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
