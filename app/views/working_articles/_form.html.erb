@@ -54,7 +54,6 @@
             <%= f.text_field :reporter, class: 'form-control', autocomplete: 'off' %>
           </div>
         </div>
-      </div>
 
       <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
         <div class="col-sm-12">
@@ -79,11 +78,11 @@
           <%= f.select :announcement_color, ['빨강', '파랑'] %>
         </div>
       <% end %>
+      <div class="col-md-12">
       <p></p>
-      <div class="form-group">
       <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
        </div>
-
+    </div>
 
   </div>
 
@@ -94,6 +93,12 @@
       <%= render 'character_count', article: @working_article %>
       <%= f.text_area :body, rows: "20", class: 'form-control', autocomplete: 'off' %>
       </div>
+      <div class="col-md-12">
+      <p></p>
+      <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+       </div>
+    </div>
+
   </div>
 
 

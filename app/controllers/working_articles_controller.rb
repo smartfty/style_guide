@@ -13,7 +13,7 @@ class WorkingArticlesController < ApplicationController
     @working_articles = @q.result
     # @pages = Page.all.includes(:issue)
     # @working_articles = WorkingArticle.all
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /working_articles/1
@@ -25,7 +25,7 @@ class WorkingArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.json {render @working_article}
-      @ko_date = Issue.last.korean_date_string
+      
     end
     change_story
   end

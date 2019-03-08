@@ -6,9 +6,8 @@
       </a>
       <!-- %= raw page.to_svg_with_jpg % -->
 
-      <h4 align='center'>
-        <a href='<%= page_path(page)%>'><%= page.page_number %></a>
-      </h4>
+      <h4 align='center'><button type="button" class="btn btn-info"><%= link_to "#{page.page_number}면", page_path(page) %></button>                    </h4>
+
     </div>
     <!-- true -->
   <% end %>

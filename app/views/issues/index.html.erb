@@ -17,7 +17,7 @@
 
         <tr>
           <td>
-          <%= button_to "#{issue.date}(#{issue.number})", issue, method: :get, class: "btn btn-sm btn-primary"  %></td>
+          <%= button_to "#{issue.date}(#{issue.number})", change_current_issue_path(issue), method: :get, class: "btn btn-sm btn-primary"  %></td>
         </tr>
       <% end %>
     </tbody>

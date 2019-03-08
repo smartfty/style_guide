@@ -11,7 +11,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1
   # GET /publications/1.json
   def show
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /publications/new

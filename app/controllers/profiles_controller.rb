@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   def index
     @q = Profile.ransack(params[:q])
     @profiles = @q.result
-    @ko_date = Issue.last.korean_date_string
+    
 
     respond_to do |format|
       format.html

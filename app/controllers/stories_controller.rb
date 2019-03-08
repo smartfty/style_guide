@@ -23,7 +23,7 @@ class StoriesController < ApplicationController
   def show
     @working_article = @story.working_article
     @story.backup
-    redirect_to story_path(@story)
+    # redirect_to story_path(@story)
   end
 
   # GET /stories/new

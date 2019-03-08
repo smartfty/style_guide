@@ -171,6 +171,7 @@ Rails.application.routes.draw do
 
   resources :issues do
     member do
+      get 'change_current'
       get 'update_plan'
       get 'current_plan'
       get 'images'

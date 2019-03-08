@@ -5,7 +5,7 @@ class GraphicRequestsController < ApplicationController
   # GET /graphic_requests.json
   def index
     @graphic_requests = GraphicRequest.all
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /graphic_requests/1

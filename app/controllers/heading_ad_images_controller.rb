@@ -5,24 +5,24 @@ class HeadingAdImagesController < ApplicationController
   # GET /heading_ad_images.json
   def index
     @heading_ad_images = HeadingAdImage.all
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /heading_ad_images/1
   # GET /heading_ad_images/1.json
   def show
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /heading_ad_images/new
   def new
     @heading_ad_image = HeadingAdImage.new
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /heading_ad_images/1/edit
   def edit
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # POST /heading_ad_images
