@@ -8,7 +8,7 @@ class PageWorker
     if time_stamp      
       system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section .  -time_stamp=#{time_stamp}"
     else
-      system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+      system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -jpg"
     end
   end
 end

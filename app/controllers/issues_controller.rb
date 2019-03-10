@@ -5,9 +5,7 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.page(params[:page]).per(20) 
-    
-
+    @issues = Issue.page(params[:page]).per(10) 
     # @issues = Issue.order(:id, 'DESC').page(params[:page]).per(20) 
   end
 
@@ -84,7 +82,6 @@ class IssuesController < ApplicationController
   end
 
   def current_plan
-    
     half = @issue.page_plans.count/2
     @front_page_plans = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
     @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse

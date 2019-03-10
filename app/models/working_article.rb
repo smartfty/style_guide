@@ -493,12 +493,12 @@ class WorkingArticle < ApplicationRecord
 
   def update_page_pdf
     page_path = page.path
-    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section . -jpg"
   end
 
   def update_page_pdf_with_time_stamp
     page_path = page.generate_pdf_with_time_stamp
-    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section . -jpg"
   end
 
   def article_info
