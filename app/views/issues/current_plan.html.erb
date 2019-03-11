@@ -3,11 +3,12 @@
 
     <h3 align="center">
         <% if @issue.pages.first == nil || @issue.pages.first == "" %>
-            <%= link_to "#{@issue.date.to_s} (#{@issue.number})", issues_path %>
+            <!-- %= link_to "#{@issue.date.to_s} (#{@issue.number})", issues_path % -->
+            <%= ko_date %>
             : 면배열표</h3>
     <% else %>
-        <%= @issue.pages.first.korean_date_string %>
-        : 면배열표</h3>
+    <%= ko_date %>
+    : 면배열표</h3>
 <% end %>
 <div class="col-xs-12 col-sm-6">
     <table class="table table-striped">
@@ -44,7 +45,6 @@
                         'page-plan-form' %></td -->
                         <% if page_plan.page %>
                             <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %>
-                                <button type="submit">저장</button>
                             </td>
                         <% else %>
                             <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>

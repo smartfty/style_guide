@@ -58,7 +58,7 @@ class Section < ApplicationRecord
     save_section_config_yml
     # calling create_articles give validation error Section must exist!!!
     # so call it in controller create, and update action
-    # update_section_layout
+    update_section_layout
     copy_page_heading
   end
 

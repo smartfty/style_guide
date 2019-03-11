@@ -5,7 +5,7 @@
       <!-- strong>섹션이름 </strong><%= @section.section_name %><br-->
       <strong>- ID </strong><%= @section.id %><br>
       <strong>- 프로필 </strong><%= @section.profile %><br>
-      <strong>- 행 </strong><%= @section.column %><br>
+      <strong>- 단 </strong><%= @section.column %><br>
       <strong>- 열 </strong><%= @section.row %><br>
       <strong>- 광고종류 </strong><%= @section.ad_type %><br>
       <strong>- 1면 </strong><%= @section.is_front_page %><br>
@@ -22,8 +22,16 @@
       <%= render 'form', section: @section %>
   </div>
 
-  <div class="col-xs-12 col-md-4">
+  <div class="col-xs-12 col-md-2">
   <% if File.exist?(@section.pdf_path) %>
+    <p>PDF</p>
+    <img src="<%= @section.pdf_image_path %>"></img>
+  <% end %>
+  </div>
+
+  <div class="col-xs-12 col-md-2">
+  <% if File.exist?(@section.pdf_path) %>
+    <p>JPG</p>
     <img src="<%= @section.jpg_image_path %>"></img>
   <% end %>
   </div>
