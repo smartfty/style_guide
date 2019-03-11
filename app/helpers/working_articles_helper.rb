@@ -30,4 +30,5 @@ module WorkingArticlesHelper
             issue_path(article.issue)
         end
     end
+
 end
