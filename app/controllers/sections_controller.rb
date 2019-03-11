@@ -102,10 +102,12 @@ class SectionsController < ApplicationController
   end
 
   def regenerate_pdf
+    params[:page] = session[:page] unless params[:page].present?
     @section.regenerate_pdf
     # redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
-    redirect_to sections_url, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
-  end
+    redirect_to sections_url(params[:page]), notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
+end
+  
 
 
   private

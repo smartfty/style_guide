@@ -22,8 +22,16 @@
       <%= render 'form', section: @section %>
   </div>
 
-  <div class="col-xs-12 col-md-4">
+  <div class="col-xs-12 col-md-2">
   <% if File.exist?(@section.pdf_path) %>
+    <p>PDF</p>
+    <img src="<%= @section.pdf_image_path %>"></img>
+  <% end %>
+  </div>
+
+  <div class="col-xs-12 col-md-2">
+  <% if File.exist?(@section.pdf_path) %>
+    <p>JPG</p>
     <img src="<%= @section.jpg_image_path %>"></img>
   <% end %>
   </div>
