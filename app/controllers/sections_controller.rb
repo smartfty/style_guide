@@ -11,7 +11,7 @@ class SectionsController < ApplicationController
     @sections = Section.all  if request.format == 'csv'
     
     respond_to do |format|
-      format.html
+      format.html 
       format.json { render :index}
       format.csv { send_data @sections.to_csv }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
@@ -21,9 +21,6 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
-    @q = Section.ransack(params[:q])
-    @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
-    @sections = Section.all  if request.format == 'csv'
   end    
 
   # GET /sections/new
@@ -58,8 +55,7 @@ class SectionsController < ApplicationController
       if @section.update(section_params)
         
         @section.update_section_layout
-        # format.html { redirect_to @section, notice: 'Section was successfully updated.' }
-        format.html { render :index, notice: 'Section was successfully updated.' }
+        format.html { redirect_to @section, notice: 'Section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }
       else
         format.html { render :edit }
@@ -102,12 +98,9 @@ class SectionsController < ApplicationController
   end
 
   def regenerate_pdf
-    params[:page] = session[:page] unless params[:page].present?
     @section.regenerate_pdf
-    # redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
-    redirect_to sections_url(params[:page]), notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
-end
-  
+    redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
+  end
 
 
   private

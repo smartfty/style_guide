@@ -11,21 +11,22 @@
     : 면배열표</h3>
 <% end %>
 <div class="col-xs-12 col-sm-6">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th style="text-align:center;">페이지</th>
-                <th style="text-align:center;">칼라</th>
-                <th style="text-align:center;">면 이름</th>
-                <th style="text-align:center;">광고</th>
-                <th style="text-align:center;">광고주</th>
-                <!-- th style="text-align:center;">마감시간</th-->
-                <th style="text-align:center;">저장</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @front_page_plans.each do |page_plan| %>
-                <%= form_for(page_plan) do |f| %>
+<table class="table table-striped tables">
+<thead>
+    <tr>
+        <th style="text-align:center;">페이지</th>
+        <th style="text-align:center;">칼라</th>
+        <th style="text-align:center;">면 이름</th>
+        <th style="text-align:center;">광고</th>
+        <th style="text-align:center;">광고주</th>
+        <!-- th style="text-align:center;">마감시간</th-->
+        <th style="text-align:center;">저장</th>
+    </tr>
+</thead>
+</table>
+<% @front_page_plans.each do |page_plan| %>
+    <%= form_for(page_plan) do |f| %>
+    <table class="table table-striped tables">
                 <% if page_plan.color_page %>
                     <tr style="background-color:pink;">
                     <% else %>
@@ -50,28 +51,31 @@
                             <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>
                         <% end %>
                     </tr>
-                <% end %>
-            <% end %>
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        <% end %>
+    <% end %>
+
 </div>
 
 <div class="col-xs-12 col-sm-6">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th style="text-align:center;">페이지</th>
-                <th style="text-align:center;">칼라</th>
-                <th style="text-align:center;">면 이름</th>
-                <th style="text-align:center;">광고</th>
-                <th style="text-align:center;">광고주</th>
-                <!-- th style="text-align:center;">마감시간</th-->
-                <th style="text-align:center;">저장</th>
-            </tr>
-        </thead>
+<table class="table table-striped tables">
+<thead>
+    <tr>
+        <th style="text-align:center;">페이지</th>
+        <th style="text-align:center;">칼라</th>
+        <th style="text-align:center;">면 이름</th>
+        <th style="text-align:center;">광고</th>
+        <th style="text-align:center;">광고주</th>
+        <!-- th style="text-align:center;">마감시간</th-->
+        <th style="text-align:center;">저장</th>
+    </tr>
+</thead>
+</table>
+<% @back_page_plans.each do |page_plan| %>
+    <%= form_for(page_plan) do |f| %>
+        <table class="table table-striped tables">
         <tbody>
-            <% @back_page_plans.each do |page_plan| %>
-                <%= form_for(page_plan) do |f| %>
                 <% if page_plan.color_page %>
                     <tr style="background-color:pink;">
                     <% else %>
@@ -95,10 +99,10 @@
                             <td align="right"><%= f.submit '저장', class: 'btn btn-sm btn-primary' %></td>
                         <% end %>
                     </tr>
-                <% end %>
-            <% end %>
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        <% end %>
+    <% end %>
 </div>
 <br>
 
