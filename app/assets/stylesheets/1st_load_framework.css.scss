@@ -275,6 +275,7 @@ label[for*='8']:before { content: '\f181'; }
 label[for*='9']:before { content: '\f00a'; }
 label[for*='10']:before { content: '\f035'; }
 label[for*='11']:before { content: '\f034'; }
+label[for*='12']:before { content: '\f1ea'; }
 
 
 label:hover {
@@ -299,7 +300,8 @@ input:checked + label {
 #tab8:checked ~ #content8,
 #tab9:checked ~ #content9,
 #tab10:checked ~ #content10,
-#tab11:checked ~ #content11 {
+#tab11:checked ~ #content11,
+#tab22:checked ~ #content22, {
   display: block;
 }
 
