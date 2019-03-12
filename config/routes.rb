@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :yh_graphics do
+    member do
+      get 'taken'
+    end
+  end
   resources :yh_pictures do
     member do
       get 'taken'
@@ -130,7 +135,7 @@ Rails.application.routes.draw do
       get 'reduce_three'
       get 'reduce_four'
       get 'swap'
-      get 'quote_auto'
+      get 'quote_default'
       get 'quote_zero'
       get 'quote_one'
       get 'quote_two'

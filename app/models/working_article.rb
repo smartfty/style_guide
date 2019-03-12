@@ -401,7 +401,6 @@ class WorkingArticle < ApplicationRecord
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
 
-  
   def push_line(line_count)
     self.pushed_line_count = line_count
     self.save
@@ -411,6 +410,7 @@ class WorkingArticle < ApplicationRecord
 
   def show_quote_box?
     quote && quote != "" || quote_box_size && quote_box_size != "0"
+    # has_quote_text && (page.page_number == 22 || page.page_number == 23 )
   end
 
   def empty_lines_count
@@ -425,15 +425,15 @@ class WorkingArticle < ApplicationRecord
     h[:overflow_line_count]
   end
 
-  def quote_auto
-    empty_lines = empty_lines_count
-    return  0 unless empty_lines && empty_lines > 4
-    if empty_lines > 8
-      quote_line(3)
-    elsif empty_lines >= 8
-      quote_line(3)
-    end
-  end
+  # def quote_auto
+  #   empty_lines = empty_lines_count
+  #   return  0 unless empty_lines && empty_lines > 4
+  #   if empty_lines > 8
+  #     quote_line(3)
+  #   elsif empty_lines >= 8
+  #     quote_line(3)
+  #   end
+  # end
 
   def quote_line(line_count)
     puts "line_count: #{line_count}"
@@ -524,7 +524,7 @@ class WorkingArticle < ApplicationRecord
       h['subtitle']           = RubyPants.new(subtitle).to_html unless (kind == '사설' || kind == '기고')
     end
     h['boxed_subtitle_text']  = RubyPants.new(boxed_subtitle_text).to_html if boxed_subtitle_type && boxed_subtitle_type.to_i > 0
-    h['quote']                = RubyPants.new(quote).to_html  if quote && quote !=""# if quote_box_size.to_i > 0
+    h['quote']                = RubyPants.new(quote).to_html  if quote && quote !="" if quote_box_size.to_i > 0
     h['announcement']         = RubyPants.new(announcement_text).to_html  if announcement_column && announcement_column > 0
     h['reporter']             = reporter if reporter &&  reporter !=""
     h['email']                = email
@@ -625,9 +625,6 @@ class WorkingArticle < ApplicationRecord
     page.column
   end
 
-  # def grid_width
-  #   publication.grid_width(page_columns)
-  # end
   def grid_frame
     [grid_x, grid_y, column, row]
   end
@@ -744,20 +741,13 @@ class WorkingArticle < ApplicationRecord
     end
     if show_quote_box?
       h[:quote_box_size]              = self.quote_box_size 
+      # for 기고 quote_box_size indicates lines height 2 or 3.
+      # but for others, quote_box_size is used for grid_width
       h[:quote_position]              = self.quote_position || 5 
-      h[:quote_x_grid]                = self.quote_x_grid if self.quote_x_grid
+      h[:quote_x_grid]                = self.quote_x_grid  - 1 if self.quote_x_grid
       h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
       h[:quote_alignment]             = self.quote_alignment || 'left'
       h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
-    elsif @kind == '특집' || @kind == '첵소개'
-      if !quote.nil? &&  quote != ""
-        h[:quote_box_size]              = self.quote_box_size || 1
-        h[:quote_position]              = self.quote_position || 1 
-        h[:quote_x_grid]                = self.quote_x_grid if self.quote_x_grid
-        h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
-        h[:quote_alignment]             = self.quote_alignment || 'left'
-        h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
-      end
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
@@ -784,6 +774,19 @@ class WorkingArticle < ApplicationRecord
     content
   end
 
+  def quote_layout
+    quote_hash = {}
+    # quote_hash[:quote]            = quote
+    quote_hash[:position]         = quote_position || 1
+    quote_hash[:x_grid]           = quote_x_grid
+    quote_hash[:column]           = quote_box_size || 1
+    quote_hash[:row]              = 1
+    quote_hash[:v_extra_space]    = quote_v_extra_space
+    quote_hash[:text_alignment]   = quote_alignment || 'left'
+    quote_hash[:line_type]        = quote_line_type || '상하'
+    "  news_quote(#{quote_hash})\n"
+  end
+
   def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
     h = layout_options
@@ -793,7 +796,6 @@ class WorkingArticle < ApplicationRecord
         image_hash = image_options
         image_hash[:fit_type] = 3 # keep ratio
         image_hash[:expand] = [:width, :height]
-        puts "image_hash:#{image_hash}"
         content += "  news_image(#{image_hash})\n"
       end
       content += "end\n"
@@ -821,6 +823,9 @@ class WorkingArticle < ApplicationRecord
       if graphics.length > 0
         content += graphic_layout
       end
+      # if quote && quote != ""
+      #   content += quote_layout
+      # end
       content += "end\n"
     end
     content

@@ -123,3 +123,5 @@ gem 'guard-shell'
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
 
 gem "simple_calendar", "~> 2.0"
+
+# gem "image_processing", "~> 1.0"

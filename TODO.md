@@ -1,14 +1,15 @@
 
 
 # TODO
+
 - make demo video
 - make user manual
 - enable ace editor/Trix, or Quill
 - paginate remote with kaminari
 
 ## get record with unique field (:layout)
-- Section.distinct.pluck(:layout)
 
+- Section.distinct.pluck(:layout)
 - fill_up words for article template
 - use key to summit
   - parse svg and make pdf
@@ -19,16 +20,25 @@
 
   - body
     - fit_text
-    
+
+2019-3-12
+  - add wire graphics
+  - graphic_requst attachment
+
+2019-3-8
+  - image_group
+  - quote layout
+  - fix quote left side text flowing bug
+  
 2019-3-7
   - 나의 사진 출고
   - 출고된 사진으로 이미지 편집
   - 부제 삐침
   - 발문 이미지 처럼 위치 선정
   - 이미지 정보 미리 지정하기
-  - 
 
-2019-3-7
+
+2019-3-6
   - reporter input add 문페 field, kind
 
   - ytn image selecting
