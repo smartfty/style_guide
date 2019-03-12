@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :yh_graphics do
+    member do
+      get 'taken'
+    end
+  end
   resources :yh_pictures do
     member do
       get 'taken'

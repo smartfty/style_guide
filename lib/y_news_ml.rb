@@ -179,4 +179,20 @@ class YNewsML
     end
   end
 
+  def self.parse_wire_graphic
+    directory = "#{Rails.root}/public/wire_source/203_GRAPHIC/20190312"
+    puts "parsing 203_GRAPHIC/20190312..."
+
+    # xml_file = Dir.glob("#{directory}/*.xml").first
+    # xml = File.open(xml_file, 'r'){|f| f.read}
+    # puts xmnaeill_file
+    # story_hash = YNewsML.parse(xml).to_hash
+    # puts story_hash
+    # puts story_hash[:picture]
+    Dir.glob("#{directory}/*.xml").each do |f|
+      xml = File.open(f, 'r'){|f| f.read}
+      h = YNewsML.parse(xml).to_hash
+      YhGraphic.create!(h)
+    end
+  end
 end

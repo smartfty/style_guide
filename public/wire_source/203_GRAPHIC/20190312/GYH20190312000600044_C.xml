@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190312000600044</ContentID>
+		<SendDate>20190312</SendDate>
+		<SendTime>134545</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501008" name="노령화"/>
+			<ClassCode code="0606009" name="차사고"/>
+			<ClassCode code="0506001" name="교통일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+		<Writer><![CDATA[장예진]]></Writer>
+		<Desk code="044"><![CDATA[그래픽뉴스팀]]></Desk>
+	</Metadata>
+	<NewsContent>
+		<LangType>KR</LangType>
+		<Title><![CDATA[[그래픽] 고령 면허소지자 비율]]></Title>
+		<Body><![CDATA[[그래픽] 고령 면허소지자 비율
+
+    (서울=연합뉴스) 장예진 기자 = 경찰에 따르면 65세 이상 고령 면허소지자 비율이 2016년 8%에서 2017년 8.8%, 2018년 9.4%로 매년 증가하고 있다. 
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019031200060004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019031200060004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019031200060004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>
