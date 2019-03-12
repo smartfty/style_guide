@@ -22,36 +22,38 @@
         </div>
     </nav>
 
-    <div class="view">
-
         <div class="col-xs-12 col-md-12" style="padding-bottom: 40px;" width="100%">
             <input class="input_e" id="tab9" type="radio" name="tabs">
             <label class="taplabel" for="tab9">
-                <% if @working_article.page.page_number == 1 %><%= "#{@working_article.page.section_name}" %>
-                <% else %><%= "#{@working_article.page.section_name}" %>면<% end %></label>
+                <% if @working_article.page.page_number == 1 %><%= "#{@working_article.page.page_number}" %>
+                <% else %><%= "#{@working_article.page.section_name}" %>
+                <% end %>면</label>
 
             <input class="input_e" id="tab10" type="radio" name="tabs">
             <label class="taplabel" for="tab10">
-                <% if @working_article.page.page_number == 1 %><%= "#{@working_article.page.section_name}" %>
-                <% else %><%= "#{@working_article.page.section_name}" %>면<% end %> 기사배정</label>
+                <% if @working_article.page.page_number == 1 %><%= "#{@working_article.page.page_number}" %>
+                <% else %><%= "#{@working_article.page.section_name}" %>
+                <% end %>면 전체 기사배정</label>
 
-            <input class="input_e" id="tab5" type="radio" name="tabs">
-            <label class="taplabel" for="tab5"><%= "#{@working_article.page.page_number}" %>페이지</label>
-
-            <input class="input_e" id="tab11" type="radio" name="tabs">
-            <label class="taplabel" for="tab11"><%= "#{@working_article.order}" %>번 기사 배정</label>
+            <input class="input_e" id="tab12" type="radio" name="tabs">
+            <label class="taplabel" for="tab12"><%= "#{@working_article.page.page_number}" %>페이지</label>
 
             <input class="input_e" id="tab1" type="radio" name="tabs" checked="checked">
             <label class="taplabel" for="tab1"><%= "#{@working_article.order}" %>번 기사 편집</label>
 
+            <input class="input_e" id="tab11" type="radio" name="tabs">
+            <label class="taplabel" for="tab11">기사배정</label>
+
             <!--input class="input_e" id="tab4" type="radio" name="tabs"> 
             <label class="taplabel" for="tab4">기사 미리보기</label -->
 
-            <input class="input_e" id="tab2" type="radio" name="tabs">
-            <label class="taplabel" for="tab2">사진</label>
+            <input class="input_e" id="tab22" type="radio" name="tabs">
+            <label class="taplabel" for="tab22">사진</label>
 
             <input class="input_e" id="tab3" type="radio" name="tabs">
             <label class="taplabel" for="tab3">그래픽</label>
+
+
 
             <section class="section" id="content9"> <!-- 면 -->
                 <div class="col-xs-12 col-sm-12">
@@ -112,42 +114,36 @@
                 <% end %>
             </section>
 
-            <section class="section" id="content5"> <!-- 페이지 -->
-            <div class="col-xs-12 col-sm-12">
-            <div class="col-xs-12 col-sm-12">
-
-                <%= raw @working_article.page.to_svg_with_jpg %>
-                <p align="center">
-                    <%= @working_article.page.page_number %>
-                </p>
-            </div>
-            </div>
-        </section>
-
+            <section class="section" id="content12"> <!-- 페이지 -->
+                <div class="col-xs-12 col-sm-12">
+                    <%= raw @working_article.page.to_svg_with_jpg %>
+                    <p align="center">
+                        <%= @working_article.page.page_number %>
+                    </p>
+                </div>
+            </section>
 
             <section class="section" id="content1"> <!-- 기사편집 -->
-            <div class="col-xs-12 col-sm-12">
                 <div class="col-xs-12 col-sm-4">
-                     <%= raw @working_article.page.to_svg_with_jpg %>
-                     <p align="center">
-                         <%= @working_article.page.page_number %>
-                     </p>
+                    <%= raw @working_article.page.to_svg_with_jpg %>
+                    <p align="center">
+                        <%= @working_article.page.page_number %>
+                    </p>
                 </div>
 
                 <div class="col-xs-12 col-sm-8">
                     <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
-                        <%= render 'editorial', article:@working_article, page_number:@working_article.page_number%>
-                        <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
-                            <%= render 'opinion', article: @working_article %>
-                        <% else %>
-                            <%= render 'form', article: @working_article %>
-                        <% end %>
+                        <%= render 'editorial', article:@working_article, page_number:@working_article.page_number %>
+                    <% elsif @working_article.kind == '기고' || @working_article.kind == 'opinion' %>
+                        <%= render 'opinion', article: @working_article %>
+                    <% else %>
+                        <%= render 'form', article: @working_article %>
+                    <% end %>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-12">
-            <%= render 'show_prewview', article: @working_article %>
-            </div>          
-          
+
+                <div class="col-xs-12 col-sm-12">
+                    <img src="<%= @working_article.jpg_image_path %>"></img>
+                </div>
             </section>
 
             <section class="section" id="content11"> <!-- 기사배정 -->
@@ -162,14 +158,15 @@
             </section>
     
 
-            <section class="section" id="content2">
-                <div class="col-xs-12 col-sm-12">
-                    <div class="col-xs-12 col-sm-4">
+            <section class="section" id="content22">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="col-xs-12 col-sm-12">
                         <%= raw @working_article.page.to_svg_with_jpg %>
                         <p align="center">
                             <%= @working_article.page.page_number %>
                         </p>
                     </div>
+                </div>
 
                 <div class="col-xs-12 col-sm-8">
                     <% if @working_article.kind == '기사' || @working_article.kind == '사진' %>
@@ -202,13 +199,14 @@
                 </div>
             </section>
 
-                <section class="section" id="content3">
-                    <div class="col-xs-12 col-sm-12">
+                    <section class="section" id="content3">
                         <div class="col-xs-12 col-sm-4">
-                            <%= raw @working_article.page.to_svg_with_jpg %>
-                            <p align="center">
-                                <%= @working_article.page.page_number %>
-                            </p>
+                            <div class="col-xs-12 col-sm-12">
+                                <%= raw @working_article.page.to_svg_with_jpg %>
+                                <p align="center">
+                                    <%= @working_article.page.page_number %>
+                                </p>
+                            </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-8">
@@ -243,7 +241,7 @@
                         </div>
                     </section>
 
-                    <section class="section" id="content4">
+                    <!--section class="section" id="content4">
                         <div class="col-xs-12 col-sm-4">
                             <div class="col-xs-12 col-sm-12">
                                     <%= raw @working_article.page.to_svg_with_jpg %>
@@ -254,17 +252,12 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-8">
-                        <%= render 'character_count', article: @working_article %>
-                        <img src="<%= @working_article.jpg_image_path %>"></img>
-                        <%= render 'character_count', article: @working_article %>
+                            <img src="<%= @working_article.jpg_image_path %>"></img>
                         </div>
-                    </section>
+                    </section -->
 
 
-                </div>
 
-                <!-- div class="col-sm-12 col-md-12" align="center"> <%= render 'show_prewview',
-                article: @working_article %> </div -->
-
-            </div>
-        <% end %>
+        </div>
+    </div>
+<% end %>
