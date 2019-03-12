@@ -310,17 +310,6 @@ class Page < ApplicationRecord
     end
   end
   
-  def template_page_number
-    if page_number == 1 || page_number == 22 || page_number == 23
-      number = page_number
-    elsif page_number.even?
-      number = 100
-    else
-      number = 101
-    end
-    number
-  end
-
   def section_template_folder
     "#{Rails.root}/public/#{publication_id}/section/#{template_page_number}/#{profile}/#{template_id}"
   end

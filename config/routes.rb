@@ -130,7 +130,7 @@ Rails.application.routes.draw do
       get 'reduce_three'
       get 'reduce_four'
       get 'swap'
-      get 'quote_auto'
+      get 'quote_default'
       get 'quote_zero'
       get 'quote_one'
       get 'quote_two'

@@ -487,9 +487,15 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '14번 가사와 교체 되었습니다.'
   end
 
-  def quote_auto
+  # def quote_auto
+  #   set_working_article
+  #   @working_article.quote_auto
+  #   redirect_to working_article_path(@working_article), notice: '발문 박스 자동크기 설정 되었습니다.'
+  # end
+
+  def quote_default
     set_working_article
-    @working_article.quote_auto
+    @working_article.quote_line(4)
     redirect_to working_article_path(@working_article), notice: '발문 박스 자동크기 설정 되었습니다.'
   end
 
@@ -581,7 +587,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type)
     end
 
     def filter_markdown?

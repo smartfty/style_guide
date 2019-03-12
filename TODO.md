@@ -1,14 +1,15 @@
 
 
 # TODO
+
 - make demo video
 - make user manual
 - enable ace editor/Trix, or Quill
 - paginate remote with kaminari
 
 ## get record with unique field (:layout)
-- Section.distinct.pluck(:layout)
 
+- Section.distinct.pluck(:layout)
 - fill_up words for article template
 - use key to summit
   - parse svg and make pdf
@@ -19,6 +20,10 @@
 
   - body
     - fit_text
+
+2019-3-12
+  - add wire graphics
+  - graphic_requst attachment
 
 2019-3-8
   - image_group

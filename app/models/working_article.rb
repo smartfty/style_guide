@@ -425,15 +425,15 @@ class WorkingArticle < ApplicationRecord
     h[:overflow_line_count]
   end
 
-  def quote_auto
-    empty_lines = empty_lines_count
-    return  0 unless empty_lines && empty_lines > 4
-    if empty_lines > 8
-      quote_line(3)
-    elsif empty_lines >= 8
-      quote_line(3)
-    end
-  end
+  # def quote_auto
+  #   empty_lines = empty_lines_count
+  #   return  0 unless empty_lines && empty_lines > 4
+  #   if empty_lines > 8
+  #     quote_line(3)
+  #   elsif empty_lines >= 8
+  #     quote_line(3)
+  #   end
+  # end
 
   def quote_line(line_count)
     puts "line_count: #{line_count}"
@@ -625,9 +625,6 @@ class WorkingArticle < ApplicationRecord
     page.column
   end
 
-  # def grid_width
-  #   publication.grid_width(page_columns)
-  # end
   def grid_frame
     [grid_x, grid_y, column, row]
   end
@@ -744,13 +741,14 @@ class WorkingArticle < ApplicationRecord
     end
     if show_quote_box?
       h[:quote_box_size]              = self.quote_box_size 
+      # for 기고 quote_box_size indicates lines height 2 or 3.
+      # but for others, quote_box_size is used for grid_width
       h[:quote_position]              = self.quote_position || 5 
-      h[:quote_x_grid]                = self.quote_x_grid if self.quote_x_grid
+      h[:quote_x_grid]                = self.quote_x_grid  - 1 if self.quote_x_grid
       h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
       h[:quote_alignment]             = self.quote_alignment || 'left'
       h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
     end
-
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
     h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
