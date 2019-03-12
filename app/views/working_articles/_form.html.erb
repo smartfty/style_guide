@@ -61,6 +61,7 @@
           <%= f.text_area :boxed_subtitle_text, rows: "2", class: 'form-control', autocomplete: 'off' %>
         </div>
       <% end %>
+
       <% if  article.announcement_column && article.announcement_column.to_i > 0%>
         <div class="col-md-12">
           <%= f.label '안내문' %>
@@ -71,30 +72,32 @@
           <%= f.select :announcement_color, ['빨강', '파랑'] %>
         </div>
       <% end %>
+
+      <% if article.quote_box_size && article.quote_box_size.to_i > 0%>
+      <div class="form-group">
+        <p> ...</p>
+        <%= f.label :발문 %>
+        <div class="field">
+          <%= f.label :위치 %><%= f.select :quote_position, [1,2,3,4,5,6,7,8,9], style: "width:40px", class: 'form-control' %>
+          <%= f.label :가로시작_단 %><%= f.text_field :quote_x_grid, value: article.quote_x_grid, style: "width:35px", class: 'form-control' %>
+          <%= f.label :넓이_단 %><%= f.select :quote_box_size, [1, 2, 3], style: "width:35px", class: 'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :상하여백 %><%= f.select :quote_v_extra_space, [1, 2], style: "width:40px", class: 'form-control' %>
+          <%= f.label :정렬 %><%= f.select :quote_alignment, ['좌측', '중간','우측'], style: "width:35px", class: 'form-control' %>
+          <%= f.label :테두리 %><%= f.select :quote_line_type, ['상하', '테두리'] %>
+        </div>
+        <%= f.text_area :quote, rows: "3", class: 'form-control' %>
+      </div>
+    <% end %>
+
       <div class="col-md-12">
       <p></p>
-      <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-       </div>
+        <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      </div>
     </div>
 
 
-      <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
-        <div class="form-group">
-          <p> ...</p>
-          <%= f.label :발문 %>
-          <div class="field">
-            <%= f.label :위치 %><%= f.select :quote_position, [1,2,3,4,5,6,7,8,9], style: "width:40px", class: 'form-control' %>
-            <%= f.label :가로시작_단 %><%= f.text_field :quote_x_grid, value: article.quote_x_grid, style: "width:35px", class: 'form-control' %>
-            <%= f.label :넓이_단 %><%= f.select :quote_box_size, [1, 2, 3], style: "width:35px", class: 'form-control' %>
-          </div>
-          <div class="field">
-            <%= f.label :상하여백 %><%= f.select :quote_v_extra_space, [1, 2], style: "width:40px", class: 'form-control' %>
-            <%= f.label :정렬 %><%= f.select :quote_alignment, ['좌측', '중간','우측'], style: "width:35px", class: 'form-control' %>
-            <%= f.label :테두리 %><%= f.select :quote_line_type, ['상하', '테두리'] %>
-          </div>
-          <%= f.text_area :quote, rows: "3", class: 'form-control' %>
-        </div>
-      <% end %>
   </div>
 
   <div class="col-xs-12 col-sm-6">
@@ -104,12 +107,6 @@
       <%= render 'character_count', article: @working_article %>
       <%= f.text_area :body, rows: "20", class: 'form-control', autocomplete: 'off' %>
       </div>
-      <div class="col-md-12">
-      <p></p>
-      <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-       </div>
-    </div>
-
   </div>
 
     <% end %>
