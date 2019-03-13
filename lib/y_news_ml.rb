@@ -147,6 +147,7 @@ class YNewsML
   def self.load_ytn_sample
     self.parse_wire_story
     self.parse_wire_picture
+    self.parse_wire_graphic
   end
 
   def self.parse_wire_story
