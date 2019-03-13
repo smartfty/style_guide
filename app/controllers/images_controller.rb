@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @images = Image.all
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   def current

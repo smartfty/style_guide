@@ -5,6 +5,7 @@ class GraphicRequestsController < ApplicationController
   # GET /graphic_requests.json
   def index
     @graphic_requests = GraphicRequest.all
+    
   end
 
   # GET /graphic_requests/1

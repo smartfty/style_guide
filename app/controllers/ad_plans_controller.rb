@@ -6,6 +6,7 @@ class AdPlansController < ApplicationController
   # GET /ad_plans.json
   def index
     @ad_plans = AdPlan.all
+    
   end
 
   # GET /ad_plans/1

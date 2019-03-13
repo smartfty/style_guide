@@ -7,20 +7,20 @@
 <% end %>
 <br>
 
-<div align="center">
+<div class="col-xs-12 col-sm-12" align="center">
   <%= paginate @yh_pictures %>
 </div>
 
 <div class="view">
   <% @yh_pictures.each do |yh_picture| %>
-    <div class="col-md-2">
-      <a href="<%=  yh_picture_path(yh_picture) %>"><img style="object-fit:cover",  src="<%= yh_picture.thumb_path %>" width="200px" height="200px"></img></a>
+    <div class="col-xs-5 col-sm-3">
+      <a href="<%= yh_picture_path(yh_picture) %>"><img class="img-crop" src="<%= yh_picture.thumb_path %>"></img></a>
       <p align="center"><%= yh_picture.title %></p>
     </div>
   <% end %>
 </div>
 
-<div align="center">
+<div class="col-xs-12 col-sm-12" align="center">
   <%= paginate @yh_pictures %>
 </div>
 

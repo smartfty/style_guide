@@ -44,7 +44,7 @@ body{
 .row {
   margin-left: 5px !important;
   margin-right: 5px !important;
-  padding-top: 105px !important;
+  padding-top: 60px !important;
   padding-bottom: 55px !important;
 }
 
@@ -68,6 +68,10 @@ body{
 
 .table_h300 {
   min-height: 300px;
+}
+
+.tables {
+  margin-bottom: 0 !important;
 }
 
 // .space {
@@ -269,7 +273,7 @@ textarea {
   padding-right: 5px;
 }
 
-img {
+.img {
   max-width: 100% !important;
   height: auto !important;
 }

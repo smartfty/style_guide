@@ -11,7 +11,10 @@ class AdBoxesController < ApplicationController
   # GET /ad_boxes/1
   # GET /ad_boxes/1.json
   def show
-    @ko_date = Issue.last.korean_date_string
+    
+    @pages = @ad_box.issue.pages.order(:id, 'desc')
+    section_name = @ad_box.page.section_name
+    @pages = @ad_box.issue.pages.select {|p| p.section_name == section_name}
   end
 
   # GET /ad_boxes/new

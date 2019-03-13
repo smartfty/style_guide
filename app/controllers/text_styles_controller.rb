@@ -10,12 +10,14 @@ class TextStylesController < ApplicationController
       format.html
       format.csv { send_data @text_styles.to_csv }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
+      
     end
   end
 
   # GET /text_styles/1
   # GET /text_styles/1.json
   def show
+    
   end
 
   # GET /text_styles/new

@@ -41,7 +41,7 @@ module PagePrintable
   end
 
   def blank_print_image
-    "/1/blank_print_image.pdf"
+    "/1/blank_print_image.jpg"
   end
 
   def print_count

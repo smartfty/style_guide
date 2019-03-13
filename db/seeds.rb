@@ -257,4 +257,4 @@ csv.each do |row|
 end
 
 # load sample YTN articles and images
-# YNewsML.load_ytn_sample
+YNewsML.load_ytn_sample

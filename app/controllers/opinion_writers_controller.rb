@@ -8,6 +8,7 @@ class OpinionWritersController < ApplicationController
     @q = OpinionWriter.ransack(params[:q])
     @opinion_writers = @q.result
     @opinion_writers = OpinionWriter.all  if request.format == 'csv'
+    
 
     respond_to do |format|
       format.html

@@ -1,12 +1,15 @@
 <!-- p id="notice"><%= notice %></p-->
 
 <div align="center">
+
   <h3>이전 신문 보기</h3>
+
+  최종 발행호<%= button_to "#{@issues.last.date}(#{@issues.last.number})", change_current_issue_path(@issues.last), method: :get, class: "btn btn-sm btn-primary"  %></td>
 
   <table class="table table-striped" style="width: 200px;">
     <thead
       <tr>
-        <th>날짜</th>
+        <th>이전호</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,7 +20,7 @@
 
         <tr>
           <td>
-          <%= button_to "#{issue.date}(#{issue.number})", issue, method: :get, class: "btn btn-sm btn-primary"  %></td>
+          <%= button_to "#{issue.date}(#{issue.number})", change_current_issue_path(issue), method: :get, class: "btn btn-sm btn-primary"  %></td>
         </tr>
       <% end %>
     </tbody>

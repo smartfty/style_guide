@@ -5,20 +5,24 @@ class HeadingAdImagesController < ApplicationController
   # GET /heading_ad_images.json
   def index
     @heading_ad_images = HeadingAdImage.all
+    
   end
 
   # GET /heading_ad_images/1
   # GET /heading_ad_images/1.json
   def show
+    
   end
 
   # GET /heading_ad_images/new
   def new
     @heading_ad_image = HeadingAdImage.new
+    
   end
 
   # GET /heading_ad_images/1/edit
   def edit
+    
   end
 
   # POST /heading_ad_images

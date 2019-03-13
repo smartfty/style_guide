@@ -310,8 +310,30 @@ class Page < ApplicationRecord
     end
   end
   
+  def template_page_number
+    template_path = "#{Rails.root}/public/1/section/#{page_number}" 
+    if File.exist?(template_path)
+      number = page_number
+    elsif page_number.even?
+      number = 100
+    else
+      number = 101
+    end
+    number
+  end
+
   def section_template_folder
-    "#{Rails.root}/public/#{publication_id}/section/#{template_page_number}/#{profile}/#{template_id}"
+    s = "#{Rails.root}/public/#{publication_id}/section/#{template_page_number}/#{profile}/#{template_id}"
+    if File.exist?(s)
+      s
+    else
+      if page_number.odd?
+        template_page_number = 101
+      else 
+        template_page_number = 100
+      end
+      "#{Rails.root}/public/#{publication_id}/section/#{template_page_number}/#{profile}/#{template_id}"
+    end
   end
 
   def change_working_articles(section)
@@ -470,17 +492,7 @@ class Page < ApplicationRecord
     s
   end
 
-  def template_page_number
-    template_path = "#{Rails.root}/public/1/section/#{page_number}" 
-    if File.exist?(template_path)
-      number = page_number
-    elsif page_number.even?
-      number = 100
-    else
-      number = 101
-    end
-    number
-  end
+
 
   def heading_page_number
     page_heading_path = "#{Rails.root}/public/1/page_heading/#{page_number}" 
@@ -496,13 +508,7 @@ class Page < ApplicationRecord
 
   def copy_heading
     FileUtils.mkdir_p(page_heading_path) unless File.exist?(page_heading_path)
-    if page_number == 1 || page_number == 22 || page_number == 23
-      source = issue.publication.heading_path + "/#{page_number}"
-    elsif page_number.even?
-      source = issue.publication.heading_path + "/100"
-    else
-      source = issue.publication.heading_path + "/101"
-    end
+    source = issue.publication.heading_path + "/#{heading_page_number}"
     target = page_heading_path
     layout_erb_path     = page_heading_path + "/layout.erb"
     system "cp -R #{source}/ #{target}/"
@@ -651,6 +657,7 @@ class Page < ApplicationRecord
         break
       end
     end
+    puts "found stamped_pdf file ..."
   end
 
   def delete_latest_files

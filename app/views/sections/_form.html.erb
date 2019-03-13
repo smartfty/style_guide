@@ -65,18 +65,16 @@
 
 
   <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-  <nav class="navbar navbar-default navbar-fixed-top2">
+  <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="btn-group" role="group" aria-label="기능">
       <button type="button" class="btn btn-success"><%= link_to "이전으로", sections_path, method: :get %></button>
       <%= f.button "저장하기", class: "btn btn-primary" %>
       <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_section_path, method: :get %></button>
       </button>
     </div>
-  </nav>
 
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="btn-group" role="group" aria-label="기능">
-    <button type="button" class="btn btn-danger"><%= link_to "미리보기 갱신", regenerate_pdf_section_path(@section), method: :get %>
+  <div class="btn-group btn-right" role="group" aria-label="기능">
+    <button type="button" class="btn btn-danger"><%= link_to "재생성", regenerate_pdf_section_path(@section), method: :get %>
     <button type="button" class="btn btn-warning"><%= link_to "다운로드 PDF", download_pdf_section_path, method: :get %>
     </button>
   </div>

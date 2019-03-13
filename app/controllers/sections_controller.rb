@@ -1,16 +1,17 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy, :download_pdf, :duplicate, :regenerate_pdf]
   before_action :authenticate_user!
+  before_action :set_search
 
   # GET /sections
   # GET /sections.json
   def index
     @q = Section.ransack(params[:q])
-    @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(20) 
+    @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
     @sections = Section.all  if request.format == 'csv'
-
+    
     respond_to do |format|
-      format.html
+      format.html 
       format.json { render :index}
       format.csv { send_data @sections.to_csv }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
@@ -20,7 +21,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
-  end
+  end    
 
   # GET /sections/new
   def new

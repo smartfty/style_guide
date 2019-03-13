@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @q = Page.ransack(params[:q])
     @pages = @q.result
     # @pages = Page.all.includes(:issue)
+  
   end
 
   # GET /pages/1
@@ -30,7 +31,7 @@ class PagesController < ApplicationController
     #   # format.pdf {send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"}
     #   format.jpg {send_date @page.jpg_path, :type=>'application/jpg'}
     # end
-    @ko_date = Issue.last.korean_date_string
+    
   end
 
   # GET /pages/new

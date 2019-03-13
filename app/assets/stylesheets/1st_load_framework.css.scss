@@ -3,11 +3,27 @@
 @import "bootstrap";
 
 
-make all images responsive by default
+// make all images responsive by default
 img {
   @extend .img-responsive;
   margin: 0 auto;
   }
+
+.img-crop {
+    height: 210px;
+    width: 100%;
+    // object-fit: cover;
+    object-fit: contain;
+    // object-position: top;
+    border: 1px solid #000
+    }
+
+.img-bg {
+  background-color: #e1e1e1; 
+  margin: 2px;
+  padding: 20px;
+}
+  
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
@@ -40,7 +56,7 @@ main {
   @extend .container;
   background-color: #eee;
   padding-bottom: 80px;
-  padding-top: 50px;
+  // padding-top: 50px;
   width: 100%;
   // margin-top: 51px; // accommodate the navbar
   margin-top: 0px; // accommodate the navbar
@@ -91,6 +107,10 @@ main {
 
 .btn-right {
   float:right;
+}
+
+.black {
+  background-color: #b3b3b3
 }
 
 .selected_template {
@@ -248,7 +268,7 @@ label:before {
 }
 
 
-label[for*='1']:before { content: '\f034'; }
+label[for*='1']:before { content: '\f035'; }
 label[for*='2']:before { content: '\f03e'; }
 label[for*='3']:before { content: '\f080'; }
 label[for*='4']:before { content: '\f0f6'; }
@@ -257,6 +277,9 @@ label[for*='6']:before { content: '\f1a8'; }
 label[for*='7']:before { content: '\f1c5'; }
 label[for*='8']:before { content: '\f181'; }
 label[for*='9']:before { content: '\f00a'; }
+label[for*='10']:before { content: '\f035'; }
+label[for*='11']:before { content: '\f034'; }
+label[for*='12']:before { content: '\f1ea'; }
 
 
 label:hover {
@@ -279,7 +302,10 @@ input:checked + label {
 #tab6:checked ~ #content6, 
 #tab7:checked ~ #content7,
 #tab8:checked ~ #content8,
-#tab9:checked ~ #content9 {
+#tab9:checked ~ #content9,
+#tab10:checked ~ #content10,
+#tab11:checked ~ #content11,
+#tab22:checked ~ #content22, {
   display: block;
 }
 

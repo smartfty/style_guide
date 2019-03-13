@@ -7,6 +7,8 @@ class ProfilesController < ApplicationController
   def index
     @q = Profile.ransack(params[:q])
     @profiles = @q.result
+    
+
     respond_to do |format|
       format.html
       format.csv do
