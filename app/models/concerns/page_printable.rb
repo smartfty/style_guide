@@ -31,7 +31,7 @@ module PagePrintable
 
   def printer_file_to_show
     if print_count > 0
-      return relative_path + "/#{File.basename(latest_printer_file)}" 
+      return relative_path + "/printer/#{File.basename(latest_printer_file)}" 
     end
     blank_print_image
   end
