@@ -80,18 +80,38 @@ class Image < ApplicationRecord
     working_article.images.length
   end
 
+  #'최적' '가로', '세로', '욱여넣기'
+  # MAGE_FIT_TYPE_ORIGINAL        = 0
+  # IMAGE_FIT_TYPE_VERTICAL       = 1
+  # IMAGE_FIT_TYPE_HORIZONTAL     = 2
+  # IMAGE_FIT_TYPE_KEEP_RATIO     = 3
+  # IMAGE_FIT_TYPE_IGNORE_RATIO   = 4
+  # IMAGE_FIT_TYPE_REPEAT_MUTIPLE = 5
+  # IMAGE_CHANGE_BOX_SIZE         = 6 #change box size to fit image source as is at origin
+
   def iamge_layout_hash
     h = {}
     h[:image_path]        = image_path
     h[:column]            = column
     h[:row]               = row
-    h[:position]          = position
+    h[:position]          = position.to_i
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:caption_title]     = RubyPants.new(caption_title).to_html if caption_title
     h[:caption]           = RubyPants.new(caption).to_html if caption
     h[:source]            = source if source
-    # h[:fit_type]          = fit_type if fit_type
+    case fit_type
+    when '최적'
+      h[:fit_type] = 3 
+    when '가로'
+      h[:fit_type] = 1 
+    when '세로'
+      h[:fit_type] = 2 
+    when '욱여넣기'
+      h[:fit_type] = 4
+    else
+      h[:fit_type] = 3 
+    end
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame if draw_frame
     h[:image_kind]        = image_kind if image_kind 
@@ -215,7 +235,7 @@ class Image < ApplicationRecord
       self.row                    = 2 unless row
       self.extra_height_in_lines  = 0
       self.position               = 3
-      self.fit_type               = '최적' #'상하', '좌우', '욱여넣기'
+      self.fit_type               = 3 #'최적' '상하', '좌우', '욱여넣기'
 
       if working_article_id
         wa = WorkingArticle.find(working_article_id)
