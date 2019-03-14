@@ -405,7 +405,6 @@ class Page < ApplicationRecord
         end
       end
     else
-      puts "new section has no ad ++++++++++++ "
       # delete ad_boxwa, if new section has no ad_box
       ad_boxes.each do |ab|
         ab.destroy
@@ -657,7 +656,6 @@ class Page < ApplicationRecord
         break
       end
     end
-    puts "found stamped_pdf file ..."
   end
 
   def delete_latest_files

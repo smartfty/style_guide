@@ -129,7 +129,6 @@ EOF
   end
 
   def save_mobile_preview_xml # 모바일 지면보기 XML
-    puts "++++++++++++ page_number:#{page_number}"
     default_time      = "00:00:00"
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")

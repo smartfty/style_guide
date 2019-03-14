@@ -82,15 +82,35 @@ class Graphic < ApplicationRecord
     working_article.graphics.length
   end
 
+  #'최적' '가로', '세로', '욱여넣기'
+  # MAGE_FIT_TYPE_ORIGINAL        = 0
+  # IMAGE_FIT_TYPE_VERTICAL       = 1
+  # IMAGE_FIT_TYPE_HORIZONTAL     = 2
+  # IMAGE_FIT_TYPE_KEEP_RATIO     = 3
+  # IMAGE_FIT_TYPE_IGNORE_RATIO   = 4
+  # IMAGE_FIT_TYPE_REPEAT_MUTIPLE = 5
+  # IMAGE_CHANGE_BOX_SIZE         = 6 #change box size to fit image source as is at origin
   def graphic_layout_hash
     h = {}
     h[:image_path]        = image_path
     h[:column]            = column
     h[:row]               = row
-    h[:position]          = position
+    h[:position]          = position.to_i
     h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:image_kind]        = 'graphic'
+    case fit_type
+    when '최적'
+      h[:fit_type] = 3 
+    when '가로'
+      h[:fit_type] = 1 
+    when '세로'
+      h[:fit_type] = 2 
+    when '욱여넣기'
+      h[:fit_type] = 4 
+    else
+      h[:fit_type] = 3 
+    end
     # h[:fit_type]          = fit_type if fit_type
     h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame if draw_frame

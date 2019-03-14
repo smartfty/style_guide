@@ -21,9 +21,22 @@
   - body
     - fit_text
 
+2019-3-13
+  - graphic_requst attachment
+  - ActiveStorage
+  - attach resouces to story
+  - image, graphic, library
+    나의 이미지 출고, 나의 그래픽 출고
+  - image_fit_type
+    - fit_virtical, fit_horizontal
+
+  - library_image
+    - for image and graphic
+    - add selected, section_name, date
+
+
 2019-3-12
   - add wire graphics
-  - graphic_requst attachment
 
 2019-3-8
   - image_group
