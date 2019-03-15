@@ -109,8 +109,8 @@ main {
   float:right;
 }
 
-.black {
-  background-color: #b3b3b3
+.btn-gray {  
+  background-color: #555;
 }
 
 .selected_template {
@@ -257,7 +257,7 @@ p {
   padding: 10px 20px;
   font-weight: 600;
   text-align: center;
-  color: #bbb;
+  color: #555;
   border: 1px solid transparent;
 }
 
@@ -283,12 +283,13 @@ label[for*='12']:before { content: '\f1ea'; }
 
 
 label:hover {
-  color: #888;
+  color: #000;
   cursor: pointer;
 }
 
 input:checked + label {
-  color: #555;
+  color: #000;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-top: 2px solid orange;
   border-bottom: 1px solid #fff;

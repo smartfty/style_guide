@@ -89,6 +89,7 @@
                                         <th style="text-align:center;">제목</th>
                                         <th style="text-align:center;">예상 글자수</th>
                                         <th style="text-align:center;">기사배정</th>
+                                        <th style="text-align:center;">기사편집</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -104,6 +105,12 @@
                                             <td style="text-align:center;"><%= working_article.approximate_char_count %></td>
                                             <td style="text-align:center;">
                                                 <button type="button" class="btn btn-sm btn-primary"><%= link_to '배정',change_story_working_article_path(working_article), method: :get %></button>
+                                            </td>
+                                                                                        <td style="text-align:center;">
+                                                <button type="button" class="btn btn-sm btn-primary"><%= link_to '배정',change_story_working_article_path(working_article), method: :get %></button>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <button type="button" class="btn btn-sm btn-info"><%= link_to '편집',working_article_path(working_article), method: :get %></button>
                                             </td>
                                         </tr>
                                     <% end %>
