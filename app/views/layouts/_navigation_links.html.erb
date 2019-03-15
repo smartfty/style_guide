@@ -6,6 +6,7 @@
 <% if current_user && current_user.role == 'reporter' %> 
     <li><%= link_to '나의기사', my_stories_path %></li>
     <li><%= link_to '나의사진', my_reporter_images_path %></li>
+    <li><%= link_to '나의그래픽', my_reporter_graphics_path %></li>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">연합<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
