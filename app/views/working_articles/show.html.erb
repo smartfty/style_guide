@@ -190,10 +190,13 @@
                     </div>
 
                 <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-12">
                     <% if @working_article.kind == '기사' || @working_article.kind == '사진' %>
                         <% @working_article.images.sort_by{|x| x.id}.each do |image| %>
                             <%= render 'images/form', image: image %>
                         <% end %>
+                    </div>
+                    <div class="col-xs-12 col-sm-12">
                         <% if @working_article.images.length < 3 %>
                             <%= form_with( model: @working_article, :html => { :multipart => true },
                             :url=>{action: 'upload_images'}) do |f| %>

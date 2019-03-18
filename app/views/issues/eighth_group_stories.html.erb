@@ -20,6 +20,7 @@
           <th style="text-align:center;">제목</th>
           <th style="text-align:center;">예상 글자수</th>
           <th style="text-align:center;">기사배정</th>
+          <th style="text-align:center;">기사편집</th>
         </tr>
       </thead>
       <tbody>
@@ -34,7 +35,8 @@
             <td><%= working_article.title %></td>
             <td style="text-align:center;"><%= working_article.approximate_char_count %></td>
             <td style="text-align:center;"><%= button_to '배정', change_story_working_article_path(working_article), method: :get, class: "btn btn-sm btn-primary" %></td>
-          </tr>
+            <td style="text-align:center;"><%= button_to '편집', working_article_path(working_article), method: :get, class: "btn btn-sm btn-info" %></button></td>
+            </tr>
         <% end %>
       </tbody>
     </table>
