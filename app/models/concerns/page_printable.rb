@@ -77,8 +77,8 @@ module PagePrintable
   def copy_to_proof_reading_ftp
     require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
-    ip  = '211.115.91.75'
-    id  = 'naeil'
+    ip  = '211.115.91.231'
+    id  = 'naeilcts'
     pw  = 'sodlftlsans1!'
     last_generate_file = generate_proof_pdf
     # upload files
