@@ -1,5 +1,5 @@
 class YhGraphicsController < ApplicationController
-  before_action :set_yh_graphic, only: [:show, :edit, :update, :destroy]
+  before_action :set_yh_graphic, only: [:show, :edit, :update, :destroy, :taken]
 
   # GET /yh_graphics
   # GET /yh_graphics.json
@@ -55,19 +55,19 @@ class YhGraphicsController < ApplicationController
     end
   end
 
-  def taken
-    ReporterImage.image_from_wire(current_user, @yh_picture)
-    redirect_to yh_picture_path(@yh_picture, notice: '나의 사진으로 등록 되었습니다.')
-  end
-
   # DELETE /yh_graphics/1
   # DELETE /yh_graphics/1.json
   def destroy
     @yh_graphic.destroy
     respond_to do |format|
-      format.html { redirect_to yh_graphics_url, notice: 'Yh graphic was successfully destroyed.' }
+      format.html { redirect_to yh_graphics_url, notice: '그래픽 삭제 되었습니다.' }
       format.json { head :no_content }
     end
+  end
+
+  def taken
+    ReporterGraphic.graphic_from_wire(current_user, @yh_graphic)
+    redirect_to my_reporter_graphics_path, notice: '나의 사진으로 등록 되었습니다.'
   end
 
   private

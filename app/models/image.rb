@@ -103,9 +103,9 @@ class Image < ApplicationRecord
     case fit_type
     when '최적'
       h[:fit_type] = 3 
-    when '가로'
-      h[:fit_type] = 1 
     when '세로'
+      h[:fit_type] = 1 
+    when '가로'
       h[:fit_type] = 2 
     when '욱여넣기'
       h[:fit_type] = 4

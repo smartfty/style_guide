@@ -11,6 +11,8 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  wire_pictures  :string
+#  section_name   :string
+#  used_in_layout :boolean
 #
 # Indexes
 #
@@ -26,7 +28,7 @@ class ReporterImage < ApplicationRecord
   mount_uploader :reporter_image, ReporterImageUploader
 
   def self.image_from_wire(user, wire)
-    s = ReporterImage.where(user_id: user.id, title: wire.title).first_or_create! 
+    s = ReporterImage.where(user_id: user.id, wire_pictures: wire.picture).first_or_create! 
     s.title           = wire.title
     s.caption         = wire.body
     s.source          = wire.source

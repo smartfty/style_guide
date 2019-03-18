@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_055903) do
+ActiveRecord::Schema.define(version: 2019_03_18_013314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -444,6 +444,19 @@ ActiveRecord::Schema.define(version: 2019_03_12_055903) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reporter_graphics", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.string "caption"
+    t.string "source"
+    t.string "wire_pictures"
+    t.string "section_name"
+    t.boolean "used_in_layout"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reporter_graphics_on_user_id"
+  end
+
   create_table "reporter_groups", force: :cascade do |t|
     t.string "section"
     t.string "page_range"
@@ -462,6 +475,8 @@ ActiveRecord::Schema.define(version: 2019_03_12_055903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "wire_pictures"
+    t.string "section_name"
+    t.boolean "used_in_layout"
     t.index ["user_id"], name: "index_reporter_images_on_user_id"
   end
 
@@ -780,6 +795,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_055903) do
   add_foreign_key "opinion_writers", "publications"
   add_foreign_key "page_plans", "issues"
   add_foreign_key "profiles", "publications"
+  add_foreign_key "reporter_graphics", "users"
   add_foreign_key "reporter_images", "users"
   add_foreign_key "spreads", "issues"
   add_foreign_key "stories", "users"

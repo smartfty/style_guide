@@ -1,0 +1,20 @@
+
+
+
+<div align="center">
+  <%= paginate @reporter_graphics %>
+</div>
+
+<div class="view">
+  <% @reporter_graphics.each do |picture| %>
+    <div class="col-md-2">
+      <a href="<%=  reporter_graphic_path(picture) %>"><img style="object-fit:cover",  src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
+      <p align="center"><%= picture.title %></p>
+    </div>
+  <% end %>
+</div>
+
+<div align="center">
+  <%= paginate @reporter_graphics %>
+</div>
+

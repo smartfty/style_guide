@@ -103,7 +103,7 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
-gem 'bullet', group: 'development'
+# gem 'bullet', group: 'development'
 # gem 'rack-cors', require: 'rack/cors'
 
 gem 'rails-assets-trix', source: 'https://rails-assets.org'

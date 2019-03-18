@@ -21,7 +21,7 @@ class AdImage < ApplicationRecord
   belongs_to :ad_box, optional: true
 
   before_create :parse_ad
-  mount_uploader :ad_image, AdImageUploader
+  # mount_uploader :ad_image, AdImageUploader
 
   def image_path
     "#{Rails.root}/public" + ad_image.url if ad_image

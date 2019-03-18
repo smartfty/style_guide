@@ -11,6 +11,8 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  wire_pictures  :string
+#  section_name   :string
+#  used_in_layout :boolean
 #
 # Indexes
 #

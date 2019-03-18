@@ -68,7 +68,7 @@ class YhPicturesController < ApplicationController
 
   def taken
     ReporterImage.image_from_wire(current_user, @yh_picture)
-    redirect_to yh_picture_path(@yh_picture, notice: '나의 사진으로 등록 되었습니다.')
+    redirect_to my_reporter_images_path, notice: '나의 사진으로 등록 되었습니다.'
   end
 
   private

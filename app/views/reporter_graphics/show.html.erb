@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+<div class='row'>
+
+  <div class='col-md-3'>
+    <p>
+      <img style="object-fit:cover",  src="<%= @reporter_graphic.thumb_path %>" width="200px" height="200px"></img>
+    </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @reporter_graphic.title %>
+    </p>
+
+    <p>
+      <strong>Caption:</strong>
+      <%= @reporter_graphic.caption %>
+    </p>
+
+    <p>
+      <strong>Source:</strong>
+      <%= @reporter_graphic.source %>
+    </p>
+
+    <p>
+      <strong>Section name:</strong>
+      <%= @reporter_graphic.section_name %>
+    </p>
+
+  </div>
+  <div class='col-md-4'>
+    <%= render 'form', reporter_graphic: @reporter_graphic%>
+  </div>
+</div>
+
+
+<%= link_to 'Back', my_reporter_graphics_path %>
+</div>

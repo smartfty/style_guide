@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :reporter_graphics do
+    collection do 
+      get 'my'
+    end
+  end
   resources :yh_graphics do
     member do
       get 'taken'

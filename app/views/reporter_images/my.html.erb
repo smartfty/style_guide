@@ -15,6 +15,7 @@
     <div class="col-md-2">
       <a href="<%=  reporter_image_path(picture) %>"><img style="object-fit:cover",  src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
       <p align="center"><%= picture.title %></p>
+
     </div>
   <% end %>
 </div>
@@ -23,4 +24,3 @@
   <%= paginate @reporter_images %>
 </div>
 
-<%= link_to '새로운 기자 사진 생성', new_reporter_image_path, method: :get, class: "btn btn-md btn-success" %>
