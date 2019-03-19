@@ -2,6 +2,7 @@
         <% if File.exist?(@page.pdf_path) %>
         <div class="button-group">
             <%= raw @page.to_svg_with_jpg %>
+            <h4 align='center'><%= link_to "#{@page.page_number}면", page_path(@page), class: "btn btn-default btn-sm" %></h4>
           </div>
         <% end %>
         <%= render 'change_page_info', page: @page %>
@@ -28,7 +29,7 @@
                     <p><%= template.description %>(<%= template.id %>)</p>
                   </div>
                   <div align="center">
-                    <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-info btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
+                    <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
                 </div>
               </div>
             <% end %>
@@ -44,34 +45,28 @@
     <div class="btn-group" role="group" aria-label="기능">
     <% case session[:current_group] %>
     <% when 'first_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", first_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", first_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'second_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", second_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", second_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'third_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", third_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", third_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'fourth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", fourth_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", fourth_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'fifth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", fifth_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", fifth_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'sixth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", sixth_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", sixth_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'seventh_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", seventh_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", seventh_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'eighth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", eighth_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", eighth_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% when 'nineth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", nineth_group_issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", nineth_group_issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% else %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", issue_path(@page.issue), method: :get %></button>
+   <%= link_to "이전으로", issue_path(@page.issue), method: :get , class: "btn btn-default btn-sm" %>
     <% end %>
-    <button type="button" class="btn btn-danger"><%= link_to "템플릿 변경", "#{page_path(@page)}#template" %></button>
-    <button type="button" class="btn btn-primary"><%= link_to "페이지 재생성", regenerate_pdf_page_path(@page), method: :get %></button>
-    <button type="button" class="btn btn-warning"><%= link_to "기사 배정", assign_stories_page_path(@page), method: :get %></button>      
+    <%= link_to "템플릿 변경", "#{page_path(@page)}#template", class: "btn btn-default btn-sm" %>
+    <%= link_to "페이지 재생성", regenerate_pdf_page_path(@page), method: :get, class: "btn btn-default btn-sm" %>
+    <%= link_to "기사 배정", assign_stories_page_path(@page), method: :get, class: "btn btn-default btn-sm" %>     
   </div>
-
-      <div class="btn-group btn-right" role="group" aria-label="전송">
-        <button type="button" class="btn btn-primary"><%= link_to "교정 전송", save_proof_reading_pdf_page_path, method: :get, data: { confirm: '정말 보내시겠습니까?'} %></button>
-      <button type="button" class="btn btn-danger"><%= link_to "인쇄 전송", send_pdf_to_printer_page_path, method: :get, data: { confirm: '정말 보내시겠습니까?'} %></button>
-      <button type="button" class="btn btn-warning"><%= link_to "페이지 PDF", download_pdf_page_path, method: :get %></button>
-      </div>
-    </nav>
+ </nav>

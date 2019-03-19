@@ -110,8 +110,13 @@ main {
 }
 
 .btn-gray {  
-  background-color: #555;
+  background-color: #ccc;
 }
+.btn-black {  
+  background-color: #bbb;
+  border: 1px solid #fff !important;
+}
+
 
 .selected_template {
   border: 4px;
