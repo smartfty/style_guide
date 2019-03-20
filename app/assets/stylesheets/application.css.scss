@@ -219,6 +219,18 @@ textarea {
   background-color: transparent;
  }
 
+ .btn-default > a {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: transparent;
+ }
+
+ .btn-default > a:visited {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: transparent;
+ }
+
  .btn > a:active {
   color: #fff !important;
   text-decoration: none;
