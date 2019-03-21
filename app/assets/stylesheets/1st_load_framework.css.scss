@@ -396,6 +396,9 @@ input:checked + label {
 }
 
 input[type="radio"] { 
+  -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+  -moz-appearance: checkbox;    /* Firefox */
+  -ms-appearance: checkbox;     /* not currently supported */
   // position: absolute; 
   width: 14px !important; 
   height: 14px !important; 
