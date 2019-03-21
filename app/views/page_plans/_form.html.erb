@@ -39,7 +39,7 @@
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="btn-group" role="group" aria-label="기능">
-      <button type="button" class="btn btn-sm btn-success"><%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get %></button>
+      <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-default btn-sm" %>
       <button type="submit" class="btn btn-sm btn-primary">저장</button>
     </div>
   </nav>

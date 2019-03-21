@@ -28,7 +28,7 @@
 
         <div class="field">
         <%= f.label :종류 %><%= f.select :image_kind, %w[일반 인물_좌 인물_우 그릅], {include_blank: false} %>
-        <%= f.submit "사진정보 저장"%>
+        <%= f.submit "사진정보 저장", class: "btn btn btn-xs" %>
         </div>
         <div class="field">
         <%= f.label :기사와_관련없는_사진 %><%= f.check_box :not_related %>
@@ -38,7 +38,13 @@
         </div>
         <% if @working_article.kind != '사진' %>
         <div class="field">
-        <%= f.label :위치 %><%= f.text_field :position, style: "width:40px", class: 'form-control' %>
+        <%= f.label :사진위치 %>
+        <div style="font-size: 11px;">
+        <!-- %= f.text_field :position, style: "width:40px", class: 'form-control' % -->
+        <%= f.radio_button :position, 1, title: "좌상단" %> <%= f.radio_button :position, 2, title: "중상단" %> <%= f.radio_button :position, 3, title: "우상단" %><br />
+        <%= f.radio_button :position, 4, title: "좌" %> <%= f.radio_button :position, 5, title: "중앙" %> <%= f.radio_button :position, 6, title: "우" %><br />
+        <%= f.radio_button :position, 7, title: "좌하단"%> <%= f.radio_button :position, 8, title: "중하단" %> <%= f.radio_button :position, 9, title: "우하단" %><br />
+        </div>
         <%= f.label :가로시작_단 %><%= f.text_field :x_grid, style: "width:35px", class: 'form-control' %>
         <%= f.label :테두리 %><%= f.check_box :draw_frame %>
         </div>
@@ -61,18 +67,19 @@
         </div>
 
         <div class="actions">
-          <%= f.button "저장", class: "btn btn-primary btn-sm" %>
-          <%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>
+          <%= f.button "저장", type: :submit, class: "btn btn-primary btn-sm" %>
+          
+          <%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
         </div>
 
         <div class="field">
-          <label class="btn btn-warning">
+          <label class="btn btn-warning btn-sm">
             사진 파일 바꾸기
             <%= f.file_field :image, style: "display: none;" %>
           </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2" readonly>
         </div>
 
-        <%= link_to '사진 크롭', crop_image_path(image), method: :get, class: "btn btn-md btn-success"  %>
+        <%= link_to '사진 크롭', crop_image_path(image), method: :get, class: "btn btn-sm btn-success"  %>
  
         <p></p>
   </div>
@@ -90,8 +97,8 @@
     <%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-default btn-sm" %>
   </div>
   <div class="btn-group btn-right" role="group" aria-label="기능">
-    <%= link_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-default btn-sm" %>
-    <%= f.button "저장하기", accesskey: "s", class: "btn btn-primary-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+    <!-- %= button_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-default btn-sm" % -->
+    <%= f.button "저장하기", class: "btn btn-primary btn-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
 </nav>
 <% end %>

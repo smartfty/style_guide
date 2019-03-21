@@ -184,9 +184,6 @@
                             <%= form_with( model: @working_article, :html => { :multipart => true },
                             :url=>{action: 'upload_images'}) do |f| %>
                             <%= f.fields_for :images, Image.new do |p| %>
-                            <br>
-                            <br>
-                            <hr>
                             <div class="field">
                                 <label class="btn btn-warning">사진 파일선택<%= p.file_field :image, style: "display:none;", :multiple => true, name: "images[image][]" %></label>
                                 <input type="text" placeholder="선택한 파일 없음" class="form-control width2" readonly="readonly">
@@ -226,9 +223,6 @@
                                 <% if  @working_article.graphics.length <= 2 %>
                                     <%= form_with( model: @working_article, :html => { :multipart => true }, :url=>{action: 'upload_graphics'}) do |f| %>
                                     <%= f.fields_for :images, Image.new do |p| %>
-                                    <br>
-                                    <br>
-                                    <hr>
                                     <div class="field">
                                         <label class="btn btn-warning">그래픽 파일선택<%= p.file_field :image, style: "display: none;", :multiple => true, name:"images[image][]" %>
                                         </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2" readonly="readonly">

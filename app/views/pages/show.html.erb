@@ -2,8 +2,12 @@
         <% if File.exist?(@page.pdf_path) %>
         <div class="button-group">
             <%= raw @page.to_svg_with_jpg %>
-            <h4 align='center'><%= link_to "#{@page.page_number}면", page_path(@page), class: "btn btn-default btn-sm" %></h4>
-          </div>
+            <% if @page.color_page %> 
+            <h4 align='center'><%= link_to "#{@page.page_number}면", page_path(@page), class: "btn btn-danger btn-xs" %></h4>
+            <% else %>
+            <h4 align='center'><%= link_to "#{@page.page_number}면", page_path(@page), class: "btn btn-default btn-xs" %></h4>
+            <% end %>
+        </div>
         <% end %>
         <%= render 'change_page_info', page: @page %>
       </div>
@@ -29,7 +33,7 @@
                     <p><%= template.description %>(<%= template.id %>)</p>
                   </div>
                   <div align="center">
-                    <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
+                    <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-default btn-xs", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
                 </div>
               </div>
             <% end %>

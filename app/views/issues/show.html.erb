@@ -7,9 +7,10 @@
       <!-- %= raw page.to_svg_with_jpg % -->
 
       <% if page.color_page %> 
-      <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-danger btn-sm" %></h4>
+      <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-danger btn-xs" %></h4>
       <% else %>
-      <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-sm" %></h4><% end %>
+      <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-xs" %></h4>
+      <% end %>
 
     </div>
     <!-- true -->
