@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require jcrop
 //= require moment
+//= require activestorage
 //= require_tree .

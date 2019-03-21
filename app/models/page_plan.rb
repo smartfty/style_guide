@@ -141,25 +141,24 @@ class PagePlan < ApplicationRecord
     if profile && profile != ""
       puts "profile:#{profile}"
       puts "profile.length:#{profile.length}"
-      selected_section_template = Section.where(page_number: page_number, profile: self.profile).take
+      selected_section_template = Section.where("section_name like ?", "%#{section_name}%").select{|s| ad_type == ad_type.ad_type}
+      # selected_section_template = Section.where(section_name: section_name, ad_type: self.ad_type).take
+      unless selected_section_template
+          selected_section_template = Section.where(page_number: page_number, ad_type: self.ad_type).take
+      end
       unless selected_section_template
         # eval an YAML::laod is not properly converting korean strings
         # "6x15_광고없음_9".length should give us 11, but it returns 18 
         # lets just put sample profile
         #TODO
         profile = fix_profile_encoding(self.profile)
-        selected_section_template = Section.where(page_number: page_number, profile: profile).take    
         unless selected_section_template
           if page_number.odd?
-            selected_section_template = Section.where(page_number: 101, profile: profile).take
+            selected_section_template = Section.where(page_number: 101, ad_type: ad_type).take
           else
-            selected_section_template = Section.where(page_number: 100, profile: profile).take
+            selected_section_template = Section.where(page_number: 100, ad_type: ad_type).take
           end
         end
-      end
-
-      unless selected_section_template
-        selected_section_template = Section.where(ad_type: ad_type).take
       end
       unless selected_section_template
         selected_section_template = Section.where(page_number: page_number).take

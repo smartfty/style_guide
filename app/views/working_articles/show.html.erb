@@ -172,7 +172,10 @@
                     </div>
 
                 <div class="col-xs-12 col-sm-8">
-                    <% if @working_article.kind == '기사' || @working_article.kind == '사진' %>
+                    <% if @working_article.kind == '기사' || @working_article.kind == '사진' || @working_article.kind == '박스기고'%>
+                        <% if @reporter_images.length > 0 %>
+                            <%= render 'reporter_image', reporter_images: @reporter_images %>
+                        <% end %>
                         <% @working_article.images.sort_by{|x| x.id}.each do |image| %>
                             <%= render 'images/form', image: image %>
                         <% end %>
@@ -188,6 +191,8 @@
                                 <input type="text" placeholder="선택한 파일 없음" class="form-control width2" readonly="readonly">
                             </div>
                         <% end %>
+
+
                         <div class="actions">
                             <%= f.button "사진 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
                         </div>
@@ -212,12 +217,16 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-8">
-                            <% if @working_article.kind == '기사' || @working_article.kind == '사진' %>
+                            <% if @working_article.kind == '기사' || @working_article.kind == '사진' || @working_article.kind == '박스기고'%>
                                 <div class="row2">
                                     <% @working_article.graphics.each do |graphic| %>
                                         <%= render 'graphics/form', graphic: graphic %>
                                     <% end %>
                                 </div>
+                                <% if @reporter_graphics.length > 0 %>
+                                    <%= render 'reporter_graphic', reporter_graphics: @reporter_graphics %>
+                                <% end %>
+                                
                                 <% if  @working_article.graphics.length <= 2 %>
                                     <%= form_with( model: @working_article, :html => { :multipart => true }, :url=>{action: 'upload_graphics'}) do |f| %>
                                     <%= f.fields_for :images, Image.new do |p| %>

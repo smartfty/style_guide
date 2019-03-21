@@ -356,11 +356,11 @@ class Section < ApplicationRecord
   end
 
   def svg_unit_width
-    210/column
+    150/column
   end
 
   def svg_unit_height
-    20
+    15
   end
 
   def svg_box
@@ -401,7 +401,7 @@ class Section < ApplicationRecord
       CSV.generate(options) do |csv|
         # get rid of id, created_at, updated_at
         # header = %w[page_number section_name profile column row order ad_type is_front_page story_count color_page draw_divider publication_id layout]
-        header = %w[page_number  column  ad_type  layout]
+        header = %w[page_number column ad_type section_name layout]
         csv << header
         all.each do |item|
           csv << item.attributes.values_at(*header)

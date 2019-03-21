@@ -35,7 +35,7 @@ class AdBox < ApplicationRecord
   mount_uploader :ad_image, AdBoxImageUploader
   before_create :init_atts
   after_create :setup
-
+  # has_one_attached :ad_box_image
   # def path
   #   path + "/ad"
   # end

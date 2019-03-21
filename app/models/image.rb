@@ -31,6 +31,7 @@
 #  fit_type              :string
 #  image_kind            :string
 #  not_related           :boolean
+#  reporter_image_path   :string
 #
 
 class Image < ApplicationRecord
@@ -44,6 +45,8 @@ class Image < ApplicationRecord
   def image_path
     if image.url
      "#{Rails.root}/public" + image.url
+    elsif reporter_image_path
+      "#{Rails.root}/public" + reporter_image_path
     else
      "#{Rails.root}/public" + "/place_holder_image.jpg"
     end

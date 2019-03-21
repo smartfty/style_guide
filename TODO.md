@@ -21,16 +21,27 @@
   - body
     - fit_text
 
+2019-3-20
+  - 사진 anchor point
+  - 사진 테두리 없음
+  - 금융팀 중시 구분선 없음
+  - 기자 menu 추가
+   기고저자 와 비슷하게
+   리스트
+
+2019-3-19
+  - 매일 사용않된 출고물 해제
+  - save_page for future
+
 2019-3-18
-  - 그래픽의뢰 + reporter_graphic 합치기
+  - 섹션 템플렉에 색션 이름 적용
   - working_article 사진에 출고된 reporter_image 보여주고 선택 하기
+  - 그래픽의뢰 + reporter_graphic 합치기
   - 그래픽의뢰 attachment
   - ActiveStorage
-
   - 인물 사진 높이 + 1
   - 사진 설명
   - 인물_우측 우측여백
-  - 섹션 템플렉 에 색션 이름 적용
   
 2019-3-14
   - section template by section name

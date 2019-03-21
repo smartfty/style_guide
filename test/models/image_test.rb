@@ -31,6 +31,7 @@
 #  fit_type              :string
 #  image_kind            :string
 #  not_related           :boolean
+#  reporter_image_path   :string
 #
 
 require 'test_helper'

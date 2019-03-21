@@ -12,7 +12,7 @@
   <% end %>
   <div class="col-xs-12 col-sm-4">
     <p><%= graphic.size_string %></p>
-    <%= image_tag graphic.graphic.url, :width => "100%", style: "padding-bottom:20px" %>
+    <%= image_tag graphic.graphic.url, :width => "100%", style: "padding-bottom:20px" if graphic.graphic.url %>
  </div>
  <div class="col-xs-12 col-sm-8">
 

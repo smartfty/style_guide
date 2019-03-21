@@ -1,4 +1,4 @@
-<%= form_for(ad_box) do |f| %>
+<%= form_with(model: ad_box, local: true) do |f| %>
   <% if ad_box.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ad_box.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -35,7 +35,7 @@
     </div>
     <div class="field">
       <%= f.label :사진_올리기 %>
-      <%= f.file_field :ad_image %>
+      <%= f.file_field :ad_box_image %>
     </div>
 
     <div class="actions">

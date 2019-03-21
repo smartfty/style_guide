@@ -59,4 +59,5 @@ Rails.application.configure do
   #   Bullet_bullet_logger = false
   #   Bullet.console = false
   # end
+  config.active_storage.service = :local
 end
