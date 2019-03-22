@@ -4,6 +4,19 @@ Rails app for creating style guide for newspaper publication
 
 ## Tables
 
+### reporter_image
+
+### reporter_graphic
+  #  user_id        :bigint(8)
+  #  title          :string
+  #  caption        :string
+  #  source         :string
+  #  wire_pictures  :string
+  #  section_name   :string
+  #  used_in_layout :boolean
+  # has_many_attached :uploads
+  # has_one_attached :finished_job 
+
 ### AdBooking
   publication:references
   date:date

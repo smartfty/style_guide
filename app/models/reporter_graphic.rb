@@ -24,6 +24,8 @@
 
 class ReporterGraphic < ApplicationRecord
   belongs_to :user
+  has_many_attached :uploads
+  has_one_attached :finished_job 
 
   def self.graphic_from_wire(user, wire)
     s = ReporterGraphic.where(user_id: user.id, wire_pictures: wire.picture).first_or_create! 

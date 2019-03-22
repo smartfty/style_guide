@@ -780,6 +780,8 @@ class WorkingArticle < ApplicationRecord
     # h = h.to_s.gsub("{", "").gsub("}", "")
     h = layout_options
     if kind == '사진'
+      first_image = images.first
+      h[:draw_frame] = false if first_image && first_image.draw_frame == false
       content = "RLayout::NewsImageBox.new(#{h}) do\n"
       if images.length > 0
         image_hash = image_options
