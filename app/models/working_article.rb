@@ -425,16 +425,6 @@ class WorkingArticle < ApplicationRecord
     h[:overflow_line_count]
   end
 
-  # def quote_auto
-  #   empty_lines = empty_lines_count
-  #   return  0 unless empty_lines && empty_lines > 4
-  #   if empty_lines > 8
-  #     quote_line(3)
-  #   elsif empty_lines >= 8
-  #     quote_line(3)
-  #   end
-  # end
-
   def quote_line(line_count)
     puts "line_count: #{line_count}"
     self.quote_box_size = line_count
@@ -606,7 +596,6 @@ class WorkingArticle < ApplicationRecord
   end
 
   def image_options
-    puts "working_article id:#{id}"
     if images.first
       images.first.iamge_layout_hash
     else

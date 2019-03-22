@@ -22,19 +22,21 @@
     - fit_text
 
 2019-3-20
+  - 광고 upload
+
   - 사진 anchor point
-  - 사진 테두리 없음
-  - 금융팀 중시 구분선 없음
+  - 사진 테두리 없음 checkbox 추가
+  - 금융팀 증시 구분선 없음
   - 기자 menu 추가
    기고저자 와 비슷하게
    리스트
 
 2019-3-19
   - 매일 사용않된 출고물 해제
-  - save_page for future
+  - save_page for future (나의 페이지?)
 
 2019-3-18
-  - 섹션 템플렉에 색션 이름 적용
+  - 섹션 템플렛에 색션 이름 적용
   - working_article 사진에 출고된 reporter_image 보여주고 선택 하기
   - 그래픽의뢰 + reporter_graphic 합치기
   - 그래픽의뢰 attachment
@@ -46,7 +48,6 @@
 2019-3-14
   - section template by section name
     - 1면, 정치, 오피니언
-  - 광고 upload
   
 2019-3-13
   - image_fit_type

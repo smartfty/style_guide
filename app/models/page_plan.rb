@@ -58,8 +58,6 @@ class PagePlan < ApplicationRecord
 
   def create_article_plans
     return if section_name == '전면광고'
-    puts "story_count:#{story_count}"
-    puts "profile:#{profile}"
     story_count.times do |i|
       ArticlePlan.where(page_plan:self, reporter: team_leader, order: i + 1, title: "제목은 여기에 ...").first_or_create
     end
@@ -93,67 +91,22 @@ class PagePlan < ApplicationRecord
     end
   end
 
-  def fix_profile_encoding(problem_profile)
-    profile_array = problem_profile.split("_").last
-    article_count = profile_array.last
-    ad_type = profile_array[-2]
-
-    if profile =~/^6x15/
-      case article_count
-      when '5'
-        "6x15_광고없음_5"
-      when '6'
-        "6x15_광고없음_6"
-      when '7'
-        "6x15_광고없음_7"    
-      when '8'
-        "6x15_광고없음_8"
-      when '9'
-        "6x15_광고없음_9"
-      when '10'
-        "6x15_광고없음_9"
-      when '11'
-        "6x15_광고없음_9"
-      end
-    else
-      case article_count
-      when '5'
-        "7x15_광고없음_5"
-      when '6'
-        "7x15_광고없음_6"
-      when '7'
-        "7x15_광고없음_7"    
-      when '8'
-        "7x15_광고없음_8"
-      when '9'
-        "7x15_광고없음_9"
-      when '10'
-        "7x15_광고없음_9"
-      when '11'
-        "7x15_광고없음_9"
-      end
-    end
-  end
 
   private
 
   def parse_profile
     if profile && profile != ""
       puts "profile:#{profile}"
-      puts "profile.length:#{profile.length}"
-      ad_type = profile.split("_")[-2]
-      puts "ad_type:#{ad_type}"
+      profile_array = profile.split("_")[-2]
+      ad_type       = profile_array[-2]
+      # story_count   = profile_array[-1]
+      # puts "ad_type:#{ad_type}"
+      # first check if we have section specific templates
       selected_section_template = Section.where("section_name like ?", "%#{section_name}%").select{|s| ad_type == ad_type.ad_type}
-      # selected_section_template = Section.where(section_name: section_name, ad_type: self.ad_type).take
       unless selected_section_template.class == Section
           selected_section_template = Section.where(page_number: page_number, ad_type: ad_type).first
       end
       unless selected_section_template.class == Section
-        # eval an YAML::laod is not properly converting korean strings
-        # "6x15_광고없음_9".length should give us 11, but it returns 18 
-        # lets just put sample profile
-        #TODO
-        profile = fix_profile_encoding(self.profile)
         unless selected_section_template.class == Section
           if page_number.odd?
             selected_section_template = Section.where(page_number: 101, ad_type: ad_type).first

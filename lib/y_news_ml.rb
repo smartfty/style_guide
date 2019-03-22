@@ -25,7 +25,7 @@ class Header
   end
 end
 #
-class Category
+class CodeCategory
   include HappyMapper
   tag 'Category'
 
@@ -72,7 +72,7 @@ class Metadata
   include HappyMapper
   tag 'Metadata'
   has_one :Urgency, String
-  has_one :Category, Category
+  has_one :Category, CodeCategory
   has_one :Region, String
   has_one :Class, String, tag: 'Class'
   has_one :Credit, String

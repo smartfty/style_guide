@@ -245,7 +245,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_235324) do
     t.string "fit_type"
     t.string "title"
     t.text "description"
-    t.string "reporter_image_path"
+    t.string "reporter_graphic_path"
     t.index ["working_article_id"], name: "index_graphics_on_working_article_id"
   end
 

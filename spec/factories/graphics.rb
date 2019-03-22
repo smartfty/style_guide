@@ -30,7 +30,7 @@
 #  fit_type              :string
 #  title                 :string
 #  description           :text
-#  reporter_image_path   :string
+#  reporter_graphic_path :string
 #
 # Indexes
 #
