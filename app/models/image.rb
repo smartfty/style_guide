@@ -116,7 +116,7 @@ class Image < ApplicationRecord
       h[:fit_type] = 3 
     end
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
-    h[:draw_frame]        = draw_frame if draw_frame
+    h[:draw_frame]        = draw_frame || true
     h[:image_kind]        = image_kind if image_kind 
     h
   end

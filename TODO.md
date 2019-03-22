@@ -23,9 +23,9 @@
 
 2019-3-20
   - 광고 upload
+  - 사진 테두리 없음 checkbox 추가
 
   - 사진 anchor point
-  - 사진 테두리 없음 checkbox 추가
   - 금융팀 증시 구분선 없음
   - 기자 menu 추가
    기고저자 와 비슷하게

@@ -4,9 +4,9 @@ class AddXGridToImage < ActiveRecord::Migration[5.2]
     add_column :images, :y_in_lines, :integer
     add_column :images, :height_in_lines, :integer
     add_column :images, :detail_mode, :boolean
-    add_column :images, :draw_frame, :boolean
-    add_column :images, :zoom_level, :integer
-    add_column :images, :zoom_direction, :integer
+    add_column :images, :draw_frame, :boolean, default: true
+    add_column :images, :zoom_level, :integer, default: 1
+    add_column :images, :zoom_direction, :integer, default: 5
     add_column :images, :move_level, :integer    
     add_column :images, :sub_grid_size, :string
   end

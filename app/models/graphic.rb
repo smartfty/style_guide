@@ -120,7 +120,7 @@ class Graphic < ApplicationRecord
     end
     # h[:fit_type]          = fit_type if fit_type
     h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
-    h[:draw_frame]        = draw_frame if draw_frame
+    h[:draw_frame]        = draw_frame || false
     h
   end
 
