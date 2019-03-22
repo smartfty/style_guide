@@ -141,42 +141,45 @@ class PagePlan < ApplicationRecord
     if profile && profile != ""
       puts "profile:#{profile}"
       puts "profile.length:#{profile.length}"
+      ad_type = profile.split("_")[-2]
+      puts "ad_type:#{ad_type}"
       selected_section_template = Section.where("section_name like ?", "%#{section_name}%").select{|s| ad_type == ad_type.ad_type}
       # selected_section_template = Section.where(section_name: section_name, ad_type: self.ad_type).take
-      unless selected_section_template
-          selected_section_template = Section.where(page_number: page_number, ad_type: self.ad_type).take
+      unless selected_section_template.class == Section
+          selected_section_template = Section.where(page_number: page_number, ad_type: ad_type).first
       end
-      unless selected_section_template
+      unless selected_section_template.class == Section
         # eval an YAML::laod is not properly converting korean strings
         # "6x15_광고없음_9".length should give us 11, but it returns 18 
         # lets just put sample profile
         #TODO
         profile = fix_profile_encoding(self.profile)
-        unless selected_section_template
+        unless selected_section_template.class == Section
           if page_number.odd?
-            selected_section_template = Section.where(page_number: 101, ad_type: ad_type).take
+            selected_section_template = Section.where(page_number: 101, ad_type: ad_type).first
           else
-            selected_section_template = Section.where(page_number: 100, ad_type: ad_type).take
+            selected_section_template = Section.where(page_number: 100, ad_type: ad_type).first
           end
         end
       end
-      unless selected_section_template
-        selected_section_template = Section.where(page_number: page_number).take
+      unless selected_section_template.class == Section
+        selected_section_template = Section.where(page_number: page_number).first
       end
-      unless selected_section_template
+      unless selected_section_template.class == Section
         puts "No section template for profile: #{profile} found!!! !!!"
         puts "using alternative template"
-        selected_section_template = Section.where(ad_type: ad_type).take
+        selected_section_template = Section.where(ad_type: ad_type).first
         unless selected_section_template
           if page_number == 1
-            selected_section_template = Section.where(page_number:1).take
+            selected_section_template = Section.where(page_number:1).first
           elsif page_number.odd?
-            selected_section_template = Section.where(page_number: 101).take
+            selected_section_template = Section.where(page_number: 101).first
           else
-            selected_section_template = Section.where(page_number: 100).take
+            selected_section_template = Section.where(page_number: 100).first
           end
-          unless selected_section_template
+          unless selected_section_template.class == Section
             puts "No section template for found!!!"
+            binding.pry
             return false
           end
         end
