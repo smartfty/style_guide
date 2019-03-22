@@ -1,5 +1,5 @@
-<div class="col-xs-12 col-sm-6">
-<div class="col-xs-12 col-sm-12 frame-1">
+<div class="col-xs-12 col-sm-6 frame-1">
+<div class="col-xs-12 col-sm-12 ">
 
 <%= form_for(graphic) do |f| %>
   <% if graphic.errors.any? %>
@@ -48,13 +48,16 @@
         </div>
 </div>
 <div class="col-xs-12 col-sm-12">
-        <div class="field">
-          <%= f.label :xml_전송용_제목 %><%= f.text_field :title, class: "form-control" %>
-        </div>
-
-          <div class="field">
-          <%= f.label :xml_전송용_설명 %><%= f.text_area :description, class: "form-control" %>
-        </div>
+<div class="wrap-collabsible">
+  <input id="collapsible" class="toggle none" type="checkbox">
+  <label for="collapsible" class="lbl-toggle">XML 전송용 필드</label>
+  <div class="collapsible-content">
+    <div class="content-inner">
+    <p><%= f.label :xml_전송용_제목 %><%= f.text_field :title, class: "form-control" %></p>
+    <p><%= f.label :xml_전송용_설명 %><%= f.text_area :description, class: "form-control" %></p>
+    </div>
+  </div>
+</div>
   <div class="actions">
   <%= f.button "저장", class: "btn btn-primary btn-sm" %>
   <%= link_to '삭제', graphic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-md btn-danger" %>
