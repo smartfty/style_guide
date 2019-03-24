@@ -1,6 +1,6 @@
 
  <div class="col-xs-12 col-sm-6">
- <div class="col-xs-12 col-sm-12 frame-1">
+ <div class="col-xs-12 col-sm-12">
 
  <%= form_for(image, :html => { :multipart => true })  do |f| %>
   <% if image.errors.any? %>
@@ -33,7 +33,7 @@
   <div class="field" style="width:100px; float:left;">
     <%= f.label :사진위치 %>
       <div style="font-size: 11px;">
-        <%= f.radio_button :position, 0, title: "제목위", disabled: "disabled" %> <%= f.radio_button :position, 0, title: "제목위" %> <%= f.radio_button :position, 0, title: "제목위", disabled: "disabled" %><br />
+        <%= f.radio_button :position, 10, title: "제목위", disabled: "disabled" %> <%= f.radio_button :position, 0, title: "제목위" %> <%= f.radio_button :position, 10, title: "제목위", disabled: "disabled" %><br />
         <%= f.radio_button :position, 1, title: "좌상단" %> <%= f.radio_button :position, 2, title: "중상단" %> <%= f.radio_button :position, 3, title: "우상단" %><br />
         <%= f.radio_button :position, 4, title: "좌" %> <%= f.radio_button :position, 5, title: "중앙" %> <%= f.radio_button :position, 6, title: "우" %><br />
         <%= f.radio_button :position, 7, title: "좌하단"%> <%= f.radio_button :position, 8, title: "중하단" %> <%= f.radio_button :position, 9, title: "우하단" %><br />

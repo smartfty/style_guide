@@ -1,5 +1,5 @@
 <%= render 'character_count', article: @working_article %>
-<img src="<%= @working_article.jpg_image_path %>"></img>
+<a href='/working_articles/<%= @working_article.id %>'><img src="<%= @working_article.jpg_image_path %>"></img></a>
 <%= render 'character_count', article: @working_article %>
 <br>
 <% if @working_article.article_info && @working_article.article_info[:overflow_text] && @working_article.article_info[:overflow_text] !=""%>

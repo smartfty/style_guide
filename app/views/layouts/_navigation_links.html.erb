@@ -121,7 +121,7 @@
 <!-- li><%= link_to '도움말', home_help_path %></li-->
 
 <% if user_signed_in? %>
-  <li><%= link_to "#{@user}"'로그아웃', destroy_user_session_path, method: :delete  %></li>
+  <li><%= link_to "<#{current_user.name}> "'로그아웃', destroy_user_session_path, method: :delete  %></li>
 
 <% else %>
   <li><%= link_to '로그인', new_user_session_path %></li>
