@@ -21,6 +21,22 @@
   </style>
   
   <script>
+  if(typeof(Storage)!=="undefined")
+    {
+        collapsed = window.localStorage.getItem('collapsed'); // again choose one
+        collapsed = code.sessionStorage.getItem('collapsed');
+    
+        if(collapsed) {
+            $('.collapse').collapse('show');
+        } else {
+            $('.collapse').collapse('hide');
+        }
+    }
+    else
+    {
+        // Sorry! No Storage support..
+    }
+
   var coll = document.getElementsByClassName("collapsible");
   var i;
   

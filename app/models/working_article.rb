@@ -361,7 +361,7 @@ class WorkingArticle < ApplicationRecord
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.length == 4
         frame_array << {'extend'=> line_count} unless line_count == 0
-    elsif frame_array.length == 5 
+    elsif frame_array.length >= 5 
       if  frame_array.last.class == Hash
         if line_count == 0
           frame_array.last.delete('extend')
@@ -372,6 +372,8 @@ class WorkingArticle < ApplicationRecord
       # support lagacy format
       elsif frame_array.last =~/^extend/
         frame_array.pop
+        frame_array << {'extend'=> line_count}  unless line_count == 0
+      else
         frame_array << {'extend'=> line_count}  unless line_count == 0
       end
     end
@@ -384,7 +386,7 @@ class WorkingArticle < ApplicationRecord
     frame_array = config_hash['story_frames'][order - 1]
     if frame_array.length == 4
         frame_array << {'push'=> line_count} unless line_count == 0
-    elsif frame_array.length == 5 
+    elsif frame_array.length >= 5 
       if  frame_array.last.class == Hash
         if line_count == 0
           frame_array.last.delete('push')
@@ -395,6 +397,8 @@ class WorkingArticle < ApplicationRecord
       # support lagacy format
       elsif frame_array.last =~/^push/
         frame_array.pop
+        frame_array << {'push'=> line_count}  unless line_count == 0
+      else
         frame_array << {'push'=> line_count}  unless line_count == 0
       end
     end
