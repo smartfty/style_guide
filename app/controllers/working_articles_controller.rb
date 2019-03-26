@@ -110,7 +110,7 @@ class WorkingArticlesController < ApplicationController
   def change_story
     #todo
     # @stories = Story.where(group: , date: date) name: :desc
-    @stories = Story.where(summitted_section: @working_article.page.section_name).order(selected: 'asc')
+    @stories = Story.where(summitted_section: @working_article.page.section_name).order(selected: 'desc')
     assigned = @stories.select{|s| s.working_article_id == @working_article.id}
     if assigned.length > 0
       @stories = assigned
