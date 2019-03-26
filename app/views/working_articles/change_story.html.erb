@@ -17,26 +17,26 @@
   <div class="btn-group" role="group" aria-label="기능">
     <% case session[:current_group] %>
     <% when 'first_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", first_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", first_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'second_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", second_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", second_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'third_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", third_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", third_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'fourth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", fourth_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", fourth_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'fifth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", fifth_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", fifth_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'sixth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", sixth_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", sixth_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'seventh_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", seventh_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", seventh_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'eighth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", eighth_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", eighth_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% when 'nineth_group' %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", nineth_group_stories_issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", nineth_group_stories_issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% else %>
-    <button type="button" class="btn btn-success"><%= link_to "이전으로", issue_path(@working_article.issue), method: :get %></button>
+    <%= link_to "이전으로", issue_path(@working_article.issue), method: :get, class: "btn btn-default btn-sm" %>
     <% end %>
-    <button type="button" class="btn btn-primary"><%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get %></button>
+    <%= link_to "기사 PDF", download_pdf_working_article_path(@working_article), method: :get, class: "btn btn-default btn-sm" %>
   </div>
 </nav>  

@@ -93,7 +93,7 @@
           <label class="btn btn-warning btn-sm">
             사진 파일 바꾸기
             <%= f.file_field :image, style: "display: none;" %>
-          </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2" readonly>
+          </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2 btn-sm" readonly>
         </div>
 
         <%= link_to '사진 크롭', crop_image_path(image), method: :get, class: "btn btn-sm btn-success"  %>

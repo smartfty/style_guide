@@ -96,14 +96,13 @@
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
-			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+			<HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></HeadLine>
 		</NewsComponent>
 		<NewsComponent>
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><%= @by_line %><% end %>]]>
+				<![CDATA[<%= @h_caption %><%= @h_source %><%= @by_line %>]]>
 			</DataContent>
 		</NewsComponent><% elsif images.length > 0 %>
 		<NewsComponent>

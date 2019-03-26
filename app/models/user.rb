@@ -30,7 +30,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  enum role: [:reporter, :editor, :designer, :admin]
+  enum role: [:reporter, :editor, :designer, :admin, :team_leader]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -46,4 +46,5 @@ class User < ApplicationRecord
   def self.current=(user)
     Thread.current[:user] = user
   end
+
 end

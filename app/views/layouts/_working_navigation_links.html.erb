@@ -2,83 +2,104 @@
 
 <!-- ul class="nav navbar-nav navbar-center" -->
 
-<% if current_user && current_user.role == 'reporter' %> 
-    <li><%= link_to '나의기사', my_stories_path %></li>
-    <li><%= link_to '나의사진', my_reporter_images_path %></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">연합<span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-            <li><%= link_to '연합기사', yh_articles_path %></li>
-            <li><%= link_to '연합사진', yh_pictures_path %></li>
-            <li><%= link_to '연합그래픽', yh_graphics_path %></li>
-        </ul>
-    </li>
-    <li><%= link_to '그래픽 의뢰', my_graphic_requests_path %></li>
-
-<% end %> 
-
-
-<% if current_user && current_user.role != 'reporter' %> 
 <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{ko_date}" %><span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{ko_date}" %><span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+  <% if current_user && (current_user.role == 'designer' || current_user.role == 'admin') %> 
+    <li><%= link_to '새로운 호 생성', new_issue_path %></li>
+    <li class="divider"></li>
     <li><%= link_to '면 배열표', current_plan_issue_path(Issue.last.id) %></li>
+  <% end %>
     <li><%= link_to '출력 현황', print_status_issue_path(Issue.last.id) %></li>
     <li class="divider"></li>
-    <li><%= link_to '전체보기', issue_path(Issue.last.id) %></li>
-    <li><%= link_to '1면', first_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '정치', second_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '자치행정', third_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '국제통일', fourth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '금융', fifth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '산업', sixth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '정책', seventh_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '기획', eighth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '오피니언', nineth_group_issue_path(Issue.last.id) %></li>
-    <li class="divider"></li>
-    <li><%= link_to '전면광고', ad_group_issue_path(Issue.last.id) %></li>
-    <% if Issue.last.spread %>
-        <li class="divider"></li>
-        <li><%= link_to '양면(12-13)', spread_issue_path(Issue.last.id) %></li>
+    <% if current_user && current_user.role == 'reporter' %> 
+      <% case current_user.group  %>
+      <% when  '1면' %>
+        <li><%= link_to '<1면> 편집', first_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<1면> 기사배정', first_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '정치' %>
+        <li><%= link_to '<정치> 편집', second_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<정치> 기사배정', second_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '자치행정' %>
+        <li><%= link_to '<자치행정> 편집', third_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<자치행정> 기사배정', third_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '자치행정' %>
+        <li><%= link_to '<국제통일> 편집', fourth_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<국제통일> 기사배정', fourth_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '금융' %>
+        <li><%= link_to '<금융> 편집', fifth_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<금융> 기사배정', fifth_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '산업' %>
+        <li><%= link_to '<산업> 편집', sixth_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<산업> 기사배정', sixth_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '정책' %>
+        <li><%= link_to '<정책> 편집', seventh_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<정책> 기사배정', seventh_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '기획' %>
+        <li><%= link_to '<기획> 편집', eighth_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<기획> 기사배정', eighth_group_stories_issue_path(Issue.last.id) %></li>
+      <% when  '오피니언' %>
+        <li><%= link_to '<오피니언> 편집', nineth_group_issue_path(Issue.last.id) %></li>
+        <li><%= link_to '<오피니언> 기사배정', nineth_group_stories_issue_path(Issue.last.id) %></li>
+      <% end %>
+    <% else %>
+      <li><%= link_to '전체보기', issue_path(Issue.last.id) %></li>
+      <li><%= link_to '1면', first_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '정치', second_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '자치행정', third_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '국제통일', fourth_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '금융', fifth_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '산업', sixth_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '정책', seventh_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '기획', eighth_group_issue_path(Issue.last.id) %></li>
+      <li><%= link_to '오피니언', nineth_group_issue_path(Issue.last.id) %></li>
     <% end %>
+    
+  <li class="divider"></li>
+    <li><%= link_to '전면광고', ad_group_issue_path(Issue.last.id) %></li>
+  <% if Issue.last.spread %>
     <li class="divider"></li>
-    <li><%= link_to '새로운 호 생성', new_issue_path %></li>
+    <li><%= link_to '양면(12-13)', spread_issue_path(Issue.last.id) %></li>
+  <% end %>
 </ul>
 </li>
 
-<% end %> 
-
-<% if current_user && @working_article%>
 <li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">기사배정<span class="caret"></span></a>
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">기사작성<span class="caret"></span></a>
   <ul class="dropdown-menu" role="menu">
-      <li><%= link_to '오늘기사', stories_path %></li>
-      <li><%= link_to '1면', first_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '정치', second_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '자치행정', third_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '국제통일', fourth_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '금융', fifth_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '산업', sixth_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '정책', seventh_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '기획', eighth_group_stories_issue_path(Issue.last.id) %></li>
-      <li><%= link_to '오피니언', nineth_group_stories_issue_path(Issue.last.id) %></li>
+    <li><%= link_to '나의기사', my_stories_path %></li>
+    <li><%= link_to '나의사진', my_reporter_images_path %></li>
+    <li><%= link_to '나의그래픽', my_reporter_images_path %></li>    
+    <li class="divider"></li> 
+    <li><%= link_to '그래픽 의뢰', my_graphic_requests_path %></li>
   </ul>
 </li>
 
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">사진 크기 조절<span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
-      <% if @working_article && (@working_article.kind == '사설' || @working_article.kind == '기고')%>
-      <% elsif @working_article %>
-        <li> <%= link_to "2x2", image_2x2_working_article_path(@working_article) %></li>
-        <li> <%= link_to "3x3", image_3x3_working_article_path(@working_article) %></li>
-        <li> <%= link_to "1x1", image_1x1_working_article_path(@working_article) %></li>
-        <li> <%= link_to "4x4", image_4x4_working_article_path(@working_article) %></li>
-      <% end %>    </ul>
-  </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">연합뉴스<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+  <li><%= link_to '연합기사', yh_articles_path %></li>
+  <li><%= link_to '연합사진', yh_pictures_path %></li>
+  <li><%= link_to '연합그래픽', yh_graphics_path %></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">검색<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+  <li><%= link_to '지난호 보기', issues_path %></li>
+  <li class="divider"></li>
+  <li><%= link_to '기사 제목/본문 검색', working_articles_path %></li>
+  <li><%= link_to '페이지 검색', pages_path %></li>
+</ul>
+</li>
+
+<% if current_user && @working_article %>
+
+<li class="divider-vertical"></li>
 
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">발문 추가<span class="caret"></span></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">발문<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
         <li><%= link_to '2행 발문 추가(본문8줄)', quote_two_working_article_path %></li>
         <li><%= link_to '3행 발문 추가(본문10줄)', quote_three_working_article_path %></li>
@@ -89,7 +110,7 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">박스물 추가<span class="caret"></span></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">부제/안내문<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
         <li><%= link_to '본문 부제(고딕_회색)  추가', boxed_subtitle_one_working_article_path %></li>
         <li><%= link_to '본문 부제(테두리)  추가 추가', boxed_subtitle_two_working_article_path %></li>
@@ -103,7 +124,7 @@
 
     <% if @working_article.siblings.length > 0 %>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">박스 크기 조절<span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">기사박스<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
           <li><%= link_to '현재 추가 행수:' "#{@working_article.extended_line_count}" %></li>
           <li class="divider"></li>
@@ -126,20 +147,7 @@
       </li>
   
   <% end %>
-
-  <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">기자정보<span class="caret"></span></a>
-  <ul class="dropdown-menu" role="menu">
-    <li><%= link_to '오피니언 저자', opinion_writers_path %></li>
-    <li><%= link_to '기고 저자', profiles_path %></li>
-    <li><%= link_to '색션별 팀장', reporter_groups_path %></li>
-    <li><%= link_to '기자', reporters_path %></li>
-  </ul>
-</li>
-
-  <!-- <li><%= link_to '면머리', page_headings_path %></li> -->
-
-<% end %>
+  <% end %>
 
 <!-- li><%= link_to '도움말', home_help_path %></li -->
 
