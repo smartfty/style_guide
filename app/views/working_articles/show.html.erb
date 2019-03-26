@@ -210,10 +210,37 @@
                 </h4>
               </div>
               <div id="collapse3" class="panel-collapse collapse">
-                <div class="panel-body panel-body-dnaeil">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.</div>
+                <div class="panel-body panel-body-dnaeil">
+                    <div class="col-xs-12 col-sm-12">
+
+                    <% if @working_article.kind == '기사' || @working_article.kind == '사진' || @working_article.kind == '박스기고' %>
+                            <% @working_article.graphics.each do |graphic| %>
+                                <%= render 'graphics/form', graphic: graphic %>
+                            <% end %>
+                        </div>
+                        <div class="col-xs-12 col-sm-12">
+                        <% if  @working_article.graphics.length <= 2 %>
+                            <%= form_with( model: @working_article, :html => { :multipart => true }, :url=>{action: 'upload_graphics'}) do |f| %>
+                            <%= f.fields_for :images, Image.new do |p| %>
+                                <br>
+                                <div class="field">
+                                <label class="btn btn-warning">그래픽 파일선택<%= p.file_field :image, style: "display: none;", :multiple => true, name:"images[image][]" %>
+                                </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2 btn-sm" readonly="readonly">
+                            </div>
+                        <% end %>
+                        <div class="actions">
+                            <%= f.button "그래픽 올리기", issue: @working_article.issue, class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+                        </div>
+                    <% end %>
+                <% end %>
+
+                <% link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+                    <% link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
+                        <br>
+                        <hr>
+                    <% end %>
+            </div>
+                </div>
               </div>
             </div>
           </div>
