@@ -25,15 +25,27 @@
     <li><%= link_to '출력 현황', print_status_issue_path(Issue.last.id) %></li>
     <li class="divider"></li>
     <li><%= link_to '전체보기', issue_path(Issue.last.id) %></li>
-    <li><%= link_to '1면', first_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '정치', second_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '자치행정', third_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '국제통일', fourth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '금융', fifth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '산업', sixth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '정책', seventh_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '기획', eighth_group_issue_path(Issue.last.id) %></li>
-    <li><%= link_to '오피니언', nineth_group_issue_path(Issue.last.id) %></li>
+    <% case current_user.group  %>
+    <% when  '1면' %>
+      <li><%= link_to '1면', first_group_issue_path(Issue.last.id) %></li>
+    <% when  '정치' %>
+      <li><%= link_to '정치', second_group_issue_path(Issue.last.id) %></li>
+    <% when  '자치행정' %>
+      <li><%= link_to '자치행정', third_group_issue_path(Issue.last.id) %></li>
+    <% when  '자치행정' %>
+      <li><%= link_to '국제통일', fourth_group_issue_path(Issue.last.id) %></li>
+    <% when  '금융' %>
+      <li><%= link_to '금융', fifth_group_issue_path(Issue.last.id) %></li>
+    <% when  '산업' %>
+      <li><%= link_to '산업', sixth_group_issue_path(Issue.last.id) %></li>
+    <% when  '정책' %>
+      <li><%= link_to '정책', seventh_group_issue_path(Issue.last.id) %></li>
+    <% when  '기획' %>
+      <li><%= link_to '기획', eighth_group_issue_path(Issue.last.id) %></li>
+    <% when  '오피니언' %>
+      <li><%= link_to '오피니언', nineth_group_issue_path(Issue.last.id) %></li>
+    <% end %>
+
     <li class="divider"></li>
     <li><%= link_to '전면광고', ad_group_issue_path(Issue.last.id) %></li>
     <% if Issue.last.spread %>

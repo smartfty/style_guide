@@ -11,4 +11,5 @@ module ApplicationHelper
   def ko_date
     current_issue.korean_date_string
   end
+
 end

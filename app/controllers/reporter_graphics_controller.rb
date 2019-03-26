@@ -1,5 +1,5 @@
 class ReporterGraphicsController < ApplicationController
-  before_action :set_reporter_graphic, only: [:show, :edit, :update, :destroy]
+  before_action :set_reporter_graphic, only: [:show, :edit, :update, :destroy, :download]
 
   # GET /reporter_graphics
   # GET /reporter_graphics.json
@@ -15,6 +15,7 @@ class ReporterGraphicsController < ApplicationController
 
   # GET /reporter_graphics/new
   def new
+    @user = current_user
     @reporter_graphic = ReporterGraphic.new
   end
 
@@ -66,6 +67,11 @@ class ReporterGraphicsController < ApplicationController
     @reporter_graphics = current_user.reporter_graphics.order(id: 'DESC').page(params[:page]).per(20)
   end
 
+  def download
+    puts "File.exist?(@reporter_graphic.full_size_full_path):#{File.exist?(@reporter_graphic.full_size_full_path)}"
+    send_file @reporter_graphic.full_size_full_path, :x_sendfile=>true, :disposition => "attachment"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reporter_graphic
@@ -74,6 +80,6 @@ class ReporterGraphicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporter_graphic_params
-      params.require(:reporter_graphic).permit(:user_id, :title, :caption, :source, :wire_pictures, :section_name, :used_in_layout)
+      params.require(:reporter_graphic).permit(:user_id, :title, :caption, :source, :wire_pictures, :section_name, :used_in_layout, :finished_job, uploads: [])
     end
 end

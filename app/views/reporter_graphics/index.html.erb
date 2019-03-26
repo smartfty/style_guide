@@ -21,8 +21,7 @@
       <tr>
         <td style="text-align:center;"><%= graphic.title %></td>
         <td style="text-align:center;"><%= graphic.user.name %></td>
-        <td><%= button_to "보기", graphic, method: :get, class: "btn btn-sm btn-success" %></td>
-        <td><%= button_to "삭제", graphic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+        <td><%= button_to "보기", edit_reporter_graphic_path(graphic), method: :get, class: "btn btn-sm btn-success" %></td>
       </tr>
     <% end %>
   </tbody>

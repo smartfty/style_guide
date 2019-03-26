@@ -21,15 +21,35 @@
   - body
     - fit_text
 
+2019-3-25
+  - put JungAng, DongA ip and passwork to ENV[]
+  - reporter graphic
+    - designer assign size
+    - when uploading meno field
+  - section nameing convention
+      정책(우리는 좋다)
+  - 면배열표 권한(국장님, 마케팅)
+
 2019-3-20
   - 광고 upload
   - 사진 테두리 없음 checkbox 추가
+  - 금융팀 증시 구분선 없음
+    사진 panel 에서 테트리  un-check
+
+  - reporter_graphic
+    graphic_requrest for designer 추가
+    attach ytn_graphic to reporter_graphic
+    download reporter_graphic for edit
+    upload reporter_graphic final
+
+  - reporter menu 추가, allow them to see 오늘의 신문, 기사배정
+
+  - 기자 profile menu 추가
+    upload 기자 image
+    기고저자 와 비슷하게 
+    리스트
 
   - 사진 anchor point
-  - 금융팀 증시 구분선 없음
-  - 기자 menu 추가
-   기고저자 와 비슷하게
-   리스트
 
 2019-3-19
   - 매일 사용않된 출고물 해제

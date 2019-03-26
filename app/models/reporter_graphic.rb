@@ -36,7 +36,7 @@ class ReporterGraphic < ApplicationRecord
     s.save
   end
 
-   #TODO
+  #TODO
   def sorce_path
     "/wire_source/203_GRAPHIC/20190312"
   end
@@ -45,6 +45,11 @@ class ReporterGraphic < ApplicationRecord
     return unless wire_pictures
     full_size = wire_pictures.split(" ").first
     sorce_path + "/#{full_size}"
+  end
+
+  #TODO fix this
+  def full_size_full_path
+    "#{Rails.root}/public" + "#{full_size_path}" 
   end
 
   def preview_path
