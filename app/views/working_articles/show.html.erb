@@ -29,13 +29,13 @@
                 <% else %><%= "#{@working_article.page.section_name}" %>면<% end %> 기사배정</label>
 
             <input class="input_e" id="tab5" type="radio" name="tabs">
-            <label class="taplabel" for="tab5"><%= "#{@working_article.page.page_number}" %>면</label>
+            <label class="taplabel" for="tab5"><%= "#{@working_article.page.page_number}" %>면 미리보기</label>
 
             <input class="input_e" id="tab11" type="radio" name="tabs">
-            <label class="taplabel" for="tab11"><%= "#{@working_article.order}" %>번 기사 배정</label>
+            <label class="taplabel" for="tab11"><%= "#{@working_article.order}" %>번 기사배정</label>
 
             <input class="input_d" id="tab1" type="radio" name="tabs" checked="checked">
-            <label class="taplabel" for="tab1"><%= "#{@working_article.order}" %>번 기사 편집</label>
+            <label class="taplabel" for="tab1"><%= "#{@working_article.order}" %>번 기사편집</label>
 
             <!--input class="input_e" id="tab4" type="radio" name="tabs"> 
             <label class="taplabel" for="tab4">기사 미리보기</label -->
@@ -312,7 +312,7 @@
                                     <%= f.fields_for :images, Image.new do |p| %>
                                         <br>
                                         <div class="field">
-                                        <label class="btn btn-warning">그래픽 파일선택<%= p.file_field :image, style: "display: none;", :multiple => true, name:"images[image][]" %>
+                                        <label class="btn btn-warning btn-sm">그래픽 파일선택<%= p.file_field :image, style: "display: none;", :multiple => true, name:"images[image][]" %>
                                         </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2 btn-sm" readonly="readonly">
                                     </div>
                                 <% end %>
