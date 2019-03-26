@@ -17,7 +17,7 @@
   <div class="col-xs-5 col-sm-5">
   <div class="actions">
     <%= f.button "저장", type: :submit, class: "btn btn-primary btn-sm" %>
-    <%= link_to '삭제', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+    <%= button_to '삭제', image, method: :delete, confirm: 'Are you sure?', class: "btn btn-sm btn-danger" %>
   </div>
   <div class="field">
     <%= f.label :종류 %> <%= f.select :image_kind, %w[일반 인물_좌 인물_우 그릅], {include_blank: false}, {onChange: 'this.form.submit();'} %>
@@ -47,7 +47,7 @@
     <% end %>
   </div>
   <div class="col-xs-7 col-sm-7">
-  <div class="col-xs-12 col-sm-12 ">
+  <div class="col-xs-12 col-sm-12">
   <%= image.size_string %>
   <% if  image.image && image.image.url%>
     <!-- %= image_tag image.image.url, style: "padding-bottom:20px" % -->
@@ -115,7 +115,7 @@
   </div>
   <div class="btn-group btn-right" role="group" aria-label="기능">
     <!-- %= button_to "이전으로", page_path(@working_article.page), method: :get, class: "btn btn-default btn-sm" % -->
-    <%= f.button "저장하기", class: "btn btn-primary btn-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+    <%= f.button "저장", class: "btn btn-primary btn-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
 </nav>
 <% end %>
