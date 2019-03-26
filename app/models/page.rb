@@ -35,6 +35,7 @@
 #  article_line_thickness       :float
 #  page_heading_margin_in_lines :integer
 #  tag                          :string
+#  display_name                 :string
 #
 # Indexes
 #
@@ -79,7 +80,6 @@ class Page < ApplicationRecord
     # "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
     #Todo
     "/#{publication_id}/issue/#{date.to_s}/#{page_number}"
-
   end
 
   def url
@@ -564,7 +564,7 @@ class Page < ApplicationRecord
   def create_heading(section)
     heading_atts                  = {}
     heading_atts[:page_number]    = page_number
-    heading_atts[:section_name]   = section_name
+    heading_atts[:section_name]   = display_name || section_name
     heading_atts[:page_id]        = self.id
     heading_atts[:date]           = date
     result                        = PageHeading.where(heading_atts).first_or_create

@@ -19,6 +19,7 @@
 #  updated_at           :datetime         not null
 #  description          :text
 #  deadline             :string
+#  display_name         :string
 #
 # Indexes
 #
@@ -36,7 +37,7 @@ class PagePlan < ApplicationRecord
   belongs_to :issue, optional: true
   has_one :page
   has_many :article_plans
-  before_create :parse_profile
+  before_save :parse_profile
   after_create :create_article_plans
 
   def need_update?
@@ -62,7 +63,6 @@ class PagePlan < ApplicationRecord
       ArticlePlan.where(page_plan:self, reporter: team_leader, order: i + 1, title: "제목은 여기에 ...").first_or_create
     end
   end
-
 
   def reporters_of_group
     group = ReporterGroup.where(section: section_name).first
@@ -91,8 +91,14 @@ class PagePlan < ApplicationRecord
     end
   end
 
-
   private
+
+  def parse_section_name
+    if section_name =~/\(\s*(.+)\s*\)\s*$/
+      self.display_name = $1.to_s
+      self.section_name = section_name.split("(").first
+    end
+  end
 
   def parse_profile
     if profile && profile != ""
@@ -142,6 +148,7 @@ class PagePlan < ApplicationRecord
       self.row                  = selected_section_template.row
       self.story_count          = selected_section_template.story_count
       self.ad_type              = selected_section_template.ad_type
+      parse_section_name
       self.dirty                = true
     else
       puts " no profile is given, so make a default page"

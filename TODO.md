@@ -21,13 +21,17 @@
   - body
     - fit_text
 
+2019-3-26
+  - add display name to page
+  - section nameing convention
+      정책(우리는 좋다)
+      
 2019-3-25
   - put JungAng, DongA ip and passwork to ENV[]
   - reporter graphic
     - designer assign size
     - when uploading meno field
-  - section nameing convention
-      정책(우리는 좋다)
+
   - 면배열표 권한(국장님, 마케팅)
 
 2019-3-20
@@ -35,14 +39,17 @@
   - 사진 테두리 없음 checkbox 추가
   - 금융팀 증시 구분선 없음
     사진 panel 에서 테트리  un-check
-
   - reporter_graphic
-    graphic_requrest for designer 추가
+    column         :integer
+    row            :integer
+    extra_height   :integer
+    status         :string
+    designer       :string
+    request        :text
+    data           :text
     attach ytn_graphic to reporter_graphic
     download reporter_graphic for edit
     upload reporter_graphic final
-
-  - reporter menu 추가, allow them to see 오늘의 신문, 기사배정
 
   - 기자 profile menu 추가
     upload 기자 image

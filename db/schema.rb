@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_235324) do
+ActiveRecord::Schema.define(version: 2019_03_26_011838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -369,6 +369,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_235324) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "deadline"
+    t.string "display_name"
     t.index ["issue_id"], name: "index_page_plans_on_issue_id"
   end
 
@@ -405,6 +406,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_235324) do
     t.float "article_line_thickness"
     t.integer "page_heading_margin_in_lines"
     t.string "tag"
+    t.string "display_name"
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
@@ -477,6 +479,13 @@ ActiveRecord::Schema.define(version: 2019_03_19_235324) do
     t.boolean "used_in_layout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "column"
+    t.integer "row"
+    t.integer "extra_height"
+    t.string "status"
+    t.string "designer"
+    t.text "request"
+    t.text "data"
     t.index ["user_id"], name: "index_reporter_graphics_on_user_id"
   end
 

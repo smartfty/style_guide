@@ -12,6 +12,13 @@
 #  used_in_layout :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  column         :integer
+#  row            :integer
+#  extra_height   :integer
+#  status         :string
+#  designer       :string
+#  request        :text
+#  data           :text
 #
 # Indexes
 #
