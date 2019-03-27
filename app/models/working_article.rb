@@ -58,6 +58,9 @@
 #  quote_v_extra_space          :integer
 #  quote_alignment              :string
 #  quote_line_type              :string
+#  quote_box_column             :integer
+#  quote_box_type               :integer
+#  quote_box_show               :boolean
 #
 # Indexes
 #
@@ -425,12 +428,25 @@ class WorkingArticle < ApplicationRecord
     h[:overflow_line_count]
   end
 
-  def quote_line(line_count)
-    puts "line_count: #{line_count}"
-    self.quote_box_size = line_count
+  def show_quote_box(quote_box_type)
+    self.quote_box_show = show
+    self.quote_box_type = quote_box_type
+    case quote_box_type
+    when '일반' || 'reqular'
+      self.quote_box_size = 4
+    when '기고2행' || 'opinion2'
+      self.quote_box_size = 2
+    when '기고3행' || 'opinion3'
+      self.quote_box_size = 3
+    end
     self.save
   end
 
+  def hide_quote_box
+    self.quote_box_show = false
+    self.save
+  end
+ 
   def boxed_subtitle_zero
     self.boxed_subtitle_type = 0
     self.save
@@ -728,15 +744,14 @@ class WorkingArticle < ApplicationRecord
       h[:announcement_column]         = self.announcement_column
       h[:announcement_color]          = self.announcement_color
     end
-    if show_quote_box?
+    if show_quote_box
       h[:quote_box_size]              = self.quote_box_size 
-      # for 기고 quote_box_size indicates lines height 2 or 3.
-      # but for others, quote_box_size is used for grid_width
       h[:quote_position]              = self.quote_position || 5 
       h[:quote_x_grid]                = self.quote_x_grid  - 1 if self.quote_x_grid
       h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
       h[:quote_alignment]             = self.quote_alignment || 'left'
       h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
+      h[:quote_box_type]              = self.quote_box_type || '일반' #'일반, 기고2행, 기고3행'
       h[:quote_box_column]            = self.quote_box_column || 1
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines

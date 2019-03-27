@@ -144,12 +144,12 @@ Rails.application.routes.draw do
       get 'reduce_three'
       get 'reduce_four'
       get 'swap'
-      get 'quote_default'
-      get 'quote_zero'
-      get 'quote_one'
-      get 'quote_two'
-      get 'quote_three'
-      get 'quote_four'
+
+      get 'show_quote_box'
+      get 'show_quote_box_for_opinion2'
+      get 'show_quote_box_for_opinion3'
+      get 'hide_quote_box'
+      
       get 'boxed_subtitle_one'
       get 'boxed_subtitle_two'
       get 'boxed_subtitle_zero'

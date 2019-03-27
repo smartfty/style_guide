@@ -336,47 +336,28 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '위 아래 가사가 교체 되었습니다.'
   end
 
-
-  # def quote_auto
-  #   set_working_article
-  #   @working_article.quote_auto
-  #   redirect_to working_article_path(@working_article), notice: '발문 박스 자동크기 설정 되었습니다.'
-  # end
-
-  def quote_default
+  def show_quote_box
     set_working_article
-    @working_article.quote_line(4)
-    redirect_to working_article_path(@working_article), notice: '발문 박스 자동크기 설정 되었습니다.'
+    @working_article.show_quote_box('일번')
+    redirect_to working_article_path(@working_article), notice: '발문 박스 추가.'
   end
 
-  def quote_zero
+  def show_quote_box_for_opinion_2
     set_working_article
-    @working_article.quote_line(0)
+    @working_article.show_quote_box('기고2행')
+    redirect_to working_article_path(@working_article), notice: '2행 발문 박스 추가.'
+  end
+
+  def show_quote_box_for_opinion_3
+    set_working_article
+    @working_article.show_quote_box('기고3행')
+    redirect_to working_article_path(@working_article), notice: '3행 발문 박스 추가.'
+  end
+
+  def hide_quote_box
+    set_working_article
+    @working_article.hide_quote_box
     redirect_to working_article_path(@working_article), notice: '발문 박스가 삭제 되었습니다.'
-  end
-
-  def quote_one
-    set_working_article
-    @working_article.quote_line(1)
-    redirect_to working_article_path(@working_article), notice: '1 행용 발문 박스(6줄 추가됨) 설정 되었습니다.'
-  end
-
-  def quote_two
-    set_working_article
-    @working_article.quote_line(2)
-    redirect_to working_article_path(@working_article), notice: '2 행용 발문 박스(8줄 추가) 설정 되었습니다.'
-  end
-
-  def quote_three
-    set_working_article
-    @working_article.quote_line(3)
-    redirect_to working_article_path(@working_article), notice: '3 행용 발문 박스(10줄 추가) 설정 되었습니다.'
-  end
-
-  def quote_four
-    set_working_article
-    @working_article.quote_line(4)
-    redirect_to working_article_path(@working_article), notice: '4 행용 발문 박스(12줄 추가) 설정 되었습니다.'
   end
 
   def boxed_subtitle_one
@@ -457,7 +438,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type, :quote_box_column, :quote_box_show)
     end
 
     def filter_markdown?

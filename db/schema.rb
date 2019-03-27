@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_011838) do
+ActiveRecord::Schema.define(version: 2019_03_27_182457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -744,6 +744,9 @@ ActiveRecord::Schema.define(version: 2019_03_26_011838) do
     t.integer "quote_v_extra_space"
     t.string "quote_alignment"
     t.string "quote_line_type"
+    t.integer "quote_box_column"
+    t.integer "quote_box_type"
+    t.boolean "quote_box_show"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true

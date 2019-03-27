@@ -58,6 +58,9 @@
 #  quote_v_extra_space          :integer
 #  quote_alignment              :string
 #  quote_line_type              :string
+#  quote_box_column             :integer
+#  quote_box_type               :integer
+#  quote_box_show               :boolean
 #
 # Indexes
 #
