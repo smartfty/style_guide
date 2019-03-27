@@ -139,7 +139,7 @@ caption_title:
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.2
-  space_width: 2
+  space_width: 3
   scale: 100.0
   text_line_spacing:
   space_before_in_lines:
@@ -154,10 +154,10 @@ caption:
   category:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
-  font_size: 7.5
+  font_size: 8.5
   text_color: CMYK=0,0,0,100
   alignment: justified
-  tracking: -0.2
+  tracking: -0.3
   space_width: 0
   scale: 100.0
   text_line_spacing:
@@ -173,7 +173,7 @@ source:
   category:
   font_family: KoPub돋움체_Pro Light
   font: KoPubDotumPL
-  font_size: 7.5
+  font_size: 8.5
   text_color: CMYK=0,0,0,100
   alignment: right
   tracking: -0.2
@@ -312,11 +312,11 @@ title_4:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 30.0
+  font_size: 28.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1.0
-  space_width: 7.0
+  tracking: -2.0
+  space_width: 6.0
   scale: 100.0
   text_line_spacing: 7
   space_before_in_lines: 1
@@ -331,7 +331,7 @@ title_3:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 28.0
+  font_size: 26.0
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -1.0
@@ -353,8 +353,8 @@ title_2:
   font_size: 24.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1.0
-  space_width: 4.0
+  tracking: -2.0
+  space_width: 5.0
   scale: 100.0
   text_line_spacing: 7
   space_before_in_lines: 1
@@ -410,12 +410,12 @@ subtitle_M:
   font_size: 14.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -0.5
+  tracking: -1
   space_width: 5.0
   scale: 100.0
   text_line_spacing: 5.0
   space_before_in_lines: -0.1
-  space_after_in_lines: 0.5
+  space_after_in_lines: 0.7
   text_height_in_lines: 2
   box_attributes: ''
   markup: ''
@@ -433,8 +433,8 @@ subtitle_S:
   space_width: 4.0
   scale: 100.0
   text_line_spacing: 6
-  space_before_in_lines: -0.1
-  space_after_in_lines: 0.5
+  space_before_in_lines: 0
+  space_after_in_lines: 0.6
   text_height_in_lines: 1
   box_attributes: ''
   markup: ''

@@ -147,7 +147,7 @@
                   기사편집</a>
                 </h4>
               </div>
-              <div id="collapse1" class="panel-collapse collapse in">
+              <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body panel-body-dnaeil">
                 <% if @working_article.kind == '사설' || @working_article.kind == 'editorial' %>
                 <%= render 'editorial', article:@working_article, page_number:@working_article.page_number%>

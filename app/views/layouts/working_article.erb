@@ -11,7 +11,7 @@
   <body>
 
   <style>
-  .content {
+   .content {
     padding: 0 18px;
     background-color: white;
     max-height: 0;
@@ -21,41 +21,45 @@
   </style>
   
   <script>
-  if(typeof(Storage)!=="undefined")
-    {
-        collapsed = window.localStorage.getItem('collapsed'); // again choose one
-        collapsed = code.sessionStorage.getItem('collapsed');
-    
-        if(collapsed) {
-            $('.collapse').collapse('show');
-        } else {
-            $('.collapse').collapse('hide');
-        }
-    }
-    else
-    {
-        // Sorry! No Storage support..
-    }
+  function restoreAccordionPanel(storageKey, accordionId) {
+    var activeItem = localStorage.getItem(storageKey);
+    if (activeItem) {
+        //remove default collapse settings
+        $(accordionId + " .panel-collapse").removeClass('in');
 
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-  
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
+        //show the account_last visible group
+        $("#" + activeItem).addClass("in");
+    }
+}
+
+function restoreActiveTab(storageKey, tabId) {
+    var activeItem = localStorage.getItem(storageKey);
+    if (activeItem) {
+        $(tabId + ' a[href="' + activeItem + '"]').tab('show');
+    }
+}
+
+function saveActiveAccordionPanel(storageKey, e) {
+    localStorage.setItem(storageKey, e.target.id);
+}
+
+function saveActiveTab(storageKey, e) {
+    localStorage.setItem(storageKey, $(e.target).attr('href'));
+}
 
   $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
   </script>
+
+  <script>
+  $(function () {
+    $('#accordion').on('shown.bs.collapse', function (e) {
+        saveActiveAccordionPanel('accordion-activePanel', e);
+    })        
+  )};
+  restoreAccordionPanel('accordion-activePanel', '#accordion');
+</script>
 
   <!-- 사진/그래픽 올리기 하고 페이지 새로고침 되어도 탭 유지 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
