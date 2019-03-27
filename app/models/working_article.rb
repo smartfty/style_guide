@@ -737,6 +737,7 @@ class WorkingArticle < ApplicationRecord
       h[:quote_v_extra_space]         = self.quote_v_extra_space || 0
       h[:quote_alignment]             = self.quote_alignment || 'left'
       h[:quote_line_type]             = self.quote_line_type || '상하' #'박스'
+      h[:quote_box_column]            = self.quote_box_column || 1
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
