@@ -319,7 +319,7 @@ class Section < ApplicationRecord
 
   def generate_article_pdf
     articles.each do |article|
-      article.generate_pdf
+      article.generate_pdf_with_time_stamp
     end
   end
 

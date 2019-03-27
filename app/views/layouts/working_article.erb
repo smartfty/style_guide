@@ -21,8 +21,15 @@
   </style>
   
   <script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+  </script>
+
+  <script>
+
   function restoreAccordionPanel(storageKey, accordionId) {
-    var activeItem = localStorage.getItem(storageKey);
+    var activeItem = sessionStorage.getItem(storageKey);
     if (activeItem) {
         //remove default collapse settings
         $(accordionId + " .panel-collapse").removeClass('in');
@@ -33,37 +40,25 @@
 }
 
 function restoreActiveTab(storageKey, tabId) {
-    var activeItem = localStorage.getItem(storageKey);
+    var activeItem = sessionStorage.getItem(storageKey);
     if (activeItem) {
         $(tabId + ' a[href="' + activeItem + '"]').tab('show');
     }
 }
 
 function saveActiveAccordionPanel(storageKey, e) {
-    localStorage.setItem(storageKey, e.target.id);
+    sessionStorage.setItem(storageKey, e.target.id);
 }
 
 function saveActiveTab(storageKey, e) {
-    localStorage.setItem(storageKey, $(e.target).attr('href'));
+    sessionStorage.setItem(storageKey, $(e.target).attr('href'));
 }
-
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-  </script>
-
-  <script>
-  $(function () {
-    $('#accordion').on('shown.bs.collapse', function (e) {
-        saveActiveAccordionPanel('accordion-activePanel', e);
-    })        
-  )};
-  restoreAccordionPanel('accordion-activePanel', '#accordion');
 </script>
 
   <!-- 사진/그래픽 올리기 하고 페이지 새로고침 되어도 탭 유지 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-  <script> 
+  <script>
+  
   $(document).ready(function(){ 
    if(sessionStorage.selected) { 
    $('#' + sessionStorage.selected).attr('checked', true); 
@@ -171,6 +166,15 @@ $(document).ready(function() {
        </div>
     </main>
     <footer id="footer">
+    <script>
+    $(function () {
+      $('#accordion').on('shown.bs.collapse', function (e) {
+          saveActiveAccordionPanel('accordion-activePanel', e);
+      })        
+    )};
+    restoreAccordionPanel('accordion-activePanel', '#accordion');
+  </script>
+
     </footer>
   </body>
 </html>

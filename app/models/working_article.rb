@@ -408,7 +408,7 @@ class WorkingArticle < ApplicationRecord
   def push_line(line_count)
     self.pushed_line_count = line_count
     self.save
-    generate_pdf
+    generate_pdf_with_time_stamp
     save_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
 

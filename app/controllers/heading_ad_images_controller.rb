@@ -62,7 +62,7 @@ class HeadingAdImagesController < ApplicationController
   def destroy
     @heading_ad_image.destroy
     respond_to do |format|
-      format.html { redirect_to heading_ad_images_url, notice: '동출광고가 삭제되었습니다.' }
+      format.html { redirect_to heading_ad_images_url, notice: '돌출 광고가 삭제되었습니다.' }
       format.json { head :no_content }
     end
   end
