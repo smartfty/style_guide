@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :reporter_graphics do
+    member do
+      get 'download'
+    end
+    collection do 
+      get 'my'
+    end
+  end
   resources :yh_graphics do
     member do
       get 'taken'
@@ -17,6 +25,7 @@ Rails.application.routes.draw do
   resources :combo_ads
   resources :reporter_images do
     member do
+      get 'download'
     end
     collection do 
       get 'my'
@@ -135,12 +144,12 @@ Rails.application.routes.draw do
       get 'reduce_three'
       get 'reduce_four'
       get 'swap'
-      get 'quote_default'
-      get 'quote_zero'
-      get 'quote_one'
-      get 'quote_two'
-      get 'quote_three'
-      get 'quote_four'
+
+      get 'show_quote_box'
+      get 'show_quote_box_for_opinion2'
+      get 'show_quote_box_for_opinion3'
+      get 'hide_quote_box'
+      
       get 'boxed_subtitle_one'
       get 'boxed_subtitle_two'
       get 'boxed_subtitle_zero'
@@ -148,19 +157,6 @@ Rails.application.routes.draw do
       get 'announcement_two'
       get 'announcement_zero'
       get 'swap'
-      get 'swap_with_one'
-      get 'swap_with_two'
-      get 'swap_with_three'
-      get 'swap_with_four'
-      get 'swap_with_five'
-      get 'swap_with_six'
-      get 'swap_with_seven'
-      get 'swap_with_eigth'
-      get 'swap_with_nine'
-      get 'swap_with_ten'
-      get 'swap_with_twelve'
-      get 'swap_with_thirteen'
-      get 'swap_with_fourteen'
 
       get 'image_1x1'
       get 'image_2x2'
@@ -170,7 +166,8 @@ Rails.application.routes.draw do
       get 'image_auto'
       get 'change_story'
       patch 'update_story'
-
+      get 'select_reporter_image'
+      get 'select_reporter_graphic'
     end
   end
 

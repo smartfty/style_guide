@@ -70,11 +70,8 @@ GEM
       activemodel (>= 5.0)
     browser (2.5.3)
     builder (3.2.3)
-    bullet (5.9.0)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.11)
-    byebug (11.0.1)
-    carrierwave (1.3.1)
+    byebug (10.0.2)
+    carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -149,6 +146,9 @@ GEM
       domain_name (~> 0.5)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    image_processing (1.7.1)
+      mini_magick (~> 4.0)
+      ruby-vips (>= 2.0.13, < 3)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -301,6 +301,8 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    ruby-vips (2.0.13)
+      ffi (~> 1.9)
     ruby_dep (1.5.0)
     rubypants-unicode (0.2.5)
     rubyzip (1.2.2)
@@ -368,7 +370,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
-    uniform_notifier (1.12.1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -397,7 +398,6 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   bootstrap_form
   browser
-  bullet
   carrierwave
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.7)
@@ -412,6 +412,7 @@ DEPENDENCIES
   guard-shell
   happymapper
   hexapdf
+  image_processing (~> 1.2)
   jbuilder (~> 2.5)
   jquery-datatables
   jquery-rails

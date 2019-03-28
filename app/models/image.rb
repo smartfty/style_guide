@@ -31,6 +31,7 @@
 #  fit_type              :string
 #  image_kind            :string
 #  not_related           :boolean
+#  reporter_image_path   :string
 #
 
 class Image < ApplicationRecord
@@ -44,6 +45,8 @@ class Image < ApplicationRecord
   def image_path
     if image.url
      "#{Rails.root}/public" + image.url
+    elsif reporter_image_path
+      "#{Rails.root}/public" + reporter_graphic_path
     else
      "#{Rails.root}/public" + "/place_holder_image.jpg"
     end
@@ -103,9 +106,9 @@ class Image < ApplicationRecord
     case fit_type
     when '최적'
       h[:fit_type] = 3 
-    when '가로'
-      h[:fit_type] = 1 
     when '세로'
+      h[:fit_type] = 1 
+    when '가로'
       h[:fit_type] = 2 
     when '욱여넣기'
       h[:fit_type] = 4
@@ -113,7 +116,7 @@ class Image < ApplicationRecord
       h[:fit_type] = 3 
     end
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
-    h[:draw_frame]        = draw_frame if draw_frame
+    h[:draw_frame]        = draw_frame || true
     h[:image_kind]        = image_kind if image_kind 
     h
   end

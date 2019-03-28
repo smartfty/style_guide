@@ -19,6 +19,7 @@
 #  updated_at           :datetime         not null
 #  description          :text
 #  deadline             :string
+#  display_name         :string
 #
 # Indexes
 #

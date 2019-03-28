@@ -78,6 +78,6 @@ class ReporterImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporter_image_params
-      params.require(:reporter_image).permit(:user_id, :title, :caption, :source, :reporter_image, :remote_reporter_image_url)
+      params.require(:reporter_image).permit(:user_id, :title, :caption, :source, :reporter_image, :remote_reporter_image_url, :section_name, :used_in_layout)
     end
 end

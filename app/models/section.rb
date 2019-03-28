@@ -492,7 +492,6 @@ class Section < ApplicationRecord
   # prefered page for specific page_number
   def create_articles
     puts "id:#{id}"
-    puts "self.id:#{self.id}"
     article_count = 0
     box_array = eval_layout
 

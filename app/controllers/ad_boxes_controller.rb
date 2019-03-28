@@ -31,7 +31,7 @@ class AdBoxesController < ApplicationController
   def create
     @ad_box = AdBox.new(ad_box_params)
     respond_to do |format|
-      if @ad_box.save
+      if @ad_box.save!
         # @ad_box.generate_pdf
         format.html { redirect_to @ad_box.page, notice: 'Ad box was successfully created.' }
         format.json { render :show, status: :created, location: @ad_box }
@@ -46,6 +46,7 @@ class AdBoxesController < ApplicationController
   # PATCH/PUT /ad_boxes/1.json
   def update
     # puts "params:#{params}"
+    # @ad_box.ad_box_image.attach(params[:ad_box_image])
     respond_to do |format|
       if @ad_box.update(ad_box_params)
         @ad_box.generate_pdf_with_time_stamp
@@ -76,7 +77,9 @@ class AdBoxesController < ApplicationController
     respond_to do |format|
       format.html do
         @ad_image = AdImage.create!(:ad_image => params[:ad_image]['ad_image'], :ad_box_id => @ad_box.id)
-       end
+        @ad_box.generate_pdf_with_time_stamp
+        @ad_box.page.generate_pdf_with_time_stamp 
+      end
      end
     redirect_to @ad_box
   end

@@ -143,6 +143,9 @@ module PagePrintable
 
   def dong_a
     puts "sending it to Dong-A"
+    # ip        = ENV['DONG_A_IP']
+    # id        = ENV['DONG_A_USER']
+    # pw        = ENV['DONG_A_PASSWORD']
     ip        = '210.115.142.181'
     id        = 'naeil'
     pw        = 'cts@'
@@ -153,12 +156,7 @@ module PagePrintable
         ftp.putbinaryfile(printer_file, "/mono/#{dong_a_code}")
       end
     end
-    # ip        = '211.115.91.231'
-    # id        = 'naeil'
-    # pw        = 'sodlftlsans1!'
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   ftp.putbinaryfile(printer_file, "#{dong_a_code}")
-    # end
+
   end
 
   def jung_ang_code
@@ -175,36 +173,15 @@ module PagePrintable
 
   def jung_ang
     puts "sending it to Jung-Ang"
-    # ip        = '112.216.44.45:2121'
-    # id        = 'naeil'
-    # pw        = 'sodlf@2018'
-    # upload files
     printer_file = path + "/section.pdf"
     ftp = Net::FTP.new  # don't pass hostname or it will try open on default port
+    # ftp.connect(ENV['JUNGANG_IP'], ENV['JUNGANG_PORT'])  # here you can pass a non-standard port number
+    # ftp.login(ENV['JUNGANG_USER'], ENV['JUNGANG_PASSWORD'])
     ftp.connect('112.216.44.45', '2121')  # here you can pass a non-standard port number
     ftp.login('naeil', 'sodlf@2018')
-    # ftp.passive = true  # optional, if PASV mode is required
-    # Net::FTP.open(ip, id, pw) do |ftp|
     ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
     # end
   end
-
-
-    # 2018-7-23
-    # puts "sending it to Jung-Ang"
-    # ip        = '112.216.44.45:2121'
-    # id        = 'naeil'
-    # pw        = 'sodlf@2018'
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   ftp.putbinaryfile(printer_file, "/Naeil/#{jung_ang_code}")
-    # end
-    # ip        = '211.115.91.231'
-    # id        = 'naeil'
-    # pw        = 'sodlftlsans1!'
-    # Net::FTP.open(ip, id, pw) do |ftp|
-    #   ftp.putbinaryfile(printer_file, "#{jung_ang_code}")
-    # end
-
 
   def news_pdf_code
     yyyymd = issue.date.strftime("%Y%m%d")
@@ -217,6 +194,10 @@ module PagePrintable
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
+    # ip        = ENV['NEWS_IP']
+    # id        = ENV['NEWS_USER']
+    # pw        = ENV['NEWS_PASSWORD']
+    
     yyyymd = issue.date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
@@ -235,6 +216,9 @@ module PagePrintable
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
+    # ip        = ENV['NEWS_IP']
+    # id        = ENV['NEWS_USER']
+    # pw        = ENV['NEWS_PASSWORD']
     yyyymd = issue.date.strftime("%Y%m%d")
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")

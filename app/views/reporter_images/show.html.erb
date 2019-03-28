@@ -1,29 +1,42 @@
-<!-- p id="notice"><%= notice %></p-->
 
-<p>
-  <strong>User:</strong>
-  <%= @reporter_image.user %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @reporter_image.title %>
-</p>
+<div align="center">
+<div class='row'>
+  <div class='col-md-2'>
+  </div>
 
-<p>
-  <strong>Caption:</strong>
-  <%= @reporter_image.caption %>
-</p>
+  <div class='col-md-3'>
+    <p>
+      <img style="object-fit:cover",  src="<%= @reporter_image.thumb_path %>" width="200px" height="200px"></img>
+    </p>
 
-<p>
-  <strong>Source:</strong>
-  <%= @reporter_image.source %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @reporter_image.title %>
+    </p>
 
-<p>
-  <strong>Reporter image:</strong>
-  <%= @reporter_image.reporter_image %>
-</p>
+    <p>
+      <strong>Caption:</strong>
+      <%= @reporter_image.caption %>
+    </p>
 
-<%= link_to 'Edit', edit_reporter_image_path(@reporter_image) %> |
-<%= link_to 'Back', reporter_images_path %>
+    <p>
+      <strong>Source:</strong>
+      <%= @reporter_image.source %>
+    </p>
+
+    <p>
+      <strong>Section name:</strong>
+      <%= @reporter_image.section_name %>
+    </p>
+
+  </div>
+  <div class='col-md-3'>
+    <%= render 'form', reporter_image: @reporter_image%>
+  </div>
+</div>
+
+
+<%= link_to '이전으로', my_reporter_images_path %>
+</div>
+

@@ -30,6 +30,7 @@
 #  fit_type              :string
 #  title                 :string
 #  description           :text
+#  reporter_graphic_path :string
 #
 # Indexes
 #
@@ -47,7 +48,13 @@ class Graphic < ApplicationRecord
   before_create  :set_default
 
   def image_path
-    "#{Rails.root}/public" + graphic.url 
+    if graphic.url 
+      "#{Rails.root}/public" + graphic.url 
+    elsif reporter_graphic_path
+      "#{Rails.root}/public" + reporter_graphic_path 
+    else
+     "#{Rails.root}/public" + "/place_holder_image.jpg"
+    end
   end
 
   def size_string
@@ -113,7 +120,7 @@ class Graphic < ApplicationRecord
     end
     # h[:fit_type]          = fit_type if fit_type
     h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
-    h[:draw_frame]        = draw_frame if draw_frame
+    h[:draw_frame]        = draw_frame || false
     h
   end
 

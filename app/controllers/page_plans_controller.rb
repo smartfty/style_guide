@@ -65,12 +65,14 @@ class PagePlansController < ApplicationController
           #if we have page and ad_type changed, update page layout
           if @page = @page_plan.page
             if new_template = Section.where(ad_type:new_ad_type, page_number:@page_plan.page_number ).first
-              puts "found new_template with ad_type and page_number"
               @page.change_template(new_template.id)
             else
-              puts "not found new_template with ad_type and page_number"
+              if @page.page_number.odd?
+                new_template = Section.where(ad_type:new_ad_type, page_number:101).first
+              else
+                new_template = Section.where(ad_type:new_ad_type, page_number:100).first
+              end
               new_template = Section.where(ad_type:new_ad_type).first
-              puts "found new_template with ad_type only"
               unless new_template
                 puts "can't find any section with ad_type of #{new_ad_type}"
               else

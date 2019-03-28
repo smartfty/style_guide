@@ -103,7 +103,7 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
-gem 'bullet', group: 'development'
+# gem 'bullet', group: 'development'
 # gem 'rack-cors', require: 'rack/cors'
 
 gem 'rails-assets-trix', source: 'https://rails-assets.org'
@@ -124,4 +124,4 @@ gem 'guard-shell'
 
 gem "simple_calendar", "~> 2.0"
 
-# gem "image_processing", "~> 1.0"
+gem 'image_processing', '~> 1.2'

@@ -1,0 +1,13 @@
+
+
+<div class="view">
+  <% reporter_graphics.each do |graphic| %>
+    <div class="col-md-2">
+      <img style="object-fit:cover",  src="<%= graphic.thumb_path %>" width="200px" height="200px"></img>
+      <p align="center"><%= graphic.title %></p>
+      <%= link_to '그래픽 선택', select_reporter_graphic_working_article_path(@working_article, reporter_graphic: graphic) %>
+    </div>
+  <% end %>
+</div>
+
+

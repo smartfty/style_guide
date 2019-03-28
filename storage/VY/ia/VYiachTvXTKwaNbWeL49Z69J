@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsGo</title>
+    <meta name="description" content="Style Guide">
+    <link rel="stylesheet" media="all" href="/assets/rails_bootstrap_forms.self-10cb7d2aef696c4062f219f6678eed1d57c254a6717cea25d021726a4b9a214c.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/1st_load_framework.self-a82d3c48e5d0ace926939ab64708e9b1623c03479cb83c62ef41651a95fe7850.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/ad_box_templates.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/ad_boxes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/ads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/article_plans.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/articles.self-21f4b0ba2a2e61e32dddeb9e77f8d0ebeb3cd0ab338a55a7fa924e3997d471bb.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/datatables.self-5978a5f90f6d3bbe94d616728bb04f8ed93e77f5c8b326b81f84eabfd8e16b2a.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/graphic_requests.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/heading_ad_images.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/heading_bg_images.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/holidays.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/images.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/issues.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/opinion_writers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/page_headings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/page_plans.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/profiles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/publications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/reporter_groups.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/reporters.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/scaffolds.self-7f59c666fbd57e91ffbb57fab1c16c4d4a2eca14b226563eab4c75fc3ef09cff.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/section_headings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/sections.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/spreads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stroke_styles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/text_styles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/wire_stories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/working_articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/application.self-2b6dba8c1f65515ab0701fc68e56df7e854037a5a787951c7dc5084332432e5b.css?body=1" data-turbolinks-track="reload" />
+    <script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/datatables/jquery.dataTables.self-bf58e875900659e3fc954783d1730c50b6da1beebaa397066125f182cf2776cd.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/datatables/dataTables.bootstrap.self-1daa7c39356fe20af3e5d9f9b7396892d0151ce99bd97a22e590e2423965dee0.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/datatables.self-b751d975c2aa0bc7a3a694fe73c4667d32a9c459723880163e236a571cb4f7cc.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/moment.self-dbfdfe43590c611f0c0daa853cd06098b822a96263c92920d70a8bc7f884e59a.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/ad_box_templates.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/ad_boxes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/ads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/article_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/graphic_requests.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/heading_ad_images.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/heading_bg_images.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/holidays.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/images.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/issues.self-7195a9f54421690abcbacfcaf086b6699b6e1d0a04c64e58ee903201c98a49b5.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/opinion_writers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/page_headings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/page_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/profiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/publications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/reporter_groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/reporters.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/section_headings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/sections.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/spreads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stories.self-e05b90275999d5bd0af2caf221824f38e0eccb09e69e8048f9d74da451095dfe.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stroke_styles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/text_styles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/wire_stories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/working_articles.self-5d542a188738c63732f2305b2e90ee28214b71cf170d792d66fae0988de93be3.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/application.self-abf55f804796de5da127bcfc5fb78b0494e1e0968b014300c8b6ae359f4a19ad.js?body=1" data-turbolinks-track="reload"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="FdVLGijuw9B2KQ/uQmyloSvBuHlXRPl9a66f4175+RqO4LsOu3bWXHIFyxnKk3NLQqcUkFXioEKqGoqcVBNvUQ==" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <p class="notice"></p>
+    <p class="alert"></p>
+    <header id="header">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">뉴스고</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        
+<!-- <ul class="nav navbar-nav navbar-center"> -->
+</li> %>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">신문보기<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="/issues/1">전체보기</a></li>
+        <li><a href="/issues/1/first_group">1면</a></li>
+        <li><a href="/issues/1/second_group">정치</a></li>
+        <li><a href="/issues/1/third_group">행정</a></li>
+        <li><a href="/issues/1/fourth_group">국제통일</a></li>
+        <li><a href="/issues/1/fifth_group">금융</a></li>
+        <li><a href="/issues/1/sixth_group">산업</a></li>
+        <li><a href="/issues/1/seventh_group">기획</a></li>
+        <li><a href="/issues/1/eighth_group">정책</a></li>
+        <li><a href="/issues/1/nineth_group">오피니언</a></li>
+        <li class="divider"></li>
+        <li><a href="/issues/1/ad_group">전면광고</a></li>
+    </ul>
+</li>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">기사보기<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="/issues/1/assign_reporter">전체보기</a></li>
+        <li><a href="/issues/1/first_group_stories">1면</a></li>
+        <li><a href="/issues/1/second_group_stories">정치</a></li>
+        <li><a href="/issues/1/third_group_stories">행정</a></li>
+        <li><a href="/issues/1/fourth_group_stories">국제통일</a></li>
+        <li><a href="/issues/1/fifth_group_stories">금융</a></li>
+        <li><a href="/issues/1/sixth_group_stories">산업</a></li>
+        <li><a href="/issues/1/seventh_group_stories">기획</a></li>
+        <li><a href="/issues/1/eighth_group_stories">정책</a></li>
+        <li><a href="/issues/1/nineth_group_stories">오피니언</a></li>
+        <li class="divider"></li>
+        <li><a href="/issues/1/ad_group">연합기사</a></li>
+
+    </ul>
+</li>
+
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">오늘의 신문<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="/issues/1/current_plan">면 배열표</a></li>
+        <li class="divider"></li>
+        <li><a href="/issues/new">새로운 호 생성</a></li>
+    </ul>
+  </li>
+
+  <li><a href="/stories">오늘가사</a></li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">지면편집<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="/sections/seven">7 단</a></li>
+      <li class="divider"></li>
+      <li><a href="/sections/six">6 단</a></li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">광고<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="/issues/1/ad_boxes">오늘 광고</a></li>
+      <li class="divider"></li>
+      <li><a href="/ad_images">광고 관리</a></li>
+    </ul>
+  </li>
+
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">스타일 편집<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="/publications/1">매체 정보</a></li>
+      <li><a href="/text_styles">서체 목록</a></li>
+      <li class="divider"></li>
+      <li><a href="/stroke_styles">테두리 스타일 목록</a></li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">기자정보<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="/opinion_writers">오피니언 저자</a></li>
+      <li><a href="/profiles">기고 저자</a></li>
+      <li><a href="/reporter_groups">색션별 팀장</a></li>
+      <li><a href="/reporters">기자</a></li>
+    </ul>
+  </li>
+
+  <!-- <li><a href="/page_headings">면머리</a></li> -->
+
+
+  <li><a rel="nofollow" data-method="delete" href="/users/sign_out">로그아웃</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <main role="main" id="container" >
+      <div class="space">
+      <p> </p>
+      </div>
+       
+       <button class="btn-danger large">2017-05-30
+  00001</button>
+<div class="row">
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_">
+        <img src="/1/issue/2017-05-30/1/section06144146.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_'>1</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-22b356d1-728b-4762-b381-4a439394ed5e">
+        <img src="/1/issue/2017-05-30/2/section29132736.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-22b356d1-728b-4762-b381-4a439394ed5e'>2</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-8907f1dc-b2f0-49a0-9740-ffe4e54e92df">
+        <img src="/1/issue/2017-05-30/3/section29132740.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-8907f1dc-b2f0-49a0-9740-ffe4e54e92df'>3</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-05eeb256-a515-4852-8160-89ec8b5e7c32">
+        <img src="/1/issue/2017-05-30/4/section29132742.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-05eeb256-a515-4852-8160-89ec8b5e7c32'>4</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-ee00da59-f34f-482d-9581-cb9dcec8b27c">
+        <img src="/1/issue/2017-05-30/5/section29132745.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-ee00da59-f34f-482d-9581-cb9dcec8b27c'>5</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-e9481f3f-7e8c-4faa-83ec-2cf5c784598f">
+        <img src="/1/issue/2017-05-30/6/section29132748.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-e9481f3f-7e8c-4faa-83ec-2cf5c784598f'>6</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-1ea4d112-14ef-4a57-9044-02fe3d59ffa7">
+        <img src="/1/issue/2017-05-30/7/section29132750.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-1ea4d112-14ef-4a57-9044-02fe3d59ffa7'>7</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-38545522-ad97-4f4b-811a-58bf2d01b2d7">
+        <img src="/1/issue/2017-05-30/8/section29132752.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-38545522-ad97-4f4b-811a-58bf2d01b2d7'>8</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-b04399ae-cac7-4653-afdc-6db03866afcb">
+        <img src="/1/issue/2017-05-30/9/section29132754.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-b04399ae-cac7-4653-afdc-6db03866afcb'>9</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-e3d1b6b6-f5e1-4501-ab97-5f0b2e670479">
+        <img src="/1/issue/2017-05-30/10/section29132756.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-e3d1b6b6-f5e1-4501-ab97-5f0b2e670479'>10</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-f1bad8f0-0601-42e5-8caa-9025abd2f60c">
+        <img src="/1/issue/2017-05-30/11/section29132759.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-f1bad8f0-0601-42e5-8caa-9025abd2f60c'>11</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-249bc7b9-acf2-4b52-9058-625ba4deb738">
+        <img src="/1/issue/2017-05-30/12/section29132802.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-249bc7b9-acf2-4b52-9058-625ba4deb738'>12</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-f1bbedc7-159c-4b39-a0a5-71d031e67708">
+        <img src="/1/issue/2017-05-30/13/section29132805.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-f1bbedc7-159c-4b39-a0a5-71d031e67708'>13</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-3258a5d4-9f33-477f-a608-a400b7df760d">
+        <img src="/1/issue/2017-05-30/14/section29132807.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-3258a5d4-9f33-477f-a608-a400b7df760d'>14</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-1443bce3-1c89-4d96-8e37-68045477e310">
+        <img src="/1/issue/2017-05-30/15/section29132810.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-1443bce3-1c89-4d96-8e37-68045477e310'>15</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-5328e51d-c347-49e4-955d-9f57070f012a">
+        <img src="/1/issue/2017-05-30/16/section29132814.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-5328e51d-c347-49e4-955d-9f57070f012a'>16</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-e14dba6f-7936-4a47-85a2-4fbbf44b7f15">
+        <img src="/1/issue/2017-05-30/17/section29132820.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-e14dba6f-7936-4a47-85a2-4fbbf44b7f15'>17</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-ce62f8f9-a040-42f0-93bf-16ce2a57aba8">
+        <img src="/1/issue/2017-05-30/18/section29132823.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-ce62f8f9-a040-42f0-93bf-16ce2a57aba8'>18</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-882f2307-c6b2-4e46-bf82-d7ff0a66221f">
+        <img src="/1/issue/2017-05-30/19/section29132828.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-882f2307-c6b2-4e46-bf82-d7ff0a66221f'>19</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-016695fc-2cac-4a76-bf97-a6fa0e72cf54">
+        <img src="/1/issue/2017-05-30/20/section29132833.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-016695fc-2cac-4a76-bf97-a6fa0e72cf54'>20</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-d23f7e80-eb48-4942-9779-147e07089cbb">
+        <img src="/1/issue/2017-05-30/21/section29132836.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-d23f7e80-eb48-4942-9779-147e07089cbb'>21</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-aadb6aab-2247-4094-9891-2e807a508db5">
+        <img src="/1/issue/2017-05-30/22/section29132839.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-aadb6aab-2247-4094-9891-2e807a508db5'>22</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-51efe1dc-eafc-4b91-8b2d-1a001d5b7845">
+        <img src="/1/issue/2017-05-30/23/section06145858.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-51efe1dc-eafc-4b91-8b2d-1a001d5b7845'>23</a>
+      </h4>
+    </div>
+    <!-- true -->
+    <div class="col-xs-6 col-md-2" align='center'>
+      <a href="/pages/_-940a7727-646b-49f4-a377-6c89da325a77">
+        <img src="/1/issue/2017-05-30/24/section29132844.jpg" width="100%"></img>
+      </a>
+      <h4 align='center'>
+        <a href='/pages/_-940a7727-646b-49f4-a377-6c89da325a77'>24</a>
+      </h4>
+    </div>
+    <!-- true -->
+
+</div>
+
+<!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <ul class="nav navbar-nav2 float-frame">
+    <!-- li> <form class="button_to" method="get" action="/issues/1/save_story_xml"><input class="btn btn-md btn-warning" type="submit" value="xml 파일 생성" /></form> </li> <li> <form class="button_to" method="get" action="/issues/1/download_story_xml.zip"><input class="btn btn-md btn-danger" type="submit" value="xml 파일 다운로드" /></form>
+    </li> <li> <form class="button_to" method="get" action="/issues/1/save_preview_xml"><input class="btn btn-md btn-warning" type="submit" value="지면보기 xml 생성" /></form> </li> <li> <form class="button_to" method="get" action="/issues/1/download_preview_xml.zip"><input class="btn btn-md
+    btn-danger" type="submit" value="지면보기 xml 파일 다운로드" /></form> </li> -->
+    <li class="float-unit">
+      <form class="button_to" method="get" action="/issues/1/send_xml_to_ebiz"><input data-confirm="정말 보내시겠습니까?" class="btn btn-md btn-success" type="submit" value="데스크탑용 xml 전송" /></form>
+    </li>
+    <li class="float-unit">
+      <form class="button_to" method="get" action="/issues/1/save_mobile_preview_xml"><input class="btn btn-md btn-danger" type="submit" value="모바일용 xml 전송" /></form>
+    </li>
+    <li class="float-unit">
+      <form class="button_to" method="get" action="/issues/1/merge_container_xml"><input class="btn btn-md btn-warning" type="submit" value="합성" /></form>
+    </li>
+  </ul>
+</nav>
+
+       <div class="space">
+       <p> </p>
+       </div>
+    </main>
+    <footer id="footer">
+      <p> </p>
+    </footer>
+  </body>
+</html>

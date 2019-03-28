@@ -20,11 +20,87 @@
 
   - body
     - fit_text
+    
+2019-3-27
+  - 3단 부제목
+  - 이미지 밑에 여백 생김
+  - 발물 수정
+  - 발문 테두리 상하 적용시에도 테두리 모두 생김.
+  - 발문 단 너비 조정 안됨.
+  
+  - 기사 박스 교환시 새로 고침
+  - 기자용
+  - 나의 기사 순서
+  - 기사배정 
+  - 기사배정 해재시 error 
 
+  - 본문 부제 삭제시 페이지 리제네레이션이 되면 어떨까요? 
+  - 아래 박스와 기사교환시 페이지 리제네레이션이 필요합니다.
+
+  - ## 중간제목 : 왼쪽 정렬 : 두줄기능이 필요.
+  - **본문내고딕** 앞뒤로 반각 띄어쓰기가 안생기게…
+  - ### 인터뷰질문 좌우맞춤 정렬 필요. (현재는 좌측정렬)
+  - 텍스트스타일에서 직접 조절할 수 있게 분리 필요
+
+
+  - 박스기사 밑에 부고..  제목이 붙어서 일반 기사의 문패처럼 처리하고 본문을 문패와 겹쳐지지 않게 떨어뜨려주세요.
+
+2019-3-26
+  - add display name to page
+  - section nameing convention
+      정책(우리는 좋다)
+  - add 3단 부제목
+  - 박스기고 inset
+
+2019-3-25
+  - put JungAng, DongA ip and passwork to ENV[]
+  - reporter graphic
+    - designer assign size
+    - when uploading meno field
+
+  - 면배열표 권한(국장님, 마케팅)
+
+2019-3-20
+  - 광고 upload
+  - 사진 테두리 없음 checkbox 추가
+  - 금융팀 증시 구분선 없음
+    사진 panel 에서 테트리  un-check
+  - reporter_graphic
+    column         :integer
+    row            :integer
+    extra_height   :integer
+    status         :string
+    designer       :string
+    request        :text
+    data           :text
+    attach ytn_graphic to reporter_graphic
+    download reporter_graphic for edit
+    upload reporter_graphic final
+
+  - 기자 profile menu 추가
+    upload 기자 image
+    기고저자 와 비슷하게 
+    리스트
+
+  - 사진 anchor point
+
+2019-3-19
+  - 매일 사용않된 출고물 해제
+  - save_page for future (나의 페이지?)
+
+2019-3-18
+  - 섹션 템플렛에 색션 이름 적용
+  - working_article 사진에 출고된 reporter_image 보여주고 선택 하기
+  - 그래픽의뢰 + reporter_graphic 합치기
+  - 그래픽의뢰 attachment
+  - ActiveStorage
+  - 인물 사진 높이 + 1
+  - 사진 설명
+  - 인물_우측 우측여백
+  
 2019-3-14
   - section template by section name
     - 1면, 정치, 오피니언
-  - 광고 upload
   
 2019-3-13
   - image_fit_type

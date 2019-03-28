@@ -21,6 +21,10 @@ class WorkingArticlesController < ApplicationController
     @pages = @working_article.issue.pages.order(:id, 'desc')
     section_name = @working_article.page.section_name
     @pages = @working_article.issue.pages.select {|p| p.section_name == section_name}
+    # @reporter_images = ReporterImage.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
+    # @reporter_graphics = ReporterGraphic.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
+    @reporter_images = ReporterImage.where(section_name:section_name).all
+    @reporter_graphics = ReporterGraphic.where(section_name:section_name).all
     respond_to do |format|
       format.html
       format.json {render @working_article}
@@ -117,7 +121,6 @@ class WorkingArticlesController < ApplicationController
     end
     #TODO
     # if story is assigned, to current_article, no need to display other stories
-
   end
 
   def update_story
@@ -145,76 +148,6 @@ class WorkingArticlesController < ApplicationController
       when 'nineth_group'
         redirect_to nineth_group_stories_issue_path(@working_article.issue)
       end    
-  end
-
-  def first_group
-    set_issue
-    group = @working_article.issue.publication.sections[0]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}
-    session[:current_group] = 'first_group'
-  end
-
-  def second_group
-    set_issue
-    group = @working_article.issue.publication.sections[1]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}
-    session[:current_group] = 'second_group'
-  end
-
-  def third_group
-    set_issue
-    group = @working_article.issue.publication.sections[2]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}    
-    session[:current_group] = 'third_group'
-  end
-
-  def fourth_group
-    set_issue
-    group = @working_article.issue.publication.sections[3]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}    
-    session[:current_group] = 'fourth_group'
-  end
-
-  def fifth_group
-    set_issue
-    group = @working_article.issue.publication.sections[4]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
-    session[:current_group] = 'fifth_group'
-  end
-
-  def sixth_group
-    set_issue
-    group = @working_article.issue.publication.sections[5]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
-    session[:current_group] = 'sixth_group'
-  end
-
-  def seventh_group
-    set_issue
-    group = @working_article.issue.publication.sections[6]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
-    session[:current_group] = 'seventh_group'
-  end
-
-  def eighth_group
-    set_issue
-    group = @working_article.issue.publication.sections[7]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
-    session[:current_group] = 'eighth_group'
-  end
-
-  # 오피니언
-  def nineth_group
-    set_issue
-    group = @working_article.issue.publication.sections[8]
-    @pages = @working_article.issue.pages.select{|p| p.section_name == group}  
-    session[:current_group] = 'nineth_group'
-  end
-
-  def ad_group
-    set_issue
-    session[:current_group] = 'ad_group'
-    @pages = @working_article.issue.pages.select{|p| p.section_name == '전면광고'}
   end
 
   # download story.pdf
@@ -403,130 +336,28 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '위 아래 가사가 교체 되었습니다.'
   end
 
-  def swap_with_one
+  def show_quote_box
     set_working_article
-    @working_article.swap_with(1)
-    redirect_to working_article_path(@working_article), notice: '위 아래 가사가 교체 되었습니다.'
+    @working_article.show_quote_box('일반')
+    redirect_to working_article_path(@working_article), notice: '발문 박스 추가.'
   end
 
-  def swap_with_two
+  def show_quote_box_for_opinion_2
     set_working_article
-    @working_article.swap_with(2)
-    redirect_to working_article_path(@working_article), notice: '2번 가사와 교체 되었습니다.'
+    @working_article.show_quote_box('기고2행')
+    redirect_to working_article_path(@working_article), notice: '2행 발문 박스 추가.'
   end
 
-  def swap_with_three
+  def show_quote_box_for_opinion_3
     set_working_article
-    @working_article.swap_with(3)
-    redirect_to working_article_path(@working_article), notice: '3번 가사와 교체 되었습니다.'
+    @working_article.show_quote_box('기고3행')
+    redirect_to working_article_path(@working_article), notice: '3행 발문 박스 추가.'
   end
 
-  def swap_with_four
+  def hide_quote_box
     set_working_article
-    @working_article.swap_with(4)
-    redirect_to working_article_path(@working_article), notice: '4번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_five
-    set_working_article
-    @working_article.swap_with(5)
-    redirect_to working_article_path(@working_article), notice: '5번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_six
-    set_working_article
-    @working_article.swap_with(6)
-    redirect_to working_article_path(@working_article), notice: '6번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_seven
-    set_working_article
-    @working_article.swap_with(7)
-    redirect_to working_article_path(@working_article), notice: '7번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_eight
-    set_working_article
-    @working_article.swap_with(8)
-    redirect_to working_article_path(@working_article), notice: '8번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_nine
-    set_working_article
-    @working_article.swap_with(9)
-    redirect_to working_article_path(@working_article), notice: '9번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_ten
-    set_working_article
-    @working_article.swap_with(10)
-    redirect_to working_article_path(@working_article), notice: '10번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_eleven
-    set_working_article
-    @working_article.swap_with(11)
-    redirect_to working_article_path(@working_article), notice: '11번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_twelve
-    set_working_article
-    @working_article.swap_with(12)
-    redirect_to working_article_path(@working_article), notice: '12번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_thirteen
-    set_working_article
-    @working_article.swap_with(13)
-    redirect_to working_article_path(@working_article), notice: '13번 가사와 교체 되었습니다.'
-  end
-
-  def swap_with_fourteen
-    set_working_article
-    @working_article.swap_with(14)
-    redirect_to working_article_path(@working_article), notice: '14번 가사와 교체 되었습니다.'
-  end
-
-  # def quote_auto
-  #   set_working_article
-  #   @working_article.quote_auto
-  #   redirect_to working_article_path(@working_article), notice: '발문 박스 자동크기 설정 되었습니다.'
-  # end
-
-  def quote_default
-    set_working_article
-    @working_article.quote_line(4)
-    redirect_to working_article_path(@working_article), notice: '발문 박스 자동크기 설정 되었습니다.'
-  end
-
-  def quote_zero
-    set_working_article
-    @working_article.quote_line(0)
+    @working_article.hide_quote_box
     redirect_to working_article_path(@working_article), notice: '발문 박스가 삭제 되었습니다.'
-  end
-
-  def quote_one
-    set_working_article
-    @working_article.quote_line(1)
-    redirect_to working_article_path(@working_article), notice: '1 행용 발문 박스(6줄 추가됨) 설정 되었습니다.'
-  end
-
-  def quote_two
-    set_working_article
-    @working_article.quote_line(2)
-    redirect_to working_article_path(@working_article), notice: '2 행용 발문 박스(8줄 추가) 설정 되었습니다.'
-  end
-
-  def quote_three
-    set_working_article
-    @working_article.quote_line(3)
-    redirect_to working_article_path(@working_article), notice: '3 행용 발문 박스(10줄 추가) 설정 되었습니다.'
-  end
-
-  def quote_four
-    set_working_article
-    @working_article.quote_line(4)
-    redirect_to working_article_path(@working_article), notice: '4 행용 발문 박스(12줄 추가) 설정 되었습니다.'
   end
 
   def boxed_subtitle_one
@@ -578,6 +409,26 @@ class WorkingArticlesController < ApplicationController
     split_article(direction:'h')
   end
 
+  def select_reporter_graphic
+    set_working_article
+    reporter_graphic = ReporterGraphic.find(params[:reporter_graphic])
+    #TODO
+    # g = Graphic.create(working_article_id:@working_article.id, reporter_graphic_path:reporter_graphic.full_size_path)
+    g = Graphic.create(working_article_id:@working_article.id, reporter_graphic_path:reporter_graphic.preview_path)
+    @working_article.generate_pdf_with_time_stamp
+    redirect_to @working_article
+  end
+
+  def select_reporter_image
+    set_working_article
+    reporter_image = ReporterImage.find(params[:reporter_image])
+    #TODO
+    # i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
+    i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.preview_path)
+    @working_article.generate_pdf_with_time_stamp
+    redirect_to @working_article
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_working_article
@@ -587,7 +438,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type, :quote_box_column, :quote_box_show)
     end
 
     def filter_markdown?
