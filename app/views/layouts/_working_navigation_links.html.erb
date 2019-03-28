@@ -5,7 +5,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{ko_date}" %><span class="caret"></span></a>
 <ul class="dropdown-menu" role="menu">
-  <% if current_user && (current_user.role == 'designer' || current_user.role == 'admin') %> 
+  <% if current_user && (current_user.role == 'chief_editor' || current_user.role == 'team_leader' || current_user.role == 'designer' || current_user.role == 'admin') %> 
     <li><%= link_to '새로운 호 생성', new_issue_path %></li>
     <li class="divider"></li>
     <li><%= link_to '면 배열표', current_plan_issue_path(Issue.last.id) %></li>
