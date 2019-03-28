@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
+      <% if  article.show_quote_box?%>
         <div class="col-sm-12">
           <%= f.label '발문'%>
           <%= f.text_area :quote, rows: "3", class: 'form-control', autocomplete: 'off' %>

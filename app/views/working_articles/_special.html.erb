@@ -52,7 +52,7 @@
             <%= f.label :기자명 %>
             <%= f.text_field :reporter, class: 'form-control', autocomplete: 'off' %>
           </div>
-          <% if  article.show_quote_box%>
+          <% if  article.show_quote_box?%>
             <div class="form-group">
               <p> ...</p>
               <%= f.label :발문 %>

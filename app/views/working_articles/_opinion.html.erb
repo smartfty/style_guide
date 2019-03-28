@@ -26,7 +26,7 @@
       <%= f.text_field :reporter, size: 20 %>
     </div>
 
-    <% if  article.quote_box_size && article.quote_box_size.to_i > 0%>
+    <% if  article.show_quote_box?%>
       <div class="form-group">
         <%= f.label '발문'%>
         <%= f.text_area :quote, rows: "3", class: 'form-control' %>

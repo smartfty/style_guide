@@ -138,7 +138,6 @@ class PagePlan < ApplicationRecord
           end
           unless selected_section_template.class == Section
             puts "No section template for found!!!"
-            binding.pry
             return false
           end
         end

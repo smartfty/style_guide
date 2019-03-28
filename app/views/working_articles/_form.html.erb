@@ -73,14 +73,14 @@
         </div>
       <% end %>
 
-      <% if article.show_quote_box%>
+      <% if article.show_quote_box?%>
       <div class="form-group">
         <p> ...</p>
         <%= f.label :발문 %>
         <div class="field">
           <%= f.label :위치 %><%= f.select :quote_position, [1,2,3,4,5,6,7,8,9], style: "width:40px", class: 'form-control' %>
           <%= f.label :가로시작_단 %><%= f.text_field :quote_x_grid, value: article.quote_x_grid, style: "width:35px", class: 'form-control' %>
-          <%= f.label :너비_단 %><%= f.select :quote_box_size, [1, 2, 3], style: "width:35px", class: 'form-control' %>
+          <%= f.label :너비_단 %><%= f.select :quote_box_column, [1, 2, 3], style: "width:35px", class: 'form-control' %>
         </div>
         <div class="field">
           <%= f.label :상하여백 %><%= f.select :quote_v_extra_space, [1, 2], style: "width:40px", class: 'form-control' %>

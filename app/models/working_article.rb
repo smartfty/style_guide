@@ -411,11 +411,6 @@ class WorkingArticle < ApplicationRecord
     save_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
 
-  def show_quote_box?
-    quote && quote != "" || quote_box_size && quote_box_size != "0"
-    # has_quote_text && (page.page_number == 22 || page.page_number == 23 )
-  end
-
   def empty_lines_count
     h = article_info
     return nil unless h
@@ -428,8 +423,13 @@ class WorkingArticle < ApplicationRecord
     h[:overflow_line_count]
   end
 
+  def show_quote_box?
+    quote_box_show
+  end
+  
   def show_quote_box(quote_box_type)
-    self.quote_box_show = show
+    puts "++++++++++++ quote_box_type:#{quote_box_type}"
+    self.quote_box_show = true
     self.quote_box_type = quote_box_type
     case quote_box_type
     when '일반' || 'reqular'
@@ -744,7 +744,7 @@ class WorkingArticle < ApplicationRecord
       h[:announcement_column]         = self.announcement_column
       h[:announcement_color]          = self.announcement_color
     end
-    if show_quote_box
+    if show_quote_box?
       h[:quote_box_size]              = self.quote_box_size 
       h[:quote_position]              = self.quote_position || 5 
       h[:quote_x_grid]                = self.quote_x_grid  - 1 if self.quote_x_grid

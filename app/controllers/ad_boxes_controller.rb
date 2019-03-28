@@ -74,7 +74,6 @@ class AdBoxesController < ApplicationController
   end
 
   def upload_ad_image
-    binding.pry
     respond_to do |format|
       format.html do
         @ad_image = AdImage.create!(:ad_image => params[:ad_image]['ad_image'], :ad_box_id => @ad_box.id)

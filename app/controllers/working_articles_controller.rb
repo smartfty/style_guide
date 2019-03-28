@@ -338,7 +338,7 @@ class WorkingArticlesController < ApplicationController
 
   def show_quote_box
     set_working_article
-    @working_article.show_quote_box('일번')
+    @working_article.show_quote_box('일반')
     redirect_to working_article_path(@working_article), notice: '발문 박스 추가.'
   end
 
