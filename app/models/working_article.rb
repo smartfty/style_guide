@@ -428,7 +428,6 @@ class WorkingArticle < ApplicationRecord
   end
   
   def show_quote_box(quote_box_type)
-    puts "++++++++++++ quote_box_type:#{quote_box_type}"
     self.quote_box_show = true
     self.quote_box_type = quote_box_type
     case quote_box_type
