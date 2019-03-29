@@ -11,7 +11,7 @@ RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
       
         text('방만기', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       
-      text('한양대 인문대 연구교수', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+      text('한양대 전 연구교수', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
     
   end
 end

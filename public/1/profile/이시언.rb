@@ -3,8 +3,10 @@ RLayout::Container.new(width:158.74015748031,  height: 75) do
   image(local_image: '이시언.eps', x: 98.74015748031, y: 0, width: 60, height: 75, fill_color: 'clear')
   container(x: 0, y: 20, width:100, bottom_margin: 10, fill_color: 'clear') do
     
-      text('이시언', text_alignment: 'right', from_right: 10, y:28, font: 'KoPubDotumPB', font_size: 9, font_color:"CMYK=0,0,0,10", fill_color: 'clear')
-      text('디자인내일', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
+      
+        text('이시언', text_alignment: 'right', from_right: 10, y:28, font: 'KoPubDotumPB', font_size: 9,text_color:"CMYK=0,0,0,100", fill_color: 'clear')
+      
+        text('이동명 막내', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, text_color:"CMYK=0,0,0,100", fill_color: 'clear')
     
   end
 end
