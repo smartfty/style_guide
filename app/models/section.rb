@@ -58,8 +58,8 @@ class Section < ApplicationRecord
     save_section_config_yml
     # calling create_articles give validation error Section must exist!!!
     # so call it in controller create, and update action
-    update_section_layout_if
-    copy_page_heading
+    # update_section_layout_if
+    # copy_page_heading
   end
 
   def self.fix_ad_names
@@ -319,7 +319,7 @@ class Section < ApplicationRecord
 
   def generate_article_pdf
     articles.each do |article|
-      article.generate_pdf
+      article.generate_pdf_with_time_stamp
     end
   end
 

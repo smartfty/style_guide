@@ -108,7 +108,7 @@ class PagePlan < ApplicationRecord
       # story_count   = profile_array[-1]
       # puts "ad_type:#{ad_type}"
       # first check if we have section specific templates
-      selected_section_template = Section.where("section_name like ?", "%#{section_name}%").select{|s| ad_type == ad_type.ad_type}
+      selected_section_template = Section.where("section_name like ?", "%#{section_name}%").select{|s| ad_type == s.ad_type}
       unless selected_section_template.class == Section
           selected_section_template = Section.where(page_number: page_number, ad_type: ad_type).first
       end

@@ -31,7 +31,7 @@ module PagePrintable
 
   def printer_file_to_show
     if print_count > 0
-      return relative_path + "/#{File.basename(latest_printer_file)}" 
+      return relative_path + "/printer/#{File.basename(latest_printer_file)}" 
     end
     blank_print_image
   end
@@ -77,8 +77,8 @@ module PagePrintable
   def copy_to_proof_reading_ftp
     require 'net/ftp'
     puts "copying page pdf to proof reading ftp "
-    ip  = '211.115.91.75'
-    id  = 'naeil'
+    ip  = '211.115.91.231'
+    id  = 'naeilcts'
     pw  = 'sodlftlsans1!'
     last_generate_file = generate_proof_pdf
     # upload files

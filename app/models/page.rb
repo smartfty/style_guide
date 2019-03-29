@@ -401,7 +401,7 @@ class Page < ApplicationRecord
           currnet_ad_box.generate_pdf_with_time_stamp
         else
           a = AdBox.create(current)
-          a.generate_pdf
+          a.generate_pdf_with_time_stamp
         end
       end
     else

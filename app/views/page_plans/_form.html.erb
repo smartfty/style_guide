@@ -18,7 +18,7 @@
       <%= f.text_field :deadline %>
     </div>
     <div class="field">
-      <%= f.label :섹션이름 %>
+      <%= f.label :팀이름 %>
       <%= f.text_field :section_name %>
     </div>
 
@@ -32,14 +32,14 @@
       <%= f.text_field :advertiser %>
     </div>
     <div class="field">
-      <%= f.label :칼라면 %>
+      <%= f.label :컬러면 %>
       <%= f.check_box :color_page %>
     </div>
 </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="btn-group" role="group" aria-label="기능">
-      <button type="button" class="btn btn-sm btn-success"><%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get %></button>
+      <%= link_to '이전으로', current_plan_issue_path(Issue.last.id), method: :get, class: "btn btn-default btn-sm" %>
       <button type="submit" class="btn btn-sm btn-primary">저장</button>
     </div>
   </nav>

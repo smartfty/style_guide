@@ -1,5 +1,6 @@
+<%# navigation styled for Bootstrap 3.0 %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="menu" style="float:left;">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -7,12 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to '뉴스고', root_path, class: 'navbar-brand' %>
+      <%= link_to '뉴스고', home_help_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <%= render 'layouts/page_navigation_links' %>
+        <%= render 'layouts/navigation_links' %>
       </ul>
     </div>
   </div>
 </nav>
+

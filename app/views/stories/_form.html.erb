@@ -17,30 +17,11 @@
   </div>
 
   <div class="field">
-    <%= f.label '분류코드' %>
-    <%= f.text_field :category_code %>
-
-    <%= f.label '대분류' %>
-    <%= f.select :category, ['정치', '경제','외교/국방/통일','사회','문화','지방자치','시론','시평','기타']%>
-    <%= f.label '소분류' %>
-    <%= f.select :category1_2, ['국회/정당', '청와대', '외교/국방', '통일']%>
-    <%= f.select :category2_2, ['금융', '산업','재정','글로벌경제', '피플']%>
-    <%= f.select :category3_2, ['외교/국방', '통일','지구촌소식','피플']%>
-    <%= f.select :category3_2, ['사건/사고', '법률','교육','노동', '환경', '보건복지', '시민사회', '피플']%>
-    <%= f.select :category4_2, ['도서관', '출판/서평','예술','내일북','피플']%>
-    <%= f.select :category5_2, ['행정', '서울','경기인천강원','충청','영남','호남제주', '단체장', '지방선거', '피플', '지역내일']%>
-    <%= f.select :category6_2, ['내일시론', '장명국시론','신문로']%>
-    <%= f.select :category7_2, ['정치시평', '경제시평','중국시평']%>
-    <%= f.select :category8_2, ['칼럼', '내일만평','기고', '내일스페셜', '여론조사', '기획연재' ]%>
+    <%= f.label '기획팀_기사분류' %> <%= f.select :category_code, [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]] %>
+    <%= f.label '가격' %><%= f.select :price, %w[무료 500원 1000원], {include_blank: false} %>
+    <%= f.label '출고면_선택' %><%= f.select :summitted_section, ['미정', '1면','정치','자치행정','국제통일','금융','산업','정책','기획','오피니언']%>
+    <%= f.button "저장", accesskey: "s", class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
-
-  <div class="field">
-    <%= f.label '가격' %>
-    <%= f.select :price, %w[무료 500원 1000원], {include_blank: false} %>
-    <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-
-  </div>
-  
 
   <div class="field ">
     <%= f.label :문패 %>
@@ -62,25 +43,16 @@
     <%= f.text_area :body, cols: 40, rows: 20, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label '출고 섹션' %>
-    <%= f.select :summitted_section, ['미정', '1면','정치','자치행정','국제통일','금융','산업','정책','기획','오피니언']%>
-  </div>
+ 
   
 
-  <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
-  <!-- nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="btn-group" role="group" aria-label="기능">
-      <button type="button" class="btn btn-success"><%= link_to "이전으로", my_stories_path, method: :get %></button>
-    </div>
-  </nav -->
     <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
     <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="btn-group right" role="group" aria-label="기능">
-      <button type="button" class="btn btn-success"><%= link_to "이전으로", my_stories_path, method: :get %></button>
-      <%= f.button "저장하기", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-      <!-- button type="button" class="btn btn-warning"><= link_to "보관용 저장", backup_story_path, method: :get ></button>
-      <button type="button" class="btn btn-danger"><= link_to "보관용 복구", recover_backup_story_path, get: :get ></button -->
+      <div class="btn-group" role="group" aria-label="기능">
+      <%= link_to "이전으로", my_stories_path, method: :get, class: "btn btn-default btn-sm" %>
+      <%= f.button "저장", class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      <!-- link_to "보관용 저장", backup_story_path, method: :get ></button>
+      <= link_to "보관용 복구", recover_backup_story_path, get: :get ></button -->
           </div>
     </nav>
 <% end %>
