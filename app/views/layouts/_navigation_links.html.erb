@@ -14,7 +14,7 @@
     <% end %>
     <li><%= link_to '출력 현황', print_status_issue_path(Issue.last.id) %></li>
     <li class="divider"></li>
-    <% if current_user && current_user.role == 'reporter' %> 
+    <% if current_user && current_user.role == 'reporter' || current_user.role == 'marketing' %> 
       <% case current_user.group  %>
       <% when  '1면' %>
         <li><%= link_to '<1면> 편집', first_group_issue_path(Issue.last.id) %></li>

@@ -37,7 +37,7 @@ class PagePlan < ApplicationRecord
   belongs_to :issue, optional: true
   has_one :page
   has_many :article_plans
-  before_save :parse_profile
+  before_create :parse_profile
   after_create :create_article_plans
 
   def need_update?
