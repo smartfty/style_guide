@@ -376,6 +376,8 @@ class WorkingArticle < ApplicationRecord
       elsif frame_array.last =~/^extend/
         frame_array.pop
         frame_array << {'extend'=> line_count}  unless line_count == 0
+      else
+        frame_array << {'extend'=> line_count}  unless line_count == 0
       end
     end
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
@@ -399,6 +401,8 @@ class WorkingArticle < ApplicationRecord
       elsif frame_array.last =~/^push/
         frame_array.pop
         frame_array << {'push'=> line_count}  unless line_count == 0
+      else
+        frame_array << {'push'=> line_count}  unless line_count == 0
       end
     end
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
@@ -407,7 +411,7 @@ class WorkingArticle < ApplicationRecord
   def push_line(line_count)
     self.pushed_line_count = line_count
     self.save
-    generate_pdf
+    generate_pdf_with_time_stamp
     save_pushed_line_count_to_config_yml(self.pushed_line_count)
   end
 
@@ -858,11 +862,11 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='3' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def story_svg
-    "<a xlink:href='/working_articles/#{id}/change_story'><rect class='rectfill' stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    "<a xlink:href='/working_articles/#{id}/change_story'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml

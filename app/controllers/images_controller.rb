@@ -85,7 +85,7 @@ class ImagesController < ApplicationController
     working_article.page.generate_pdf_with_time_stamp
     respond_to do |format|
       # format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
-      format.html { redirect_to working_article_path(working_article), notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to working_article_path(working_article), notice: '사진이 성공적으로 삭제되었습니다.' }
       format.json { head :no_content }
     end
   end

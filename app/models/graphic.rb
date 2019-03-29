@@ -171,7 +171,7 @@ class Graphic < ApplicationRecord
       working_article = WorkingArticle.where(page_id: page.id, order: story_number).first
       return unless working_article
       self.working_article_id = working_article.id
-      working_article.generate_pdf
+      working_article.generate_pdf_with_time_stamp
       working_article.update_page_pdf
       self.used_in_layout = true
       self.save
@@ -186,7 +186,7 @@ class Graphic < ApplicationRecord
 
   def clear_image
     if working_article && used_in_layout
-      working_article.generate_pdf
+      working_article.generate_pdf_with_time_stamp
       working_article.update_page_pdf
       self.used_in_layout = false
       self.save

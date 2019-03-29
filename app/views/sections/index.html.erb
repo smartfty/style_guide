@@ -1,9 +1,9 @@
 <!-- 편집화면 상단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="btn-group" role="group" aria-label="기능">
-    <button type="button" class="btn btn-info"><%= link_to "새항목 생성", new_section_path, method: :get %></button>
-    <button type="button" class="btn btn-warning"><%= link_to "다운로드 CSV", sections_path(format: "csv"), method: :get %>
-    <button type="button" class="btn btn-danger"><%= link_to "Seed 저장", save_sections_path(format: "csv"), method: :get %>
+    <%= link_to "새항목 생성", new_section_path, method: :get, class: "btn btn-default btn-sm" %>
+    <%= link_to "다운로드 CSV", sections_path(format: "csv"), method: :get, class: "btn btn-default btn-sm" %>
+    <%= link_to "Seed 저장", save_sections_path(format: "csv"), method: :get, class: "btn btn-default btn-sm" %>
     </button>
   </div>
 </nav>
@@ -33,13 +33,14 @@
 <table class="table table-striped tables" align="center">
   <thead>
     <tr>
-      <th style="text-align:center; width:5%;">ID</th>
-      <th style="text-align:center; width:10%;">프로필</th>
-      <th style="text-align:center; width:5%;">페이지</th>
-      <th style="text-align:center; width:5%;">단</th>
-      <th style="text-align:center; width:5%;">열</th>
-      <th style="text-align:center; width:10%;">광고</th>
-      <th style="text-align:center; width:5%;">기사</th>
+      <th style="text-align:center; width:4%;">ID</th>
+      <th style="text-align:center; width:9%;">프로필</th>
+      <th style="text-align:center; width:13%;">팀명</th>
+      <th style="text-align:center; width:4%;">페이지</th>
+      <th style="text-align:center; width:2.5%;">단</th>
+      <th style="text-align:center; width:2.5%;">열</th>
+      <th style="text-align:center; width:7%;">광고</th>
+      <th style="text-align:center; width:3%;">기사</th>
       <th style="text-align:center; width:10%">위치정보</th>
       <th style="text-align:center; width:15%;">형태</th>
       <th style="text-align:center; width:15%;">미리보기</th>
@@ -53,13 +54,14 @@
 
 <table class="table table-striped tables" align="center">
       <tr>
-        <td style="text-align:center; width:5%;"><a href="/sections/<%= section.id %>"><%= section.id %></a></td>
-        <td style="text-align:center; width:10%;"><%= section.profile %></td>
-        <td style="text-align:center; width:5%;"><%= section.page_number %></td>
-        <td style="text-align:center; width:5%;"><%= section.column %></td>
-        <td style="text-align:center; width:5%;"><%= section.row %></td>
-        <td style="text-align:center; width:10%;"><%= section.ad_type %></td>
-        <td style="text-align:center; width:5%;"><%= section.story_count %></td>
+        <td style="text-align:center; width:4%;"><a href="/sections/<%= section.id %>"><%= section.id %></a></td>
+        <td style="text-align:center; width:9%;"><%= section.profile %></td>
+        <td style="text-align:center; width:13%;"><%= section.section_name %></td>
+        <td style="text-align:center; width:4%;"><%= section.page_number %></td>
+        <td style="text-align:center; width:2.5%;"><%= section.column %></td>
+        <td style="text-align:center; width:2.5%;"><%= section.row %></td>
+        <td style="text-align:center; width:7%;"><%= section.ad_type %></td>
+        <td style="text-align:center; width:3%;"><%= section.story_count %></td>
         <td style="text-align:center; width:10%;"><%= section.layout %></td>
         <td style="text-align:center; width:15%;"><%= raw section.to_svg %></td>
         <td style="text-align:center; width:15%;"><%= link_to section, method: :get do %><img src="<%= section.pdf_image_path %>" width="225px"></img><% end %></td>
