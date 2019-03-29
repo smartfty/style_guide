@@ -14,6 +14,7 @@ module StyleGuide
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W(#{config.root}/lib)
     config.time_zone = "Asia/Seoul"
+    config.i18n.default_locale = :ko
     # config.middleware.insert_before 0, Rack::Cors do
     #   allow do
     #     origins '*'
@@ -22,3 +23,4 @@ module StyleGuide
     # end
   end
 end
+

@@ -46,7 +46,7 @@ class Image < ApplicationRecord
     if image.url
      "#{Rails.root}/public" + image.url
     elsif reporter_image_path
-      "#{Rails.root}/public" + reporter_graphic_path
+      "#{Rails.root}/public" + reporter_image_path
     else
      "#{Rails.root}/public" + "/place_holder_image.jpg"
     end

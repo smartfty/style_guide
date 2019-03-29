@@ -176,6 +176,9 @@ User.create!(name: "지선미", email: "smjee@naeil.com", password: 'itis1234', 
 User.create!(name: "이동명", email: "leedongmyeong@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 'admin')
 User.create!(name: "다니엘", email: "daniel@naeil.com", password: 'itis1234', password_confirmation: "itis1234", role: 'admin')
 User.create!(name: "안찬수", email: "khaein@naeil.com", password: 'itis0897', password_confirmation: "itis0897", role: 'chief_editor')
+User.create!(name: "김영서", email: "yskim@naeil.com", password: 'itis4141', password_confirmation: "itis4141", role: 'marketing')
+User.create!(name: "권상진", email: "sjkwon@naeil.com", password: 'itis4141', password_confirmation: "itis4141", role: 'marketing')
+User.create!(name: "서상우", email: "swseo@naeil.com", password: 'itis4440', password_confirmation: "itis4440", role: 'marketing')
 
 User.create!(name: "김정치", email: "k_2@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '정치', role: 'reporter')
 User.create!(name: "김행정", email: "k_3@gmail.com", password: 'itis1234', password_confirmation: "itis1234", group: '자치행정', role: 'reporter')

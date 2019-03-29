@@ -75,6 +75,7 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'devise'
+gem 'devise-i18n'
 gem 'rubypants-unicode'
 gem "font-awesome-rails"
 gem 'seed_dump'

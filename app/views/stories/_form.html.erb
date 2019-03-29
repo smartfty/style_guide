@@ -17,18 +17,11 @@
   </div>
 
   <div class="field">
-    <%= f.label '분류코드' %>
-    <%= f.label '기획팀' %> <%= f.select :category_code, [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]], {include_blank: true} %>
-    <%= f.text_field :category_code %>
-    </div>
-
-  <div class="field">
-    <%= f.label '가격' %>
-    <%= f.select :price, %w[무료 500원 1000원], {include_blank: false} %>
-    <%= f.button "저장", accesskey: "s", class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-
+    <%= f.label '기획팀_기사분류' %> <%= f.select :category_code, [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]] %>
+    <%= f.label '가격' %><%= f.select :price, %w[무료 500원 1000원], {include_blank: false} %>
+    <%= f.label '출고면_선택' %><%= f.select :summitted_section, ['미정', '1면','정치','자치행정','국제통일','금융','산업','정책','기획','오피니언']%>
+    <%= f.button "저장", accesskey: "s", class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
   </div>
-  
 
   <div class="field ">
     <%= f.label :문패 %>
@@ -50,17 +43,14 @@
     <%= f.text_area :body, cols: 40, rows: 20, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label '출고 팀' %>
-    <%= f.select :summitted_section, ['미정', '1면','정치','자치행정','국제통일','금융','산업','정책','기획','오피니언']%>
-  </div>
+ 
   
 
     <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
     <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="btn-group right" role="group" aria-label="기능">
+      <div class="btn-group" role="group" aria-label="기능">
       <%= link_to "이전으로", my_stories_path, method: :get, class: "btn btn-default btn-sm" %>
-      <%= f.button "저장", class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
+      <%= f.button "저장", class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
       <!-- link_to "보관용 저장", backup_story_path, method: :get ></button>
       <= link_to "보관용 복구", recover_backup_story_path, get: :get ></button -->
           </div>

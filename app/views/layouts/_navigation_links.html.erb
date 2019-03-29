@@ -3,15 +3,15 @@
 <!-- ul class="nav navbar-nav navbar-center" -->
 <!-- <li>< link_to '슬라이드쇼', slide_show_issue_path(Issue.last.id) ></li> -->
  
-<% if current_user && (current_user.role == 'reporter' || current_user.role == 'chief_editor' || current_user.role == 'team_leader' || current_user.role == 'designer' || current_user.role == 'admin') %> 
+<% if current_user && (current_user.role == 'reporter' || current_user.role == 'marketing' || current_user.role == 'chief_editor' || current_user.role == 'team_leader' || current_user.role == 'designer' || current_user.role == 'admin') %> 
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{ko_date}" %><span class="caret"></span></a>
 <ul class="dropdown-menu" role="menu">
-  <% if current_user && (current_user.role == 'team_leader' || current_user.role == 'chief_editor' || current_user.role == 'designer' || current_user.role == 'admin') %> 
+    <% if current_user && (current_user.role == 'marketing' || current_user.role == 'chief_editor' || current_user.role == 'designer' || current_user.role == 'admin') %> 
     <li><%= link_to '새로운 호 생성', new_issue_path %></li>
     <li class="divider"></li>
     <li><%= link_to '면 배열표', current_plan_issue_path(Issue.last.id) %></li>
-  <% end %>
+    <% end %>
     <li><%= link_to '출력 현황', print_status_issue_path(Issue.last.id) %></li>
     <li class="divider"></li>
     <% if current_user && current_user.role == 'reporter' %> 
@@ -59,7 +59,6 @@
       <li><%= link_to '돌출 광고', heading_ad_images_path %></li>
       <li><%= link_to '전면 광고', ad_group_issue_path(Issue.last.id) %></li>      
     <% end %>
-    
   <% if Issue.last.spread %>
     <li class="divider"></li>
     <li><%= link_to '양면(12-13)', spread_issue_path(Issue.last.id) %></li>
@@ -67,7 +66,7 @@
 </ul>
 </li>
 
-
+  <% if current_user && (current_user.role == 'reporter' || current_user.role == 'team_leader' || current_user.role == 'chief_editor' || current_user.role == 'designer' || current_user.role == 'admin') %> 
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">기사작성<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
@@ -80,25 +79,24 @@
     </li>
 
     <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">연합뉴스<span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-        <li><%= link_to '연합 기사', yh_articles_path %></li>
-        <li><%= link_to '연합 사진', yh_pictures_path %></li>
-        <li><%= link_to '연합 그래픽', yh_graphics_path %></li>
-      </ul>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">연합뉴스<span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to '연합 기사', yh_articles_path %></li>
+          <li><%= link_to '연합 사진', yh_pictures_path %></li>
+          <li><%= link_to '연합 그래픽', yh_graphics_path %></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">검색<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to '지난호 보기', issues_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to '기사 제목/본문 검색', working_articles_path %></li>
+      <li><%= link_to '페이지 검색', pages_path %></li>
+    </ul>
   </li>
-
-  <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">검색<span class="caret"></span></a>
-  <ul class="dropdown-menu" role="menu">
-    <li><%= link_to '지난호 보기', issues_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to '기사 제목/본문 검색', working_articles_path %></li>
-    <li><%= link_to '페이지 검색', pages_path %></li>
-  </ul>
-</li>
 <% end %> 
-
 
 <% if current_user && (current_user.role == 'designer' || current_user.role == 'admin') %> 
   <li class="dropdown">
@@ -135,15 +133,14 @@
       <li><%= link_to '기자', reporters_path %></li>
     </ul>
   </li>
+  <% end %>
 
-  <!-- <li><%= link_to '면머리', page_headings_path %></li> -->
-<% end %>
-
+<!-- <li><%= link_to '면머리', page_headings_path %></li> -->
 <!-- li><%= link_to '도움말', home_help_path %></li-->
+<% end %>
 
 <% if user_signed_in? %>
   <li><%= link_to "<#{current_user.name}> "'로그아웃', destroy_user_session_path, method: :delete  %></li>
-
 <% else %>
   <li><%= link_to '로그인', new_user_session_path %></li>
 <% end %>
