@@ -6,6 +6,10 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
+    if params[:page]
+      session[:page] = params[:page]
+    end
+  
     @q = Section.ransack(params[:q])
     @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
     @sections = Section.all  if request.format == 'csv'
@@ -53,7 +57,6 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        
         @section.update_section_layout
         format.html { redirect_to @section, notice: 'Section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }
@@ -99,7 +102,7 @@ class SectionsController < ApplicationController
 
   def regenerate_pdf
     @section.regenerate_pdf
-    redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
+    redirect_to sections_path, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
   end
 
 
