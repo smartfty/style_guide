@@ -102,7 +102,7 @@ class SectionsController < ApplicationController
 
   def regenerate_pdf
     @section.regenerate_pdf
-    redirect_to sections_path, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
+    redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
   end
 
 

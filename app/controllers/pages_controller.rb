@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     @working_articles = @page.working_articles
     @ad_boxes         = @page.ad_boxes
     @page_templates   = Section.where(ad_type:@page.ad_type, page_number: @page.page_number)
-    unless @page_templates
+    # unless @page_templates
       if @page.page_number != 1
         if @page.page_number == 22 || @page.page_number == 23
           # do not add any
@@ -39,8 +39,7 @@ class PagesController < ApplicationController
           end
         end
       end
-    end
-
+    # end
   end
 
   # GET /pages/new
