@@ -149,8 +149,8 @@ class Ad < ApplicationRecord
     # TODO put story number on top
     # make width for 6 column same as 7 column
     string = ""
-    string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{0}' y='#{0}' width='#{page_columns*svg_unit_width}' height='#{15*svg_unit_height}'/>\n"
-    string += "<rect fill='red' stroke='#000000' stroke-width='4' x='#{x_grid*svg_unit_width}' y='#{y_grid*svg_unit_height}' width='#{column*svg_unit_width}' height='#{row*svg_unit_height}'/>\n"
+    string += "<rect fill='white' stroke='#000000' stroke-width='0' x='#{0}' y='#{0}' width='#{page_columns*svg_unit_width}' height='#{15*svg_unit_height}'/>\n"
+    string += "<rect fill='red' stroke='#000000' stroke-width='0' x='#{x_grid*svg_unit_width}' y='#{y_grid*svg_unit_height}' width='#{column*svg_unit_width}' height='#{row*svg_unit_height}'/>\n"
     string
   end
 

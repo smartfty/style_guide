@@ -121,7 +121,11 @@ class AdBox < ApplicationRecord
   end
 
   def on_right_edge?
-    grid_x + column >= page.column
+    if column = 6 || 7
+      true
+    else
+      grid_x + column >= page.column 
+    end
   end
 
   def is_front_page?
@@ -212,7 +216,7 @@ class AdBox < ApplicationRecord
   end
 
   def box_svg
-    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='red' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
+    "<a xlink:href='/ad_boxes/#{id}'><rect stroke='red' stroke-width='4' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' /></a>\n"
   end
 
   def section_name_code
@@ -352,7 +356,7 @@ EOF
 
 
   def ad_xml
-    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+    story_erb_path = "#{Rails.root}/public/1/newsml/ad_box_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")

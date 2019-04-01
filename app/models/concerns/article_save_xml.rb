@@ -46,12 +46,30 @@ module ArticleSaveXml
     body.gsub!(/(\n|\r\n)+/, "\n\n")
     self.save
   end
-
-  def covert_euckr_not_suported_chars
+  
+  def convert_euckr_not_suported_chars
+    return unless title
     return unless body
-    body.gsub!("\u200B", "")
+    return unless subtitle
+    return unless subject_head
+    # images.first.caption_title.gsub!("\u200B", "")
+    # images.first.caption.gsub!("\u200B", "")
+    # images.first.source.gsub!("\u200B", "")
     title.strip!
     title.gsub!("\u200B", "")
+    title.gsub!("\u2027", "&#8231;")
+    subtitle.gsub!("\u2027", "&#8231;")
+    body.gsub!("\u2027", "&#8231;")
+    body.gsub!("\u4F18", "&#20248;")
+    title.gsub!("\u22EF", "&#8943;")
+    subtitle.gsub!("\u22EF", "&#8943;")
+    body.gsub!("\u22EF", "&#8943;")
+    body.gsub!("\u200B", "")
+    subject_head.gsub!("\u200B", "")
+    subtitle.gsub!("\u200B", "")
+    reporter.gsub!("\u200B", "")
+    body.gsub!("\u5733", "&#22323;")
+    title.gsub!("\u2027", "\u00b7")
     body.gsub!("\u2027", "\u00b7")
     title.gsub!("\u2024", "\u00b7")
     body.gsub!("\u2024", "\u00b7")
@@ -72,6 +90,8 @@ module ArticleSaveXml
     body.gsub!("\u9752", "&#38738;")
     body.gsub!("\u2014", "&#8212;")
     body.gsub!("\u2013", "&#8211;")
+    title.gsub!("\u2013", "&#8211;")
+    subtitle.gsub!("\u2013", "&#8211;")
     title.gsub!("\u2014", "&#8212;")
     body.gsub!("\u5d1b", "&#23835;")
     body.gsub!("\u2003", "&#8195;")
@@ -87,6 +107,9 @@ module ArticleSaveXml
     body.gsub!("\u0026", "&amp;")
     body.gsub!("\u0387", "\u00B7")
     body.gsub!("\u8f9f", "&#36767;")
+    title.gsub!("\u22ef", "&#8943;")
+    body.gsub!("\u22ef", "&#8943;")
+    # subtitle.gsub!("\u22ef", "&#8943;")
   end
 
   def newsml_issue_path
@@ -155,8 +178,14 @@ module ArticleSaveXml
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
     # story_xml.encode("utf-8").force_encoding("ANSI")
-    covert_euckr_not_suported_chars
+    convert_euckr_not_suported_chars
+    story_xml.gsub!("\u200B", "&#8203;")
+    story_xml.gsub!("\u2027", "&#8231;")
+    story_xml.gsub!("\u4F18", "&#20248;")
+    puts story_xml =~/\u4F18/ 
+    puts story_xml.dump
     File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 
@@ -238,21 +267,6 @@ module ArticleSaveXml
      # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
-    if images.length > 0 
-      @image          = images.first
-      @caption        = ""
-      @caption        = "#{@image.caption_title} | " if @image.caption_title && @image.caption_title != ""
-      @caption        += "#{@image.caption} " if @image.caption && @image.caption != ""
-      @caption        += "#{@image.source}" if @image.source && @image.source != ""
-      @h_caption_title = @image.caption_title
-      @h_caption       = @image.caption
-      @h_source        = @image.source
-    end
-    if graphics.length > 0
-      @graphic          = graphics.first
-      @h_caption_title  = @graphic.title
-      @h_caption        = @graphic.description
-    end
     opinion_writer  = OpinionWriter.where(name:reporter).first
     if opinion_writer
       @work        = opinion_writer.work if opinion_writer.work
@@ -343,10 +357,22 @@ module ArticleSaveXml
     # if quote && quote.include?("\u2024")
     #   puts "quote"
     # end
+    if images.length > 0 
+      @image          = images.first
+      @caption        = ""
+      @caption        = "#{@image.caption_title} | " if @image.caption_title && @image.caption_title != ""
+      @caption        += "#{@image.caption} " if @image.caption && @image.caption != ""
+      @caption        += "#{@image.source}" if @image.source && @image.source != ""
+      @h_caption_title = @image.caption_title
+      @h_caption       = @image.caption
+      @h_source        = @image.source
+    end
     if title && title != ""
       title.strip! 
       @head_line      = eliminate_size_option(title)
-      @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
+      @head_line      = @head_line.gsub(/\u200B/, "")
+      # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
+      @head_line      = @head_line.gsub("\r\n", " ")
     end
     if subtitle && subtitle != ""
       subtitle.strip! 
@@ -382,6 +408,9 @@ module ArticleSaveXml
       @sbject_ex = ""
     end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
+    # if story_xml_template.include?("\u200B")
+    #   binding.pry
+    # end
     @page_number = page_number
     @order = order
     story_erb = ERB.new(story_xml_template)
@@ -391,7 +420,7 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
 
@@ -489,11 +518,6 @@ module ArticleSaveXml
       @h_caption_title = @image.caption_title
       @h_caption       = @image.caption
       @h_source        = @image.source
-    end
-    if graphics.length > 0
-      @graphic          = graphics.first
-      @h_caption_title  = @graphic.title
-      @h_caption        = @graphic.description
     end
     @section_name_code = section_name_code
     if subject_head && subject_head != ""
@@ -609,7 +633,7 @@ EOF
   def mobile_preview_xml_three_component
     if page_number == 22
       three_component =<<EOF
-      <TitleComponent><!-- 22면 -->
+      <TitleComponent>
         <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
       </TitleComponent>
       <ArticleComponent>
@@ -628,7 +652,7 @@ EOF
 
     elsif page_number == 23 && order == 1 
     three_component =<<EOF
-    <TitleComponent><!-- 23면 1 -->
+    <TitleComponent>
       <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
     </TitleComponent>
     <ArticleComponent>
@@ -646,7 +670,7 @@ EOF
 EOF
   elsif page_number == 23 && order == 2 
   three_component =<<EOF
-  <TitleComponent><!-- 23면 2 -->
+  <TitleComponent>
     <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
@@ -658,7 +682,7 @@ EOF
 
 elsif page_number == 23 && order == 3
   three_component =<<EOF
-  <TitleComponent><!-- 23면 3 -->
+  <TitleComponent>
     <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
   </TitleComponent>
   <ArticleComponent>
@@ -677,9 +701,8 @@ EOF
 
   elsif kind == "사진"
   three_component =<<EOF
-  <TitleComponent><!-- photobox -->
-  <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-  <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+  <TitleComponent>
+  <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
 </TitleComponent>
 <ArticleComponent>
   <Content><![CDATA[<%= @h_caption %> <%= @h_source %>]]>
@@ -690,7 +713,7 @@ EOF
 
   elsif images.count > 0 
   three_component =<<EOF
-  <TitleComponent><!-- images -->
+  <TitleComponent>
     <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
@@ -711,7 +734,7 @@ EOF
 
   elsif graphics.count > 0 
   three_component =<<EOF
-  <TitleComponent><!-- graphic -->
+  <TitleComponent>
     <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
@@ -733,7 +756,7 @@ EOF
 
   else
   three_component =<<EOF
-  <TitleComponent><!-- etc -->
+  <TitleComponent>
     <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
@@ -745,7 +768,8 @@ EOF
 
   end
   component = ""
-
+  # puts "============ page_number: #{page_number}"
+  # binding.pry if page_number == 1
   erb = ERB.new(three_component)
   component += erb.result(binding)
   end
@@ -778,7 +802,7 @@ EOF
       @c_head_line    = eliminate_size_option(@head_line)
     else
       @image          = images.first
-      @c_head_line    = @image.caption_title   
+      @c_head_line    = @image.caption_title 
     end
     container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>
@@ -804,8 +828,11 @@ EOF
       # return issue.path + "/images/#{photo_file_name}"
       return ""
     else graphics.length > 0
+      # binding.pry
       file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
       system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{file_name} #{mobile_page_preview_path}/#{@photo_file_name}")
+      # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+      # return issue.path + "/images/#{graphic_file_name}"
       return ""
     end
   end
