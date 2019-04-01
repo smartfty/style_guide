@@ -53,6 +53,7 @@ class PagePlansController < ApplicationController
       current_section_name  = @page_plan.section_name
       
       if @page_plan.update(page_plan_params)
+        # binding.pry
         if @page = @page_plan.page
           if @page.color_page != @page_plan.color_page
             @page.color_page = @page_plan.color_page
@@ -153,5 +154,6 @@ class PagePlansController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_plan_params
       params.require(:page_plan).permit(:page_number, :deadline, :section_name, :ad_type, :advertiser, :color_page, :selected_template_id, :issue_id)
+      # params.require(:page_plan).permit(:page_number, :deadline, :section_name, :ad_type, :advertiser, :color_page, :selected_template_id, :issue_id)
     end
 end

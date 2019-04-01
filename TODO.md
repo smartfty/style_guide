@@ -1,5 +1,3 @@
-
-
 # TODO
 
 - make demo video
@@ -20,7 +18,19 @@
 
   - body
     - fit_text
-    
+
+2019-3-29
+  - 사진 zoom & anchor
+  - 기자사진
+
+  박스기고
+  - 회색 박스크기
+  - profile_image
+    - expert
+    - reporter
+    - advisory
+    - quest
+
 2019-3-28
   - ## 두줄 줄 바꾸기
   - ### 첫번째 줄도 양측정렬

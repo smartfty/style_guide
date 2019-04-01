@@ -31,7 +31,7 @@ body_gothic:
   scale: 100.0
   first_line_indent: 0
   text_line_spacing:
-  space_before_in_lines:
+  space_before_in_lines: 1
   space_after_in_lines:
   text_height_in_lines:
   box_attributes: ''

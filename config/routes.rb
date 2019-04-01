@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exert_writers
   resources :reporter_graphics do
     member do
       get 'download'
@@ -109,6 +110,9 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'my_story'
+    end
+    collection do
+      get 'reporter_profile'
     end
   end
 
