@@ -109,17 +109,16 @@ class PagePlan < ApplicationRecord
       if ad_type == "홀" || ad_type == "짝"
         ad_type = profile_array[-3] + "_" + ad_type
       end 
-      # this is a hack to corrent "광고없음" being converted to
-      # ["ᄀ", "ᅪ", "ᆼ", "ᄀ", "ᅩ", "ᄋ", "ᅥ", "ᆹ", "ᄋ", "ᅳ", "ᆷ"]
-      ad_type = "광고없음" if ad_type.length == 11
+      # ruby eval and YAML::load doesn't handle unicode correctly !!!
+      # so  "광고없음" is converted to ["ᄀ", "ᅪ", "ᆼ", "ᄀ", "ᅩ", "ᄋ", "ᅥ", "ᆹ", "ᄋ", "ᅳ", "ᆷ"]
+      # found Rails solution for this!!!!
+      ad_type = ad_type.unicode_normalize
       selected_section_template = Section.where(page_number: page_number, ad_type: ad_type).first
       unless selected_section_template.class == Section
-        unless selected_section_template.class == Section
-          if page_number.odd?
-            selected_section_template = Section.where(page_number: 101, ad_type: ad_type).first
-          else
-            selected_section_template = Section.where(page_number: 100, ad_type: ad_type).first
-          end
+        if page_number.odd?
+          selected_section_template = Section.where(page_number: 101, ad_type: ad_type).first
+        else
+          selected_section_template = Section.where(page_number: 100, ad_type: ad_type).first
         end
       end
       unless selected_section_template.class == Section
