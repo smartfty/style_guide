@@ -243,7 +243,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p><%= render 'show_prewview_by_column', article: @working_article %></p>
+                                    <%= render 'show_prewview_by_column', article: @working_article %>
                                 </section>
 
                                 <section class="section" id="content11">
@@ -369,8 +369,6 @@
 
                                         <% link_to "이미지 추가", add_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
                                             <% link_to "저자 이미지 추가", add_personal_image_article_path(@working_article), method: :get, class: "btn btn-sm btn-danger" %>
-                                                <br>
-                                                <hr>
                                             <% end %>
                                         </div>
                                     </div>
