@@ -202,25 +202,23 @@ module ArticleSaveXml
     return if source.nil?
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
-    if images.length > 0
-      photo_file_orginal = "#{issue.path}/images/#{page_number}_#{order}_#{images.length-1}.*"
-      photo_file_name = "#{page_number}_#{order}_#{images.length-1}.*" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      # if File.exist?(photo_file_orginal)
-        #  system("cd #{issue.path}/images/ && convert #{photo_file_name} -resize 620 #{newsml_issue_path}/#{@photo_item}")
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{photo_file_name} --out #{newsml_issue_path}/#{@photo_item}")
-      # end
-      # return issue.path + "/images/#{photo_file_name}"
-      return ""
-    else graphics.length > 0
-      graphic_file_orginal = "#{issue.path}/images/graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf"
-      graphic_file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      # if File.exist?(graphic_file_orginal)
-      system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{graphic_file_name} #{newsml_issue_path}/#{@photo_item}")
-      # system("sips -s #{newsml_issue_path}/#{@photo_item}
-      # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best best -Z 620 #{graphic_file_name} --out #{newsml_issue_path}/#{@photo_item}")
-      # end
-        # return issue.path + "/images/#{graphic_file_name}"
-      return ""
+    images.each do |i|
+      ext = File.extname(i.image.url)
+      image_name = File.basename(i.image.url)
+      if ext == ".jpg"
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
+      elsif ext == ".pdf"
+        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+      end
+    end
+    graphics.each do |g|
+      ext = File.extname(g.graphic.url)
+      image_name = File.basename(g.graphic.url)
+      if ext == ".jpg"
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
+      elsif ext == ".pdf"
+        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+      end
     end
   end
 
@@ -330,8 +328,9 @@ module ArticleSaveXml
         @name_plate = opinion_writer.title
       end
     end 
-    @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
-    @money_status     = story.price if story && story.price && story.price != ""
+    # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
+    @subject_ex_name  = find_code_name(story.category_code) if story && story.category_code && story.category_code != ""
+    @money_status     = story.price.to_i if story && story.price && story.price != ""
     if page_number == 22
       if kind == '사설'
         if subject_head == '기고'
@@ -423,7 +422,7 @@ module ArticleSaveXml
     @name_plate_code = story.category_code if story && story.category_code && story.category_code != ""
     if page_number == 1
       @name_plate_code = category_code
-      @sbject_ex = ""
+      @subject_ex_name = ""
     end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
     # if story_xml_template.include?("\u200B")
@@ -575,7 +574,7 @@ module ArticleSaveXml
         category_code= 2101
       end
     end
-    @subject_ex_code  = category_code
+    @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if title && title != ""
       title.strip! 
