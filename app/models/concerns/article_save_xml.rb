@@ -197,7 +197,7 @@ module ArticleSaveXml
     save_xml_image 
   end
 
-  def save_xml_image
+  def save_xml_image    
     source = image_source
     return if source.nil?
     target = newsml_issue_path + "/#{@photo_item}"
@@ -208,7 +208,17 @@ module ArticleSaveXml
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
       elsif ext == ".pdf"
-        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+        original_pdf = File.open("#{image_name}", '.pdf').read
+        image = Magick::Image::from_blob(original_pdf) do
+          self.format = 'PDF'
+          self.quality = 100
+          self.density = 300
+        end
+        image[0].format = 'JPG'
+        image[0].to_blob
+        image[0].write("#{original_pdf}".jpg)
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
     graphics.each do |g|
