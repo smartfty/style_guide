@@ -4,6 +4,14 @@ module ArticleSaveXml
 
 ## 뉴스 / 지면보기 XML 생성관련 소스 분리 2018-12-27 DaNiel
 
+   def find_code_name(code)
+    a =      [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]]
+    a.each do |code_a|
+      return code_a[0] if code_a[1] == code
+    end
+    nil
+  end 
+
   def filter_to_title(title)
     return unless title
     title.strip!
@@ -259,6 +267,7 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
+    @by_line        = reporter_from_body  
     if reporter && reporter != ""  
      @name       = reporter
     else  
@@ -279,7 +288,8 @@ module ArticleSaveXml
         @name = @name.split("-")[0]
       end       
       @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-      @by_line        = "#{@name} #{@work} #{@position}"
+      # @by_line        = "#{@name} #{@work} #{@position}"
+      @by_line        = reporter_from_body
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -296,13 +306,14 @@ module ArticleSaveXml
           @name = @name.split("-")[0]
         end         
         @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-        @by_line        = "#{@name} #{@work} #{@position}"  
+        # @by_line        = "#{@name} #{@work} #{@position}"
+        @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
     if page_number == 23 && order == 2
       @name          = reporter_from_body
-      @by_line       = ''
+      @by_line       = reporter_from_body
       reporter       = Reporter.where(name: @name).first
       @email         = reporter.email if reporter
       @caption       = reporter_from_body
@@ -320,7 +331,7 @@ module ArticleSaveXml
       end
     end 
     @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
-    @money_status     = "30"
+    @money_status     = story.price if story && story.price && story.price != ""
     if page_number == 22
       if kind == '사설'
         if subject_head == '기고'
@@ -328,13 +339,19 @@ module ArticleSaveXml
           @money_status = "0"
         elsif subject_head == '정치시평'
           category_code = 2201
+          @money_status = "30"
         # elsif subject_head == '경제시평'
         #   category_code = 2202
+        else 
+          @money_status = "30"
         end
       end
     elsif page_number == 23
       if kind == '사설'
         category_code= 2101
+        @money_status = "30"
+      else 
+        @money_status = "30"
       end
     end
     @subject_ex_code  = category_code
@@ -343,6 +360,7 @@ module ArticleSaveXml
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
@@ -402,7 +420,7 @@ module ArticleSaveXml
     #   @sub_head_line2 = sh[1]
     #   @sub_head_line3 = sh[2]
     # end
-    @name_plate_code = category_code
+    @name_plate_code = story.category_code if story && story.category_code && story.category_code != ""
     if page_number == 1
       @name_plate_code = category_code
       @sbject_ex = ""
@@ -483,7 +501,8 @@ module ArticleSaveXml
         @name = @name.split("-")[0]
       end  
       @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-      @by_line        = "#{@name} #{@work} #{@position}"
+      # @by_line        = "#{@name} #{@work} #{@position}"
+      @by_line        = reporter_from_body
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -500,7 +519,8 @@ module ArticleSaveXml
           @name = @name.split("-")[0]
         end 
         @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-        @by_line        = "#{@name} #{@work} #{@position}"
+        # @by_line        = "#{@name} #{@work} #{@position}"
+        @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
