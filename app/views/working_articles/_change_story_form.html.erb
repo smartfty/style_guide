@@ -17,19 +17,16 @@
 
 <div class="col-xs-12 col-md-12">
 <div class="col-xs-12 col-md-12">
-    <button type="button" class="btn btn-success"><%= link_to
-        "#{article.page.section_name} #{article.page.page_number}페이지 #{article.order}번
-        기사" %></button>
-
+    <button type="button" class="btn btn-success"><%= link_to "#{article.page.section_name} #{article.page.page_number}페이지 #{article.order}번 기사" %></button>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>페이지</th>
-                <th>순서</th>
-                <th>기자</th>
-                <th>제목</th>
-                <th>선택</th>
-                <th>선택 해제</th>
+                <th style="text-align:center; width:10%;">페이지</th>
+                <th style="text-align:center; width:10%;">순서</th>
+                <th style="text-align:center; width:10%;">기자</th>
+                <th style="text-align:left; width:50%;">제목</th>
+                <th style="text-align:center; width:10%;">선택</th>
+                <th style="text-align:center; width:10%;">해제</th>
             </tr>
         </thead>
 
@@ -37,21 +34,21 @@
             <% @stories.each do |story| %>
                 <% if story.selected%>
                     <tr style="color:red;">
-                        <td><%= story.working_article.page.page_number if story.working_article %></td>
-                        <td><%= story.working_article.order if story.working_article %></td>
-                        <td><%= story.reporter %></td>
-                        <td><%= story.title %></td>
-                        <td><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
-                        <td><%= link_to "해제", un_assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-danger") %></td>
+                        <td style="text-align:center; width:10%;"><%= story.working_article.page.page_number if story.working_article %></td>
+                        <td style="text-align:center; width:10%;"><%= story.working_article.order if story.working_article %></td>
+                        <td style="text-align:center; width:10%;"><%= story.reporter %></td>
+                        <td style="text-align:left; width:50%;"><%= story.title %></td>
+                        <td style="text-align:center; width:10%;"><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
+                        <td style="text-align:center; width:10%;"><%= link_to "해제", un_assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-danger") %></td>
                     </tr>
                 <% else %>
                     <tr>
-                        <td><%= story.working_article.page.page_number if story.working_article %></td>
-                        <td><%= story.working_article.order if story.working_article %></td>
-                        <td><%= story.reporter %></td>
-                        <td><%= story.title %></td>
-                        <td><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
-                        <td></td>
+                        <td style="text-align:center; width:10%;"><%= story.working_article.page.page_number if story.working_article %></td>
+                        <td style="text-align:center; width:10%;"><%= story.working_article.order if story.working_article %></td>
+                        <td style="text-align:center; width:10%;"><%= story.reporter %></td>
+                        <td style="text-align:left; width:50%;"><%= story.title %></td>
+                        <td style="text-align:center; width:10%;"><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
+                        <td style="text-align:center; width:10%;"></td>
                     </tr>
                 <% end %>
 
