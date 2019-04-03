@@ -207,10 +207,13 @@ class WorkingArticle < ApplicationRecord
 
   def update_story_content(story)
     # update content with new story content
+      # params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
+      # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
+      # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
     self.reporter = story.reporter
     self.title    = story.title
-    self.subtitle    = story.subtitle
-    self.body     = story.body
+    self.subtitle = story.subtitle
+    self.body     = filter_to_markdown(story.body)
     self.quote    = story.quote  if story.quote
     self.save
     save_article
@@ -728,10 +731,6 @@ class WorkingArticle < ApplicationRecord
     h[:gutter]                        = self.gutter
     h[:on_left_edge]                  = self.on_left_edge
     h[:on_right_edge]                 = self.on_right_edge
-    if kind == '박스기고'
-      h[:on_left_edge]                = false
-      h[:on_right_edge]               = false
-    end
     h[:is_front_page]                 = self.is_front_page
     h[:top_story]                     = top_story?
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'

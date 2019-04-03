@@ -21,7 +21,6 @@ class PagesController < ApplicationController
       if @page.page_number != 1
         if @page.page_number == 22 || @page.page_number == 23
           # do not add any
-        
         elsif @page.page_number.even?
           section_template = Section.where("section_name like ?", "%#{@page.section_name}%").select{|s| s.ad_type == @page.ad_type && @page.page_number.even?}
           # section_template  = Section.where(ad_type:@page.ad_type, section_name: @page.section_name, page_number: 100)

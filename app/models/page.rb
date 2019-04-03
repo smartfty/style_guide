@@ -341,6 +341,12 @@ class Page < ApplicationRecord
       # if new page is full page ad, delete working articles from page
       working_articles.each do |wa|
         # wa.inactive = true
+        # dettach attached story
+        if working_article.story
+          attached_story = working_article.story
+          attached_story.working_article_id = nil?
+          attached_story.save
+        end
         wa.destroy
       end
     else
@@ -368,6 +374,12 @@ class Page < ApplicationRecord
       sorted_working_articles = working_articles.sort_by {|article| article.order}
       sorted_working_articles.each_with_index do |working_article, i|
         if working_article.order > section.articles.length
+          # dettach attached story
+          if working_article.story
+            attached_story = working_article.story
+            attached_story.working_article_id = nil?
+            attached_story.save
+          end
           working_article.destroy
         end
       end
