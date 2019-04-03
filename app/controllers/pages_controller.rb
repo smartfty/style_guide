@@ -17,7 +17,8 @@ class PagesController < ApplicationController
     @working_articles = @page.working_articles
     @ad_boxes         = @page.ad_boxes
     @page_templates   = Section.where(ad_type:@page.ad_type, page_number: @page.page_number)
-    unless @page_templates
+    # binding.pry
+    unless @page_templates.count > 0
       if @page.page_number != 1
         if @page.page_number == 22 || @page.page_number == 23
           # do not add any
@@ -30,6 +31,7 @@ class PagesController < ApplicationController
             @page_templates   += Section.where(ad_type:@page.ad_type, page_number: 100) 
           end
         else
+          binding.pry
           section_template = Section.where("section_name like ?", "%#{@page.section_name}%").select{|s| s.ad_type == @page.ad_type && @page.page_number.odd?}
           # section_template  = Section.where(ad_type:@page.ad_type, section_name: @page.section_name, page_number: 101)
           if section_template.length > 0
