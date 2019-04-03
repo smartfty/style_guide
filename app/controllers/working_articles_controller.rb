@@ -148,7 +148,10 @@ class WorkingArticlesController < ApplicationController
         redirect_to eighth_group_stories_issue_path(@working_article.issue)
       when 'nineth_group'
         redirect_to nineth_group_stories_issue_path(@working_article.issue)
-      end    
+      else
+        # redirect_to first_group_stories_issue_path(Issue.last)
+        redirect_to eighth_group_stories_issue_path(Issue.last)
+      end
   end
 
   # download story.pdf

@@ -203,30 +203,42 @@ module ArticleSaveXml
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
     images.each do |i|
-      ext = File.extname(i.image.url)
-      image_name = File.basename(i.image.url)
+      ext = File.extname(i.image.path)
+      image_name = File.basename(i.image.path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
       elsif ext == ".pdf"
-        original_pdf = File.open("#{image_name}", '.pdf').read
-        image = Magick::Image::from_blob(original_pdf) do
-          self.format = 'PDF'
-          self.quality = 100
-          self.density = 300
-        end
-        image[0].format = 'JPG'
-        image[0].to_blob
-        image[0].write("#{original_pdf}".jpg)
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
-        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+        # original_pdf = File.open("#{image_name}", 'rb').read
+        # image = Magick::Image::from_blob(original_pdf) do
+        #   self.format = 'PDF'
+        #   self.quality = 100
+        #   self.density = 300
+        # end
+        # image[0].format = 'JPG'
+        # image[0].to_blob
+        # image[0].write("#{original_pdf}".jpg)
+        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
     graphics.each do |g|
-      ext = File.extname(g.graphic.url)
-      image_name = File.basename(g.graphic.url)
+      ext = File.extname(g.graphic.path)
+      image_name = File.basename(g.graphic.path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
+      # elsif ext == ".pdf"
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       elsif ext == ".pdf"
+        # original_pdf = File.open("#{image_name}", 'rb').read
+        # image = Magick::Image::from_blob(original_pdf) do
+        #   self.format = 'PDF'
+        #   self.quality = 100
+        #   self.density = 300
+        # end
+        # image[0].format = 'JPG'
+        # image[0].to_blob
+        # image[0].write("#{original_pdf}".jpg)
+        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
         system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
@@ -275,11 +287,11 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    @by_line        = reporter_from_body  
+    @by_line        = reporter_from_body.gsub(/\^$/){""}  
     if reporter && reporter != ""  
      @name       = reporter
     else  
-     @name       = reporter_from_body
+     @name       = reporter_from_body.gsub(/\^$/){""}
     end
      # if @name =~/_/
       # @name = @name.split("_")[0]
@@ -334,20 +346,29 @@ module ArticleSaveXml
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
-        category_code = opinion_writer.category_code 
+        @subject_ex_code = opinion_writer.category_code 
         @name_plate = opinion_writer.title
       end
     end 
+    @subject_ex_code = story.category_code if story && story.category_code && story.category_code != ""
+    # if page_number == 1
+    #   @subject_ex_code = category_code
+    #   @subject_ex_name = ""
+    # end
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
-    @subject_ex_name  = find_code_name(story.category_code) if story && story.category_code && story.category_code != ""
+    @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
     @money_status     = story.price.to_i if story && story.price && story.price != ""
-    if page_number == 22
+    if page_number == 1
+      @money_status = "0"
+    elsif page_number == 22
       if kind == '사설'
         if subject_head == '기고'
-          category_code = 2401
+          @subject_ex_code = 2401
+          @subject_ex_name = '기고'
           @money_status = "0"
         elsif subject_head == '정치시평'
-          category_code = 2201
+          @subject_ex_code = 2201
+          @subject_ex_name = '정치시평'
           @money_status = "30"
         # elsif subject_head == '경제시평'
         #   category_code = 2202
@@ -357,13 +378,13 @@ module ArticleSaveXml
       end
     elsif page_number == 23
       if kind == '사설'
-        category_code= 2101
+        @subject_ex_code = 2101
+        @subject_ex_name = '내일시론'
         @money_status = "30"
       else 
         @money_status = "30"
       end
     end
-    @subject_ex_code  = category_code
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
@@ -429,11 +450,6 @@ module ArticleSaveXml
     #   @sub_head_line2 = sh[1]
     #   @sub_head_line3 = sh[2]
     # end
-    @name_plate_code = story.category_code if story && story.category_code && story.category_code != ""
-    if page_number == 1
-      @name_plate_code = category_code
-      @subject_ex_name = ""
-    end
     @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}.jpg"
     # if story_xml_template.include?("\u200B")
     #   binding.pry
@@ -447,7 +463,8 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
 
@@ -556,7 +573,8 @@ module ArticleSaveXml
       # r = OpinionWriter.where(name: reporter).first
       # puts r
       if page_number == 22 || page_number == 23
-        category_code = opinion_writer.category_code 
+        @subject_ex_code = opinion_writer.category_code 
+        @subject_ex_name = opinion_writer.title
         @name_plate = opinion_writer.title
       end
     end    
@@ -566,25 +584,30 @@ module ArticleSaveXml
     #   category_code = r.category_code
     #   @name_plate = "[#{r.title}]"
     # end
-    @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
+    @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
+    # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
+    @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
+
     @money_status     = "30"
     if page_number == 22
       if kind == '사설'
         if subject_head == '기고'
-          category_code = 2401
+          @subject_ex_code = 2401
+          @subject_ex_name = '기고'
           @money_status = "0"
         elsif subject_head == '정치시평'
-          category_code = 2201
+          @subject_ex_code = 2201
+          @subject_ex_name = '정치시평'
         # elsif subject_head == '경제시평'
         #   category_code = 2202
         end
       end
     elsif page_number == 23
       if kind == '사설'
-        category_code= 2101
+        @subject_ex_code = 2101
+        @subject_ex_name = '내일시론'
       end
     end
-    @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if title && title != ""
       title.strip! 
@@ -632,7 +655,8 @@ module ArticleSaveXml
     @gija_name        = "편집기자명" # 편집기자명
     @news_class_large_id    = news_class_large_id
     @news_class_large_name  = page.section_name
-    @news_class_middle_id   = category_code
+    # @news_class_middle_id   = category_code
+    @news_class_middle_id   = @subject_ex_code
     @news_class_middle_name = subject_head
     @send_modify            = "0"  # 수정횟수
     @new_article            = "1" #뭘까?
@@ -808,7 +832,8 @@ EOF
     unless @name_plate
       r = OpinionWriter.where(name:reporter).first
       puts r
-      category_code = r.category_code
+      @subject_ex_code = r.category_code
+      @subject_ex_name = r.title
       @name_plate = r.title
     end
     year  = issue.date.year
@@ -850,19 +875,48 @@ EOF
     return if source.nil?
     target = mobile_page_preview_path + "/#{@photo_file_name}"
     system("cp #{source} #{target}")
-    if images.length > 0
-      file_name = "#{page_number}_#{order}_#{images.length-1}.*"  # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      # system("cd #{issue.path}/images/ && convert #{file_name} -resize 620 #{mobile_page_preview_path}/#{@photo_file_name}")
-      system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
-      # return issue.path + "/images/#{photo_file_name}"
-      return ""
-    else graphics.length > 0
-      # binding.pry
-      file_name = "graphic_#{page_number}_#{order}_#{graphics.length-1}.pdf" # images.length 가 아닌 현재 파일 오더?를 가져올 수 있어야할텐데...
-      system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{file_name} #{mobile_page_preview_path}/#{@photo_file_name}")
-      # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{file_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
-      # return issue.path + "/images/#{graphic_file_name}"
-      return ""
+    images.each do |i|
+      ext = File.extname(i.image.path)
+      image_name = File.basename(i.image.path)
+      if ext == ".jpg"
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+      elsif ext == ".pdf"
+        binding.pry
+        original_pdf = File.open("#{image_name}", 'rb').read
+        image = Magick::Image::from_blob(original_pdf) do
+          self.format = 'PDF'
+          self.quality = 100
+          self.density = 300
+        end
+        image[0].format = 'JPG'
+        image[0].to_blob
+        image[0].write("#{original_pdf}".jpg)
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+      end
+    end
+    graphics.each do |g|
+      ext = File.extname(g.graphic.path)
+      image_name = File.basename(g.graphic.path)
+      if ext == ".jpg"
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+      # elsif ext == ".pdf"
+      #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
+      # end
+      elsif ext == ".pdf"
+        binding.pry
+        original_pdf = File.open("#{image_name}", 'rb').read
+        image = Magick::Image::from_blob(original_pdf) do
+          self.format = 'PDF'
+          self.quality = 100
+          self.density = 300
+        end
+        image[0].format = 'JPG'
+        image[0].to_blob
+        image[0].write("#{original_pdf}".jpg)
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+      end
     end
   end
 end
