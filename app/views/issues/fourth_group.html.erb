@@ -1,9 +1,6 @@
-
-
-
 <div class="view">
   <% @pages.each.each do |page| %>
-    <div class = "col-xs-6 col-md-4"  align='center'>
+    <div class = "col-xs-6 col-md-3"  align='center'>
     <!--a href="<%=  page_path(page) %>"><img  src="<%= page.jpg_image_path %>" width="100%"></img></a-->
     <%= raw page.to_svg_with_jpg %>
     <p align="center">

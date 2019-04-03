@@ -203,30 +203,42 @@ module ArticleSaveXml
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
     images.each do |i|
-      ext = File.extname(i.image.url)
-      image_name = File.basename(i.image.url)
+      ext = File.extname(i.image.path)
+      image_name = File.basename(i.image.path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
       elsif ext == ".pdf"
-        original_pdf = File.open("#{image_name}", '.pdf').read
-        image = Magick::Image::from_blob(original_pdf) do
-          self.format = 'PDF'
-          self.quality = 100
-          self.density = 300
-        end
-        image[0].format = 'JPG'
-        image[0].to_blob
-        image[0].write("#{original_pdf}".jpg)
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
-        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+        # original_pdf = File.open("#{image_name}", 'rb').read
+        # image = Magick::Image::from_blob(original_pdf) do
+        #   self.format = 'PDF'
+        #   self.quality = 100
+        #   self.density = 300
+        # end
+        # image[0].format = 'JPG'
+        # image[0].to_blob
+        # image[0].write("#{original_pdf}".jpg)
+        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
     graphics.each do |g|
-      ext = File.extname(g.graphic.url)
-      image_name = File.basename(g.graphic.url)
+      ext = File.extname(g.graphic.path)
+      image_name = File.basename(g.graphic.path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
+      # elsif ext == ".pdf"
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       elsif ext == ".pdf"
+        # original_pdf = File.open("#{image_name}", 'rb').read
+        # image = Magick::Image::from_blob(original_pdf) do
+        #   self.format = 'PDF'
+        #   self.quality = 100
+        #   self.density = 300
+        # end
+        # image[0].format = 'JPG'
+        # image[0].to_blob
+        # image[0].write("#{original_pdf}".jpg)
+        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
         system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
@@ -864,12 +876,13 @@ EOF
     target = mobile_page_preview_path + "/#{@photo_file_name}"
     system("cp #{source} #{target}")
     images.each do |i|
-      ext = File.extname(i.image.url)
-      image_name = File.basename(i.image.url)
+      ext = File.extname(i.image.path)
+      image_name = File.basename(i.image.path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       elsif ext == ".pdf"
-        original_pdf = File.open("#{image_name}", '.pdf').read
+        binding.pry
+        original_pdf = File.open("#{image_name}", 'rb').read
         image = Magick::Image::from_blob(original_pdf) do
           self.format = 'PDF'
           self.quality = 100
@@ -883,12 +896,26 @@ EOF
       end
     end
     graphics.each do |g|
-      ext = File.extname(g.graphic.url)
-      image_name = File.basename(g.graphic.url)
+      ext = File.extname(g.graphic.path)
+      image_name = File.basename(g.graphic.path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+      # elsif ext == ".pdf"
+      #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
+      # end
       elsif ext == ".pdf"
-        system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
+        binding.pry
+        original_pdf = File.open("#{image_name}", 'rb').read
+        image = Magick::Image::from_blob(original_pdf) do
+          self.format = 'PDF'
+          self.quality = 100
+          self.density = 300
+        end
+        image[0].format = 'JPG'
+        image[0].to_blob
+        image[0].write("#{original_pdf}".jpg)
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
   end
