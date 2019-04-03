@@ -17,6 +17,14 @@ Rails app for creating style guide for newspaper publication
   # has_many_attached :uploads
   # has_one_attached :finished_job 
 
+### expert_writer
+  #  name              :string
+  #  work              :string
+  #  position          :string
+  #  email             :string
+  #  expert_image     :string
+  #  expert_jpg_image  :string
+
 ### AdBooking
   publication:references
   date:date

@@ -3,7 +3,7 @@ class CreateImages < ActiveRecord::Migration[5.0]
     create_table :images do |t|
       t.integer :column
       t.integer :row
-      t.integer :extra_height_in_lines
+      t.integer :extra_height_in_lines, default: 0
       t.string :image
       t.string :caption_title
       t.string :caption

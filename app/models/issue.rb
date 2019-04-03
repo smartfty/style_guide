@@ -146,15 +146,18 @@ class Issue < ApplicationRecord
   end
 
   def make_default_issue_plan
-    section_names_array = eval(publication.section_names)
-    eval_issue_plan.each_with_index do |page_array, i|
+    #plan
+    # section_names_array = eval(publication.section_names)
+    default_plans = eval(plan)
+    default_plans.each_with_index do |page_array, i|
       page_hash = {}
       page_hash[:issue_id] = id
-      page_hash[:section_name]  = section_names_array[i]
-      page_hash[:page_number]   = page_array[0]
+      puts "page_hash[:section_name]:#{page_hash[:section_name]}"
+      page_hash[:page_number]   = i + 1
+      page_hash[:section_name]   = page_array[0]
       page_hash[:profile]       = page_array[1]
       page_hash[:color_page]    = page_array[2] if page_array.length > 2
-      puts "page_hash:#{page_hash}"
+      # binding.pry
       p = PagePlan.where(page_hash).first_or_create!
     end
   end

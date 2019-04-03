@@ -19,24 +19,18 @@ pre {
   font-size: 11px;
 }
 
-.btn-dnager:visited {
-  color: #fff !important;
-  text-decoration: none;
-  background-color: transparent;
- }
+a {
+  color: #000;
 
-// a {
-//   color: #000;
+  &:visited {
+    color: #666;
+  }
 
-//   &:visited {
-//     color: #666;
-//   }
-
-//   &:hover {
-//     color: #fff;
-//     background-color: #000;
-//   }
-// }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
 
 th {
   padding-bottom: 5px;
