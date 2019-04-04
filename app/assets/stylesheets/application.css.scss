@@ -249,13 +249,15 @@ textarea {
  }
 
  .btn-default > a {
-  color: #fff !important;
+  color: #000 !important;
   text-decoration: none;
   background-color: transparent;
  }
 
+//  a {color: #fff; text-decoration: none; outline: none}
+//  a:hover, a:active, a:visited {text-decoration: none; color:#fff;}
  
- .btn-dnager:visited {
+ .btn-dnager > a:visited {
   color: #fff !important;
   text-decoration: none;
   background-color: transparent;
@@ -263,7 +265,7 @@ textarea {
 
 
  .btn-default > a:visited {
-  color: #fff !important;
+  color: #000 !important;
   text-decoration: none;
   background-color: transparent;
  }
@@ -278,6 +280,12 @@ textarea {
   margin: 8px !important;
   // display: block !important;
  }
+
+  .btn-danger > a:visited {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: transparent;
+   }
 
 //  .btn-success {
 //    background-color: #5cb85c !important;
