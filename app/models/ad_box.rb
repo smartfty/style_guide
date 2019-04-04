@@ -382,10 +382,11 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '광고' 
-      if page.section_name == "전면광고"
-        @name_plate = '전면광고'
-      end
+    if page.section_name == "전면광고"
+      @name_plate = '전면광고'
+    else
+      @name_plate = '광고' 
+    end
     @section_name_code = section_name_code
 
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
