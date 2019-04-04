@@ -22,6 +22,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+/public/1/section/*
 /public/1/issue/*
 coverage
 public/1/.DS_Store
