@@ -207,10 +207,13 @@ class WorkingArticle < ApplicationRecord
 
   def update_story_content(story)
     # update content with new story content
+      # params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
+      # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
+      # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
     self.reporter = story.reporter
     self.title    = story.title
-    self.subtitle    = story.subtitle
-    self.body     = story.body
+    self.subtitle = story.subtitle
+    self.body     = filter_to_markdown(story.body)
     self.quote    = story.quote  if story.quote
     self.save
     save_article
@@ -341,7 +344,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   # adds extended_line_count with new line_count
-  def extend_line(line_count)
+  def extend_line(line_count, options={})
     return if line_count == 0
     if self.extended_line_count
       self.extended_line_count += line_count
@@ -408,7 +411,7 @@ class WorkingArticle < ApplicationRecord
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
 
-  def push_line(line_count)
+  def push_line(line_count, options={})
     self.pushed_line_count = line_count
     self.save
     generate_pdf_with_time_stamp
@@ -432,7 +435,6 @@ class WorkingArticle < ApplicationRecord
   end
   
   def show_quote_box(quote_box_type)
-    puts "++++++++++++ quote_box_type:#{quote_box_type}"
     self.quote_box_show = true
     self.quote_box_type = quote_box_type
     case quote_box_type
@@ -729,10 +731,6 @@ class WorkingArticle < ApplicationRecord
     h[:gutter]                        = self.gutter
     h[:on_left_edge]                  = self.on_left_edge
     h[:on_right_edge]                 = self.on_right_edge
-    if kind == '박스기고'
-      h[:on_left_edge]                = false
-      h[:on_right_edge]               = false
-    end
     h[:is_front_page]                 = self.is_front_page
     h[:top_story]                     = top_story?
     h[:top_story]                     = false   if kind == 'opinion' || kind == '기고' || kind == 'editorial' || kind == '사설'
@@ -974,6 +972,32 @@ class WorkingArticle < ApplicationRecord
       code = "0008"
     end
     code
+  end
+  
+  def group_name
+    case page.section_name
+    when '1면'
+      code = "first_group"
+    when '정치'
+      code = "second_group"
+    when '자치행정'
+      code = "third_group"
+    when '국제통일'
+      code = "fourth_group"
+    when '금융'
+      code = "fifth_group"
+    when '산업'
+      code = "sixth_group"
+    when '기획'
+      code= "senventh_group"
+    when '정책'
+      code = "eighth_group"
+    when '오피니언'
+      code = "nineth_group"
+    else
+      code = "first_group"
+    end
+
   end
 
   def news_class_large_id

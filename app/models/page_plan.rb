@@ -54,6 +54,7 @@ class PagePlan < ApplicationRecord
   end
 
   def team_leader
+    puts "++++++++ section_name:#{section_name}"
     ReporterGroup.where(section: section_name).first.leader
   end
 
@@ -103,22 +104,21 @@ class PagePlan < ApplicationRecord
   def parse_profile
     if profile && profile != ""
       puts "profile:#{profile}"
-      profile_array = profile.split("_")[-2]
-      ad_type       = profile_array[-2]
-      # story_count   = profile_array[-1]
-      # puts "ad_type:#{ad_type}"
-      # first check if we have section specific templates
-      selected_section_template = Section.where("section_name like ?", "%#{section_name}%").select{|s| ad_type == s.ad_type}
+      profile_array = profile.split("_")
+      ad_type = profile_array[-2]
+      if ad_type == "홀" || ad_type == "짝"
+        ad_type = profile_array[-3] + "_" + ad_type
+      end 
+      # ruby eval and YAML::load doesn't handle unicode correctly !!!
+      # so  "광고없음" is converted to ["ᄀ", "ᅪ", "ᆼ", "ᄀ", "ᅩ", "ᄋ", "ᅥ", "ᆹ", "ᄋ", "ᅳ", "ᆷ"]
+      # found Rails solution for this!!!!
+      ad_type = ad_type.unicode_normalize
+      selected_section_template = Section.where(page_number: page_number, ad_type: ad_type).first
       unless selected_section_template.class == Section
-          selected_section_template = Section.where(page_number: page_number, ad_type: ad_type).first
-      end
-      unless selected_section_template.class == Section
-        unless selected_section_template.class == Section
-          if page_number.odd?
-            selected_section_template = Section.where(page_number: 101, ad_type: ad_type).first
-          else
-            selected_section_template = Section.where(page_number: 100, ad_type: ad_type).first
-          end
+        if page_number.odd?
+          selected_section_template = Section.where(page_number: 101, ad_type: ad_type).first
+        else
+          selected_section_template = Section.where(page_number: 100, ad_type: ad_type).first
         end
       end
       unless selected_section_template.class == Section
@@ -132,9 +132,11 @@ class PagePlan < ApplicationRecord
           if page_number == 1
             selected_section_template = Section.where(page_number:1).first
           elsif page_number.odd?
-            selected_section_template = Section.where(page_number: 101).first
+            selected_section_template = Section.where(ad_type: '광고없음', page_number: 101).first
+            # selected_section_template = Section.where(page_number: 101).first
           else
-            selected_section_template = Section.where(page_number: 100).first
+            selected_section_template = Section.where(ad_type: '광고없음', page_number: 100).first
+            # selected_section_template = Section.where(page_number: 101).first
           end
           unless selected_section_template.class == Section
             puts "No section template for found!!!"
@@ -142,6 +144,8 @@ class PagePlan < ApplicationRecord
           end
         end
       end
+      puts "++++++++++ page_number:#{page_number}"
+      puts "selected_section_template.ad_type:#{selected_section_template.ad_type}"
       self.selected_template_id = selected_section_template.id
       self.column               = selected_section_template.column
       self.row                  = selected_section_template.row

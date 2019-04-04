@@ -23,6 +23,7 @@ class WorkingArticlesController < ApplicationController
     @pages = @working_article.issue.pages.select {|p| p.section_name == section_name}
     # @reporter_images = ReporterImage.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
     # @reporter_graphics = ReporterGraphic.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
+    session[:current_story_group] = @working_article.group_name
     @reporter_images = ReporterImage.where(section_name:section_name).all
     @reporter_graphics = ReporterGraphic.where(section_name:section_name).all
     respond_to do |format|
@@ -69,6 +70,7 @@ class WorkingArticlesController < ApplicationController
       params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
+      
       if @working_article.update(working_article_params)
         @working_article.generate_pdf_with_time_stamp
         @working_article.page.generate_pdf_with_time_stamp

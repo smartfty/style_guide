@@ -17,4 +17,9 @@ class UsersController < ApplicationController
     @stories = @user.stories
   end
 
+  def reporter_profile
+    @reporters = User.where(role:'reporter').all
+    @reporters += User.where(role:'team_leader').all
+  end
+
 end

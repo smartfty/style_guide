@@ -151,6 +151,7 @@ module PagePrintable
     # pw        = ENV['DONG_A_PASSWORD']
     ip        = '210.115.142.181'
     id        = 'naeil'
+    # pw        = 'cts@'
     pw        = 'na12'
     Net::FTP.open(ip, id, pw) do |ftp|
       if color_page

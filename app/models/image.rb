@@ -105,7 +105,10 @@ class Image < ApplicationRecord
     h[:source]            = source if source
     case fit_type
     when '최적'
-      h[:fit_type] = 3 
+      h[:fit_type] = 3
+      h[:zoom_level]      = zoom_level if zoom_level
+      #TODO change field zoom_direction to zoom_anchor
+      h[:zoom_anchor]     = zoom_direction if zoom_direction
     when '세로'
       h[:fit_type] = 1 
     when '가로'
@@ -118,6 +121,8 @@ class Image < ApplicationRecord
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame || true
     h[:image_kind]        = image_kind if image_kind 
+
+
     h
   end
 
