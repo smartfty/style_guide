@@ -23,6 +23,7 @@ class WorkingArticlesController < ApplicationController
     @pages = @working_article.issue.pages.select {|p| p.section_name == section_name}
     # @reporter_images = ReporterImage.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
     # @reporter_graphics = ReporterGraphic.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
+    session[:current_story_group] = @working_article.group_name
     @reporter_images = ReporterImage.where(section_name:section_name).all
     @reporter_graphics = ReporterGraphic.where(section_name:section_name).all
     respond_to do |format|
