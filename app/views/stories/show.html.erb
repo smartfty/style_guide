@@ -7,11 +7,15 @@
     <%= render 'selected', story: @story, working_article: @working_article %>
 
 <% else %>
+<div class ="col-md-6">
     <%= render 'form', story: @story %>
+</div>
 <% end %>
 
+<div class ="col-md-12">
 <%= render 'yh_pictures/my', yh_pictures: @my_pictures %>
-
+</div>
+<div class ="col-md-12">
 <%= render 'yh_graphics/my', yh_graphics: @my_graphics%>
-
+</div>
 

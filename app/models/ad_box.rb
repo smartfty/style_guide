@@ -64,7 +64,7 @@ class AdBox < ApplicationRecord
 
   def pdf_image_path
     # "/1/issue/#{page.issue.date}/#{page.page_number}/ad/#{latest_jpg_basename}"
-    "/1/issue/#{date}/#{page_number}/ad/#{latest_jpg_basename}"
+    "/1/issue/#{date}/#{page_number}/ad/#{latest_pdf_basename}"
   end
 
   def jpg_image_path
@@ -121,7 +121,11 @@ class AdBox < ApplicationRecord
   end
 
   def on_right_edge?
-    grid_x + column >= page.column
+    if column = 6 || 7
+      true
+    else
+      grid_x + column >= page.column 
+    end
   end
 
   def is_front_page?
@@ -161,7 +165,7 @@ class AdBox < ApplicationRecord
     ad_image_hash[:layout_expand]                  = [:width, :height]
     ad_image_hash[:page_heading_margin_in_lines]   = page_heading_margin_in_lines
     content=<<~EOF
-    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, on_right_edge: #{on_right_edge?}, top_position: #{top_position?}, on_right_edge: #{on_right_edge?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
+    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, on_right_edge: #{on_right_edge?}, top_position: #{top_position?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
       image(image_path: '#{image_path}', fit_type: 4, layout_expand: [:width, :height])
       relayout!
     end
@@ -221,7 +225,7 @@ class AdBox < ApplicationRecord
       code = "0009"
     when '정치'
       code = "0002"
-    when '행정'
+    when '자치행정'
       code = "0003"
     when '국제통일'
       code = "0004"
@@ -245,7 +249,7 @@ class AdBox < ApplicationRecord
       code = "9"
     when '정치'
       code = "2"
-    when '행정'
+    when '자치행정'
       code = "3"
     when '국제통일'
       code = "4"
@@ -307,19 +311,20 @@ EOF
 
   def mobile_preview_xml_component
     @name_plate      = '광고'
+      if page.section_name == "전면광고"
+        @name_plate      = '전면광고'
+      end
     @head_line       = advertiser
 
     three_component =<<EOF
       <TitleComponent>
         <MainTitle>[<%= @name_plate %>] <%= @head_line %></MainTitle>
+        <% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
       </TitleComponent>
       <ArticleComponent>
-        <Content><![CDATA[<!--[[--image1--]]//-->
-        <%= @data_content %>
-        <%= @by_line %>]]>
-        </Content>
+        <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line %>]]></Content>
       </ArticleComponent>
-    <PhotoComponent/>
   </Article>
 EOF
     component = ""
@@ -339,11 +344,14 @@ EOF
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
         @name_plate      = '광고'
+         if page.section_name == '전면광고'
+          @name_plate  = '전면광고'
+         end
         @head_line       = advertiser
 
 
       container_xml_group_key=<<EOF
-      <Group Key="<%= @group_key %>" CmsFileName="" Title="[<%= @name_plate %>] <%= @head_line %>"/>
+      <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @head_line %>"/>
 EOF
       xml_group_key = ""
       erb = ERB.new(container_xml_group_key)
@@ -352,7 +360,7 @@ EOF
 
 
   def ad_xml
-    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+    story_erb_path = "#{Rails.root}/public/1/newsml/ad_box_xml.erb"
     story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -374,10 +382,13 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '광고'
+    @name_plate      = '광고' 
+      if page.section_name == "전면광고"
+        @name_plate = '전면광고'
+      end
     @section_name_code = section_name_code
 
-    @gisa_key         = "#{@date_id}001#{@page_info}#{two_digit_ord}"
+    @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     @money_status     = "0"
     @head_line        = advertiser
 

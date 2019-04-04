@@ -10,8 +10,7 @@
 </div>
 <div class="form-actions">
 <p></p>
-<%= f.button :submit, "저장", accesskey: "s", class: "btn btn-primary btn-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-</div>
+<%= f.button :submit, "저장하기", accesskey: "s", class: "btn btn-primary btn-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %></div>
 
 <br>
 
@@ -27,7 +26,6 @@
 <%= link_to "기사 PDF", download_pdf_working_article_path(@ad_box), method: :get, class: "btn btn-default btn-sm" %>
 </div>
 <div class="btn-group btn-right" role="group" aria-label="기능">
-    <%= f.button "저장", accesskey: "s", class: "btn btn-primary btn-sm", remote: true, data:{disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>
-</div>
+<%= f.button :submit, "저장하기", accesskey: "s", class: "btn btn-primary btn-sm", remote: true, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %></div>
 </nav>
 <% end %>

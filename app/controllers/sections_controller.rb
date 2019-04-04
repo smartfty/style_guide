@@ -6,6 +6,10 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
+    if params[:page]
+      session[:page] = params[:page]
+    end
+  
     @q = Section.ransack(params[:q])
     @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
     session[:current_section_pagination] = params[:page]
@@ -54,7 +58,6 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        
         @section.update_section_layout
         format.html { redirect_to @section, notice: 'Section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }

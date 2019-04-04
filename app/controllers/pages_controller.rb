@@ -31,7 +31,6 @@ class PagesController < ApplicationController
             @page_templates   += Section.where(ad_type:@page.ad_type, page_number: 100) 
           end
         else
-          binding.pry
           section_template = Section.where("section_name like ?", "%#{@page.section_name}%").select{|s| s.ad_type == @page.ad_type && @page.page_number.odd?}
           # section_template  = Section.where(ad_type:@page.ad_type, section_name: @page.section_name, page_number: 101)
           if section_template.length > 0
@@ -41,8 +40,7 @@ class PagesController < ApplicationController
           end
         end
       end
-    end
-
+    # end
   end
 
   # GET /pages/new

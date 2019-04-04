@@ -7,8 +7,13 @@ profile: 7x15_광고없음_8
 section_id: 225
 page_columns: 7
 grid_size:
+<<<<<<< HEAD
+- 146.99662542182
+- 97.3228346456681
+=======
 - 146.99662542182014
 - 97.32283464566807
+>>>>>>> upstream/master
 lines_per_grid: 7.0
 width: 1114.01574803148
 height: 1544.88188976376
