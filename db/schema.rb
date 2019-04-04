@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_070941) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "exert_writers", force: :cascade do |t|
+  create_table "expert_writers", force: :cascade do |t|
     t.string "name"
     t.string "work"
     t.string "position"

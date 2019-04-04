@@ -1,2 +1,2 @@
-module ExertWritersHelper
+module expertWritersHelper
 end

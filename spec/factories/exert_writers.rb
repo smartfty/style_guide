@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: exert_writers
+# Table name: expert_writers
 #
 #  id               :bigint(8)        not null, primary key
 #  name             :string
@@ -15,7 +15,7 @@
 #
 
 FactoryBot.define do
-  factory :exert_writer do
+  factory :expert_writer do
     name { "MyString" }
     work { "MyString" }
     position { "MyString" }

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: exert_writers
+# Table name: expert_writers
 #
 #  id               :bigint(8)        not null, primary key
 #  name             :string
@@ -16,6 +16,6 @@
 
 require 'rails_helper'
 
-RSpec.describe ExertWriter, type: :model do
+RSpec.describe expertWriter, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

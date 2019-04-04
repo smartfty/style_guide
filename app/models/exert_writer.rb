@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: exert_writers
+# Table name: expert_writers
 #
 #  id               :bigint(8)        not null, primary key
 #  name             :string
@@ -27,7 +27,7 @@ RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
 end
 EOF
 
-class ExertWriter < ApplicationRecord
+class expertWriter < ApplicationRecord
   mount_uploader :expert_image, ExpertImageUploader
   mount_uploader :expert_jpg_image, ExpertJpgImageUploader
 
@@ -55,7 +55,7 @@ class ExertWriter < ApplicationRecord
   end
 
   def self.generate_profile_image
-    experts = ExertWriter.all
+    experts = expertWriter.all
     experts.each do |expert|
       expert.generate_pdf
     end

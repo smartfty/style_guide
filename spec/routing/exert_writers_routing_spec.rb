@@ -1,38 +1,38 @@
 require "rails_helper"
 
-RSpec.describe ExertWritersController, type: :routing do
+RSpec.describe expertWritersController, type: :routing do
   describe "routing" do
     it "routes to #index" do
-      expect(:get => "/exert_writers").to route_to("exert_writers#index")
+      expect(:get => "/expert_writers").to route_to("expert_writers#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/exert_writers/new").to route_to("exert_writers#new")
+      expect(:get => "/expert_writers/new").to route_to("expert_writers#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/exert_writers/1").to route_to("exert_writers#show", :id => "1")
+      expect(:get => "/expert_writers/1").to route_to("expert_writers#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/exert_writers/1/edit").to route_to("exert_writers#edit", :id => "1")
+      expect(:get => "/expert_writers/1/edit").to route_to("expert_writers#edit", :id => "1")
     end
 
 
     it "routes to #create" do
-      expect(:post => "/exert_writers").to route_to("exert_writers#create")
+      expect(:post => "/expert_writers").to route_to("expert_writers#create")
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/exert_writers/1").to route_to("exert_writers#update", :id => "1")
+      expect(:put => "/expert_writers/1").to route_to("expert_writers#update", :id => "1")
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/exert_writers/1").to route_to("exert_writers#update", :id => "1")
+      expect(:patch => "/expert_writers/1").to route_to("expert_writers#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/exert_writers/1").to route_to("exert_writers#destroy", :id => "1")
+      expect(:delete => "/expert_writers/1").to route_to("expert_writers#destroy", :id => "1")
     end
   end
 end

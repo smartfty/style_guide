@@ -1,74 +1,74 @@
-class ExertWritersController < ApplicationController
-  before_action :set_exert_writer, only: [:show, :edit, :update, :destroy]
+class expertWritersController < ApplicationController
+  before_action :set_expert_writer, only: [:show, :edit, :update, :destroy]
 
-  # GET /exert_writers
-  # GET /exert_writers.json
+  # GET /expert_writers
+  # GET /expert_writers.json
   def index
-    @exert_writers = ExertWriter.all
+    @expert_writers = expertWriter.all
   end
 
-  # GET /exert_writers/1
-  # GET /exert_writers/1.json
+  # GET /expert_writers/1
+  # GET /expert_writers/1.json
   def show
   end
 
-  # GET /exert_writers/new
+  # GET /expert_writers/new
   def new
-    @exert_writer = ExertWriter.new
+    @expert_writer = expertWriter.new
   end
 
-  # GET /exert_writers/1/edit
+  # GET /expert_writers/1/edit
   def edit
   end
 
-  # POST /exert_writers
-  # POST /exert_writers.json
+  # POST /expert_writers
+  # POST /expert_writers.json
   def create
-    @exert_writer = ExertWriter.new(exert_writer_params)
+    @expert_writer = expertWriter.new(expert_writer_params)
 
     respond_to do |format|
-      if @exert_writer.save
-        format.html { redirect_to @exert_writer, notice: 'Exert writer was successfully created.' }
-        format.json { render :show, status: :created, location: @exert_writer }
+      if @expert_writer.save
+        format.html { redirect_to @expert_writer, notice: 'expert writer was successfully created.' }
+        format.json { render :show, status: :created, location: @expert_writer }
       else
         format.html { render :new }
-        format.json { render json: @exert_writer.errors, status: :unprocessable_entity }
+        format.json { render json: @expert_writer.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /exert_writers/1
-  # PATCH/PUT /exert_writers/1.json
+  # PATCH/PUT /expert_writers/1
+  # PATCH/PUT /expert_writers/1.json
   def update
     respond_to do |format|
-      if @exert_writer.update(exert_writer_params)
-        format.html { redirect_to @exert_writer, notice: 'Exert writer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @exert_writer }
+      if @expert_writer.update(expert_writer_params)
+        format.html { redirect_to @expert_writer, notice: 'expert writer was successfully updated.' }
+        format.json { render :show, status: :ok, location: @expert_writer }
       else
         format.html { render :edit }
-        format.json { render json: @exert_writer.errors, status: :unprocessable_entity }
+        format.json { render json: @expert_writer.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /exert_writers/1
-  # DELETE /exert_writers/1.json
+  # DELETE /expert_writers/1
+  # DELETE /expert_writers/1.json
   def destroy
-    @exert_writer.destroy
+    @expert_writer.destroy
     respond_to do |format|
-      format.html { redirect_to exert_writers_url, notice: 'Exert writer was successfully destroyed.' }
+      format.html { redirect_to expert_writers_url, notice: 'expert writer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_exert_writer
-      @exert_writer = ExertWriter.find(params[:id])
+    def set_expert_writer
+      @expert_writer = expertWriter.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def exert_writer_params
-      params.require(:exert_writer).permit(:name, :work, :position, :email, :category_code, :expert_image, :expert_jpg_image)
+    def expert_writer_params
+      params.require(:expert_writer).permit(:name, :work, :position, :email, :category_code, :expert_image, :expert_jpg_image)
     end
 end

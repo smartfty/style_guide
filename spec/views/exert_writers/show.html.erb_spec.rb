@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "exert_writers/show", type: :view do
+RSpec.describe "expert_writers/show", type: :view do
   before(:each) do
-    @exert_writer = assign(:exert_writer, ExertWriter.create!(
+    @expert_writer = assign(:expert_writer, expertWriter.create!(
       :name => "Name",
       :work => "Work",
       :position => "Position",

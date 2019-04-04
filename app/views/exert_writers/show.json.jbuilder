@@ -1,1 +1,1 @@
-json.partial! "exert_writers/exert_writer", exert_writer: @exert_writer
+json.partial! "expert_writers/expert_writer", expert_writer: @expert_writer
