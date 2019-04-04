@@ -40,7 +40,7 @@ class PagesController < ApplicationController
           end
         end
       end
-    # end
+    end
   end
 
   # GET /pages/new
