@@ -658,19 +658,30 @@ class Page < ApplicationRecord
     end
   end
 
-  def delete_latest_files
-    pdf_file_to_delete = Dir.glob("#{path}/section*.pdf")
-    jpg_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
-    pdf_file_to_delete.each do |old|
-      system("rm #{old}")
-    end
-    jpg_file_to_delte.each do |old|
+  def delete_old_files
+    old_pdf_files = Dir.glob("#{path}/section*.pdf")
+    old_jpg_files = Dir.glob("#{path}/section*.jpg")
+    old_pdf_files += old_jpg_files
+    # pdf_file_to_delete = Dir.glob("#{path}/section*.pdf")
+    # jpg_file_to_delete = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
+    old_pdf_files.each do |old|
       system("rm #{old}")
     end
   end
 
+  # def delete_latest_files
+  #   pdf_file_to_delete = Dir.glob("#{path}/section*.pdf")
+  #   jpg_file_to_delte = pdf_file_to_delete.map{|f| f.sub(/pdf$/, "jpg")}
+  #   pdf_file_to_delete.each do |old|
+  #     system("rm #{old}")
+  #   end
+  #   jpg_file_to_delte.each do |old|
+  #     system("rm #{old}")
+  #   end
+  # end
+
   def generate_pdf_with_time_stamp
-    delete_latest_files
+    delete_old_files
     stamp_time
     PageWorker.perform_async(path, @time_stamp)
     wait_for_stamped_pdf

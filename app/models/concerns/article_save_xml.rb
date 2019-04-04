@@ -347,6 +347,7 @@ module ArticleSaveXml
       # puts r
       if page_number == 22 || page_number == 23
         @subject_ex_code = opinion_writer.category_code 
+        @subject_ex_name = opinion_writer.title
         @name_plate = opinion_writer.title
       end
     end 
@@ -357,24 +358,29 @@ module ArticleSaveXml
     # end
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
-    @money_status     = story.price.to_i if story && story.price && story.price != ""
     if page_number == 1
       @money_status = "0"
+    elsif page_number == 20 || page_number == 21
+      @money_status     = story.price.to_i if story && story.price && story.price != ""
     elsif page_number == 22
+      puts "kind : #{page_number } #{kind} #{@money_status}"
       if kind == '사설'
         if subject_head == '기고'
           @subject_ex_code = 2401
           @subject_ex_name = '기고'
-          @money_status = "0"
+          @money_status = 0
         elsif subject_head == '정치시평'
           @subject_ex_code = 2201
           @subject_ex_name = '정치시평'
-          @money_status = "30"
+          @money_status = 30
         # elsif subject_head == '경제시평'
         #   category_code = 2202
         else 
-          @money_status = "30"
+          @money_status = 30
         end
+        @money_status = 30
+      elsif kind == '기고'
+        @money_status = 30
       end
     elsif page_number == 23
       if kind == '사설'
@@ -384,13 +390,14 @@ module ArticleSaveXml
       else 
         @money_status = "30"
       end
+      @money_status = "30"
     end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
-      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b>#{$1}</b>"} 
+      @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
@@ -587,7 +594,6 @@ module ArticleSaveXml
     @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
-
     @money_status     = "30"
     if page_number == 22
       if kind == '사설'
@@ -643,8 +649,9 @@ module ArticleSaveXml
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^##(.*)\n/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
-      @body_content     = @body_content.gsub(/\^$/){""}
+      @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
     @page_number = page_number 
