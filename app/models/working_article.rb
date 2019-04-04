@@ -344,7 +344,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   # adds extended_line_count with new line_count
-  def extend_line(line_count)
+  def extend_line(line_count, options={})
     return if line_count == 0
     if self.extended_line_count
       self.extended_line_count += line_count
@@ -411,7 +411,7 @@ class WorkingArticle < ApplicationRecord
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
   end
 
-  def push_line(line_count)
+  def push_line(line_count, options={})
     self.pushed_line_count = line_count
     self.save
     generate_pdf_with_time_stamp
@@ -972,6 +972,32 @@ class WorkingArticle < ApplicationRecord
       code = "0008"
     end
     code
+  end
+  
+  def group_name
+    case page.section_name
+    when '1면'
+      code = "first_group"
+    when '정치'
+      code = "second_group"
+    when '자치행정'
+      code = "third_group"
+    when '국제통일'
+      code = "fourth_group"
+    when '금융'
+      code = "fifth_group"
+    when '산업'
+      code = "sixth_group"
+    when '기획'
+      code= "senventh_group"
+    when '정책'
+      code = "eighth_group"
+    when '오피니언'
+      code = "nineth_group"
+    else
+      code = "first_group"
+    end
+
   end
 
   def news_class_large_id

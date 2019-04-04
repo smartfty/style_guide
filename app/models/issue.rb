@@ -168,9 +168,7 @@ class Issue < ApplicationRecord
     # parse_ad_images
     # parse_graphics
   end
-
-
-
+  
   def make_spread
     puts 'in make_spread'
     Spread.create!(issue_id: id)

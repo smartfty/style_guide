@@ -106,8 +106,6 @@ class StoriesController < ApplicationController
         redirect_to sixth_group_stories_issue_path(Issue.last)
       when 'seventh_group'
         redirect_to seventh_group_stories_issue_path(Issue.last)
-      when 'seventh_group'
-        redirect_to seventh_group_stories_issue_path(Issue.last)
       when 'eighth_group'
         redirect_to eighth_group_stories_issue_path(Issue.last)
       when 'nineth_group'

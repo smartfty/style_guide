@@ -8,6 +8,7 @@ class SectionsController < ApplicationController
   def index
     @q = Section.ransack(params[:q])
     @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
+    session[:current_section_pagination] = params[:page]
     @sections = Section.all  if request.format == 'csv'
     
     respond_to do |format|
@@ -99,7 +100,7 @@ class SectionsController < ApplicationController
 
   def regenerate_pdf
     @section.regenerate_pdf
-    redirect_to @section, notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
+    redirect_to @section, page: session[:current_section_pagination], notice: '저장된 섹션 스타일로 페이지를 재생성 하였습니다.'
   end
 
 
