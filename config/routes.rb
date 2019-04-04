@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :exeprt_writers
   resources :expert_writers
+  resources :exepert_writers
   resources :reporter_graphics do
     member do
       get 'download'

@@ -3,13 +3,6 @@
 4 0 obj
 << /Length 5 0 R /Filter /FlateDecode >>
 stream
-<<<<<<< HEAD
-x­A!E÷œâ_@ÄsWÀhLdLÆû/lËºÐ¨1¤”¾öÿÎ1Ãñ¡œì#!'²ƒ#Âõ€.ú)gŽƒu.L t¯_r¦ôœCQ®àôL5Íí¬ÿoCñÚ~%O“ºŸxV-wŽÞ’˜(Øªý×”ÖW¯kÙàÅ¼¥d/­öýdª©Z»Â/y,¼øým2;¯««»o+5p%
-endstream
-endobj
-5 0 obj
-168
-=======
 x­RA
 Â0¼çóÃ¦&}ƒ§âÁˆ"˜
 õÿwc›&`J-J`;³;3›=Fëî|káÕY‹×g<ãO<øóm£‰š¬›ñSM…¥F‘p/Y·XævÚü·¡Á‘˜Øþ W’z@ŠXqV8Eã5<c3‡â¦ŠWÜ?eQÐ’‚6D]Òª²VÛÙ_‡ò6ª’Ë¡?9•‡+^Kæ3¦P7%©ª›ÚŸ¤ìaI27µ/Iµ–Ùúæ7Ó¿ö­™
@@ -17,7 +10,6 @@ endstream
 endobj
 5 0 obj
 197
->>>>>>> upstream/master
 endobj
 2 0 obj
 << /Type /Page /Parent 3 0 R /Resources 6 0 R /Contents 4 0 R /MediaBox [0 0 587.9865 875.9055]
@@ -33,21 +25,10 @@ endobj
 << /Type /Catalog /Pages 3 0 R >>
 endobj
 8 0 obj
-<<<<<<< HEAD
-(Mac OS X 10.13.6 Quartz PDFContext)
-endobj
-9 0 obj
-(D:20190329121731Z00'00')
-=======
 (Mac OS X 10.12.6 Quartz PDFContext)
 endobj
 9 0 obj
-<<<<<<< HEAD
-(D:20190401200514Z00'00')
->>>>>>> upstream/master
-=======
-(D:20190404051410Z00'00')
->>>>>>> upstream/master
+(D:20190404054441Z00'00')
 endobj
 1 0 obj
 << /Producer 8 0 R /CreationDate 9 0 R /ModDate 9 0 R >>
@@ -55,22 +36,6 @@ endobj
 xref
 0 10
 0000000000 65535 f 
-<<<<<<< HEAD
-0000000671 00000 n 
-0000000283 00000 n 
-0000000446 00000 n 
-0000000022 00000 n 
-0000000264 00000 n 
-0000000407 00000 n 
-0000000529 00000 n 
-0000000578 00000 n 
-0000000630 00000 n 
-trailer
-<< /Size 10 /Root 7 0 R /Info 1 0 R /ID [ <4810e117de1675b8add1f07bc5e9ff38>
-<4810e117de1675b8add1f07bc5e9ff38> ] >>
-startxref
-743
-=======
 0000000700 00000 n 
 0000000312 00000 n 
 0000000475 00000 n 
@@ -81,9 +46,8 @@ startxref
 0000000607 00000 n 
 0000000659 00000 n 
 trailer
-<< /Size 10 /Root 7 0 R /Info 1 0 R /ID [ <20d4b6be4a614abb36c4619a02e467ed>
-<20d4b6be4a614abb36c4619a02e467ed> ] >>
+<< /Size 10 /Root 7 0 R /Info 1 0 R /ID [ <bf251f49c18bf9c907b8f93cc14b064d>
+<bf251f49c18bf9c907b8f93cc14b064d> ] >>
 startxref
 772
->>>>>>> upstream/master
 %%EOF
