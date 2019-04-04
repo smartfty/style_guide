@@ -1,6 +1,6 @@
-class CreateexpertWriters < ActiveRecord::Migration[5.2]
+class CreateExeprtWriters < ActiveRecord::Migration[5.2]
   def change
-    create_table :expert_writers do |t|
+    create_table :exeprt_writers do |t|
       t.string :name
       t.string :work
       t.string :position

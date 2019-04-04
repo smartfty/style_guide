@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "expert_writers/index", type: :view do
+RSpec.describe "exeprt_writers/index", type: :view do
   before(:each) do
-    assign(:expert_writers, [
-      expertWriter.create!(
+    assign(:exeprt_writers, [
+      ExeprtWriter.create!(
         :name => "Name",
         :work => "Work",
         :position => "Position",
@@ -12,7 +12,7 @@ RSpec.describe "expert_writers/index", type: :view do
         :expert_image => "Expert Image",
         :expert_jpg_image => "Expert Jpg Image"
       ),
-      expertWriter.create!(
+      ExeprtWriter.create!(
         :name => "Name",
         :work => "Work",
         :position => "Position",
@@ -24,7 +24,7 @@ RSpec.describe "expert_writers/index", type: :view do
     ])
   end
 
-  it "renders a list of expert_writers" do
+  it "renders a list of exeprt_writers" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Work".to_s, :count => 2

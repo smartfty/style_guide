@@ -27,7 +27,7 @@ RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
 end
 EOF
 
-class expertWriter < ApplicationRecord
+class ExpertWriter < ApplicationRecord
   mount_uploader :expert_image, ExpertImageUploader
   mount_uploader :expert_jpg_image, ExpertJpgImageUploader
 
@@ -117,4 +117,5 @@ class expertWriter < ApplicationRecord
       end
     end
   end
+
 end
