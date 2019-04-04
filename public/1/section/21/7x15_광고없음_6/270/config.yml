@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 section_name: 기획
-=======
-section_name: test
->>>>>>> upstream/master
 page_heading_margin_in_lines: 3
 ad_type: 광고없음
 is_front_page: false
@@ -11,13 +7,8 @@ profile: 7x15_광고없음_6
 section_id: 270
 page_columns: 7
 grid_size:
-<<<<<<< HEAD
 - 146.99662542182
 - 97.3228346456681
-=======
-- 146.99662542182014
-- 97.32283464566807
->>>>>>> upstream/master
 lines_per_grid: 7.0
 width: 1114.01574803148
 height: 1544.88188976376
@@ -30,7 +21,6 @@ story_frames:
 - - 0
   - 0
   - 5
-<<<<<<< HEAD
   - 7
 - - 5
   - 0
@@ -52,28 +42,5 @@ story_frames:
   - 11
   - 2
   - 4
-=======
-  - 6
-- - 5
-  - 0
-  - 2
-  - 6
-- - 0
-  - 6
-  - 5
-  - 6
-- - 5
-  - 6
-  - 2
-  - 5
-- - 5
-  - 10
-  - 2
-  - 5
-- - 0
-  - 12
-  - 5
-  - 3
->>>>>>> upstream/master
 article_line_thickness: 0.3
 draw_divider: 
