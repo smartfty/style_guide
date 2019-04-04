@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "ExertWriters", type: :request do
-  describe "GET /exert_writers" do
+RSpec.describe "ExeprtWriters", type: :request do
+  describe "GET /exeprt_writers" do
     it "works! (now write some real specs)" do
-      get exert_writers_path
+      get exeprt_writers_path
       expect(response).to have_http_status(200)
     end
   end
