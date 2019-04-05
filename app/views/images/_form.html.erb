@@ -32,7 +32,7 @@
                 <%= f.label :사진정렬 %><%= f.select :fit_type, %w[최적 가로 세로 욱여넣기], {include_blank: false} %>
             </div>
             <% if @working_article.kind != '사진' %>
-                <div class="field" style="width:100px; float:left;">
+                <div class="field" style="width:70px; float:left;">
                     <%= f.label :사진위치 %>
                     <div style="font-size: 11px;">
                         <%= f.radio_button :position, 10, title: "제목위", disabled: "disabled" %>
@@ -49,8 +49,8 @@
                         <%= f.radio_button :position, 9, title: "우하단" %><br/>
                     </div>
                 </div>
-                <div class="field" style="width:100px; float:left;">
-                    <%= f.label :확대_기준위치 %>
+                <div class="field" style="width:70px; display:inline-block;">
+                    <%= f.label :사진기준 %>
                     <div style="font-size: 11px;">
                         <%= f.radio_button :zoom_direction, 1, title: "좌상단" %>
                         <%= f.radio_button :zoom_direction, 2, title: "중상단" %>
@@ -61,7 +61,8 @@
                         <%= f.radio_button :zoom_direction, 7, title: "좌하단"%>
                         <%= f.radio_button :zoom_direction, 8, title: "중하단" %>
                         <%= f.radio_button :zoom_direction, 9, title: "우하단" %><br/>
-                    </div>                </div>
+                    </div>                
+                </div>
             <% end %>
         </div>
         <div class="col-xs-7 col-sm-7">
