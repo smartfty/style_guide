@@ -190,10 +190,11 @@ module ArticleSaveXml
     story_xml.gsub!("\u200B", "&#8203;")
     story_xml.gsub!("\u2027", "&#8231;")
     story_xml.gsub!("\u4F18", "&#20248;")
+    story_xml.gsub!("\u246F", "&#9327;")
     puts story_xml =~/\u4F18/ 
     puts story_xml.dump
-    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
+    # File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 
@@ -470,8 +471,8 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
 
@@ -779,7 +780,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]>
+    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
     </Content>
   </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
   <PhotoComponent>
@@ -800,7 +801,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]>
+    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
     </Content>
   </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
   <PhotoComponent>
@@ -822,7 +823,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %> <%= @by_line_body %>]]></Content>
+    <Content><![CDATA[<%= @data_content %>]]></Content>
   </ArticleComponent>
 </Article>
 EOF
@@ -889,7 +890,7 @@ EOF
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       elsif ext == ".pdf"
-        binding.pry
+        # binding.pry
         original_pdf = File.open("#{image_name}", 'rb').read
         image = Magick::Image::from_blob(original_pdf) do
           self.format = 'PDF'
