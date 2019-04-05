@@ -21,12 +21,17 @@ story_frames:
 - - 0
   - 0
   - 5
+<<<<<<< HEAD
   - 7
+=======
+  - 5
+>>>>>>> upstream/master
 - - 5
   - 0
   - 2
   - 7
 - - 0
+<<<<<<< HEAD
   - 7
   - 5
   - 4
@@ -46,5 +51,26 @@ story_frames:
   - 11
   - 2
   - 4
+=======
+  - 5
+  - 5
+  - 5
+- - 5
+  - 5
+  - 2
+  - 5
+- - 0
+  - 10
+  - 4
+  - 5
+- - 4
+  - 10
+  - 1
+  - 5
+- - 5
+  - 10
+  - 2
+  - 5
+>>>>>>> upstream/master
 article_line_thickness: 0.3
 draw_divider: 
