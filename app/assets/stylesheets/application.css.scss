@@ -248,21 +248,23 @@ textarea {
   background-color: transparent;
  }
 
- .btn-default > a {
+ .btn-default:visited {
   color: #000 !important;
   text-decoration: none;
   background-color: transparent;
  }
 
-//  a {color: #fff; text-decoration: none; outline: none}
-//  a:hover, a:active, a:visited {text-decoration: none; color:#fff;}
- 
- .btn-dnager > a:visited {
+ .btn-dnager:visited {
   color: #fff !important;
   text-decoration: none;
   background-color: transparent;
  }
 
+
+//  a {color: #fff; text-decoration: none; outline: none}
+ a:hover, a:active, a:visited {text-decoration: none; color:#fff;}
+ 
+ 
 
  .btn-default > a:visited {
   color: #000 !important;
