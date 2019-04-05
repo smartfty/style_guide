@@ -427,7 +427,7 @@ module ArticleSaveXml
       @head_line      = eliminate_size_option(title)
       @head_line      = @head_line.gsub(/\u200B/, "")
       # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
-      @head_line      = @head_line.gsub("\r\n", " ")
+      @head_line      = @head_line.gsub("\r\n", "")
     end
     if subtitle && subtitle != ""
       subtitle.strip! 
@@ -618,7 +618,8 @@ module ArticleSaveXml
     if title && title != ""
       title.strip! 
       @head_line        = eliminate_size_option(title)
-      @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      @head_line        = @head_line.gsub("\r\n", "")
     end  
       # h = covert_to_multiple_line(@head_line)
     # if h.class == String
