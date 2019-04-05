@@ -9,6 +9,11 @@ every :day, at: '5am' do
   rake 'style:new_issue'
 end
 
+every :day, at: '5:30am' do
+  # specify the task name as a string
+  rake 'wire:new_issue'
+end
+
 # every :day, at: '11:30am' do
 #   # specify the task name as a string
 #   runner "Issue.some_method"

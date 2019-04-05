@@ -104,7 +104,6 @@ class NewsContent
     # h[:subtitle]  = self.SubTitle if self.SubTitle
     h[:body]      = self.Body if self.Body
     h[:picture]   = self.MultiMedia if self.MultiMedia
-
     h
   end
 end
@@ -124,24 +123,67 @@ class YNewsML
     h
   end
 
-  def self.parse_new_story_xml(file)
-    puts "in parse_new_story_xml:#{file}"
-    source_dir = '/Volumes/d_naeil/wire_source'
-    xml_file = "#{source_dir}/" + file
-    puts "xml_file:#{xml_file}"
-    xml = File.open(xml_file, 'r'){|f| f.read}
-    story_hash = YNewsML.parse(xml).to_hash
-    YhArticle.where(date: story_hash[:date], time: story_hash[:time], title:story_hash[:title], body:story_hash[:body]).first_or_create
+  def self.new_ytn
+    require 'date'
+    today = Date.today
+    today_string = today.strftime("%Y%m%d")
+    source_location = '/Volumes/211.115.91.190'
+    ytn_today_story_folder = source_location + "/101_KOR/#{today_string}"
+    ytn_today_image_folder = source_location + "/201_PHOTO_YNA/#{today_string}"
+    ytn_today_graphic_folder = source_location + "/203_GRAPHIC/#{today_string}"
+    self.parse_new_wire_story_xml(ytn_today_story_folder)
+    self.parse_new_wire_picture_xml(ytn_today_image_folder)
+    self.parse_wire_wire_graphic_xml(ytn_today_graphic_folder)
+
+    # delete files that are week old
+    YhArticle.delete_week_old(today)
+    YhPicture.delete_week_old(today)
+    YhGraphic.delete_week_old(today)
   end
 
-  def self.parse_new_picture_xml(file)
-    puts "in parse_new_picture_xml:#{file}"
-    source_dir = '/Volumes/d_naeil/wire_source'
-    xml_file = "#{source_dir}/" + file
-    xml = File.open(xml_file, 'r'){|f| f.read}
-    picture_hash = YNewsML.parse(xml).to_hash
-    puts "picture_hash:#{picture_hash}"
-    YhPicture.where(picture_hash).first_or_create
+  def 
+
+  def self.parse_new_wire_story_xml(source_dir)
+    Dir.glob("#{source_dir}/*.xml").each do |xml_file|
+      # first check if we have received the file
+      content_id = File.basename(xml_file, ".xml")
+      received = YhArticle.find_by(content_id: content_id)
+      unless received
+        xml = File.open(xml_file, 'r'){|f| f.read}
+        story_hash = YNewsML.parse(xml).to_hash
+        story_hash[:content_id] = content_id
+        YhArticle.create(story_hash)
+      end
+    end
+  end
+
+  def self.parse_new_wire_picture_xml(source_dir)
+    Dir.glob("#{source_dir}/*.xml").each do |xml_file|
+      # first check if we have received the file
+      content_id = File.basename(xml_file, ".xml")
+      received = YhPicture.find_by(content_id: content_id)
+      unless received
+        xml = File.open(xml_file, 'r'){|f| f.read}
+        picture_hash = YNewsML.parse(xml).to_hash
+        picture_hash[:content_id] = content_id
+        YhPicture.create(picture_hash)
+      end
+    end
+  end
+
+
+  def self.parse_new_wire_graphic_xml(source_dir)
+    Dir.glob("#{source_dir}/*.xml").each do |xml_file|
+      # first check if we have received the file
+      content_id = File.basename(xml_file, ".xml")
+      received = YhGraphic.find_by(content_id: content_id)
+      unless received
+        xml = File.open(xml_file, 'r'){|f| f.read}
+        graphic_hash = YNewsML.parse(xml).to_hash
+        graphic_hash[:content_id] = content_id
+        YhGraphic.create(graphic_hash)
+      end
+    end
   end
 
   def self.load_ytn_sample
@@ -152,48 +194,45 @@ class YNewsML
 
   def self.parse_wire_story
     directory = "#{Rails.root}/public/wire_source/101_KOR/20181010"
-    # xml_file = Dir.glob("#{directory}/*.xml").first
-    # xml = File.open(xml_file, 'r'){|f| f.read}
-    # story_hash = YNewsML.parse(xml).to_hash
-
     Dir.glob("#{directory}/*.xml").each do |xml_file|
-      xml = File.open(xml_file, 'r'){|f| f.read}
-      story_hash = YNewsML.parse(xml).to_hash
-      YhArticle.where(date: story_hash[:date], time: story_hash[:time], title:story_hash[:title], body:story_hash[:body]).first_or_create
+      content_id = File.basename(xml_file, ".xml")
+      received = YhArticle.find_by(content_id: content_id)
+      unless received
+        xml = File.open(xml_file, 'r'){|f| f.read}
+        story_hash = YNewsML.parse(xml).to_hash
+        story_hash[:content_id] = content_id
+        YhArticle.create(story_hash)
+      end    
     end
   end
 
   def self.parse_wire_picture
     directory = "#{Rails.root}/public/wire_source/201_PHOTO_YNA/20181010"
     puts "parsing 201_PHOTO_YNA/20181010..."
-
-    # xml_file = Dir.glob("#{directory}/*.xml").first
-    # xml = File.open(xml_file, 'r'){|f| f.read}
-    # puts xml_file
-    # story_hash = YNewsML.parse(xml).to_hash
-    # puts story_hash
-    # puts story_hash[:picture]
-    Dir.glob("#{directory}/*.xml").each do |f|
-      xml = File.open(f, 'r'){|f| f.read}
-      h = YNewsML.parse(xml).to_hash
-      YhPicture.create!(h)
+    Dir.glob("#{directory}/*.xml").each do |xml_file|
+      content_id = File.basename(xml_file, ".xml")
+      received = YhPicture.find_by(content_id: content_id)
+      unless received
+        xml = File.open(xml_file, 'r'){|f| f.read}
+        picture_hash = YNewsML.parse(xml).to_hash
+        picture_hash[:content_id] = content_id
+        YhPicture.create(picture_hash)
+      end
     end
   end
 
   def self.parse_wire_graphic
     directory = "#{Rails.root}/public/wire_source/203_GRAPHIC/20190312"
     puts "parsing 203_GRAPHIC/20190312..."
-
-    # xml_file = Dir.glob("#{directory}/*.xml").first
-    # xml = File.open(xml_file, 'r'){|f| f.read}
-    # puts xmnaeill_file
-    # story_hash = YNewsML.parse(xml).to_hash
-    # puts story_hash
-    # puts story_hash[:picture]
-    Dir.glob("#{directory}/*.xml").each do |f|
-      xml = File.open(f, 'r'){|f| f.read}
-      h = YNewsML.parse(xml).to_hash
-      YhGraphic.create!(h)
+    Dir.glob("#{directory}/*.xml").each do |xml_file|
+      content_id = File.basename(xml_file, ".xml")
+      received = YhGraphic.find_by(content_id: content_id)
+      unless received
+        xml = File.open(xml_file, 'r'){|f| f.read}
+        graphic_hash = YNewsML.parse(xml).to_hash
+        graphic_hash[:content_id] = content_id
+        YhGraphic.create(graphic_hash)
+      end     
     end
   end
 end

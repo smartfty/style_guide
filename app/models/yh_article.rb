@@ -25,9 +25,17 @@
 #
 
 class YhArticle < ApplicationRecord
+  validates_uniqueness_of :content_id
 
   def taken(user)
     self.taken_by = user.name
     self.save
+  end
+
+  def self.delete_week_old(today)
+    one_week_old = today.days_ago(7)
+    YhArticle.all.each do |article|
+      article.destroy if article.created_at < one_week_old
+    end
   end
 end

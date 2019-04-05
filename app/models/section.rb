@@ -409,11 +409,17 @@ class Section < ApplicationRecord
           string += "<rect fill='white' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         elsif box[4] == 'image'
           puts "place image here ..."
-        elsif box[4] || box[4] == '광고'
+        elsif box[4] && box[4] == '광고'
           # ad box
           string += "<rect fill='lightGray' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         else
-          string += "<rect fill='lightGray' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
+          char_count = number_of_chars(box[1],box[2], box[3], false)
+          string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
+          string += "<text x='#{box[0]*svg_unit_width + 10}'y='#{box[1]*svg_unit_height + 20}' stroke-width='0' class='small'>#{char_count}</text>"
+          if box[2] >3 && box[3]>3
+            char_count = number_of_chars(box[1], box[2], box[3], true)
+            string += "<text x='#{box[0]*svg_unit_width + 10}'y='#{box[1]*svg_unit_height + 40}' stroke-width='0' class='small'>#{char_count}(사진)</text>"
+          end
         end
       else
         char_count = number_of_chars(box[1],box[2], box[3], false)
