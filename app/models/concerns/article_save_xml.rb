@@ -117,6 +117,7 @@ module ArticleSaveXml
     body.gsub!("\u8f9f", "&#36767;")
     title.gsub!("\u22ef", "&#8943;")
     body.gsub!("\u22ef", "&#8943;")
+    body.gsub!("\u25fc", "&#9724;")
     # subtitle.gsub!("\u22ef", "&#8943;")
   end
 
@@ -193,8 +194,8 @@ module ArticleSaveXml
     story_xml.gsub!("\u246F", "&#9327;")
     puts story_xml =~/\u4F18/ 
     puts story_xml.dump
-    # File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    File.open(path, 'w:utf-8'){|f| f.write story_xml}
+    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 
@@ -841,9 +842,9 @@ EOF
     unless @name_plate
       r = OpinionWriter.where(name:reporter).first
       puts r
-      @subject_ex_code = r.category_code
-      @subject_ex_name = r.title
-      @name_plate = r.title
+      @subject_ex_code = r.category_code if r && r != ""
+      @subject_ex_name = r.title if r && r != ""
+      @name_plate = r.title if r && r != ""
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -864,8 +865,13 @@ EOF
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
     else
+      if images.first
       @image          = images.first
       @c_head_line    = @image.caption_title 
+      else
+      @graphic        = graphics.first
+      @c_head_line    = @graphic.title  
+      end 
     end
     container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>
