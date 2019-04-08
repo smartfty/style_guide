@@ -15,7 +15,7 @@ module ArticleSaveXml
   def filter_to_title(title)
     return unless title
     title.strip!
-    title.gsub!(/^\u3000/, "")
+    title.gsub!(/\u3000/, "")
     title.gsub!(/ {2,8}/, " ")
     title
   end

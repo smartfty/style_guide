@@ -48,7 +48,7 @@
             <% if @ad_box.page.color_page %> 
             <h4 align='center'><%= link_to "#{@ad_box.page.page_number}면", page_path(@ad_box.page), class: "btn btn-danger btn-xs" %></h4>
             <% else %>
-            <h4 align='center'><%= link_to "#{@ad_boxpage.page_number}면", page_path(@ad_box.page), class: "btn btn-default btn-xs" %></h4>
+            <h4 align='center'><%= link_to "#{@ad_box.page.page_number}면", page_path(@ad_box.page), class: "btn btn-default btn-xs" %></h4>
             <% end %>
             </div>
       <div class="col-xs-12 col-sm-9">
