@@ -622,6 +622,8 @@ module ArticleSaveXml
       @head_line        = eliminate_size_option(title)
       # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
       @head_line        = @head_line.gsub("\r\n", "")
+    else
+      @head_line       
     end  
       # h = covert_to_multiple_line(@head_line)
     # if h.class == String
