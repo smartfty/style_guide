@@ -387,7 +387,7 @@ class WorkingArticlesController < ApplicationController
   def announcement_zero
     set_working_article
     @working_article.announcement_zero
-    redirect_to working_article_path(@working_article), notice: '1단(내일 쉽니다.) 안내문이 생성 되었습니다.'
+    redirect_to working_article_path(@working_article), notice: '안내문이 삭제 되었습니다.'
   end
 
   def announcement_one

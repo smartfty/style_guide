@@ -370,19 +370,19 @@ module ArticleSaveXml
         if subject_head == '기고'
           @subject_ex_code = 2401
           @subject_ex_name = '기고'
-          @money_status = 0
+          @money_status = "0"
         elsif subject_head == '정치시평'
           @subject_ex_code = 2201
           @subject_ex_name = '정치시평'
-          @money_status = 30
+          @money_status = "30"
         # elsif subject_head == '경제시평'
         #   category_code = 2202
         else 
-          @money_status = 30
+          # @money_status = "30"
         end
-        @money_status = 30
+        # @money_status = "30"
       elsif kind == '기고'
-        @money_status = 30
+        @money_status = "30"
       end
     elsif page_number == 23
       if kind == '사설'
@@ -398,7 +398,8 @@ module ArticleSaveXml
     if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^###(.*)/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
@@ -476,6 +477,7 @@ module ArticleSaveXml
     # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
+  
 
   # def covert_to_multiple_line(string) # 2행만 가능. 3행일 경우 추가 필요
   #   s = string
@@ -653,7 +655,8 @@ module ArticleSaveXml
    if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^###(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
@@ -855,7 +858,8 @@ EOF
     @head_line        = title    
     if title && title != ""
       title.strip!
-      @head_line        = title    
+      @head_line        = title   
+      @head_line        = @head_line.gsub("\r\n", " ")
       @head_line        = @head_line.gsub("\u201C", "&quot;")
       @head_line        = @head_line.gsub("\u201D", "&quot;")
       @head_line        = @head_line.gsub("\u0022", "&quot;")
@@ -866,6 +870,7 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
+      @c_head_line    = @c_head_line.gsub("\r\n", "")
     else
       if images.first
       @image          = images.first
@@ -921,7 +926,6 @@ EOF
       #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
       # end
       elsif ext == ".pdf"
-        binding.pry
         original_pdf = File.open("#{image_name}", 'rb').read
         image = Magick::Image::from_blob(original_pdf) do
           self.format = 'PDF'
