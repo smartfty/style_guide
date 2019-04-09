@@ -577,20 +577,13 @@ module ArticleSaveXml
       subject_head.strip! 
       @name_plate       = eliminate_size_option(subject_head)
     else
-      # r = OpinionWriter.where(name: reporter).first
-      # puts r
-      if page_number == 22 || page_number == 23
+    if page_number == 22 || page_number == 23
         @subject_ex_code = opinion_writer.category_code 
         @subject_ex_name = opinion_writer.title
         @name_plate = opinion_writer.title
       end
     end    
-    # unless @name_plate
-    #   r = OpinionWriter.where(name:reporter).first
-    #   puts r
-    #   category_code = r.category_code
-    #   @name_plate = "[#{r.title}]"
-    # end
+
     @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
@@ -615,18 +608,13 @@ module ArticleSaveXml
       end
     end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
+
     if title && title != ""
       title.strip! 
       @head_line        = eliminate_size_option(title)
       @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
     end  
-      # h = covert_to_multiple_line(@head_line)
-    # if h.class == String
-    #   @head_line1 = h
-    # else
-    #   @head_line1 = h[0]
-    #   @head_line2 = h[1]
-    # end
+
     if subtitle && subtitle != ""
       subtitle.strip! 
       @sub_head_line    = eliminate_size_option(subtitle)
@@ -888,7 +876,6 @@ EOF
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       elsif ext == ".pdf"
-        binding.pry
         original_pdf = File.open("#{image_name}", 'rb').read
         image = Magick::Image::from_blob(original_pdf) do
           self.format = 'PDF'
@@ -911,7 +898,7 @@ EOF
       #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
       # end
       elsif ext == ".pdf"
-        binding.pry
+        # binding.pry
         original_pdf = File.open("#{image_name}", 'rb').read
         image = Magick::Image::from_blob(original_pdf) do
           self.format = 'PDF'
