@@ -342,8 +342,8 @@ class Page < ApplicationRecord
       working_articles.each do |wa|
         # wa.inactive = true
         # dettach attached story
-        if working_article.story
-          attached_story = working_article.story
+        if wa.story
+          attached_story = wa.story
           attached_story.working_article_id = nil?
           attached_story.save
         end
