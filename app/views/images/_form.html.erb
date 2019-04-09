@@ -21,8 +21,7 @@
 
         <div class="field">
                 <%= f.label :종류 %>
-                <%= f.select :image_kind, %w[일반 인물_좌 인물_우 그릅], {include_blank: false},
-                {onChange: 'this.form.submit();'} %>
+                <%= f.select :image_kind, %w[일반 인물_좌 인물_우 그릅], {include_blank: false}, {onChange: 'this.form.submit();'} %>
                 <!-- %= f.submit "사진정보 저장", class: "btn btn btn-xs" % -->
             </div>
             <div class="field">
@@ -70,11 +69,9 @@
                 <%= image.size_string %>
                 <% if  image.image && image.image.url%>
                     <!-- %= image_tag image.image.url, style: "padding-bottom:20px" % -->
-                    <%= image_tag image.image.url, :width => "100%", :height => "200px", style:
-                    "object-fit: contain; height: 15em !important;" %>
+                    <%= image_tag image.image.url, :width => "100%", :height => "200px", style: "object-fit: contain; height: 15em !important;" %>
                 <% else%>
-                    <%= image_tag image.empty_image_url, :width => "100%", style:
-                    "padding-bottom:20px" %>
+                    <%= image_tag image.empty_image_url, :width => "100%", style: "padding-bottom:20px" %>
                 <% end %>
             </div>
         </div>
@@ -90,8 +87,7 @@
                 <div class="field">
                     <%= f.label :크기 %><%= f.text_field :column, style: "width:40px", class: 'form-control' %>단 x
                     <%= f.text_field :row, style: "width:40px", class: 'form-control' %>열
-                    <%= f.text_field :extra_height_in_lines, style: "width:50px", class:
-                    'form-control' %>행 추가
+                    <%= f.text_field :extra_height_in_lines, style: "width:50px", class: 'form-control' %>행 추가
                 </div>
             <% end %>
         </div>
@@ -100,12 +96,9 @@
 
             <div class="field">
                 <!-- %= f.label '사진제목과 설명' %-->
-                <%= f.text_field :caption_title, cols: "60", placeholder: "사진제목", class:
-                'form-control', autocomplete: 'off' %>
-                <%= f.text_area :caption, cols: "50", rows: "5", font_size: "12px", placeholder:
-                "사진설명을 여러줄 입력할 수 있습니다", class: 'form-control' , autocomplete: 'off'%>
-                <%= f.text_field :source, placeholder: "사진출처", class: 'form-control',
-                autocomplete: 'off' %>
+                <%= f.text_field :caption_title, cols: "60", placeholder: "사진제목", class:'form-control', autocomplete: 'off' %>
+                <%= f.text_area :caption, cols: "50", rows: "5", font_size: "12px", placeholder:"사진설명을 여러줄 입력할 수 있습니다", class: 'form-control' , autocomplete: 'off'%>
+                <%= f.text_field :source, placeholder: "사진출처", class: 'form-control', autocomplete: 'off' %>
             </div>
 
             <div class="actions">
@@ -117,15 +110,10 @@
                 <label class="btn btn-warning btn-sm">
                     사진 파일 바꾸기
                     <%= f.file_field :image, style: "display: none;" %>
-                </label><input
-                    type="text"
-                    placeholder="선택한 파일 없음"
-                    class="form-control width2 btn-sm"
-                    readonly="readonly">
+                </label><input type="text" placeholder="선택한 파일 없음" class="form-control width2 btn-sm" readonly="readonly">
             </div>
 
-            <%= link_to '사진 크롭', crop_image_path(image), method: :get, class: "btn btn-sm
-            btn-success" %>
+            <%= link_to '사진 크롭', crop_image_path(image), method: :get, class: "btn btn-sm btn-success" %>
 
             <p></p>
         </div>
