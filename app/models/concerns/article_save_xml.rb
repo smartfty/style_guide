@@ -430,13 +430,16 @@ module ArticleSaveXml
       @head_line      = eliminate_size_option(title)
       @head_line      = @head_line.gsub(/\u200B/, "")
       # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
-      @head_line      = @head_line.gsub("\r\n", "")
+      @head_line      = @head_line.gsub("\r", "")
+      @head_line      = @head_line.gsub("\n", "")
     end
     if subtitle && subtitle != ""
       subtitle.strip! 
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub(" $", "$")
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
+      @sub_head_line  = @sub_head_line.gsub("\r", "")
+      @sub_head_line  = @sub_head_line.gsub("\n", "")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -623,7 +626,8 @@ module ArticleSaveXml
       title.strip! 
       @head_line        = eliminate_size_option(title)
       # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
-      @head_line        = @head_line.gsub("\r\n", "")
+      @head_line        = @head_line.gsub("\r", "")
+      @head_line        = @head_line.gsub("\n", "")
     else
       @head_line       
     end  
@@ -638,6 +642,9 @@ module ArticleSaveXml
       subtitle.strip! 
       @sub_head_line    = eliminate_size_option(subtitle)
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
+      @sub_head_line    = @sub_head_line.gsub("\r", "")
+      @sub_head_line    = @sub_head_line.gsub("\n", "")
+
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -870,7 +877,8 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
-      @c_head_line    = @c_head_line.gsub("\r\n", "")
+      @c_head_line    = @c_head_line.gsub("\r", "")
+      @c_head_line    = @c_head_line.gsub("\n", "")
     else
       if images.first
       @image          = images.first
