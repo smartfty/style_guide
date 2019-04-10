@@ -25,6 +25,12 @@ module ArticleSaveXml
     body_text.strip!
     # body_text.gsub!(/\s\s/, " ")
     # body_text.gsub!(/^\n\n/, "\n")
+    body_text.gsub!(/^"/, "“")
+    body_text.gsub!(/\."/, ".”")
+    body_text.gsub!(/\*◆"/, "*◆“")
+    body_text.gsub!(/\" =*/, "” =*")
+    body_text.gsub!(/\s"/, " “")
+    body_text.gsub!(/\b"/, "”")
     body_text.gsub!(/\u200B/, "")
     body_text.gsub!(/^(\^|-\s)/, "")
     body_text.gsub!(/^\t/, "")
