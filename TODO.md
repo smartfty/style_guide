@@ -19,6 +19,14 @@
   - body
     - fit_text
 
+2019-4-10
+  - add pdf generation in Ruby
+
+  - fix person_image
+    - position
+    - top_margin
+    - right side
+
 2019-4-9
     add_column :working_articles, :draft_mode, :boolean
     add_column :working_articles, :draft_values, :text
@@ -26,12 +34,12 @@
             box_expand
             bpx_pushed
             auto_fit_mode  # autofit_by_image_height, autofit_by_box_height
-    add_column :working_articles, :svg, :text
+            svg #svg text
     attr_reader :news_box_maker, #RLauout::NewsBoxMaker
         options[auto_fit_mode] = 'autofit_by_image_height' , 'autofit_by_box_height'
         
     
-2019-4-5
+2019-4-6
   - 연합목록
     - 기타 카테고리
   - 6단면 제목 밑 부제목 가로 길이
