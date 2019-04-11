@@ -40,9 +40,9 @@ class WorkingArticlesController < ApplicationController
 
   # GET /working_articles/1/edit 
   def edit
-    puts "in edit of working_article"
-    puts "@working_article.issue.date:#{@working_article.issue.date}"
-    puts "@working_article.page.section_name:#{@working_article.page.section_name}"
+    # puts "in edit of working_article"
+    # puts "@working_article.issue.date:#{@working_article.issue.date}"
+    # puts "@working_article.page.section_name:#{@working_article.page.section_name}"
     # @stories = Story.where(date:@working_article.date, group: @working_article.page.section_name)
     @stories = Story.where(group: @working_article.page.section_name)
   end

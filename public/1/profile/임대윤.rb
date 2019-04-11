@@ -4,10 +4,10 @@ RLayout::Container.new(width:158.74015748031,  height: 75) do
   container(x: 0, y: 20, width:100, bottom_margin: 10, fill_color: 'clear') do
     
       
-      text('임대윤', text_alignment: 'right', from_right: 10, y:17, font: 'KoPubDotumPB', font_size: 9,font_color:"CMYK=0,0,0,10", fill_color: 'clear')
+        text('임대윤', text_alignment: 'right', from_right: 10, y:17, font: 'KoPubDotumPB', font_size: 9,text_color:"CMYK=0,0,0,100", fill_color: 'clear')
       
-      text('대한법률구조공단 ', text_alignment: 'right', from_right: 10, y:30, font: 'KoPubDotumPL', font_size: 8, font_color:"CMYK=0,0,0,10", fill_color: 'clear')
-      text('개인회생·파산종합지원센터장', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, font_color:"CMYK=0,0,0,10", fill_color: 'clear')
+        text('대한법률구조공단 ', text_alignment: 'right', from_right: 10, y:30, font: 'KoPubDotumPL', font_size: 8, text_color:"CMYK=0,0,0,100", fill_color: 'clear')
+        text('수원지부 변호사', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, text_color:"CMYK=0,0,0,100", fill_color: 'clear')
     
   end
 end

@@ -60,7 +60,7 @@ class Issue < ApplicationRecord
 
   def set_color_page
     pages.each do |page|
-      puts page.page_number
+      # puts page.page_number
       if page.page_number == 22 || page.page_number == 23
         page.color_page = false
       else
@@ -152,7 +152,7 @@ class Issue < ApplicationRecord
     default_plans.each_with_index do |page_array, i|
       page_hash = {}
       page_hash[:issue_id] = id
-      puts "page_hash[:section_name]:#{page_hash[:section_name]}"
+      # puts "page_hash[:section_name]:#{page_hash[:section_name]}"
       page_hash[:page_number]   = i + 1
       page_hash[:section_name]   = page_array[0]
       page_hash[:profile]       = page_array[1]

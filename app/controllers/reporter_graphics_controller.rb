@@ -68,7 +68,7 @@ class ReporterGraphicsController < ApplicationController
   end
 
   def download
-    puts "File.exist?(@reporter_graphic.full_size_full_path):#{File.exist?(@reporter_graphic.full_size_full_path)}"
+    # puts "File.exist?(@reporter_graphic.full_size_full_path):#{File.exist?(@reporter_graphic.full_size_full_path)}"
     send_file @reporter_graphic.full_size_full_path, :x_sendfile=>true, :disposition => "attachment"
   end
 

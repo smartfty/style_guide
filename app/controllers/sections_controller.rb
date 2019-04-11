@@ -9,7 +9,8 @@ class SectionsController < ApplicationController
     if params[:page]
       session[:current_section_pagination] = params[:page]
     end
-    @q = Section.ransack(params[:q])
+    # @q = Section.ransack(params[:q])
+    # @sections_search = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
     @sections = @q.result.order(:id, :created_at, :ad_type, :page_number, :column).page(params[:page]).reverse_order.per(10) 
     @sections = Section.all  if request.format == 'csv'
     respond_to do |format|

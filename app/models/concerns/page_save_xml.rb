@@ -214,16 +214,16 @@ EOF
         @x2 = (@x1 + w.width)
         # if (page_number == 22 || page_number == 23) && (@order == 1 || @order == 2)
         if (page_number == 22 || page_number == 23) && (@order == 1 || @order == 2)
-          puts "page_number:#{page_number}"
-          puts "@order:#{@order}"
+          # puts "page_number:#{page_number}"
+          # puts "@order:#{@order}"
           @y1 = (publication.top_margin + w.y + 55.073)
           @y2 = (@y1 + w.height - 55.073 + w.extended_line_height)
-          puts "@y2:#{@y2}"
-          puts "w.extended_line_height:#{w.extended_line_height}"
+          # puts "@y2:#{@y2}"
+          # puts "w.extended_line_height:#{w.extended_line_height}"
 
         else
-          puts "page_number:#{page_number}"
-          puts "@order:#{@order}"
+          # puts "page_number:#{page_number}"
+          # puts "@order:#{@order}"
           @y1 = (publication.top_margin + w.y)
           @y2 = (@y1 + w.height)
         end

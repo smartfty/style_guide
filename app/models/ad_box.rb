@@ -178,7 +178,7 @@ class AdBox < ApplicationRecord
 
   def save_layout
     File.open(layout_path, 'w'){|f| f.write layout_rb}
-    puts "File.exist?(layout_path):#{File.exist?(layout_path)}"
+    # puts "File.exist?(layout_path):#{File.exist?(layout_path)}"
   end
 
   def stamp_time
@@ -211,7 +211,7 @@ class AdBox < ApplicationRecord
 
   def update_page_pdf
     page_path = page.path
-    puts "page_path:#{page_path}"
+    # puts "page_path:#{page_path}"
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
