@@ -178,7 +178,7 @@ class AdBox < ApplicationRecord
 
   def save_layout
     File.open(layout_path, 'w'){|f| f.write layout_rb}
-    puts "File.exist?(layout_path):#{File.exist?(layout_path)}"
+    # puts "File.exist?(layout_path):#{File.exist?(layout_path)}"
   end
 
   def stamp_time
@@ -211,7 +211,7 @@ class AdBox < ApplicationRecord
 
   def update_page_pdf
     page_path = page.path
-    puts "page_path:#{page_path}"
+    # puts "page_path:#{page_path}"
     system "cd #{page_path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
@@ -382,10 +382,11 @@ EOF
     @jeho_info        = issue.number
 
     @news_title_info = '광고'
-    @name_plate      = '광고' 
-      if page.section_name == "전면광고"
-        @name_plate = '전면광고'
-      end
+    if page.section_name == "전면광고"
+      @name_plate = '전면광고'
+    else
+      @name_plate = '광고' 
+    end
     @section_name_code = section_name_code
 
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"

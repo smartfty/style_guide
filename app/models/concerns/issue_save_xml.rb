@@ -373,7 +373,7 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
       if File.directory? name
         ftp.mkdir base_name.to_s
       else
-        puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
+        # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
       end
     end

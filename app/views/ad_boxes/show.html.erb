@@ -20,7 +20,11 @@
                 <div class="col-xs-6 col-md-3" align='center'>
                     <!--a href="<%= page_path(page) %>"><img src="<%= page.jpg_image_path %>" width="100%"></img></a-->
                     <%= raw page.to_svg_with_jpg %>
-                    <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-sm" %></h4>
+                    <% if page.color_page %> 
+                    <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-danger btn-xs" %></h4>
+                    <% else %>
+                    <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-xs" %></h4>
+                    <% end %>
                     </div>
                 <!-- true -->
             <% end %>
@@ -41,9 +45,12 @@
     <div class="col-xs-12 col-md-12">
       <div class="col-xs-3 col-md-3">
             <%= raw @ad_box.page.to_svg_with_jpg %>
-            <p align=center>
-            <h4 align='center'><%= link_to "#{@ad_box.page.page_number}면", page_path(@ad_box.page), class: "btn btn-default btn-sm" %></h4>
-      </div>
+            <% if @ad_box.page.color_page %> 
+            <h4 align='center'><%= link_to "#{@ad_box.page.page_number}면", page_path(@ad_box.page), class: "btn btn-danger btn-xs" %></h4>
+            <% else %>
+            <h4 align='center'><%= link_to "#{@ad_box.page.page_number}면", page_path(@ad_box.page), class: "btn btn-default btn-xs" %></h4>
+            <% end %>
+            </div>
       <div class="col-xs-12 col-sm-9">
           <h3>광고정보</h3>
           <%= render 'form', ad_box: @ad_box %>

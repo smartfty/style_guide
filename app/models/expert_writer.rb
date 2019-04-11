@@ -7,7 +7,7 @@
 #  work             :string
 #  position         :string
 #  email            :string
-#  category_code    :integer
+#  category_code    :string
 #  expert_image     :string
 #  expert_jpg_image :string
 #  created_at       :datetime         not null

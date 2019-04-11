@@ -38,7 +38,7 @@ class Ad < ApplicationRecord
     csv_text = File.read(ad_csv_path)
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
-      puts "row.to_hash:#{row.to_hash}"
+      # puts "row.to_hash:#{row.to_hash}"
       Ad.where(row.to_hash).first_or_create
     end
   end
@@ -49,7 +49,7 @@ class Ad < ApplicationRecord
   end
 
   def generate_pdf
-    puts "generate_pdf of Ad :#{id}"
+    # puts "generate_pdf of Ad :#{id}"
     save_layout
     system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman article ."
   end
@@ -79,8 +79,8 @@ class Ad < ApplicationRecord
   end
 
   def layout_rb
-    puts "saving ad layout_rb"
-    puts "path:#{path}"
+    # puts "saving ad layout_rb"
+    # puts "path:#{path}"
     content=<<~EOF
     RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
       image(image_path: 'some_path', layout_expand: [:width, :height])

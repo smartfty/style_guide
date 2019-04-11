@@ -115,8 +115,8 @@ class ArticlesController < ApplicationController
   end
 
   def select_image
-    puts "params:#{params}"
-    puts "params.inspect:#{params.inspect}"
+    # puts "params:#{params}"
+    # puts "params.inspect:#{params.inspect}"
 
     @selected_image = params[:selected_image]
   end

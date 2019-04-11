@@ -16,8 +16,9 @@ class PagesController < ApplicationController
   def show
     @working_articles = @page.working_articles
     @ad_boxes         = @page.ad_boxes
-    @page_templates   = Section.where(ad_type:@page.ad_type, page_number: @page.page_number)
-    # binding.pry
+    @page_number_templates   = Section.where(ad_type:@page.ad_type, page_number: @page.page_number).order(:column, :story_count).reverse_order
+    @page_templates   = Section.where(ad_type:@page.ad_type).order(:column, :story_count).reverse_order
+      # binding.pry
     unless @page_templates.count > 0
       if @page.page_number != 1
         if @page.page_number == 22 || @page.page_number == 23

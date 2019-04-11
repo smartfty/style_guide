@@ -14,8 +14,8 @@
 
       <div class="col-xs-12 col-sm-9" name="template" id="template">
         <h3 align="center"><%= @page.page_number %>페이지 광고:<%= @page.ad_type %></h3>
-        <div class="view">
-          <% @page_templates.each do |template| %>
+        <div class="col-xs-12 col-sm-12">
+          <% @page_number_templates.each do |template| %>
             <div class="col-xs-3 col-sm-2">
               <% if template.id == @page.template_id %>
                 <div class='selected_template'>
@@ -27,13 +27,39 @@
                 </div>
               <% else %>
                 <div class='unselected_template'>
+                  <div align="center">
+                    <p><%= raw template.to_svg %></p>
+                    <!--img width="100%"  src="<%= template.pdf_image_path %>" alt="" -->
+                      <p><%= template.description %>(<%= template.id %>)</p>
+                  </div>
+                  <div align="center">
+                    <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-default btn-xs", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+        <% @page_templates.each do |template| %>
+          <div class="col-xs-3 col-sm-2">
+            <% if template.id == @page.template_id %>
+              <div class='selected_template'>
+              <div align="center">
+                  <p><%= raw template.to_svg %></p>
+                  <!--img width="100%"  src="<%= template.pdf_image_path %>" alt=""-->
+                  <h5><%= template.description %>(<%= template.id %>)</h5>
+                </div>
+              </div>
+            <% else %>
+              <div class='unselected_template'>
                 <div align="center">
                   <p><%= raw template.to_svg %></p>
                   <!--img width="100%"  src="<%= template.pdf_image_path %>" alt="" -->
                     <p><%= template.description %>(<%= template.id %>)</p>
-                  </div>
-                  <div align="center">
-                    <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-default btn-xs", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
+                </div>
+                <div align="center">
+                  <%= link_to "선택", change_template_page_path(@page.id, template_id: template.id), method: :get, remote:true, class: "btn btn-default btn-xs", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>처리중......."}%></td>
                 </div>
               </div>
             <% end %>

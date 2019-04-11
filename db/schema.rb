@@ -214,6 +214,18 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "exert_writers", force: :cascade do |t|
+    t.string "name"
+    t.string "work"
+    t.string "position"
+    t.string "email"
+    t.integer "category_code"
+    t.string "expert_image"
+    t.string "expert_jpg_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "expert_writers", force: :cascade do |t|
     t.string "name"
     t.string "work"
@@ -260,7 +272,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.integer "x_grid"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
-    t.boolean "draw_frame", default: false
+    t.boolean "draw_frame"
     t.boolean "detail_mode"
     t.integer "zoom_level"
     t.integer "zoom_direction"
@@ -309,7 +321,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
   create_table "images", id: :serial, force: :cascade do |t|
     t.integer "column"
     t.integer "row"
-    t.integer "extra_height_in_lines", default: 0
+    t.integer "extra_height_in_lines"
     t.string "image"
     t.string "caption_title"
     t.string "caption"
@@ -327,9 +339,9 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.integer "x_grid"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
-    t.boolean "draw_frame", default: true
-    t.integer "zoom_level", default: 1
-    t.integer "zoom_direction", default: 5
+    t.boolean "draw_frame"
+    t.integer "zoom_level"
+    t.integer "zoom_direction"
     t.integer "move_level"
     t.integer "auto_size"
     t.string "fit_type"

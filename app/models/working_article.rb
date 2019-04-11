@@ -527,6 +527,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def story_metadata
+    # binding.pry
     h = {}
     h['extended_line_count']  = extended_line_count if extended_line_count && extended_line_count > 0
     h['pushed_line_count']    = pushed_line_count if pushed_line_count && pushed_line_count > 0
@@ -1168,7 +1169,7 @@ class WorkingArticle < ApplicationRecord
     end
     self.title          = "#{order}번 제목은 여기에 여기는 제목"
     self.subtitle       = '부제는 여기에 여기는 부제목 자리'
-    self.reporter       = ''
+    self.reporter       = '홍길동'
     self.email          = 'gdhong@gmail.com'
     self.body =<<~EOF
     여기는 본문이 입니다 본문을 여기에 입력 하시면 됩니다. 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다. 여기는 본문이 입니다.

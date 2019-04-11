@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
+section_name: 기획
+=======
 section_name: test
+>>>>>>> upstream/master
 page_heading_margin_in_lines: 3
 ad_type: 광고없음
 is_front_page: false
@@ -21,6 +25,29 @@ story_frames:
 - - 0
   - 0
   - 5
+<<<<<<< HEAD
+  - 7
+- - 5
+  - 0
+  - 2
+  - 7
+- - 0
+  - 7
+  - 5
+  - 4
+- - 5
+  - 7
+  - 2
+  - 4
+- - 0
+  - 11
+  - 5
+  - 4
+- - 5
+  - 11
+  - 2
+  - 4
+=======
   - 6
 - - 5
   - 0
@@ -42,5 +69,6 @@ story_frames:
   - 12
   - 5
   - 3
+>>>>>>> upstream/master
 article_line_thickness: 0.3
 draw_divider: 

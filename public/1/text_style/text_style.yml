@@ -21,8 +21,8 @@ body:
 body_gothic:
   korean_name: 본문고딕
   category:
-  font_family: KoPub돋움체_Pro Light
-  font: KoPubDotumPL
+  font_family: KoPub돋움체_Pro Medium
+  font: KoPubDotumPM
   font_size: 9.6
   text_color: CMYK=0,0,0,100
   alignment: justified
@@ -179,7 +179,7 @@ source:
   alignment: right
   tracking: -0.2
   space_width: 2.0
-  scale: 70.0
+  scale: 60.0
   text_line_spacing:
   space_before_in_lines:
   space_after_in_lines:
@@ -501,9 +501,9 @@ brand_name:
 subject_head_main:
   korean_name: 메인_문패
   category:
-  font_family: KoPub돋움체_Pro Bold
-  font: KoPubDotumPB
-  font_size: 16.0
+  font_family: KoPub돋움체_Pro medium
+  font: KoPubDotumPM
+  font_size: 15.0
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -0.5
@@ -520,8 +520,8 @@ subject_head_main:
 subject_head_L:
   korean_name: 문패_18
   category:
-  font_family: KoPub돋움체_Pro Bold
-  font: KoPubDotumPB
+  font_family: KoPub돋움체_Pro Medium
+  font: KoPubDotumPM
   font_size: 14.0
   text_color: CMYK=0,0,0,100
   alignment: left
@@ -539,8 +539,8 @@ subject_head_L:
 subject_head_M:
   korean_name: 문패_14
   category:
-  font_family: KoPub돋움체_Pro Bold
-  font: KoPubDotumPB
+  font_family: KoPub돋움체_Pro Medium
+  font: KoPubDotumPM
   font_size: 14.0
   text_color: CMYK=0,0,0,100
   alignment: left

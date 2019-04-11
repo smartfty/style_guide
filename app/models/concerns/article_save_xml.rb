@@ -15,7 +15,7 @@ module ArticleSaveXml
   def filter_to_title(title)
     return unless title
     title.strip!
-    title.gsub!(/^\u3000/, "")
+    title.gsub!(/\u3000/, "")
     title.gsub!(/ {2,8}/, " ")
     title
   end
@@ -25,6 +25,22 @@ module ArticleSaveXml
     body_text.strip!
     # body_text.gsub!(/\s\s/, " ")
     # body_text.gsub!(/^\n\n/, "\n")
+    body_text.gsub!(/^"/, "“")
+    body_text.gsub!(/\."/, ".”")
+    body_text.gsub!(/\*◆"/, "*◆“")
+    body_text.gsub!(/\" =*/, "” =*")
+    body_text.gsub!(/\s"/, " “")
+    body_text.gsub!(/"\s/, "” ")
+    body_text.gsub!(/\b"\b/, "”")
+    body_text.gsub!(/\b'\b/, "’")
+    body_text.gsub!(/\b'/, "’")
+  
+    body_text.gsub!(/",\s/, "”, ")
+    body_text.gsub!(/',\s/, "’, ")    
+    body_text.gsub!(/^'/, "‘")
+    body_text.gsub!(/\.'/, ".’")
+    body_text.gsub!(/\s'/, " ‘")
+    body_text.gsub!(/'\s/, "’ ")
     body_text.gsub!(/\u200B/, "")
     body_text.gsub!(/^(\^|-\s)/, "")
     body_text.gsub!(/^\t/, "")
@@ -60,12 +76,14 @@ module ArticleSaveXml
     return unless body
     return unless subtitle
     return unless subject_head
+    return unless boxed_subtitle_text
     # images.first.caption_title.gsub!("\u200B", "")
     # images.first.caption.gsub!("\u200B", "")
     # images.first.source.gsub!("\u200B", "")
     title.strip!
     title.gsub!("\u200B", "")
     title.gsub!("\u2027", "&#8231;")
+
     subtitle.gsub!("\u2027", "&#8231;")
     body.gsub!("\u2027", "&#8231;")
     body.gsub!("\u4F18", "&#20248;")
@@ -100,6 +118,9 @@ module ArticleSaveXml
     body.gsub!("\u2013", "&#8211;")
     title.gsub!("\u2013", "&#8211;")
     subtitle.gsub!("\u2013", "&#8211;")
+    boxed_subtitle_text.gsub!("\u2470", "&#9328;") 
+    boxed_subtitle_text.gsub!("\u22EF", "&#8943;")
+
     title.gsub!("\u2014", "&#8212;")
     body.gsub!("\u5d1b", "&#23835;")
     body.gsub!("\u2003", "&#8195;")
@@ -117,6 +138,7 @@ module ArticleSaveXml
     body.gsub!("\u8f9f", "&#36767;")
     title.gsub!("\u22ef", "&#8943;")
     body.gsub!("\u22ef", "&#8943;")
+    body.gsub!("\u25fc", "&#9724;")
     # subtitle.gsub!("\u22ef", "&#8943;")
   end
 
@@ -132,7 +154,7 @@ module ArticleSaveXml
         filtered_name = name
         filtered_name = name.split("_").first if name.include?("_")
         filtered_name = name.split("=").first if name.include?("=")
-        puts "filtered_name : #{filtered_name}"
+        # puts "filtered_name : #{filtered_name}"
         return opinion_image_path + "/#{filtered_name}.jpg"
       elsif kind == '사설'
         person = Profile.where(name:reporter).first
@@ -190,8 +212,11 @@ module ArticleSaveXml
     story_xml.gsub!("\u200B", "&#8203;")
     story_xml.gsub!("\u2027", "&#8231;")
     story_xml.gsub!("\u4F18", "&#20248;")
-    puts story_xml =~/\u4F18/ 
-    puts story_xml.dump
+    story_xml.gsub!("\u246F", "&#9327;")
+    story_xml.gsub!("\u22EF", "&#8943;")
+
+    # puts story_xml =~/\u4F18/ 
+    # puts story_xml.dump
     File.open(path, 'w:euc-kr'){|f| f.write story_xml}
     # File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
@@ -363,24 +388,24 @@ module ArticleSaveXml
     elsif page_number == 20 || page_number == 21
       @money_status     = story.price.to_i if story && story.price && story.price != ""
     elsif page_number == 22
-      puts "kind : #{page_number } #{kind} #{@money_status}"
+      # puts "kind : #{page_number } #{kind} #{@money_status}"
       if kind == '사설'
         if subject_head == '기고'
           @subject_ex_code = 2401
           @subject_ex_name = '기고'
-          @money_status = 0
+          @money_status = "0"
         elsif subject_head == '정치시평'
           @subject_ex_code = 2201
           @subject_ex_name = '정치시평'
-          @money_status = 30
+          @money_status = "30"
         # elsif subject_head == '경제시평'
         #   category_code = 2202
         else 
-          @money_status = 30
+          # @money_status = "30"
         end
-        @money_status = 30
+        # @money_status = "30"
       elsif kind == '기고'
-        @money_status = 30
+        @money_status = "30"
       end
     elsif page_number == 23
       if kind == '사설'
@@ -396,7 +421,8 @@ module ArticleSaveXml
     if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^###(.*)/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
@@ -427,13 +453,16 @@ module ArticleSaveXml
       @head_line      = eliminate_size_option(title)
       @head_line      = @head_line.gsub(/\u200B/, "")
       # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
-      @head_line      = @head_line.gsub("\r\n", " ")
+      @head_line      = @head_line.gsub("\r", "")
+      @head_line      = @head_line.gsub("\n", "")
     end
     if subtitle && subtitle != ""
       subtitle.strip! 
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub(" $", "$")
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
+      @sub_head_line  = @sub_head_line.gsub("\r", "")
+      @sub_head_line  = @sub_head_line.gsub("\n", "")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -470,10 +499,11 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
+  
 
   # def covert_to_multiple_line(string) # 2행만 가능. 3행일 경우 추가 필요
   #   s = string
@@ -612,13 +642,20 @@ module ArticleSaveXml
     if title && title != ""
       title.strip! 
       @head_line        = eliminate_size_option(title)
-      @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      @head_line        = @head_line.gsub("\r", "")
+      @head_line        = @head_line.gsub("\n", "")
+    else
+      @head_line       
     end  
 
     if subtitle && subtitle != ""
       subtitle.strip! 
       @sub_head_line    = eliminate_size_option(subtitle)
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
+      @sub_head_line    = @sub_head_line.gsub("\r", "")
+      @sub_head_line    = @sub_head_line.gsub("\n", "")
+
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -636,7 +673,8 @@ module ArticleSaveXml
    if body && body != ""
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^##(.*)\n/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^###(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
@@ -766,7 +804,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]>
+    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
     </Content>
   </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
   <PhotoComponent>
@@ -787,7 +825,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %> <%= @by_line_body %>]]>
+    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
     </Content>
   </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
   <PhotoComponent>
@@ -809,7 +847,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %> <%= @by_line_body %>]]></Content>
+    <Content><![CDATA[<%= @data_content %>]]></Content>
   </ArticleComponent>
 </Article>
 EOF
@@ -826,10 +864,10 @@ EOF
     @name_plate       = subject_head
     unless @name_plate
       r = OpinionWriter.where(name:reporter).first
-      puts r
-      @subject_ex_code = r.category_code
-      @subject_ex_name = r.title
-      @name_plate = r.title
+      # puts r
+      @subject_ex_code = r.category_code if r && r != ""
+      @subject_ex_name = r.title if r && r != ""
+      @name_plate = r.title if r && r != ""
     end
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -838,7 +876,8 @@ EOF
     @head_line        = title    
     if title && title != ""
       title.strip!
-      @head_line        = title    
+      @head_line        = title   
+      @head_line        = @head_line.gsub("\r\n", " ")
       @head_line        = @head_line.gsub("\u201C", "&quot;")
       @head_line        = @head_line.gsub("\u201D", "&quot;")
       @head_line        = @head_line.gsub("\u0022", "&quot;")
@@ -849,9 +888,16 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
+      @c_head_line    = @c_head_line.gsub("\r", "")
+      @c_head_line    = @c_head_line.gsub("\n", "")
     else
+      if images.first
       @image          = images.first
       @c_head_line    = @image.caption_title 
+      else
+      @graphic        = graphics.first
+      @c_head_line    = @graphic.title  
+      end 
     end
     container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>

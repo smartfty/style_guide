@@ -21,7 +21,7 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  draw_frame            :boolean          default(FALSE)
+#  draw_frame            :boolean
 #  detail_mode           :boolean
 #  zoom_level            :integer
 #  zoom_direction        :integer
