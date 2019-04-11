@@ -371,36 +371,18 @@ class Section < ApplicationRecord
     section_name == '1면'
   end
 
-  # def number_of_chars(box_y, box_width, box_height, has_image)
-  #   lines_in_box    = box_width*box_height*7  #total_lines
-  #   lines_in_box    -= box_width*4            #lines_in_heading
-  #   lines_in_box    -= 3                      #lines_in_subtitle
-  #   lines_in_box    -= 2*2*7 if has_image     #lines_in_image
-  #   lines_in_box    -= box_width*2            #lines_at_bottom
-  #   if has_heading? && box_y == 1
-  #     lines_in_box    -= box_width*4            #lines_at_front_page heading
-  #   elsif box_y == 0
-  #     lines_in_box    -= box_width*3            #lines_at_front_page heading
-  #   end
-
-  #   case column
-  #   when 5
-  #     char_count_per_line = 18
-  #   when 6
-  #     char_count_per_line = 17
-  #   when 7
-  #     char_count_per_line = 16
-  #   end
-  #   char_count = lines_in_box*char_count_per_line
-  #   #round off to 100 units
-  #   char_count -= char_count % 100
-  # end
-
-  def number_of_chars(box_width, box_height, has_image)
+  def number_of_chars(box_y, box_width, box_height, has_image)
     lines_in_box    = box_width*box_height*7  #total_lines
     lines_in_box    -= box_width*4            #lines_in_heading
     lines_in_box    -= 3                      #lines_in_subtitle
     lines_in_box    -= 2*2*7 if has_image     #lines_in_image
+    lines_in_box    -= box_width*2            #lines_at_bottom
+    if has_heading? && box_y == 1
+      lines_in_box    -= box_width*4            #lines_at_front_page heading
+    elsif box_y == 0
+      lines_in_box    -= box_width*3            #lines_at_front_page heading
+    end
+
     case column
     when 5
       char_count_per_line = 18
@@ -413,6 +395,24 @@ class Section < ApplicationRecord
     #round off to 100 units
     char_count -= char_count % 100
   end
+
+  # def number_of_chars(box_width, box_height, has_image)
+  #   lines_in_box    = box_width*box_height*7  #total_lines
+  #   lines_in_box    -= box_width*4            #lines_in_heading
+  #   lines_in_box    -= 3                      #lines_in_subtitle
+  #   lines_in_box    -= 2*2*7 if has_image     #lines_in_image
+  #   case column
+  #   when 5
+  #     char_count_per_line = 18
+  #   when 6
+  #     char_count_per_line = 17
+  #   when 7
+  #     char_count_per_line = 16
+  #   end
+  #   char_count = lines_in_box*char_count_per_line
+  #   #round off to 100 units
+  #   char_count -= char_count % 100
+  # end
 
 
   def svg_box
