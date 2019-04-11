@@ -92,6 +92,10 @@ class Issue < ApplicationRecord
     DAYS_IN_KOREAN[date.wday]
   end
 
+  def date_string
+    date.strftime("%Y%m%d")
+  end
+
   def korean_date_string
     # "#{date.year}년 #{date.month}월 #{date.day}일 #{issue_week_day_in_korean} (#{number}호)"
     "#{date.month}월 #{date.day}일 #{issue_week_day_in_korean} #{number}호"

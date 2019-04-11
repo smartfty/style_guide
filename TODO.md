@@ -21,7 +21,8 @@
 
 2019-4-10
   - add pdf generation in Ruby
-
+  - block page printing if ad is not placed
+  - 100년 
   - fix person_image
     - position
     - top_margin

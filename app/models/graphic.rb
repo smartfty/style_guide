@@ -47,6 +47,16 @@ class Graphic < ApplicationRecord
   mount_uploader :graphic, GraphicUploader
   before_create  :set_default
 
+  def info
+    h = {}
+    h[:position]              = position
+    h[:extra_height_in_lines] = extra_height_in_lines if extra_height_in_lines && extra_height_in_lines != 0
+    h[:column]                = column
+    h[:row]                   = row
+    h[:x_grid]                = x_grid if x_grid
+    h
+  end
+
   def image_path
     if graphic.url 
       "#{Rails.root}/public" + graphic.url 
