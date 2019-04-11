@@ -68,8 +68,11 @@ class WorkingArticlesController < ApplicationController
   def update
     respond_to do |format|
       params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
+      params['working_article']['title'] = @working_article.filter_to_quote(params['working_article']['title'])
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
+      params['working_article']['subtitle'] = @working_article.filter_to_quote(params['working_article']['subtitle'])
       params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
+      params['working_article']['body'] = @working_article.filter_to_quote(params['working_article']['body'])
       # binding.pry
       if @working_article.update(working_article_params)
         @working_article.generate_pdf_with_time_stamp

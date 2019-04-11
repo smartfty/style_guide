@@ -20,27 +20,39 @@ module ArticleSaveXml
     title
   end
 
+  def filter_to_quote(text)
+    return unless text
+    text.gsub!(/^"/, "“")
+    text.gsub!(/^'/, "‘")
+    text.gsub!(/\("/, "(“")
+    text.gsub!(/\('/, "(‘")
+    text.gsub!(/\."/, ".”")
+    text.gsub!(/\.'/, ".’")
+    text.gsub!(/"$/, "”")
+    text.gsub!(/'$/, "’")
+    text.gsub!(/\*◆"/, "*◆“")
+    text.gsub!(/\*◆'/, "*◆‘")
+    text.gsub!(/\" =*/, "” =*")
+    text.gsub!(/\' =*/, "’ =*")
+    text.gsub!(/\s"/, " “")
+    text.gsub!(/\s'/, " ‘")
+    text.gsub!(/"\s/, "” ")
+    text.gsub!(/",\s/, "”, ")
+    text.gsub!(/',\s/, "’, ")    
+    text.gsub!(/\b"\b/, "”")
+    text.gsub!(/\b'\b/, "’")
+    text.gsub!(/\b"/, "”")
+    text.gsub!(/\b'/, "’")
+    text.gsub!(/"\s/, "” ")
+    text.gsub!(/'\s/, "’ ")
+    text
+  end
+
   def filter_to_markdown(body_text)
     return unless body_text
     body_text.strip!
     # body_text.gsub!(/\s\s/, " ")
     # body_text.gsub!(/^\n\n/, "\n")
-    body_text.gsub!(/^"/, "“")
-    body_text.gsub!(/\."/, ".”")
-    body_text.gsub!(/\*◆"/, "*◆“")
-    body_text.gsub!(/\" =*/, "” =*")
-    body_text.gsub!(/\s"/, " “")
-    body_text.gsub!(/"\s/, "” ")
-    body_text.gsub!(/\b"\b/, "”")
-    body_text.gsub!(/\b'\b/, "’")
-    body_text.gsub!(/\b'/, "’")
-  
-    body_text.gsub!(/",\s/, "”, ")
-    body_text.gsub!(/',\s/, "’, ")    
-    body_text.gsub!(/^'/, "‘")
-    body_text.gsub!(/\.'/, ".’")
-    body_text.gsub!(/\s'/, " ‘")
-    body_text.gsub!(/'\s/, "’ ")
     body_text.gsub!(/\u200B/, "")
     body_text.gsub!(/^(\^|-\s)/, "")
     body_text.gsub!(/^\t/, "")
