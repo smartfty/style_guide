@@ -1133,6 +1133,27 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
+  def layout_info
+    layout_info = [grid_x, grid_y, column, row]
+    h = {}
+    if kind != '기사'
+      h = {kind: kind}
+    end
+    if images.length > 0
+      h[:images] = []
+      images.each do |image|
+        h[:images] << image.info
+      end
+    end
+    if graphics.length > 0
+      h[:graphics] = []
+      graphics.each do |graphic|
+        h[:graphics] << graphic.info
+      end
+    end
+    layout_info << h unless h == {}
+    layout_info
+  end
 
   private
 

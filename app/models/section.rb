@@ -371,36 +371,18 @@ class Section < ApplicationRecord
     section_name == '1면'
   end
 
-  # def number_of_chars(box_y, box_width, box_height, has_image)
-  #   lines_in_box    = box_width*box_height*7  #total_lines
-  #   lines_in_box    -= box_width*4            #lines_in_heading
-  #   lines_in_box    -= 3                      #lines_in_subtitle
-  #   lines_in_box    -= 2*2*7 if has_image     #lines_in_image
-  #   lines_in_box    -= box_width*2            #lines_at_bottom
-  #   if has_heading? && box_y == 1
-  #     lines_in_box    -= box_width*4            #lines_at_front_page heading
-  #   elsif box_y == 0
-  #     lines_in_box    -= box_width*3            #lines_at_front_page heading
-  #   end
-
-  #   case column
-  #   when 5
-  #     char_count_per_line = 18
-  #   when 6
-  #     char_count_per_line = 17
-  #   when 7
-  #     char_count_per_line = 16
-  #   end
-  #   char_count = lines_in_box*char_count_per_line
-  #   #round off to 100 units
-  #   char_count -= char_count % 100
-  # end
-
-  def number_of_chars(box_width, box_height, has_image)
+  def number_of_chars(box_y, box_width, box_height, has_image)
     lines_in_box    = box_width*box_height*7  #total_lines
     lines_in_box    -= box_width*4            #lines_in_heading
     lines_in_box    -= 3                      #lines_in_subtitle
     lines_in_box    -= 2*2*7 if has_image     #lines_in_image
+    lines_in_box    -= box_width*2            #lines_at_bottom
+    if has_heading? && box_y == 1
+      lines_in_box    -= box_width*4            #lines_at_front_page heading
+    elsif box_y == 0
+      lines_in_box    -= box_width*3            #lines_at_front_page heading
+    end
+
     case column
     when 5
       char_count_per_line = 18
@@ -413,7 +395,6 @@ class Section < ApplicationRecord
     #round off to 100 units
     char_count -= char_count % 100
   end
-
 
   def svg_box
     # TODO put story number on top
@@ -440,20 +421,14 @@ class Section < ApplicationRecord
           end
         end
       else
-        # char_count = number_of_chars(box[1],box[2], box[3], false)
-        # string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
-        # string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 12}' stroke-width='0' class='small' fill='CornflowerBlue'>#{char_count}</text>"
-        # if box[2] >3 && box[3]>3
-        #   char_count = number_of_chars(box[2], box[3], true)
-        #   string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 22}' stroke-width='0' class='small' fill='Coral'>#{char_count}(사진)</text>"
-        # end
-        char_count = number_of_chars(box[2], box[3], false)
+        char_count = number_of_chars(box[1],box[2], box[3], false)
         string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 12}' stroke-width='0' class='small' fill='CornflowerBlue'>#{char_count}</text>"
         if box[2] >3 && box[3]>3
           char_count = number_of_chars(box[2], box[3], true)
           string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 22}' stroke-width='0' class='small' fill='Coral'>#{char_count}(사진)</text>"
         end
+
        end
     end
     string

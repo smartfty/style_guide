@@ -12,6 +12,9 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    if session[:current_issue]
+      @issue = session[:current_issue])
+    end
     @pages = @issue.pages.order(:id, 'desc')
     @pages = @issue.pages
     respond_to do |format|
