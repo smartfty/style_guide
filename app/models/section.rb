@@ -440,20 +440,20 @@ class Section < ApplicationRecord
           end
         end
       else
-        # char_count = number_of_chars(box[1],box[2], box[3], false)
-        # string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
-        # string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 12}' stroke-width='0' class='small' fill='CornflowerBlue'>#{char_count}</text>"
-        # if box[2] >3 && box[3]>3
-        #   char_count = number_of_chars(box[2], box[3], true)
-        #   string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 22}' stroke-width='0' class='small' fill='Coral'>#{char_count}(사진)</text>"
-        # end
-        char_count = number_of_chars(box[2], box[3], false)
+        char_count = number_of_chars(box[1],box[2], box[3], false)
         string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 12}' stroke-width='0' class='small' fill='CornflowerBlue'>#{char_count}</text>"
         if box[2] >3 && box[3]>3
           char_count = number_of_chars(box[2], box[3], true)
           string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 22}' stroke-width='0' class='small' fill='Coral'>#{char_count}(사진)</text>"
         end
+        # char_count = number_of_chars(box[2], box[3], false)
+        # string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
+        # string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 12}' stroke-width='0' class='small' fill='CornflowerBlue'>#{char_count}</text>"
+        # if box[2] >3 && box[3]>3
+        #   char_count = number_of_chars(box[2], box[3], true)
+        #   string += "<text x='#{box[0]*svg_unit_width + 3}'y='#{box[1]*svg_unit_height + 22}' stroke-width='0' class='small' fill='Coral'>#{char_count}(사진)</text>"
+        # end
        end
     end
     string
