@@ -25,7 +25,8 @@
 #
 
 class YhPicture < ApplicationRecord
-    
+  validates_uniqueness_of :content_id
+  
     def sorce_path
       "/wire_source/201_PHOTO_YNA/20181010"
     end
@@ -51,5 +52,12 @@ class YhPicture < ApplicationRecord
     def taken(user)
       self.taken_by = user.name
       self.save
+    end
+
+    def self.delete_week_old(today)
+      one_week_old = today.days_ago(7)
+      YhPicture.all.each do |picture|
+        picture.destroy if picture.created_at < one_week_old
+      end
     end
 end

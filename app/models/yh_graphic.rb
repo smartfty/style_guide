@@ -25,6 +25,7 @@
 #
 
 class YhGraphic < ApplicationRecord
+  validates_uniqueness_of :content_id
 
     def sorce_path
       "/wire_source/203_GRAPHIC/20190312"
@@ -51,5 +52,12 @@ class YhGraphic < ApplicationRecord
     def taken(user)
       self.taken_by = user.name
       self.save
+    end
+
+    def self.delete_week_old(today)
+      one_week_old = today.days_ago(7)
+      YhGraphic.all.each do |graphic|
+        graphic.destroy if graphic.created_at < one_week_old
+      end
     end
 end

@@ -1,4 +1,12 @@
 namespace :wire do
+  
+  desc 'load new ytn contents'
+  task :new_ytn => [:environment] do
+    puts "in new_ytn task..."
+    WireServiceWorker.perform_async
+  end
+
+
 
   desc 'testing for mounted volumn file change'
   task :volumn_test, [:paths] => [:environment] do |t, args|

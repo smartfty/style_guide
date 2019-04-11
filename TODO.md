@@ -19,10 +19,46 @@
   - body
     - fit_text
 
+2019-4-10
+  - add pdf generation in Ruby
+
+  - fix person_image
+    - position
+    - top_margin
+    - right side
+
+2019-4-9
+    add_column :working_articles, :draft_mode, :boolean
+    add_column :working_articles, :draft_values, :text
+            image_extra_lines
+            box_expand
+            bpx_pushed
+            auto_fit_mode  # autofit_by_image_height, autofit_by_box_height
+            svg #svg text
+    attr_reader :news_box_maker, #RLauout::NewsBoxMaker
+        options[auto_fit_mode] = 'autofit_by_image_height' , 'autofit_by_box_height'
+        
+    
+2019-4-6
+  - 연합목록
+    - 기타 카테고리
+  - 6단면 제목 밑 부제목 가로 길이
+  - 인물사진 좌우
+    - 위에 여백 지우기
+  - 가로 자르기
+  - 세로 자르기
+  - save page as template
+  - 템플렛에 사진추가
+
+2019-4-5
+  - 연합연결
+  - 사진기사 밑줄
+  - working_article 넘침글 정확한 수자
+  - 사진바꾸기 할때 면 PDF 생성
+  
 2019-4-4
   - 문패 윗줄
   - 22면 기고 
-  - 사진기사 밑줄
 
 2019-4-3
   - 테플렛 변경시
@@ -30,10 +66,9 @@
   - 기사 배정시 필터링
   - template 글자수
   - 박수크기 조절시 옛날글 지우기(stamped file)
-
-  - working_article 넘침글 정확한 수자
   - 기사배정후 해당면으로 가기
-  - 사진바꾸기 할때 면 PDF 생성
+  - style 수정후 pagination 을로 복귀 
+  - page.generate_pdf_with_stamp 지난 파일 지우기
 
 2019-4-2
 
