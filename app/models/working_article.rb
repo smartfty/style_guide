@@ -1065,7 +1065,7 @@ class WorkingArticle < ApplicationRecord
     room = empty_lines_count
     image_info = [image_column, image_row, image_extra_line]
     if room < image_column
-      # image is at right fit
+      # current image size is good fit
       return [image_column, image_row, image_extra_line]
     elsif room >= image_column
       # There is a room, so image size can grow
@@ -1153,6 +1153,43 @@ class WorkingArticle < ApplicationRecord
     end
     layout_info << h unless h == {}
     layout_info
+  end
+
+  def autofit_by_box_size
+    if overflow
+      proposed_extend = overflow_lines/column
+      extend_line(proposed_extend)
+    elsif underflow
+      proposed_reduce = underflow_lines/column
+      extend_line(0 - proposed_reduce)
+    end
+  end
+
+  def autofit_by_image_size
+
+    if overflow
+      if images.length > 0
+        image = images.first
+        proposed_image_reduce = underflow_lines/image.column
+      end
+    elsif underflow
+      if images.length > 0
+        image = images.first
+        proposed_image_extemd = overflow_lines/image.column
+      else
+        # create new image
+      end
+    end
+  end
+
+  def autofit_all_sybllings
+    autofit_by_box_size
+    syblings = page.sybllings(self)
+    if syblings.length > 0
+      syblings.each do |syb|
+        syb.autofit_all_sybllings
+      end
+    end
   end
 
   private
