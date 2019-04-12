@@ -1191,9 +1191,9 @@ class WorkingArticle < ApplicationRecord
 
   def autofit_all_siblings
     autofit_by_box_height
-    syblings = page.siblings(self)
-    if syblings.length > 0
-      syblings.each do |syb|
+    sybs = siblings
+    if sybs.length > 0
+      sybs.each do |syb|
         syb.autofit_all_siblings
       end
     end
