@@ -22,29 +22,32 @@ module ArticleSaveXml
 
   def filter_to_quote(text)
     return unless text
-    text.gsub!(/^"/, "“")
-    text.gsub!(/^'/, "‘")
-    text.gsub!(/\("/, "(“")
-    text.gsub!(/\('/, "(‘")
-    text.gsub!(/\."/, ".”")
-    text.gsub!(/\.'/, ".’")
-    text.gsub!(/"$/, "”")
-    text.gsub!(/'$/, "’")
-    text.gsub!(/\*◆"/, "*◆“")
-    text.gsub!(/\*◆'/, "*◆‘")
-    text.gsub!(/\" =*/, "” =*")
-    text.gsub!(/\' =*/, "’ =*")
-    text.gsub!(/\s"/, " “")
-    text.gsub!(/\s'/, " ‘")
-    text.gsub!(/"\s/, "” ")
-    text.gsub!(/",\s/, "”, ")
-    text.gsub!(/',\s/, "’, ")    
-    text.gsub!(/\b"\b/, "”")
-    text.gsub!(/\b'\b/, "’")
-    text.gsub!(/\b"/, "”")
-    text.gsub!(/\b'/, "’")
-    text.gsub!(/"\s/, "” ")
-    text.gsub!(/'\s/, "’ ")
+    text.gsub!(/^\"/, "“")
+    text.gsub!(/^\'/, "‘")
+    text.gsub!(/\(\"/, "(“")
+    text.gsub!(/\(\'/, "(‘")
+    text.gsub!(/\.\"/, ".”")
+    text.gsub!(/\.\'/, ".’")
+    text.gsub!(/\"$/, "”")
+    text.gsub!(/\'$/, "’")
+    text.gsub!(/\*\◆\"/, "*◆“")
+    text.gsub!(/\*\s\◆\"/, "*◆“")
+    text.gsub!(/\*\s\◆/, "*◆")
+    text.gsub!(/\*\◆\'/, "*◆‘")
+    text.gsub!(/\"\s\=\*/, "” =*")
+    text.gsub!(/\s\=\s\*/, " =*")
+    text.gsub!(/\'\s\=\*/, "’ =*")
+    text.gsub!(/\s\"/, " “")
+    text.gsub!(/\s\'/, " ‘")
+    text.gsub!(/\"\s/, "” ")
+    text.gsub!(/\"\,\s/, "”, ")
+    text.gsub!(/\'\,\s/, "’, ")    
+    text.gsub!(/\b\"\b/, "”")
+    text.gsub!(/\b\'\b/, "’")
+    text.gsub!(/\b\"/, "”")
+    text.gsub!(/\b\'/, "’")
+    text.gsub!(/\"\s/, "” ")
+    text.gsub!(/\'\s/, "’ ")
     text
   end
 
@@ -67,6 +70,7 @@ module ArticleSaveXml
     # body_text.gsub!(/\.$\n\n/, ".")
     body_text.gsub!(/^\./, "")
     body_text.gsub!(/ {2,8}/, " ")
+    body_text.gsub!("\u2024", ".")
     body_text
   end
 
@@ -95,7 +99,6 @@ module ArticleSaveXml
     title.strip!
     title.gsub!("\u200B", "")
     title.gsub!("\u2027", "&#8231;")
-
     subtitle.gsub!("\u2027", "&#8231;")
     body.gsub!("\u2027", "&#8231;")
     body.gsub!("\u4F18", "&#20248;")
@@ -109,8 +112,12 @@ module ArticleSaveXml
     body.gsub!("\u5733", "&#22323;")
     title.gsub!("\u2027", "\u00b7")
     body.gsub!("\u2027", "\u00b7")
-    title.gsub!("\u2024", "\u00b7")
-    body.gsub!("\u2024", "\u00b7")
+    title.gsub!("\u2024", "&#8228;")
+    subtitle.gsub!("\u2024", "&#8228;")
+    subject_head.gsub!("\u2024", "&#8228;")
+    reporter.gsub!("\u2024", "&#8228;")
+    boxed_subtitle_text.gsub!("\u2024", "&#8228;")
+    body.gsub!("\u2024", "&#8228;")
     title.gsub!("\u00A0", " ")
     body.gsub!("\u2043", "-")
     body.gsub!("\u30FB", "\u00b7")
@@ -132,7 +139,6 @@ module ArticleSaveXml
     subtitle.gsub!("\u2013", "&#8211;")
     boxed_subtitle_text.gsub!("\u2470", "&#9328;") 
     boxed_subtitle_text.gsub!("\u22EF", "&#8943;")
-
     title.gsub!("\u2014", "&#8212;")
     body.gsub!("\u5d1b", "&#23835;")
     body.gsub!("\u2003", "&#8195;")
@@ -226,6 +232,7 @@ module ArticleSaveXml
     story_xml.gsub!("\u4F18", "&#20248;")
     story_xml.gsub!("\u246F", "&#9327;")
     story_xml.gsub!("\u22EF", "&#8943;")
+    story_xml.gsub!("\u2024", "&#8228;")
 
     # puts story_xml =~/\u4F18/ 
     # puts story_xml.dump
@@ -434,8 +441,9 @@ module ArticleSaveXml
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^###(.*)/){"<b>#{$1}</b><br><br>"} 
-      @body_content     = @body_content.gsub(/^##(.*)/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
@@ -686,8 +694,9 @@ module ArticleSaveXml
       @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^###(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
-      @body_content     = @body_content.gsub(/^##(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^##(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
@@ -729,6 +738,10 @@ EOF
   end
 
   def mobile_preview_xml_three_component
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
+    page_info        = page_number.to_s.rjust(2,"0")
     if page_number == 22
       three_component =<<EOF
       <TitleComponent>
@@ -808,6 +821,18 @@ EOF
 </ArticleComponent>
 </Article>
 EOF
+
+elsif kind == "부고-인사"
+  three_component =<<EOF
+  <TitleComponent>
+    <MainTitle><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></MainTitle>
+  </TitleComponent>
+  <ArticleComponent>
+    <Content><![CDATA[<%= @data_content %>]]></Content>
+  </ArticleComponent>
+</Article>
+EOF
+
 
   elsif images.count > 0 
   three_component =<<EOF
@@ -906,9 +931,11 @@ EOF
       if images.first
       @image          = images.first
       @c_head_line    = @image.caption_title 
-      else
+      elsif
       @graphic        = graphics.first
-      @c_head_line    = @graphic.title  
+      @c_head_line    = @graphic.title 
+      else
+      @c_head_line    = ""
       end 
     end
     container_xml_group_key=<<EOF
