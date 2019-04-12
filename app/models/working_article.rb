@@ -61,6 +61,7 @@
 #  quote_box_column             :integer
 #  quote_box_type               :integer
 #  quote_box_show               :boolean
+#  draft_mode                   :boolean
 #
 # Indexes
 #
@@ -85,7 +86,6 @@ class WorkingArticle < ApplicationRecord
   include ArticleSaveXml
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
-
   attr_reader :time_stamp
 
   # def page_friendly_string
@@ -795,7 +795,7 @@ class WorkingArticle < ApplicationRecord
     "  news_quote(#{quote_hash})\n"
   end
 
-   def layout_rb
+  def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
     h = layout_options
     if kind == '사진'
@@ -814,6 +814,13 @@ class WorkingArticle < ApplicationRecord
         # image_hash[:fit_type] = 3 # keep ratio
         image_hash[:expand] = [:width, :height]
         content += "  news_image(#{image_hash})\n"
+        content += "end\n"
+      else
+        h[:draw_frame] = true
+        content = "RLayout::NewsImageBox.new(#{h}) do\n"
+        # image_hash[:fit_type] = 3 # keep ratio
+        # image_hash[:expand] = [:width, :height]
+        # content += "  news_image(#{image_hash})\n"
         content += "end\n"
       end
     elsif kind == '만평'
@@ -1155,7 +1162,7 @@ class WorkingArticle < ApplicationRecord
     layout_info
   end
 
-  def autofit_by_box_size
+  def autofit_by_box_height
     if overflow
       proposed_extend = overflow_lines/column
       extend_line(proposed_extend)
@@ -1182,12 +1189,12 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
-  def autofit_all_sybllings
-    autofit_by_box_size
-    syblings = page.sybllings(self)
+  def autofit_all_siblings
+    autofit_by_box_height
+    syblings = page.siblings(self)
     if syblings.length > 0
       syblings.each do |syb|
-        syb.autofit_all_sybllings
+        syb.autofit_all_siblings
       end
     end
   end
