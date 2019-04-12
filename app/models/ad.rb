@@ -101,9 +101,9 @@ class Ad < ApplicationRecord
     # copy random asmple ad
     # name
     ad = Dir.glob("#{sample_ad_path}/*{.jpg,.pdf}").sample
-    puts "sample_ad_path:#{sample_ad_path}"
-    puts "ad:#{ad}"
-    puts "cp #{ad} #{ad_folder}/images/1.jpg"
+    # puts "sample_ad_path:#{sample_ad_path}"
+    # puts "ad:#{ad}"
+    # puts "cp #{ad} #{ad_folder}/images/1.jpg"
     if ad
       system "cp #{ad} #{path}/images/1.jpg"
     end
