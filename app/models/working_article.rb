@@ -795,7 +795,7 @@ class WorkingArticle < ApplicationRecord
     "  news_quote(#{quote_hash})\n"
   end
 
-   def layout_rb
+  def layout_rb
     # h = h.to_s.gsub("{", "").gsub("}", "")
     h = layout_options
     if kind == '사진'
@@ -807,14 +807,21 @@ class WorkingArticle < ApplicationRecord
         image_hash[:expand] = [:width, :height]
         content += "  news_image(#{image_hash})\n"
         content += "end\n"
-      # elsif first_graphic = graphics.first 
-      #   h[:draw_frame] = false if first_graphic && first_graphic.draw_frame == false
-      #   content = "RLayout::NewsImageBox.new(#{h}) do\n"
-      #   image_hash = first_graphic.graphic_layout_hash
-      #   # image_hash[:fit_type] = 3 # keep ratio
-      #   image_hash[:expand] = [:width, :height]
-      #   content += "  news_image(#{image_hash})\n"
-      #   content += "end\n"
+      elsif first_graphic = graphics.first 
+        h[:draw_frame] = false if first_graphic && first_graphic.draw_frame == false
+        content = "RLayout::NewsImageBox.new(#{h}) do\n"
+        image_hash = first_graphic.graphic_layout_hash
+        # image_hash[:fit_type] = 3 # keep ratio
+        image_hash[:expand] = [:width, :height]
+        content += "  news_image(#{image_hash})\n"
+        content += "end\n"
+      else
+        h[:draw_frame] = true
+        content = "RLayout::NewsImageBox.new(#{h}) do\n"
+        # image_hash[:fit_type] = 3 # keep ratio
+        # image_hash[:expand] = [:width, :height]
+        # content += "  news_image(#{image_hash})\n"
+        content += "end\n"
       end
     elsif kind == '만평'
       content = "RLayout::NewsComicBox.new(#{h}) do\n"
