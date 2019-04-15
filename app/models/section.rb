@@ -427,7 +427,7 @@ class Section < ApplicationRecord
           string += "<rect fill='white' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         elsif box[4] == 'image'
           puts "place image here ..."
-        elsif box[4] && box[4] == '광고'
+        elsif box[4] && box[4] =~/광고/
           # ad box
           string += "<rect fill='lightGray' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         else
