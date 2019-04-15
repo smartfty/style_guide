@@ -54,7 +54,7 @@ class PagePlan < ApplicationRecord
   end
 
   def team_leader
-    puts "++++++++ section_name:#{section_name}"
+    # puts "++++++++ section_name:#{section_name}"
     ReporterGroup.where(section: section_name).first.leader
   end
 
@@ -144,8 +144,8 @@ class PagePlan < ApplicationRecord
           end
         end
       end
-      puts "++++++++++ page_number:#{page_number}"
-      puts "selected_section_template.ad_type:#{selected_section_template.ad_type}"
+      # puts "++++++++++ page_number:#{page_number}"
+      # puts "selected_section_template.ad_type:#{selected_section_template.ad_type}"
       self.selected_template_id = selected_section_template.id
       self.column               = selected_section_template.column
       self.row                  = selected_section_template.row

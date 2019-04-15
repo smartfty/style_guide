@@ -698,12 +698,12 @@ class Section < ApplicationRecord
   end
 
   def update_profile
-    puts "++++++++++ before profile:#{profile}"
+    # puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
     self.profile     = make_profile
     self.save
-    puts "__________ after profile:#{profile}"
+    # puts "__________ after profile:#{profile}"
     self
   end
 

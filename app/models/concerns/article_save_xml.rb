@@ -335,9 +335,9 @@ module ArticleSaveXml
       # end
     @by_line        = reporter_from_body.gsub(/\^$/){""}  
     if reporter && reporter != ""  
-     @name       = reporter
+     @gija_name       = reporter
     else  
-     @name       = reporter_from_body.gsub(/\^$/){""}
+     @gija_name       = reporter_from_body.gsub(/\^$/){""}
     end
      # if @name =~/_/
       # @name = @name.split("_")[0]
@@ -378,10 +378,10 @@ module ArticleSaveXml
       end
     end
     if page_number == 23 && order == 2
-      @name          = reporter_from_body
+      @gija_name          = reporter_from_body
       @by_line       = reporter_from_body
       reporter       = Reporter.where(name: @name).first
-      @email         = reporter.email if reporter
+      @gija_email         = reporter.email if reporter
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
@@ -566,7 +566,7 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    @name           = reporter
+    @gija_name           = reporter
       # if reporter = nil || reporter = ""
       #   @name           = reporter_from_body
       # end
@@ -610,7 +610,7 @@ module ArticleSaveXml
       end
     end
     if page_number == 23 && order == 2
-      @name          = reporter_from_body
+      @gija_name          = reporter_from_body
       @by_line       = reporter_from_body
       @caption       = reporter_from_body
     end

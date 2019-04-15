@@ -5,13 +5,15 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.page(params[:page]).per(10) 
+    @issues = Issue.page(params[:page]).per(7) 
+    session[:current_issue] = @issue
     # @issues = Issue.order(:id, 'DESC').page(params[:page]).per(20) 
   end
 
   # GET /issues/1
   # GET /issues/1.json
   def show
+    session[:current_issue] = @issue
     @pages = @issue.pages.order(:id, 'desc')
     @pages = @issue.pages
     respond_to do |format|
@@ -82,6 +84,7 @@ class IssuesController < ApplicationController
   end
 
   def current_plan
+    session[:current_issue] = @issue
     half = @issue.page_plans.count/2
     @front_page_plans = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
     @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse
@@ -89,7 +92,6 @@ class IssuesController < ApplicationController
   end
 
   def print_status
-    
     @pages = @issue.pages
   end
 
@@ -140,7 +142,6 @@ class IssuesController < ApplicationController
   end
 
   def change_current
-    session[:current_issue] = @issue
     redirect_to issue_path
   end
 
