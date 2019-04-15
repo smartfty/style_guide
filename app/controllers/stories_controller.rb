@@ -80,6 +80,7 @@ class StoriesController < ApplicationController
 
   def my
     @stories = current_user.stories.order(:updated_at).reverse
+    # @stories = current_user.stories.order(updated_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).reverse
   end
 
   def assign_position
