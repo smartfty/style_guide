@@ -347,13 +347,13 @@ class WorkingArticlesController < ApplicationController
     redirect_to working_article_path(@working_article), notice: '발문 박스 추가.'
   end
 
-  def show_quote_box_for_opinion_2
+  def show_quote_box_for_opinion2
     set_working_article
     @working_article.show_quote_box('기고2행')
     redirect_to working_article_path(@working_article), notice: '2행 발문 박스 추가.'
   end
 
-  def show_quote_box_for_opinion_3
+  def show_quote_box_for_opinion3
     set_working_article
     @working_article.show_quote_box('기고3행')
     redirect_to working_article_path(@working_article), notice: '3행 발문 박스 추가.'
