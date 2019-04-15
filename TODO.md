@@ -19,6 +19,20 @@
   - body
     - fit_text
 
+
+2019-4-15
+  - autofit_by_height
+    do not expand if the sibling is at the bottom and height is only one
+  - save page as template
+    - with pictues, extened_lines
+    
+2019-4-14
+  - 사진 좌
+
+2019-4-11
+  - 부고 밑줄
+  - 빈줄 수 사진이 아래일 경우
+  
 2019-4-10
   - add pdf generation in Ruby
   - block page printing if ad is not placed
