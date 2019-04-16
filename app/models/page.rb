@@ -845,7 +845,7 @@ class Page < ApplicationRecord
     "#{page_template_folder}/#{issue.date_string}_#{page_number}.yml"
   end
 
-  def page_info_yml
+  def page_info_hash
     tempalate = {}
     tempalate[:section_name]  = section_name
     tempalate[:column]        = column
@@ -855,12 +855,15 @@ class Page < ApplicationRecord
     working_articles.each do |wa|
       tempalate[:layout] << wa.layout_info
     end
-    tempalate.to_yaml
+    tempalate
   end
 
   def save_as_template
-    FileUtils.mkdir_p(page_template_folder) unless File.exist?(page_template_folder)
-    File.open(page_template_path, 'w'){|f| f.write page_info_yml}
+    s = Section.create(page_info_hash)
+    puts "s.id:#{s.id}"
+    # FileUtils.mkdir_p(page_template_folder) unless File.exist?(page_template_folder)
+    # File.open(page_template_path, 'w'){|f| f.write page_info_yml}
+    s.id
   end
 
 

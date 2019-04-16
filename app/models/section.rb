@@ -84,8 +84,6 @@ class Section < ApplicationRecord
     end
   end
 
-  
-
   def self.fix_un_finished_sections
     Section.all.each do |section|
       section.update_pdf_section
@@ -408,13 +406,13 @@ class Section < ApplicationRecord
           string += "<rect fill='white' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         elsif box[4] == 'image'
           puts "place image here ..."
-        elsif box[4] && box[4] == '광고'
+        elsif box[4] && box[4] =~/광고/
           # ad box
           string += "<rect fill='lightGray' stroke='#000000' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
         else
           char_count = number_of_chars(box[1],box[2], box[3], false)
           string += "<rect fill='white' stroke='#000000' stroke-width='4' x='#{box[0]*svg_unit_width}' y='#{box[1]*svg_unit_height}' width='#{box[2]*svg_unit_width}' height='#{box[3]*svg_unit_height}'/>\n"
-          string += "<text x='#{box[0]*svg_unit_width + 10}'y='#{box[1]*svg_unit_height + 20}' stroke-width='0' class='small'>#{char_count}</text>"
+          string += "<text x='#{box[0]*svg_unit_width + 10} 'y='#{box[1]*svg_unit_height + 20}' stroke-width='0' class='small'>#{char_count}</text>"
           if box[2] >3 && box[3]>3
             char_count = number_of_chars(box[1], box[2], box[3], true)
             string += "<text x='#{box[0]*svg_unit_width + 10}'y='#{box[1]*svg_unit_height + 40}' stroke-width='0' class='small'>#{char_count}(사진)</text>"
@@ -716,6 +714,46 @@ class Section < ApplicationRecord
     File.open(path, 'w'){|f| f.write styles_hash.to_yaml}
   end
 
+
+  def page_area_in_grid
+    area = column*row
+    area -= column if page_number == 1
+    area
+  end
+
+  def layout_total_area
+    boxes = eval(layout)
+    boxes.map{|b| b[2]*b[3]}.reduce(:+)
+  end
+  # check if the template is valid
+  def invalid_template?
+    #first check if the area sum is valid
+    
+    page_area_in_grid != layout_total_area
+  end
+
+  def self.invalid_template
+    invalid_section = []
+    Section.all.each do|sect|
+      if  sect.invalid_template?
+        invalid_section << sect.id
+      end
+    end
+    invalid_path = "#{Rails.root}/public/1/section/invalid.yml"
+    File.open(invalid_path, 'w'){|f| f.write invalid_section.to_yaml}
+  end
+
+  # def self.invalid_layout?(page_number, column, row, layout)
+  #   #first check if the area sum is valid
+  #   page_area_in_grid = column*row
+  #   page_area_in_grid -= column if page_number == 1
+  #   page_area  =  page_area_in_grid
+  #   boxes = eval(layout)
+  #   layout_total_area = boxes.map{|b| b[2]*b[3]}.reduce(:+)
+  #   binding.pry
+  #   page_area != layout_total_area
+  # end
+
   private
   def parse_profile
     re_order_layout
@@ -724,7 +762,7 @@ class Section < ApplicationRecord
     if page_number == 1 || is_front_page == true
       self.is_front_page                    = true
       self.page_heading_margin_in_lines     = publication.front_page_heading_margin
-    elsif PAGES_WITH_4_LINE_HEADING.include?(page_number) #[22,23]
+    elsif [22,23].include?(page_number) #[22,23]
       self.page_heading_margin_in_lines     = 4
     else
       self.is_front_page  = false

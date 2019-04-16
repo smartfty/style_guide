@@ -234,6 +234,7 @@ Rails.application.routes.draw do
 
   resources :pages do
     member do
+      get 'save_as_template'
       get 'download_pdf'
       get 'dropbox'
       get 'change_template'

@@ -343,8 +343,43 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
+  def height_in_lines
+    row*7 + extended_line_count - pushed_line_count
+  end
+
+  def y_in_lines
+    row*7 - pushed_line_count
+  end
+
+  def y_in_line_to_row_and_lines(y_position_in_line)
+    row = y_position_in_line/7
+    pushed = y_position_in_line % 7
+  end
+
+  def expandable?(line_count)
+    expandable = false
+    sybs = siblings
+    sybs.each do |sybling|
+      expandable = sybling.pushable?(line_count)
+    end
+    expandable
+  end
+
+  def pushable?(line_count)
+    article_bottom_spaces_in_lines = 2
+    if height_in_lines - line_count >= 7 
+      return true
+    elsif siblings.length > 0
+      siblings.first.pushable?(line_count)
+      return true
+    end
+    false
+  end
+
   # adds extended_line_count with new line_count
   def extend_line(line_count, options={})
+    sibs = siblings
+    return unless sibs.first.pushable?(line_count)
     return if line_count == 0
     if self.extended_line_count
       self.extended_line_count += line_count
@@ -352,14 +387,13 @@ class WorkingArticle < ApplicationRecord
       self.extended_line_count = line_count
     end
     self.save
-    siblings.each do |sybling|
+    sibs.each do |sybling|
       sybling.push_line(self.extended_line_count)
     end
     generate_pdf_with_time_stamp
     save_extended_line_count_to_config_yml(self.extended_line_count)
     page.generate_pdf_with_time_stamp unless options[:generate_pdf] == false
   end
-
 
   def save_extended_line_count_to_config_yml(line_count)
     config_path = page.config_path
@@ -865,7 +899,10 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    # svg = "<rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' />\n"
+    svg = "<text font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order} </text>"
+    svg +="<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+  
   end
 
   def story_svg
@@ -915,7 +952,6 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
-
   # parse working_article info from copied article_template files
   def parse_article
     if article_info
@@ -942,8 +978,8 @@ class WorkingArticle < ApplicationRecord
     self.is_front_page  = article_info_hash[:is_front_page]
     self.top_story      = article_info_hash[:top_story]
     self.top_position   = article_info_hash[:top_position]
-    self.extended_line_count = article_info_hash[:extended_line_count] || 0
-    self.pushed_line_count = article_info_hash[:pushed_line_count] || 0
+    self.extended_line_count = article_info_hash[:extended_line_count] || article_info_hash[:extended] || 0
+    self.pushed_line_count = article_info_hash[:pushed_line_count] || article_info_hash[:pushed] || 0
     self.page_heading_margin_in_lines = article_info_hash[:page_heading_margin_in_lines]
     self.inactive       = false
     self.overlap        = article_info_hash[:overlap]
@@ -1135,6 +1171,8 @@ class WorkingArticle < ApplicationRecord
     if kind != '기사'
       h = {kind: kind}
     end
+    h[:extended]  = extended_line_count if extended_line_count && extended_line_count != 0
+    h[:pushed]    = pushed_line_count   if pushed_line_count && pushed_line_count != 0
     if images.length > 0
       h[:images] = []
       images.each do |image|
@@ -1151,88 +1189,7 @@ class WorkingArticle < ApplicationRecord
     layout_info
   end
 
-  def auto_size_image(options={})
-    target_image = options[:image] if options[:image]
-    unless target_image
-      target_image = images.first
-    end
-    return unless target_image
-    image_column = target_image.column
-    if empty_lines_count
-      size_to_extend = empty_lines_count/image_column
-      puts "size_to_extend:#{size_to_extend}"
-    elsif overflow_line_count
-      size_to_reduce = overflow_line_count/image_column
-      puts "size_to_reduce:#{size_to_reduce}"
-    end
-  end
-
-  def auto_fit_graphic(options={})
-
-  end
-
-  def autofit_by_height(options={})
-    if overflow?
-      proposed_extend = overflow_line_count/column
-      plus_line = overflow_line_count % column
-      if options[:enough_space]
-        proposed_extend += 1 if plus_line > 0
-      end
-      extend_line(proposed_extend)
-    elsif underflow?
-      proposed_reduce = - empty_lines_count/column
-      plus_line = empty_lines_count % column
-      if options[:enough_space]
-        proposed_reduce += 1 if plus_line > 0
-      end
-      extend_line(proposed_reduce)
-    end
-  end
-
-  def autofit_with_sibllings(options={})
-    autofit_by_height(options)
-    sybs = siblings
-    sybs.each do |syb|
-      sub_opt = {}
-      sub_opt[:enough_space] = true if options[:enough_space] == true
-      sub_opt[generate_pdf:false]
-      syb.autofit_with_sibllings(sub_opt)
-    end
-    page.generate_pdf_with_time_stamp
-  end
-
-  def autofit_by_image_size(options={})
-    if overflow?
-      if images.length > 0
-        image = images.first
-        proposed_image_reduce = overflow_lines/image.column
-      end
-    elsif underflow?
-      if images.length > 0
-        image = images.first
-        proposed_image_extemd = empty_lines_count/image.column
-      elsif empty_lines_count > 28 && (column > 3 || row > 3)
-        # create 2x2
-        create_image_place_holder(2,2)
-      elsif empty_lines_count > 14 
-        if column >= 2
-        # create 2x1
-          create_image_place_holder(2,1)
-        else
-          create_image_place_holder(1,2)
-        end
-
-      elsif empty_lines_count > 7
-        create_image_place_holder(1,1)
-      end
-      generate_pdf_with_time_stamp    
-      page.generate_pdf_with_time_stamp    
-
-    end
-  end
-
   private
-
 
   def init_atts
 

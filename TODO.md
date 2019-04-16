@@ -19,9 +19,29 @@
   - body
     - fit_text
 
+2019-4-16
+  - box-ordering
+  - save_as_template(normalize to extend and push to nearest grid)
+
+2019-4-16
+  - 수정중?
+  - order numbering
+      show number show char_count
+  - merge_siblling
+  - split_box
+
+  - 사진 2개 올릴때 동일한 이름으로
+  - 나의 기사에서 입력한 문패 저장 않됨
+  - 템프렛 바꿀때 에러
+    - check for invalid section template
+    - show if it is invalid with red waring so designer can fix it.
 
 2019-4-15
   - autofit_by_height
+  - autofit_with_sibllings
+  - autofit_with_image
+  - save_as_template
+
     do not expand if the sibling is at the bottom and height is only one
   - save page as template
     - with pictues, extened_lines
