@@ -211,6 +211,7 @@ class WorkingArticle < ApplicationRecord
       # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
       # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
     self.reporter = story.reporter
+    self.subject_head    = story.subject_head if story.subject_head
     self.title    = story.title
     self.subtitle = story.subtitle
     self.body     = filter_to_markdown(story.body)
@@ -877,7 +878,7 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     svg = "<text font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order}  </text>"
-    svg += "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='4' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    svg += "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def story_svg
