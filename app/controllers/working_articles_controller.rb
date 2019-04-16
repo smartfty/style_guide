@@ -119,7 +119,8 @@ class WorkingArticlesController < ApplicationController
   def change_story
     #todo
     # @stories = Story.where(group: , date: date) name: :desc
-    @stories = Story.where(summitted_section: @working_article.page.section_name).order(:updated_at).reverse
+    # @stories = Story.where("updated_at >= ?",Date.today)
+    @stories = Story.where("updated_at" => (DateTime.now.at_beginning_of_day.utc..Time.now.utc), summitted_section: @working_article.page.section_name).order(:updated_at).reverse
     assigned = @stories.select{|s| s.working_article_id == @working_article.id}
     if assigned.length > 0
       @stories = assigned

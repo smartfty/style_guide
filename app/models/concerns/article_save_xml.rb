@@ -22,7 +22,8 @@ module ArticleSaveXml
 
   def filter_to_quote(text)
     return unless text
-    text.gsub!(/^\"/, "“")
+    text.gsub!(/^\u3000/, "")
+    text.gsub!(/^\"/, "“")    
     text.gsub!(/^\"\'/, "“‘")
     text.gsub!(/^\“\'/, "“‘")
     text.gsub!(/^\'/, "‘")
