@@ -155,6 +155,12 @@ class PagesController < ApplicationController
     render :assign_stories
   end
 
+  def save_as_template
+    set_page
+    id = @page.save_as_template
+    redirect_to @page, notice: "현 페이지를 템플렛 페이지로 저장 하였습니다. id:#{id}"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
