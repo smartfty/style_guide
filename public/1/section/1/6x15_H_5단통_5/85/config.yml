@@ -1,5 +1,5 @@
 ---
-section_name: 
+section_name: ''
 page_heading_margin_in_lines: 3
 ad_type: 5단통
 is_front_page: true
@@ -29,15 +29,15 @@ story_frames:
 - - 0
   - 6
   - 3
-  - 5
+  - 4
 - - 3
   - 6
   - 1
-  - 5
+  - 4
 - - 4
   - 6
   - 2
-  - 5
+  - 4
 - - 0
   - 10
   - 6
