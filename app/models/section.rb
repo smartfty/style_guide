@@ -461,6 +461,72 @@ class Section < ApplicationRecord
     EOF
   end
 
+  def page_svg_with_jpg
+    "<image xlink:href='#{jpg_image_path}' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />\n"
+  end
+
+  def box_svg_with_jpg
+    box_element_svg = page_svg_with_jpg
+    box_element_svg += "<g transform='translate(#{doc_left_margin},#{doc_top_margin})' >\n"
+    # box_element_svg += page_svg
+    # box_element_svg += page_heading.box_svg if page_number == 1
+    articles.each do |article|
+      # next if article.inactive
+      box_element_svg += article.box_svg
+    end
+    ad_box_templates.each do |ad|
+      box_element_svg += ad.box_svg
+    end
+    box_element_svg += '</g>'
+    box_element_svg
+  end
+
+  def doc_width
+    publication.width
+    # width + left_margin + right_margin
+  end
+
+  def page_width
+    publication.page_width
+    # width
+  end
+
+  def doc_height
+    publication.height
+    # height + top_margin + bottom_margin
+  end
+
+  def doc_left_margin
+    publication.left_margin
+    # left_margin
+  end
+
+  def doc_top_margin
+    publication.top_margin
+    # top_margin
+  end
+
+  def page_height
+    publication.page_height
+
+    # height
+  end
+
+  def page_heading_width
+    # width
+    publication.page_heading_width
+  end
+
+  def to_svg_with_jpg
+    svg=<<~EOF
+    <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 #{doc_width} #{doc_height}' >
+      <rect fill='white' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />
+      #{box_svg_with_jpg}
+    </svg>
+    EOF
+  end
+
+
   def self.to_csv(options = {})
       CSV.generate(options) do |csv|
         # get rid of id, created_at, updated_at
@@ -733,6 +799,38 @@ class Section < ApplicationRecord
     path = folder + "/text_style.yml"
     styles_hash = TextStyle.current_styles_with_english_key
     File.open(path, 'w'){|f| f.write styles_hash.to_yaml}
+  end
+
+
+  def page_area_in_grid
+    area = column*row
+    area -= column if page_number == 1
+    area
+  end
+
+  def layout_total_area
+    boxes = eval(layout)
+    boxes.map{|b| b[2]*b[3]}.reduce(:+)
+  end
+  # check if the template is valid
+  def in_valid_template?
+    #first check if the area sum is valid
+    page_area_in_grid != layout_total_area
+  end
+
+  def self.invalid_template
+    invalid_section = []
+    Section.all.each do|sect|
+      if  sect.in_valid_template?
+        invalid_section << sect.id
+        puts "++++++++ invalid templte id:#{sect.id}" 
+        puts "++++++++ sect.page_number: #{sect.page_number}" 
+        puts "++++++++ sect.layout_total_area:#{sect.layout_total_area}" 
+        puts "++++++++ sect.page_area_in_grid:#{sect.page_area_in_grid}" 
+      end
+    end
+    invalid_path = "#{Rails.root}/public/1/section/invalid.yml"
+    File.open(invalid_path, 'w'){|f| f.write invalid_section.to_yaml}
   end
 
   private

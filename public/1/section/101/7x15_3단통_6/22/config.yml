@@ -1,5 +1,5 @@
 ---
-section_name: 
+section_name: ''
 page_heading_margin_in_lines: 3
 ad_type: 3단통
 is_front_page: false
@@ -41,7 +41,7 @@ story_frames:
 - - 5
   - 10
   - 2
-  - 3
+  - 2
 - - 0
   - 12
   - 7

@@ -18,6 +18,22 @@ class AdBoxTemplate < ApplicationRecord
   belongs_to :section #, optional: true
   after_create :setup
 
+  def grid_width    
+    publication.grid_width(section.column)
+  end
+
+  def grid_height
+    publication.grid_height
+  end
+
+  def ad_width  
+    grid_width*column
+  end
+
+  def ad_height
+    grid_height*row
+  end
+
   def path
     section.path + "/ad"
   end
@@ -104,4 +120,20 @@ class AdBoxTemplate < ApplicationRecord
     File.open(layout_path, 'w'){|f| f.write layout_rb}
   end
 
+  def x
+    grid_width*grid_x
+  end
+
+  def y
+    grid_height*grid_y
+  end
+
+
+  def box_svg
+    "<rect stroke='red' stroke-width='4' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{grid_width*column}' height='#{ad_height}' />\n"
+  end
+
 end
+
+
+

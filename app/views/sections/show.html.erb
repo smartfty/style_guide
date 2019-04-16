@@ -31,7 +31,8 @@
 
   <div class="col-xs-12 col-md-2">
   <% if File.exist?(@section.pdf_path) %>
-    <p>JPG</p>
-    <img src="<%= @section.jpg_image_path %>"></img>
+    <p>JPG </p>
+    <%= raw @section.to_svg_with_jpg %><br>
+    <!-- img src="<%= @section.jpg_image_path %>"></img-->
   <% end %>
   </div>

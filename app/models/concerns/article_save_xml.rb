@@ -22,8 +22,8 @@ module ArticleSaveXml
 
   def filter_to_quote(text)
     return unless text
-    text.gsub!(/^\u3000/, "")
-    text.gsub!(/^\"/, "“")    
+    text.gsub!(/^\"/, "“")  
+    text.gsub!(/\—/, "-")  
     text.gsub!(/^\"\'/, "“‘")
     text.gsub!(/^\“\'/, "“‘")
     text.gsub!(/^\'/, "‘")
@@ -105,6 +105,7 @@ module ArticleSaveXml
     subtitle.gsub!("\u2027", "&#8231;")
     body.gsub!("\u2027", "&#8231;")
     body.gsub!("\u4F18", "&#20248;")
+    body.gsub!("\u5014", "&#20500;")
     title.gsub!("\u22EF", "&#8943;")
     subtitle.gsub!("\u22EF", "&#8943;")
     body.gsub!("\u22EF", "&#8943;")
@@ -226,21 +227,20 @@ module ArticleSaveXml
   end
 
   def save_story_xml
+    convert_euckr_not_suported_chars
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
     # story_xml.encode("utf-8").force_encoding("ANSI")
-    convert_euckr_not_suported_chars
     story_xml.gsub!("\u200B", "&#8203;")
     story_xml.gsub!("\u2027", "&#8231;")
     story_xml.gsub!("\u4F18", "&#20248;")
     story_xml.gsub!("\u246F", "&#9327;")
     story_xml.gsub!("\u22EF", "&#8943;")
     story_xml.gsub!("\u2024", "&#8228;")
-
     # puts story_xml =~/\u4F18/ 
     # puts story_xml.dump
-    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
+    # File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 
@@ -336,9 +336,9 @@ module ArticleSaveXml
       # end
     @by_line        = reporter_from_body.gsub(/\^$/){""}  
     if reporter && reporter != ""  
-     @gija_name       = reporter
+     @name       = reporter
     else  
-     @gija_name       = reporter_from_body.gsub(/\^$/){""}
+     @name       = reporter_from_body.gsub(/\^$/){""}
     end
      # if @name =~/_/
       # @name = @name.split("_")[0]
@@ -379,7 +379,7 @@ module ArticleSaveXml
       end
     end
     if page_number == 23 && order == 2
-      @gija_name          = reporter_from_body
+      @name          = reporter_from_body
       @by_line       = reporter_from_body
       reporter       = Reporter.where(name: @name).first
       @gija_email         = reporter.email if reporter
@@ -567,7 +567,7 @@ module ArticleSaveXml
       #   @gija_id          = "기자아이디"
       #   @email            = "기자이메일"
       # end
-    @gija_name           = reporter
+    @name           = reporter
       # if reporter = nil || reporter = ""
       #   @name           = reporter_from_body
       # end
@@ -611,7 +611,7 @@ module ArticleSaveXml
       end
     end
     if page_number == 23 && order == 2
-      @gija_name          = reporter_from_body
+      @name          = reporter_from_body
       @by_line       = reporter_from_body
       @caption       = reporter_from_body
     end
@@ -631,9 +631,9 @@ module ArticleSaveXml
       @name_plate       = eliminate_size_option(subject_head)
     else
     if page_number == 22 || page_number == 23
-        @subject_ex_code = opinion_writer.category_code 
-        @subject_ex_name = opinion_writer.title
-        @name_plate = opinion_writer.title
+        @subject_ex_code = opinion_writer.category_code if opinion_writer
+        @subject_ex_name = opinion_writer.title if opinion_writer
+        @name_plate = opinion_writer.title if opinion_writer
       end
     end    
 
@@ -709,7 +709,7 @@ module ArticleSaveXml
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
     @article_file_name = "#{year}#{month}#{day}011001#{page_info}0000000#{@order}"
-    @gija_name        = "편집기자명" # 편집기자명
+    @name        = "편집기자명" # 편집기자명
     @news_class_large_id    = news_class_large_id
     @news_class_large_name  = page.section_name
     # @news_class_middle_id   = category_code
@@ -729,7 +729,7 @@ article_info =<<EOF
       <GisaNumberID/>
       <GisaRelationID/>
       <ByLine/>
-      <Gija ID="0" Area="0" Name="<%= @gija_name %>" Email=""/>
+      <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
       <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
       <SendModify><%= @send_modify %></SendModify>
       <NewArticle><%= @new_article %></NewArticle>
