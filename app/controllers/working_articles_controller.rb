@@ -119,7 +119,7 @@ class WorkingArticlesController < ApplicationController
   def change_story
     #todo
     # @stories = Story.where(group: , date: date) name: :desc
-    # @stories = Story.where("updated_at >= ?",Date.today)
+    # @stories = Story.where(summitted_section: @working_article.page.section_name).order(selected: 'desc')
     @stories = Story.where("updated_at" => (DateTime.now.at_beginning_of_day.utc..Time.now.utc), summitted_section: @working_article.page.section_name).order(:updated_at).reverse
     assigned = @stories.select{|s| s.working_article_id == @working_article.id}
     if assigned.length > 0
@@ -435,6 +435,36 @@ class WorkingArticlesController < ApplicationController
     # i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
     i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.preview_path)
     @working_article.generate_pdf_with_time_stamp
+    redirect_to @working_article
+  end
+    
+  def autofit_by_height
+    set_working_article
+    @working_article.autofit_by_height
+    redirect_to @working_article
+  end
+
+  def autofit_by_height_plus
+    set_working_article
+    @working_article.autofit_by_height(enough_space: true)
+    redirect_to @working_article
+  end
+
+  def autofit_by_image_size
+    set_working_article
+    @working_article.autofit_by_image_size
+    redirect_to @working_article
+  end
+
+  def autofit_with_sibllings
+    set_working_article
+    @working_article.autofit_with_sibllings
+    redirect_to @working_article
+  end
+
+  def autofit_with_sibllings_plus
+    set_working_article
+    @working_article.autofit_with_sibllings(enough_space:true)
     redirect_to @working_article
   end
 

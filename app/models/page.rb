@@ -752,7 +752,6 @@ class Page < ApplicationRecord
 
   def page_svg
     "<image xlink:href='#{pdf_image_path}' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />\n"
-    #code
   end
 
   def box_svg
@@ -836,6 +835,35 @@ class Page < ApplicationRecord
 
   def section_pages
     issue.pages.select{|p| p.section_name == section_name}
+  end
+
+  def page_template_folder
+    "#{Rails.root}/public/1/page_template"
+  end
+
+  def page_template_path
+    "#{page_template_folder}/#{issue.date_string}_#{page_number}.yml"
+  end
+
+  def page_info_hash
+    tempalate = {}
+    tempalate[:section_name]  = section_name
+    tempalate[:column]        = column
+    tempalate[:row]           = row
+    tempalate[:ad_type]       = ad_type
+    tempalate[:layout]        = []
+    working_articles.each do |wa|
+      tempalate[:layout] << wa.layout_info
+    end
+    tempalate
+  end
+
+  def save_as_template
+    s = Section.create(page_info_hash)
+    puts "s.id:#{s.id}"
+    # FileUtils.mkdir_p(page_template_folder) unless File.exist?(page_template_folder)
+    # File.open(page_template_path, 'w'){|f| f.write page_info_yml}
+    s.id
   end
 
 

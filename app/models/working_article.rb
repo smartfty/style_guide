@@ -61,6 +61,7 @@
 #  quote_box_column             :integer
 #  quote_box_type               :integer
 #  quote_box_show               :boolean
+#  draft_mode                   :boolean
 #
 # Indexes
 #
@@ -85,7 +86,6 @@ class WorkingArticle < ApplicationRecord
   include ArticleSaveXml
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
-
   attr_reader :time_stamp
 
   # def page_friendly_string
@@ -344,8 +344,43 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
+  def height_in_lines
+    row*7 + extended_line_count - pushed_line_count
+  end
+
+  def y_in_lines
+    row*7 - pushed_line_count
+  end
+
+  def y_in_line_to_row_and_lines(y_position_in_line)
+    row = y_position_in_line/7
+    pushed = y_position_in_line % 7
+  end
+
+  def expandable?(line_count)
+    expandable = false
+    sybs = siblings
+    sybs.each do |sybling|
+      expandable = sybling.pushable?(line_count)
+    end
+    expandable
+  end
+
+  def pushable?(line_count)
+    article_bottom_spaces_in_lines = 2
+    if height_in_lines - line_count >= 7 
+      return true
+    elsif siblings.length > 0
+      siblings.first.pushable?(line_count)
+      return true
+    end
+    false
+  end
+
   # adds extended_line_count with new line_count
   def extend_line(line_count, options={})
+    sibs = siblings
+    return unless sibs.first.pushable?(line_count)
     return if line_count == 0
     if self.extended_line_count
       self.extended_line_count += line_count
@@ -353,14 +388,13 @@ class WorkingArticle < ApplicationRecord
       self.extended_line_count = line_count
     end
     self.save
-    siblings.each do |sybling|
+    sibs.each do |sybling|
       sybling.push_line(self.extended_line_count)
     end
     generate_pdf_with_time_stamp
     save_extended_line_count_to_config_yml(self.extended_line_count)
-    page.generate_pdf_with_time_stamp
+    page.generate_pdf_with_time_stamp unless options[:generate_pdf] == false
   end
-
 
   def save_extended_line_count_to_config_yml(line_count)
     config_path = page.config_path
@@ -425,6 +459,14 @@ class WorkingArticle < ApplicationRecord
     h[:empty_lines]
   end
 
+  def overflow?
+    overflow_line_count
+  end
+
+  def underflow?
+    empty_lines_count
+  end
+
   def overflow_line_count
     h = article_info
     return nil unless h
@@ -484,25 +526,6 @@ class WorkingArticle < ApplicationRecord
     self.save
   end
 
-  def auto_size_image(options={})
-    target_image = options[:image] if options[:image]
-    unless target_image
-      target_image = images.first
-    end
-    return unless target_image
-    image_column = target_image.column
-    if empty_lines_count
-      size_to_extend = empty_lines_count/image_column
-      puts "size_to_extend:#{size_to_extend}"
-    elsif overflow_line_count
-      size_to_reduce = overflow_line_count/image_column
-      puts "size_to_reduce:#{size_to_reduce}"
-    end
-  end
-
-  def auto_fit_graphic(options={})
-
-  end
 
   def update_page_pdf
     page_path = page.path
@@ -929,7 +952,6 @@ class WorkingArticle < ApplicationRecord
     end
   end
 
-
   # parse working_article info from copied article_template files
   def parse_article
     if article_info
@@ -956,8 +978,8 @@ class WorkingArticle < ApplicationRecord
     self.is_front_page  = article_info_hash[:is_front_page]
     self.top_story      = article_info_hash[:top_story]
     self.top_position   = article_info_hash[:top_position]
-    self.extended_line_count = article_info_hash[:extended_line_count] || 0
-    self.pushed_line_count = article_info_hash[:pushed_line_count] || 0
+    self.extended_line_count = article_info_hash[:extended_line_count] || article_info_hash[:extended] || 0
+    self.pushed_line_count = article_info_hash[:pushed_line_count] || article_info_hash[:pushed] || 0
     self.page_heading_margin_in_lines = article_info_hash[:page_heading_margin_in_lines]
     self.inactive       = false
     self.overlap        = article_info_hash[:overlap]
@@ -1075,7 +1097,7 @@ class WorkingArticle < ApplicationRecord
     room = empty_lines_count
     image_info = [image_column, image_row, image_extra_line]
     if room < image_column
-      # image is at right fit
+      # current image size is good fit
       return [image_column, image_row, image_extra_line]
     elsif room >= image_column
       # There is a room, so image size can grow
@@ -1143,9 +1165,31 @@ class WorkingArticle < ApplicationRecord
     page.generate_pdf_with_time_stamp
   end
 
+  def layout_info
+    layout_info = [grid_x, grid_y, column, row]
+    h = {}
+    if kind != '기사'
+      h = {kind: kind}
+    end
+    h[:extended]  = extended_line_count if extended_line_count && extended_line_count != 0
+    h[:pushed]    = pushed_line_count   if pushed_line_count && pushed_line_count != 0
+    if images.length > 0
+      h[:images] = []
+      images.each do |image|
+        h[:images] << image.info
+      end
+    end
+    if graphics.length > 0
+      h[:graphics] = []
+      graphics.each do |graphic|
+        h[:graphics] << graphic.info
+      end
+    end
+    layout_info << h unless h == {}
+    layout_info
+  end
 
   private
-
 
   def init_atts
 
