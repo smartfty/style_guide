@@ -239,8 +239,8 @@ module ArticleSaveXml
     story_xml.gsub!("\u2024", "&#8228;")
     # puts story_xml =~/\u4F18/ 
     # puts story_xml.dump
-    # File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    File.open(path, 'w:utf-8'){|f| f.write story_xml}
+    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 

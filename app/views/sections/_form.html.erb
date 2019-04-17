@@ -68,12 +68,11 @@
   <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="btn-group" role="group" aria-label="기능">
       <%= link_to "이전으로", sections_path, method: :get, class: "btn btn-default btn-sm" %></button>
-      <%= f.button "저장",accesskey: "s", class: "btn btn-primary btn-sm" %>
+      <%= f.button "저장",accesskey: "s", class: "btn btn-default btn-sm" %>
       <%= link_to "새항목 생성", new_section_path, method: :get, class: "btn btn-default btn-sm" %>
     </div>
 
   <div class="btn-group btn-right" role="group" aria-label="기능">
-    <%= link_to "재생성", regenerate_pdf_section_path(@section), method: :get, class: "btn btn-default btn-sm" %>
     <%= link_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-default btn-sm" %>
     </button>
   </div>
