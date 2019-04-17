@@ -5,7 +5,8 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.page(params[:page]).per(7) 
+    @issues = Issue.page(params[:page])
+    @issues_for_search = Issue.page(params[:page]).reverse_order.per(5)
     session[:current_issue] = @issue
     # @issues = Issue.order(:id, 'DESC').page(params[:page]).per(20) 
   end
