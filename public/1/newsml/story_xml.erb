@@ -27,8 +27,8 @@
 			<Creator>
 				<Property FormalName="Name" Value="<%= @name %>" />
 				<Property FormalName="Post" Value="<%= @gija_post %>" />
-				<Property FormalName="GijaID" Value="<%= @gija_id %>" />
-				<Property FormalName="Email" Value="<%= @gija_email %>" />
+				<Property FormalName="GijaID" Value="<%= @author_id %>" />
+				<Property FormalName="Email" Value="<%= @author_email %>" />
 				<Property FormalName="ByLine" Value="<%= @by_line %>" />
 			</Creator>
 			<SubjectCode>
@@ -91,7 +91,7 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[<%= @data_content %>]]>
+				<![CDATA[<%= @data_content %><br><br><%= @by_line %>]]>
 			</DataContent>
 		</NewsComponent><% elsif kind == "사진" %>
 		<NewsComponent>

@@ -324,27 +324,41 @@ module ArticleSaveXml
     #   @news_title_info  = page.section_name
     # end
     @news_title_info  = page.section_name
-      # reporter_record   = Reporter.where(name:reporter).first
-      # if reporter_record
-      #   @post             = reporter_record.reporter_group.name
-      #   @gija_id          = email.split("@").first
-      #   @email            = email
-      # else
-      #   @post             = "소속팀"
-      #   @gija_id          = "기자아이디"
-      #   @email            = "기자이메일"
-      # end
-    @by_line        = reporter_from_body.gsub(/\^$/){""}  
-    if reporter && reporter != ""  
-     @name       = reporter
-    else  
-     @name       = reporter_from_body.gsub(/\^$/){""}
+    # reporter_record   = Reporter.where(name:reporter).first
+    # if reporter_record
+    #   @post             = reporter_record.reporter_group.name
+    #   @gija_id          = email.split("@").first
+    #   @email            = email
+    # else
+    #   @post             = "소속팀"
+    #   @gija_id          = "기자아이디"
+    #   @email            = "기자이메일"
+    # end
+    author              = reporter_from_body
+    if author
+      @name             = reporter_from_body.gsub(/\^$/){""}.split(" ")[0]
+      @post             = "소속팀"
+      @author_email     = reporter_from_body.gsub(/\^$/){""}.split(" ")[2] 
+      @author_id        = @author_email.split("@").first if @author_email
+      @by_line        =  "#{@name} 기자 #{@author_email}"
+    else
+      @name             = reporter
+      @post             = "소속팀"
+      @author_id        = "기자아이디"
+      @author_email     = "기자이메일"
     end
+    # if reporter && reporter != ""  
+    #  @name       = reporter
+    # else  
+    #  @name       = reporter_from_body.gsub(/\^$/){""}
+    # end
+
      # if @name =~/_/
       # @name = @name.split("_")[0]
       # end
     opinion_writer  = OpinionWriter.where(name:reporter).first
     if opinion_writer
+      @name        = opinion_writer.name if opinion_writer.name
       @work        = opinion_writer.work if opinion_writer.work
       @position       = opinion_writer.position if opinion_writer.position
       if @name =~/_/
@@ -354,15 +368,17 @@ module ArticleSaveXml
       elsif @name =~/-/
         @name = @name.split("-")[0]
       end       
-      @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-      # @by_line        = "#{@name} #{@work} #{@position}"
-      @by_line        = reporter_from_body
+      # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+      @by_line_body   = ""
+      @by_line        = "#{@name} #{@work} #{@position}"
+      # @by_line        = reporter_from_body
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
     if page_number == 22 && order == 2
       profile         = Profile.where(name:@name).first
       if profile
+        @name        = profile.name
         @work        = profile.work if profile.work
         @position       = profile.position if profile.position
         if @name =~/_/
@@ -373,8 +389,8 @@ module ArticleSaveXml
           @name = @name.split("-")[0]
         end         
         @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-        # @by_line        = "#{@name} #{@work} #{@position}"
-        @by_line        = reporter_from_body
+        @by_line        = "#{@name} #{@work} #{@position}"
+        # @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
@@ -382,7 +398,7 @@ module ArticleSaveXml
       @name          = reporter_from_body
       @by_line       = reporter_from_body
       reporter       = Reporter.where(name: @name).first
-      @gija_email         = reporter.email if reporter
+      @gija_email    = reporter.email if reporter
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
@@ -440,16 +456,18 @@ module ArticleSaveXml
       @money_status = "30"
     end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
+    # reporter_from_body = 
     if body && body != ""
       @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^\#\s(.*)/){"<!-- #{$1} -->"} # 20190417 ebiz- 본문내 바이라인 삭제요청 
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){""} # 20190417 ebiz- 본문내 바이라인 삭제요청 
       @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
-      @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
+      @data_content     = @body_content.gsub(/\n\n\z/){""} 
+      # @data_content     = @body_content.gsub("<br><br>$"){""} 
     end
     # title.gsub!("\u2024", "")
     # puts "=================="
@@ -557,17 +575,18 @@ module ArticleSaveXml
     # else
     #   @news_title_info  = page.section_name
     # end
-      # reporter_record   = Reporter.where(name:reporter).first
-      # if reporter_record
-      #   @post             = reporter_record.reporter_group.name
-      #   @gija_id          = email.split("@").first
-      #   @email            = email
-      # else
-      #   @post             = "소속팀"
-      #   @gija_id          = "기자아이디"
-      #   @email            = "기자이메일"
-      # end
+    # reporter_record   = Reporter.where(name:reporter).first
+    # if reporter_record
+    #   @post             = reporter_record.reporter_group.name
+    #   @gija_id          = email.split("@").first
+    #   @email            = email
+    # else
+    #   @post             = "소속팀"
+    #   @gija_id          = "기자아이디"
+    #   @email            = "기자이메일"
+    # end
     @name           = reporter
+    @by_line        = reporter_from_body
       # if reporter = nil || reporter = ""
       #   @name           = reporter_from_body
       # end
@@ -589,7 +608,7 @@ module ArticleSaveXml
       # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
       @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
       # @by_line        = "#{@name} #{@work} #{@position}"
-      @by_line        = reporter_from_body
+      @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
     end
     # reporter_record   = Reporter.where(name:reporter).first
@@ -605,10 +624,10 @@ module ArticleSaveXml
         elsif @name =~/-/
           @name = @name.split("-")[0]
         end 
-        # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-        @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
-        # @by_line        = "#{@name} #{@work} #{@position}"
-        @by_line        = reporter_from_body
+        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        # @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
+        @by_line        = "#{@name} #{@work} #{@position}"
+        # @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
       end
     end
@@ -697,7 +716,7 @@ module ArticleSaveXml
     #   end
    if body && body != ""
       @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^\#\s(.*)/){"<!-- #{$1} -->"} # 20190417 ebiz - 본문내 기자명 삭제 요청 
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){""} # 20190417 ebiz - 본문내 기자명 삭제 요청 
       @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
@@ -705,7 +724,9 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       # @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
-      @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
+      # @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
+      @data_content     = @body_content.gsub(/\n\n\z/){""} 
+
     end
     @page_number = page_number 
     @order = order.to_s.rjust(2, "0")
@@ -731,7 +752,7 @@ article_info =<<EOF
       <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
       <GisaNumberID/>
       <GisaRelationID/>
-      <ByLine/>
+      <ByLine><%= @by_line %></ByLine> 
       <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
       <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
       <SendModify><%= @send_modify %></SendModify>
@@ -792,7 +813,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %>]]></Content>
+    <Content><![CDATA[<%= @data_content %><br><br><%= @by_line %>]]></Content>
   </ArticleComponent>
 </Article>
 EOF
