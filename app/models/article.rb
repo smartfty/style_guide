@@ -185,6 +185,28 @@ class Article < ApplicationRecord
     end
   end
 
+  def x
+    grid_x*grid_width
+  end
+
+  def y
+    y_position =  grid_y*grid_height
+  end
+
+  def width
+    column*grid_width
+  end
+
+  def height
+    h = row*grid_height
+  end
+
+
+  def box_svg
+    "<rect class='rectfill' stroke='black' stroke-width='4' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' />\n"
+  end
+
+
   def story_md
     title     = "#{order}번 기사 제목은 여기에"
     subtitle  = '부제는 여기에 여기는 부제목 자리'

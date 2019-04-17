@@ -11,4 +11,14 @@ class ApplicationController < ActionController::Base
     @sections = Section.all  if request.format == 'csv'
   end
 
+
+  def current_issue
+    if session[:current_issue] 
+      session[:current_issue]
+      Issue.find(session[:current_issue]["id"])
+    else
+      Issue.last
+    end 
+  end
+
 end

@@ -135,6 +135,11 @@ class PageHeading < ApplicationRecord
     "<a xlink:href='/page_headings/#{id}'><rect fill-opacity='0.0' x='#{0}' y='#{0}' width='#{page_heading_width}' height='#{heading_height}' /></a>\n"
   end
 
+  def box_svg_for_section
+    "<rect fill-opacity='0.0' x='#{0}' y='#{0}' width='#{page_heading_width}' height='#{heading_height}' />\n"
+  end
+
+
   def front_page_content
     page_heading_width  = publication.page_heading_width
     heading_ad_image_path = path + "/1/heading/images/#{issue.date.to_s}"

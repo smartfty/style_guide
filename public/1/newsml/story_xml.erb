@@ -26,8 +26,9 @@
 			<MediaType FormalName="Text" />
 			<Creator>
 				<Property FormalName="Name" Value="<%= @name %>" />
-				<Property FormalName="Post" Value="<%= @post %>" />
+				<Property FormalName="Post" Value="<%= @gija_post %>" />
 				<Property FormalName="GijaID" Value="<%= @gija_id %>" />
+				<Property FormalName="Email" Value="<%= @gija_email %>" />
 				<Property FormalName="ByLine" Value="<%= @by_line %>" />
 			</Creator>
 			<SubjectCode>
@@ -104,6 +105,19 @@
 			<DataContent>
 				<![CDATA[<%= @h_caption %><%= @h_source %>]]>
 			</DataContent>
+		</NewsComponent><% elsif kind == "부고-인사" %>
+		<NewsComponent>
+			<Role FormalName="Title" />
+			<MediaType FormalName="Text" />
+			<HeadLine><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></HeadLine>
+			<SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+			</NewsComponent>
+			<NewsComponent>
+				<Role FormalName="Article" />
+				<MediaType FormalName="Text" />
+				<DataContent>
+					<![CDATA[<%= @data_content %>]]>
+				</DataContent>
 		</NewsComponent><% elsif images.length > 0 %>
 		<NewsComponent>
 			<Role FormalName="Title" />

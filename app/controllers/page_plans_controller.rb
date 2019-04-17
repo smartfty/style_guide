@@ -20,7 +20,7 @@ class PagePlansController < ApplicationController
 
   # GET /page_plans/1/edit
   def edit
-    puts "in edit #{@page_plan.page_number}"
+    # puts "in edit #{@page_plan.page_number}"
     @page_templates = Section.where(page_number: @page_plan.page_number).all
     if @page_templates.length == 0
       @available_ad_type = []

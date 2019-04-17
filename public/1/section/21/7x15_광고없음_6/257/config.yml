@@ -34,13 +34,13 @@ story_frames:
   - 6
   - 2
   - 5
-- - 5
-  - 10
-  - 2
-  - 5
 - - 0
   - 12
   - 5
   - 3
+- - 5
+  - 11
+  - 2
+  - 4
 article_line_thickness: 0.3
 draw_divider: 

@@ -21,7 +21,7 @@
                         <% else story.selected%>
                         <tr>
                         <% end %>
-                        <td><%= story.date %></td>
+                        <td><%= story.updated_at.strftime("%m-%d %H:%M") %></td>
                         <td><%= story.title %></td>
                         <td><%= story.char_count %></td>
                         <td><%= story.summitted_section %></td>

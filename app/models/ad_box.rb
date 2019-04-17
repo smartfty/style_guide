@@ -276,7 +276,7 @@ class AdBox < ApplicationRecord
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
     @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
     @article_file_name = "#{year}#{month}#{day}011001#{page_info}00000000#{@order}"
-    @gija_name        = "편집기자명" # 편집기자명
+    @name        = "편집기자명" # 편집기자명
     @news_class_large_id    = news_class_large_id
     @news_class_large_name  = page.section_name
     @news_class_middle_id   = ""
@@ -296,7 +296,7 @@ class AdBox < ApplicationRecord
         <GisaNumberID/>
         <GisaRelationID/>
         <ByLine/>
-        <Gija ID="0" Area="0" Name="<%= @gija_name %>" Email=""/>
+        <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
         <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
         <SendModify><%= @send_modify %></SendModify>
         <NewArticle><%= @new_article %></NewArticle>

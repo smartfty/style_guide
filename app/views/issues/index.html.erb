@@ -4,7 +4,7 @@
 
   <h3>이전 신문 보기</h3>
 
-  최종 발행호<%= button_to "#{@issues.last.date}(#{@issues.last.number})", change_current_issue_path(@issues.last), method: :get, class: "btn btn-sm btn-primary"  %></td>
+  최종 발행호<%= button_to "#{Issue.last.date}(#{Issue.last.number})", change_current_issue_path(Issue.last), method: :get, class: "btn btn-sm btn-primary"  %></td>
 
   <table class="table table-striped" style="width: 200px;">
     <thead

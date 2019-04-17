@@ -440,6 +440,72 @@ class Section < ApplicationRecord
     EOF
   end
 
+  def page_svg_with_jpg
+    "<image xlink:href='#{jpg_image_path}' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />\n"
+  end
+
+  def box_svg_with_jpg
+    box_element_svg = page_svg_with_jpg
+    box_element_svg += "<g transform='translate(#{doc_left_margin},#{doc_top_margin})' >\n"
+    # box_element_svg += page_svg
+    # box_element_svg += page_heading.box_svg if page_number == 1
+    articles.each do |article|
+      # next if article.inactive
+      box_element_svg += article.box_svg
+    end
+    ad_box_templates.each do |ad|
+      box_element_svg += ad.box_svg
+    end
+    box_element_svg += '</g>'
+    box_element_svg
+  end
+
+  def doc_width
+    publication.width
+    # width + left_margin + right_margin
+  end
+
+  def page_width
+    publication.page_width
+    # width
+  end
+
+  def doc_height
+    publication.height
+    # height + top_margin + bottom_margin
+  end
+
+  def doc_left_margin
+    publication.left_margin
+    # left_margin
+  end
+
+  def doc_top_margin
+    publication.top_margin
+    # top_margin
+  end
+
+  def page_height
+    publication.page_height
+
+    # height
+  end
+
+  def page_heading_width
+    # width
+    publication.page_heading_width
+  end
+
+  def to_svg_with_jpg
+    svg=<<~EOF
+    <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 #{doc_width} #{doc_height}' >
+      <rect fill='white' x='0' y='0' width='#{doc_width}' height='#{doc_height}' />
+      #{box_svg_with_jpg}
+    </svg>
+    EOF
+  end
+
+
   def self.to_csv(options = {})
       CSV.generate(options) do |csv|
         # get rid of id, created_at, updated_at
@@ -677,12 +743,12 @@ class Section < ApplicationRecord
   end
 
   def update_profile
-    puts "++++++++++ before profile:#{profile}"
+    # puts "++++++++++ before profile:#{profile}"
     self.story_count = parse_story_count
     self.ad_type     = parse_ad_type
     self.profile     = make_profile
     self.save
-    puts "__________ after profile:#{profile}"
+    # puts "__________ after profile:#{profile}"
     self
   end
 

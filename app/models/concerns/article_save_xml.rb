@@ -20,27 +20,45 @@ module ArticleSaveXml
     title
   end
 
+  def filter_to_quote(text)
+    return unless text
+    text.gsub!(/^\"/, "“")  
+    text.gsub!(/\—/, "-")  
+    text.gsub!(/^\"\'/, "“‘")
+    text.gsub!(/^\“\'/, "“‘")
+    text.gsub!(/^\'/, "‘")
+    text.gsub!(/\(\"/, "(“")
+    text.gsub!(/\(\'/, "(‘")
+    text.gsub!(/\.\"/, ".”")
+    text.gsub!(/\.\'/, ".’")
+    text.gsub!(/\"$/, "”")
+    text.gsub!(/\'$/, "’")
+    text.gsub!(/\*\◆\"/, "*◆“")
+    text.gsub!(/\*\s\◆\"/, "*◆“")
+    text.gsub!(/\*\s\◆/, "*◆")
+    text.gsub!(/\*\◆\'/, "*◆‘")
+    text.gsub!(/\"\s\=\*/, "” =*")
+    text.gsub!(/\s\=\s\*/, " =*")
+    text.gsub!(/\'\s\=\*/, "’ =*")
+    text.gsub!(/\s\"/, " “")
+    text.gsub!(/\s\'/, " ‘")
+    text.gsub!(/\"\s/, "” ")
+    text.gsub!(/\"\,\s/, "”, ")
+    text.gsub!(/\'\,\s/, "’, ")    
+    text.gsub!(/\b\"\b/, "”")
+    text.gsub!(/\b\'\b/, "’")
+    text.gsub!(/\b\"/, "”")
+    text.gsub!(/\b\'/, "’")
+    text.gsub!(/\"\s/, "” ")
+    text.gsub!(/\'\s/, "’ ")
+    text
+  end
+
   def filter_to_markdown(body_text)
     return unless body_text
     body_text.strip!
     # body_text.gsub!(/\s\s/, " ")
     # body_text.gsub!(/^\n\n/, "\n")
-    body_text.gsub!(/^"/, "“")
-    body_text.gsub!(/\."/, ".”")
-    body_text.gsub!(/\*◆"/, "*◆“")
-    body_text.gsub!(/\" =*/, "” =*")
-    body_text.gsub!(/\s"/, " “")
-    body_text.gsub!(/"\s/, "” ")
-    body_text.gsub!(/\b"\b/, "”")
-    body_text.gsub!(/\b'\b/, "’")
-    body_text.gsub!(/\b'/, "’")
-  
-    body_text.gsub!(/",\s/, "”, ")
-    body_text.gsub!(/',\s/, "’, ")    
-    body_text.gsub!(/^'/, "‘")
-    body_text.gsub!(/\.'/, ".’")
-    body_text.gsub!(/\s'/, " ‘")
-    body_text.gsub!(/'\s/, "’ ")
     body_text.gsub!(/\u200B/, "")
     body_text.gsub!(/^(\^|-\s)/, "")
     body_text.gsub!(/^\t/, "")
@@ -55,6 +73,7 @@ module ArticleSaveXml
     # body_text.gsub!(/\.$\n\n/, ".")
     body_text.gsub!(/^\./, "")
     body_text.gsub!(/ {2,8}/, " ")
+    body_text.gsub!("\u2024", ".")
     body_text
   end
 
@@ -83,10 +102,10 @@ module ArticleSaveXml
     title.strip!
     title.gsub!("\u200B", "")
     title.gsub!("\u2027", "&#8231;")
-
     subtitle.gsub!("\u2027", "&#8231;")
     body.gsub!("\u2027", "&#8231;")
     body.gsub!("\u4F18", "&#20248;")
+    body.gsub!("\u5014", "&#20500;")
     title.gsub!("\u22EF", "&#8943;")
     subtitle.gsub!("\u22EF", "&#8943;")
     body.gsub!("\u22EF", "&#8943;")
@@ -97,8 +116,12 @@ module ArticleSaveXml
     body.gsub!("\u5733", "&#22323;")
     title.gsub!("\u2027", "\u00b7")
     body.gsub!("\u2027", "\u00b7")
-    title.gsub!("\u2024", "\u00b7")
-    body.gsub!("\u2024", "\u00b7")
+    title.gsub!("\u2024", "&#8228;")
+    subtitle.gsub!("\u2024", "&#8228;")
+    subject_head.gsub!("\u2024", "&#8228;")
+    reporter.gsub!("\u2024", "&#8228;")
+    boxed_subtitle_text.gsub!("\u2024", "&#8228;")
+    body.gsub!("\u2024", "&#8228;")
     title.gsub!("\u00A0", " ")
     body.gsub!("\u2043", "-")
     body.gsub!("\u30FB", "\u00b7")
@@ -120,7 +143,6 @@ module ArticleSaveXml
     subtitle.gsub!("\u2013", "&#8211;")
     boxed_subtitle_text.gsub!("\u2470", "&#9328;") 
     boxed_subtitle_text.gsub!("\u22EF", "&#8943;")
-
     title.gsub!("\u2014", "&#8212;")
     body.gsub!("\u5d1b", "&#23835;")
     body.gsub!("\u2003", "&#8195;")
@@ -205,20 +227,20 @@ module ArticleSaveXml
   end
 
   def save_story_xml
+    convert_euckr_not_suported_chars
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
     # story_xml.encode("utf-8").force_encoding("ANSI")
-    convert_euckr_not_suported_chars
     story_xml.gsub!("\u200B", "&#8203;")
     story_xml.gsub!("\u2027", "&#8231;")
     story_xml.gsub!("\u4F18", "&#20248;")
     story_xml.gsub!("\u246F", "&#9327;")
     story_xml.gsub!("\u22EF", "&#8943;")
-
+    story_xml.gsub!("\u2024", "&#8228;")
     # puts story_xml =~/\u4F18/ 
     # puts story_xml.dump
-    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
+    # File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 
@@ -360,7 +382,7 @@ module ArticleSaveXml
       @name          = reporter_from_body
       @by_line       = reporter_from_body
       reporter       = Reporter.where(name: @name).first
-      @email         = reporter.email if reporter
+      @gija_email         = reporter.email if reporter
       @caption       = reporter_from_body
     end
     @section_name_code = section_name_code
@@ -419,12 +441,13 @@ module ArticleSaveXml
     end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if body && body != ""
-      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^###(.*)/){"<b>#{$1}</b><br><br>"} 
-      @body_content     = @body_content.gsub(/^##(.*)/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){"<!-- #{$1} -->"} # 20190417 ebiz- 본문내 바이라인 삭제요청 
+      @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
+      @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
-      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
+      @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
@@ -563,7 +586,8 @@ module ArticleSaveXml
       elsif @name =~/-/
         @name = @name.split("-")[0]
       end  
-      @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+      # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+      @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
       # @by_line        = "#{@name} #{@work} #{@position}"
       @by_line        = reporter_from_body
       @caption        = "#{@name} #{@work} #{@position}"
@@ -581,7 +605,8 @@ module ArticleSaveXml
         elsif @name =~/-/
           @name = @name.split("-")[0]
         end 
-        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
         # @by_line        = "#{@name} #{@work} #{@position}"
         @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
@@ -608,9 +633,9 @@ module ArticleSaveXml
       @name_plate       = eliminate_size_option(subject_head)
     else
     if page_number == 22 || page_number == 23
-        @subject_ex_code = opinion_writer.category_code 
-        @subject_ex_name = opinion_writer.title
-        @name_plate = opinion_writer.title
+        @subject_ex_code = opinion_writer.category_code if opinion_writer
+        @subject_ex_name = opinion_writer.title if opinion_writer
+        @name_plate = opinion_writer.title if opinion_writer
       end
     end    
 
@@ -671,12 +696,14 @@ module ArticleSaveXml
     #     @sub_head_line3 = sh[2]
     #   end
    if body && body != ""
-      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^###(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
-      @body_content     = @body_content.gsub(/^##(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){"<!-- #{$1} -->"} # 20190417 ebiz - 본문내 기자명 삭제 요청 
+      @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
+      @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
-      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
+      @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
+      # @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
@@ -685,7 +712,7 @@ module ArticleSaveXml
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     @cms_file_name    = "#{year}#{month}#{day}00100#{page_info}#{@order}"
     @article_file_name = "#{year}#{month}#{day}011001#{page_info}0000000#{@order}"
-    @gija_name        = "편집기자명" # 편집기자명
+    @name        = "편집기자명" # 편집기자명
     @news_class_large_id    = news_class_large_id
     @news_class_large_name  = page.section_name
     # @news_class_middle_id   = category_code
@@ -705,7 +732,7 @@ article_info =<<EOF
       <GisaNumberID/>
       <GisaRelationID/>
       <ByLine/>
-      <Gija ID="0" Area="0" Name="<%= @gija_name %>" Email=""/>
+      <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
       <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
       <SendModify><%= @send_modify %></SendModify>
       <NewArticle><%= @new_article %></NewArticle>
@@ -717,6 +744,10 @@ EOF
   end
 
   def mobile_preview_xml_three_component
+    year  = issue.date.year
+    month = issue.date.month.to_s.rjust(2, "0")
+    day   = issue.date.day.to_s.rjust(2, "0")
+    page_info        = page_number.to_s.rjust(2,"0")
     if page_number == 22
       three_component =<<EOF
       <TitleComponent>
@@ -796,6 +827,18 @@ EOF
 </ArticleComponent>
 </Article>
 EOF
+
+elsif kind == "부고-인사"
+  three_component =<<EOF
+  <TitleComponent>
+    <MainTitle><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></MainTitle>
+  </TitleComponent>
+  <ArticleComponent>
+    <Content><![CDATA[<%= @data_content %>]]></Content>
+  </ArticleComponent>
+</Article>
+EOF
+
 
   elsif images.count > 0 
   three_component =<<EOF
@@ -894,9 +937,11 @@ EOF
       if images.first
       @image          = images.first
       @c_head_line    = @image.caption_title 
-      else
+      elsif
       @graphic        = graphics.first
-      @c_head_line    = @graphic.title  
+      @c_head_line    = @graphic.title 
+      else
+      @c_head_line    = ""
       end 
     end
     container_xml_group_key=<<EOF
