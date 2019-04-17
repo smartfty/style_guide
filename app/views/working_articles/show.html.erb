@@ -71,7 +71,12 @@
                     <div class='col-xs-12 col-sm-12'>
                         <div class='col-xs-12 col-sm-3'>
                             <%= raw page.to_story_svg %>
-                            <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-sm" %></h4>
+                            <% if page.color_page %>
+                            <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-danger btn-xs" %></h4>
+                        <% else %>
+                            <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-xs" %></h4>
+                        <% end %>
+
                         </div>
                         <div class='col-xs-9 col-sm-9 table_h300' align="center">
                             <button type="button" class="btn btn-success"><%= "#{page.section_name} #{page.page_number}페이지 기사 리스트" %></button>

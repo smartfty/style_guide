@@ -123,6 +123,13 @@ main {
   background-color: transparent;
  }
 
+ .btn-primary:visited {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: transparent;
+ }
+
+
 .selected_template {
   border: 4px;
   color: #fff;

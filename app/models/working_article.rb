@@ -211,9 +211,9 @@ class WorkingArticle < ApplicationRecord
       # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
       # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
     self.reporter = story.reporter
-    self.subject_head    = story.subject_head if story.subject_head
-    self.title    = story.title
-    self.subtitle = story.subtitle
+    self.subject_head    = filter_to_markdown(story.subject_head) if story.subject_head
+    self.title    = filter_to_markdown(story.title)
+    self.subtitle = filter_to_markdown(story.subtitle)
     self.body     = filter_to_markdown(story.body)
     self.quote    = story.quote  if story.quote
     self.save
@@ -877,12 +877,13 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    svg = "<text font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order}  </text>"
+    svg = "<text fill='gray' font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order}  </text>"
     svg += "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def story_svg
-    "<a xlink:href='/working_articles/#{id}/change_story'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
+    svg = "<text fill='gray' font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order}  </text>"
+    svg += "<a xlink:href='/working_articles/#{id}/change_story'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def box_xml

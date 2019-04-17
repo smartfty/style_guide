@@ -441,13 +441,13 @@ module ArticleSaveXml
     end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     if body && body != ""
-      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^###(.*)/){"<b>#{$1}</b><br><br>"} 
-      @body_content     = @body_content.gsub(/^##(.*)/){"<b>#{$1}</b>"} 
+      @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){"<!-- #{$1} -->"} # 20190417 ebiz- 본문내 바이라인 삭제요청 
+      @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
+      @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
+      @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
-      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
@@ -586,7 +586,8 @@ module ArticleSaveXml
       elsif @name =~/-/
         @name = @name.split("-")[0]
       end  
-      @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+      # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+      @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
       # @by_line        = "#{@name} #{@work} #{@position}"
       @by_line        = reporter_from_body
       @caption        = "#{@name} #{@work} #{@position}"
@@ -604,7 +605,8 @@ module ArticleSaveXml
         elsif @name =~/-/
           @name = @name.split("-")[0]
         end 
-        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
         # @by_line        = "#{@name} #{@work} #{@position}"
         @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
@@ -694,13 +696,14 @@ module ArticleSaveXml
     #     @sub_head_line3 = sh[2]
     #   end
    if body && body != ""
-      @body_content     = body.gsub(/^####(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^####(.*)\^\n/){"<!-- #{$1} -->"} 
-      @body_content     = @body_content.gsub(/^###(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
-      @body_content     = @body_content.gsub(/^##(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
+      @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){"<!-- #{$1} -->"} # 20190417 ebiz - 본문내 기자명 삭제 요청 
+      @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
+      @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
+      @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
-      @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
+      # @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
     end
