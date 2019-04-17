@@ -75,12 +75,23 @@ class WorkingArticlesController < ApplicationController
       params['working_article']['body'] = @working_article.filter_to_quote(params['working_article']['body'])
       # binding.pry
       if @working_article.update(working_article_params)
-        @working_article.generate_pdf_with_time_stamp
-        @working_article.page.generate_pdf_with_time_stamp
+        if @working_article.draft_mode
+          h = {}
+          h[:draft_mode]    = true
+          h[:story_md]      = @working_article.story_md
+          h[:article_path]  = @working_article.path
+          RLayout::NewsBoxMaker.new(h)
+          # send_data pdf.render, filename: "#{@working_article.id}", type: "application/pdf", disposition: "inline"
+        else
+          @working_article.generate_pdf_with_time_stamp
+          @working_article.page.generate_pdf_with_time_stamp
+        end
         # format.html { render @working_article, notice: 'Working article was successfully updated.' }
         format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
         format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
         format.json { render :show, status: :ok, location: @working_article }
+
+
       else
         format.html { render :edit }
         format.json { render json: @working_article.errors, status: :unprocessable_entity }

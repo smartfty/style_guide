@@ -121,7 +121,7 @@ class AdBox < ApplicationRecord
   end
 
   def on_right_edge?
-    if column = 6 || 7
+    if column == 6 || column == 7
       true
     else
       grid_x + column >= page.column 
