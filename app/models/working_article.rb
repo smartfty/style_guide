@@ -84,6 +84,8 @@ class WorkingArticle < ApplicationRecord
   include ArticleSwapable
   include RectUtiles
   include ArticleSaveXml
+  include WorkingArticleAutofit
+
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
   attr_reader :time_stamp
