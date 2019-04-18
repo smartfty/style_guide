@@ -465,9 +465,11 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
+      @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
-      @data_content     = @body_content.gsub(/\n\n\z/){""} 
-      # @data_content     = @body_content.gsub("<br><br>$"){""} 
+      @body_content     = @body_content.gsub(/\n\n/){"<br><br>"} 
+      @data_content     = @body_content.gsub(/<br><br>\z/){""} 
+      # @data_content     = @body_content.gsub(/\n\n\z/){""} 
     end
     # title.gsub!("\u2024", "")
     # puts "=================="
@@ -540,7 +542,7 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, " ") if string =~/\{\s?(.?\d)\s?\}\s?$/
     # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
@@ -687,6 +689,7 @@ module ArticleSaveXml
       title.strip! 
       @head_line        = eliminate_size_option(title)
       # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
+      @head_line        = @head_line.gsub("\r\n", " ")
       @head_line        = @head_line.gsub("\r", "")
       @head_line        = @head_line.gsub("\n", "")
     else
@@ -722,10 +725,12 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
+      @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       # @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
-      # @data_content     = @body_content.gsub("\n\n"){"<br><br>"} 
-      @data_content     = @body_content.gsub(/\n\n\z/){""} 
+      @body_content     = @body_content.gsub("\n\n"){"<br><br>"} 
+      # @data_content     = @body_content.gsub(/\n\n\z/){""} 
+      @data_content     = @body_content.gsub(/<br><br>\z/){""} 
 
     end
     @page_number = page_number 
