@@ -4,6 +4,39 @@ Rails app for creating style guide for newspaper publication
 
 ## Tables
 
+### paragraph
+  working_article:references
+  name
+  order:integer
+  para_text:text
+
+### line_fragment
+  working_article:references
+  paragraph:references
+  column:integer
+  order:integer
+  string 
+  x:float
+  y:float
+  width:float
+  height:float
+  line_type
+  text_area_x
+  text_area_width
+  next_line:integer
+
+### token
+  order:integer
+  paragraph:references
+  line_fragment:references
+  token_type
+  string
+  width_array:text
+  x:float
+  y:float
+  width:float
+  height:float
+
 ### reporter_image
 
 ### reporter_graphic

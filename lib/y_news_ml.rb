@@ -140,8 +140,7 @@ class YNewsML
     YhPicture.delete_week_old(today)
     YhGraphic.delete_week_old(today)
   end
-
-  def 
+ 
 
   def self.parse_new_wire_story_xml(source_dir)
     Dir.glob("#{source_dir}/*.xml").each do |xml_file|

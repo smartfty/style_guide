@@ -42,7 +42,7 @@
                         <td style="text-align:center; width:10%;"><%= story.reporter %></td>
                         <td style="text-align:left; width:40%;"><%= story.title %></td>
                         <td style="text-align:left; width:7%;"><%= story.char_count %></td>
-                        <td style="text-align:center; width:7%;"><%= link_to "선택", assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-warning") %></td>
+                        <td style="text-align:center; width:7%;"></td>
                         <td style="text-align:center; width:7%;"><%= link_to "해제", un_assign_position_story_path(story, method: :get, box: article, class: "btn btn-sm btn-danger") %></td>
                     </tr>
                 <% else %>
