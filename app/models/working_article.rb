@@ -382,7 +382,7 @@ class WorkingArticle < ApplicationRecord
   # adds extended_line_count with new line_count
   def extend_line(line_count, options={})
     sibs = siblings
-    return unless sibs.first.pushable?(line_count)
+    # return unless sibs.first.pushable?(line_count)
     return if line_count == 0
     if self.extended_line_count
       self.extended_line_count += line_count
