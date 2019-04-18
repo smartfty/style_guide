@@ -39,6 +39,8 @@
 #  gutter                       :float
 #  overlap                      :text
 #  embedded                     :boolean
+#  y_in_lines                   :integer
+#  height_in_lines              :integer
 #
 
 require 'test_helper'

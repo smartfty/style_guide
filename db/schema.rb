@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_053827) do
+ActiveRecord::Schema.define(version: 2019_04_18_163157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,6 +183,26 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.float "gutter"
     t.text "overlap"
     t.boolean "embedded"
+    t.integer "y_in_lines"
+    t.integer "height_in_lines"
+  end
+
+  create_table "body_lines", force: :cascade do |t|
+    t.bigint "working_article_id"
+    t.string "markup"
+    t.integer "column"
+    t.integer "oreder"
+    t.float "x"
+    t.float "y"
+    t.float "width"
+    t.float "height"
+    t.string "string"
+    t.float "text_area_x"
+    t.float "text_area_width"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["working_article_id"], name: "index_body_lines_on_working_article_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -203,18 +223,6 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
   end
 
   create_table "exeprt_writers", force: :cascade do |t|
-    t.string "name"
-    t.string "work"
-    t.string "position"
-    t.string "email"
-    t.integer "category_code"
-    t.string "expert_image"
-    t.string "expert_jpg_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "exert_writers", force: :cascade do |t|
     t.string "name"
     t.string "work"
     t.string "position"
@@ -272,7 +280,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.integer "x_grid"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
-    t.boolean "draw_frame"
+    t.boolean "draw_frame", default: false
     t.boolean "detail_mode"
     t.integer "zoom_level"
     t.integer "zoom_direction"
@@ -321,7 +329,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
   create_table "images", id: :serial, force: :cascade do |t|
     t.integer "column"
     t.integer "row"
-    t.integer "extra_height_in_lines"
+    t.integer "extra_height_in_lines", default: 0
     t.string "image"
     t.string "caption_title"
     t.string "caption"
@@ -339,9 +347,9 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.integer "x_grid"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
-    t.boolean "draw_frame"
-    t.integer "zoom_level"
-    t.integer "zoom_direction"
+    t.boolean "draw_frame", default: true
+    t.integer "zoom_level", default: 1
+    t.integer "zoom_direction", default: 5
     t.integer "move_level"
     t.integer "auto_size"
     t.string "fit_type"
@@ -360,6 +368,25 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.string "slug"
     t.index ["publication_id"], name: "index_issues_on_publication_id"
     t.index ["slug"], name: "index_issues_on_slug", unique: true
+  end
+
+  create_table "line_fragments", force: :cascade do |t|
+    t.bigint "working_article_id"
+    t.bigint "paragraph_id"
+    t.integer "order"
+    t.integer "column"
+    t.string "line_type"
+    t.float "x"
+    t.float "y"
+    t.float "width"
+    t.float "height"
+    t.text "tokens"
+    t.float "text_area_x"
+    t.float "text_area_width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paragraph_id"], name: "index_line_fragments_on_paragraph_id"
+    t.index ["working_article_id"], name: "index_line_fragments_on_working_article_id"
   end
 
   create_table "opinion_writers", force: :cascade do |t|
@@ -446,6 +473,17 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.index ["issue_id"], name: "index_pages_on_issue_id"
     t.index ["page_plan_id"], name: "index_pages_on_page_plan_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+  end
+
+  create_table "paragraphs", force: :cascade do |t|
+    t.string "name"
+    t.bigint "working_article_id"
+    t.integer "order"
+    t.text "para_text"
+    t.text "tokens"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["working_article_id"], name: "index_paragraphs_on_working_article_id"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|
@@ -784,6 +822,9 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
     t.integer "quote_box_column"
     t.integer "quote_box_type"
     t.boolean "quote_box_show"
+    t.boolean "draft_mode"
+    t.integer "y_in_lines"
+    t.integer "height_in_lines"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
@@ -860,13 +901,17 @@ ActiveRecord::Schema.define(version: 2019_04_04_053827) do
   add_foreign_key "ad_plans", "ad_bookings"
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "body_lines", "working_articles"
   add_foreign_key "graphic_requests", "users"
   add_foreign_key "graphics", "working_articles"
   add_foreign_key "heading_ad_images", "page_headings"
   add_foreign_key "heading_bg_images", "page_headings"
   add_foreign_key "issues", "publications"
+  add_foreign_key "line_fragments", "paragraphs"
+  add_foreign_key "line_fragments", "working_articles"
   add_foreign_key "opinion_writers", "publications"
   add_foreign_key "page_plans", "issues"
+  add_foreign_key "paragraphs", "working_articles"
   add_foreign_key "profiles", "publications"
   add_foreign_key "reporter_graphics", "users"
   add_foreign_key "reporter_images", "users"

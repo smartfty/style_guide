@@ -61,6 +61,9 @@
 #  quote_box_column             :integer
 #  quote_box_type               :integer
 #  quote_box_show               :boolean
+#  draft_mode                   :boolean
+#  y_in_lines                   :integer
+#  height_in_lines              :integer
 #
 # Indexes
 #

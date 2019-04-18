@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :line_fragments
+  resources :paragraphs
   resources :expert_writers
   resources :exepert_writers
   resources :reporter_graphics do

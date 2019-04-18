@@ -9,8 +9,9 @@ Rails app for creating style guide for newspaper publication
   name
   order:integer
   para_text:text
+  tokens:text
 
-### line_fragment
+### body_line
   working_article:references
   paragraph:references
   column:integer
@@ -23,9 +24,9 @@ Rails app for creating style guide for newspaper publication
   line_type
   text_area_x
   text_area_width
-  next_line:integer
+  <!-- next_line:integer -->
 
-### token
+<!-- ### token
   order:integer
   paragraph:references
   line_fragment:references
@@ -35,7 +36,7 @@ Rails app for creating style guide for newspaper publication
   x:float
   y:float
   width:float
-  height:float
+  height:float -->
 
 ### reporter_image
 
