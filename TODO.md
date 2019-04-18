@@ -19,6 +19,10 @@
   - body
     - fit_text
 
+2019-4-17
+  - 다. hyphenation
+  - hangling functuation?
+
 2019-4-16
   - box-ordering
   - save_as_template(normalize to extend and push to nearest grid)
