@@ -54,12 +54,12 @@ class PagePlansController < ApplicationController
       
       if @page_plan.update(page_plan_params)
         # binding.pry
-        if @page = @page_plan.page
-          if @page.color_page != @page_plan.color_page
-            @page.color_page = @page_plan.color_page
-            @page.save
-          end
+        # if @page = @page_plan.page
+        if @page_plan.page.color_page != @page_plan.color_page
+          @page_plan.page.color_page = @page_plan.color_page
+          @page_plan.page.save            
         end
+        # end
         @page_plan.set_pair_page_color
         new_ad_type = @page_plan.ad_type
         if current_ad_type != new_ad_type
@@ -95,8 +95,8 @@ class PagePlansController < ApplicationController
         # end
 
         new_advertiser = @page_plan.advertiser
-        if new_advertiser && new_advertiser =! "" && current_advertiser != new_advertiser
-          ad_box = @page_plan.page.ad_boxes.first
+        if new_advertiser && new_advertiser != "" && current_advertiser != new_advertiser
+        ad_box = @page_plan.page.ad_boxes.first
           if ad_box
             ad_box.advertiser = new_advertiser
             ad_box.save
