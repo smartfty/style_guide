@@ -397,6 +397,7 @@ module ArticleSaveXml
     if page_number == 23 && order == 2
       @name          = reporter_from_body
       @by_line       = reporter_from_body
+      @by_line_body  = reporter_from_body
       reporter       = Reporter.where(name: @name).first
       @gija_email    = reporter.email if reporter
       @caption       = reporter_from_body
@@ -719,7 +720,7 @@ module ArticleSaveXml
     #   end
    if body && body != ""
       @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^\#\s(.*)/){""} # 20190417 ebiz - 본문내 기자명 삭제 요청 
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){"#{$1}"} # 20190417 ebiz - 본문내 기자명 삭제 요청 
       @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
@@ -848,9 +849,18 @@ EOF
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
 </TitleComponent>
 <ArticleComponent>
-  <Content><![CDATA[<%= @h_caption %> <%= @h_source %>]]>
+  <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
   </Content>
 </ArticleComponent>
+
+<PhotoComponent>
+<PhotoItem>
+  <ImageType>Image</ImageType>
+    <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+    <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+    <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+  </PhotoItem>
+</PhotoComponent>
 </Article>
 EOF
 

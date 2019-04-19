@@ -105,7 +105,16 @@
 			<DataContent>
 				<![CDATA[<%= @h_caption %><%= @h_source %>]]>
 			</DataContent>
-		</NewsComponent><% elsif kind == "부고-인사" %>
+		</NewsComponent>
+		
+		<NewsComponent> 
+		<Role FormalName="Photo" />
+		<MediaType FormalName="Image" />
+		<Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
+		<PhotoItem Real="<%= @photo_item %>" />
+		<DataContent>
+		<![CDATA[ <%= @caption %>]]> </DataContent>
+	</NewsComponent><% elsif kind == "부고-인사" %>
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
