@@ -30,6 +30,7 @@
 #  backup             :text
 #  subject_head       :string
 #  kind               :string
+#  by_line            :string
 #
 # Indexes
 #
@@ -41,8 +42,6 @@
 #  fk_rails_...  (user_id => users.id)
 #  fk_rails_...  (working_article_id => working_articles.id)
 #
-# by_line
-
 
 class Story < ApplicationRecord
   belongs_to :user

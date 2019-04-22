@@ -64,6 +64,8 @@
 #  draft_mode                   :boolean
 #  y_in_lines                   :integer
 #  height_in_lines              :integer
+#  by_line                      :string
+#  price                        :float
 #
 # Indexes
 #

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_163157) do
+ActiveRecord::Schema.define(version: 2019_04_22_012437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -684,6 +684,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_163157) do
     t.text "backup"
     t.string "subject_head"
     t.string "kind"
+    t.string "by_line"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end
@@ -825,6 +826,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_163157) do
     t.boolean "draft_mode"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
+    t.string "by_line"
+    t.float "price"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
