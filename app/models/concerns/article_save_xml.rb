@@ -460,7 +460,7 @@ module ArticleSaveXml
     # reporter_from_body = 
     if body && body != ""
       @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^\#\s(.*)/){""} # 20190417 ebiz- 본문내 바이라인 삭제요청 
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){""}  
       @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
@@ -609,7 +609,7 @@ module ArticleSaveXml
         @name = @name.split("-")[0]
       end  
       # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-      @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
+      @by_line_body   = "" #20190417 ebiz - 본문 바이라인 삭제요청
       # @by_line        = "#{@name} #{@work} #{@position}"
       @by_line        = "#{@name} #{@work} #{@position}"
       @caption        = "#{@name} #{@work} #{@position}"
@@ -628,7 +628,7 @@ module ArticleSaveXml
           @name = @name.split("-")[0]
         end 
         @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-        # @by_line_body   = "" #20180417 ebiz - 본문 바이라인 삭제요청
+        # @by_line_body   = "" #20190417 ebiz - 본문 바이라인 삭제요청
         @by_line        = "#{@name} #{@work} #{@position}"
         # @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
@@ -720,7 +720,7 @@ module ArticleSaveXml
     #   end
    if body && body != ""
       @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
-      @body_content     = @body_content.gsub(/^\#\s(.*)/){"#{$1}"} # 20190417 ebiz - 본문내 기자명 삭제 요청 
+      @body_content     = @body_content.gsub(/^\#\s(.*)/){"#{$1}"}
       @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 

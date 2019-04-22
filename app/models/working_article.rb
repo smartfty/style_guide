@@ -75,7 +75,7 @@ class WorkingArticle < ApplicationRecord
   belongs_to :article, optional: true
   has_many :images, dependent: :delete_all
   has_many :graphics, dependent: :delete_all
-  has_one :story, dependent: :delete
+  has_one :story
   before_create :init_atts
   after_create :setup
   accepts_nested_attributes_for :images

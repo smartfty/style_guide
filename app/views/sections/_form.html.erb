@@ -73,6 +73,7 @@
     </div>
 
   <div class="btn-group btn-right" role="group" aria-label="기능">
+    <%= link_to "재생성", regenerate_pdf_section_path(@section), method: :get, class: "btn btn-default btn-sm" %>
     <%= link_to "다운로드 PDF", download_pdf_section_path, method: :get, class: "btn btn-default btn-sm" %>
     </button>
   </div>

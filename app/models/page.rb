@@ -344,7 +344,8 @@ class Page < ApplicationRecord
         # dettach attached story
         if wa.story
           attached_story = wa.story
-          attached_story.working_article_id = nil?
+          attached_story.working_article_id = nil
+          attached_story.selected = false
           attached_story.save
         end
         wa.destroy
@@ -377,7 +378,8 @@ class Page < ApplicationRecord
           # dettach attached story
           if working_article.story
             attached_story = working_article.story
-            attached_story.working_article_id = nil?
+            attached_story.working_article_id = nil
+            attached_story.selected = false
             attached_story.save
           end
           working_article.destroy
