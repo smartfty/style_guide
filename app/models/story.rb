@@ -41,6 +41,8 @@
 #  fk_rails_...  (user_id => users.id)
 #  fk_rails_...  (working_article_id => working_articles.id)
 #
+# by_line
+
 
 class Story < ApplicationRecord
   belongs_to :user

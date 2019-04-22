@@ -543,7 +543,6 @@ class Section < ApplicationRecord
     File.open(csv_path, 'w'){|f| f.write Section.to_csv.to_s}
   end
 
-
   def eval_layout
     eval(layout)
   end

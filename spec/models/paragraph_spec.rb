@@ -23,5 +23,15 @@
 require 'rails_helper'
 
 RSpec.describe Paragraph, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  string = "This is some sample text."
+  subject {Paragraph.create(para_text: string)}
+
+  it 'shuld create Paragraph' do
+    expect(subject.class).to eq(Paragraph)
+  end
+
+  it 'shuld create tokens' do
+    expect(subject.tokens.class).to eq(Array)
+    expect(subject.tokens.length).to eq(5)
+  end
 end

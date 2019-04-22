@@ -1,3 +1,15 @@
+ 
+ # autofit siblings with image insertion
+ # once siblings unoccuped total area is calculafet
+ # and if the unoccuped total area us short
+ # so that we need to insert picture, add picture place holder
+
+ # expand and push sibling
+ # expand and move sibling 
+ 
+ # autofit and push sibling
+ # autofit and move sibling 
+
  module WorkingArticleAutofit
   extend ActiveSupport::Concern
 

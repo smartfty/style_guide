@@ -27,9 +27,16 @@
 
 class Paragraph < ApplicationRecord
   belongs_to :working_article
+  serialize :tokens, Array
+  before_create :create_tokens
 
   def create_tokens
-
+    bindin.pry
+    tokens = []
+    words_list = para_text.split(" ")
+    words_list.each do |word|
+      tokens << {word => word.count * 5}
+    end
   end
 
   def layout_lines(starting_line)
