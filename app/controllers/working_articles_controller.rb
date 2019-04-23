@@ -85,7 +85,23 @@ class WorkingArticlesController < ApplicationController
         # else
           @working_article.generate_pdf_with_time_stamp
           @working_article.page.generate_pdf_with_time_stamp
-        # end
+        end
+
+        if story = @working_article.story
+          story_h = {}
+          story_h[:subject_head] = params['working_article']['subject_head'] = @working_article.filter_to_title(params['working_article']['subject_head'])
+          story_h[:subject_head] = params['working_article']['subject_head'] = @working_article.filter_to_quote(params['working_article']['subject_head'])
+          story_h[:title] = params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
+          story_h[:title] = params['working_article']['title'] = @working_article.filter_to_quote(params['working_article']['title'])
+          story_h[:subtitle] = params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
+          story_h[:subtitle] = params['working_article']['subtitle'] = @working_article.filter_to_quote(params['working_article']['subtitle'])
+          story_h[:body] = params['working_article']['body'] = @working_article.filter_to_markdown(params['working_article']['body'])
+          story_h[:body] = params['working_article']['body'] = @working_article.filter_to_quote(params['working_article']['body'])
+          story_h[:body] = params['working_article']['by_line'] = params['working_article']['by_line']
+          story_h[:body] = params['working_article']['category'] = params['working_article']['category']
+          story_h[:body] = params['working_article']['price'] = params['working_article']['price']
+          story.update(story_h)
+        end
         # format.html { render @working_article, notice: 'Working article was successfully updated.' }
         format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
         format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}

@@ -19,6 +19,18 @@
   - body
     - fit_text
 
+2019-4-18
+  - 부고 줄 길이 수정
+  - save_as_template
+    - save heading and ad
+  - template 바꿀때 기사 지워 지지 않음
+  
+  - 본문박수 부제 크기 칼라
+  - 사진 엥커 죄우
+
+  - 사진밑 여백 새로운 버젼 에서 에라
+  - 문페에 ** ** 깅조
+  
 2019-4-17
   - 다. hyphenation
   - hangling functuation?

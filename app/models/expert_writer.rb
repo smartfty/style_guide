@@ -28,8 +28,8 @@ end
 EOF
 
 class ExpertWriter < ApplicationRecord
-  mount_uploader :expert_image, ExpertImageUploader
-  mount_uploader :expert_jpg_image, ExpertJpgImageUploader
+  # mount_uploader :expert_image, ExpertImageUploader
+  # mount_uploader :expert_jpg_image, ExpertJpgImageUploader
 
   def path
     "#{Rails.root}/public/#{1}/expert"

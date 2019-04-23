@@ -39,6 +39,8 @@
 #  gutter                       :float
 #  overlap                      :text
 #  embedded                     :boolean
+#  y_in_lines                   :integer
+#  height_in_lines              :integer
 #
 
 class Article < ApplicationRecord
@@ -75,19 +77,6 @@ class Article < ApplicationRecord
 
   def jpg_path
     path + "/story.jpg"
-  end
-
-  def old_pdf_path
-    path + "/output.pdf"
-  end
-
-  def old_jpg_path
-    path + "/output.jpg"
-  end
-
-  def change_ouput_to_story
-    system "mv #{old_pdf_path} #{pdf_path}"
-    system "mv #{old_jpg_path} #{jpg_path}"
   end
 
   def relative_path
