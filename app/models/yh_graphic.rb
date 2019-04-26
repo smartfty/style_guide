@@ -28,7 +28,9 @@ class YhGraphic < ApplicationRecord
   validates_uniqueness_of :content_id
 
     def sorce_path
-      "/wire_source/203_GRAPHIC/20190312"
+      # "/wire_source/203_GRAPHIC/20190312"
+      # "/Volumes/211.115.91.190/101_KOR/#{Issue.last.date_string}"
+      "/Volumes/211.115.91.190/203_GRAPHIC/#{Issue.last.date_string}"
     end
 
     def full_size_path

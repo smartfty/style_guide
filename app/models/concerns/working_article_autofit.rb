@@ -1,6 +1,17 @@
+ 
+ # autofit siblings with image insertion
+ # once siblings unoccuped total area is calculafet
+ # and if the unoccuped total area us short
+ # so that we need to insert picture, add picture place holder
+
+ # expand and push sibling
+ # expand and move sibling 
+ 
+ # autofit and push sibling
+ # autofit and move sibling 
+
  module WorkingArticleAutofit
   extend ActiveSupport::Concern
-
 
   def auto_size_image(options={})
     target_image = options[:image] if options[:image]
@@ -79,6 +90,48 @@
       generate_pdf_with_time_stamp    
       page.generate_pdf_with_time_stamp    
     end
+  end
+
+  def title_area_in_lines
+    column*4
+  end
+
+  def subtitle_area_in_lines
+    3
+  end
+
+  def images_area_in_lines
+    area = 0
+    area += images.map{|img| img.area_in_lines} if images.length > 0
+    area
+  end
+
+  def graphics_area_in_lines
+    area = 0
+    area += graphics.map{|img| img.area_in_lines} if images.length > 0
+    area
+  end
+
+  def quote_area_in_lines
+    area = 0
+  end
+
+  def total_area_in_lines
+    column*row*7
+  end
+
+  def available_line_space
+    total_area = total_area_in_lines
+    total_area += extended_line_count*column if extended_line_count
+    total_area -= pushed_line_count*column if pushed_line_count
+    occupied_area_in_lines = 0
+    occupied_area_in_lines += title_area_in_lines if title
+    occupied_area_in_lines += subtitle_area_in_lines if subtitle
+    occupied_area_in_lines += images_area_in_lines
+    occupied_area_in_lines += graphics_area_in_lines
+    occupied_area_in_lines += quote_area_in_lines
+    occupied_area_in_lines
+    total_area - occupied_area_in_lines
   end
 
  end

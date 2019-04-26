@@ -61,7 +61,10 @@
 #  quote_box_column             :integer
 #  quote_box_type               :integer
 #  quote_box_show               :boolean
-#  draft_mode                   :boolean
+#  y_in_lines                   :integer
+#  height_in_lines              :integer
+#  by_line                      :string
+#  price                        :float
 #
 # Indexes
 #
@@ -69,6 +72,10 @@
 #  index_working_articles_on_page_id     (page_id)
 #  index_working_articles_on_slug        (slug) UNIQUE
 #
+
+# by_line
+# price
+# category_code
 
 class WorkingArticle < ApplicationRecord
   belongs_to :page
@@ -85,6 +92,7 @@ class WorkingArticle < ApplicationRecord
   include RectUtiles
   include ArticleSaveXml
   include WorkingArticleAutofit
+  include WorkingArticleLayout
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
   attr_reader :time_stamp
@@ -137,18 +145,6 @@ class WorkingArticle < ApplicationRecord
     path + "/story.jpg"
   end
 
-  def old_pdf_path
-    path + "/output.pdf"
-  end
-
-  def old_jpg_path
-    path + "/output.jpg"
-  end
-
-  def change_ouput_to_story
-    system "mv #{old_pdf_path} #{pdf_path}"
-    system "mv #{old_jpg_path} #{jpg_path}"
-  end
 
   def latest_pdf_basename
     f = Dir.glob("#{path}/story*.pdf").sort.last
@@ -208,15 +204,18 @@ class WorkingArticle < ApplicationRecord
 
   def update_story_content(story)
     # update content with new story content
-      # params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
-      # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
-      # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
-    self.reporter = story.reporter
-    self.subject_head    = filter_to_markdown(story.subject_head) if story.subject_head
-    self.title    = filter_to_markdown(story.title)
-    self.subtitle = filter_to_markdown(story.subtitle)
-    self.body     = filter_to_markdown(story.body)
-    self.quote    = story.quote  if story.quote
+    # params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
+    # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
+    # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
+    self.reporter       = story.reporter
+    self.subject_head   = filter_to_markdown(story.subject_head) if story.subject_head
+    self.title          = filter_to_markdown(story.title)
+    self.subtitle       = filter_to_markdown(story.subtitle)
+    self.body           = filter_to_markdown(story.body)
+    self.price          = story.price  if story.price
+    self.by_line        = story.by_line  if story.by_line
+    self.category_code  = story.category_code  if story.category_code
+    self.quote          = story.quote  if story.quote
     self.save
     save_article
     delete_old_files
@@ -349,13 +348,36 @@ class WorkingArticle < ApplicationRecord
     row*7 + extended_line_count - pushed_line_count
   end
 
-  def y_in_lines
+  def to_y_in_lines
     row*7 - pushed_line_count
   end
 
   def y_in_line_to_row_and_lines(y_position_in_line)
     row = y_position_in_line/7
     pushed = y_position_in_line % 7
+  end
+
+  def update_extended_and_pushed
+    self.pushed_line_count = 0 if self.pushed_line_count.nil?
+    if pushed_line_count >= 7
+      row_count              = pusheded_line_count/7
+      new_pushed_line_count  = pusheded_line_count % 7
+      self.grid_y            = grid_y + row_count
+      self.pushed_line_count = new_pushed_line_count
+      self.y_in_lines        = grid_y*7 + new_pushed_line_count
+    else
+      self.y_in_lines        = to_y_in_lines
+    end
+
+    self.extended_line_count = 0 if self.extended_line_count.nil?
+    if extended_line_count >= 7
+      row_count = extended_line_count/7
+      new_extendted_line_count = extended_line_count % 7
+      self.row += row_count
+      self.extended_line_count = new_extendted_line_count
+    end
+    self.height_in_lines = self.row*7 + self.extended_line_count - y_in_lines
+    self.save
   end
 
   def expandable?(line_count)
@@ -445,6 +467,29 @@ class WorkingArticle < ApplicationRecord
       end
     end
     File.open(config_path, 'w'){|f| f.write config_hash.to_yaml}
+  end
+
+  def save_pushed_sibllings_to_config_yml(line_count, sibllings_list)
+
+  end
+
+  def push_box_y_position(line_count, options={})
+    # update config file
+    # do not update layout, just move the position in the page
+    # this is much quicker operation
+
+  end
+
+  def push_sibllings_by_y_position(line_count, options={})
+    # options remove_last_if_pushed_out
+    # options remove_last_if_less_than_single_row
+
+    # if last siblling is pushed out of page, remove_last_if_pushed_out
+    #
+    line_count = 1
+    sibllings_list = [3, 5] # order of sibllings
+
+    save_pushed_sibllings_to_config_yml(line_count, sibllings_list)
   end
 
   def push_line(line_count, options={})

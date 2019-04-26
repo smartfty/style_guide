@@ -23,9 +23,9 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  draw_frame            :boolean
-#  zoom_level            :integer
-#  zoom_direction        :integer
+#  draw_frame            :boolean          default(TRUE)
+#  zoom_level            :integer          default(1)
+#  zoom_direction        :integer          default(5)
 #  move_level            :integer
 #  auto_size             :integer
 #  fit_type              :string
@@ -45,7 +45,7 @@ class Image < ApplicationRecord
   def info
     h = {}
     h[:position]              = position
-    h[:extra_height_in_lines] = extra_height_in_lines if extra_height_in_lines && extra_height_in_lines != 0
+    h[:extra_height_in_lines] = extra_height_in_lines || 0 #if extra_height_in_lines && extra_height_in_lines != 0
     h[:column]                = column
     h[:row]                   = row
     h[:x_grid]                = x_grid if x_grid
@@ -69,7 +69,7 @@ class Image < ApplicationRecord
   def size_string
     width_in_mm   = ((working_article.grid_width*column - working_article.gutter)*0.352778).round(2)
     # 4 is value adjustef to align image with body text
-    # extra_height_in_lines = 0 unless extra_height_in_lines
+    extra_height_in_lines = 0 unless extra_height_in_lines
     height_in_mm  = ((working_article.grid_height*row + working_article.body_line_height*extra_height_in_lines - 4)*0.352778).round(3)
     "#{width_in_mm}mm x #{height_in_mm}mm"
   end
@@ -108,7 +108,7 @@ class Image < ApplicationRecord
     h[:column]            = column
     h[:row]               = row
     h[:position]          = position.to_i
-    h[:extra_height_in_lines]   = extra_height_in_lines
+    h[:extra_height_in_lines]   = extra_height_in_lines || 0
     h[:is_float]          = true
     h[:caption_title]     = RubyPants.new(caption_title).to_html if caption_title
     h[:caption]           = RubyPants.new(caption).to_html if caption

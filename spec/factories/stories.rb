@@ -30,6 +30,7 @@
 #  backup             :text
 #  subject_head       :string
 #  kind               :string
+#  by_line            :string
 #
 # Indexes
 #
