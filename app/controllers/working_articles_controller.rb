@@ -67,6 +67,8 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
+      params['working_article']['subject_head'] = @working_article.filter_to_title(params['working_article']['subject_head'])
+      params['working_article']['subject_head'] = @working_article.filter_to_quote(params['working_article']['subject_head'])
       params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
       params['working_article']['title'] = @working_article.filter_to_quote(params['working_article']['title'])
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])

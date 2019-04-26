@@ -104,6 +104,7 @@ module ArticleSaveXml
     title.gsub!("\u2027", "&#8231;")
     subtitle.gsub!("\u2027", "&#8231;")
     body.gsub!("\u2027", "&#8231;")
+    body.gsub!("\ud594", "&#54676;")
     body.gsub!("\u4F18", "&#20248;")
     body.gsub!("\u5014", "&#20500;")
     title.gsub!("\u22EF", "&#8943;")
@@ -115,7 +116,6 @@ module ArticleSaveXml
     reporter.gsub!("\u200B", "")
     body.gsub!("\u5733", "&#22323;")
     title.gsub!("\u2027", "\u00b7")
-    body.gsub!("\u2027", "\u00b7")
     title.gsub!("\u2024", "&#8228;")
     subtitle.gsub!("\u2024", "&#8228;")
     subject_head.gsub!("\u2024", "&#8228;")
@@ -334,24 +334,24 @@ module ArticleSaveXml
     #   @gija_id          = "기자아이디"
     #   @email            = "기자이메일"
     # end
+    if reporter && reporter != ""  
+     @name       = reporter
+    else  
+     @name       = reporter_from_body.gsub(/\^$/){""}
+    end
     author              = reporter_from_body
-    if author
+    if author && page_number != 22
       @name             = reporter_from_body.gsub(/\^$/){""}.split(" ")[0]
       @post             = "소속팀"
       @author_email     = reporter_from_body.gsub(/\^$/){""}.split(" ")[2] 
       @author_id        = @author_email.split("@").first if @author_email
-      @by_line        =  "#{@name} 기자 #{@author_email}"
+      @by_line          =  "#{@name} 기자 #{@author_email}"
     else
       @name             = reporter
       @post             = "소속팀"
       @author_id        = "기자아이디"
       @author_email     = "기자이메일"
     end
-    # if reporter && reporter != ""  
-    #  @name       = reporter
-    # else  
-    #  @name       = reporter_from_body.gsub(/\^$/){""}
-    # end
 
      # if @name =~/_/
       # @name = @name.split("_")[0]
@@ -360,7 +360,7 @@ module ArticleSaveXml
     if opinion_writer
       @name        = opinion_writer.name if opinion_writer.name
       @work        = opinion_writer.work if opinion_writer.work
-      @position       = opinion_writer.position if opinion_writer.position
+      @position    = opinion_writer.position if opinion_writer.position
       if @name =~/_/
         @name = @name.split("_")[0]
       elsif @name =~/=/
@@ -380,24 +380,23 @@ module ArticleSaveXml
       if profile
         @name        = profile.name
         @work        = profile.work if profile.work
-        @position       = profile.position if profile.position
+        @position    = profile.position if profile.position
         if @name =~/_/
           @name = @name.split("_")[0]
         elsif @name =~/=/
           @name = @name.split("=")[0]
         elsif @name =~/-/
           @name = @name.split("-")[0]
-        end         
-        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        end
+        # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        @by_line_body   = ""
         @by_line        = "#{@name} #{@work} #{@position}"
-        # @by_line        = reporter_from_body
-        @caption        = "#{@name} #{@work} #{@position}"
       end
     end
     if page_number == 23 && order == 2
       @name          = reporter_from_body
       @by_line       = reporter_from_body
-      @by_line_body  = reporter_from_body
+      @by_line_body  = "" 
       reporter       = Reporter.where(name: @name).first
       @gija_email    = reporter.email if reporter
       @caption       = reporter_from_body
@@ -501,9 +500,8 @@ module ArticleSaveXml
       @head_line      = @head_line.gsub("\n", "")
     end
     if subtitle && subtitle != ""
-      subtitle.strip! 
+      subtitle.strip!
       @sub_head_line  = eliminate_size_option(subtitle)
-      @sub_head_line  = @sub_head_line.gsub(" $", "$")
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
       @sub_head_line  = @sub_head_line.gsub("\r", "")
       @sub_head_line  = @sub_head_line.gsub("\n", "")
@@ -627,8 +625,8 @@ module ArticleSaveXml
         elsif @name =~/-/
           @name = @name.split("-")[0]
         end 
-        @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
-        # @by_line_body   = "" #20190417 ebiz - 본문 바이라인 삭제요청
+        # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
+        @by_line_body   = "" #20190417 ebiz - 본문 바이라인 삭제요청
         @by_line        = "#{@name} #{@work} #{@position}"
         # @by_line        = reporter_from_body
         @caption        = "#{@name} #{@work} #{@position}"
@@ -636,6 +634,7 @@ module ArticleSaveXml
     end
     if page_number == 23 && order == 2
       @name          = reporter_from_body
+      @by_line_body   = "" #20190417 ebiz - 본문 바이라인 삭제요청
       @by_line       = reporter_from_body
       @caption       = reporter_from_body
     end
@@ -819,7 +818,7 @@ EOF
     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
   </TitleComponent>
   <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %><br><br><%= @by_line %>]]></Content>
+    <Content><![CDATA[<%= @data_content %>]]></Content>
   </ArticleComponent>
 </Article>
 EOF
@@ -849,10 +848,21 @@ EOF
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
 </TitleComponent>
 <ArticleComponent>
+  <Content><![CDATA[<%= @h_caption %> <%= @h_source %>]]>
+  </Content>
+</ArticleComponent>
+</Article>
+EOF
+
+elsif kind == "내부기자 사진"
+  three_component =<<EOF
+  <TitleComponent>
+  <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
+</TitleComponent>
+<ArticleComponent>
   <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
   </Content>
 </ArticleComponent>
-
 <PhotoComponent>
 <PhotoItem>
   <ImageType>Image</ImageType>
