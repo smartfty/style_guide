@@ -391,6 +391,7 @@ module ArticleSaveXml
         # @by_line_body   = "<br><br>#{@name} #{@work} #{@position}"
         @by_line_body   = ""
         @by_line        = "#{@name} #{@work} #{@position}"
+        @caption        = "#{@name} #{@work} #{@position}"
       end
     end
     if page_number == 23 && order == 2
