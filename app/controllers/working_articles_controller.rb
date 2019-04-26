@@ -87,7 +87,7 @@ class WorkingArticlesController < ApplicationController
         # else
           @working_article.generate_pdf_with_time_stamp
           @working_article.page.generate_pdf_with_time_stamp
-        end
+        # end
 
         if story = @working_article.story
           story_h = {}
