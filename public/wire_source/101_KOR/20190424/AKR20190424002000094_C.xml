@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424002000094</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>010852</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7105014" name="브라질"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+			<ClassCode code="0606001" name="사고일반"/>
+			<ClassCode code="0103005" name="국정조사"/>
+			<ClassCode code="0202001" name="기업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[브라질 광산 댐 붕괴사고 3개월만에 의회 국정조사위 설치]]></Title>
+		<SubTitle><![CDATA[하원의원 40여명으로 구성…1차로 120일간 활동]]></SubTitle>
+		<Body><![CDATA[브라질 광산 댐 붕괴사고 3개월만에 의회 국정조사위 설치
+하원의원 40여명으로 구성…1차로 120일간 활동
+
+    (상파울루=연합뉴스) 김재순 특파원 = 브라질 남동부 지역에서 광산 댐 붕괴사고가 발생한 지 3개월 만에 의회 국정조사위원회가 설치됐다.
+    23일(현지시간) 브라질 언론에 따르면 연방하원은 이날 40여 명의 의원으로 이뤄진 조사위를 설치하고 댐 붕괴사고의 원인과 대책 등을 협의할 예정이다.
+    조사위 활동은 1차로 120일간 계속되며 필요하면 시한을 연장할 수도 있다.
+
+
+
+    댐 붕괴사고는 지난 1월 25일 미나스 제라이스주(州) 브루마지뉴 지역에서 일어났다.
+    이 사고로 지금까지 231명이 사망한 것으로 확인됐고 실종자는 41명으로 추정된다.
+    사고 지역에서 가까운 파라오페바 강이 심각하게 오염되면서 주 정부는 지난 2월 강물 사용을 무기한 금지했다.
+    전체 길이가 546.5㎞인 파라오페바 강 가운데 최소한 300여㎞ 구간은 생태계가 거의 파괴된 것으로 알려졌으며, 강물의 중금속 오염도가 허용치의 600배를 넘는 것으로 나타났다.
+
+
+
+    사고 이후 댐을 소유·관리하는 세계적인 광산개발업체 발리(Vale)의 경영진이 총사퇴했다.
+    이 사고로 발리의 경영이 위축되면서 철광석 생산량이 감소하고 성장 전망치가 하향 조정되는 등 상당한 경제적 후유증을 낳고 있다.
+    이와 함께 피해자 가족들이 발리를 상대로 거액의 소송을 제기할 것으로 알려지면서 보상금 규모를 둘러싸고도 논란이 예상된다.
+    fidelis21c@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -7,15 +7,11 @@
 <% end %>
 <br>
 
-<div class="col-xs-12 col-sm-12" align="center">
-  <%= paginate @yh_pictures %>
-</div>
-
 <div class="view">
   <% @yh_pictures.each do |yh_picture| %>
-    <div class="col-xs-5 col-sm-3">
+    <div class="col-xs-5 col-sm-2">
       <a href="<%= yh_picture_path(yh_picture) %>"><img class="img-crop" src="<%= yh_picture.thumb_path %>"></img></a>
-      <p align="center"><%= yh_picture.title %></p>
+      <div align="center" style="height: 50px;"><%= yh_picture.title %></div>
     </div>
   <% end %>
 </div>

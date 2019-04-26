@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424043500008</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>093707</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[신한알파리츠 "1천530만여주 보호예수 26일 만료"]]></Title>
+		<Body><![CDATA[신한알파리츠 "1천530만여주 보호예수 26일 만료"
+
+    (서울=연합뉴스) 곽민서 기자 = 신한알파리츠는 유가증권시장 상장으로 인해 보호예수된 자사 보통주 1천530만6천123주와 종류주(비상장) 400만주의 보호예수기간이 오는 26일 만료된다고 24일 공시했다. 
+    mskwak@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

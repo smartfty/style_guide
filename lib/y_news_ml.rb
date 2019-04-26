@@ -192,7 +192,7 @@ class YNewsML
   end
 
   def self.parse_wire_story
-    directory = "#{Rails.root}/public/wire_source/101_KOR/20181010"
+    directory = "#{Rails.root}/public/wire_source/101_KOR/20190424"
     Dir.glob("#{directory}/*.xml").each do |xml_file|
       content_id = File.basename(xml_file, ".xml")
       received = YhArticle.find_by(content_id: content_id)
@@ -206,7 +206,7 @@ class YNewsML
   end
 
   def self.parse_wire_picture
-    directory = "#{Rails.root}/public/wire_source/201_PHOTO_YNA/20181010"
+    directory = "#{Rails.root}/public/wire_source/201_PHOTO_YNA/20190424"
     puts "parsing 201_PHOTO_YNA/20181010..."
     Dir.glob("#{directory}/*.xml").each do |xml_file|
       content_id = File.basename(xml_file, ".xml")
@@ -221,7 +221,7 @@ class YNewsML
   end
 
   def self.parse_wire_graphic
-    directory = "#{Rails.root}/public/wire_source/203_GRAPHIC/20190312"
+    directory = "#{Rails.root}/public/wire_source/203_GRAPHIC/20190424"
     puts "parsing 203_GRAPHIC/20190312..."
     Dir.glob("#{directory}/*.xml").each do |xml_file|
       content_id = File.basename(xml_file, ".xml")

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424000900098</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>002804</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7103001" name="유럽"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[EU, 페이스북·구글 등에 '온라인 가짜계정' 자료 공유 요구]]></Title>
+		<Body><![CDATA[EU, 페이스북·구글 등에 '온라인 가짜계정' 자료 공유 요구
+
+    (브뤼셀=연합뉴스) 김병수 특파원 = 유럽연합(EU) 행정부 격인 집행위원회는 23일 페이스북, 구글, 트위터 등 온라인 플랫폼에 가짜계정에 관한 자료를 외부 전문가나 연구학자 등에 제공할 것을 요구했다.
+    집행위는 이날 유럽의회 선거를 한 달여 앞두고 내놓은 온라인 플랫폼의 가짜 정보 대응 실행지침 이행평가 보고서에서 이같이 밝혔다.
+    집행위는 우선 보고서에서 페이스북과 구글, 트위터 등의 가짜 정보 대응에 진전이 있었다며 특히 유럽의회 선거를 겨냥한 광고에 대한 정책을 엄격히 하고 감독을 강화했다고 평가했다.
+    일례로 페이스북과 트위터는 공개적으로 접근할 수 있는 정치광고 라이브러리를 만들었고, 구글의 정치광고 라이브러리도 시험단계에 들어가 일반인에게 광고주와 광고 비용 등에 대한 정보를 제공함으로써 정치광고에 대한 투명성을 높였다고 집행위는 설명했다. 
+    그러면서 외부 전문가나 연구학자 등도 독립적으로 평가할 수 있도록 가짜계정에 대한 자료를 공유하는 게 필요하다며 이들 3개사에 온라인 가짜계정 관련 자료를 공유할 것을 요구했다.
+
+    bingsoo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

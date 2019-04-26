@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424008400504</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>060347</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>2</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1001001" name="북한정치"/>
+			<ClassCode code="1008003" name="북한인물"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[北방송 "김정은, 24일 새벽 러시아로 출발"(1보)]]></Title>
+		<Body><![CDATA[北방송 "김정은, 24일 새벽 러시아로 출발"(1보)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

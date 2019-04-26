@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423157200004</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>060005</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0607001" name="재해일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울시, 5~10월 '찾아가는 산사태 예방학교']]></Title>
+		<Body><![CDATA[서울시, 5~10월 '찾아가는 산사태 예방학교'
+
+
+
+    (서울=연합뉴스) 윤고은 기자 = 서울시는 풍수해 기간(5월15일~10월15일)을 중심으로 '찾아가는 산사태 예방학교'를 운영한다고 24일 밝혔다. 
+    산지에 인접해 있거나 산사태 발생 시 피해가 우려되는 학교를 대상으로 전문가가 학교를 방문해 안전교육을 한다. 
+    5월10일까지 산지방재과에서 신청을 받으며, 순차적으로 10월까지 교육을 진행할 예정이다. 
+    이번 교육은 학생 및 교직원을 대상으로 하며, 단체 및 회사에서도 신청할 수 있다. ☎ 02-2133-2182
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

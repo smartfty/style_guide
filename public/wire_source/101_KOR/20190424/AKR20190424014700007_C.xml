@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424014700007</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>071736</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7102001" name="아시아"/>
+		</Region>
+		<Class>
+			<ClassCode code="1210015" name="핸드볼"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한·중·일 핸드볼 최강 가리자…동아시아클럽선수권 25일 개막]]></Title>
+		<Body><![CDATA[한·중·일 핸드볼 최강 가리자…동아시아클럽선수권 25일 개막
+    
+
+    
+    (서울=연합뉴스) 김동찬 기자 = 제16회 동아시아클럽핸드볼선수권대회가 25일부터 나흘간 인천 도원체육관에서 열린다. 
+    한국과 중국, 일본 세 나라의 클럽팀이 출전, 최강팀을 가리는 이 대회에는 우리나라에서 남자부 두산과 SK, 여자부 부산시설공단과 인천시청 등 4개 팀이 우승에 도전장을 던졌다. 
+    일본에서는 남자부 도요타 오토바디, 여자부 호코쿠은행이 나오고 중국 대표로는 톈진(남자)과 장쑤(여자)가 한국을 찾는다. 
+    2004년 창설된 이 대회는 3개국이 번갈아 열어왔으며 개최국에서는 남녀부 2개 팀씩 출전하는 것을 관례로 해왔다. 
+    남자부는 앞서 열린 15차례 대회에서 한국이 한 번도 우승을 놓치지 않았고, 여자부 역시 우리나라가 10번 정상에 올라 5회 우승의 일본을 앞서고 있다. 
+    이번 대회 남자부에 출전하는 두산은 22일 끝난 2018-2019 SK핸드볼 코리아리그에서 22전 전승으로 우승한 상승세를 이번 대회에서도 이어간다는 각오다. 
+    두산은 2016년부터 이 대회 3년 연속 우승을 차지한 바 있다. 
+    여자부 역시 올해 코리아리그 우승팀 부산시설공단과 연고지 팀인 인천시청이 동반 출격, 한국의 7년 연속 우승에 도전한다. 
+    지난해 대회에서는 SK가 한국 대표로 출전해 정상에 올랐다. 
+    한편 동아시아클럽선수권은 그간 대회를 개최해온 동아시아연맹이 아시아연맹 하부 단체로 편입되면서 올해를 끝으로 막을 내린다.
+    emailid@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

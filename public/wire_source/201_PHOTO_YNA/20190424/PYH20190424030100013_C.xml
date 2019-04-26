@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424030100013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>094136</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0301001" name="금융일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[하나금융그룹, 국내 최초 전자지급수단 해외결제서비스 개시]]></Title>
+		<Comment>NO-1930</Comment>
+		<Body><![CDATA[하나금융그룹, 국내 최초 전자지급수단 해외결제서비스 개시
+    (서울=연합뉴스) 지난 23일(현지시간) 하나금융그룹의 GLN 대만 파트너사인 타이신 금융그룹 사옥에서 개최된 '하나멤버스 대만결제 시범서비스' 론칭 기념행사에서 참석자들이 업무협약을 체결한 후 기념촬영을 하고 있다. 사진 왼쪽부터 김정태 하나금융그룹 회장, 지성규 KEB하나은행장, 샹뤠이챵 타이신은행장, 우동량 타이신금융그룹 회장. 2019.4.24 [하나금융그룹 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042403010001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042403010001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042403010001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

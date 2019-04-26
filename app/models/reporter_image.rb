@@ -38,7 +38,7 @@ class ReporterImage < ApplicationRecord
 
   #TODO
   def sorce_path
-    "/wire_source/201_PHOTO_YNA/20181010"
+    "/wire_source/201_PHOTO_YNA/20190424"
   end
 
   def full_size_path

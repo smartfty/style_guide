@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424018500013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>084646</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1003005" name="북한과학"/>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001074" name="KCNA사진"/>
+			<AttributeCode code="9001121" name="NKNT"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[KN]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[북한 '제34차 전국과학기술축전' 개막]]></Title>
+		<Comment>NO-1518</Comment>
+		<Body><![CDATA[북한 '제34차 전국과학기술축전' 개막
+    (평양 조선중앙통신=연합뉴스) 제34차 전국과학기술축전이 지난 23일 평양 3대혁명전시관에서 '자력갱생의 정신과 과학기술의 위력'이라는 주제로 개막했다고 조선중앙통신이 24일 보도했다. 2019.4.24 
+[국내에서만 사용가능. 재배포 금지. For Use Only in the Republic of Korea. No Redistribution]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042401850001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042401850001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042401850001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

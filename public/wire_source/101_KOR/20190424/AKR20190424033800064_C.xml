@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424033800064</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091153</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012012" name="청주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503011" name="교육행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충북교육청 공무원 올해 임용시험 경쟁률 10.3대 1]]></Title>
+		<Body><![CDATA[충북교육청 공무원 올해 임용시험 경쟁률 10.3대 1
+
+    (청주=연합뉴스) 변우열 기자 = 충북도교육청은 235명을 뽑는 '2019년 지방공무원 임용시험'의 원서 접수를 마감한 결과, 2천431명이 응시해 경쟁률이 10.3대 1로 집계됐다고 24일 밝혔다. 
+
+
+    이는 지난해 경쟁률 12.9대 1보다 다소 낮아진 것이다.
+    올해 경쟁률을 직렬별로 보면 조리 9급이 18.4대 1로 가장 높았다. 122명을 뽑는 교육행정 9급에는 1천367명이 몰려 11.2대 1의 경쟁률을 기록했다.
+    성별로는 여성이 1천479명, 남성이 952명으로 집계됐다.
+    도교육청은 필기시험(6월 15일), 면접시험(8월 2일)을 거쳐 오는 8월 6일 최종 합격자를 발표할 예정이다.
+    bwy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

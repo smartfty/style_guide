@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424009200051</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>061454</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801002" name="날씨"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산 밤새 21.5㎜ 비…오늘 오전 5㎜ 더 내리고 그쳐]]></Title>
+		<Body><![CDATA[부산 밤새 21.5㎜ 비…오늘 오전 5㎜ 더 내리고 그쳐
+
+
+
+    (부산=연합뉴스) 오수희 기자 = 24일 부산은 오전까지 비가 조금 더 내리다가 그치겠다. 
+    부산기상청에 따르면 전날 오후∼이날 오전 6시 부산 공식관측지점인 중구 대청동에 21.5㎜ 비가 내렸다.
+    영도구가 26㎜, 남구 대연동이 24.5㎜ 강수량을 기록했다. 
+    기상청은 이날 오전까지 5㎜ 정도 비가 더 내린 뒤 그칠 것으로 예보했다. 
+    이날 부산은 아침 최저 15.8도, 낮 최고 20도를 기록하겠다. 
+    부산은 이날 밤부터 산발적으로 비가 조금 더 내리겠다. 
+    기상청은 25일 부산은 북서쪽에서 남동진하는 기압골 영향을 받아 오후부터 흐려져 밤부터 5㎜ 안팎의 비가 더 내릴 것으로 전망했다. 
+    osh9981@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

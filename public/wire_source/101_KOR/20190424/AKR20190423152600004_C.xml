@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423152600004</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>060007</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0509001" name="노동일반"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0803001" name="여행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울시, 비정규직 등 2천명에 휴가비 지원…온라인 접수]]></Title>
+		<Body><![CDATA[서울시, 비정규직 등 2천명에 휴가비 지원…온라인 접수
+
+    (서울=연합뉴스) 고현실 기자 = 서울시는 비정규직 노동자 등 2천명에게 올해부터 휴가비를 지원한다고 24일 밝혔다.
+    지원 신청은 5월 16일∼6월 7일 '2019 서울형 여행 바우처 지원 사업' 홈페이지(http://seoulvacation.kr/)에서 받는다.
+    대상은 서울에 거주하는 만 19세 이상 월평균 소득 200만원 미만의 비정규직 또는 특수형태 근로 종사자이다.
+    휴가비 지원은 매칭펀드 방식으로 이뤄진다.
+    대상자 본인이 15만원을 가상 계좌에 입금하면 서울시가 25만원을 추가로 입금해 총 40만원을 온라인 포인트로 지급한다. 포인트는 전용몰(http://seoulvacation.kr/)에서 국내 여행 상품을 구매하는 데만 쓸 수 있다. 사용 기한은 7월 초∼11월 20일이다.
+
+    okko@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>
