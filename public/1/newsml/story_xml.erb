@@ -156,9 +156,9 @@
 			<Role FormalName="Photo" />
 			<MediaType FormalName="Image" />
 			<Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
-			<PhotoItem Real="<%= @photo_item %>" />
+			<PhotoItem Real="<%= @photo_item %>" /><% if @caption && @caption !="" %>
 			<DataContent>
-			<![CDATA[ <%= @caption %>]]> </DataContent>
+			<![CDATA[ <%= @caption %>]]> </DataContent><% end %>
 		</NewsComponent><% elsif graphics.length > 0  %>
 		<NewsComponent>
 			<Role FormalName="Title" />
@@ -178,8 +178,6 @@
 			<MediaType FormalName="Image" />
 			<Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
 			<PhotoItem Real="<%= @photo_item %>" />
-			<DataContent>
-			<![CDATA[ <%= @caption %>]]> </DataContent>
 		</NewsComponent><% else %>
 		<NewsComponent>
 			<Role FormalName="Title" />
