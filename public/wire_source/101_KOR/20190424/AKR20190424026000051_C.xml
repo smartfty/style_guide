@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424026000051</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>083214</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+			<RegionCode code="7003006" name="울산"/>
+			<RegionCode code="7006001" name="경남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0201020" name="노동정책"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산형 OK 일자리 지원사업 공모…사업당 1억원 지원]]></Title>
+		<Body><![CDATA[부산형 OK 일자리 지원사업 공모…사업당 1억원 지원
+
+
+    
+    (부산=연합뉴스) 김상현 기자 = 부산시는 16개 구·군을 대상으로 '부산형 OK 일자리 지원사업'을 공모한다고 24일 밝혔다.
+    모두 20억원의 예산으로 20개 안팎의 일자리 사업을 발굴해 사업당 최대 1억원을 지원한다.
+    16개 구·군 대상으로 다음 달 10일까지 공모를 하고, 심사를 거쳐 다음 달 27일 사업선정을 완료한다.
+    공모 분야는 ▲ 지역특화형 ▲ 사회서비스형 ▲ 플랫폼구축형 ▲ 융합·혁신형 등 4개 부문이다.
+    시 출자·출연기관, 대학, 사회적기업, 비영리법인, 민간훈련기관 등과 컨소시엄을 구성해 참여할 수 있다. 
+    사업계획서와 신청서를 작성해 부산시 일자리창업과로 다음 달 10일까지 우편 또는 이메일(base@korea.kr)로 제출하면 된다. ☎051-051-888-4372
+    joseph@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

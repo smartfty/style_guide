@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424009400052</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>061657</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0606001" name="사고일반"/>
+			<ClassCode code="0606005" name="화재"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[창원 변압기 생산공장 화재…변압기 2대 소실]]></Title>
+		<Body><![CDATA[창원 변압기 생산공장 화재…변압기 2대 소실
+
+
+    
+    (창원=연합뉴스) 박정헌 기자 = 지난 23일 오후 11시 14분께 경남 창원 성산구에 있는 변압기 생산공장에서 불이 났다.
+    이 화재로 소형 변압기 2대가 소실돼 재산피해 약 5천만원(소방 추정)이 났다.
+    불은 소방당국에 의해 약 15분 만에 꺼졌다.
+    소방당국은 변압기 생산 중 고온 스팀에 의해 불이 난 것으로 보고 화재 경위를 조사 중이다. 
+    home1223@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

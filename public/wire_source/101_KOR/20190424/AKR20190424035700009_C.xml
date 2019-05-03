@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424035700009</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091358</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001065" name="PRN"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[PRNewswire] MXP invests seventh factory, applying new automated technology]]></Title>
+		<SubTitle><![CDATA[for its global development strategy]]></SubTitle>
+		<Body><![CDATA[[PRNewswire] MXP invests seventh factory, applying new automated technology
+for its global development strategy
+
+    (HANOI, Vietnam, April 23, 2019 PRNewswire=연합뉴스) MXP JSC (Manufacturing Sportswear Joint Stock Company), one of Vietnam's leading apparel manufacturing and exporting companies, has launched construction of their seventh factory in Thai Binh province. This is an important step toward increasing their production scale and output, and in applying advanced production technology to meet the company's long-term development strategy of becoming the most prominent "smart factory" in Vietnam's textile and apparel industry in the 4.0 era.
+
+    The MXP7 factory will be built in Quynh Xa commune, Quynh Phu district, Thai Binh. Covering around 80,000m2, the project's total investment amounts to $16 million. Completion is expected in the first quarter of 2020.
+
+    MXP is a pioneer in applying 4.0 technology in software operations, including: FastReact, ERP, HRM, eOffice, GSD, automation of data entry and reporting systems. In the MXP7 factory, these systems will be upgraded, resulting in higher performance and better quality products. Equipped with a modern production-line system with a capacity of 2 million products per year and a full workforce of up to 3,500 people, MXP7 is a key project in MXP's ongoing strategy of high-tech investment. By 2030, MXP plans to double its employees from 15,000 to 30,000, and upgrade its capacity from 10 million to 20 million products annually.
+
+    Mr. Tran Quang Hao, Sales Director of MXP, said: "The construction of MXP7 in 2019 is a major turning point to ensure the annual export turnover of MXP in particular and the textiles market in general. We are one step ahead in the long-term development strategy to expand MXP globally and become a trusted, quality supplier to the world's leading corporations." With committed business principles, on-time delivery performance, and quality assurance for each product, MXP already produces for prominent brands like The North Face, Lululemon, Under Armour, Patagonia, GAP, Marmot, REI, etc. Products made by MXP are regularly sold in the US and Canada, and are reaching into Europe and Asia.
+
+    In recent years, Vietnam has emerged as one of the world's largest textile suppliers, with a total export turnover of over USD 36 billion. "Investing in and building the MXP7 factory in 2019 is crucial to promoting MXP's competitive advantages, coupled with our investment strategy in 4.0 technology and our emphasis on qualified human resources in 2019," said Mr. Hao.
+
+    Please consult our website for more information: https://mxp.com.vn/
+
+    Video - https://cdn4.prnasia.com/002071/mnr/201904/mxp/video1.mp4
+    MXP's sustainable factory design concept
+
+    Source: MXP JSC (Manufacturing Sportwear Joint Stock Company)
+
+    [편집자 주] 본고는 자료 제공사에서 제공한 것으로, 연합뉴스는 내용에 대해 어떠한 편집도 하지 않았음을 밝혀 드립니다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

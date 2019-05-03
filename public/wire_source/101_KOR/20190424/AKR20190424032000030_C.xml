@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424032000030</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091507</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0801005" name="요리"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0409006" name="백화면세"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[롯데百 "건강식 맛집 다양하게 유치"]]></Title>
+		<Body><![CDATA[롯데百 "건강식 맛집 다양하게 유치"
+
+    (서울=연합뉴스) 이신영 기자 = 롯데백화점은 건강을 생각하는 고객들이 늘어남에 따라 맛뿐 아니라 재료에도 신경을 쓴 건강식 맛집을 연내에 다양하게 유치할 예정이라고 24일 밝혔다. 
+    롯데백화점에 따르면 지난해 5월 잠실점에 처음 문을 연 유기농 베이커리 '여섯시오븐'의 경우 백화점 내 일반 베이커리보다 구매력이 높은 VIP인 MVG 고객의 이용률이 2배 이상 높았다. 
+    지난달 문을 연 '여섯시오븐' 노원점의 경우도 개점 한 달이 되기도 전에 매출 1억3천만원을 달성하기도 했다. 
+    롯데는 이런 추세를 고려해 지난 16일 분당점에 3년 연속 '미슐랭 빕 구르망'에 등재된 두부 전문점 '백년옥'을 들였다.
+    지난 5일에는 일산점에 세계 3대 진미 중 하나인 트뤼프를 주재료로 한 '트뤼프 오일 짜장면'으로 유명해진 중식당 '길운구락부'도 문을 열었다. 
+
+
+    eshiny@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

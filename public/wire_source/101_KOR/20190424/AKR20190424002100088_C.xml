@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424002100088</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>012945</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7103001" name="유럽"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+			<ClassCode code="0302009" name="해외증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[유럽증시] 유가 강세에 정유주 중심 상승]]></Title>
+		<Body><![CDATA[[유럽증시] 유가 강세에 정유주 중심 상승
+
+    (제네바=연합뉴스) 이광철 특파원 = 유럽증시는 23일(현지시간) 미국이 이란 제재 예외 조치를 종료하기로 하면서 정유·에너지 종목 중심으로 소폭 상승했다.
+    독일 프랑크푸르트 증시의 DAX 지수는 전 거래일보다 0.11% 오른 12,235.51을 기록했고 프랑스 파리 증시의 CAC40 지수도 0.20% 상승한 5,591.69로 마감했다.
+    영국 런던 증시의 FTSE100 지수는 0.85% 상승한 7,523.07을 기록했고 범유럽지수인 Stoxx50 지수도 3,503.85로 0.13% 올랐다.
+    종목별로는 정유주가 강세를 보였고 항공주는 하락했다.
+    런던 증시에서 석유회사 BP는 2.61% 올랐고 프랑스 정유기업 토탈도 1.83% 상승했다.
+    반면 에어프랑스-KLM(-5.98%), 루프트한자(-2.61%) 등 항공주는 큰 폭으로 하락했다.
+    미국이 이란 원유 수출을 옥죄면서 국제유가는 최근 6개월 동안 가장 높은 수준까지 올랐다. 6월물 서부텍사스산 원유(WTI) 가격은 전 거래일보다 0.93% 오른 66.16달러, 브렌트유는 0.34% 오른 74.30달러에 움직였다. 
+
+
+    minor@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

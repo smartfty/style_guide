@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424030300004</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>090905</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0510002" name="검찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[법무부 '피의자에 사주풀이' 현직검사 견책 처분]]></Title>
+		<Body><![CDATA[법무부 '피의자에 사주풀이' 현직검사 견책 처분
+
+
+    (서울=연합뉴스) 김계연 기자 = 조사 중 피의자에게 사주풀이를 해준 검사가 견책 처분을 받았다.
+    법무부는 최근 검사징계위원회를 열어 대구지검 서부지청 A검사 등 현직 검사 5명에게 견책 처분을 내렸다고 24일 밝혔다.
+    견책은 검사징계법상 가장 낮은 수위의 징계다.
+    A검사는 2017년 3월 조사하던 피의자에게 사주풀이를 해주면서 부적절한 언행을 했다는 이유로 징계에 회부됐다.
+    A검사는 인터넷 사주풀이 프로그램 '만세력'에 피의자 생년월일을 입력한 뒤 결과를 출력해 보여주며 "변호사가 사주상 도움이 되지 않으니 같이 일을 하지 말라"는 취지로 말한 것으로 알려졌다.
+    법무부는 A검사가 공정성을 의심받을 수 있는 언행 또는 모욕적인 발언을 해 품위를 손상했다고 판단했다.
+    법무부는 지난해 5월 점심시간을 넘겨 근무지로 복귀한 후 업무 관련자에게 욕설을 한 수원지검 안산지청 B검사도 성실의무 위반과 품위손상을 들어 견책 처분했다.
+    서울중앙지검 C검사와 광주지검 순천지청 D검사, 서울남부지검 E검사는 2016년 연말 기준 재산신고에서 각각 3억∼7억원대 재산을 잘못 신고했다는 이유로 각각 견책 징계를 받았다.
+    dada@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424030800003</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>085923</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0302012" name="기업공시"/>
+			<ClassCode code="0401003" name="실적발표"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[LGD, 1분기 1천320억원 영업손실…3분기만에 적자 전환]]></Title>
+		<Body><![CDATA[LGD, 1분기 1천320억원 영업손실…3분기만에 적자 전환
+
+    (서울=연합뉴스) 이승관 기자 = LG디스플레이는 올 1분기에 1천320억원의 영업손실을 냈다고 24일 공시했다.
+    지난해 같은기간의 983억원 영업손실보다 더 많아진 것이며, 2천793억원의 영업이익을 올렸던 전분기에 비해서는 급격히 악화한 실적이다. 이로써 지난해 2분기 이후 3분기만에 다시 적자로 돌아섰다.
+    매출액은 5조8천788억원으로, 지난해 같은기간(5조6천752억원)보다는 4% 늘었으나 전분기(6조9천478억원)에 비해서는 15%나 감소했다.
+    humane@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

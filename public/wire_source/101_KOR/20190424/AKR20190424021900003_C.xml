@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424021900003</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>080853</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[일렉트로룩스, '미세먼지 차단' 유선청소기 '퓨어 C9' 출시]]></Title>
+		<Body><![CDATA[일렉트로룩스, '미세먼지 차단' 유선청소기 '퓨어 C9' 출시
+
+    (서울=연합뉴스) 이승관 기자 = 스웨덴에 본사를 둔 글로벌 가전업체 일렉트로룩스는 프리미엄 유선 청소기 '퓨어 C9'을 출시했다고 24일 밝혔다.
+    지난 2014년 첫선을 보인 '울트라 플렉스' 시리즈를 업그레이드한 모델로, 7단계 여과 시스템을 탑재해 외부 미세먼지는 물론 청소기 사용 시 발생하는 실내 미세먼지 걱정까지 줄였다고 회사 측은 강조했다.
+    7단계 필터시스템 가운데 두 개의 헤파 13등급 필터가 청소 중 흡입한 미세먼지를 99.999%까지 여과한다는 것이다.
+    또 1천600W(와트) 모터파워에 공기저항을 낮춘 3D 필터를 더해 강력한 흡입력을 구현하고, 기존 청소기와는 달리 먼지 통이 일정 이상 차더라도 흡입력이 떨어지지 않도록 설계됐다.
+    회사 관계자는 "퓨어 C9 출시를 통해 무선청소기 '퓨어 F9', 로봇청소기 '퓨어 i9', 또 다른 유선청소기 '퓨어 D9'과 함께 프리미엄급 '퓨어 시리즈'를 완성했다"고 설명했다.
+    신제품은 사틴화이트, 인디고블루, 스페이스틸, 아이언그레이, 칠리 레드 등 5가지 색상이며, 소비자 가격은 29만9천900∼50만9천원이다.
+
+
+    humane@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

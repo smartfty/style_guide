@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424037800061</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>093823</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0204001" name="부동일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0404001" name="건설일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경기도, 부동산 전담 수사팀 신설…떴다방 등 차단]]></Title>
+		<Body><![CDATA[경기도, 부동산 전담 수사팀 신설…떴다방 등 차단
+
+    (수원=연합뉴스) 이우성 기자 = 경기도가 떴다방, 무자격 중개행위, 분양권 불법전매 등 부동산 분야 불법행위를 전담하는 수사팀을 꾸려 수사에 나섰다.
+    
+
+
+    그동안 수사·행정기관에 태스크포스(TF)로 꾸려진 부동산 분야 수사 조직은 있었으나 전담 수사팀 신설은 경기도가 국내 처음이다. 
+    24일 도에 따르면 경기도 공정 특별사법경찰단은 지난 1일 도청 공무원 4명과 31개 시·군 부동산 특사경 담당자 200명 등 총 204명으로 구성된 부동산수사팀을 신설했다.
+    도가 지난해 2월부터 부동산 불법행위 수사 태스크포스(TF)를 꾸려 운영해오던 것을 공식 조직으로 전환한 것이다.
+    신설된 부동산수사팀은 ▲무자격·무등록 중개행위 ▲중개보수 초과 ▲임시 중개시설물 설치(떴다방) ▲토지거래 허가구역 내 무허가 및 부정허가 거래 ▲아파트 분양권 불법전매 ▲청약통장 매도 또는 통장 매수 후 청약 등 부동산 분야의 각종 불법행위를 수사하게 된다.
+    도는 부동산수사팀 신설로 투기수요 차단과 부동산 거래 안전 등의 효과를 기대하고 있다. 
+    김영수 경기도 공정 특별사법경찰단장은 "부동산 수사에도 휴대전화 통화명세, 메신저 내용 복원 등 디지털 포렌식 수사기법을 적극적으로 활용해 촘촘하고 면밀하게 수사를 진행할 것"이라며 "불법 투기가 발붙이지 못하도록 엄중히 감시하겠다"고 말했다. 
+    gaonnuri@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

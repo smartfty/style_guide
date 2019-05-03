@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20190424025100061</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>092209</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0204001" name="부동일반"/>
+			<ClassCode code="0204002" name="부동거래"/>
+			<ClassCode code="0404001" name="건설일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경기특사경, 부동산수사팀 신설…떴다방 등 차단]]></Title>
+		<Comment>NO-1746</Comment>
+		<Body><![CDATA[경기특사경, 부동산수사팀 신설…떴다방 등 차단 
+    (수원=연합뉴스) 경기도는 도 공정 특별사법경찰단에 떴다방, 무자격 불법 부동산 중개행위, 분양권 불법전매 등 부동산 분야 불법행위를 전담하는 수사팀을 신설, 수사에 나섰다고 24일 밝혔다. 2019.4.24 [경기도 제공]
+    gaonnuri@yna.co.kr
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042402510006100.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042402510006100_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042402510006100_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

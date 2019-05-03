@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424009600064</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>061739</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012012" name="청주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충북 오후까지 산발적 빗방울…미세먼지 '좋음']]></Title>
+		<Body><![CDATA[충북 오후까지 산발적 빗방울…미세먼지 '좋음'
+    
+    (청주=연합뉴스) 윤우용 기자 = 24일 충북지역은 대체로 흐린 날씨가 이어지며 오후까지 산발적으로 빗방울이 떨어지는 곳이 있겠다.
+
+    이날 오전 4시 현재 누적 강수량은 보은 20.5㎜, 영동 19㎜, 청주 18㎜, 옥천 17.5㎜ 등이다. 
+    낮 최고기온은 19∼21도로 예상한다. 
+    국립환경과학원은 이날 도내 미세먼지 농도를 '좋음'으로 내다봤다. 
+    25일은 구름이 많다가 차차 흐려져 오후부터 비가 내리겠다. 
+    25일 오후부터 26일 새벽 사이 돌풍과 함께 천둥·번개가 치고 우박이 떨어지는 곳도 있겠다. 
+    청주기상지청은 "모레 아침에는 기온이 큰 폭으로 떨어지고 바람도 다소 강하게 불겠으니 건강관리에 신경 써야 한다"고 말했다. 
+    ywy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

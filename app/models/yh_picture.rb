@@ -28,8 +28,8 @@ class YhPicture < ApplicationRecord
   validates_uniqueness_of :content_id
   
     def sorce_path
-      # "/wire_source/201_PHOTO_YNA/20181010"
-      "/Volumes/211.115.91.190/201_PHOTO_YNA/#{Issue.last.date_string}"
+      "/wire_source/201_PHOTO_YNA/20190424"
+      # "/Volumes/211.115.91.190/201_PHOTO_YNA/#{Issue.last.date_string}"
     end
 
     def full_size_path
