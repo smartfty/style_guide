@@ -75,6 +75,7 @@ module ArticleSaveXml
     body_text.gsub!(/^\./, "")
     body_text.gsub!(/ {2,8}/, " ")
     body_text.gsub!("\u2024", ".")
+    body_text.gsub!("\u00A0", "\u0020")
     body_text
   end
 
@@ -558,7 +559,7 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, " ") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
     # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
@@ -860,7 +861,7 @@ elsif page_number == 23 && order == 3
 </Article>
 EOF
 
-  elsif kind == "사진"
+  elsif kind == "--사진"
   three_component =<<EOF
   <TitleComponent>
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
@@ -872,7 +873,7 @@ EOF
 </Article>
 EOF
 
-elsif kind == "내부기자 사진"
+elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent>
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
