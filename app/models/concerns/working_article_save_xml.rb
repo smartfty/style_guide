@@ -2,7 +2,7 @@
   extend ActiveSupport::Concern
 
   def eliminate_size_option(string)
-    string = string.sub(/\{\s?(-?\d)\s?\}\s?$/, "") if string =~/\{\s?(-?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(-?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(-?\d)\s?\}\s?$/
   end
 
   def covert_to_multiple_line(string)
