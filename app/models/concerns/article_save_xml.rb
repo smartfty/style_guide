@@ -776,7 +776,7 @@ article_info =<<EOF
       <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
       <GisaNumberID/>
       <GisaRelationID/>
-      <ByLine><%= @by_line %></ByLine> 
+      <ByLine><![CDATA[<%= @by_line %>]]></ByLine> 
       <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
       <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
       <SendModify><%= @send_modify %></SendModify>
