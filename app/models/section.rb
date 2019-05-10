@@ -289,6 +289,8 @@ class Section < ApplicationRecord
 
   def update_section_layout
     update_profile
+    self.grid_width = publication.grid_width(column)
+    self.save
     save_section_config_yml
     copy_page_heading
     create_articles
@@ -349,8 +351,8 @@ class Section < ApplicationRecord
   end
 
   def generate_pdf
-    PageWorker.perform_async(path, nil)
-    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    # PageWorker.perform_async(path, nil)
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
   end
 
   def svg_unit_width
@@ -641,6 +643,9 @@ class Section < ApplicationRecord
         article_atts[:extended_line_count] = box.last.split("_")[1].to_i
       elsif box.last =~/^push/
         article_atts[:pushed_line_count] = box.last.split("_")[1].to_i
+      else
+        article_atts[:extended_line_count] = 0
+        article_atts[:pushed_line_count] = 0
       end
       article_atts[:section_id]   = self.id
       article_atts[:section]   = self
