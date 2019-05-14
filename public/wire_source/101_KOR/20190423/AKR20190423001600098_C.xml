@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423001600098</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>010127</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7103001" name="유럽"/>
+			<RegionCode code="7103019" name="벨기에"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+			<ClassCode code="0712001" name="영화"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한국영화 '도어락', 브뤼셀국제영화제 스릴러 부문 최우수상]]></Title>
+		<Body><![CDATA[한국영화 '도어락', 브뤼셀국제영화제 스릴러 부문 최우수상
+
+    (브뤼셀=연합뉴스) 김병수 특파원 = 지난 21일(현지시간) 막을 내린 제37회 브뤼셀 국제 판타스틱 영화제(BIFFF)에서 이권 감독의 '도어락'이 스릴러 부문 최우수상을 받았다고 주(駐)벨기에·유럽연합(EU) 한국문화원이 22일 밝혔다.
+    BIFFF는 스페인의 시체스, 포르투갈의 판타스포르토와 함께 세계 3대 판타스틱 영화제 중 하나로 꼽힌다.
+    이번 영화제에는 전 세계에서 판타스틱, 스릴러, 호러 장르의 영화 97편이 참가했으며 한국영화는 '도어락'을 비롯해 '신과 함께-인과 연'(김용화 감독), '창궐'(김성훈 감독), '성난 황소'(김민호 감독) 등 11편이 초청됐다.
+    BIFFF 영화제 대상인 국제경쟁부문 '금까마귀상'은 네덜란드의 코미디-호러 영화 '리틀 몬스터'가 차지했다.
+
+    bingsoo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

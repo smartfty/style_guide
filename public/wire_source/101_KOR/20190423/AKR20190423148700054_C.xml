@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423148700054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164505</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008010" name="무안"/>
+		</Region>
+		<Class>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0409004" name="대형마트"/>
+			<ClassCode code="0107004" name="지방일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전남농협 미곡처리장 대표협의회 "판로확보·마케팅 주력"]]></Title>
+		<Body><![CDATA[전남농협 미곡처리장 대표협의회 "판로확보·마케팅 주력"
+
+
+    (무안=연합뉴스) 조근영 기자 = 농협전남지역본부는 23일 지역본부 회의실에서 광주전남농협 RPC 장장 대표협의회를 열고 논 다른 작물 재배 지원 사업 등을 논의했다.
+    협의회에는 김용경 정남진농협쌀조합공동사업법인 대표이사 등 27명 전원이 참석했다.
+    참석자들은 "올해는 작년과 달리 시장여건이 좋지 않지만 PRC 간 출혈경쟁을 지양하고 다양한 판로 확보와 마케팅 활동을 더욱 적극적으로 전개해 고품질 전남 쌀 입지를 다지는 데 노력하자"고 의견을 모았다.
+    협의회 후 정기총회에서 2018년 협의회 사업결산보고 및 2019년 사업계획 안건을 승인하고, 앞으로 2년간 협의회를 이끌 새로운 임원진을 선출했다.
+    협의회장은 김용경 대표이사, 부회장은 구례군농협조합공동사업법인 김성근 대표이사가 선출됐다.
+    chogy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

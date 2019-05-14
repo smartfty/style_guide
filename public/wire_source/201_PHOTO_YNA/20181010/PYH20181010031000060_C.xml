@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010031000060</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103756</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005030" name="포천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0701005" name="학술"/>
+			<ClassCode code="0705001" name="출판일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국립수목원 발간 '베트남 북부 나무도감' 표지]]></Title>
+		<Comment>NO-1775</Comment>
+		<Body><![CDATA[국립수목원 발간 '베트남 북부 나무도감' 표지
+    (포천=연합뉴스) 산림청 국립수목원은 10일 베트남 생태생물자원연구소와 함께 '베트남 북부 나무도감'(Woody Plants of Oac-Phia Den National Park in Vietnam)을 발간, 베트남 하노이에서 출판기념식을 열었다. 사진은 베트남 나무도감 표지. 2018.10.10 [국립수목원 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101003100006000.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101003100006000_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101003100006000_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

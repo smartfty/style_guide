@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423090500001</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140534</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>2</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001071" name="속보뉴스"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[여야4당 모두 선거제·공수처 패스트트랙 추인…25일까지 지정(속보)]]></Title>
+		<Body><![CDATA[여야4당 모두 선거제·공수처 패스트트랙 추인…25일까지 지정(속보)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

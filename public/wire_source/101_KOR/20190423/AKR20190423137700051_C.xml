@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423137700051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>161450</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0204002" name="부동거래"/>
+			<ClassCode code="0303001" name="금기일반"/>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[캠코·한국감정원 전자계약 활성화 업무협약]]></Title>
+		<Body><![CDATA[캠코·한국감정원 전자계약 활성화 업무협약
+
+
+    (부산=연합뉴스) 이종민 기자 = 캠코(한국자산관리공사)는 23일 오후 부산국제금융센터 본사 대회의실에서 한국감정원과 국유재산 효율적 관리와 전자계약 활성화를 위한 업무협약을 맺었다.
+    두 기관은 협약에서 전자계약 활성화를 위한 정보교류·자료제공, 부동산 거래 전자계약 활성화, 지속성장 모델 구축 등에 힘쓰기로 했다.
+    국유 부동산을 전자계약으로 할 경우 부동산 실거래가 신고가 자동으로 이뤄지고 소유권 이전등기 대행비용도 30% 절감할 수 있다.
+    또 모든 계약서는 공인된 국가 공인 전자문서센터에 전자파일로 보관돼 계약서 위·변조를 원천적으로 차단할 수 있다.
+    캠코는 지난해 5월부터 국토교통부 부동산거래 전자계약 시스템과 연계한 전자계약 서비스를 시행했다.
+    올해 4월 현재 대부 1천370건, 매각 142건 등 모두 1천512건이 전자계약으로 거래가 이뤄졌다.
+    ljm703@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

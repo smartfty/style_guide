@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423112900057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>143841</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107004" name="지방일반"/>
+			<ClassCode code="0503001" name="교육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[울산소식] 교육위, 바다도서관·행복마을학교 벤치마킹]]></Title>
+		<Body><![CDATA[[울산소식] 교육위, 바다도서관·행복마을학교 벤치마킹
+
+
+    
+    (울산=연합뉴스) 울산시의회 교육위원회는 23일 경남 창원 지혜의 바다도서관과 행복마을학교를 견학했다. 
+    2018년 4월 개관한 지혜의 바다도서관은 폐교된 중학교 체육관을 증축해 독서와 문화 공간이 어우러진 독서문화 공간으로 조성해 지역 랜드마크로 주목받고 있다. 
+    행복마을학교는 청소년과 지역민이 협력해 목공, 제빵, 업사이클링, 요리 등 다양한 체험 활동 프로그램을 운영하는 마을 교육공동체다.
+    교육위원들은 도서관과 행복마을학교 주요사업과 프로그램, 운영 현황 등을 들은 뒤 시설을 견학했다.
+    또 행복마을학교의 경우 울산교육청이 2020년 개관하려는 가칭 울산형마을교육공동체센터와 무엇이 다른지 등을 비교했다.
+    천기옥 교육위원장은 "도서관이 단순히 학생들이 책을 읽고 공부하는 공간에서 시민들이 문화를 접하고 휴식하는 공간으로 그 영역이 확대되는 추세"라며 "오늘 현장 활동에서 배운 점을 울산지역 도서관, 마을공동체 사업 정책 방향에 접목해 발전시킬 수 있도록 노력하겠다"고 밝혔다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

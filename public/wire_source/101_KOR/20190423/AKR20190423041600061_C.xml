@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423041600061</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>093839</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[<카메라뉴스> 안양 평촌중앙공원에 활짝 핀 튤립]]></Title>
+		<Body><![CDATA[<카메라뉴스> 안양 평촌중앙공원에 활짝 핀 튤립
+
+    (안양=연합뉴스) 경기도 안양시 평촌중앙공원에 튤립 5만 송이가 활짝 펴 장관을 이루고 있다.
+    
+
+    시는 도시 꽃 가꾸기 사업의 하나로 지난해 중앙공원과 시민대로 중앙분리대 등에 튤립 5만 송이를 심었다.
+    시는 시민들이 꽃 속에서 봄을 즐길 수 있도록 튤립 정원 사이에 포토존을 설치했다. (글 = 이복한 기자·사진 = 안양시 제공)
+    bhlee@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

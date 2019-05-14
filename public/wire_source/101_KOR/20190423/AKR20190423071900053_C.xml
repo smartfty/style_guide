@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423071900053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>112135</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503006" name="대학교육"/>
+			<ClassCode code="0901002" name="과학기술"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[DGIST, 에너지 발전·저장 동시에 가능한 '투명 배터리' 개발]]></Title>
+		<Body><![CDATA[DGIST, 에너지 발전·저장 동시에 가능한 '투명 배터리' 개발
+
+
+    (대구=연합뉴스) 이덕기 기자 = DGIST(대구경북과학기술원)는 스마트섬유융합연구실 최창순 선임연구원팀이 에너지 발전과 저장을 동시에 할 수 있는 투명 배터리 개발에 성공했다고 23일 밝혔다. 
+    연구팀은 탄소원자로 만들어진 벌집 형태 소자인 그래핀(Graphene) 필름을 전극으로 활용했다. 그래핀은 두께가 0.2nm로 얇아서 투명성이 높은 데다 구리보다 100배 많은 전류를 실리콘보다 100배 빨리 전달할 수 있다.
+    연구팀이 개발한 시스템은 유연하고 투명하면서 에너지 생성 및 저장, 터치 감지 등이 가능해 웨어러블 전자기기나 투명 스마트폰을 위한 에너지 공급원으로 활용이 가능할 것으로 전망한다. 
+    최 선임연구원은 "영화에 등장하는 투명 휴대폰이 너무 멋있어 보여서 관련 연구를 시작하게 됐다"며 "제작 단가가 비싸지만 꾸준히 연구하면 상용화 가능성이 있다"고 말했다. 
+    연구 결과는 재료 및 계면 분야 저널인 'ACS 어플라이드 머티리얼 & 인터페이스' 온라인판 최근호에 게재됐다.
+    duck@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

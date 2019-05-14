@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423134900011</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>161919</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Class>
+			<ClassCode code="0503006" name="대학교육"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001010" name="부고"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[부고] 문영동(전 진주 연암공대 사무처장)씨 모친상]]></Title>
+		<Body><![CDATA[[부고] 문영동(전 진주 연암공대 사무처장)씨 모친상
+
+    ▲ 김필선씨 별세, 문영동(전 진주 연암공대 사무처장)·문국동(금포영농조합 대표)씨 모친상, 배미아·김민승씨 시모상 = 22일 오후 7시께, 진주 경상대병원 장례식장 특102호실, 발인 25일 오전 7시. ☎ 055-750-8652 (서울=연합뉴스)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

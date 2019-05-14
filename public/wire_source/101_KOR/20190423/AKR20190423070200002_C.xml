@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423070200002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110454</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7102026" name="카자흐"/>
+		</Region>
+		<Class>
+			<ClassCode code="0303003" name="은행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[우리금융그룹, 카자흐 인베스트와 해외진출 지원 업무협약]]></Title>
+		<Body><![CDATA[우리금융그룹, 카자흐 인베스트와 해외진출 지원 업무협약
+
+    (서울=연합뉴스) 구정모 기자 = 우리금융그룹은 카자흐스탄의 카자흐 인베스트(Kazakh Invest)와 해외 진출 기업 지원을 위한 상호협력 체계 구축 업무협약을 체결했다고 23일 밝혔다. 
+    양 기관은 이번 협약에 따라 양국 기업이 상대 국가에 투자할 경우 외국환 신고 수리 업무, 현지 투자절차 등 행정절차와 금융업무, 투자 정보 제공을 적극 지원하기로 했다.
+    카자흐 인베스트는 외국인 투자 유치를 통한 카자흐스탄 경제·사회 개발을 목적으로 2017년 설립된 정부 산하기관이다. 아스카 마민 현 카자흐스탄 총리, 재무부 장관, 외무부 장관 등 주요 정부 인사들이 이사로 재직하고 있다.
+    우리금융그룹 관계자는 "이번 협약 체결로 국내 기업의 카자흐스탄 진출을 지원하는 방안을 마련했다"며 "카자흐스탄은 물론 중앙아시아에 진출하는 국내 기업에 대한 지원과 카자흐스탄 기업의 한국 시장 진출 지원을 확대해 나갈 계획"이라고 말했다.
+
+
+    pseudojm@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

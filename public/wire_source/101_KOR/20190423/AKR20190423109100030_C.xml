@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423109100030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>142233</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0203003" name="수출"/>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001009" name="동정"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[동정] 김현수 농식품부 차관, 김치수출 확대 점검회의]]></Title>
+		<Body><![CDATA[[동정] 김현수 농식품부 차관, 김치수출 확대 점검회의
+
+    ▲ 김현수 농림축산식품부 차관은 23일 세종정부청사에서 정부 기관과 김치 생산업체 관계자 등이 참석한 가운데 김치 수출 확대를 위한 점검 회의를 개최했다. 김 차관은 김치 수출 경쟁력 확보 방안과 '코리아 김치 페스티벌' 확대 운영 등을 건의받고 "기존 주력 시장인 일본 외에 새로운 국가로 김치 수출시장을 확대할 수 있도록 관심을 기울여 달라"고 당부했다. (서울=연합뉴스)
+
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

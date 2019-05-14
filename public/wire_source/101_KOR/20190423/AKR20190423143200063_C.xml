@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423143200063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>162336</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0701006" name="역사"/>
+			<ClassCode code="0506003" name="철도교통"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['폐역' 서천 장항화물역 관광문화공간 재탄생…내달 1일 개관]]></Title>
+		<Body><![CDATA['폐역' 서천 장항화물역 관광문화공간 재탄생…내달 1일 개관
+
+
+    
+    (서천=연합뉴스) 이은파 기자 = 한동안 폐역으로 방치됐던 충남 서천군 장항읍 장항화물역이 관광문화공간으로 재탄생했다.
+    서천군은 2017년부터 38억원을 투입한 장항화물역 리모델링 사업을 마무리하고 다음 달 1일 '장항도시탐험역'이란 이름으로 개관한다고 23일 밝혔다.
+    지상 2층, 건물면적 977㎡ 규모의 장항도시탐험역 외관은 홀로그램 필름을 활용한 전면 개방형 유리창으로 만들어졌고, 내부는 장항의 근대도시 형성사 등 역사와 오늘날의 장항 변천사를 체험할 수 있는 다양한 콘텐츠로 구성됐다.
+    1층은 맞이홀, 어린이 라운지, 자전거대여소로, 2층은 도시탐험카페, 장항 이야기 뮤지엄, 도시탐험전망대 등으로 각각 꾸며졌다.
+    노박래 서천군수는 "장항 앞바다, 제련소, 종착역 등 장항이 가진 고유한 특징과 역사를 담아낸 장항도시탐험역이 베일을 벗었다"며 "군민들도 개관식에 참여해 장항이 관광·문화·경제 중심지로 새롭게 태어나는 순간을 함께 즐겼으면 좋겠다"고 말했다.
+    근대 건축물인 장항역은 1930년 개통된 장항선을 통해 승객과 화물을 운송하는 주요 교통거점이었으나 2008년 장항화물역으로 역명이 변경된 이후 여객열차 운행이 중단되면서 간이역으로 격하됐고, 2017년 9월부터는 모든 운송업무가 중단됐다. 
+    sw21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

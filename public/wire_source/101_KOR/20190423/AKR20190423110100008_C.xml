@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423110100008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>142422</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[고려개발, 1분기 영업익 119억원…82% 증가]]></Title>
+		<Body><![CDATA[고려개발, 1분기 영업익 119억원…82% 증가
+
+    (서울=연합뉴스) 임미나 기자 = 고려개발은 올해 1분기 개별기준 영업이익이 119억원으로 작년 동기보다 82.01% 증가한 것으로 잠정 집계됐다고 23일 공시했다.
+    매출액은 1천307억원으로 14.40% 늘었고 당기순이익은 60억원으로 194.14% 증가했다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

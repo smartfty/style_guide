@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190421057200504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060720</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>2</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="0108002" name="정상외교"/>
+			<ClassCode code="1001001" name="북한정치"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[北방송 "김정은 위원장, 곧 러시아 방문 예정"(1보)]]></Title>
+		<Body><![CDATA[北방송 "김정은 위원장, 곧 러시아 방문 예정"(1보)
+
+    (서울=연합뉴스) 정빛나 기자 = 김정은 북한 국무위원장이 블라디미르 푸틴 러시아 대통령의 초청을 받아 곧 러시아를 방문한다고 조선중앙방송이 23일 보도했다.
+    shine@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

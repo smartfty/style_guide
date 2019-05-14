@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423117300053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>145834</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606002" name="육상사고"/>
+			<ClassCode code="0606007" name="안전사고"/>
+			<ClassCode code="0510004" name="경찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아파트 외벽 칠하던 60대 추락사…경찰 "사고 경위 조사"]]></Title>
+		<Body><![CDATA[아파트 외벽 칠하던 60대 추락사…경찰 "사고 경위 조사"
+
+    (대구=연합뉴스) 김선형 기자 = 23일 오후 1시께 대구 동구 신천동 한 아파트에서 외벽 도색 작업을 하던 A(67)씨가 바닥으로 추락했다.
+    A 씨는 인근 대학병원으로 이송됐으나 결국 숨졌다.
+    경찰은 A씨가 21층 높이에서 작업하다가 떨어진 것으로 보고 정확한 사고 경위를 조사하고 있다.
+
+    sunhyung@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

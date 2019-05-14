@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423103600060</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140404</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005028" name="파주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201020" name="노동정책"/>
+			<ClassCode code="0504008" name="청년복지"/>
+			<ClassCode code="0302021" name="상장공모"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[파주시, 지역주도형 청년 일자리사업 참여기업 모집]]></Title>
+		<Body><![CDATA[파주시, 지역주도형 청년 일자리사업 참여기업 모집
+
+    (파주=연합뉴스) 노승혁 기자 = 경기도 파주시는 '지역주도형 청년 일자리사업'에 참여할 기업을 오는 30일까지 모집한다고 23일 밝혔다.
+
+    '지역주도형 청년 일자리사업'은 지역 실정을 가장 잘 알고 있는 파주시가 직접 설계·시행하고 행정안전부와 협업하는 사업이다.
+    청년에게 일자리를 마련해주고 기업에는 인건비를 지원함으로써 청년 일자리 창출을 통해 기업의 인력난 해소와 청년의 지역정착을 돕는다. 
+    참여 희망 기업은 파주시 홈페이지 안내문을 참고해 사업참여신청서, 사업자등록증, 신용등급평가표 등을 파주시 일자리정책과(☎ 031-940-4555)로 제출하면 된다. 
+    파주시 관계자는 "이번 사업을 통해 청년들이 지역 내에서 일자리를 찾아 정착하고 기업은 인력난을 해소할 수 있는 계기가 됐으면 한다"고 말했다. 
+    nsh@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

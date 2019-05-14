@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010113000056</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>131405</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="0109004" name="해군"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[관함식 반대 해상 시위]]></Title>
+		<Comment>NO-2734</Comment>
+		<Body><![CDATA[관함식 반대 해상 시위
+    (서귀포=연합뉴스) 박지호 기자 = 2018 대한민국 해군 국제관함식 개막일인 10일 오전 서귀포시 강정동 제주해군기지 앞 해상에서 '제주군사기지 저지와 평화의 섬 실현을 위한 범도민 대책위원회' 관계자들이 카약을 타고 관함식 반대 시위를 하고 있다. 2018.10.10
+    jihopark@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101011300005600.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101011300005600_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101011300005600_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

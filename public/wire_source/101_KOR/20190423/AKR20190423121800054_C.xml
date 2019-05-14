@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423121800054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>151128</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7008001" name="전남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503011" name="교육행정"/>
+			<ClassCode code="0503010" name="교육단체"/>
+			<ClassCode code="0503004" name="중등교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전교조 전남지부 "에너지 과학 영재학교 설립 추진 중단" 촉구]]></Title>
+		<Body><![CDATA[전교조 전남지부 "에너지 과학 영재학교 설립 추진 중단" 촉구
+
+
+    (무안=연합뉴스) 손상원 기자 = 전교조 전남지부는 23일 성명을 내고 "전남도교육청은 가칭 에너지 과학 영재학교 설립 시도를 즉각 중단하라"고 촉구했다.
+    전교조 전남지부는 "(계획상) 영재학교는 12학급, 180명 규모에 총시설비 400억원, 연간 운영비만 50억원이 소요된다"며 "막대한 혈세가 투입되는 고교 설립 계획을 교육 관련 단체나 시민사회와의 충분한 협의 없이 추진하는 점에 유감을 표명한다"고 밝혔다.
+    나주에 이미 전남과학고가 운영 중이고 도교육청 산하에도 영재교육원을 뒀으니 이들 기관을 내실 있게 운영하는 것이 진정한 영재교육 활성화 방안이라고 전교조 전남지부는 주장했다.
+    전교조 전남지부는 또 "전남도교육청이 영재학교 설립을 신청하더라도 반려하고, 추가 설립·지정은 불가하다는 게 교육부 입장"이라며 "논란의 여지가 많은 영재학교 설립을 추진하기보다 배려가 필요한 아이들을 위한 정책을 더 적극적으로 추진해야 한다"고 요구했다.
+    전남도교육청은 나주 공동혁신도시에 들어설 한전공대와 연계한 인재 양성을 위해 공대 개교 예정 시기인 2022년 3월에 맞춰 과학 영재학교를 설립하는 방안을 추진하고 있다.
+    sangwon700@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

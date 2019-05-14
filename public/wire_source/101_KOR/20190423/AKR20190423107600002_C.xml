@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423107600002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>141823</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302019" name="주택금융"/>
+			<ClassCode code="0301002" name="금융기구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[주택금융공사 보금자리론 5월 금리 0.20%p↓…최저 연 2.60%]]></Title>
+		<Body><![CDATA[주택금융공사 보금자리론 5월 금리 0.20%p↓…최저 연 2.60%
+
+
+    (서울=연합뉴스) 성서호 기자 = 한국주택금융공사는 장기 고정금리·분할상환 주택담보대출인 보금자리론의 5월 금리를 0.20%포인트 내린다고 23일 밝혔다.
+    이번 금리 인하는 최근 조달비용 감소분을 반영한 결과다.
+    이에 따라 공사 홈페이지(www.hf.go.kr)에서 신청하는 'u-보금자리론'과 은행 창구에서 신청하는 't-보금자리론'은 대출만기에 따라 연 2.70(만기 10년)∼2.95%(30년) 금리로 이용할 수 있다. 
+    전자약정 등 온라인으로 신청해 비용이 절감되는 '아낌e-보금자리론'은 0.10%포인트 저렴한 연 2.60(10년)∼2.85%(30년)의 금리가 적용된다.
+    제2금융권에서 받은 변동금리 또는 일시상환 대출을 '더나은 보금자리론'으로 갈아탈 경우 u-보금자리론이나 t-보금자리론과 같은 금리를, 전자약정을 할 경우 아낌e-보금자리론 금리를 적용받는다.
+
+
+    soho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

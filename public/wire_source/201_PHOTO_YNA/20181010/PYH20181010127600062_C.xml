@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010127600062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141053</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+			<RegionCode code="7004002" name="강릉"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+			<ClassCode code="0803002" name="풍경"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[감이 익어가는 시골 마을]]></Title>
+		<Comment>NO-2997</Comment>
+		<Body><![CDATA[감이 익어가는 시골 마을
+    (강릉=연합뉴스) 이해용 기자 = 화창한 날씨를 보인 10일 강원 강릉시 외곽의 한 시골 마을에서 감이 익어가고 있다. 2018.10.10 
+    dmz@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012760006200.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012760006200_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012760006200_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

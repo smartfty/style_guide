@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423027400051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>090126</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201016" name="창업"/>
+			<ClassCode code="0202006" name="벤처기업"/>
+			<ClassCode code="0201018" name="투자협력"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[창업지원 '단디벤처포럼' 사단법인으로 탈바꿈]]></Title>
+		<Body><![CDATA[창업지원 '단디벤처포럼' 사단법인으로 탈바꿈
+
+
+    
+    (부산=연합뉴스) 박창수 기자 = 부산 대표 창업지원 포럼인 '단디벤처포럼'이 사단법인으로 변신한다.
+    단디벤처포럼은 24일 오후 부산 동서대 센텀캠퍼스 컨벤션홀에서 사단법인 발대식을 개최한다고 23일 밝혔다.
+    포럼은 2013년 창업 활성화를 위해 학생, 예비창업자, 스타트업, 벤처투자자, 공공기관 등이 모여 만든 창업지원 단체다.
+    짝수 달 마지막 주 수요일에 정기적으로 모이는 이 단체가 지금까지 개최한 38회 포럼에는 3천여명이 참석했다.
+    138회에 걸친 우수기업 투자설명회를 통해 20여개 기업이 144억원의 투자를 유치하는 성과를 거뒀다.
+    포럼은 사단법인 출범과 함께 청소년, 스타트업, 혁신스타트업, 투자심사 등 4개 분과를 개설, 운영한다.
+    기업과 투자사, 유관기관과 협력을 강화하고 산학협력 활동도 지원할 방침이다. 
+    pcs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

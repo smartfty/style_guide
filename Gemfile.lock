@@ -53,10 +53,10 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (9.0.0)
-    autoprefixer-rails (9.5.0)
+    autoprefixer-rails (9.5.1)
       execjs
     bcrypt (3.1.12)
-    bindex (0.5.0)
+    bindex (0.7.0)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
       rails (>= 3.1)
@@ -148,7 +148,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    image_processing (1.8.0)
+    image_processing (1.9.0)
       mini_magick (>= 4.9.3, < 5)
       ruby-vips (>= 2.0.13, < 3)
     jbuilder (2.8.0)
@@ -199,7 +199,7 @@ GEM
     method_source (0.9.2)
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2018.0812)
+    mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
     mini_magick (4.9.3)
     mini_mime (1.0.1)
@@ -234,7 +234,7 @@ GEM
       pry (~> 0.10)
     public_suffix (3.0.3)
     puma (3.12.1)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
@@ -308,7 +308,7 @@ GEM
     ruby_dep (1.5.0)
     rubypants-unicode (0.2.5)
     rubyzip (1.2.2)
-    sass (3.7.3)
+    sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -459,4 +459,4 @@ DEPENDENCIES
   zip-zip
 
 BUNDLED WITH
-   2.0.1
+   1.16.6

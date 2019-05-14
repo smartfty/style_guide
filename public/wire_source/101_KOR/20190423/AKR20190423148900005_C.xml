@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423148900005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164231</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701006" name="역사"/>
+			<ClassCode code="0701005" name="학술"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[새로운 시대 문화외교를 논하다…덕성여대 학술대회]]></Title>
+		<Body><![CDATA[새로운 시대 문화외교를 논하다…덕성여대 학술대회
+
+
+
+    (서울=연합뉴스) 박상현 기자 = 덕성여대 인문과학연구소 지역문화연구센터는 오는 26일 '신북방문화와 문화외교'를 주제로 국제학술대회를 개최한다고 23일 밝혔다.
+    도봉구 덕성여대 대강의동에서 열리는 학술대회는 북한과 정부 신북방정책 대상 지역을 중심으로 다양한 문화 현안을 논의하기 위해 마련됐다.
+    몽골과 대만, 중국 연구자가 각각 몽골의 흉노 고고학, 대만의 동아시아 미술사 연구, 상하이박물관 협업 전시와 공동 발굴에 관해 설명한다.
+    국내 연구자들은 프랑스 문화외교, 전후 북한 미술체제 형성기 자수와 여성, 북한을 향한 서구중심주의적 시각, 북한 조선미술박물관 설립 경위와 초창기 전시, 한인 동포 미술의 정체성, 문화예술 플랫폼으로서 비무장지대 기능성과 가치를 주제로 발표한다.
+    알브레히트 후베 독일 본대학 명예교수는 세종대왕과 독일 철학자 라이프니츠 사이 연관성을 소개한다.
+    지역문화연구센터장인 이송란 덕성여대 교수는 "남북 협력이 이뤄지고 북한이 동반자가 되면 그동안 유념하지 않은 북방 국가와 교류가 중요해질 것"이라며 "비슷한 주제의 학술대회를 매년 열 계획"이라고 말했다.
+    psh59@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

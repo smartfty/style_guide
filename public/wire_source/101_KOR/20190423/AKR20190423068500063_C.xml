@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423068500063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110418</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011006" name="당진"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0504002" name="노인복지"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[당진시립노인요양원 치매전담실 개원…24명 동시치료]]></Title>
+		<SubTitle><![CDATA[전문인력 16명 배치…다양한 재활 프로그램 운영 ]]></SubTitle>
+		<Body><![CDATA[당진시립노인요양원 치매전담실 개원…24명 동시치료
+전문인력 16명 배치…다양한 재활 프로그램 운영 
+
+
+    
+    (당진=연합뉴스) 이은파 기자 = 충남 당진시립노인요양원이 23일 치매전담실을 설치하고 본격적인 운영에 들어갔다.
+    지상 2층(건물면적 580㎡) 규모의 치매전담실은 거실, 침실, 목욕실 등을 갖췄다. 24명이 동시에 치료받을 수 있다.
+    이 시설에는 사회복지사, 간호사, 물리치료사, 요양보호사 등 전문인력 16명이 배치돼 치매 어르신의 재활과 치료를 위한 다양한 프로그램을 운영한다.
+    이순례 시립노인요양원 시설장은 "치매전담실이 지역 치매 전문요양 서비스 허브로 자리매김할 수 있도록 인력과 시설을 보강해 나가겠다"고 말했다.
+    sw21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010095800065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>115954</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="1210004" name="축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[몸 푸는 에딘손 카바니]]></Title>
+		<Comment>NO-2316</Comment>
+		<Body><![CDATA[몸 푸는 에딘손 카바니
+    (인천=연합뉴스) 윤태현 기자 = 우리나라 축구 대표팀과 평가전을 앞둔 우루과이 에딘손 카바니가 10일 오전 인천시 서구 인천아시아드경기장에서 훈련하고 있다. 평가전은 이달 12일 오후 8시 서울월드컵경기장에서 열린다. 2018.10.10
+    tomatoyoon@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101009580006500.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101009580006500_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101009580006500_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

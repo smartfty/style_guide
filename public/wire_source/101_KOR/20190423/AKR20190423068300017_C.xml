@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423068300017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110814</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0406003" name="제약"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 휴온스-엠비오, '펩타이드 의약품 연구·사업' 업무협약]]></Title>
+		<Body><![CDATA[[게시판] 휴온스-엠비오, '펩타이드 의약품 연구·사업' 업무협약
+    
+
+    ▲ 휴온스는 앰비오(Ambio. Inc)사와 '앰비오의 개발 과제에 대한 사업협력 방안 논의를 위한 양해각서'를 체결했다. 양사는 협약을 통해 엠비오사가 개발 중인 당뇨, 비만, 골다공증 등에 대한 펩타이드 제네릭 의약품 파이프라인을 국내 시장에 도입하기로 했다. (서울=연합뉴스) 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

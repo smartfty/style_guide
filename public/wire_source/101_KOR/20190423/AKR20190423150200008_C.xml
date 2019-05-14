@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423150200008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164625</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[에코프로, 1분기 영업익 163억원…59.5% 증가]]></Title>
+		<Body><![CDATA[에코프로, 1분기 영업익 163억원…59.5% 증가
+
+    (서울=연합뉴스) 임미나 기자 = 에코프로는 올해 1분기 연결기준 영업이익이 163억원으로 작년 동기보다 59.5% 증가한 것으로 잠정 집계됐다고 23일 공시했다.
+    매출액은 1천960억원으로 53.2% 늘었고 당기순이익은 107억원으로 109.3% 증가했다.
+    에코프로는 또 종속회사 에코프로지이엠에 180억원 규모의 채무보증을 결정했다고 별도로 공시했다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

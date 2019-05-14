@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423112700057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>143739</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606003" name="수상사고"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울산 앞바다서 어선 좌초…인명피해 없어]]></Title>
+		<Body><![CDATA[울산 앞바다서 어선 좌초…인명피해 없어
+
+
+    (울산=연합뉴스) 김용태 기자 = 23일 오전 6시 15분께 울산시 울주군 신암항 인근 해상에서 조업하던 1.99t 자망어선이 좌초됐다.
+    어선에 타고 있던 승선원 2명은 좌초 직후 자력으로 탈출해 인명피해는 없었다.
+    신고를 받고 출동한 울산해경은 어선에 예인줄을 연결해 3시간여 만에 신암항으로 입항시켰다.
+    해경 관계자는 "기관 고장으로 표류하다 암초에 좌초됐다는 선장 진술을 토대로 사고 경위를 조사하고 있다"고 말했다.
+    yongtae@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

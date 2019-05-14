@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423142000055</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>161618</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009010" name="익산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0109010" name="보훈복지"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[익산시 보훈수당 대상 대폭 확대…7월부터 매달 2만원]]></Title>
+		<Body><![CDATA[익산시 보훈수당 대상 대폭 확대…7월부터 매달 2만원
+
+
+    
+    (익산=연합뉴스) 백도인 기자 = 전북 익산시는 오는 7월부터 순국선열, 애국지사 본인과 유가족, 전몰·순직 군경 유가족, 전상·공상 군경과 그 배우자, 무공수훈자와 그 배우자 등에게도 보훈수당을 지급한다고 23일 밝혔다.
+    금액은 2만원이다.
+    이들은 별도의 보훈급여를 받고 있어 그동안 지원 대상에서 제외됐다.
+    무공수훈자와 그 배우자, 65세 이상의 참전유공자 등에게 지급해온 6만원의 보훈수당은 그대로 유지한다.
+    익산시는 건축된 지 40년이 지난 보훈회관도 2020년까지 36억원을 들여 다시 지을 계획이다.
+    doin100@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

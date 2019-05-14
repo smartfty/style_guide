@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423036300030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>095500</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0505010" name="환경기술"/>
+			<ClassCode code="0409003" name="전자거래"/>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["대형마트 비닐봉투 규제후 장바구니 구매 급증"]]></Title>
+		<Body><![CDATA["대형마트 비닐봉투 규제후 장바구니 구매 급증"
+
+    (서울=연합뉴스) 이신영 기자 = 환경을 생각하는 소비를 하는 사람들이 늘어나면서 친환경 제품을 찾는 사람들이 늘고 있다. 
+    위메프는 대형마트 등에서 일회용 비닐봉투 규제가 시작된 지난 1일부터 보름간 장바구니 판매량을 분석한 결과, 전년 동기 대비 5배 이상 늘었다고 23일 밝혔다. 
+    휴대가 편리한 접이식 장바구니 매출은 601% 급증했고, 그물 형태의 장바구니도 269% 증가했다. 
+    반면, 같은 기간 비닐봉투 판매는 21% 감소했다. 
+    플라스틱 제품을 대체할 수 있는 상품을 찾는 고객도 늘었다. 
+    친환경 종이컵은 4배, 반영구적으로 사용 가능한 실리콘 빨대는 8배 이상 매출이 늘었고 종이 빨대(484%)와 스테인리스 빨대(329%)도 잘 팔렸다.
+    위메프 관계자는 "'필환경'이라는 신조어가 생길 정도로 환경에 대한 소비자들의 관심이 높아지고 있다"고 설명했다.
+
+
+    eshiny@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

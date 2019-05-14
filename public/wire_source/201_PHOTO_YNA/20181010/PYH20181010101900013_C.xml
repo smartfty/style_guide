@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010101900013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>120646</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103003" name="국감"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[건축자재 라돈 관리는 어떻게 되고 있나]]></Title>
+		<Comment>NO-2360</Comment>
+		<Body><![CDATA[건축자재 라돈 관리는 어떻게 되고 있나
+    (세종=연합뉴스) 진성철 기자 = 자유한국당 민경욱 의원이 10일 세종시 정부세종청사 국토교통부에서 열린 국회 국토교통위원회 국정감사에 앞서 정부의 '건축자재 라돈 관리' 실태에 대해 질의하기 위해 준비한 건축자재와 측정 장비를 사전 점검하고 있다.  2018.10.10 
+    zjin@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101010190001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101010190001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101010190001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

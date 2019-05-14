@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423062000054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>104338</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[광주소식] 광주은행, 등록금 납부 이벤트 당첨자 발표]]></Title>
+		<Body><![CDATA[[광주소식] 광주은행, 등록금 납부 이벤트 당첨자 발표
+
+
+    
+    (광주=연합뉴스) 광주은행(은행장 송종욱)은 지난 2월 12일부터 3월 31일까지 실시한 '2019년 1학기 등록금 납부'와 '체크카드 경품' 이벤트 당첨자 102명을 발표했다.
+    광주은행은 23일 당첨자 중 등록금 납부 이벤트 1등(장학금 200만원)과 2등(100만원) 고객 2명을 본점에 초청해 장학금을 전달했다.
+    100명에게는 1만원 상당 스타벅스 모바일쿠폰을 전달했다. 
+    당첨자는 광주은행 홈페이지(www.kjbank.com)에서 확인할 수 있다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422182600004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111504</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0701003" name="전시공연"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울시, 5월 오페라·뮤지컬 등 공연에 어르신 324명 초대]]></Title>
+		<Body><![CDATA[서울시, 5월 오페라·뮤지컬 등 공연에 어르신 324명 초대
+
+
+
+    (서울=연합뉴스) 윤고은 기자 = 서울시는 5월 가정의 달을 맞아 '어르신 행복콘서트'에 총 324명을 초대한다고 23일 밝혔다.     
+    서울시가 2009년부터 진행하고 있는 '어르신 행복콘서트'는 만 60세 이상 어르신들이 시립 예술단 공연을 무료로 관람할 수 있는 프로그램이다. 
+    5월 공연은 오페라 '베르테르'(5월2일, 100명), 창작무용극 '놋 n.o.t'(5월23일, 134명), 뮤지컬 '베니스의 상인'(5월28일, 90명) 등 3가지이며, 모두 세종문화회관에서 볼 수 있다. 
+    초청을 원하는 시민은 공연 일주일 전까지 거주지 동주민센터, 복지관, 경로당 등을 통해 신청하면 된다. 신청 명단은 구청과 노인종합복지관협회를 거쳐 서울시와 세종문화회관으로 선착순 접수된다.
+    자세한 사항은 홈페이지(http://hicard78.cafe24.com/opera_werther2/)를 참조하거나, 서울시 인생이모작지원과(☎ 02-2133-7812)로 문의하면 된다. 
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

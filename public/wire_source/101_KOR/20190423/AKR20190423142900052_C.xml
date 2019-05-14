@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423142900052</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>161903</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006018" name="하동"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0107002" name="지방의회"/>
+			<ClassCode code="0103001" name="국회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경남시군의회의장들, 지방자치법 개정안 조속처리 촉구]]></Title>
+		<Comment><![CDATA[사진있음]]></Comment>
+		<Body><![CDATA[경남시군의회의장들, 지방자치법 개정안 조속처리 촉구
+
+
+    (하동=연합뉴스) 최병길 기자 = 경남시군의회의장협의회는 23일 지방의회 인사권 독립 등을 담은 지방자치법 개정안의 조속한 국회 통과 촉구 건의문을 채택했다고 밝혔다.
+    경남시군의회의장협은 이날 하동군 청암면 비바체리조트에서 제204회 정례회를 열고 부동산소유권 이전등기 특별조치법의 조속한 마련 및 시행 촉구 건의문을 함께 채택했다.
+    시군 의장들은 회의를 마친 후 중증장애인시설인 섬진강 사랑의 집을 찾아 시설 장애인과 직원들을 격려하고 아시아 최장의 금오산 짚와이어 시설을 견학했다.
+    choi21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

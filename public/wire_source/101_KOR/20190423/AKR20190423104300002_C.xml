@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423104300002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140429</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0202002" name="대기업"/>
+			<ClassCode code="0303003" name="은행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[채권단, 아시아나항공에 1조6천억 지원…금호고속에도 1천300억]]></Title>
+		<Body><![CDATA[채권단, 아시아나항공에 1조6천억 지원…금호고속에도 1천300억
+
+    (서울=연합뉴스) 구정모 한혜원 기자 = 채권단은 아시아나항공에 1조6천억원 규모의 금융을 지원한다고 23일 밝혔다. 
+    산업은행이 이날 배포한 보도자료에 따르면 5천억원 규모의 영구채를 사들여 아시아나항공의 재무구조 개선과 유동성 확보를 지원한다. 
+    또 한도대출(크레딧 라인)로 8천억원, 보증한도(Stand-by L/C)로 3천억원을 지원한다. 
+    산업은행은 아울러 금호고속에 브릿지론 형태로 1천300억원을 지원한다. 금호고속이 보유한 금호산업 지분 45.3%를 담보로 받은 대출을 지원하기 위해서다. 
+    pseudojm@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

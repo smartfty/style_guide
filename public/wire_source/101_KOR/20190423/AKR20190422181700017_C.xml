@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422181700017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>021805</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[삼성 "갤럭시 폴드 美출시 연기…문제 원인 철저히 조사"(2보)]]></Title>
+		<SubTitle><![CDATA[조사과정서 힌지 노출 부분 약점·내부 이물질 등 발견 ]]></SubTitle>
+		<Body><![CDATA[삼성 "갤럭시 폴드 美출시 연기…문제 원인 철저히 조사"(2보)
+조사과정서 힌지 노출 부분 약점·내부 이물질 등 발견 
+
+    (뉴욕·서울=연합뉴스) 이귀원 특파원 채새롬 기자 = 삼성전자가 화면 결함 논란을 빚은 '갤럭시 폴드'의 출시를 잠정 연기하기로 했다.
+
+    삼성전자는 22일(현지시간) 자사 뉴스룸 홈페이지를 통해 "갤럭시 폴드 리뷰 과정에서 드러난 문제를 점검하고 내부 테스트를 추가로 진행하기 위해 갤럭시 폴드의 출시를 연기하기로 결정했다"며 "수 주 내로 출시 일정을 다시 공지하겠다"고 밝혔다.
+    삼성전자는 "회수된 제품의 초기 검사 결과 (디스플레이 문제는) 힌지의 상·하단 디스플레이 노출 부분 충격과 관련 있어 보인다"며 "디스플레이 성능에 문제를 일으킨 이물질이 제품 내부에서 발견된 경우도 있었다"고 설명했다.
+    이어 "(문제) 발생 원인을 철저히 조사해 디스플레이 손상 방지 대책을 강구할 것"이라며 "고객들이 갤럭시 폴드를 최대한 활용할 수 있도록 화면 보호막을 포함한 디스플레이 사용법과 주의사항 안내를 강화하겠다"고 밝혔다.
+    이에 따라 이달 26일로 예정됐던 갤럭시 폴드의 미국 출시는 물론 5월 3일 유럽, 5월 중순 국내로 예정됐던 출시 일정이 순차적으로 밀릴 것으로 예상된다. 짧게는 수 주에서 길게는 1∼2개월 출시가 연기될 것으로 전망된다.
+    앞서 미국 매체들은 리뷰를 위해 삼성전자에서 받은 갤럭시 폴드 제품이 사용 1∼2일 만에 스크린 결함을 보였다고 지적했다. 
+    srchae@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

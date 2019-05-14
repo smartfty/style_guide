@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423008300052</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060441</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006019" name="함안"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606005" name="화재"/>
+			<ClassCode code="0606001" name="사고일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[함안 단독주택서 화재…할머니 1명 숨져]]></Title>
+		<Body><![CDATA[함안 단독주택서 화재…할머니 1명 숨져
+
+
+    
+    (함안=연합뉴스) 이정훈 기자 = 22일 오후 10시 50분께 경남 함안군 함안면 북촌리의 한 단독주택에서 불길이 치솟는 것을 마을 주민이 신고했다.
+    출동한 소방대가 화재 신고 45분여 만에 불을 껐으나 집주인 김모(72) 할머니가 부엌에서 숨진 채 발견됐다.
+    불은 집과 가재도구 등을 태워 소방서 추산 200만원의 재산피해가 났다.
+    경찰과 소방당국은 화재 원인을 조사하고 있다.
+    seaman@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

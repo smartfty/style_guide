@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423136200063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160110</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011014" name="천안"/>
+		</Region>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0503006" name="대학교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[충남소식] '5G 인프라 구축' 코리아텍-KT MOU]]></Title>
+		<Body><![CDATA[[충남소식] '5G 인프라 구축' 코리아텍-KT MOU
+
+
+    (천안=연합뉴스) 코리아텍(한국기술교육대)은 23일 교내 중회의실에서 ㈜KT와 교내 스마트 러닝 팩토리에 5G(5세대 이동통신) 인프라·솔루션 구축 등을 위한 양해각서(MOU)를 맺었다.
+    양 기관은 코리아텍 캠퍼스 내 스마트 러닝 팩토리의 5G 테스트베드(시험공간) 구축, 5G 기반 스마트 러닝 팩토리를 활용한 학생·중소 중견기업 대상 교육과 고객 발굴, 미래학습관 4차 산업혁명 관련 인프라 구축·콘텐츠 개발 등에 협력하기로 했다.
+    코리아텍에는 국내 대학 중 최대 규모의 5G 기반 스마트 러닝 팩토리가 지난달 말 문을 열었다.
+    스마트 러닝 팩토리는 첨단 요소기술이 융합돼 일련의 생산 과정이 이뤄지고 실습교육과 시연이 가능하다. 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423088700063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>122912</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011001" name="충남"/>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0402004" name="축산업"/>
+			<ClassCode code="0605008" name="사기"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[명절 앞두고 농축산물 15억 원어치 외상거래 후 잠적]]></Title>
+		<SubTitle><![CDATA[현금거래로 신뢰 쌓은 뒤 범행…6명 검거]]></SubTitle>
+		<Body><![CDATA[명절 앞두고 농축산물 15억 원어치 외상거래 후 잠적
+현금거래로 신뢰 쌓은 뒤 범행…6명 검거
+
+
+    (세종=연합뉴스) 양영석 기자 = 허위 유통업체를 설립해 농축산물 등을 대량 주문한 뒤 물건만 납품받고 잠적한 일당이 경찰에 붙잡혔다.
+    세종경찰서는 특정경제범죄가중처벌법상 사기 혐의로 A(44) 씨 등 2명을 구속하고 B(29) 씨 등 4명을 불구속 입건했다고 23일 밝혔다.
+    A 씨 등은 지난해 6월부터 최근까지 세종과 충남 아산·천안, 경기 안성 등지에 유통업체를 설립한 뒤 식자재 공급업체 45곳으로부터 농축산물 15억 원어치를 외상으로 납품받아 달아난 혐의를 받고 있다.
+    이들은 추석이나 설 명절에 농축산물 거래가 활발하고 외상거래가 많다는 점에 착안해 범행을 모의했다.
+    초기에 현금거래를 통해 업체들과 신뢰를 쌓은 후 명절 직전 농축산물을 대량으로 주문, 물건값을 지불하지 않고 잠적한 것으로 드러났다.
+    이렇게 빼돌린 농축산물은 일반식당이나 소매점을 통해 곧바로 처분됐다.
+    세종경찰은 지난해 추석 이후 발생한 농축산물 납품 사기 사건 11건을 수사하던 중 통신·잠복 수사를 통해 천안과 아산에서 새로운 범행을 모의 중이던 이들을 검거했다.
+
+
+    경찰은 A 씨 등이 운영해온 냉동창고에서 확보한 냉동고기와 젓갈, 식료품 등 2천만원 상당의 물품을 피해자들에게 돌려줬다.
+    youngs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

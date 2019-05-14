@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010047800062</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103323</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인제 뗏목 시연회]]></Title>
+		<Comment>NO-1738</Comment>
+		<Body><![CDATA[인제 뗏목 시연회
+    (인제=연합뉴스) '인제 뗏목 시연회'가 지난 9일 강원 인제군 소양강 상류 합수머리에서 열렸다. 인제군문화재단이 2018 대한민국 산림문화박람회 기간(5∼14일)에 마련한 뗏목 시연회에는 많은 방문객이 찾아와 주요 문화유산을 흥미롭게 감상했다. 2018.10.10 [인제군 제공]
+    jlee@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101004780006200.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101004780006200_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101004780006200_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

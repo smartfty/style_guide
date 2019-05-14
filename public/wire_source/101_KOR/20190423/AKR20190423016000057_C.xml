@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423016000057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>072513</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0201018" name="투자협력"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울산시 투자유치협의회 개최…수소·해상풍력 적극 유치]]></Title>
+		<Body><![CDATA[울산시 투자유치협의회 개최…수소·해상풍력 적극 유치
+
+
+    (울산=연합뉴스) 김용태 기자 = 울산시는 23일 유관기관과 함께 '울산광역시 투자유치협의회'를 개최했다고 밝혔다.
+    협의회에는 시와 울산경제진흥원, 울산테크노파크, 울산정보산업진흥원 등 8개 기관의 투자유치 관계자들이 참석했다.
+    회의에서는 기관별 투자유치 방향 및 활동 소개와 울산 실정에 맞는 유치 목표 기업 발굴, 유치 방안 등이 논의됐다.
+    협의회는 올해 시정 10대 핵심 과제로 선정된 '기술 강소기업 허브화' 실현을 위해 유관기관 간 협업을 통한 효율적이고 체계적인 투자유치 추진을 목표로 하고 있다.
+    협의회는 투자유치 활동에 대한 방향 설정, 울산에 맞는 유치 대상 발굴, 시 투자유치팀 지원, 기관별 투자유치 정보 공유, 투자유치 관련 시책 토의 등의 역할을 한다.
+    특히 시가 성장 동력 산업으로 육성하고 있는 수소, 해상풍력, 원전 해체 분야에서 적극적인 기업 유치 활동을 전개하고 있다.
+    시 관계자는 "각 기관의 전문가로 구성된 협의회 활동을 통해 지역 경제 활성화에 기여할 수 있도록 하겠다"고 말했다.
+    yongtae@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

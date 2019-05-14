@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423024000008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>080209</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302006" name="펀드"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국내 주식형 펀드서 13거래일째 자금 순유출]]></Title>
+		<Body><![CDATA[국내 주식형 펀드서 13거래일째 자금 순유출
+
+    (서울=연합뉴스) 김아람 기자 = 국내 주식형 펀드에서 13거래일 연속 자금이 빠져나갔다.
+    23일 금융투자협회에 따르면 지난 19일 상장지수펀드(ETF)를 제외한 국내 주식형 펀드에서 38억원이 순유출됐다.
+    364억원이 새로 설정됐고 402억원이 환매로 빠져나갔다.
+    코스피가 사흘 만에 오르자 차익 실현 매물이 나온 것으로 풀이된다.
+    해외 주식형 펀드는 236억원이 빠져나가면서 사흘째 순유출세를 지속했다.
+    수시 입출금식 상품인 머니마켓펀드(MMF)에는 9천418억원이 순유입됐다.
+    MMF 설정액은 117조7천84억원, 순자산은 118조5천691억원으로 각각 늘었다.
+
+    rice@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

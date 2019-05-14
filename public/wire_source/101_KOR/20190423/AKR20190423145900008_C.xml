@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423145900008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>163120</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[HDC현대산업개발 "한솔개발에 투자 검토 중…미확정"]]></Title>
+		<Body><![CDATA[HDC현대산업개발 "한솔개발에 투자 검토 중…미확정"
+
+    (서울=연합뉴스) 임미나 기자 = HDC현대산업개발은 23일 한솔오크밸리 인수설에 대해 "당사는 한솔오크밸리 운영사인 한솔개발에 대한 투자를 검토 중이나 현재까지 구체적인 사항이 확정된 것은 없다"고 공시했다.
+    이어 "향후 본건과 관련해 구체적으로 결정되는 사항이 있을 경우 또는 1개월 이내에 재공시하도록 하겠다"고 덧붙였다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

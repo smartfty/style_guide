@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423132500504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>155911</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="0109002" name="병무"/>
+			<ClassCode code="0109009" name="군수무기"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[정경두 "국방 R&D 발전 절실…민간역할 확대"]]></Title>
+		<Body><![CDATA[정경두 "국방 R&D 발전 절실…민간역할 확대"
+
+
+    (서울=연합뉴스) 이준삼 기자 = 정경두 국방부 장관은 23일 4차 산업혁명시대를 맞아 글로벌 방산시장을 공략할 수 있는 경쟁력을 확보하려면 "무엇보다 국방 연구개발(R&D) 분야의 발전이 절실하다"고 강조했다.
+    정 장관은 이날 국회에서 열린 '방산수출 촉진을 위한 국방 R&D의 역할' 토론회에 참석해 한 축사에서 "최첨단 성능의 무기체계만을 요구하는 경직성, 내수 중심의 제한적 소요 물량의 한계" 등으로 우리 방위산업 분위기는 전반적으로 위축돼있다며 이같이 말했다.
+    이어 "우리 군은 ADD(국방과학연구소)를 중심으로 핵심 신기술 개발을 강화하고, 민간의 역할을 확대해 국방 R&D 역량을 강화하기 위한 ADD 재구조화 등을 국방개혁 2.0의 일환으로 강력하게 추진하고 있다"고 설명했다.
+    정 장관은 이날 '18~'22 방위산업육성 기본계획 수립, 국방과학기술혁신촉진법 제정 등을 통해 법적·제도적 여건을 마련하고, 규제 완화와 국제협력 확대 등 범정부 차원의 지원과 협력이 필요하다는 점도 함께 강조했다.
+    jslee@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

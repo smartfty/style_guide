@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423065200005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105124</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0704002" name="신문사"/>
+			<ClassCode code="0704003" name="방송사"/>
+			<ClassCode code="0801001" name="생활정보"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[인사] CNB뉴스·CNB저널]]></Title>
+		<Body><![CDATA[[인사] CNB뉴스·CNB저널
+
+    ◇ CNB뉴스
+    ▲ 부국장 정의식
+    ◇ CNB저널
+    ▲ 산업부국장 이동근
+    (서울=연합뉴스)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

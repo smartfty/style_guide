@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423087400005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>115553</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712003" name="방송"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[MBC '궁민남편' 25일 홍대에서 일일카페 운영]]></Title>
+		<Body><![CDATA[MBC '궁민남편' 25일 홍대에서 일일카페 운영
+
+
+    (서울=연합뉴스) 이정현 기자 = MBC TV 예능 '궁민남편' 출연진이 이색 일일카페를 운영한다.
+    MBC는 오는 25일 오후 2시부터 8시까지 차인표, 안정환, 김용만, 권오중, 조태관이 홍대의 한 카페에서 일일카페를 열고 시청자와 만난다고 23일 예고했다.
+    카페에는 시청자 누구나 방문할 수 있으며, 이날 판매된 상품에 대한 수익금은 모두 기부될 예정이다.
+    제작진은 이번에는 '궁금한 남편들'이 아닌 '궁금한 시청자분들'을 위해 멤버들이 직접 나선다. 한 분, 한 분 만나 뵙고 직접 소통하는 자리가 되길 바란다"며 "일일 카페를 운영하는 다섯 남편의 모습도 가까이서 보시면 더 재미있을 것"이라고 말했다.
+    자세한 정보는 '궁민남편' 공식 인스타그램(@mbcsunday), MBC 공식 인스타그램(@withmbc), 예능연구소 공식 인스타그램(@mbcentertain), iMBC 공식 홈페이지(imbc.com)에서도 확인할 수 있다.
+    lisa@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423100400063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>141024</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011014" name="천안"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="1201001" name="체육일반"/>
+			<ClassCode code="1210004" name="축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대한축구협회 축구종합센터 부지선정위 천안서 현장실사]]></Title>
+		<SubTitle><![CDATA[천안시 "전국 2시간 내 접근 가능…미세먼지 없도록 조성"]]></SubTitle>
+		<Body><![CDATA[대한축구협회 축구종합센터 부지선정위 천안서 현장실사
+천안시 "전국 2시간 내 접근 가능…미세먼지 없도록 조성"
+
+
+    (천안=연합뉴스) 이은중 기자 = 대한민국 축구종합센터 후보지에 대한 대한축구협회 현장실사가 23일 오전 충남 천안시 입장면 가산리 부지에서 진행됐다.
+    현장실사에는 대한축구협회 부지선정위원 11명이 참여했다.
+    천안시는 구본영 시장, 인치견 시의회 의장, 박완주 국회의원과 관련 부서장 등이 나서 축구종합센터 천안 유치 당위성 등을 홍보하고 선정위원들의 질문에 답했다.
+    선정위원들은 시가 제시한 기반시설과 운영분담 등 비용과 지원, 토지의 투자가치 등을 면밀히 검토한 뒤 예정부지 주변을 둘러봤다.
+    시는 후보 부지가 전국 어디서나 2시간 이내 접근할 수 있는 데다 대부분 평지로 이뤄져 개발이 쉽다는 점을 내세우며 축구종합센터로서 최적의 조건을 갖추고 있음을 알리는 데 주력했다.
+    구본영 시장은 "이곳이 축구종합센터로 선정되면 훈련장 주변을 미세먼지 없는 친환경 전원도시로 조성해 축구 경기를 하기에 좋은 조건을 만들겠다"고 약속했다.
+    선정위원들은 제시 사업에 대한 신뢰성을 담보할 수 있는 문서 제출과 시의회의 추가 가능 재정지원사업 등을 물었다. 
+    
+
+    대한축구협회는 다음 달 중 천안 등 전국 8곳의 후보지 가운데 3곳을 우선협상대상 지역으로 선정한다.
+    jung@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

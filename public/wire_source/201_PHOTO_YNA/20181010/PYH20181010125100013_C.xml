@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010125100013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>140151</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0803001" name="여행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[사업소개하는 제인 순 씨트립 CEO]]></Title>
+		<Comment>NO-2961</Comment>
+		<Body><![CDATA[사업소개하는 제인 순 씨트립 CEO
+    (서울=연합뉴스) 중국 여행사 씨트립 그룹의 제인 순(Jane Sun) CEO가 10일 서울 웨스틴조선호텔에서 열린 온라인 여행사 '트립닷컴' 리브랜딩 1주년 기념 기자간담회에서 글로벌 브랜드 '트립닷컴'에 대한 사업소개를 하고 있다. 2018.10.10 [트립닷컴 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012510001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012510001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012510001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

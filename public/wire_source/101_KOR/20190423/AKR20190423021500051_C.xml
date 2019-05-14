@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423021500051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>082831</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606005" name="화재"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0402003" name="임업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[20㏊ 잿더미 만든 운봉산 화재는 실화…경작지 소각 중 번져]]></Title>
+		<SubTitle><![CDATA[부산시 합동감식단 발표…경찰, 감식결과 토대로 실화자 추적]]></SubTitle>
+		<Body><![CDATA[20㏊ 잿더미 만든 운봉산 화재는 실화…경작지 소각 중 번져
+부산시 합동감식단 발표…경찰, 감식결과 토대로 실화자 추적
+
+
+
+    (부산=연합뉴스) 김선호 기자 = 이달 초 임야 20㏊를 태운 부산 운봉산 화재는 실화인 것으로 밝혀졌다.
+    부산시 합동감식단은 운봉산 화재 현장을 정밀감식한 결과 최초 발화지인 경작지에서 소각 작업 중 불이 번져 산불이 났다고 23일 밝혔다.
+    합동감식단은 누군가 밭을 경작하던 중 주변 낙엽이나 쓰레기를 태우는 과정에서 불이 번졌다는 결론을 내렸다.
+    부산시는 감식결과를 해운대구, 해운대경찰서 등에 통보하고 피해 조사결과를 토대로 환경단체 등과 협의해 복구 계획을 세울 예정이다.
+    부산시로부터 화재 원인 결과를 받은 해운대경찰서는 불이 난 경작지에서 소각 작업을 한 사람을 찾아 실화 혐의로 입건할 예정이다.
+    부산시는 지난 3일 산림청, 국립산림과학원, 산불방지협회, 부산소방본부, 해운대경찰서와 최초 발화지로 지목된 해운대구 반송동 608의 1 일대 경작지와 임야에서 합동 감식을 벌인 뒤 화재 원인을 조사해왔다.
+    지난 2일 부산 해운대구 운봉산에서 불이 나 축구장 28개 면적에 달하는 임야 20㏊를 태우고 18시간 만에 꺼졌다.
+    wink@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

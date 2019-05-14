@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423116000008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>144822</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[금강공업, 주식분할로 30일부터 주식 거래 정지]]></Title>
+		<Body><![CDATA[금강공업, 주식분할로 30일부터 주식 거래 정지
+    
+    (서울=연합뉴스) 임미나 기자 = 한국거래소 유가증권시장본부는 금강공업의 주식분할에 따른 주권 제출 요구로 이달 30일부터 변경상장일까지 이 회사 주식에 대해 매매거래를 정지한다고 23일 공시했다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

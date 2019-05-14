@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423104900062</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140755</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="0402003" name="임업"/>
+			<ClassCode code="0607001" name="재해일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인제 민통선 미확인지뢰지대서 산불…헬기 2대 투입해 진화 중]]></Title>
+		<Body><![CDATA[인제 민통선 미확인지뢰지대서 산불…헬기 2대 투입해 진화 중
+
+
+    (인제=연합뉴스) 이재현 기자 = 23일 오전 11시 24분께 강원 인제군 서화면 서희리 남방한계선 남측 민간인통제선 구간에서 산불이나 산림당국이 진화 중이다.
+    산불이 난 곳은 남방한계선과 민통선 사이의 미확인지뢰지대여서 인력 진화가 불가능하다.
+    불이 나자 산림청은 진화 헬기 2대를 투입했으며, 오후 2시 현재까지 진화율은 50％ 정도로 파악됐다.
+    산림당국은 "일몰 전까지 진화할 수 있도록 최대한 노력하고 있다"고 말했다.
+    jlee@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>
