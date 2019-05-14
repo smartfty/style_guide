@@ -178,6 +178,7 @@ module ArticleSaveXml
     body.gsub!("\u8f9f", "&#36767;")
     body.gsub!("\u22ef", "&#8943;")
     body.gsub!("\u25fc", "&#9724;")
+    body.gsub!("\u00FC", "&#252;")
     end
   end
 
@@ -362,7 +363,8 @@ module ArticleSaveXml
       @post             = "소속팀"
       @author_email     = reporter_from_body.gsub(/\^$/){""}.split(" ")[2] 
       @author_id        = @author_email.split("@").first if @author_email
-      @by_line          =  "#{@name} 기자 #{@author_email}"
+      # @by_line          =  "#{@name} 기자 #{@author_email}"
+      @by_line          =  author
     else
       @name             = reporter
       @post             = "소속팀"
@@ -476,9 +478,9 @@ module ArticleSaveXml
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     # reporter_from_body = 
     if body && body != ""
-      @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = body.gsub(/\n\n^\#\#\#\#(.*)/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^\#\s(.*)/){""}  
-      @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
+      # @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
@@ -737,9 +739,9 @@ module ArticleSaveXml
     #     @sub_head_line3 = sh[2]
     #   end
    if body && body != ""
-      @body_content     = body.gsub(/^\#\#\#\#(.*)\n/){"<!-- #{$1} -->"}
+      @body_content     = body.gsub(/^\#\#\#\#(.*)/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^\#\s(.*)/){"#{$1}"}
-      @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
+      # @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
