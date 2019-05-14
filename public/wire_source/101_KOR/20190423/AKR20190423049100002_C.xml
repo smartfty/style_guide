@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423049100002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100113</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302002" name="통화외환"/>
+			<ClassCode code="0303003" name="은행"/>
+			<ClassCode code="0201012" name="경제동향"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[주요국 성장률 발표 앞두고 원/달러 환율 보합세]]></Title>
+		<Body><![CDATA[주요국 성장률 발표 앞두고 원/달러 환율 보합세
+
+
+
+    (서울=연합뉴스) 이지헌 기자 = 주요국의 1분기 경제성장률 발표를 앞두고 23일 원/달러 환율이 보합권에 머물고 있다.
+    이날 서울 외환시장에서 원/달러 환율은 오전 9시 46분 현재 전일 종가보다 0.2원 오른 달러당 1,141.7원에 거래됐다.
+    전일 종가 대비 0.5원 내린 1,141.0원에 출발한 원/달러 환율은 장초반 보합권을 벗어나지 못한 채 변동성이 제한된 모습을 나타냈다.
+    한국과 미국의 1분기 경제성장률이 각각 25일, 26일 발표될 예정인 가운데 외환시장 참가자들이 관망세를 보이는 분위기다.
+    전일 외국계 은행을 중심으로 나타난 달러화 매수 수요가 원/달러 환율 상승을 주도했지만 삼성중공업의 1조원대 해양플랜트 수주 소식 여파로 추가 상승이 제한됐다.
+    4월 원/달러 환율을 상승세로 이끌었던 외국인 주주의 배당금 역송금 수요도 상당 부분 해소돼 수급에 미치는 영향이 제한적일 것으로 시장 참가자들은 평가했다.
+    월말이 다가옴에 따라 수출업체의 달러화 매도(네고) 물량이 원/달러 환율을 끌어내리는 요인으로 작용할 전망이다.
+    원/엔 재정환율은 오전 9시 46분 현재 100엔당 1,020.97원으로 전일 오후 3시 30분 기준가(1,019.88원)보다 1.09원 올랐다.
+    pan@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

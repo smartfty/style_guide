@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423064800004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105138</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0505001" name="환경일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울 강동구, '환경대상' 도시농업 부문 9년 연속 수상]]></Title>
+		<Body><![CDATA[서울 강동구, '환경대상' 도시농업 부문 9년 연속 수상
+
+
+
+    (서울=연합뉴스) 윤고은 기자 = 서울 강동구는 23일 '제14회 대한민국 환경대상'에서 공공부문 도시농업 분야 대상을 수상했다고 밝혔다. 
+    이번 수상으로 강동구는 지난 2011년부터 9년 연속 '대한민국 환경대상' 도시농업 분야 대상을 거머쥐게 됐다. 
+    2009년부터 도시농업 정책을 역점사업으로 펼쳐온 강동구는 서울시 자치구 중 최대 규모인 14만6천337㎡(6천797구좌)의 텃밭을 조성하고 있다. 
+    또한 친환경 농산물 직거래 매장 싱싱드림, 도시농업공원, 공공급식센터 및 도시농업 커뮤니티시설인 파믹스센터 등을 운영하고 있다. 
+    이정훈 강동구청장은 "도시농업의 육성과 지원은 환경보호와 인간성 회복을 위한 중요한 실천"이라며 "생활 속의 도시농업이 안정적으로 정착될 수 있도록 지속적인 노력과 지원을 아끼지 않겠다"고 말했다. 
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

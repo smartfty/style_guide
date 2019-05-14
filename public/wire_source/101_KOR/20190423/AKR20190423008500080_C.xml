@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423008500080</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>062347</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7103009" name="러시아"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[러시아 신문 "김정은-푸틴, 25일 극동연방대서 정상회담"]]></Title>
+		<SubTitle><![CDATA["24일 전용열차로 블라디보스토크 도착…26일까지 체류 예정"]]></SubTitle>
+		<Body><![CDATA[러시아 신문 "김정은-푸틴, 25일 극동연방대서 정상회담"
+"24일 전용열차로 블라디보스토크 도착…26일까지 체류 예정"
+
+    (블라디보스토크=연합뉴스) 유철종 특파원 = 김정은 북한 국무위원장이 24일 러시아 극동 블라디보스토크를 방문해 25일 블라디미르 푸틴 러시아 대통령과 회담할 것이라고 복수의 소식통을 인용해 러시아 유력 일간 '코메르산트'가 22일(현지시간) 보도했다. 
+    회담은 블라디보스토크 루스키 섬의 극동연방대학에서 열릴 것이며 김 위원장은 대학 내 호텔에서 묵을 것이라고 신문은 전했다. 
+    푸틴 대통령은 25일 회담 뒤 곧바로 중국 베이징 일대일로(一帶一路:육상·해상 실크로드) 정상포럼(26∼27일)에 참석하기 위해 출발할 것이나, 김 위원장은 26일까지 현지에 체류할 것이라고 신문은 보도했다. 
+    김 위원장은 관광지를 방문하는 등의 문화프로그램을 소화하고, 지난 2002년 방러했던 김정일 국방위원장이 방문했던 곳들을 찾을 예정인 것으로 알려졌다.
+    김 위원장과 함께 230명의 방문단이 전용열차를 타고 러시아를 찾을 것이라고 신문은 덧붙였다.
+    김 위원장의 전용열차는 24일 새벽 북러 국경을 넘을 것으로 이 신문은 예상했다.
+
+
+    cjyou@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

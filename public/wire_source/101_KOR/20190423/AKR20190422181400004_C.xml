@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422181400004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111502</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0901002" name="과학기술"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 서울시립과학관, 28일 제임스 피어시 초청 강연]]></Title>
+		<Body><![CDATA[[게시판] 서울시립과학관, 28일 제임스 피어시 초청 강연
+
+    ▲ 서울시립과학관은 28일 오후 2시 영국 유명 과학 커뮤니케이터 제임스 피어시 초청 강연을 마련한다. 수강료는 5천원이며, 서울시립과학관 홈페이지에서 예약 접수한다. ☎ 02-970-4557~8 (서울=연합뉴스)
+
+
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

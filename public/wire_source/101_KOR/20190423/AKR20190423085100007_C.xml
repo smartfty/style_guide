@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423085100007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>114459</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210019" name="해외야구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강정호 결장·모란 2안타 2타점…피츠버그는 역전패]]></Title>
+		<Body><![CDATA[강정호 결장·모란 2안타 2타점…피츠버그는 역전패
+
+
+
+    (서울=연합뉴스) 하남직 기자 = 극심한 타격 부진에 빠진 강정호(32·피츠버그 파이리츠)가 휴식을 취하는 사이, 3루수 경쟁자 콜린 모란(27)이 타석에서 맹활약했다. 
+    강정호는 23일(한국시간) 미국 펜실베이니아주 피츠버그 PNC파크에서 열린 2019 미국프로야구 메이저리그 애리조나 다이아몬드백스와의 홈경기에 결장했다. 
+    강정호 대신 5번타자 3루수로 선발 출전한 모란은 5타수 2안타 2타점을 올렸다. 모란의 시즌 타율은 0.273에서 0.289(38타수 11안타)로 올랐다. 강정호의 시즌 타율은 0.143(56수 8안타)이다. 
+    모란은 0-1로 뒤진 3회말 1사 2루에서 우익수 쪽으로 향하는 동점 2루타를 쳤다. 3-1로 앞선 5회말 무사 3루에서는 좌전 적시타를 만들었다. 
+    그러나 피츠버그는 7회초 대량 실점하며 4-12로 역전패했다. 
+    애리조나는 1-4로 뒤진 7회 6안타 1볼넷을 묶어 7점을 뽑았다. 8회에도 6안타를 몰아쳐 4점을 추가했다. 
+    jiks79@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

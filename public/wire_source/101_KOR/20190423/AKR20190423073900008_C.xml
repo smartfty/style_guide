@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423073900008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111608</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0303002" name="증권사"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 키움증권, '주식 x ETF 설명회' 개최]]></Title>
+		<Body><![CDATA[[게시판] 키움증권, '주식 x ETF 설명회' 개최
+
+    ▲ 키움증권은 오는 24일 한국거래소 서울사무소 1층 본관 국제회의장에서 개인투자자를 대상으로 주식시장 전망 및 주식·상장지수펀드(ETF) 투자 방법 등을 설명하는 '주식 x ETF 설명회 시즌2'를 개최한다고 23일 밝혔다. 이 설명회는 올해 12월까지 총 9회(월 1회)에 걸쳐 진행될 예정이며, 참가 신청은 키움증권 홈페이지나 모바일트레이딩시스템(MTS) 영웅문S를 통해 선착순 150명까지 받는다. 이 행사는 한국거래소가 공동 주관한다. (서울=연합뉴스)
+
+
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

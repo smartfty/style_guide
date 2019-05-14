@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423112400056</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>143726</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0502003" name="기부봉사"/>
+			<ClassCode code="0503001" name="교육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[제주소식] 문기봉 우리천막 대표, 아너소사이어티 가입]]></Title>
+		<Body><![CDATA[[제주소식] 문기봉 우리천막 대표, 아너소사이어티 가입
+
+    (제주=연합뉴스) 제주사회복지공동모금회는 문기봉 우리천막 대표가 지난 22일 공동모금회를 찾아 1억원 기부를 약속, 고액기부자 모임인 아너 소사이어티에 가입했다고 23일 밝혔다.
+
+
+
+    이로써 문 대표는 도내 103번째, 전국 2천87번째 아너 소사이어티 회원이 됐다
+    문 대표는 2017년 8월 공동모금회와 인연을 맺어 물품과 성금을 꾸준히 기탁해왔으며 제주영지학교 학생들의 꿈을 응원하고자 장학금을 전달하기도 했다.
+    문 대표는 "어려운 시절 주위에서 받았던 도움을 돌려주고자 아너 소사이어티 가입을 하게 됐다"며 "앞으로도 지역사회의 어려운 이웃을 위해 나눔의 손길을 지속해서 건네겠다"고 밝혔다.
+
+    학교폭력 예방교육 학교장 직무연수
+
+    (제주=연합뉴스) 제주도교육청은 지난 22일 라마다프라자 제주호텔에서 도내 학교장 184명을 대상으로 2019 학교폭력 예방교육 학교장 직무연수를 실시했다.
+
+
+
+    연수에서는 이상돈 교육부 학교생활문화과장이 2019년 학교폭력 예방교육의 중요성과 정책 방향에 대해 기조강연했다.
+    학교폭력 예방을 위한 회복적 생활교육 접근방법(이상철 강원 홍천중 교감), 학교공동체 인권이야기(제주도청 김병준)에 대한 소개도 이뤄졌다.
+    atoz@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

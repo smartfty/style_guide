@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423114500044</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>144252</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0509001" name="노동일반"/>
+			<ClassCode code="0509002" name="노사문제"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 콜텍 '13년 노사분쟁' 공식 종료]]></Title>
+		<Body><![CDATA[[그래픽] 콜텍 '13년 노사분쟁' 공식 종료
+
+    (서울=연합뉴스) 김영은 기자 = 국내 최장기 노사분규 사업장이던 콜텍 노사가 13년째 이어져 온 갈등을 공식적으로 끝냈다.
+    김호규 금속노조 위원장과 박영호 콜텍 사장은 23일 서울 강서구 한국가스공사에서 열린 조인식에서 노사 합의문에 정식으로 서명했다.
+    0eun@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

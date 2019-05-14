@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010067000013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111021</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[질의 경청하는 도종환 장관]]></Title>
+		<Comment>NO-2020</Comment>
+		<Body><![CDATA[질의 경청하는 도종환 장관
+    (서울=연합뉴스) 김주형 기자 = 도종환 문화체육관광부 장관이 10일 오전 국회에서 열린 문화체육관광위원회 국정감사에서 더불어민주당 김영주 장관의 질의를 경청하고 있다. 2018.10.10
+    kjhpress@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101006700001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101006700001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101006700001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

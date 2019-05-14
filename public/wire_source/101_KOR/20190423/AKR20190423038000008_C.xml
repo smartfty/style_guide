@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423038000008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>091758</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0405003" name="조선"/>
+			<ClassCode code="0302013" name="특징주"/>
+			<ClassCode code="0302012" name="기업공시"/>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[특징주] 삼성중공업, 1.1조원 해양플랜트 수주 소식에 강세]]></Title>
+		<Body><![CDATA[[특징주] 삼성중공업, 1.1조원 해양플랜트 수주 소식에 강세
+
+
+
+    (서울=연합뉴스) 박진형 기자 = 삼성중공업이 1조1천억원 규모의 해양플랜트 수주 소식에 23일 장 초반 강세를 보였다.
+    이날 오전 9시 11분 현재 삼성중공우는 전날 대비 가격상한폭(29.89%)까지 뛰어오른 7만9천100원에 거래됐다.
+    같은 시간 삼성중공업 보통주도 3.49% 상승했다.
+    앞서 삼성중공업은 1조1천40억원 규모의 부유식 원유생산 저장 및 하역설비(FPSO) 1척을 수주했다고 전날 공시했다.
+    이번 수주 금액은 지난해 삼성중공업 매출액의 21%에 해당한다.
+    업계에 따르면 이번 해양플랜트는 인도 에너지기업 릴라이언스인더스트리가 발주한 'MJ FPSO'로 인도 동쪽 심해에 설치된다.
+    jhpark@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

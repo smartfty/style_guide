@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423133600051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160730</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0410005" name="철도운수"/>
+			<ClassCode code="0107002" name="지방의회"/>
+			<ClassCode code="0104020" name="민주당"/>
+			<ClassCode code="0506003" name="철도교통"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["기장 정관 도시철도 유치"…민주당 범군민추진위 구성]]></Title>
+		<Body><![CDATA["기장 정관 도시철도 유치"…민주당 범군민추진위 구성
+
+
+    (부산=연합뉴스) 조정호 기자 = 민주당 부산 기장군 지역위원회는 23일 부산시의회 브리핑룸에서 기자회견을 열고 정관읍 주민 숙원사업인 도시철도 정관선을 유치하기 위해 '정관선 범군민추진위원회'를 구성하겠다고 밝혔다.
+    이날 기자회견에는 최택용 민주당 기장군 지역위원장과 구경민·김민정 시의원, 황운철 기장군의회 의장을 비롯한 성경미·우성빈·박우식·김혜금 군의원이 참석했다.
+    이들은 "8만3천명 정관읍민은 대규모 계획도시인 정관 신도시 미래를 믿고 입주했으나 교통망 미비와 의료시설 부족 등으로 고통을 겪고 있다"며 도시철도 유치 필요성을 강조했다.
+    최 위원장은 "민주당 기장군 지역위원회는 부산시와 민주당 국토교통위원회 국회의원 등과 함께 도시철도 정관선이 정부 예비타당성 조사를 통과하고 기본계획을 수립할 수 있도록 당력을 집중하겠다"며 "'정관선 범군민추진위원회'는 정당의 틀을 뛰어넘어 각종 단체와 주민이 참여하는 조직이 될 것"이라고 말했다.
+    정관선은 좌천역(동해남부선)에서 정관신도시를 거쳐 월평사거리에 이르는 12.8㎞ 구간에 노면전차(트램)를 운영하는 방안으로 검토되고 있다.
+    ccho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

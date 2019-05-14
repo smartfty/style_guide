@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010057200051</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104917</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[취임 100일 토크콘서트 갖는 부울경 단체장들]]></Title>
+		<Comment>NO-1866</Comment>
+		<Body><![CDATA[취임 100일 토크콘서트 갖는 부울경 단체장들
+    (부산=연합뉴스) 손형주 기자 = 김경수 경남도지사(왼쪽부터), 오거돈 부산시장, 송철호 울산시장이 10일 오전 부산항 컨벤션센터에서 민선7기 출범 100일 기념 부울경 시도지사 토크콘서트를 갖고 있다.  2018.10.10
+    handbrother@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101005720005100.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101005720005100_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101005720005100_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423050400009</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100245</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001065" name="PRN"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[PRNewswire] Ceramics trade fair held in Yingxian County, Shanxi Province]]></Title>
+		<Body><![CDATA[[PRNewswire] Ceramics trade fair held in Yingxian County, Shanxi Province
+
+    (SHUOZHOU, China, April 22, 2019 PRNewswire=연합뉴스) Shanxi Shuozhou Ceramic Import and Export Fair has recently been held in Yingxian County, north China's Shanxi Province.
+
+    At the fair, participants reached intentions of cooperation on 20 investment projects. Among them, eight projects with a total investment of more than 1.6 billion yuan will be set up in Yingxian County, including a high-end ceramic decoration production line and a ceramic stained paper production line.
+
+    In recent years, Yingxian County has accelerated economic transformation and quickened the pace of building itself into an important ceramic production base.
+
+    At present, the ceramic products produced in Yingxian have been sold to major cities in China such as Beijing, Shanghai, Guangzhou, Chongqing, Wuhan, as well as more than 40 countries and regions in Europe, America and Southeast Asia.
+
+    The ceramic industry in Yingxian has already formed an industrial pattern featuring daily-use ceramics, architectural ceramics, and export-oriented ceramics. At present, the county is home to 21 ceramic enterprises and 32 production lines, with the annual production capacity of daily-use ceramics reaching 1 billion pieces and the architectural ceramics reaching 33 million square meters. The ceramic products have covered more than 2,000 varieties of over 60 series, according to Ding Yu, deputy secretary of the Yingxian County Party Committee and Acting County Magistrate.
+
+    Rich in ceramic raw materials such as kaolin, quartz, clay and porcelain stone, Yingxian enjoys favorable advantages in the ceramic production, enabling the local ceramic enterprises to focus on the ceramic R&D.
+
+    At present, the ceramic enterprises in Yingxian have boasted 13 provincial and municipal ceramic technology R&D centers.
+
+    To promote healthy development of the ceramic industry, in January 2019, an economic and technological development zone highlighting the production of daily-use ceramics and architectural ceramics was approved.
+
+    Ding said that this year, Yingxian will further increase the infrastructure construction of the development zone and also introduce the factory production enterprises involving coal-to-gas, moulding, decoration firing, color printing and packaging, to provide ceramic enterprises with professional services.
+
+    Source: Yingxian County
+
+    [편집자 주] 본고는 자료 제공사에서 제공한 것으로, 연합뉴스는 내용에 대해 어떠한 편집도 하지 않았음을 밝혀 드립니다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

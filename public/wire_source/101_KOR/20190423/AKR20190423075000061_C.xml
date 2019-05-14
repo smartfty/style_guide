@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423075000061</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>112011</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+		</Region>
+		<Class>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0503003" name="초등교육"/>
+			<ClassCode code="0507006" name="보건"/>
+			<ClassCode code="0503011" name="교육행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경기교육청, 초등학교용 '영양과 식생활' 교재 개발]]></Title>
+		<Body><![CDATA[경기교육청, 초등학교용 '영양과 식생활' 교재 개발
+
+    (수원=연합뉴스) 이영주 기자 = 경기도교육청은 초등학교의 영양·식생활 교육을 체계화하기 위한 교재 '영양과 식생활'과 교사용 지도서를 개발해 도내 학교에 보급했다고 23일 밝혔다.
+    교육청 차원에서 개발한 영양·식생활 교육 교재는 전국 첫 사례다. 
+
+
+    교재는 '식품 알기, 바른 식생활, 식품안전'을 골자로, 성장 단계와 교육과정을 고려해 학년별로 내용을 차별화했다. 
+    개발 도서는 각 학교 교재선정위원회 심의를 거쳐 교과와 창의적체험활동 시간에 활용할 수 있다. 영양·식생활 교육 외에도 식품 안전교육, 세계음식 문화를 통한 다문화 교육, 식품·영양 분야 진로교육 등에 활용할 수 있다. 
+    young86@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

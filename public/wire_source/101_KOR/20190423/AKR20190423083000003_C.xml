@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423083000003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>114703</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0408018" name="소재산업"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0201018" name="투자협력"/>
+			<ClassCode code="0405004" name="자동차"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대림오토바이·삼성SDI, 전기 이륜차 배터리 개발 제휴]]></Title>
+		<Body><![CDATA[대림오토바이·삼성SDI, 전기 이륜차 배터리 개발 제휴
+
+
+    
+    (서울=연합뉴스) 홍국기 기자 = 대림오토바이는 삼성SDI와 전기 이륜차 배터리 개발 사업제휴에 관한 양해각서(MOU)를 체결했다고 23일 밝혔다. 
+    대림오토바이와 삼성SDI는 이번 MOU를 통해 전기 이륜차용 배터리의 개발과 규격 표준화, 국내 배터리 공유 스테이션 사업 등을 함께 추진하기로 협의했다.
+    정부는 심각한 미세먼지 문제를 해결하기 위해 2022년까지 전기 이륜차 5만대 보급 계획을 세우고 구매보조금을 지급하고 있다.
+    전기 이륜차는 배기가스와 미세먼지 배출이 없는 친환경적 운송수단으로 유지보수비가 저렴한 장점이 있지만, 운행시간이 짧고 외부에서 배터리 충전이 어려워 보급 확대에 한계가 있는 상황이다. 
+    redflag@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

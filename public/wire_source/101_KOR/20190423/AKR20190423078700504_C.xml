@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423078700504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>113434</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="0109009" name="군수무기"/>
+			<ClassCode code="0109002" name="병무"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[방위사업청, 개청 13년만에 첫 여성 부이사관 탄생]]></Title>
+		<SubTitle><![CDATA[홍미루 재정계획담당관…"성공적 임무 수행에 기여"]]></SubTitle>
+		<Body><![CDATA[방위사업청, 개청 13년만에 첫 여성 부이사관 탄생
+홍미루 재정계획담당관…"성공적 임무 수행에 기여"
+    
+    (서울=연합뉴스) 이준삼 기자 = 방위사업청 개청 13년 만에 첫 여성 부이사관이 탄생했다.
+    방위사업청은 23일 재정계획담당관 홍미루(45) 서기관을 부이사관으로 승진 임용했다고 밝혔다.
+    홍 부이사관은 2002년 행시 45회로 공직에 입문했다. 2011년 서기관으로 승진한 뒤 원가검증팀장, 피아식별장비사업 2팀장, 조직인사담당관 등의 주요직책을 두루 역임하며 능력을 인정받았다.
+    홍 부이사관은 "최초라는 수식어가 무색하지 않도록 성과를 제고하고 능력을 발휘하는 여성 관리자로서 방사청의 성공적인 임무 수행에 기여하겠다"고 포부를 밝혔다.
+    군 무기와 장비 등을 개발하는 방위사업청은 그동안 남성 중심조직 이미지가 강했다. 그러나 최근에는 전체 직원 중 여성 비율이 32.1%에 이른다.
+    방사청은 "여성 직원들의 비중과 활약이 두드러지면서 여성 특유의 부드러움과 섬세함으로 업무를 추진하고 있다"며 "군과 관련 업체들로부터 방사청이 달라졌다는 평가를 받고 있다"고 전했다.
+    jslee@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

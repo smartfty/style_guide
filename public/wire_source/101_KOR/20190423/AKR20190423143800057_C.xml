@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423143800057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>162048</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[울산소식] 울주군-롯데삼동복지재단 물품 지원 협약]]></Title>
+		<Body><![CDATA[[울산소식] 울주군-롯데삼동복지재단 물품 지원 협약
+
+
+    (울산=연합뉴스) 울주군과 지역 자원봉사단체, 롯데삼동복지재단은 23일 2019년 두드림 물품지원사업 협약식을 했다. 
+    두드림 물품지원은 롯데삼동복지재단이 주최·후원하고, 울주군과 3개 우수 자원봉사단체가 주관하는 소외계층 지원 사업이다. 
+    이번 협약을 통해 봉사단체는 소외 및 저소득 계층 가사 지원, 말벗 등의 봉사활동을 하고 롯데삼동복지재단에서는 저소득 가정에 필요한 물품을 지원한다. 
+    올해 2억5천만원을 들여 각 가정에 가전제품, 생활용품 등을 지원할 예정이다.
+
+
+    울주군 재향군인회 안보결의·한마음전진대회
+    (울산=연합뉴스) 울주군 재향군인회는 23일 울주군민체육관에서 안보결의 및 한마음전진대회를 개최했다. 
+    행사는 안보강연과 기념식, 오찬, 체육대회 순으로 진행했다. 
+    1965년 창립한 울주군 재향군인회는 봉사활동과 장학사업, 안보활동, 국제 향군단체 교류 등을 통해 지역 발전과 사회공헌에 기여하고 있다.
+    
+    울주군, '일하는 방식 혁신' 직원 특강
+    (울산=연합뉴스) 울주군은 23일 단국대학교 남재걸 교수를 초청, 공무원을 대상으로 일하는 방식 혁신 특강을 했다.
+    남 교수는 '사회적 가치와 일하는 방식 개선'을 주제로 업무의 효율성, 개인의 만족, 시민에 대한 민주성 향상 방안을 제시했다. 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

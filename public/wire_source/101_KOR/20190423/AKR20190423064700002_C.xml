@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423064700002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110150</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0203003" name="수출"/>
+			<ClassCode code="0201019" name="관세통관"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[수출물품 품목분류 심사기간 절반으로 단축]]></Title>
+		<Body><![CDATA[수출물품 품목분류 심사기간 절반으로 단축
+
+    (세종=연합뉴스) 윤종석 기자 = 앞으로 수출기업이 자유무역협정(FTA) 원산지 증명서 발급 등을 위해 받는 수출물품 품목분류 심사기간이 15일 내로 단축된다.
+    관세청과 관세평가분류원은 수출 물품의 원산지 증명서 발급 등에 필요한 물품 심사를 10단위 심사에서 6단위로 단축하는 '수출 전용 품목분류 6단위 심사제도'를 시행한다고 23일 밝혔다.
+    전 세계에서 거래되는 모든 물품을 세계관세기구(WCO)에서 정한 국제 통일 상품 분류체계에 따라 하나의 품목으로 분류하기 위해 국제 품목분류(HS: Harmonized System)가 운용되고 있다.
+    국제기준(HS) 품목분류는 6자리까지 있지만 국내기준(HS Korea)는 여기에 4자리를 추가한 10자리 분류체계다.
+    수입이 아닌 수출 항목이니 굳이 국내기준 분류 심사를 할 필요는 없다는 판단이다.
+    수출 물품을 국내 수입 물품과 같이 국내기준 10단위까지 심사하면 심사기간이 1달 이상 걸린다.
+    국제기준 품목분류 기준인 6단위 품목번호 확인을 받고 싶은 기업은 관세청 전자통관시스템(Uni-Pass)에서 신청하면 된다.
+    관세청 관계자는 "이번 수출 전용 품목분류 6단위 심사제도 시행으로 품목분류 심사 기간이 대폭 단축돼 기업들이 신속한 품목분류와 원활한 FTA 원산지 증명 혜택을 받게 됐다"고 말했다.
+    
+
+    banana@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

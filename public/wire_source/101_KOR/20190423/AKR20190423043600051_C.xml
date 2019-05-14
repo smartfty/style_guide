@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423043600051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>094256</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006011" name="양산"/>
+			<RegionCode code="7003005" name="부산"/>
+			<RegionCode code="7006001" name="경남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0506002" name="도로교통"/>
+			<ClassCode code="0404001" name="건설일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국도 7호선 기장 임곡리∼양산 용당동 구간 29일 개통]]></Title>
+		<Body><![CDATA[국도 7호선 기장 임곡리∼양산 용당동 구간 29일 개통
+
+
+    
+    (부산=연합뉴스) 김상현 기자 = 국도 7호선 부산 기장군 정관읍 임곡리∼경남 양산시 용당동까지 9.3㎞ 신설 구간이 29일 개통한다.
+    이 구간은 부산국토관리청이 시공하는 부산∼울산 국도 7호선 5개 공구 가운데 2단계 구간이다.
+    지난해 말 개통한 기장군 정관읍 임곡리∼경남 양산시 동면 여락리까지 6.2㎞ 1단계 구간과 연결돼 경남 웅상지역을 우회하면서 이 일대 상습체증을 해소할 것으로 기대된다.
+    노치욱 부산국토청 도로계획과장은 "내년 하반기까지 국도 7호선 부산∼울산 29.6㎞ 구간 중 23.1㎞를 개통할 예정"이라며 "신설 국도를 개통하면 통행시간 기존 58분에서 28분으로 30분 단축돼 물류수송과 교통 체증 해소에 도움이 될 것"이라고 말했다.
+    joseph@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

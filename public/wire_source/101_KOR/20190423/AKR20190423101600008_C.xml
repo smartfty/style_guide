@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423101600008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>135517</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201007" name="특허"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[옵티팜, 외래 단백질 대량생산 관련 특허 취득]]></Title>
+		<Body><![CDATA[옵티팜, 외래 단백질 대량생산 관련 특허 취득
+
+    (서울=연합뉴스) 임미나 기자 = 코스닥 상장사 옵티팜은 '외래 단백질 발현 증가를 위한 재조합 전이 벡터' 국내 특허를 취득했다고 23일 공시했다.
+    회사 측은 "이 발명은 외래 단백질을 순수한 형태로 발현 증가시키기 위한 새로운 재조합 전이 벡터 및 이를 이용한 외래 목적 단백질의 대량 생산 방법에 관한 것"이라며 "이 발명에 따른 재조합 전이 벡터를 이용하는 경우 곤충세포에서 항원 등의 유용 단백질 생산을 저비용, 고효율로 할 수 있다"고 설명했다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

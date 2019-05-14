@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423106500007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>141251</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7007025" name="포항"/>
+		</Region>
+		<Class>
+			<ClassCode code="1210002" name="야구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[6월 25∼27일 두산-삼성전, 포항에서 개최]]></Title>
+		<Body><![CDATA[6월 25∼27일 두산-삼성전, 포항에서 개최
+
+
+
+    (서울=연합뉴스) 하남직 기자 = KBO가 삼성 라이온즈의 제2구장 포항 3경기를 추가로 편성했다. 
+    KBO는 23일 "6월 25일부터 27일까지 대구 삼성 라이온즈 파크에서 열릴 예정이던 두산 베어스와 삼성의 3연전을 포항에서 치르기로 했다"고 밝혔다. 
+    KBO는 "연고도시 외 지역 팬서비스와 저변확대를 위한 것"이라고 설명했다. 
+    jiks79@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

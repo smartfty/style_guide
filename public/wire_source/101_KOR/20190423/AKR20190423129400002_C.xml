@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423129400002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>153636</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302002" name="통화외환"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001015" name="도표"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[외국환시세(4월23일·마감가)]]></Title>
+		<Body><![CDATA[외국환시세(4월23일·마감가)
+
+                                                                 (15:30)
+┌───────────┬─────┬───────────┬─────┐
+│       통   화        │매매기준율│       통   화        │매매기준율│
+├───────────┼─────┼───────────┼─────┤
+│미국 달러             │  1,141.80│뉴질랜드 달러         │    760.84│
+│일본 엔(100)          │  1,020.42│홍콩 달러             │    145.55│
+│유럽통화단위 유로     │  1,284.24│스웨덴 크로네         │    122.45│
+│덴마크 크로네         │    172.02│노르웨이 크로네       │    134.23│
+│사우디아라비아 리알   │    304.47│쿠웨이트 디나르       │  3,752.96│
+│바레인 디나르         │  3,028.25│아랍에미리트 디르함   │    310.85│
+│태국 바트             │     35.76│싱가포르 달러         │    841.73│
+│영국 파운드           │  1,482.28│인도 루피             │     16.37│
+│스위스 프랑           │  1,123.43│말레이시아 링깃       │    276.60│
+│캐나다 달러           │    854.32│인도네시아 루피아(100)│      8.13│
+│호주 달러             │    812.90│중국 위안             │    170.00│
+└───────────┴─────┴───────────┴─────┘
+ (자료=KEB하나은행)                                      (서울=연합뉴스)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

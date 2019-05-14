@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423138800030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160650</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0402002" name="농업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 농협·아워홈, 국산 농산물 판매확대 업무협약]]></Title>
+		<Body><![CDATA[[게시판] 농협·아워홈, 국산 농산물 판매확대 업무협약
+
+    ▲ 농협경제지주와 아워홈은 23일 서울 강남구 아워홈 본사에서 상생 협력 업무협약(MOU)을 체결하고 국산 농산물 판매 확대와 농업인 실익 증진을 위해 협력하기로 했다. 농협경제지주는 아워홈에 버섯을 시작으로 쌀, 콩, 무, 배추 등 농산물을 2021년까지 500억 원어치 공급할 계획이다. (서울=연합뉴스)
+
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

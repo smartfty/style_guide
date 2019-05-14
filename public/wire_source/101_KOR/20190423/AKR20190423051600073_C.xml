@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423051600073</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100859</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102024" name="일본"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[日의원들, 제국주의 상징 야스쿠니 신사 집단 참배]]></Title>
+		<Body><![CDATA[日의원들, 제국주의 상징 야스쿠니 신사 집단 참배
+
+    (도쿄=연합) 김병규 특파원 = 일본 우익 성향 의원들이 23일 A급전범들이 합사(合祀)된 도쿄(東京) 야스쿠니(靖國) 신사를 집단 참배했다.  
+    교도통신에 따르면 '다 함께 야스쿠니 신사를 참배하는 국회의원 모임' 회원들은 이날 오전 야스쿠니 신사의 춘계례대제(春季例大祭, 봄 큰제사)에 맞춰 이 신사를 참배했다. 
+    이 모임의 회원들은 매년 4월 춘계례대제, 8월 15일 일본의 2차대전 패전일, 10월 추계례대제에 야스쿠니 신사를 집단 참배하고 있다.
+
+
+    아베총리는 앞서 지난 21일 직접 참배하는 대신 '마사카키'(眞신＜木＋神＞)라는 공물을 야스쿠니 신사에 보냈다. 마사카키는 신사 제단의 좌우에 세우는 나무의 일종이다. 
+    아베 총리는 2013년 12월 야스쿠니 신사를 참배했지만 이후에는 직접 참배하지 않고 매년 2차대전 패전일이나 춘·추계 예대제에 공물을 보내고 있다. 
+    야스쿠니신사는 근대 일본이 일으킨 크고 작은 전쟁에서 숨진 사람들의 영령을 떠받드는 시설로, 제국주의 일본의 상징으로 불린다. 
+    태평양전쟁 A급 전범 14명을 포함해 246만6천여명이 합사돼 있다. 실제로 위패와 유골이 있는 것이 아니라 합사자 명부가 있다. 
+
+
+    bkkim@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

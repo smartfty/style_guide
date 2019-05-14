@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423008700062</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>061558</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801002" name="날씨"/>
+			<ClassCode code="0505004" name="대기환경"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강원 오후부터 5∼10㎜ 봄비…미세먼지 '보통']]></Title>
+		<Body><![CDATA[강원 오후부터 5∼10㎜ 봄비…미세먼지 '보통'
+
+
+    (춘천=연합뉴스) 임보연 기자 = 23일 강원도는 흐려지다가 저녁부터 비가 시작돼 내일 오전까지 이어지겠다.
+    강원지방기상청에 따르면 오전 6시 현재 아침 기온은 내륙 11∼19도, 산지(대관령, 태백) 7∼19도, 동해안 12∼20도 분포로 평년보다 3∼8도 높다.
+    낮 최고기온은 내륙 26∼27도, 산지 23∼24도, 동해안 21∼24도로 내륙은 어제보다 비슷하겠고, 동해안과 산지는 4∼7도 높겠다.
+    남서쪽 저기압 영향으로 가끔 구름 많다가 차차 흐려져 저녁(오후 6시)부터 비가 내리겠다.
+    예상강수량은 강원 중남부 5∼10㎜, 북부 5㎜ 내외이다.
+    내일(24일) 아침(오전 6시) 북부내륙부터 비가 그치겠으나 오후에도 빗방울이 떨어지는 곳이 있겠다.
+    오늘과 내일 내리는 비로 강원 산지와 남부, 동해안 등에 내려진 건조 특보는 해소될 가능성이 있으나, 강수량에 따라 지역적인 차이가 있을 수 있겠다.
+    대기질통합예보센터에 따르면 이날 대부분 영서와 영동지역 미세먼지는 '보통'수준을 나타낼 것으로 예보됐다. 
+    강원지방기상청 관계자는 "아침까지 강원내륙과 산지에는 안개가 끼는 곳이 있겠으며, 저녁부터 내일 오전까지 비가 내리는 지역은 가시거리가 짧겠으니, 교통안전에 유의해야 한다"고 당부했다.
+    limbo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

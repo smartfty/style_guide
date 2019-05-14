@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423115400051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>145453</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0505006" name="동물"/>
+			<ClassCode code="0805001" name="건강"/>
+			<ClassCode code="0505001" name="환경일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[녹색 빛은 망막세포 회복 도움, 청색 빛은 스트레스 유발]]></Title>
+		<SubTitle><![CDATA[한국해양대 연구팀, LED 파장 해양생물 적용 분석 결과
+"빛 공해 시달리는 현대인 시력 회복에 도움 될 수 있을 것"]]></SubTitle>
+		<Body><![CDATA[녹색 빛은 망막세포 회복 도움, 청색 빛은 스트레스 유발
+한국해양대 연구팀, LED 파장 해양생물 적용 분석 결과
+"빛 공해 시달리는 현대인 시력 회복에 도움 될 수 있을 것"
+
+
+    
+    (부산=연합뉴스) 이영희 기자 = 녹색이 눈의 피로를 줄이고 시력 회복에 도움이 된다는 속설이 물고기를 대상으로 한 연구에서 사실로 확인됐다.
+    한국해양대 최철영 교수팀은 다양한 LED 파장의 빛을 해양생물에 적용하는 실험을 통해 녹색 빛 파장이 어류의 망막세포 사멸을 억제하는 동시에 손상된 망막세포의 회복과 재생에 효과적이라는 결과를 얻었다고 23일 밝혔다.
+    최 교수팀은 1.5W/㎡ 세기의 녹색 파장 빛에 4주 동안 노출한 금붕어 망막에서는 다른 빛에서 사육한 개체들보다 스트레스 반응 물질인 활성산소의 농도가 57%나 감소한 것을 확인했다.
+    외부자극으로 생성된 활성산소와 같은 유해 인자 때문에 사멸한 세포의 양도 현저하게 감소했다.
+    반대로 청색 파장의 빛은 일반 형광등과 비교했을 때 금붕어의 활성산소 생성을 촉진해 스트레스를 유발할 뿐만 아니라 망막세포의 사멸을 대량으로 발생시키는 사실도 확인했다.
+    스마트폰에서 방출되는 청색 파장의 빛(청색광)은 인간의 망막에 부정적인 영향을 미치고, 녹색 파장의 빛은 사람에게 컬러테라피에 활용될 정도로 생물체에 긍정적인 영향을 미친다고 알려졌다.
+    현재 아쿠아리움에서 청색 파장대의 빛이 연출하는 시각적인 화려함과 아름다움을 위해 해양생물들에 청색 파장대의 빛을 비추는 사례가 많은데 어류의 망막에 치명적인 영향을 끼칠 수 있다고 최 교수팀은 지적했다. 
+    최 교수팀의 연구결과는 어류 내분비학 분야 국제 저명학술지인 '어류 생리학 및 생화학저널(Fish Physiology and Biochemisty)'과 '생물화학 및 생물 물리 연구저널(Biochemical and Biophysical Research Communications)'에 게재됐다. 
+    최 교수는 "녹색 빛이 어류 망막세포의 회복은 물론이고 빛 공해 때문에 만성적 눈의 피로에 시달리는 현대인들의 시력 회복에도 도움이 되는 길을 열 수 있을 것으로 본다"고 말했다.
+    lyh9502@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

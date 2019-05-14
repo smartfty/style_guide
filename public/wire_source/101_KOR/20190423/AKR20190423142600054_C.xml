@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423142600054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>162159</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008001" name="전남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402002" name="농업"/>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전남농협, 친환경농산물 유통서포터즈 워크숍]]></Title>
+		<Body><![CDATA[전남농협, 친환경농산물 유통서포터즈 워크숍
+
+
+    (무안=연합뉴스) 조근영 기자 = 농협전남지역본부는 23일 광주 상무지구 라마다호텔에서 전남 친환경농산물 생산농가와 광주권 소비자가 함께하는 친환경농산물 유통서포터즈 워크숍 행사를 개최했다.
+    전남 친환경농산물 유통 활성화를 위한 다양한 의견을 공유하고자 마련된 이번 행사는 전남의 친환경 생산농가와 평소 친환경농산물에 관심이 많았던 광주권 소비자 등 50여명이 참석했다.
+    친환경 생산 농가들이 직접 친환경농업 비전을 소개해 소비자들로부터 큰 호응을 얻었다.
+    김석기 본부장은 "앞으로 농업의 지속가능성 실현과 소비자의 안전한 먹거리를 위해 다양한 전남 친환경농산물 판매전략을 수립해 추진해 나가겠다"고 말했다.
+    chogy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

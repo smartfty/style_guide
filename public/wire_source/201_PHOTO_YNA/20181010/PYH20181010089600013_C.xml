@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010089600013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>114952</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0410004" name="항공운수"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[김포공항, 개항 60주년 기념 환경정비사업 업무협약 체결]]></Title>
+		<Comment>NO-2276</Comment>
+		<Body><![CDATA[김포공항, 개항 60주년 기념 환경정비사업 업무협약 체결
+    (서울=연합뉴스) 한국공항공사가 지난 8일 김포공항에서 제3569부대, 아시아나항공, 인서울27골프클럽과 공항 진입도로변 블록담장 벽화조성을 위한 업무협약을 체결했다고 10일 전했다. 이철우 인서울27골프클럽㈜ 사장(왼쪽부터), 김명운 한국공항공사 사장직무대행, 박병성 제3569부대 부대장, 김이배 아시아나항공㈜ 경영관리본부장이 협약을 마친 후 기념촬영을 하고 있다. 2018.10.10 [한국공항공사 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101008960001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101008960001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101008960001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

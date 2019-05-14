@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423048800005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100029</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712001" name="영화"/>
+			<ClassCode code="0712009" name="드라마"/>
+			<ClassCode code="0712003" name="방송"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[엄정화, 사람엔터테인먼트와 전속계약]]></Title>
+		<Body><![CDATA[엄정화, 사람엔터테인먼트와 전속계약
+
+
+    
+    (서울=연합뉴스) 송은경 기자 = 사람엔터테인먼트는 23일 배우 엄정화와 전속계약을 체결했다고 밝혔다.
+    엄정화는 1992년 영화 '바람 부는 날이면 압구정동에 가야 한다'로 데뷔했고 이듬해 가수로 데뷔해 '눈동자', '배반의 장미', '포이즌' 등 수많은 히트곡을 내놨다.
+    드라마 대표작으로는 '칼잡이 오수정', '결혼 못하는 남자', '마녀의 아내' 등이 있고 영화 '결혼은 미친 짓이다', '싱글즈', '해운대', '댄싱퀸', '미쓰 와이프' 등에 출연했다.
+    사람엔터테인먼트에는 배우 이제훈, 이하늬, 최원영, 권율, 한예리 등이 소속돼 있다.
+    norae@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

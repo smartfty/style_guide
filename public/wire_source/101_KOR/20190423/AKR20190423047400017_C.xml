@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423047400017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100831</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0406003" name="제약"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 광동제약, 통증효과 개선 '만수고 골드 플라스타' 출시]]></Title>
+		<Body><![CDATA[[게시판] 광동제약, 통증효과 개선 '만수고 골드 플라스타' 출시
+    
+
+    ▲ 광동제약은 23일 양한방 복합성분의 이중 작용으로 관절과 근육 통증에 효과적인 '광동 만수고 골드 플라스타'를 리뉴얼 출시했다. 광동 만수고는 지난 2002년 한방 파스 콘셉트로 출시된 이후 양방 성분을 강화하고 피부 자극을 개선했다고 광동제약은 설명했다. (서울=연합뉴스)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

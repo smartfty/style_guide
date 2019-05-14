@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010079700053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>113330</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0702001" name="유형문화"/>
+			<ClassCode code="0702006" name="민속풍습"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[2만 년 전으로…달서 선사문화축제]]></Title>
+		<Comment>NO-2157</Comment>
+		<Body><![CDATA[2만 년 전으로…달서 선사문화축제 
+
+    (대구=연합뉴스) 지난 9일 대구 달서구 한샘 공원에서 열린 선사문화축제에서 참가한 어린이들이 기념사진을 촬영하고 있다. 대구 달서구는 이날 축제에 지역 주민 3천여 명이 참가했다고 10일 밝혔다. 2018.10.10
+    sunhyung@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101007970005300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101007970005300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101007970005300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423104200051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140642</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0712004" name="가요"/>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0506005" name="해상교통"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[싱어송라이터 이츠, 팬스타크루즈 전속모델 발탁]]></Title>
+		<Body><![CDATA[싱어송라이터 이츠, 팬스타크루즈 전속모델 발탁
+
+
+    
+    (부산=연합뉴스) 이영희 기자 = 국적 선사인 팬스타라인닷컴은 싱어송라이터 이츠(it's)를 팬스타크루즈 전속모델로 발탁했다고 23일 밝혔다. 
+    팬스타라인닷컴은 이날 서울 중구 무교로 서울지사 대회의실에서 이츠와 소속사인 STX라이언하트 관계자들이 참석한 가운데 전속모델 계약식을 했다.
+    이츠는 전속모델로서 팬스타크루즈 선상 공연, 화보 촬영 등의 활동을 하게 된다.
+    싱어송라이터라는 장점을 살려 팬스타크루즈 브랜드 로고송을 직접 작사, 작곡, 노래할 예정이다. 
+    이츠는 2010년 환타 광고모델을 거쳐 2014년 '오늘 밤 뭐해?'로 가요계에 데뷔했다.
+    팬스타라인닷컴 관계자는 "지난 2월 신규 앨범의 화보와 뮤직비디오 촬영을 위해 '팬스타 오사카 크루즈'에 승선한 이츠와 인연을 맺었고, 자유롭고 개성 있는 이츠의 이미지가 팬스타크루즈와 잘 어울려 전속모델로 발탁했다"고 말했다. 
+
+    팬스타라인닷컴은 2만1천t급 팬스타드림호를 부산과 일본 오사카를 주 3회 왕복 운항하며, 토요일에는 이 배를 이용해 부산의 바다 절경을 즐길 수 있는 부산항 원나이트 크루즈를 운영한다.
+    부산항 원나이트 크루즈는 연간 1만명 이상 이용하는 부산의 대표적인 해양관광상품으로 자리를 잡았다.
+    lyh9502@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

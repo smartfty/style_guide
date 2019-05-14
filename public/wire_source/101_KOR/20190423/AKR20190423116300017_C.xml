@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423116300017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>150926</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901011" name="인터넷"/>
+			<ClassCode code="0901009" name="게임"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[넷마블 신작 '킹 오브 파이터 올스타' 내달 9일 출시]]></Title>
+		<Body><![CDATA[넷마블 신작 '킹 오브 파이터 올스타' 내달 9일 출시
+
+    (서울=연합뉴스) 홍지인 기자 = 넷마블은 신작 액션RPG '더 킹 오브 파이터즈 올스타'를 오는 5월 9일 국내 정식 출시한다고 23일 밝혔다.
+    넷마블이 올해 출시하는 첫 신작인 이 게임은 원작의 감성을 살린 최고 수준의 그래픽, 별도의 컨트롤러 없이도 모바일 기기에서 호쾌한 액션과 콤보 플레이를 즐길 수 있는 탁월한 조작감 등이 특징이라고 회사 측은 소개했다. 
+    지난해 7월 일본에서 출시된 직후 양대 앱마켓 인기순위 1위, 5일 만에 매출 순위 10위권에 진입했다.
+    현재 '더 킹 오브 파이터즈 올스타' 공식 사이트에서 사전 등록 진행 중으로, 신청자에게는 한정 캐릭터와 게임 아이템 등을 준다.
+    조신화 사업본부장은 "새로운 이용자들은 물론 원작 팬들에게도 차별화된 재미와 잊을 수 없는 손맛을 제공하는 최고의 모바일 액션 RPG가 될 것"이라고 말했다.
+
+    ljungberg@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423003000098</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>024010</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102016" name="스리랑카"/>
+			<RegionCode code="7103006" name="덴마크"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605011" name="테러암살"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["덴마크 억만장자, 스리랑카 테러로 자녀 4명 중 세 명 잃어"]]></Title>
+		<Body><![CDATA["덴마크 억만장자, 스리랑카 테러로 자녀 4명 중 세 명 잃어"
+
+    (브뤼셀=연합뉴스) 김병수 특파원 = 지난 21일 부활절에 스리랑카의 호텔과 성당 등에서 연쇄적으로 발생한 폭발 테러로 덴마크의 억만장자 안더스 홀츠 포블센이  네 명의 자녀 가운데 세 명을 잃었다고 AFP 통신이 22일 보도했다.
+    덴마크 언론에 따르면 홀츠 포블센의 아내와 네 명의 자녀들은 폭발 테러 당시 부활절 방학을 맞아 스리랑카에 머물고 있었다.
+    홀츠 포블센이 소유한 의류 소매그룹 '베스트셀러'의 대변인은 이날 발표문에서 "(홀츠 포블센의) 세 명의 자녀가 숨진 것을 확인한다"고 밝혔다고 이 통신은 전했다.
+
+    그러면서 대변인은 "가족의 프라이버시를 존중해주기 바란다"면서 "더는 코멘트할 내용이 없다"고 밝혔다.
+    올해 46세인 홀츠 포블센은 덴마크 최대 부자로 여겨지고 있으며 '베스트 셀러'와 함께 온라인 패션 소매업체인 'ASOS'의 최대 지분을 소유하고 있다.
+    그는 그의 부모가 지난 1975년 설립한 업체인 베스트셀러를 상속받았다.
+    베스트셀러는 '베로 모다'(Vero Moda), '온리'(Only), '잭 & 존스'(Jack & Jones) 등의 브랜드를 갖고 있으며 70개국에 3천 개 이상의 매장을 갖고 있다.
+    앞서 스리랑카 당국은 이번 테러 배후로 현지의 급진 이슬람조직인 NTJ(내셔널 타우히트 자마트)를 지목했다.
+    이번 연쇄 폭탄테러로 숨진 사람은 최소 290명이고 500여명이 다쳤다고 AFP 통신은 현지 경찰을 인용해 전했다.
+
+    bingsoo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

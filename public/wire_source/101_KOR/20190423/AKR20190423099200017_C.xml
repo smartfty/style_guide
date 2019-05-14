@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423099200017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>135645</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901007" name="무선통신"/>
+			<ClassCode code="0902006" name="IT보안"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 인터넷진흥원, 한전KPS와 에너지산업 사이버보안 업무협약]]></Title>
+		<Body><![CDATA[[게시판] 인터넷진흥원, 한전KPS와 에너지산업 사이버보안 업무협약
+
+    ▲ 한국인터넷진흥원(KISA)은 23일 나주 한전KPS 본사에서 한전KPS와 사이버보안 역량을 강화하기 위한 업무협약(MOU)을 체결했다. 양 기관은 한전KPS의 사이버 위협정보 분석·공유 시스템(C-TAS) 가입을 통한 최신 사이버 위협정보 공유, 개인정보보호 관련 기술 지원 및 상호 협조, 국내·외 사이버보안 인재육성 및 인식 제고 등에 협력한다. (서울=연합뉴스) 
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

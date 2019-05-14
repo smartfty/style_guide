@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423057700005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>103016</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7007003" name="경주"/>
+			<RegionCode code="7011011" name="아산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701006" name="역사"/>
+			<ClassCode code="0701005" name="학술"/>
+			<ClassCode code="0702001" name="유형문화"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001038" name="게시판"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['신라 왕경 경주' 책자 발간·이순신 탄신 기념행사]]></Title>
+		<Body><![CDATA['신라 왕경 경주' 책자 발간·이순신 탄신 기념행사
+
+
+
+    (서울=연합뉴스) 박상현 기자 = ▲ 국립경주문화재연구소는 고려시대와 조선시대 사람들이 경주를 여행한 뒤 남긴 한시와 옛 사진을 활용해 경주의 중요 유적을 설명한 책 '우리 조상들이 다녀간 신라 왕경, 경주'를 펴냈다.
+    경주 유적 25곳은 시내, 선도산과 송화산, 남산 3개 권역으로 나눠 소개했다. 표지에는 조선 정조(재위 1776∼1800) 때 제작한 경주읍내전도(慶州邑內全圖)를 수록했다.
+    경주 유적 위치를 표시한 그림지도를 싣고, 발굴조사와 연구성과에 대한 전문적 정보가 필요할 때 참고할 만한 '더 알아보기'를 마련했다.
+    책자 파일은 문화재청 누리집(cha.go.kr)을 통해 공개된다.
+
+
+
+    ▲ 문화재청 현충사관리소는 충남 아산 현충사에서 28일 오전 11시 '충무공 이순신 장군 탄신 제474주년 기념행사'를 연다.
+    다례(茶禮)는 초헌관(初獻官, 현충사관리소장) 분향(焚香, 향을 피움)과 헌작(獻爵, 술잔을 올림), 축관 축문 낭독, 아헌관(亞獻官, 충무공 후손대표) 헌작, 종헌관(終獻官, 시민 제관) 헌작, 대통령 명의 헌화와 분향, 청소년 위토(位土) 지킴이 헌화 순으로 진행된다.
+    부대행사로는 궁도대회, 해군 의장대 공연, 다도 체험을 운영한다.
+    충무공이순신기념관에서는 '겨레가 지킨 위토, 겨레가 세운 현충사'를 주제로 특별전을 연다.
+    psh59@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

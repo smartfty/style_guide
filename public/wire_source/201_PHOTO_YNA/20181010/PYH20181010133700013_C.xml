@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010133700013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>143037</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="08" name="IT/과학"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[심플해진 네이버 첫 화면 공개]]></Title>
+		<Comment>NO-3078</Comment>
+		<Body><![CDATA[심플해진 네이버 첫 화면 공개
+    (서울=연합뉴스) 이재희 기자 = 10일 오후 서울 강남구 그랜드 인터컨티넨탈 호텔에서 열린 '네이버 코넥티드 2019' 행사에서 한성숙 대표가 바뀐 네이버 첫 화면을 공개하고 있다. 
+    뉴스는 첫 화면에서 페이지를 옆으로 넘기면 나오는 두 번째 화면의 '뉴스판'에 배치될 예정이다. 2018.10.10
+    scape@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101013370001301.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101013370001301_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101013370001301_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423115300063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>144929</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011009" name="서산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0901002" name="과학기술"/>
+			<ClassCode code="0503006" name="대학교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한서대 안동만 교수 '장영실과학문화상 본상' 수상]]></Title>
+		<SubTitle><![CDATA["항공기 개발 등 국내 군사과학기술 발전에 큰 업적"]]></SubTitle>
+		<Body><![CDATA[한서대 안동만 교수 '장영실과학문화상 본상' 수상
+"항공기 개발 등 국내 군사과학기술 발전에 큰 업적"
+
+
+    
+    (서산=연합뉴스) 이은파 기자 = 한서대학교 항공전자공학과 안동만(69) 석좌교수가 23일 국내 군사과학기술 발전에 기여한 공로로 장영실선생기념사업회 주관 '2019년 장영실국제과학문화상 본상'을 수상했다.
+    한서대는 "안 교수가 각종 항공기와 유도무기를 개발하는 등 국내 군사과학기술 발전에 큰 업적을 남긴 점을 평가받았다"고 수상 배경을 설명했다.
+    장영실선생기념사업회는 조선 세종대왕 때 측우기, 자격루, 혼천의 등을 발명한 천재 과학자 장영실 선생의 업적을 기리고 과학 인재를 양성하기 위해 1999년 장영실과학문화상을 제정하고 해마다 본상 1명과 분야별 대상을 수여하고 있다.
+    sw21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423068000504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105652</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001008" name="인사"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[인사] 방위사업청]]></Title>
+		<Body><![CDATA[[인사] 방위사업청
+
+    ◇승진(부이사관)
+    ▲ 재정계획담당관 홍미루 ▲ 전략무인기사업팀장 한경수 
+    (서울=연합뉴스)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

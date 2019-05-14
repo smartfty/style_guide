@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423041000063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>093331</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7011001" name="충남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0606008" name="안전관리"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충남소방, 국민행복 소방정책 최우수 기관 선정]]></Title>
+		<Body><![CDATA[충남소방, 국민행복 소방정책 최우수 기관 선정
+    
+
+    (홍성=연합뉴스) 박주영 기자 = 충남소방본부는 소방청 주관 '2018년 수행 국민행복 소방정책' 종합평가에서 최우수 기관으로 선정돼 행정안전부 장관상을 받는다고 23일 밝혔다. 
+    소방청은 2010년부터 전국 19개 시·도 소방본부를 대상으로 소방행정 관리, 소방안전 관리, 현장대응 관리, 구급 관리, 현장 활동 지원 등 5개 분야 31개 업무를 평가해 시상하는 국민행복 소방정책 종합 평가 제도를 운영해 오고 있다. 
+    충남소방본부는 구급 품질, 소방조직문화 혁신 우수사례 발굴, 소방장비관리 시스템 유지·관리, 봄철 소방안전 대책 추진, 특별사법경찰관 수사 능력 향상 등에서 좋은 점수를 받아 10개 광역 소방본부 중 1위를 차지했다. 
+    jyoung@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

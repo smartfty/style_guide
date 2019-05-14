@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010080500060</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>113401</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7005003" name="고양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0701003" name="전시공연"/>
+			<ClassCode code="0901014" name="로봇AI"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['이것이 바로 틀리지 않는 박자']]></Title>
+		<Comment>NO-2160</Comment>
+		<Body><![CDATA['이것이 바로 틀리지 않는 박자'
+    (고양=연합뉴스) 임병식 기자 = 10일 경기도 고양시 킨텍스에서 열린 2018 로보월드에서 로봇이 드럼 연주를 선보이고 있다. 2018.10.10
+    andphotodo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101008050006000.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101008050006000_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101008050006000_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

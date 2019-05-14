@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010089100060</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>114938</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7005003" name="고양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0411004" name="숙박"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0701003" name="전시공연"/>
+			<ClassCode code="0803001" name="여행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['직장인 쉼터로 관심 받는 수면 캡슐']]></Title>
+		<Comment>NO-2273</Comment>
+		<Body><![CDATA['직장인 쉼터로 관심 받는 수면 캡슐'
+    (고양=연합뉴스) 임병식 기자 = 10일 경기도 고양시 킨텍스에서 열린 2018 호텔쇼에서 수면 캡슐이 전시되어 있다. 수면 캡슐은 최근 숙박뿐만 아니라 직장 내 쉼터나 휴식형 카페에 도입되고 있다. 2018.10.10
+    andphotodo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101008910006000.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101008910006000_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101008910006000_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

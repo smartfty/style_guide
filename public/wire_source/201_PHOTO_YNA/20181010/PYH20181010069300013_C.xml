@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010069300013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>120012</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[공시대상기업집단 내부거래 현황 공개]]></Title>
+		<Comment>NO-2318</Comment>
+		<Body><![CDATA[공시대상기업집단 내부거래 현황 공개
+    (세종=연합뉴스) 이진욱 기자 = 10일 오전 정부세종청사 공정거래위원회에서 신봉삼 기업집단국장이 2018년 공시대상기업집단 내부거래 현황을 공개하고 있다. 2018.10.10
+    cityboy@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101006930001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101006930001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101006930001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

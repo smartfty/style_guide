@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423107000008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>141452</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[인터로조, 200억원 규모 전환사채 발행 결정]]></Title>
+		<Body><![CDATA[인터로조, 200억원 규모 전환사채 발행 결정
+
+    (서울=연합뉴스) 임미나 기자 = 인터로조는 시설자금 200억원을 조달하기 위해 무기명식 무보증 사모 전환사채를 발행하기로 했다고 23일 공시했다.
+    표면이자율과 만기이자율 모두 0%이고 사채 만기일은 2024년 4월 25일이다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

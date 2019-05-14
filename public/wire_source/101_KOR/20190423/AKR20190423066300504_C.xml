@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423066300504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105450</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0108001" name="외교일반"/>
+			<ClassCode code="0101002" name="감사감찰"/>
+			<ClassCode code="0106003" name="공직윤리"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[외교부, '폭언·갑질' 김도현 베트남대사 징계 요청]]></Title>
+		<Body><![CDATA[외교부, '폭언·갑질' 김도현 베트남대사 징계 요청
+
+
+    (서울=연합뉴스) 현혜란 기자 = 외교부가 직원에게 폭언·갑질을 하고, 청탁금지법 위반 의혹 등이 제기된 주(駐)베트남 김도현 대사에 대한 중징계를 인사혁신처에 요청한 것으로 알려졌다.
+    외교부와 인사혁신처에 따르면 외교부는 지난달 18∼22일 주베트남 대사관에 대한 정기감사 결과 김 대사에 대한 징계가 필요하다고 판단하고 이달 초 인사혁신처에 징계 의결을 요구한 것으로 전해졌다.
+    김 대사는 업무 추진 과정에서 부하 직원들에게 폭언했다는 의혹으로 감사를 받게 됐으며, 베트남 현지 기업으로부터 숙소 등 지원을 받아 청탁금지법을 어긴 혐의도 받는 것으로 알려졌다.
+    고위공무원인 김 대사의 징계 수위는 인사혁신처 징계위원회의 논의에 따라 최종 결정된다. 중징계가 나오면 파면·해임·강등·정직, 경징계가 나오면 감봉·견책 등의 조치를 받는다. 
+    김 대사는 1993년 외무고시에 합격해 외교부에 입부했다가 2012년 삼성전자 글로벌협력그룹장으로 영입됐다. 2017년 11월부터 삼성전자 무선사업부 구주·CIS 수출그룹 담당 임원으로 재직하다가 지난해 4월 주베트남 대사로 발탁됐다.
+    runran@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010120600061</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134925</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7005024" name="용인"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107004" name="지방일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[백군기 용인시장 취임100일 기자간담회]]></Title>
+		<Comment>NO-2918</Comment>
+		<Body><![CDATA[백군기 용인시장 취임100일 기자간담회
+      (용인=연합뉴스) 백군기 경기 용인시장은 10일 시청 컨벤션홀에서 취임 100일 기념 언론인 간담회를 열어 "시민들이 시급히 해결을 원하는 교통 불편해소에 역점을 두고 민선 7기 정책을 시행하겠다"고 말했다. 2018.10.10 [용인시 제공]
+    hedgehog@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012060006100.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012060006100_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012060006100_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

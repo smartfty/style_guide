@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010126800013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>140825</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0202011" name="기업윤리"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0502003" name="기부봉사"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대림산업, 창립 79주년 맞아 '사랑의 나눔활동']]></Title>
+		<Comment>NO-2989</Comment>
+		<Body><![CDATA[대림산업, 창립 79주년 맞아 '사랑의 나눔활동'
+    (서울=연합뉴스) 박상신 대림산업 대표이사와 임직원이 10일 창립 79주년을 맞아 '사랑의 나눔활동'으로 서울 종로구 무악동 기초생활수급자와 임대주택 가정에 쌀과 두루마리 휴지를 배달하고 있다. 2018.10.10 [대림산업 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012680001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012680001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012680001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

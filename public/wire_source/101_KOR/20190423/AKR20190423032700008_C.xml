@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423032700008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>090433</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0410004" name="항공운수"/>
+			<ClassCode code="0302011" name="기업분석"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0303002" name="증권사"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한화투자 "대한항공, 재무구조 개선 기대…1분기는 저조"]]></Title>
+		<Body><![CDATA[한화투자 "대한항공, 재무구조 개선 기대…1분기는 저조"
+
+
+
+    (서울=연합뉴스) 곽민서 기자 = 한화투자증권은 23일 대한항공의 점진적인 재무구조 개선이 기대된다며 이 회사에 대한 투자의견과 목표주가를 종전대로 '매수'와 4만3천원으로 제시했다. 
+    김유혁 연구원은 "대한항공의 1분기 영업이익은 1천445억원으로 작년 동기보다 13.1% 감소하면서 시장기대치(1천800억원)를 밑돌았을 것"이라고 추정했다.
+    김 연구원은 "1분기 유류비 감소 폭이 예상보다 작아서 비용 감소 효과가 크지 않았던 반면 정비비와 광고비 등은 증가했다"며 "여기에 원화 약세로 인한 외화환산손실 1천800억원가량이 반영되며 순이익은 적자 전환했을 것"이라고 설명했다.
+    그러나 그는 "대한항공은 올해부터 소형기 투자 사이클로 진입하면서 설비투자(Capex) 비용을 5천억원 이상 절감하게 될 것"이라면서 "회사 측은 투자 감소로 늘어나는 현금 대부분을 차입금 상환에 사용할 계획으로, 이에 따른 재무구조 개선이 기대된다"고 밝혔다.
+    또 "델타항공과의 조인트벤처를 통한 하이클래스(높은 등급의 좌석) 여객 유입도 이어지면서 올해 대한항공은 국적 항공사 가운데 가장 높은 운임증가율을 보일 것으로 예상한다"며 "대한항공의 기존 투자 포인트는 여전히 유효하다"고 덧붙였다. 
+    mskwak@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423039600005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>092502</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712004" name="가요"/>
+			<ClassCode code="0712002" name="연예"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[투모로우바이투게더, 美 콘서트 '왕고탱고' 출연…할시와 한무대]]></Title>
+		<Body><![CDATA[투모로우바이투게더, 美 콘서트 '왕고탱고' 출연…할시와 한무대
+
+
+    (서울=연합뉴스) 박수윤 기자 = 빅히트엔터테인먼트가 선보인 보이그룹 투모로우바이투게더(TXT)가 오는 6월 1일 미국 아이하트라디오가 주최하는 콘서트 '2019 아이하트라디오 왕고 탱고'(2019 iHeartRadio Wango Tango)'에 출연한다.
+    22일(현지시간) 아이하트라디오가 공개한 라인업을 보면 미국 로스앤젤레스 디그니티 헬스 스포츠 파크에서 열리는 이 콘서트에는 조나스 브러더스, 할시, 5 세컨즈 오브 서머, 제드, 알리 브룩 등 유명 가수가 출연을 확정했다. 할시는 방탄소년단(BTS) 최신곡 '작은 것들을 위한 시'(Boy with Luv)에 피처링으로 참여한 인기 싱어송라이터다.
+    투모로우바이투게더는 지난달 4일 첫 앨범 '꿈의 장: 스타(STAR)'를 발매하고 메인 앨범 차트인 '빌보드 200'에서 140위를 기록했다. 이는 한국 남자 그룹 데뷔 앨범을 통틀어 '빌보드 200'에서 가장 높은 순위다.
+    이 앨범은 또 빌보드에서 '월드 앨범' 1위, '히트시커스 앨범' 2위, '디지털 앨범' 10위, '톱 앨범 세일즈' 26위, '빌보드 캐나디안 앨범' 100위에도 올랐다.
+    이들은 다음 달 9일부터 미국 뉴욕을 시작으로 12일 시카고, 14일 올랜도, 17일 애틀랜타, 19일 댈러스, 24일 로스앤젤레스까지 6개 도시에서 쇼케이스를 연다. 쇼케이스 티켓은 오픈 직후 매진됐다.
+    투모로우바이투게더는 오는 25일 후속곡 '캣 & 독'(Cat & Dog) 뮤직비디오를 공개하며 국내 활동을 재개한다.
+    clap@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423070800054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110805</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0506002" name="도로교통"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광주시, 버스 도착 안내 단말기 확대 설치]]></Title>
+		<SubTitle><![CDATA[올해 117대 추가 등 2022년까지 560대]]></SubTitle>
+		<Body><![CDATA[광주시, 버스 도착 안내 단말기 확대 설치
+올해 117대 추가 등 2022년까지 560대
+
+
+    (광주=연합뉴스) 김재선 기자 = 광주시가 시민의 대중교통 편의성 증대를 위해 버스도착안내단말기(BIT)를 2022년까지 정류소의 50%까지 확대 설치한다.
+    광주시는 올해 117개 신규 설치를 시작으로 2022년까지 43억원을 투입해 560곳의 정류장에 BIT를 확대 설치할 계획이다.
+    현재 광주시에는 총 624곳에 BIT가 설치돼 있으며, 올해 사업이 완료되면 전체 버스정류장 2천330곳 중 32%에 해당하는 741곳에 BIT가 설치된다. 
+    2022년까지 현재 27% 수준인 설치율이 50%(1천184대)까지 늘어나게 된다.
+    특히 올해 신규로 설치되는 BIT에는 미세먼지, 재난안내, 현재 온도 등 다양한 정보를 제공하는 기능도 추가된다.
+    더불어 내구연한이 지난 노후 단말기(138대)를 신형 발광다이오드(LED) 패널로 교체하는 개선 사업도 올해 59곳을 시작으로 연차별로 추진한다.
+    BIT가 설치되지 않은 정류장에서는 모바일광주 앱 등을 통해 버스 도착 정보를 알 수 있다.
+    자세한 내용은 광주 버스운행정보 누리집(bus.gwangju.go.kr) 또는 자동응답전화(ARS·613-5700)로 확인할 수 있다.
+    광주시는 앞으로도 지속해서 단말기를 추가 설치해 시민 편의 제공에 적극적으로 나설 계획이다.
+    kjsun@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

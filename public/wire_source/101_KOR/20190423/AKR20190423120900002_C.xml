@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423120900002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>150408</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0303010" name="보험사"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001010" name="부고"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[부고] 정주호(신한생명 ICT채널개발팀장)씨 모친상]]></Title>
+		<Body><![CDATA[[부고] 정주호(신한생명 ICT채널개발팀장)씨 모친상
+
+    ▲ 최동화씨 별세, 정주호(신한생명 ICT채널개발팀장)씨 모친상 = 23일, 강원 춘천 호반병원장례식장 2호실, 발인 25일 오전 9시, 장지 춘천시 남산면 서천리 선영 ☎ 033-252-0046 (서울=연합뉴스) 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

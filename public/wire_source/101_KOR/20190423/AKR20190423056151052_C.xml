@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423056151052</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111941</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006008" name="밀양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0606001" name="사고일반"/>
+			<ClassCode code="0605006" name="납치실종"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[고사리 캐러 간다던 80대 실종 이틀 만에 발견(종합)]]></Title>
+		<Comment><![CDATA[실종자 발견 및 상태 추가]]></Comment>
+		<Body><![CDATA[고사리 캐러 간다던 80대 실종 이틀 만에 발견(종합)
+
+
+
+    (밀양=연합뉴스) 박정헌 기자 = 산에서 나물을 캐겠다며 집을 나선 80대가 실종 이틀 만에 경찰에 의해 발견됐다.
+    경남 밀양경찰서는 23일 오전 10시 25분께 밀양시 상남면 평촌마을 뒷산 8부 능선 부근에 쓰러진 A(85)씨를 발견했다.
+    발견 당시 A씨는 의식이 있었으나 호흡은 가쁜 상태였다.
+    응급조치를 취한 경찰은 A씨를 인근 병원으로 이송했으며 생명에 지장은 없는 것으로 알려졌다.
+    A씨는 지난 22일 오전 8시께 '고사리를 캐오겠다'며 거주지인 밀양 상남면 평촌마을 뒷산으로 향했다.
+    A씨는 보통 점심때가 되면 식사하기 위해 귀가하는데 정오가 지나도록 소식이 없자 이를 이상하게 여긴 가족들이 A씨를 직접 찾아 나섰다.
+    그러나 A씨 행방을 파악하지 못하자 가족들은 이날 오후 7시 8분께 경찰에 실종 신고를 했다. 
+    경찰은 오후 10시까지 마을 뒷산과 인근 지역을 수색하다 날이 어두워져 우선 철수했다. 
+    이후 23일 오전 7시 소방·군부대와 합동으로 인력 75명을 투입해 수색을 재개했다.
+    경찰 관계자는 "A씨는 특별한 외상도 없었으며 자기 이름을 얘기할 정도로 기력이 있는 상태였다"며 "신속한 수색을 통해 A씨가 무사히 발견돼 다행"이라고 말했다.
+    home1223@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

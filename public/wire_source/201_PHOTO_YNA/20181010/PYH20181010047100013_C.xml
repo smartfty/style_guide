@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010047100013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103110</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[동반성장위-대기업, 임금격차 해소운동 협약]]></Title>
+		<Comment>NO-1720</Comment>
+		<Body><![CDATA[동반성장위-대기업, 임금격차 해소운동 협약
+    (서울=연합뉴스) 김주성 기자 = 10일 오전 서울 서초구 쉐라톤서울팔레스호텔에서 동반성장위원회 주최로 열린 입금격차 해소운동 협약식에서 권기홍 동반성장위원장(앞줄 왼쪽에서 다섯번째)과 8개 위원사 대표들이 협약서에 서명한 뒤 기념촬영하고 있다. 이날 협약식에는 롯데쇼핑, 삼성전자, CJ제일제당, SK하이닉스, LG화학, GS리테일, 포스코, 현대자동차 등 대기업 8개 위원사와 협력사가 참여했다. 2018.10.10 
+    utzza@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101004710001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101004710001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101004710001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423135000057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>155334</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201003" name="경제단체"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0401001" name="산업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[수소산업진흥원 울산유치위 5월 발대…10만 서명운동 추진]]></Title>
+		<Body><![CDATA[수소산업진흥원 울산유치위 5월 발대…10만 서명운동 추진
+
+
+    (울산=연합뉴스) 장영은 기자 = 수소산업진흥원 울산유치추진위원회가 5월 중 발대식을 열고 10만명 서명운동에 들어가기로 하는 등 본격 가동에 나선다.
+    추진위는 지난 22일 울산 한 식당에서 최찬호 울산상공회의소 이사 등 공동대표 23명이 참석한 가운데 상임대표 추대와 추진위 발대식 안건을 처리했다.
+    추진위 상임대표는 심규명 더불어민주당 울산시당 남구갑 지역위원장, 박도문 대원그룹 회장, 김기철 수소산업협회 이사가 뽑혔다.
+    추진위 발대식은 5월 중 울산상공회의소에서 열기로 했다.
+    추진위는 수소산업진흥원 울산 유치를 위한 10만명 시민 서명운동에 먼저 나서기로 했다.
+    또 자문단에 김준범 울산대학교 화학공학부 교수를 위촉하고, 추진위 홍보물을 제작하기로 했다.
+    심규명 상임대표는 23일 "울산 사회 각계각층 인사가 수소산업진흥원 유치에 한마음 한뜻으로 뭉쳤다"며 "노력하고 힘을 모아 수소산업진흥원 울산 유치가 반드시 성공할 수 있도록 하겠다"고 밝혔다. 
+    울산시는 2024년까지 국비와 시비 400억원을 들여 수소산업진흥원을 울산에 설립하려는 계획을 세워놓고 있다. 
+    수소산업진흥원은 자유한국당 이채익 국회의원(울산 남갑)이 지난해 5월 23일 대표 발의한 수소 경제활성화법안에 포함된 기관으로 국내 수소산업 전반을 아우르는 컨트롤타워다. 
+    young@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423032100030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>102615</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0202003" name="중소기업"/>
+			<ClassCode code="0302011" name="기업분석"/>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[GS수퍼마켓 "中企 상생 '리얼프라이스' 1분기 매출 248%↑"]]></Title>
+		<Body><![CDATA[GS수퍼마켓 "中企 상생 '리얼프라이스' 1분기 매출 248%↑"
+
+    (서울=연합뉴스) 이신영 기자 = GS수퍼마켓은 자체브랜드(PB) 상품 '리얼프라이스'의 올해 1분기 매출이 출시 초기 3개월과 비교해 248% 신장했다고 23일 밝혔다. 
+    리얼프라이스는 GS수퍼마켓이 우수 중소기업과 손잡고 유통업계 최초로 생산업체 이름을 상품 정면에 함께 표기한 상생 브랜드이다. 
+    현재까지 63개 협력사를 통해 220여개 상품을 개발했다. 
+    GS수퍼마켓은 판매자료와 상품 개발 노하우를 접목해 연말까지 400개 이상의 상품을 출시할 계획이다. 
+    고객을 위해 24∼30일에는 공기청정기와 모바일 상품권 등을 증정하는 경품 행사도 연다.
+
+
+    eshiny@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

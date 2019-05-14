@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010041000013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>102739</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103003" name="국감"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국감 시작부터 항의문구로]]></Title>
+		<Comment>NO-1690</Comment>
+		<Body><![CDATA[국감 시작부터 항의문구로
+    (세종=연합뉴스) 진성철 기자 = 문재인 정부 2년차 국정감사 첫날인 10일 세종시 정부세종청사 국토교통부에서 열린 국회 국토교통위원회 국정감사에서 자유한국당 의원들의 노트북에 '증인채택 협조하라'라고 써진 항의 문구가 붙어 있다. 2018.10.10
+    zjin@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101004100001301.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101004100001301_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101004100001301_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

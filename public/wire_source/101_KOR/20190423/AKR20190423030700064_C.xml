@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423030700064</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>093158</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012012" name="청주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0801001" name="생활정보"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["부교 건너며 대청호 풍광 즐기세요"…청주 문산길 10월 준공]]></Title>
+		<Body><![CDATA["부교 건너며 대청호 풍광 즐기세요"…청주 문산길 10월 준공
+
+    (청주=연합뉴스) 윤우용 기자 = 충북 청주시는 대청호의 아름다운 풍광을 즐길 수 있는 산책로인 문산길을 오는 10월까지 조성할 예정이라고 23일 밝혔다. 
+
+    문산길은 문의문화재단지에서 대청호 조각공원, 대청호미술관, 호반길을 거쳐 도당산 사거리까지 한 바퀴 도는 산책로(총 길이 3㎞)다. 
+    시는 대청호 위에 꽃 모양의 부교 2개(총 길이 260ｍ)와 데크 로드(300ｍ)를 설치하고 수질 정화 효과가 있는 수생식물도 심을 예정이다. 
+    시는 이 구간 곳곳에 전망대, 파고라와 벤치 등 휴게시설도 마련할 계획이다. 
+    총공사비는 16억원이다.
+    시 관계자는 "생태계와 자연경관을 훼손하지 않는 자연 친화적 걷기 길을 만들겠다"고 말했다. 
+    시는 문의면 상장리의 대청호반을 배경으로 한 '피미숲길(총 길이 5㎞)'과 봉화 터가 남아 있는 소이산을 중심으로 한 '호반길(총 길이 3㎞)'도 조성할 계획이다.
+    ywy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

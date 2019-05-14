@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423042000008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>094359</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302013" name="특징주"/>
+			<ClassCode code="0302010" name="주식시황"/>
+			<ClassCode code="0302004" name="증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[특징주] 국제유가 상승에 석유화학株 강세]]></Title>
+		<Body><![CDATA[[특징주] 국제유가 상승에 석유화학株 강세
+
+    (서울=연합뉴스) 조민정 기자 = 미국의 이란산 원유수입 전면 금지 영향으로 국제유가가 오르면서 23일 장 초반 석유화학주가 동반 강세를 보였다. 
+    이날 오전 9시 27분 현재 유가증권시장에서 SH에너지화학은 전 거래일보다 14.53% 오른 1천340원에 거래되고 있다.
+    금호석유우는 9.02% 오른 4만1천100원에 거래 중이다. 
+    극동유화(6.19%), 한국석유(6.17%) 등도 크게 올랐다.
+    코스닥시장의 석유 유통업체인 흥구석유는 27.70% 오른 5천440원에 거래되고 있다. 장중에는 5천470원까지 올라 52주 신고가를 경신했다. 중앙에너비스(23.19%)도 급등했다.
+    S-Oil(1.92%), SK이노베이션(0.79%)과 GS칼텍스의 기업가치가 반영되는 GS(1.14%) 등 국내 정유업체도 상승했다.
+    앞서 미국이 이란산 원유수입 금지조치의 한시적 예외를 연장하지 않기로 하자 22일(현지시간) 뉴욕상업거래소(NYMEX)에서 5월 인도분 서부 텍사스산 원유(WTI)는 전 거래일보다 배럴당 2.7%(1.70달러) 오른 65.70달러에 거래를 마쳤다.      
+    이는 지난해 10월 말 이후로 약 6개 월만의 최고치다. 
+    chomj@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

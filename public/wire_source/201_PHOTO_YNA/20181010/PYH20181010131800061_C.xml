@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010131800061</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>142611</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005024" name="용인"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0701003" name="전시공연"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[백남준아트센터 개관 10주년 기념 전시]]></Title>
+		<Comment>NO-3058</Comment>
+		<Body><![CDATA[백남준아트센터 개관 10주년 기념 전시
+    (용인=연합뉴스) 홍기원 기자 = 10일 오후 경기도 용인시 기흥구 백남준아트센터에서 열린 개관 10주년 전시 '#예술#공유지#백남준' 기자간담회에서 취재진이 작품 설명을 듣고 있다. 2018.10.10
+    xanadu@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101013180006100.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101013180006100_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101013180006100_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

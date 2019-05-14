@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010048700005</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>103517</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712004" name="가요"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[방탄소년단, 아메리칸뮤직어워즈 수상…"한국그룹 최초"]]></Title>
+		<Comment>NO-1759</Comment>
+		<Body><![CDATA[방탄소년단, 아메리칸뮤직어워즈 수상…"한국그룹 최초"
+    (서울=연합뉴스) 그룹 방탄소년단이 한국 그룹 최초로 미국 '아메리칸 뮤직 어워즈'에서 수상했다.
+    소속사 빅히트엔터테인먼트는 방탄소년단이 9일(현지시간) 미국 캘리포니아주 로스앤젤레스 마이크로소프트 공연장에서 열린 '2018 아메리칸 뮤직 어워즈'에서 '페이보릿 소셜 아티스트' 상을 받았다고 밝혔다. 2018.10.10 [빅히트엔터테인먼트 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101004870000500.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101004870000500_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101004870000500_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

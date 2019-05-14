@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423069900004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110347</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0202001" name="기업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울 도봉구, '찾아가는 원스톱 기업경영 컨설팅']]></Title>
+		<Body><![CDATA[서울 도봉구, '찾아가는 원스톱 기업경영 컨설팅'
+
+
+
+    (서울=연합뉴스) 윤고은 기자 = 도봉구는 서울 자치구 최초로 '찾아가는 원스톱 기업경영 컨설팅'을 시작했다고 23일 밝혔다. 
+    '찾아가는 원스톱 기업 경영 컨설팅'은 인력 및 정보 부족 등으로 정부의 지원제도를 놓치거나, 법률·행정·세무·금융·취업·규제 등의 상담 방법을 몰라 경영 애로 사항이 많은 관내 영세 기업에 도움을 주고자 기획했다. 
+    이동진 도봉구청장을 비롯해 변호사, 세무사, 금융상담사, 취업상담사, 행정공무원 등 9명으로 구성된 컨설팅 추진단은 지난 22일 관내 마을버스 회사인 청록운수를 찾아 첫 번째 기업경영 컨설팅을 진행했다. 
+    이동진 구청장은 "컨설팅 후 제도 개선이 필요한 부분은 관계기관에 적극적으로 개선을 건의하고, 기업체가 제시한 아이디어는 구체화해 실현될 수 있도록 돕겠다"고 말했다.
+    도봉구의 '찾아가는 원스톱 기업경영 컨설팅'은 올해 12월까지 매월 1회씩 진행될 예정이다. 
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

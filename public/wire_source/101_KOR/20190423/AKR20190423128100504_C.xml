@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423128100504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>154803</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+			<ClassCode code="1007004" name="대북지원"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[유진벨재단, 결핵환자 지원사업 위해 오늘 방북]]></Title>
+		<Body><![CDATA[유진벨재단, 결핵환자 지원사업 위해 오늘 방북
+
+    (서울=연합뉴스) 김동현 기자 = 유진벨재단이 북한 결핵환자 지원사업을 위해 23일 북한으로 출발했다.
+    유진벨재단은 이날 보도자료에서 "오늘 유진벨 대표단이 봄 정기 방북 길에 올랐다"며 "대표단은 유진벨이 지원하는 다제내성결핵(MDR-TB·중증결핵) 센터들을 모두 방문해 의료진 및 기존 환자들을 만나고, 신환자를 등록시키며, 6개월분의 다제내성결핵약 및 기타 지원 물품을 전달할 것"이라고 밝혔다.
+    재단은 "지난 3월 유진벨재단에서는 20채에 해당하는 환자용 조립식 병동 자재를 사동 다제내성결핵 병원에 공급했다"면서 "이번 방북 때 이 조립식 병동을 설치하게 될 것"이라고 말했다.
+    재단은 조립식 병동에 필요한 자재를 지난달 선적했다.
+    16명의 대표단은 3주간 북한에 있다가 다음 달 14일 평양을 떠나 돌아올 예정이다.
+    북한에서 다제내성결핵 치료사업을 하는 재단은 정기적으로 연 2회 방북해 다제내성결핵 환자들의 치료 경과를 확인하고 있다.
+    재단은 지난해 유엔 안전보장이사회 대북제재위원회로부터 북한 결핵환자 치료병동 물품에 대한 제재면제를 받았고, 지난 1월에는 통일부로부터 대북지원물자 반출을 승인받았다. 
+    물품에는 결핵 치료제를 비롯해 환자 병동을 위한 각종 의료 장비와 난방 기구 등이 포함된 것으로 알려졌다.
+
+
+    bluekey@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

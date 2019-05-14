@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190312000400044</ContentID>
+		<SendDate>20190312</SendDate>
+		<SendTime>101827</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0503001" name="교육일반"/>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0104001" name="정당일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+		<Writer><![CDATA[장예진]]></Writer>
+		<Desk code="044"><![CDATA[그래픽뉴스팀]]></Desk>
+	</Metadata>
+	<NewsContent>
+		<LangType>KR</LangType>
+		<Title><![CDATA[[그래픽] 국가교육위원회 구성]]></Title>
+		<Body><![CDATA[[그래픽] 국가교육위원회 구성
+
+    (서울=연합뉴스) 장예진 기자 = 더불어민주당과 정부, 청와대는 12일 국가교육위원회를 총 19명으로 구성된 대통령 소속의 합의제 행정위원회로 설치하기로 했다. 
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019031200040004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019031200040004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019031200040004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

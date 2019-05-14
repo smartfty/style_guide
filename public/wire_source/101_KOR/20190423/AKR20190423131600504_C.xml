@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423131600504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>154705</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7103009" name="러시아"/>
+		</Region>
+		<Class>
+			<ClassCode code="1007005" name="대북정책"/>
+			<ClassCode code="0108001" name="외교일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[외교부 "북러정상회담, 비핵화 협상 긍정적 발전에 기여 기대"]]></Title>
+		<Body><![CDATA[외교부 "북러정상회담, 비핵화 협상 긍정적 발전에 기여 기대"
+
+
+
+    (서울=연합뉴스) 현혜란 기자 = 외교부는 주중 열릴 것으로 보이는 북러정상회담이 비핵화 협상의 긍정적인 발전에 기여하는 계기가 될 것으로 기대한다고 밝혔다. 
+    김인철 외교부 대변인은 23일 정례브리핑에서 '북러정상회담이 북미회담, 한반도 비핵화, 평화프로세스에 기여할 것이라고 생각하느냐'는 질문에 이같이 답했다.
+    김 대변인은 "한반도에서의 완전한 비핵화 달성, 항구적 평화정착 등은 러시아와 우리 공통의 목표"라고 설명했다. 
+    외교부 당국자는 이날 기자들과 만나 김정은 북한 국무위원장의 러시아 방문이 남북, 북미 대화에 도움이 된다고 보느냐는 질문을 받고 "도움이 되는 쪽으로 전개되는 것을 기대한다"고 말했다.
+    이 당국자는 "완전한 비핵화에 대해서 러시아와 우리의 목표는 같다"며 "그런 맥락에서 이야기가 이뤄지고 좋은 결과가 있기를 기대한다"고 덧붙였다.
+    김 위원장은 이달 24∼25일께 러시아 극동 블라디보스토크에서 블라디미르 푸틴 러시아 대통령과 취임 후 첫 정상회담을 가질 것으로 관측되고 있다.
+    북한은 이날 매체를 통해 "김정은 동지께서 러시아 대통령 블라디미르 푸틴 각하의 초청에 의하여 곧 러시아를 방문하시게 된다"며 김 위원장의 방러를 공식 발표했다.
+    runran@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

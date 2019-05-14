@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423152800054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>170432</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008013" name="신안"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0801001" name="생활정보"/>
+			<ClassCode code="0803001" name="여행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[신안 임자도 튤립축제 대성황…4만5천명 다녀가]]></Title>
+		<Body><![CDATA[신안 임자도 튤립축제 대성황…4만5천명 다녀가
+
+
+    (신안=연합뉴스) 조근영 기자 = 신안군은 지난 12일부터 10일간 열린 임자도 튤립축제가 대성황을 이뤘다고 23일 밝혔다.
+    '바다와 모래의 섬 임자만났네'란 주제로 열린 이번 축제에는 4만 5천여 명의 관람객이 찾는 둥 성공적으로 끝났다.
+    올해 축제는 강한 비바람이나 안개 등이 발생하지 않아 축제기간 내내 최적의 환경에서 형형색색이 만개한 튤립을 감상할 수 있었다. 
+    다양한 포토존이 축제장 적재적소에 배치돼 대광해변과 백사장, 튤립이 어우러진 이국적인 풍경을 감상할 수 있었다고 군은 자평했다.
+    박우량 신안군수는 "30여 분의 철부도선을 이용하는 교통 불편에도 대성황을 이뤘다"고 평가했다.
+    군은 내년에 지도-임자를 잇는 연도교가 개통하면 획기적인 접근성으로 인근 도시인 광주에서 약 1시간이면 임자도에 올 수 있게 된다고 밝혔다.
+    임자도는 12km에 달하는 대광 명사십리 해변을 비롯해 볼거리, 먹거리, 즐길거리가 풍부해 사계절 이용 가능한 해양휴식문화 공간의 최적지가 될 것으로 보인다.
+    chogy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

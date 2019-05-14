@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010150900013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>150939</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[가을하늘 아래 장진호 전투 영웅 추모]]></Title>
+		<Comment>NO-3259</Comment>
+		<Body><![CDATA[가을하늘 아래 장진호 전투 영웅 추모
+    (서울=연합뉴스) 박동주 기자 = 10일 오후 서울 전쟁기념관 평화의 광장에서 열린 장진호 전투 영웅 추모행사에 장진호 전투 참전용사인 제임스 우드(오른쪽)와 로버트 팰로우가 참석해 있다. 2018.10.10
+    pdj6635@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101015090001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101015090001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101015090001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

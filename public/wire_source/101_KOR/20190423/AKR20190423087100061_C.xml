@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423087100061</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>115407</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005014" name="수원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605009" name="마약"/>
+			<ClassCode code="0712002" name="연예"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경찰, 박유천 사전구속영장 신청…황하나와 '마약투약' 혐의(2보)]]></Title>
+		<Body><![CDATA[경찰, 박유천 사전구속영장 신청…황하나와 '마약투약' 혐의(2보)
+
+    (수원=연합뉴스) 최종호 강영훈 기자 = 마약 투약 혐의를 받는 가수 겸 배우 박유천(33) 씨에 대해 경찰이 사전구속영장을 신청했다.
+
+
+    23일 수사당국에 따르면 경기남부지방경찰청 마약수사대는 이날 오전 마약류 관리에 관한 법률 위반 혐의로 박 씨에 대한 사전구속영장을 검찰에 접수했다.
+    박 씨는 마약 투약 혐의로 체포돼 구속 상태로 검찰에 송치된 남양유업 창업주 외손녀 황하나(31) 씨와 올해 초 필로폰을 구매해 황 씨의 서울 자택 등에서 투약한 혐의를 받고 있다.
+    zorba@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

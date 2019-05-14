@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010106300013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>123147</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103003" name="국감"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[메모 전달받는 강경화 외교부 장관]]></Title>
+		<Comment>NO-2438</Comment>
+		<Body><![CDATA[메모 전달받는 강경화 외교부 장관
+     (서울=연합뉴스) 황광모 기자 = 강경화 외교부 장관이 10일 오전 서울 종로구 외교부에서 열린 2018 국회 외교통일위원회 국정감사 도중 메모를 전달받고 있다. 2018.10.10
+     hkmpooh@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101010630001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101010630001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101010630001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422148500004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060011</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0502003" name="기부봉사"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울시 김장 나눔…대상 김치 등 1억6천만원 상당 기부]]></Title>
+		<Body><![CDATA[서울시 김장 나눔…대상 김치 등 1억6천만원 상당 기부
+
+
+    (서울=연합뉴스) 김지헌 기자 = 서울시는 대상주식회사와 함께 23일 오전 남산골한옥마을에서 취약계층에 김치 등 반찬을 모아 만든 식품 세트를 나눠주는 '봄김장 나눔행사'를 연다고 밝혔다.
+    대상은 2017년부터 그해 연도와 같은 수량의 자사 제품 세트를 기부했다. 올해는 2천19세트를 기부하며 이는 1억6천만원 상당이다.
+    임정배 대상 대표이사는 "앞으로 더 많은 시민이 나눔에 관심을 갖고 공감하며 함께할 수 있도록 다양한 사회공헌행사를 마련할 계획"이라고 밝혔다.
+    jk@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

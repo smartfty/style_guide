@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423148100063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164422</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7011001" name="충남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0509001" name="노동일반"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충남도, 시간선택제 공무원 관리 규정 만든다]]></Title>
+		<Body><![CDATA[충남도, 시간선택제 공무원 관리 규정 만든다
+    
+
+    (홍성=연합뉴스) 박주영 기자 = 충남도는 시간선택제 공무원의 인력 관리 규정을 마련하는 등 조직관리 제도를 개선한다고 23일 밝혔다. 
+    도에 따르면 도내 주 15∼35시간 근무하는 시간선택제 공무원은 27명으로, 정원 외 인력이어서 관련 조례나 규정 없이 내부 방침으로 운영되고 있다. 
+    도는 부서·직급별로 시간선택제 공무원에 대한 총수를 정하고 일몰제를 시행하는 등 인력 관리 규정을 마련할 계획이다. 
+    또 민간위탁제도의 투명성을 확보하기 위해 사전 심사 절차를 강화한다. 
+    민간위탁기관 선정 시 예산을 확보하기 전 우선 민간위탁사무 심의위원회 심사와 도의회 동의를 받도록 하고, 회계감사 대상도 기존 10억원 이상 사업에서 5억원 이상 사업으로 확대한다. 
+    이밖에 도 조직의 전문성과 투명성을 높이기 위해 도의회와 공무원노동조합 등으로 구성된 조직관리위원회를 설치, 조직 운영 사항을 자문·심의토록 할 방침이다.  
+    jyoung@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

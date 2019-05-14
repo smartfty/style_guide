@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423107500003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>150001</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7107011" name="이란"/>
+			<RegionCode code="7104002" name="미국"/>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="0203003" name="수출"/>
+			<ClassCode code="0203001" name="무역일반"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0406001" name="화공일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[산업부, 이란 제재 긴급 대책회의…"수급·업계 영향 검토"]]></Title>
+		<Body><![CDATA[산업부, 이란 제재 긴급 대책회의…"수급·업계 영향 검토"
+
+
+    (서울=연합뉴스) 고은지 기자 = 산업통상자원부가 미국의 이란산 원유 제재 예외 불가 방침에 따른 원유 수급과 관련 업계의 영향을 검토하기 위해 '이란 제재 긴급대책회의'를 23일 개최했다.
+    김용래 산업부 차관보 주재로 열린 이날 회의에는 석유화학업계와 수출 지원 기관들이 참석했다.
+    김 차관보는 석유화학업계에 대해 "수입처 다변화, 대체원유 확보 등을 꾸준히 추진해달라"고 당부했다. 또 수출 지원 유관기관에는 "유동성 지원과 대체 시장 발굴 지원 등 수출기업 피해 대책이 차질없이 이행될 수 있도록 해달라"고 주문했다.
+    정부는 지난해 5월 미국의 이란 제재 복원 발표 이후 업계, 유관기관과 계속 소통해왔다.
+    또 코트라(KOTRA)에 이란 비상대책반을 설치하는 등 업계 애로사항 파악과 해결을 위한 대응체계를 구축했다.
+    산업부 관계자는 "앞으로도 국내 업계의 피해가 최소화되도록 미국과 지속해서 협의를 진행할 예정"이라고 말했다.
+    eun@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

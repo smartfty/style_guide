@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423137000063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160717</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011008" name="부여"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402002" name="농업"/>
+			<ClassCode code="0103002" name="상임위"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전국 점유율 1위 '부여 밤' 군부대 PX 진출할까]]></Title>
+		<SubTitle><![CDATA[박정현 군수, 국회 국방위원장 만나 군부대 납품 건의]]></SubTitle>
+		<Body><![CDATA[전국 점유율 1위 '부여 밤' 군부대 PX 진출할까
+박정현 군수, 국회 국방위원장 만나 군부대 납품 건의
+
+
+    (부여=연합뉴스) 김준호 기자 = 전국 밤 생산량 1위인 충남 부여군이 군부대 납품을 통한 밤 판로 개척에 나섰다.
+    박정현 부여군수는 23일 안규백 국회 국방위원장을 만나 지역 특산물인 밤을 군부대에 납품하는 방안을 건의했다.
+    군은 전국 농협 유통망과 각종 행사장에서 밤 판촉 활동을 하고 있으나, 소비 둔화에 따라 재고가 쌓이는 추세다.
+    지난해 밤 수출량(8천534t)도 전년보다 13% 감소했다. 
+    밤 수입 유통 체계를 갖추면서 수입량이 지속해 증가하는 등 여러 요인에 따라 농가 소득 감소가 예상되는 상황이다.
+    박정현 군수는 "국군 장병들의 밤 소비를 촉진해 지역 밤 생산 농가의 어려움을 극복하고자 군납을 건의했다"며 "군부대 판로 개척을 통해 농가 소득 증가에 기여할 수 있도록 노력하겠다"고 말했다.
+    부여에서는 약 2천700농가가 6천925㏊에서 밤을 생산하고 있다. 지난해 기준 전국 밤 생산량의 23%를 점유 중이다.
+    kjunho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

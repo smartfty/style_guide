@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423103900004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>141032</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0201017" name="대출채무"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[벌금 미납으로 징역 위기…장발장은행, 13명에 2천500만원 대출]]></Title>
+		<Body><![CDATA[벌금 미납으로 징역 위기…장발장은행, 13명에 2천500만원 대출
+
+
+
+    (서울=연합뉴스) 박의래 기자 = 장발장은행은 지난 22일 제57차 대출심사를 통해 벌금 미납으로 교도소에 갈 위기에 놓인 13명에게 총 2천546만원을 대출하기로 했다고 23일 밝혔다.
+    장발장은행은 '가난이 죄'가 되는 세상을 바꾸자는 취지로, 인권연대가 운영하는 금융 사업이다. 죄질이 불량한 범죄를 제외하고, 벌금형을 선고받은 이들을 대상으로 대출 여부를 심사한다.
+    시민 후원으로 운영되는 장발장은행은 2015년 2월 출범 후 지금까지 57차례에 걸쳐 690명에게 약 12억6천600만원을 대출했다.
+    대출자 중 328명이 대출금을 상환하고 있으며, 이 중 109명이 대출금을 전액 상환했다.
+    laecorp@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

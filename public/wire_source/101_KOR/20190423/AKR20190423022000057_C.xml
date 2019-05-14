@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423022000057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>075451</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0107004" name="지방일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[울산소식] 시, 7개 지구 지적 재조사 추진]]></Title>
+		<Body><![CDATA[[울산소식] 시, 7개 지구 지적 재조사 추진
+
+
+    (울산=연합뉴스) 울산시는 중구 반구4지구 등 7개 지구를 대상으로 지적 재조사 사업을 추진한다고 23일 밝혔다.
+    시는 이날 지적 재조사 사업지구 지정을 위한 재조사위원회를 열었다.
+    사업지구는 중구 반구4지구 등 7개 지구 1천378필지(53만1천84㎡)다.
+    국비 2억9천600만원을 포함한 총 3억689만원의 사업비가 투입된다.
+    지적 재조사 사업은 토지의 실제 현황과 일치하지 않는 지적공부 등록 사항을 바로잡고, 지적도면을 디지털로 구축하는 국책사업이다.
+    시는 2012년부터 14억9천300만원을 들여 남구 고사지구를 비롯한 25개 지구 6천342필지(990만2천488㎡)에 대한 지적 재조사를 완료했다. 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

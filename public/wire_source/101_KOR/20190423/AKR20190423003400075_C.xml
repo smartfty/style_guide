@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423003400075</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>025010</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0712001" name="영화"/>
+			<ClassCode code="0712006" name="해외연예"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아카데미 작품상 '스포트라이트' 제작자 골린 별세]]></Title>
+		<Body><![CDATA[아카데미 작품상 '스포트라이트' 제작자 골린 별세
+
+
+    (로스앤젤레스=연합뉴스) 옥철 특파원 = 2016년 아카데미상 최고 영예인 최우수 작품상 수상작 '스포트라이트'(Spotlight)를 만든 영화 제작자 스티브 골린(64)이 별세했다고 미 연예매체 데드라인이 22일(현지시간) 전했다.
+    암투병 생존자인 골린은 전날 미국 로스앤젤레스(LA) 자택에서 눈을 감았다.
+    골린은 '스포트라이트' 외에 아카데미 작품상 후보작인 '레버넌트', '바벨'을 제작했다. 2004년 '이터널 선샤인'도 그의 명작으로 남아있다. HBO에서 TV 시리즈 '트루 디텍티브'를 제작하기도 했다.
+    '스포트라이트'는 일간지 보스턴글로브 내의 탐사보도팀 스포트라이트가 가톨릭교구의 아동 성추행 스캔들을 파헤치는 과정을 그린 작품이다. 
+    데드라인은 "프라퍼갠더 영화사, 어나니머스 콘텐츠의 최고경영자(CEO)로서 골린은 영화와 TV 시리즈에 둘 다 큰 족적을 남겼다"고 평했다.
+    골린은 제작자로서 올해 아카데미 감독상 수상자인 알폰스 쿠아론 감독과 배우 에마 스톤, 새뮤얼 잭슨, 마헤르샬라 알리, 위노나 라이더, 멕 라이언 등과 함께 일해온 것으로 유명하다.
+    5년 전에는 영화 산업에 기여한 공로로 취리히영화제 평생공로상을 받았다.
+    oakchul@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

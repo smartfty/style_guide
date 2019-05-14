@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010078400013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>113001</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0501002" name="사회문제"/>
+			<ClassCode code="0605012" name="집회시위"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[보유세 강화 구호 외치는 시민단체 회원들]]></Title>
+		<Comment>NO-2140</Comment>
+		<Body><![CDATA[보유세 강화 구호 외치는 시민단체 회원들
+     (서울=연합뉴스) 정하종 기자 = 10일 오전 서울 광화문 광장에서 열린 부동산 불평등 해소를 위한 '보유세 강화 시민행동 출범 기자회견'에서 회원들이 구호를 외치고 있다. 2018.10.10
+    chc@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101007840001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101007840001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101007840001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

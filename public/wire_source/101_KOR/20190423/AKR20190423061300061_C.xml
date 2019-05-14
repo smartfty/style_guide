@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423061300061</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>103939</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005014" name="수원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701003" name="전시공연"/>
+			<ClassCode code="0701002" name="문화시설"/>
+			<ClassCode code="0503006" name="대학교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[수원화성박물관, 개관 10주년 특별 전시회]]></Title>
+		<Body><![CDATA[수원화성박물관, 개관 10주년 특별 전시회
+
+    (수원=연합뉴스) 김인유 기자 = 수원화성박물관이 개관 10주년을 맞아 25일부터 6월 30일까지 '조선의 읍성과 수원화성'을 주제로 특별기획전을 연다.
+    
+
+    박물관 1층 기획전시실에서 진행되는 이번 전시에서는 '평양성도', '진주성도', '함흥읍도', '화성전도' 등 조선 시대 읍성을 그린 지도, 병풍과 읍지(邑誌· 행정사례집), 지방 군현의 지도 등 80여 점을 선보인다.
+    화성전도는 조선의 읍성 가운데 가장 완성된 성곽으로 평가되는 수원화성을 팔달산 정상의 서장대와 산 아래 화성행궁을 중심으로 세밀하게 묘사한 작품이다.
+    이번 전시회를 위해 수원시박물관을 비롯해 국립고궁박물관, 서울대 규장각한국학연구원, 한국학중앙연구원 장서각, 국립중앙도서관, 부산박물관, 충청남도역사문화연구원, 육군박물관, 계명대 행소박물관 등 10여 개 소장처에서 출품했다. 
+    수원화성박물관은 2009년 4월 27일 세계문화유산인 수원화성의 우수성과 역사적 가치를 알리기 위해 화성행궁에서 300여ｍ 떨어진 팔달구 창룡대로 21에 설립됐다.
+    2018년 12월 31일 기준 누적관람객이 229만461명에 달하고, 지난해에만 36만8천569명(하루 평균 약 1천명)이 찾는 등 수원 방문객이 수원화성을 관광하기 전 미리 관람해야 하는 필수 방문지로 꼽히고 있다. 
+    hedgehog@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

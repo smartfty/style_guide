@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423024500504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>080507</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+			<ClassCode code="1003001" name="북한경제"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[싱가포르 NGO "27일까지 평양서 경제포럼 개최"]]></Title>
+		<SubTitle><![CDATA[北기업인 100여명 참석…SNS에 현장사진 등 공개]]></SubTitle>
+		<Body><![CDATA[싱가포르 NGO "27일까지 평양서 경제포럼 개최"
+北기업인 100여명 참석…SNS에 현장사진 등 공개
+
+    (서울=연합뉴스) 류미나 기자 = 싱가포르에 본부를 둔 대북교류 비정부기구(NGO) '조선교류'(Chosun Exchange)가 북한 평양에서 기업인 대상 경제포럼을 개최했다.
+    이 단체는 22일 페이스북 등 SNS를 통해 이같이 밝히고 현장 사진 및 영상을 공개했다.
+    '북한경제포럼'(DPRK Economic Forum)에는 유럽과 아시아 경제 전문가 17명이 참석해 평양에서 북한 기업인 100여명을 대상으로 기업운영 방법을 전수하고 해외 진출 성공사례를 소개하며 상담을 진행하고 있다고 단체는 전했다. 행사는 27일까지 열린다. 
+    현장 영상에 등장하는 한 유럽 출신 자원봉사자는 포럼 참석차 처음 북한을 방문했다면서 "북한에 대해서 좋지 않은 선입관과 편견을 가지기 쉬운데, 이번 행사를 통해서 북한 사람들과 친구가 되고 싶다"고 밝혔다. 
+    조선교류는 2010년부터 북한을 오가며 기업활동에 관심이 있는 주민들을 위해 경영·재무·법·경제정책 등의 분야에서 교육사업을 펼쳐왔으며, 매년 500여명이 관련 프로그램을 이수하고 있다고 밝혔다.
+
+
+    minaryo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

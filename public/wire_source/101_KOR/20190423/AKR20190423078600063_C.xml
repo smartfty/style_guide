@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423078600063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>115005</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7011015" name="청양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107002" name="지방의회"/>
+			<ClassCode code="0105001" name="선거일반"/>
+			<ClassCode code="0105004" name="지방선거"/>
+			<ClassCode code="0510003" name="법원"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한 표 차 청양군의원 당선자 "선관위 공정성 갖춰야"]]></Title>
+		<SubTitle><![CDATA[투표지 검증서 당선 무효 결정으로 직 뺏길 뻔…승소 판결]]></SubTitle>
+		<Body><![CDATA[한 표 차 청양군의원 당선자 "선관위 공정성 갖춰야"
+투표지 검증서 당선 무효 결정으로 직 뺏길 뻔…승소 판결
+   
+
+    (홍성=연합뉴스) 박주영 기자 = 한 표 차이로 당선됐다가 선거관리위원회의 당선 무효 결정으로 직을 뺏길 뻔했던 충남 청양군의원이 선관위를 공개적으로 비판했다. 
+    김종관 청양군의원은 23일 충남도청 브리핑룸에서 기자회견을 열고 "무소속의 군의원으로서 정정당당하게 승리했지만, 집권당 눈치를 보는 충남도 선거관리위원회 때문에 대법원까지 끌려다니며 소송을 하느라 너무 힘들었다"고 운을 뗐다. 
+    그는 "공정성을 기해야 하는 선관위가 투표용지 유·무효 판단에서 정당 후보자에게는 관대하고 무소속 후보자에는 불이익을 주는 처사를 서슴지 않았다"며 "선관위 위원들의 사전 교육도 부족하고 수준도 미달이어서 이런 일이 발생했다"고 지적했다. 
+    이어 "선관위가 외압에 흔들리지 않도록 국회에서 선관위 위원을 추천하는 폐단을 없애야 한다"며 "나 같은 희생자가 다시는 나오지 않도록 공정성을 갖출 장치를 마련하라"고 촉구했다. 
+    앞서 김 의원은 지난해 6·13 지방선거 청양군의원 선거에 무소속으로 출마해 더불어민주당 임상기 후보를 한 표 차이로 누르고 당선됐으나, 충남도 선관위의 투표지 검증에서 당선 무효 결정을 받았다. 
+    이에 김 의원은 "충남도선관위의 결정은 잘못된 것으로 정당 차원의 압력이 있었다"며 소송을 제기했고, 대전고등법원 승소에 이어 대법원 '심리불속행 기각' 결정으로 승소 판결을 받아 직을 유지하게 됐다. 
+    jyoung@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

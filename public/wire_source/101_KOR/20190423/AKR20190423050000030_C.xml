@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423050000030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>101139</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0801001" name="생활정보"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0409004" name="대형마트"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[이마트 데이즈, 캐릭터 의류 130종 최대 40% 할인]]></Title>
+		<Body><![CDATA[이마트 데이즈, 캐릭터 의류 130종 최대 40% 할인
+
+    (서울=연합뉴스) 정열 기자 = 이마트의 자체 의류 브랜드 '데이즈'가 어린이날 시즌을 앞두고 다양한 유·아동 캐릭터 의류를 할인 판매한다.
+    이마트는 25일부터 다음달 15일까지 '데이즈 유·아동 캐릭터 의류 대전'을 통해 총 130여종의 유·아동 의류를 최대 40% 할인 판매한다고 23일 밝혔다.
+    이마트e, 삼성, KB, 현대, 우리카드 등 7종의 행사 카드로 결제하면 할인 가격이 자동으로 적용된다.
+    데이즈는 이번 행사에서 구독자 수 250만명에 달하는 일명 초통령 유튜버 '도티'와 170만명의 구독자를 보유하고 있는 '잠뜰'의 캐릭터를 프린트한 의류를 선보인다.
+    도티와 잠뜰은 마인크래프트 등 유·아동이 주로 소비하는 게임을 중심으로 다양한 동영상 콘텐츠를 제작하는 유튜버다.
+    데이즈는 두 유튜버의 주요 소비층인 7~13세 아동들을 위한 '도티 티셔츠', '도티·잠뜰 티셔츠', '도티·잠뜰 원피스' 3종을 출시해 판매한다.
+    아동용 마블 티셔츠 12종과 배트맨, 디즈니, 카카오프렌즈 등 다양한 국내외 인기 캐릭터 티셔츠도 준비했다.
+
+    passion@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>
