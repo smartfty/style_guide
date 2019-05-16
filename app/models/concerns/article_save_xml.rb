@@ -739,7 +739,7 @@ module ArticleSaveXml
     #     @sub_head_line3 = sh[2]
     #   end
    if body && body != ""
-      @body_content     = body.gsub(/^\#\#\#\#(.*)/){"<!-- #{$1} -->"}
+      @body_content     = body.gsub(/\n\n^\#\#\#\#(.*)/){"<!-- #{$1} -->"}
       @body_content     = @body_content.gsub(/^\#\s(.*)/){"#{$1}"}
       # @body_content     = @body_content.gsub(/^\#\#\#\#(.*)\^\n/){"<!-- #{$1} -->"} 
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
