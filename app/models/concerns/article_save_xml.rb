@@ -516,6 +516,7 @@ module ArticleSaveXml
       @head_line      = eliminate_size_option(title)
       @head_line      = @head_line.gsub(/\u200B/, "")
       # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
+      @head_line      = @head_line.gsub("\r\n", " ")
       @head_line      = @head_line.gsub("\r", "")
       @head_line      = @head_line.gsub("\n", "")
     end
@@ -778,7 +779,7 @@ article_info =<<EOF
       <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
       <GisaNumberID/>
       <GisaRelationID/>
-      <ByLine><![CDATA[<%= @by_line %>]]></ByLine> 
+      <ByLine><%= @by_line %></ByLine> 
       <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
       <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
       <SendModify><%= @send_modify %></SendModify>
@@ -863,7 +864,7 @@ elsif page_number == 23 && order == 3
 </Article>
 EOF
 
-  elsif kind == "--사진"
+  elsif kind == "사진"
   three_component =<<EOF
   <TitleComponent>
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
@@ -875,7 +876,7 @@ EOF
 </Article>
 EOF
 
-elsif kind == "사진"
+elsif kind == "--사진"
   three_component =<<EOF
   <TitleComponent>
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>

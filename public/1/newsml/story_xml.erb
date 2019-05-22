@@ -93,7 +93,7 @@
 			<DataContent>
 				<![CDATA[<%= @data_content %><br><br><%= @by_line %>]]>
 			</DataContent>
-		</NewsComponent><% elsif kind == "내부기자 사진---" %>
+		</NewsComponent><% elsif kind == "사진" %>
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
@@ -105,7 +105,7 @@
 			<DataContent>
 				<![CDATA[<%= @h_caption %><%= @h_source %>]]>
 			</DataContent>
-		</NewsComponent><% elsif kind == "사진" %>
+		</NewsComponent><% elsif kind == "내부기자 사진" %>
 		<NewsComponent>
 			<Role FormalName="Title" />
 			<MediaType FormalName="Text" />
