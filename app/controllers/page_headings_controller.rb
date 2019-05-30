@@ -1,5 +1,5 @@
 class PageHeadingsController < ApplicationController
-  before_action :set_page_heading, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images]
+  before_action :set_page_heading, only: [:show, :edit, :update, :destroy, :download_pdf, :download_heading_pdf, :upload_images]
   before_action :authenticate_user!
 
   # GET /page_headings
@@ -69,6 +69,10 @@ class PageHeadingsController < ApplicationController
 
   def download_pdf
     send_file @page_heading.background_pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
+  end
+
+  def download_heading_pdf
+    send_file @page_heading.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
   def upload_images

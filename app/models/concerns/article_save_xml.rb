@@ -876,7 +876,7 @@ EOF
 </Article>
 EOF
 
-elsif kind == "--사진"
+elsif kind == "__사진"
   three_component =<<EOF
   <TitleComponent>
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>

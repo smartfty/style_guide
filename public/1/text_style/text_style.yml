@@ -264,7 +264,7 @@ title_main:
   tracking: -1
   space_width: 10.0
   scale: 100.0
-  text_line_spacing: 10
+  text_line_spacing: 5
   space_before_in_lines: 0.5
   space_after_in_lines: 2
   text_height_in_lines: 4

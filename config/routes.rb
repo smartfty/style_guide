@@ -253,6 +253,7 @@ Rails.application.routes.draw do
   resources :page_headings do
     member do
       get 'download_pdf'
+      get 'download_heading_pdf'
       patch 'upload_images'
     end
   end
