@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422181600003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060001</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7102027" name="캄보디아"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0201004" name="대외경제"/>
+			<ClassCode code="0201008" name="지재권"/>
+			<ClassCode code="1102006" name="ASEAN"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국표원, 아세안에 공인기관 운영체계 노하우 전수]]></Title>
+		<Body><![CDATA[국표원, 아세안에 공인기관 운영체계 노하우 전수
+
+    (서울=연합뉴스) 김성진 기자 = 산업통상자원부 국가기술표준원은 23일 캄보디아 프놈펜에서 아세안(ASEAN·동남아시아국가연합) 10개국 대표단과 워크숍을 열어 국제 공인기관 운영체계를 전환해야 하는데 따른 노하우를 전수했다고 밝혔다. 
+    국제표준화기구(ISO)와 공동으로 개최한 이날 워크숍에서 국표원은 국제기준 개정사항을 아세안 국가에 설명하고, 공인기관 운영체계 전환을 위한 한국의 준비 상황과 노하우를 공유하는 순서로 진행됐다. 
+    앞서 국제시험인정기관협력체(ILAC)는 공인기관의 자격기준을 강화하고, 각국 공인기관이 2020년 11월까지 새로운 국제기준에 맞춰 운영체계를 전환하도록 결정했다. ILAC는 무역기술장벽 제거를 위해 101개국이 참여해 설립한 국제 인정기구 협력체이다.
+    이에 따라 내년 11월 이전에 운영체계 전환을 완료하지 못한 공인기관의 시험성적서는 국제적인 효력을 상실하게 된다.
+    한국인정기구(KOLAS)를 운영하는 국표원은 작년 10월부터 국가 차원의 공인기관 운영체계 전환 계획을 수립하고 관련 기준을 개정했으며, 전국 순회설명회를 실시하고 가이드를 개발·보급하는 등 운영체계 전환 작업에 만전을 기하고 있다고 설명했다.
+
+    sungjin@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422179300017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>020504</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[삼성전자 "갤럭시 폴드 美출시 연기…수주 내 일정 재공지"(1보)]]></Title>
+		<Body><![CDATA[삼성전자 "갤럭시 폴드 美출시 연기…수주 내 일정 재공지"(1보)
+
+    (뉴욕=연합뉴스) 이귀원 특파원 = 삼성전자가 화면 결함 논란을 빚은 '갤럭시 폴드'의 출시를 잠정 연기하기로 했다.
+
+    삼성전자는 22일(현지시간) 자사 뉴스룸 홈페이지를 통해 "갤럭시 폴드 리뷰 과정에서 드러난 문제를 점검하고 내부 테스트를 추가로 진행하기 위해 갤럭시 폴드의 출시를 연기하기로 결정했다"며 "수 주 내로 출시 일정을 다시 공지하겠다"고 밝혔다.
+    갤럭시 폴드는 26일 미국 출시에 이어 다음 달 3일 유럽, 다음 달 중순 국내에서 출시될 예정이었으나 출시 시기가 차례로 연기될 것으로 보인다.
+    이에 앞서 미국 매체들은 리뷰를 위해 삼성전자에서 받은 갤럭시 폴드 제품이 사용 1∼2일 만에 스크린 결함을 보였다고 지적했다. 
+    lkw777@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

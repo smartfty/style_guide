@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423111700504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>143422</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0108001" name="외교일반"/>
+			<ClassCode code="0606012" name="폭발사고"/>
+			<ClassCode code="0605011" name="테러암살"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[정부, '부활절 참사' 스리랑카에 '여행유의→여행자제' 상향]]></Title>
+		<Body><![CDATA[정부, '부활절 참사' 스리랑카에 '여행유의→여행자제' 상향
+
+
+
+    (서울=연합뉴스) 현혜란 기자 = 정부가 23일 연쇄 테러 참사가 발생한 스리랑카에 발령한 여행경보 단계를 1단계(여행유의)에서 2단계(여행자제)로 상향 조정했다.
+    외교부는 이날 "스리랑카 수도 콜롬보와 인근 지역 교회·호텔 등에서 연쇄 폭발이 발생하여 290여명이 사망하고 500여명이 다친 상황을 고려했다"고 설명했다. 
+    외교부 당국자는 "스리랑카에 체류 중인 우리 국민은 신변 안전에 특별히 유의하고, 스리랑카를 여행할 예정이라면 여행 필요성을 신중히 검토해달라"고 당부했다.
+    외교부는 스리랑카 정세와 치안 상황을 예의주시하면서 여행경보 추가 조정 필요성을 검토해 나가기로 했다.
+    스리랑카에서는 부활절인 지난 21일(현지시간) 호텔과 교회 등 전국 8곳에서 동시다발적인 폭발 테러가 발생했다.
+
+
+    runran@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

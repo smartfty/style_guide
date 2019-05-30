@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423124200051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>152241</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0205001" name="고용취업"/>
+			<ClassCode code="0503001" name="교육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산시교육청 공무원 임용시험 도전자 중 여성이 74.83%]]></Title>
+		<SubTitle><![CDATA[연령별로는 20대 이하가 58.27%로 가장 많아…전체 경쟁률은 15.7대 1]]></SubTitle>
+		<Body><![CDATA[부산시교육청 공무원 임용시험 도전자 중 여성이 74.83%
+연령별로는 20대 이하가 58.27%로 가장 많아…전체 경쟁률은 15.7대 1
+
+
+    
+    (부산=연합뉴스) 조정호 기자 = 부산시교육청은 15일부터 19일까지 '2019년 지방공무원 임용시험' 원서를 접수한 결과 186명 선발에 2천928명이 지원해 평균 15.7대 1 경쟁률을 보였다고 23일 밝혔다.
+    교육행정(일반) 직렬이 155명 선발에 2천553명이 지원해 16.5대 1을 기록했다. 보건 직렬은 2명 모집에 49명이 접수해 24.5대 1로 최고 경쟁률을 보였다.
+    특성화고(마이스터고 포함) 졸업(예정)자를 대상으로 한 경력경쟁임용시험 시설(건축) 직렬은 5.5대 1을 기록했다.
+    접수자 성별 비중은 여성이 74.83%(2천191명)로 강세를 보였다.
+    연령대는 20대 이하가 58.27%(1천706명)로 가장 많았고 30대 33.88%(992명), 40대 7.38%(216명), 50대 이상 0.47%(14명)로 나타났다.
+    부산교육청은 6월 15일 4개 시험장에서 필기시험을 치른다.
+    ccho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

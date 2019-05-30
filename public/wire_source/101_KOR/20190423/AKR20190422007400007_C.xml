@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422007400007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>061501</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="1201001" name="체육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[◇오늘의 경기(23일)]]></Title>
+		<Body><![CDATA[◇오늘의 경기(23일)
+    
+    ◆23일(화)
+    △프로야구= KIA-LG(잠실) SK-삼성(대구) NC-kt(수원) 두산-키움(고척) 롯데-한화(대전·이상 18 시30분)
+    △축구= 아시아축구연맹(AFC) 챔피언스리그(ACL) 조별리그 4차전 대구-히로시마 산프레체(20시·DGB대구은행파크)
+    △핸드볼= 제74회 전국종별선수권대회(10시·SK핸드볼경기장)
+    △사격= 제35회 회장기 전국대회(청주종합사격장)
+    △양궁= 제53회 전국남녀종별선수권대회(광주국제양궁장)
+    △조정= 제13회 화천평화배 전국대회(9시·강원도 화천호 조정경기장)
+    △롤러= 남원 코리아오픈 국제대회(10시·남원 춘향골체육공원)
+    (서울=연합뉴스) 
+    
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

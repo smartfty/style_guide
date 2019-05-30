@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423039400017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>120013</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0902004" name="IT산업"/>
+			<ClassCode code="0901002" name="과학기술"/>
+			<ClassCode code="0901014" name="로봇AI"/>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["5G시대 미리 경험해보세요"…24∼27일 월드IT쇼 2019 개최]]></Title>
+		<SubTitle><![CDATA[5G·인공지능·사물인터넷·자율주행차 등 첨단 기술기업 400여곳 참여]]></SubTitle>
+		<Body><![CDATA["5G시대 미리 경험해보세요"…24∼27일 월드IT쇼 2019 개최
+5G·인공지능·사물인터넷·자율주행차 등 첨단 기술기업 400여곳 참여
+
+    (서울=연합뉴스) 전준상 기자 = 과학기술정보통신부는 24일부터 27일까지 서울 코엑스에서 최신 정보통신기술(ICT)과 제품·서비스를 체험할 수 있는 '월드IT쇼 2019'를 개최한다. 
+    '스마트 이노베이션'(SMART INNOVATION)이 주제인 이 행사에서 5세대(5G) 이동통신 기술과 이를 응용한 새로운 상품과 서비스 등을 선보인다. 
+    정보통신산업의 동향과 전망을 공유하는 콘퍼런스·세미나, 혁신적인 정보통신기술을 개발한 우수기업 시상식 등 다채로운 행사들도 열린다.
+    전시회에서는 SK텔레콤·KT·현대자동차·퀄컴 등 국내외 주요 정보통신 기업 400여개사가 5G·인공지능(AI)·사물인터넷(IoT)·가상현실(VR)·증강현실(AR)·스마트시티·자율주행차 등 최신 정보통신 기술과 제품을 내놓는다. 
+    정보통신 혁신을 선도한 국내 기업 10곳이 정부로부터 상을 받는다.
+    세계 최초 30TB 용량 SSD제품을 개발해 기존 제품보다 용량과 성능을 2배 높인 삼성전자가 '30.72TB SAS SSD'로 대통령상을, 소프트웨어 개발 기업인 비주얼캠프의 'VR시선추적·시선분석 소프트웨어'가 국무총리상을 각각 받는다.
+    해보라, 올림플래닛, 삼성SDS, SK텔레콤, 다비오 등이 장관상을 받는다.
+    민원기 과기정통부 2차관은 "정부는 경제·사회 전반에 걸쳐 5G 기반의 지능화 혁신으로 신산업과 일자리를 창출하고 국민 삶의 질을 제고할 수 있도록 5G+전략을 추진하고 있다"고 말했다.
+    그는 "이번 월드IT쇼는 5G와 연계시켜 새로운 서비스가 창출되고 우리 제품·서비스가 어떻게 구현돼 우리 삶을 어떻게 변화시킬 수 있을지 전망할 수 있는 좋은 기회가 될 것"이라고 덧붙였다.
+    chunjs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

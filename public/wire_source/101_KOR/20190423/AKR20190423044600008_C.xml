@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423044600008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>094634</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0302013" name="특징주"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[특징주] 삼성 갤럭시 폴드 출시 연기에 관련 부품주 약세]]></Title>
+		<Body><![CDATA[[특징주] 삼성 갤럭시 폴드 출시 연기에 관련 부품주 약세
+
+
+
+    (서울=연합뉴스) 곽민서 기자 = 삼성전자가 신형 폴더블 핸드폰 '갤럭시 폴드'의 미국 출시를 연기하면서 23일 장 초반 관련 종목이 하락하고 있다.
+    이날 오전 9시 38분 현재 주식시장에서 KH바텍은 전 거래일보다 3.68% 하락한 8천370원에 거래됐다.
+    KH바텍은 폴더블 디스플레이의 이음새 역할을 하는 부품인 힌지(Hinge)를 제작하는 업체로, 삼성의 폴더블폰 출시에 따른 수혜주로 최근 주목받았다.
+    역시 관련 부품 및 소재를 생산하며 수혜주로 거론돼온 뉴파워프라즈마(-4.80%)와 덕산네오룩스(-0.91%), 코오롱인더(-1.86%), SKC코오롱PI(-3.08%)도 동반 하락했다.
+    앞서 삼성전자는 화면 결함 논란을 빚은 갤럭시 폴드의 미국 출시를 잠정 연기하고 문제 발생 원인을 조사하겠다고 22일(현지시간) 자사 뉴스룸 홈페이지를 통해 밝혔다. 
+    mskwak@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

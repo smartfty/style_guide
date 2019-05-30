@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424001300087</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>004901</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7105025" name="콜롬비아"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+			<ClassCode code="0607001" name="재해일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[콜롬비아 남서부 산사태 사망자 30명으로 늘어…"아직 6명 실종"]]></Title>
+		<Body><![CDATA[콜롬비아 남서부 산사태 사망자 30명으로 늘어…"아직 6명 실종"
+
+
+    (멕시코시티=연합뉴스) 국기헌 특파원 = 최근 콜롬비아 남서부 지역에서 발생한 산사태로 인한 사망자가 30명으로 늘어났다고 RCN 방송 등 현지 언론이 재난 당국을 인용해 23일(현지시간) 보도했다. 
+    콜롬비아 국가재난위험관리국(UNGRD)은 이날 트위터에 지난 21일 카우카 주 로사스 마을에서 집중호우 탓에 일어난 산사태가 8채의 가옥을 덮쳤으며, 진흙더미와 잔해 속에서 추가 사망자를 확인했다고 밝혔다. 
+    산사태 당일 확인된 사망자는 14명, 부상자는 5명이었다. 
+    지역 주민들은 아직도 6명이 실종된 상태라고 현지 언론에 전했다.
+    주민들은 삽을 들고 소방대원 등 구조대를 도와 실종자 수색 작업을 벌이고 있지만 폭우가 이어지면서 작업에 어려움을 겪고 있다. 
+    이번 산사태로 에콰도르 수도 키토와 콜롬비아 도시 칼리를 연결하는 판 아메리칸 고속도로 일부 구간도 통행이 금지됐다.   
+    콜롬비아 산악 지역에서는 비가 많이 내리는 장마철에 산사태가 자주 발생한다. 
+    2017년 4월 산사태가 푸투마요 주 모코아 마을을 덮쳐 250명이 목숨을 잃기도 했다.  
+    산등성이에 많은 무허가 주택이 들어서고 가파른 경사면에 폭이 좁은 도로가 건설돼 산사태로 인한 피해를 키우고 있다.
+    penpia21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

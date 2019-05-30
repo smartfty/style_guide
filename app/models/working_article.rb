@@ -61,7 +61,6 @@
 #  quote_box_column             :integer
 #  quote_box_type               :integer
 #  quote_box_show               :boolean
-#  draft_mode                   :boolean
 #  y_in_lines                   :integer
 #  height_in_lines              :integer
 #  by_line                      :string
@@ -947,12 +946,12 @@ class WorkingArticle < ApplicationRecord
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{jpg_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><image xlink:href='#{pdf_image_path}' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
     # "<a xlink:href='/working_articles/#{id}'><rect stroke='black' stroke-width='5' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
-    svg = "<text fill='gray' font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order}  </text>"
+    svg = "<text fill-opacity='0.5' fill='#777' y='#{y + height/2 + 50}' stroke-width='0' ><tspan font-size='150' x='#{x + width/2}' text-anchor='middle'>#{order}</tspan><tspan font-size='30' x='#{x + width/2}' text-anchor='middle' dy='40'> </tspan></text>"
     svg += "<a xlink:href='/working_articles/#{id}'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 
   def story_svg
-    svg = "<text fill='gray' font-size='100' x='#{x + width/2}'y='#{y + height/2 + 50}' stroke-width='0' >#{order}  </text>"
+    svg = "<text fill-opacity='0.5' fill='#777' y='#{y + height/2 + 50}' stroke-width='0' ><tspan font-size='150' x='#{x + width/2}' text-anchor='middle'>#{order}</tspan><tspan font-size='30' x='#{x + width/2}' text-anchor='middle' dy='40'> </tspan></text>"
     svg += "<a xlink:href='/working_articles/#{id}/change_story'><rect class='rectfill' stroke='black' stroke-width='0' fill-opacity='0.0' x='#{x}' y='#{y}' width='#{width}' height='#{height}' /></a>\n"
   end
 

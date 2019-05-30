@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424036200009</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091513</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001065" name="PRN"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[PRNewswire] MXP, 국제 발전 전략 위해 새로운 자동화 기술 도입]]></Title>
+		<Body><![CDATA[[PRNewswire] MXP, 국제 발전 전략 위해 새로운 자동화 기술 도입
+
+-- 일곱 번째 공장에 투자
+
+    (하노이, 베트남 2019년 4월 23일 PRNewswire=연합뉴스) 베트남 굴지의 의류제조 및 수출기업 중 하나인 MXP JSC(Manufacturing Sportswear Joint Stock Company)가 타이빈주에서 자사의 일곱 번째 공장 건설에 들어갔다. 이는 4.0 시대를 맞아 베트남 직물 및 의류 산업에서 가장 유명한 '스마트 공장'이 되고자 하는 MXP의 장기 개발 전략을 시행하기 위해 생산 규모와 생산량을 증대시키고, 첨단 생산기술을 적용하는 데 있어 중요한 단계다.
+
+    MXP7 공장은 타이빈주 Quynh Phu 지구 Quynh Xa에 건설될 예정이다. 공장 면적은 약 80,000㎡며, 총 투자액은 1,600만 달러에 달한다. 이 공장은 2020년 1분기에 완공될 예정이다.
+
+    MXP는 FastReact, ERP, HRM, eOffice, GSD, 데이터 입력 자동화 및 보고 시스템 등과 같은 소프트웨어 작업에 4.0 기술을 적용하는 선구적인 업체다. MXP7 공장에서는 이와 같은 시스템을 업그레이드하여 성능과 제품 품질을 더욱 높일 예정이다. MXP7 공장은 현대적인 생산 라인 시스템을 갖추고, 연간 200만 개의 제품 생산역량을 확보하며, 최대 3,500명의 정규 직원을 고용할 예정이다. 즉, MXP7 공장은 MXP의 지속적인 첨단 기술 투자 전략에서 핵심 프로젝트라 할 수 있다. MXP는 2030년까지 직원 수를 15,000명에서 30,000명으로 두 배 늘리고, 연간 생산역량을 1천만 개에서 2천만 개로 향상시킬 계획이다.
+
+    MXP 세일즈 이사 Tran Quang Hao는 "2019년 MXP7 건설은 구체적으로는 자사의 연간 수출액, 전반적으로는 직물 시장의 연간 수출액을 보장하는 중대한 전환점이 될 것"이라며 "국제적인 확장을 단행하고, 세계 굴지의 기업을 대상으로, 자사는 믿을 수 있는 양질의 공급업체가 되고자 하는 장기 발전 전략에 맞춰 한 걸음 앞서고 있다"고 말했다. MXP는 열성적인 사업 원칙, 정시 배송 및 각 제품의 품질 보장 등을 바탕으로 이미 노스페이스, Lululemon, Under Armour, Patagonia, GAP, Marmot, REI 등과 같은 유명 브랜드에 제품을 공급하고 있다. MXP의 제품은 미국과 캐나다에서 정기적으로 판매되고 있으며, 유럽과 아시아로 확산되고 있다.
+
+    최근 수년 동안 베트남은 세계 최대의 직물 공급국가 중 하나로 부상했다. 베트남의 총 수출액은 360억 달러가 넘는다. Hao 이사는 "2019년에 MXP7 공장에 투자하고, 이 공장을 건설하는 것은 올해 자사의 4.0 기술 투자 전략 및 자격을 갖춘 인적자원을 강조하고, 더불어 자사의 경쟁 우위를 드높이는 데 매우 중요한 역할을 할 것"이라고 말했다.
+
+    추가 정보는 MXP 웹사이트 https://mxp.com.vn/을 참조한다.
+
+    영상 - https://cdn4.prnasia.com/002071/mnr/201904/mxp/video1.mp4
+    MXP의 지속가능한 공장 설계 컨셉
+
+    출처: MXP JSC (Manufacturing Sportwear Joint Stock Company)
+
+    [편집자 주] 본고는 자료 제공사에서 제공한 것으로, 연합뉴스는 내용에 대해 어떠한 편집도 하지 않았음을 밝혀 드립니다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

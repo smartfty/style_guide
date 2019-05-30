@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423116600030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>145711</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0202003" name="중소기업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[중소기업중앙회, 베트남서 수출상담회…332억원 규모 상담 성과]]></Title>
+		<Body><![CDATA[중소기업중앙회, 베트남서 수출상담회…332억원 규모 상담 성과
+
+    (서울=연합뉴스) 김보경 기자 = 중소기업중앙회는 지난 22일 베트남 하노이에서 국내 중소기업 36개사와 현지 업체 115개사가 참여한 1대1 비즈니스 매칭 상담회를 열었다고 23일 밝혔다.
+
+    이 상담회는 충청남도와 대전시, 세종시 등 충청권 지방자치단체와 협력해 지방소재기업의 수출을 늘리기 위해 마련됐다.
+    화장품·식품·발광다이오드(LED)·건축자재·생활용품 등 다양한 품목의 기업이 상담회에 참여한 가운데 총 186건, 2천909만 달러(약 332억2천만원)에 달하는 상담 성과를 올렸다고 중기중앙회는 전했다. 
+    특히 하노이 현지에서 식품과 화장품에 대한 관심이 높아 이 분야에서만 22건, 184만 달러(21억1천만원) 규모의 수출협약과 대리점 계약이 체결됐다.
+    김태환 중기중앙회 국제통상부장은 "정부의 신남방정책과 연계한 중소기업 수출 지원 확대를 위해 아세안사무소를 통한 지원을 계속할 계획이다"라고 밝혔다.
+    vivid@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190423000900044</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>153721</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="0108005" name="한일외교"/>
+			<ClassCode code="0108001" name="외교일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 일 외교청서 한국 관련 기술 어떻게 바뀌었나]]></Title>
+		<Body><![CDATA[[그래픽] 일 외교청서 한국 관련 기술 어떻게 바뀌었나
+
+    (서울=연합뉴스) 장성구 기자 = 한국과의 관계 악화를 반영하고 북한에는 유화 제스처를 보내는 내용을 담은 2019년판 일본 정부 외교청서가 확정됐다.
+    sunggu@yna.co.kr
+    페이스북 tuney.kr/LeYN1 트위터 @yonhap_graphics
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019042300090004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019042300090004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019042300090004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

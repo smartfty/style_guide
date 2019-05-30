@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423086100051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>120448</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605004" name="강절도"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[계류된 모터보트서 GPS 안테나 훔친 60대 입건]]></Title>
+		<Body><![CDATA[계류된 모터보트서 GPS 안테나 훔친 60대 입건
+
+
+
+    (부산=연합뉴스) 김재홍 기자 = 부산해양경찰서는 부두에 계류된 모터보트에 설치된 GPS 안테나를 훔친 혐의(절도)로 A(61) 씨를 불구속 입건했다고 23일 밝혔다. 
+    A 씨는 지난 2일 오후 8시께 부산 영도구 남항동 부두에 계류된 2.95t 모터보트에 올라가 10만원 상당 GPS 안테나를 훔쳐 달아난 혐의를 받고 있다. 
+    인근 CCTV 등을 토대로 추적에 나선 해경은 지난 19일 오전 현장 인근 한 골목에서 A 씨를 검거했다. 
+    A 씨는 해경에서 "개인적으로 쓰려고 훔쳤다"고 진술했다. 
+    해경 관계자는 "부두에 계류된 선박에서 선용품 도난 사고가 종종 발생하고 있다"며 "지나가던 사람이 쉽게 접근할 수 없도록 부두나 안벽에서 떨어뜨려 선박을 계류하거나 CCTV가 있는 장소에 계류해야 한다"고 당부했다. 
+    pitbull@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

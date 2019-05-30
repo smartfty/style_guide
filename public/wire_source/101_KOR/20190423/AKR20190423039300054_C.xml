@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423039300054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>092915</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7008005" name="광양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503006" name="대학교육"/>
+			<ClassCode code="0205001" name="고용취업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광양보건대 교수협, 채용 비리 의혹 진상 조사 촉구]]></Title>
+		<Body><![CDATA[광양보건대 교수협, 채용 비리 의혹 진상 조사 촉구
+
+    (광양=연합뉴스) 형민우 기자 = 전남 광양보건대학교 교수협의회는 "총장이 조카 면접위원으로 참여한 채용 비리 의혹에 대해 진상 조사를 하라"고 23일 촉구했다.
+
+    교수협의회는 이날 성명을 내고 "교수협의회 회원들은 재학생 수업과 취업 등을 위해 불철주야 노력하고 있지만, 총장 채용 비리 관련 기사 등을 접하고 총장에 대한 깊은 불신과 좌절감에 빠져있다"고 주장했다.
+    이들은 "총장이 조카임을 알고도 면접위원 회피를 하지 않고, 직접 위원으로 참여하고, 가점을 줘 채용절차의 공정성을 위반한 점 등을 볼 때 의혹에 대한 진상 조사가 즉시 이뤄져야 한다"며 "의혹이 진실로 밝혀진다면, 학교법인 양남학원 이사회에 즉각 총장 파면을 요구하고 수사 의뢰 및 형사 고발하겠다"고 덧붙였다.
+    광양보건대는 최근 계약직 직원을 채용하면서 최종학력에 가점을 줄 수 있는 내용의 심사표를 만들었으며 서 모 총장의 조카가 최종 합격했다.
+    minu21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

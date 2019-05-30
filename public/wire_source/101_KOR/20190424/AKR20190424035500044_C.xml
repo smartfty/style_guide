@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424035500044</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091255</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0106005" name="예산재정"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 취업 애로계층 생애주기별 일자리 창출 지원]]></Title>
+		<Body><![CDATA[[그래픽] 취업 애로계층 생애주기별 일자리 창출 지원
+
+    (서울=연합뉴스) 장예진 기자 = 정부는 연내에 일자리 예산 1조8천억원을 추가로 투입해 직접일자리를 7만3천개 만들고 실업급여 지원 인원을 확대하는 등 고용 안전망을 확충할 계획이다.
+    jin34@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

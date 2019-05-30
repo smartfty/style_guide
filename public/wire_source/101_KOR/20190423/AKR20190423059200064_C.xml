@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423059200064</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>103450</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012013" name="충주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0409001" name="유통일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충주시, 지역화폐 '충주사랑상품권' 가맹점 모집]]></Title>
+		<Body><![CDATA[충주시, 지역화폐 '충주사랑상품권' 가맹점 모집
+
+    (충주=연합뉴스) 박재천 기자 = 충북 충주시는 지역 화폐인 '충주사랑상품권' 가맹점을 모집한다고 23일 밝혔다.
+    모집 대상은 외식, 주유, 학원, 문화, 체육, 의료 등 업종과 소상공인 점포, 전통시장이다.
+
+    대형마트와 준(準) 대규모 점포, 유흥주점, 사행성 게임장은 신청할 수 없다.
+    시는 지역경제 활성화를 위해 가맹점 모집에 관심을 기울여 달라는 내용의 공문을 영화관, 음식점, 이·미용실, 당구장 등에 보냈다.
+    가맹점 지정을 원하는 곳은 사업자등록증을 지참하고 시청 경제기업과(☎ 043-850-6015)나 읍면동행정복지센터를 방문해 신청서와 계약서를 작성하면 된다.
+    시는 선순환 경제 기반 조성을 위해 5천원권과 1만원권 등 2종의 충주사랑상품권을 10억원 규모로 발행해 오는 7월부터 유통하기로 하고 한국조폐공사에 제작을 의뢰했다.
+    시민들은 액면가에서 6% 할인된 가격에 구매해 가맹점에서 사용하면 된다. 1인당 월 구매 한도액은 30만원어치다.
+    가맹점은 수수료 걱정 없이 현금처럼 받아 판매대행점(금융기관)에서 환전하면 된다.
+    시는 다음 달에 농협, 새마을금고 등 판매·환전 업무를 대행할 25개 금융기관을 지정할 예정이다.
+    시는 화폐 발행 비용, 판매·환불 수수료, 전산 관리비 등 명목으로 2억원의 예산을 편성했다.
+    jcpark@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

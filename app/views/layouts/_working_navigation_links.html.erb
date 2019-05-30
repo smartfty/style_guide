@@ -158,13 +158,15 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">기사박스<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
+        <% if current_user && current_user.role == 'admin' %> 
           <li><%= link_to '자동 행수 조절 +:', autofit_by_height_working_article_path %></li>
           <li><%= link_to '자동 행수 조절 -:', autofit_by_height_plus_working_article_path %></li>
-          <li><%= link_to '모든 형재박스에 행수 조절 +:', autofit_with_sibllings_working_article_path %></li>
-          <li><%= link_to '모든 형재박스에 행수 조절 -:', autofit_with_sibllings_plus_working_article_path %></li>
+          <li><%= link_to '모든 형제 박스에 행수 조절 +:', autofit_with_sibllings_working_article_path %></li>
+          <li><%= link_to '모든 형제 박스에 행수 조절 -:', autofit_with_sibllings_plus_working_article_path %></li>
           <li><%= link_to '자동 이미지 행수 조절:', autofit_by_image_size_working_article_path %></li>
 
           <li class="divider"></li>
+          <% end %>
 
           <li><%= link_to '현재 추가 행수:' "#{@working_article.extended_line_count}" %></li>
           <li class="divider"></li>
@@ -184,7 +186,7 @@
             <li><%= link_to '아래 박스와 기사 교환', swap_working_article_path %></li>
           <% end %>
           <li class="divider"></li>
-          <li><%= link_to '페이지 템플헷으로 저장', save_as_template_page_path(@working_article.page) %></li>
+          <li><%= link_to '페이지 템플렛으로 저장', save_as_template_page_path(@working_article.page) %></li>
 
         </ul>
       </li>

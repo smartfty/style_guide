@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423011700504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>065908</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001117" name="북한날씨"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[북한날씨] 차차 흐려져 오후부터 대부분 비]]></Title>
+		<Body><![CDATA[[북한날씨] 차차 흐려져 오후부터 대부분 비
+
+    (서울=연합뉴스) 류미나 기자 = 북한은 23일 가끔 구름이 많다가 차차 흐려져 오후부터 모레까지 대부분 지역에서 비가 내리겠다고 기상청이 예보했다.
+    조선중앙방송도 저기압의 영향으로 전반적 지역에서 구름이 자주 끼면서 황해남북도의 여러 지역에서 오후와 밤 사이에 약간의 비가 내리겠다고 보도했다.
+    평양의 아침 최저 기온은 10도였으며, 낮 최고기온은 23도로 예상된다. 
+    아래는 기상청이 전한 지역별 날씨 전망. <날씨, 낮 최고기온(℃), 강수확률(％) 순>(날씨·강수확률은 오후 기준)
+    ▲평양 : 흐림, 23, 30
+    ▲중강 : 흐림, 26, 30
+    ▲해주 : 흐리고 가끔 비, 21, 70
+    ▲개성 : 흐리고 한때 비, 24, 70
+    ▲함흥 : 흐림, 26, 30
+    ▲청진 : 구름 많음, 15, 20 
+    minaryo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

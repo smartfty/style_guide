@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423082800003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>114528</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7102002" name="그루지야"/>
+		</Region>
+		<Class>
+			<ClassCode code="0403008" name="수자원"/>
+			<ClassCode code="0201018" name="투자협력"/>
+			<ClassCode code="0403006" name="전력"/>
+			<ClassCode code="0202004" name="공기업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한수원, 흑해연안 조지아서 수력·신재생 에너지 사업 착수]]></Title>
+		<Body><![CDATA[한수원, 흑해연안 조지아서 수력·신재생 에너지 사업 착수
+
+
+    (서울=연합뉴스) 고은지 기자 = 한국수력원자력이 흑해 연안국 조지아에서 수력·신재생 에너지 사업을 진행한다.
+    한수원은 지난 22일 조지아 정부와 조지아 내 수력 및 신재생 에너지 사업 개발과 추진에 포괄적으로 협력하는 양해각서(MOU)를 체결했다고 23일 밝혔다.
+    양측은 조지아 정부가 추진하는 수력, 양수를 비롯한 신재생 에너지 사업에 대한 투자, 개발, 연구를 함께 이행할 계획이다.
+    같은 날 한수원은 조지아 츠케니스트칼리 수력발전 사업의 현 사업자인 RBI와 공동개발협약(JDA)을 맺었다.
+    한수원은 RBI와 함께 츠케니스트칼리 사업에 대한 독점개발권을 확보하게 됐다.
+    츠케니스트칼리 사업은 조지아 수도 트빌리시 북서쪽 310km 지점의 츠케니스트칼리 강에 설비용량 192.5MW 규모의 수력발전소를 건설·운영하는 사업이다.
+    2021년부터 건설을 시작해 2026년 완공할 예정이다.
+    한수원이 영구적으로 소유·운영할 수 있어 장기적인 전력판매 수익이 기대된다.
+    한수원 관계자는 "원자력, 수력, 신재생 분야를 아우르는 종합에너지기업으로의 도약을 위해 해외시장 진출에 박차를 가하고 있다"며 "파키스탄, 인도네시아, 니카라과 등 수자원이 풍부한 국가를 대상으로 수력발전사업도 활발히 추진 중"이라고 말했다.
+    eun@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

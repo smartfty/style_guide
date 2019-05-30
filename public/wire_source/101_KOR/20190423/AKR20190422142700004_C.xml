@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422142700004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060006</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0504003" name="장애복지"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="1210002" name="야구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울시복지재단, 오늘 정신장애인과 함께하는 티볼 야구대회]]></Title>
+		<Body><![CDATA[서울시복지재단, 오늘 정신장애인과 함께하는 티볼 야구대회
+
+    (서울=연합뉴스) 고현실 기자 = 서울시복지재단 서울사회복지공익법센터는 서울시야구소프트볼협회와 23일 광진구 구의야구장에서 정신장애인이 참여하는 티볼 야구대회를 개최한다고 밝혔다.
+    정신장애인시설 등 9개 기관에서 6팀이 참가해 기다란 막대 형태의 배팅 티(Tee) 위에 공을 얹어 타격하는 티볼 야구 경기를 벌인다. 
+    LG와 두산 전·현직 프로야구 선수들의 팬 사인회도 마련됐다.
+
+    okko@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

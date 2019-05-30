@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423124800008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>151918</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7104002" name="미국"/>
+		</Region>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+			<ClassCode code="0510006" name="소송고발"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[농심 "라면가격 담합 관련 미국 소송 종결돼"]]></Title>
+		<Body><![CDATA[농심 "라면가격 담합 관련 미국 소송 종결돼"
+
+    (서울=연합뉴스) 임미나 기자 = 농심은 라면 가격 담합과 관련해 미국에서 제기된 집단소송이 종결됐다고 23일 공시했다.
+    회사 측은 "2013년 7월 더 플라자 컴퍼니(The Plaza Company) 등이 당사와 미국 현지법인을 상대로 제기한 라면 가격 담합 관련 손해배상 청구 소송에서 올해 1월 제1심 법원이 담합이 없었다며 피고 승소 판결을 선고했고 4월 23일 원고 측의 항소 포기로 소송이 종결됐다"고 밝혔다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

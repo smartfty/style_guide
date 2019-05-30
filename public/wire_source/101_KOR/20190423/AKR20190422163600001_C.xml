@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422163600001</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060004</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0101001" name="정치일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[문의장, 방송기자클럽 초청 '정치현안' 토론회 참석]]></Title>
+		<Body><![CDATA[문의장, 방송기자클럽 초청 '정치현안' 토론회 참석
+
+
+
+    (서울=연합뉴스) 김남권 기자 = 문희상 국회의장은 23일 오전 11시 서울 목동 방송회관에서 열리는 한국방송기자클럽 초청 토론회에 참석한다.
+    문 의장은 모두발언 후 방송사 정치부장, 논설위원 등으로 구성된 패널들과 정치 현안을 놓고 토론한다. 
+    자유한국당을 뺀 여야 4당이 전날 합의한 선거제·개혁법안 패스트트랙 문제와 개헌, 의회 외교 강화, 한반도 평화 정착 등 다양한 현안을 놓고 토론이 벌어질 것으로 보인다. 
+    이번 토론회는 클럽 회원사인 KBS, MBS, SBS, CBS 등에서 동시 생중계한다.
+    kong79@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

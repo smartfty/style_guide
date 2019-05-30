@@ -67,6 +67,8 @@ class WorkingArticlesController < ApplicationController
   # PATCH/PUT /working_articles/1.json
   def update
     respond_to do |format|
+      params['working_article']['subject_head'] = @working_article.filter_to_title(params['working_article']['subject_head'])
+      params['working_article']['subject_head'] = @working_article.filter_to_quote(params['working_article']['subject_head'])
       params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
       params['working_article']['title'] = @working_article.filter_to_quote(params['working_article']['title'])
       params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
@@ -75,21 +77,22 @@ class WorkingArticlesController < ApplicationController
       params['working_article']['body'] = @working_article.filter_to_quote(params['working_article']['body'])
       # binding.pry
       if @working_article.update(working_article_params)
-        if @working_article.draft_mode
-          h = {}
-          h[:draft_mode]    = true
-          h[:story_md]      = @working_article.story_md
-          h[:article_path]  = @working_article.path
-          RLayout::NewsBoxMaker.new(h)
-          # send_data pdf.render, filename: "#{@working_article.id}", type: "application/pdf", disposition: "inline"
-        else
+        # if @working_article.draft_mode
+        #   h = {}
+        #   h[:draft_mode]    = true
+        #   h[:story_md]      = @working_article.story_md
+        #   h[:article_path]  = @working_article.path
+        #   RLayout::NewsBoxMaker.new(h)
+        #   # send_data pdf.render, filename: "#{@working_article.id}", type: "application/pdf", disposition: "inline"
+        # else
           @working_article.generate_pdf_with_time_stamp
           @working_article.page.generate_pdf_with_time_stamp
-        end
+        # end
 
         if story = @working_article.story
           story_h = {}
           story_h[:subject_head] = params['working_article']['subject_head'] = @working_article.filter_to_title(params['working_article']['subject_head'])
+          story_h[:subject_head] = params['working_article']['subject_head'] = @working_article.filter_to_quote(params['working_article']['subject_head'])
           story_h[:title] = params['working_article']['title'] = @working_article.filter_to_title(params['working_article']['title'])
           story_h[:title] = params['working_article']['title'] = @working_article.filter_to_quote(params['working_article']['title'])
           story_h[:subtitle] = params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423145600003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>162718</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0410004" name="항공운수"/>
+			<ClassCode code="0202007" name="인수매각"/>
+			<ClassCode code="0303003" name="은행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[금호산업, 채권단과 아시아나항공 매각 특별약정 체결]]></Title>
+		<Body><![CDATA[금호산업, 채권단과 아시아나항공 매각 특별약정 체결
+
+
+    (서울=연합뉴스) 김동규 기자 = 금호산업은 23일 산업은행 등 채권단과 아시아나항공 매각에 관한 특별약정을 체결했다고 밝혔다.
+    금호산업은 아시아나항공 전체 지분의 33.47%를 보유한 최대주주다.
+    금호산업은 아시아나항공의 매각 주체로서 앞으로 매각 작업 과정에서 최대한 진정성을 갖추고 신속히 매각을 추진해 연말까지 매매계약 체결을 완료할 계획이라고 했다.
+    금호산업 관계자는 "조만간 매각 주간사 선정을 시작으로 매각을 진행할 예정"이라며 "가급적 빠른 시일 내에 일반적 인수합병(M&A) 절차상의 프로세스를 밟아 나갈 것"이라고 말했다.
+    채권단은 이날 아시아나항공 정상화를 위해 1조6천억원을 아시아나항공에 직접 지원하고, 1천300억원은 금호아시아나그룹 지주회사 격인 금호고속에 지원하는 등 총 1조7천300억원 규모의 지원 방안을 확정해 발표했다.
+    dkkim@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423064600007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105244</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210010" name="골프"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[매치플레이에서 타이거 우즈 꺾었던 비예레고르에 PGA투어 입성]]></Title>
+		<Body><![CDATA[매치플레이에서 타이거 우즈 꺾었던 비예레고르에 PGA투어 입성
+
+
+   
+     (서울=연합뉴스) 권훈 기자 = 월드골프챔피언십(WGC) 델 테크놀로지스 매치플레이 8강전에서 타이거 우즈(미국)를 꺾어 주목을 받았던 루카스 비예레고르(덴마크)가 미국프로골프(PGA)투어에서 본격적으로 활동한다.
+    PGA투어 사무국은 비예레고르에게 진행 중인 2018-2019시즌  임시 회원권을 부여했다고 23일 밝혔다.
+    임시 회원이 되면 회수 제한 없이 초청을 받아 PGA투어 대회에 출전할 수 있어 사실상 투어 카드를 받은 것이나 다름없다.
+    유럽프로골프투어에서 뛰던 비예레고르는 세계랭킹 52위 자격으로 출전한 델 테크놀로지스 매치플레이에서 당시 세계랭킹 5위 저스틴 토머스(미국)를 조별리그에서 꺾었고 8강전에서 우즈를 물리쳐 파란의 주인공이 됐다. 
+    4강전에서 맷 쿠처(미국)에게 져 결승 진출이 무산된 그는 3-4위전에서 프란체스코 몰리나리(이탈리아)에게 무릎을 꿇었지만 세계 골프 팬들에게 강한 인상을 남겼다.
+     비예레고르는 덴마크 선수로는 유일한 PGA투어 회원으로 뛰게 됐다.
+    이번 시즌에 PGA투어가 임시 회원권을 부여한 선수는 아널드 파머 인비테이셔널에서 준우승을 차지한 매슈 피츠패트릭(잉글랜드)에 이어 비예레고르가 두번째다.
+    khoon@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

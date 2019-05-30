@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423060600062</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>103258</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0607001" name="재해일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경찰, 고성·속초 산불 관련 한국전력 속초·강릉지사 압수수색(1보)]]></Title>
+		<Body><![CDATA[경찰, 고성·속초 산불 관련 한국전력 속초·강릉지사 압수수색(1보)
+
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423063400054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105556</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008017" name="완도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0412002" name="수산업"/>
+			<ClassCode code="0505004" name="대기환경"/>
+			<ClassCode code="0409004" name="대형마트"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["미세먼지 걱정되면 해조류 드세요"…완도 수산물 서울 나들이]]></Title>
+		<SubTitle><![CDATA[26∼28일 서울 하나로마트 양재점에서 완도 수산물 판매]]></SubTitle>
+		<Body><![CDATA["미세먼지 걱정되면 해조류 드세요"…완도 수산물 서울 나들이
+26∼28일 서울 하나로마트 양재점에서 완도 수산물 판매
+
+
+    (완도=연합뉴스) 조근영 기자 = 완도군이 26일부터 사흘간 서울 하나로마트 양재점 이벤트 광장에서 완도에서 생산되는 수산물 판촉 행사를 연다.
+    이번 행사는 작은 먼지 입자가 폐 등으로 들어올 경우 호흡기 및 심혈관계 질환 발생은 물론 심할 경우 사망에 이르게 하는 미세먼지의 배출에 도움이 되는 해조류를 홍보·판매하고자 마련됐다. 
+    해조류는 각종 미네랄과 식이섬유가 풍부한 알칼리성 식품으로 풍부한 영양소를 공급하는 등 바다의 슈퍼 푸드로도 불린다. 
+    특히 미역, 다시마 등에 있는 끈적끈적한 알긴산이란 성분은 몸속 중금속을 흡착해서 배출하는 데 도움이 된다고 알려졌다.
+    군은 이번 행사에서 해조류 외에도 완도 대표 수산물인 해조류 먹고 자란 전복과 명품 광어, 멸치와 건어물, 친환경 농법으로 재배한 완도자연그대로미(米), 비파 등 완도에서 생산되는 특산물을 시중 가격보다 5∼40% 낮은 가격으로 판다.
+    해조류 및 완도 특산물(가공 제품 포함) 무료 시식회를 열고 방문 고객에게 사은품을 증정하는 등 다양한 이벤트도 전개해 완도 특산물을 널리 알릴 계획이다. 
+    완도군 관계자는 23일 "이번 행사에서 미세먼지 배출에 효과가 있는 청정바다수도 완도 해조류와 전복 등 수산물의 가치를 지속적이고 대대적으로 홍보해 소비 촉진에 기여할 수 있도록 하겠다"고 말했다.
+    chogy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

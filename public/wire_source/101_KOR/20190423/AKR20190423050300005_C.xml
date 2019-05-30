@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423050300005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100107</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712012" name="예능경연"/>
+			<ClassCode code="0712003" name="방송"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[조안, 남편과 TV조선 '아내의 맛' 합류]]></Title>
+		<SubTitle><![CDATA[미나-류필립 부부는 MBN '모던패밀리' 출연]]></SubTitle>
+		<Body><![CDATA[조안, 남편과 TV조선 '아내의 맛' 합류
+미나-류필립 부부는 MBN '모던패밀리' 출연
+
+
+    
+    (서울=연합뉴스) 이정현 기자 = TV조선 부부 예능 '아내의 맛'은 배우 조안이 IT계열 CEO 남편 김건우 씨와 23일 방송부터 합류한다고 밝혔다.
+    이 부부는 2016년 10월 결혼했으며, 김건우 씨의 방송 출연은 처음이다.
+    두 사람은 방송을 통해 밤이 시작되면 활발하게 활동하고, 밤이 끝나면 잠드는 '올빼미 라이프'를 공개할 예정이다.
+    
+
+    한편, KBS 2TV '살림하는 남자들'에서 한 차례 일상을 공개했던 가수 미나-류필립 부부는 이번에는 MBN 예능 '모던 패밀리'에 출연해 새로운 모습을 보여줄 예정이다.
+    미나와 류필립은 최근 연극배우로 변신해 활동 영역을 넓히고 있다. 미나는 5월 연극 '라 쁘띠뜨 위뜨'의 주인공으로 나서 데뷔 17년 만에 처음으로 연기자로 변신한다. 류필립은 최근 연극 '사랑해 엄마'를 마쳤다.
+    두 사람의 모습은 다음 달 중순부터 만날 수 있다.
+    lisa@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

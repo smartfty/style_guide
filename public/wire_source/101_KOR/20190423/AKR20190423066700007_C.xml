@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423066700007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105527</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="1201001" name="체육일반"/>
+			<ClassCode code="0502003" name="기부봉사"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[체육공단, 강원 산불피해 복구 성금 3천만원 전달]]></Title>
+		<Body><![CDATA[체육공단, 강원 산불피해 복구 성금 3천만원 전달
+
+
+    (서울=연합뉴스) 배진남 기자 = 국민체육진흥공단은 강원 산불피해 복구를 위해 성금 3천만원을 사회복지공동모금회에 전달했다고 23일 밝혔다.
+    공단 임직원은 산불피해 지역 주민의 안타까운 소식을 접하고 주거 복구와 생계 지원을 위해 자발적으로 성금 모금에 참여한 것으로 알려졌다.
+    공단 관계자는 "이번 산불로 고통받는 이재민들께 위로의 말씀을 드리며, 하루빨리 신속한 복구가 이뤄질 수 있도록 보탬이 됐으면 한다"고 말했다. 
+    hosu1@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

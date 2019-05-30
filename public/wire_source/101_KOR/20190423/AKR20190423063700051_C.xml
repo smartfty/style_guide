@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423063700051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105538</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0107004" name="지방일반"/>
+			<ClassCode code="0504003" name="장애복지"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산 장애인 학대 증가 추세…작년 62건, 올해도 의심신고 35건]]></Title>
+		<Body><![CDATA[부산 장애인 학대 증가 추세…작년 62건, 올해도 의심신고 35건
+
+
+    
+    (부산=연합뉴스) 박창수 기자 = 지난해 부산지역 장애인 권익옹호기관에 신고된 장애인 학대가 62건에 달하는 것으로 나타났다.
+    23일 부산시에 따르면 지난해 지역 장애인 권익옹호기관에 신고된 의심 사건 125건 가운데 장애인 학대로 판정된 사례는 62건에 달했다.
+    14건은 잠재적으로 학대 위험이 있는 경우였다.
+    유형별로는 신체적 학대와 경제적 착취가 각각 28건과 21건으로 대부분을 차지했다. 나머지는 정서적 학대(7건), 성적 학대(4건), 방임(2건) 등이었다.
+    피해 장애인은 여성(21명)보다 남성(41명)이 많았으며, 피해자 장애 유형은 지적장애(30명)가 가장 많았다.
+    학대를 당하는 장애인 대부분 60%가 수급자 등 소득 수준이 낮은 것으로 나타나 사회적인 관심이 필요한 상황이다. 
+    올해도 의심 신고 건수가 35건에 달하는 등 장애인 학대가 증가할 움직임을 보이자 부산시가 예방 교육을 강화하기로 했다.
+    시는 오는 30일 구·군 장애인복지 및 사례관리 담당자 430명을 대상으로 '장애인 학대 예방 및 대처방안 교육'을 할 예정이다.
+    교육은 학대사례 및 법원 판결로 살펴보는 장애인 학대, 장애인 학대 신고 및 대처방안, 부산 장애인 학대 현황 알아보기 등으로 꾸며진다.
+    pcs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

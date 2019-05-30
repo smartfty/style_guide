@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423147700055</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164152</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7005008" name="군포"/>
+		</Region>
+		<Class>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0606003" name="수상사고"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[군산해경, 중학생 대상 해양안전 체험프로그램 연중 운영]]></Title>
+		<Body><![CDATA[군산해경, 중학생 대상 해양안전 체험프로그램 연중 운영
+
+
+    
+    (군산=연합뉴스) 백도인 기자 = 전북 군산해양경찰서는 다음 달부터 중학생을 대상으로 '국민 참여 해양안전 체험교육' 프로그램을 연중 운영한다고 23일 밝혔다.
+    이 프로그램은 학생들에게 심폐소생술, 구명조끼 착용법, 선박사고 탈출법, 익수자 구조방법 등을 체험교육 방식으로 가르치는 것이다.
+    경비함정을 타고 해경의 역할과 기능을 배우는 시간도 마련된다.
+    희망 학교의 신청을 받아 진행한다.
+    김도훈 군산해경 해양안전과장은 "생존과 직결되는 해양에서의 각종 사고에 대한 대응력을 키우고 안전에 대한 관심을 높이기 위한 프로그램"이라고 설명했다.
+    doin100@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423060651062</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>104312</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0607001" name="재해일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경찰, 한국전력 속초·강릉지사 압수수색…산불 원인 수사 속도(2보)]]></Title>
+		<Body><![CDATA[경찰, 한국전력 속초·강릉지사 압수수색…산불 원인 수사 속도(2보)
+    
+    (춘천=연합뉴스) 이재현 기자 = 강원지방경찰청은 23일 고성·속초 산불과 관련해 한국전력 속초지사와 강릉지사 등 2곳에 대해 전격 압수수색을 했다.
+    경찰은 이날 광역수사대와 고성경찰서 수사과 등 13명을 투입, 산불 원인과 관련한 사고 전신주의 설치와 점검, 보수 내역 등 서류 일체를 압수해 분석할 방침이다.
+
+    jlee@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

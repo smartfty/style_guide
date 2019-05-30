@@ -45,7 +45,7 @@ class ReporterGraphic < ApplicationRecord
 
   #TODO
   def sorce_path
-    "/wire_source/203_GRAPHIC/20190312"
+    "/wire_source/203_GRAPHIC/20190424"
   end
 
   def full_size_path

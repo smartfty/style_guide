@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190423000600044</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>113232</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712001" name="영화"/>
+			<ClassCode code="0712002" name="연예"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 역대 마블시리즈 국내 관객 수]]></Title>
+		<Body><![CDATA[[그래픽] 역대 마블시리즈 국내 관객 수
+
+    (서울=연합뉴스) 장예진 기자 = 역대급 흥행이 예고된 '어벤져스: 엔드게임'이 24일 뚜껑을 열면, 마블 국내 관객 수는 총 1억2천만명 정도까지 늘어날 전망이다. 
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019042300060004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019042300060004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019042300060004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

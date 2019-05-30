@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424032700008</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>090330</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302010" name="주식시황"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[코스피 상승 출발…2,220대 강세(1보)]]></Title>
+		<Body><![CDATA[코스피 상승 출발…2,220대 강세(1보)
+
+    (서울=연합뉴스) 김아람 기자 = 코스피가 24일 상승세로 출발했다.
+    이날 오전 9시 2분 현재 코스피는 전 거래일보다 7.11포인트(0.32%) 오른 2,227.62를 가리켰다.
+    지수는 전장보다 9.24포인트(0.42%) 오른 2,229.75에서 출발해 강세 흐름을 보이고 있다.
+    같은 시각 코스닥지수는 전장보다 3.48포인트(0.46%) 오른 764.90을 나타냈다.
+    rice@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

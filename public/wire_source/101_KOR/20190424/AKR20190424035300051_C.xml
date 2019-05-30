@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424035300051</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091401</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0411001" name="서비스업"/>
+			<ClassCode code="0409001" name="유통일반"/>
+			<ClassCode code="0409006" name="백화면세"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[신세계 센텀시티점 내 '레고 놀이터' 오픈]]></Title>
+		<Body><![CDATA[신세계 센텀시티점 내 '레고 놀이터' 오픈
+
+
+    (부산=연합뉴스) 이종민 기자 = 신세계백화점 부산 센텀시티점은 아이들 창의력을 키우는 체험놀이 공간 '브릭라이브'를 오픈했다고 24일 밝혔다.
+    영국 전통 브릭 체험공간으로 조성된 브릭라이브에는 다양한 종류의 레고 수십만개가 놓여있다.
+    아이들은 갖가지 모양과 다양한 색상의 레고 브릭을 갖고 놀면서 창의력을 키울 수 있다.
+    24∼36개월 이하 유아는 보호자를 동반해야 입장할 수 있다.
+    보호자가 동반하지 않을 경우 케어 프로그램을 추가 구입하면 매장 직원이 아이를 보호해 준다.
+    공간 내에는 아이들 생일이나 기념일에 사용할 수 있는 파티룸과 브릭 제품을 판매하는 카페 & 숍이 있다.
+    브릭라이브는 5월 가정의 달을 맞아 다양한 오픈 이벤트를 열 예정이다.
+
+    ljm703@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

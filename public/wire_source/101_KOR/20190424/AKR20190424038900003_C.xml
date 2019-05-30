@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424038900003</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>093902</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0411006" name="광고업"/>
+			<ClassCode code="0202001" name="기업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대홍기획, 스티비 어워드 2개 부문 수상…"내부소통 탁월"]]></Title>
+		<Body><![CDATA[대홍기획, 스티비 어워드 2개 부문 수상…"내부소통 탁월"
+
+    (서울=연합뉴스) 최재서 기자 = 대홍기획은 국제 비즈니스 대상인 '2019 아시아·태평양 스티비 어워드'(Asia-Pacific Stevie Awards) 2개 부문에서 수상했다고 24일 밝혔다.
+    아시아·태평양 스티비상은 아태 지역 29개국에 있는 모든 기업·단체·정부를 대상으로 직업 현장에서의 업적을 알리기 위해 열리는 국제 시상식이다.
+    올해는 16개 국가에서 900편 이상의 작품이 출품됐고 전 세계 100여명의 심사위원이 두 달에 걸쳐 작품을 선정했다.
+    대홍기획은 브랜드 콘텐츠 채널 '대홍TV'와 사보 '대홍 커뮤니케이션즈'로 각각 라이브이벤트 부문 내부 이벤트 혁신상에서 금상, 출판 부문 사보·출판물 혁신상에서 은상을 받았다.
+    대홍TV는 유튜브 라이브로 전 직원과 최고경영자(CEO)가 직접 소통하는 프로그램으로 전문성을 살렸고 세대와 직급을 아우르는 전체 임직원이 참여할 수 있다는 점에서 좋은 평가를 받았다고 회사는 전했다.
+    대홍기획 사보는 마케팅 커뮤니케이션 전문지로서 시장 트렌드를 시의성 있게 반영했다는 평가를 받은 것으로 알려졌다.
+
+    acui721@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

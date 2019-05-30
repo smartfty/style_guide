@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423026900008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>082512</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0303002" name="증권사"/>
+			<ClassCode code="0302011" name="기업분석"/>
+			<ClassCode code="0405003" name="조선"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[하나금투 "삼성重, 2분기부터 흑자전환 기대"]]></Title>
+		<Body><![CDATA[하나금투 "삼성重, 2분기부터 흑자전환 기대"
+
+    (서울=연합뉴스) 조민정 기자 = 하나금융투자는 23일 삼성중공업이 최근 액화천연가스(LNG) 수송선 수주량이 증가하고 있다며 올해 2분기부터 영업이익이 흑자 전환할 것으로 예상했다.
+    박무현 연구원은 "삼성중공업은 올해 170K급 이상 LNG선 15척 중 절반가량인 7척을 계약했다"며 "작년에도 19척의 LNG선을 수주하면서 경쟁력을 입증한 바 있다"고 평가했다.
+    박 연구원은 "조선소 수익성의 핵심은 동일 선종의 반복 건조량에 달려있는데, 삼성중공업의 선박건조 잔고를 보면 탱커선을 중심으로 LNG선과 컨테이너선으로 단순화되었다"며 "올해 2분기부터 소폭의 영업이익 흑자전환이 가능할 것으로 예상된다"고 강조했다.
+    그러면서 "2018년 20척이었던 삼성중공업의 선박 인도량은 2020년에는 41척으로 늘어 영업이익이 갈수록 회복될 것"이라고 덧붙였다.
+    박 연구원은 "아직 실적 회복속도가 더디고 밸류에이션(평가가치) 부담이 높지만 LNG선 시황 호조에 따라 중장기적인 주가 상승 여력은 높아지고 있다"며 투자의견 '매수'와 목표주가 1만원을 유지했다.
+    chomj@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

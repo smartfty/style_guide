@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423095500062</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>134121</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004010" name="원주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0203003" name="수출"/>
+			<ClassCode code="0104023" name="한국당"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[수출입은행 원주출장소 존치키로…김기선 의원 확인]]></Title>
+		<Body><![CDATA[수출입은행 원주출장소 존치키로…김기선 의원 확인
+    
+
+    (원주=연합뉴스) 김영인 기자 = 자유한국당 김기선(원주갑) 국회의원은 23일 열린 제20차 산업경쟁력강화 관계장관회의에서 한국수출입은행 원주출장소를 존치하는 것으로 결정됐다고 밝혔다.
+    한국수출입은행 원주출장소는 작년 말 여신 규모와 고객 기업 수 등 모든 지표가 최하위권으로 나타나 폐쇄 대상에 포함된 바 있다.
+    김기선 의원은 이와 관련해 1월 초 한국수출입은행장을 만나 원주출장소 폐쇄 철회를 촉구하고 기획재정부를 설득해왔다.
+    원주출장소 존치 결정으로 원주를 포함한 강원도 내 중소 수출기업의 정책·금융 접근성이 제고돼 수출경쟁력을 확보할 수 있게 됐다.
+    앞서 원주상공회의소는 지난 1월 한국수출입은행 원주출장소 존치를 촉구하는 건의서를 한국수출입은행장과 기획재정부장관에게 발송했다. 
+    kimyi@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -8,7 +8,7 @@
     <% if page.color_page %> 
     <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-danger btn-xs" %></h4>
     <% else %>
-    <h4 align='center'><%= link_to "#{page.page_number}면", page_path(age), class: "btn btn-default btn-xs" %></h4>
+    <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-xs" %></h4>
     <% end %>
     </div>
   <% end %>

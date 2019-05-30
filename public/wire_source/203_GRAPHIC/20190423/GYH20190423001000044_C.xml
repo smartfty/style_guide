@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190423001000044</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>155703</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0202001" name="기업일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 주요기업 3대 IT업종 모두 부진]]></Title>
+		<Body><![CDATA[[그래픽] 주요기업 3대 IT업종 모두 부진
+
+    (서울=연합뉴스) 장예진 기자 = 국내 주요 IT·전자 업체들이 올 1분기 실적 발표를 앞두고 모두 침울한 분위기다. 특히 최근 한국 경제의 버팀목 역할을 한다는 평가를 받는 반도체와 스마트폰, 디스플레이 등 이른바 '3대 주력 품목'이 일제히 부진을 면치 못하면서 자칫 경기침체의 골이 더 깊어지는 게 아니냐는 우려도 나온다.
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019042300100004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019042300100004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019042300100004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

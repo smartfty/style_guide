@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423029200063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100003</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[이춘희 세종시장 공약 평가 2년 연속 '최우수' 등급]]></Title>
+		<SubTitle><![CDATA[매니페스토실천본부 2019년 시·도지사 공약실천계획 평가]]></SubTitle>
+		<Body><![CDATA[이춘희 세종시장 공약 평가 2년 연속 '최우수' 등급
+매니페스토실천본부 2019년 시·도지사 공약실천계획 평가
+
+
+    (세종=연합뉴스) 김준호 기자 = 세종시는 이춘희 시장이 한국매니페스토실천본부가 주관한 '2019 민선 7기 시·도지사 공약 평가'에서 지난해에 이어 2년 연속 최우수(SA) 등급을 받았다고 23일 밝혔다.
+    한국매니페스토실천본부는 지난 2월부터 전문가·시민 활동가를 중심으로 평가단을 구성, 전국 17개 시·도 홈페이지에 공개된 공약이행실천계획서 등 공약자료를 평가했다.
+    세종시는 평가항목 전 분야에서 골고루 우수한 평가를 받아 서울시, 경기도 등 5개 시·도와 함께 최우수 등급을 받았다.
+
+    '시민주권 특별자치시 행정수도 세종'을 시정 3기 비전으로 제시한 세종시는 34개 실천 전략, 145개 공약과제, 연차별 추진계획·재정운영계획 등을 공약실천계획서에 충실히 담았다는 평가를 받았다. 
+    공약과제 선정·실천계획 수립 과정에서 시민주권 준비위원회·시민참여단 등을 통해 다양한 시민 의견을 수렴하고 정책에 적극적으로 반영한 점도 좋은 점수를 얻었다.
+    이춘희 시장은 "앞으로 시민과 소통·협력하면서 공약사항을 내실 있게 이행하고 체감도를 높여 나가겠다"고 말했다.
+    kjunho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

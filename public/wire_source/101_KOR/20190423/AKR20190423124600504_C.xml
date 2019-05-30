@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423124600504</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>151953</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0703003" name="개신교"/>
+			<ClassCode code="1007001" name="남북교류"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[김연철, 종교계 잇따라 예방…"남북간 진전 역할 해달라"]]></Title>
+		<Body><![CDATA[김연철, 종교계 잇따라 예방…"남북간 진전 역할 해달라"
+    
+
+    (서울=연합뉴스) 김효정 기자 = 김연철 통일부 장관이 23일 오후 개신교와 천도교 관계자를 잇달아 만나 취임 인사를 하고 남북교류·협력 방안을 논의했다.
+    김 장관은 이날 오후 서울 종로구 기독교회관에서 진보성향 개신교 교단협의체인 한국기독교교회협의회(NCCK) 총무 이홍정 목사 등을 예방했다.
+    이홍정 목사는 "어느 때보다도 한반도 평화프로세스를 위한 종교의 중재자적 역할이 중요하게 자리매김해야 하는 시점"이라며 "(남북간) 종교교류가 적극적으로 이뤄질 수 있도록 도움을 주시면 좋겠다"고 밝혔다.
+    이 목사는 오는 8월 독일에서 열리는 세계종교인평화회의(WCRP) 총회에 북측 종단 대표들이 초청된 상황이라며 "좋은 기회가 되기를 바란다"고도 말했다.
+    김 장관은 "(NCCK가) 경험을 잘 살려서 현재에도 남북간에 진전할 수 있도록 많이 역할을 해주셨으면 좋겠다"고 화답했다.
+    김 장관은 이어 서울 종로구 수운회관에서 천도교 송범두 교령을 예방했다.
+    그는 24일에도 한국민족종교협의회 인사와 성균관장 등 종교지도자들과의 면담을 이어갈 예정이다.
+    한편, 김 장관은 23일 오후 정부서울청사에서 국내 대북 인도적 지원 민간단체들의 협의체인 대북협력민간단체협의회 관계자들과도 만난다.
+    kimhyoj@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

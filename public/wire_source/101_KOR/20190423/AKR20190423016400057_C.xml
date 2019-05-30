@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423016400057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>072632</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0411002" name="관광"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[울산소식] 시, 인도 수학여행 상품 기획단 초청 관광]]></Title>
+		<Body><![CDATA[[울산소식] 시, 인도 수학여행 상품 기획단 초청 관광
+
+
+    (울산=연합뉴스) 울산시는 인도 학생단체의 수학여행 상품 기획단이 울산의 주요 관광지를 답사하는 초청 관광을 시행한다고 23일 밝혔다.
+    이번 답사는 지자체 요청으로 한국관광공사 델리 지사와 아시아나항공사가 공동으로 참여해 기획됐다.
+    수학여행 기획단은 인도의 학교장 15명 정도로 구성됐으며, 21일부터 25일까지 4박 5일 일정으로 서울과 울산, 부산 등을 둘러본다.
+    울산 일정은 태화강 십리대숲과 현대자동차, 대왕암공원, 옹기마을, 간절곶 등을 방문하는 1박 2일 일정이다.
+    시 관계자는 "이번 초청 관광을 통해 2020년부터 매년 인도 델리 지역 학생단체에서 수학여행단을 유치할 수 있을 것으로 기대한다"고 말했다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

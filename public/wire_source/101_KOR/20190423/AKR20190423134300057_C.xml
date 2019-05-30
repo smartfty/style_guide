@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423134300057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>155219</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0403005" name="원자력"/>
+			<ClassCode code="0508001" name="NGO"/>
+			<ClassCode code="0606007" name="안전사고"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0510006" name="소송고발"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울산 탈핵단체 "신고리 4호기 운영허가 취소 소송 진행"]]></Title>
+		<Body><![CDATA[울산 탈핵단체 "신고리 4호기 운영허가 취소 소송 진행"
+
+
+    (울산=연합뉴스) 허광무 기자 = 탈핵울산시민공동행동은 "신고리 4호기 운영허가 취소를 위한 소송을 진행하겠다"고 23일 밝혔다.
+    이 단체는 이날 울산시청 프레스센터에서 기자회견을 열어 "원자력안전위원회는 신고리 4호기가 인구 밀집 지역에 있음에도 미국 규정을 준용해 지난 2월 운영을 허가했다"면서 "이는 인구 중심지와 4㎞ 이상 떨어져 괜찮다는 것인데 미국과 한국의 상황이 다르고, 특히 우리는 방사선 비상계획이나 사고 대응 매뉴얼이 적절히 준비돼 있지 않다"고 주장했다.
+    또 "신고리 4호기 내진성능 평가는 관련 기술기준이 확립되기 이전 연구결과를 바탕으로 수행됐으며, 경주지진 이후 양산단층과의 연관성 등을 적용하지도 않았다"면서 "핵발전은 값싼 에너지가 아니라, 인류에게 재앙을 가져다주는 에너지원"이라고 덧붙였다.
+    단체는 "소송을 통해 국민 생명과 안전을 국가가 지켜야 한다는 것을 사회적으로 확인시키고, 운영허가를 중단시키고자 한다"면서 "전국의 많은 시민이 공동소송단에 동참해 달라"고 당부했다.
+    hkm@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

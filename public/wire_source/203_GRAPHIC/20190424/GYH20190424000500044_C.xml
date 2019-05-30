@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190424000500044</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091246</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0505004" name="대기환경"/>
+			<ClassCode code="0106005" name="예산재정"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 미세먼지 전쟁에 실탄 1.5조↑…"7천t 저감 효과"]]></Title>
+		<Body><![CDATA[[그래픽] 미세먼지 전쟁에 실탄 1.5조↑…"7천t 저감 효과"
+
+    (서울=연합뉴스) 장예진 기자 = 24일 정부가 임시국무회의에 제출한 2019년 추가경정(추경) 예산안에는 '미세먼지·민생 추경'이라는 별칭에 걸맞게 다양한 미세먼지 관련 사업이 반영됐다.
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019042400050004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019042400050004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019042400050004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423049900065</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>100432</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0606009" name="차사고"/>
+			<ClassCode code="0606001" name="사고일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[트럭, 인천 지하차도 사고 수습 순찰차 추돌…4명 부상]]></Title>
+		<Body><![CDATA[트럭, 인천 지하차도 사고 수습 순찰차 추돌…4명 부상
+
+
+    
+    (인천=연합뉴스) 손현규 기자 = 23일 오전 6시 39분께 인천시 서구 경서동 한 지하차도에서 1t 트럭이 도로에 정차해 사고 수습 중인 도로 관리용 순찰 차량을 추돌했다.
+    이 사고로 트럭 운전자 A(50)씨 등 4명이 다리 등을 다쳐 인근 병원으로 옮겨져 치료를 받고 있다. 
+    이들 가운데 트럭 보조석에 탄 B(53)씨는 중상인 것으로 알려졌다.
+    소방당국과 경찰은 트럭 탑승자들을 상대로 정확한 사고 경위를 조사하고 있다.
+
+
+    son@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

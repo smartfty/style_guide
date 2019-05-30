@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423086900061</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>115153</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>2</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005014" name="수원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0605009" name="마약"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0712002" name="연예"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[경찰, '마약투약 혐의' 박유천 사전구속영장 신청(1보)]]></Title>
+		<Body><![CDATA[경찰, '마약투약 혐의' 박유천 사전구속영장 신청(1보)
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

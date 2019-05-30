@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423137600052</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160012</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0405001" name="중공일반"/>
+			<ClassCode code="0405005" name="기계공업"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0109004" name="해군"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001032" name="창원기업"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[해군-STX엔진, 함정 엔진 창정비 지원 5년 연장]]></Title>
+		<Body><![CDATA[해군-STX엔진, 함정 엔진 창정비 지원 5년 연장
+
+
+    
+    (창원=연합뉴스) 이정훈 기자 = 경남 창원국가산업단지 내 디젤 엔진 제조업체인 STX엔진은 23일 해군과 MTU엔진 창정비 지원을 5년 더 연장하는 협약을 체결했다.
+    STX엔진과 해군은 1998년 해군 함정과 잠수함에 탑재한 MTU엔진 창정비 지원협정에 서명한 뒤 5년 단위로 연장 계약을 하고 있다.
+    이 회사는 1977년 독일 MTU사와 기술협력을 하는 방법으로 방위산업 분야 디젤엔진 사업에 진출했다.
+    이후 우리나라 해군·해경의 함정용 디젤엔진뿐 아니라 자주포, 전차용 디젤엔진에 생산에 이어 함정용 레이다, 군위성 통신체계사업까지 참여하고 있다.
+    seaman@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

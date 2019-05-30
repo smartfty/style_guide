@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423133900065</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>155246</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201018" name="투자협력"/>
+			<ClassCode code="0202004" name="공기업"/>
+			<ClassCode code="0412001" name="해양항만"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[인천소식] 경제청-미국 샌버나디노, 상호협력 MOU 체결]]></Title>
+		<Body><![CDATA[[인천소식] 경제청-미국 샌버나디노, 상호협력 MOU 체결
+
+
+    
+    (인천=연합뉴스) 인천경제자유구역청은 23일 송도국제도시 G타워에서 미국 캘리포니아주 샌버나디노 카운티와 경제협력 및 상호교류를 위한 양해각서를 체결했다.
+    이번 양해각서 체결은 인천경제자유구역 개발 경험을 벤치마킹하고 인천과 협력관계 구축을 원하는 샌버나디노 카운티 측 요청에 따라 이뤄졌다.
+    샌버나디노 카운티는 로스앤젤레스와 라스베이거스 사이에 있는 30여개 중소도시의 집합체로, 인근 대도시보다 상대적으로 열악한 비즈니스 환경을 극복하기 위해 경제개발청을 설립해 운영 중이다.
+    
+    인천 신항 배후단지 첫 입주기업 8개사 계약
+
+
+    
+    (인천=연합뉴스) 인천 신항 배후단지에 처음 입주하는 컨소시엄 3곳(8개사)이 최종 확정됐다.
+    인천항만공사에 따르면 신항 배후단지 복합물류클러스터 1차 공모부지(15만㎡) 입주기업들과 사업 추진 계약을 체결했다.
+    입주기업들은 올해 말까지 각종 인허가를 받은 뒤 각각 물류시설 공사에 착수할 예정이다.
+    항만공사는 이달 신항 배후단지 복합물류클러스터 2차 공모를 통해 8만㎡를 추가로 공급한다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

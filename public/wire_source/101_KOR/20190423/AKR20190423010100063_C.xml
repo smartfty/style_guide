@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423010100063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>063259</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7013001" name="세종"/>
+			<RegionCode code="7003004" name="대전"/>
+		</Region>
+		<Class>
+			<ClassCode code="0505004" name="대기환경"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대전·세종·충남 오후부터 비…미세먼지 '보통']]></Title>
+		<Body><![CDATA[대전·세종·충남 오후부터 비…미세먼지 '보통'
+
+
+    (대전=연합뉴스) 김소연 기자 = 화요일인 23일 대전·세종·충남 지역은 대체로 흐리다 오후에 충남 서해안부터 비가 내리겠다.
+    비는 24일 오후에 서쪽 지역부터 차차 그치겠다.
+    예상 강수량은 10∼40㎜다.
+    따뜻한 남서풍이 유입되면서 낮 최고기온은 21∼25도까지 오르겠다.
+    국립환경과학원 대기질통합예보센터는 이 지역의 미세먼지 농도를 '보통'으로 예보했다.
+    다만 충남은 오전에 '나쁨' 수준이겠다고 덧붙였다.
+    대전, 세종과 공주, 아산, 천안, 예산, 금산에 건조 특보가 발효된 상태니 비가 오기 전까지 산불 등 각종 화재 예방에 유의해야겠다.
+    soyun@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423145800007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>162829</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="0712003" name="방송"/>
+			<ClassCode code="1208002" name="수영"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[수영선수 출신 배우 성훈, 광주세계수영 홍보대사 위촉]]></Title>
+		<SubTitle><![CDATA[조직위, 24일 유니폼 패션쇼 및 홍보대사 위촉식 ]]></SubTitle>
+		<Body><![CDATA[수영선수 출신 배우 성훈, 광주세계수영 홍보대사 위촉
+조직위, 24일 유니폼 패션쇼 및 홍보대사 위촉식 
+
+
+    (서울=연합뉴스) 배진남 기자 = 수영선수 출신 배우 성훈이 2019광주세계수영선수권대회 홍보대사로 뛴다.
+    광주 대회 조직위원회는 23일 "성훈을 제3기 홍보대사로 위촉했다"고 밝혔다.
+    위촉식은 24일 서울 JW메리어트호텔에서 대회 유니폼 패션쇼와 함께 열린다. 
+    성훈은 광주 대회 홍보를 위한 국내·외 주요행사와 온·오프라인 홍보 및 영상제작 등에 참여해 수영대회 인지도 제고 및 붐 조성에 나설 계획이다.
+    성훈의 합류로 광주 대회 홍보대사는 수영선수인 박태환과 안세현, 이낙연 국무총리, 국악인 오정해씨 등 5명으로 늘었다. 
+    조직위 관계자는 "수영선수로 활동한 성훈씨의 건강하고 밝은 이미지가 광주세계수영대회와 잘 어울린다고 판단해 홍보대사로 위촉했다"며 "국내는 물론 해외에서도 인기를 끌고 있는 성훈씨가 대회를 널리 알리는 데 많은 도움이 될 것"이라고 말했다.
+    hosu1@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

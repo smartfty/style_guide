@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423101400061</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>135728</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005021" name="여주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0707001" name="미술일반"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['혼을 담은 천년 도자'…여주도자기축제 27일 개막]]></Title>
+		<Body><![CDATA['혼을 담은 천년 도자'…여주도자기축제 27일 개막
+
+    (여주=연합뉴스) 최찬흥 기자 = 경기도 여주시는 오는 27일부터 다음 달 12일까지 신륵사관광지 일원에서 '제31회 여주도자기축제'를 연다.
+    
+
+    '혼을 담은 천년 여주도자'를 주제로 한 축제에서는 남한강의 맑은 물과 싸리산의 고령토, 도예명장의 혼이 만나 빚어낸 여주 도자기의 진수를 보여준다.
+    개막전에서는 여주도예명장들이 직접 도자기를 빚어 그림을 그리는 일련의 과정을 시연하는 '도예명장 퍼포먼스'를 선보인다.
+    관람객들은 명장과 함께 물레질을 직접 해보고 '나만의 여주 도자기'를 만들 수 있다.
+    매년 체험권이 완판되는 '전국도자접시깨기' 대회도 마련된다.
+    지름 15㎝의 도자접시를 던져 깨뜨린 뒤 조각 크기순으로 도자기상품권을 지급하는 프로그램으로 도공들이 흠이 있는 도자기를 깨뜨린 '장인정신'에서 영감을 받았다.
+    여주세계생활도자관에서는 '여주 젊은 도예가전'과 '생활도자 100인전'도 감상할 수 있다.
+    행사 기간 경강선 판교∼여주 구간에 무정차 특별열차인 세종대왕열차가 주말마다 운행된다. 세종대왕열차를 타고 여주역에서 내린 뒤 관광버스를 타고 도자기축제장, 신륵사, 황포돛배 나루터, 여주박물관 등을 둘러볼 수 있다.
+    chan@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423129751008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>153549</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0302010" name="주식시황"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[코스피 외인·개인 매수에 상승…2,220선 회복(2보)]]></Title>
+		<Body><![CDATA[코스피 외인·개인 매수에 상승…2,220선 회복(2보)
+
+    (서울=연합뉴스) 김아람 기자 = 코스피가 23일 소폭 상승했다.
+    이날 코스피는 전 거래일보다 3.86포인트(0.17%) 오른 2,220.51에 거래를 마쳤다.
+    지수는 전장보다 0.96포인트(0.04%) 오른 2,217.61에서 출발해 보합권에서 오르내림을 반복하다가 우상향 곡선을 그렸다.
+    유가증권시장에서는 개인과 외국인이 각각 192억원, 419억원어치를 순매수했다. 기관은 740억원을 순매도했다.
+    코스닥지수는 전장보다 0.59포인트(0.08%) 내린 761.42로 마감했다.
+    지수는 전장보다 1.57포인트(0.21%) 오른 763.58에서 출발했으나 이내 하락 전환했다.
+    코스닥시장에서도 개인이 463억원을 순매수했다. 반면 외국인과 기관은 각각 213억원, 191억원을 순매도했다.
+    rice@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

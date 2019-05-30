@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423032600008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>090026</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7107011" name="이란"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0203004" name="수입"/>
+			<ClassCode code="0108010" name="외교갈등"/>
+			<ClassCode code="0303002" name="증권사"/>
+			<ClassCode code="0403004" name="석유가스"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[삼성證 "이란산 원유수입 중단, 국내 정유업체에 부정적"]]></Title>
+		<Body><![CDATA[삼성證 "이란산 원유수입 중단, 국내 정유업체에 부정적"
+
+    (서울=연합뉴스) 박상돈 기자 = 삼성증권은 23일 미국이 이란산 원유수입 금지와 관련해 한국 등 8개국에 대한 한시적 제재 예외 조치를 연장하지 않기로 함에 따라 국내 정유업체에 부정적인 영향이 있을 것이라고 진단했다. 
+    심혜진·조현렬 연구원은 "이란 제재 예외조항 폐기로 인한 우려는 크게 두 가지로 이란산 원유를 대체할 원유 도입의 용이성 문제와 원유 도입 가격 상승 가능성"이라고 설명했다. 
+    이들은 "이란산 원유 도입 비중은 2016년 10.4%에서 2017년 13.2%까지 상승했으나 이란 제재 이슈로 지난해에는 5.2%까지 급락했다"며 "도입선 변화는 쉽게 해결될 문제일 것"이라고 판단했다.
+    이어 "국내 업체들이 주로 수입하는 이란산 원유가 콘덴세이트(초경질유)인데 전날 기준으로 두바이 원유보다 3.6달러 할인돼 거래됐다"며 "저가의 이란산 콘덴세이트를 타지역 제품으로 대체할 경우 도입 가격이 상승할 수 있다"고 우려했다. 
+    이들은 "콘덴세이트 가격 상승은 콘덴세이트 정제설비(CFU)의 원가 상승을 의미하는 것"이라며 "그에 따른 영향은 전체 정제설비(CDU+CFU) 내 CFU 의존도가 높은 순서대로 발생할 것"이라고 분석했다.
+    그러면서 현재 업체별 CFU 의존도는 현대오일뱅크(20%), S-Oil(10.3%), SK이노베이션(8.2%), GS칼텍스(0%) 순으로 높다고 설명했다.
+    이들은 "콘덴세이트 1달러 상승 시 영업이익은 현대오일뱅크, S-Oil, SK이노베이션 순서대로 부정적인 영향이 있을 것"이라고 덧붙였다. 
+    kaka@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

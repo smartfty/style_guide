@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423001500072</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>005650</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[WSJ "삼성전자, 결함논란 갤럭시 폴드 美출시 연기"]]></Title>
+		<Body><![CDATA[WSJ "삼성전자, 결함논란 갤럭시 폴드 美출시 연기"
+
+    (뉴욕=연합뉴스) 이귀원 특파원 = 삼성전자가 스크린 결함 논란이 제기된 '갤럭시 폴드'의 미국 출시를 연기하기로 했다고 미 월스트리트저널(WSJ)이 22일(현지시간) 소식통을 인용해 보도했다.
+    
+
+    
+    WSJ은 "삼성전자가 당초 26일로 예정됐던 갤럭시 폴드의 미국 출시 일정을 최소한 다음 달까지로 연기했다"면서 최근 스크린 결함 논란으로 출시 계획이 변경됐다고 설명했다. 
+    WSJ은 갤럭시 폴드의 향후 미국 출시일정이 확정되지는 않았지만 수주 내가 될 것으로 예상된다고 전했다.
+    최근 더버지, 블룸버그, CNBC 등이 리뷰를 위해 삼성전자에서 받은 갤럭시 폴드 제품이 사용 1∼2일 만에 스크린 결함을 보인 것으로 나타났다. 
+    이들 리뷰어는 트위터 등 소셜미디어에 갤럭시 폴드를 폈을 때 한쪽 화면이 꺼지거나, 깜빡거리는 현상 혹은 스크린에 줄이 간 현상 등을 겪었다고 밝혔다. 
+    삼성전자는 23일 홍콩, 24일 중국 상하이에서 열릴 예정이었던 중국 언론 대상 갤럭시 폴드 브리핑 행사도 연기했다.
+    lkw777@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

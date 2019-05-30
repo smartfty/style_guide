@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423084200053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>114706</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0104023" name="한국당"/>
+			<ClassCode code="0505003" name="수질환경"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강효상 의원, 대구시민 절반 이상이 수돗물 '못 믿는다']]></Title>
+		<Body><![CDATA[강효상 의원, 대구시민 절반 이상이 수돗물 '못 믿는다'
+    
+
+    (대구=연합뉴스) 김용민 기자 = 강효상 자유한국당 의원은 23일 "대구시민 절반 이상이 수돗물을 믿지 못하는 것으로 나타났다"고 밝혔다.
+    강 의원은 지난 11∼13일 여론조사기관인 에이스리서치에 의뢰해 대구에 사는 만 19세 이상 남녀 1천500명을 상대로 유선전화 ARS(자동응답시스템) 방식으로 수돗물에 대한 여론조사를 했다. (95% 신뢰수준에 표본오차 ±2.53% 포인트)
+    여론조사 결과 응답자의 41.1%가 '별로 믿지 못한다', 12.2%는 '전혀 못 믿는다'고 답해 절반이 넘는 53.3%가 수돗물을 불신했다.
+    '매우 신뢰한다'는 8.7%, '다소 신뢰한다'는 38.1%로 긍정적인 응답은 46.7%에 그쳤다.
+    특히 낙동강 물을 사용하는 달성군(63.5%), 달서구(60.1%), 서구(59.8%) 등 지역에서 부정적인 답변이 많았다고 강 의원은 설명했다.
+    대구 취수원 이전과 관련해서는 응답자의 59.8%가 '필요하다'고 대답했다.
+    19%는 '취수원 이전이 필요 없다', 21.2%는 '잘 모르겠다'고 답했다.
+    강 의원은 "수돗물에 대한 시민의 신뢰를 얻기 위해 당국이 더욱 관심을 갖고 노력해야 한다"고 말했다.
+    yongmin@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

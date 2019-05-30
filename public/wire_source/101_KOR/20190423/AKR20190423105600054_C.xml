@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423105600054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>142422</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008001" name="전남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0202003" name="중소기업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전남도, 소상공인 신용보증 수수료 지원]]></Title>
+		<Body><![CDATA[전남도, 소상공인 신용보증 수수료 지원
+
+
+    (무안=연합뉴스) 여운창 기자 = 전남도는 도내 상공인과 자영업자의 금융비용 부담을 줄이기 위해 신용 하위등급 소상공인에게 신용보증 수수료를 지원한다고 23일 밝혔다.
+    신용보증 수수료는 신용보증을 받는 소상공인이 내야 하는 수수료로 신용등급·보증금액·보증기간 등에 따라 연간 1.5% 이내에서 차등 적용된다.
+    업체별로 차등 부담하는 보증수수료를 신용등급 등에 상관없이 누구나 연 0.8% 고정으로 수수료를 부담하면 나머지 차액을 도에서 지원하는 방식으로 소상공인을 돕는다.
+    신용보증 수수료 지원은 다음 달부터 시행하며 지원 규모는 30억원이다.
+    지원대상은 전남신용보증재단의 신규 보증 이용자로 약 1만여명이 혜택을 받을 것으로 보인다.
+    안상현 전남도 경제에너지국장은 "영세 상공인의 보증 이용 문턱을 낮춰줘 제도권 자금으로의 전환을 유도할 것으로 기대한다"며 "도내 소상공인들에게 실질적인 보탬이 되길 바란다"고 말했다.
+    betty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

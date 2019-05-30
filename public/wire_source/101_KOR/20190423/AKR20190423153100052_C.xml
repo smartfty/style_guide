@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423153100052</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>170446</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006015" name="창녕"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0501002" name="사회문제"/>
+			<ClassCode code="0510004" name="경찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[결혼 반대 아버지 살해한 딸과 공범 남친 구속…범행 자백]]></Title>
+		<Body><![CDATA[결혼 반대 아버지 살해한 딸과 공범 남친 구속…범행 자백
+
+
+    (창녕=연합뉴스) 김선경 기자 = 경남 창녕경찰서는 아버지를 살해한 혐의(존속살인)로 A(23·여)씨와 공범인 A씨 남자친구(30)를 23일 구속했다.
+    B씨는 A씨와 공모해 지난 19일 오후 10시께 창녕 집에서 술에 취해 잠든 A씨 아버지(66)를 준비한 흉기로 5차례 찔러 살해한 혐의를 받고 있다.
+    A씨는 범행 당시 현장에 머무른 데 이어 20일 낮 B씨와 함께 집으로 되돌아가 유기 목적으로 아버지 시신을 마대에 담은 혐의를 받는다. 
+    A씨 등은 범행 이후 유기 방법을 찾지 못해 시신을 한동안 집에 두고 오락실에 가는 등 일상생활을 한 것으로 파악됐다.
+    이들은 지난 20일 저녁 "A씨 아버지와 연락이 닿지 않는다"는 지인 신고를 받고 집으로 출동한 경찰에 덜미를 잡혔다.
+    경찰은 유족 등 관계인 진술을 받던 도중 범행 전후 행적 진술이 엇갈린 이들을 수상히 여겨 추궁하던 끝에 범행 일체를 자백받았다.
+    지적장애 3급으로 지난해 12월께부터 교제해온 이들은 A씨 아버지가 결혼을 반대하고 무시해 범행했다고 진술한 것으로 알려졌다.
+    ksk@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423062100064</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>104116</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7012007" name="음성"/>
+		</Region>
+		<Class>
+			<ClassCode code="0508001" name="NGO"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[음성 외국인 도움센터·무극시장 상인회 네팔서 봉사활동]]></Title>
+		<SubTitle><![CDATA[23~27일 카트만두서 초등학교 시설 보수·물품 지원]]></SubTitle>
+		<Body><![CDATA[음성 외국인 도움센터·무극시장 상인회 네팔서 봉사활동
+23~27일 카트만두서 초등학교 시설 보수·물품 지원
+
+    (음성=연합뉴스) 박종국 기자 = 충북 음성 외국인 도움센터와 금왕읍 무극시장 상인회가 네팔로 봉사활동을 떠난다.
+
+    23일 음성 외국인 도움센터에 따르면 이 센터 관계자 2명과 무극시장 상인회 회원 4명 등 6명이 23일부터 27일까지 4박 5일간 네팔 카트만두를 방문, 낡은 초등학교 교실에 페인트칠을 하고 부족한 교실을 증축한다. 
+   이번 봉사활동에는 음성에서 일하며 외국인 치안봉사단으로 활동하다 귀국한 네팔 현지인 8명도 힘을 보탠다. 
+    이들은 카트만두 초등학교 학생들에게 학용품을 전달하고 양로원에는 식용품도 지원한다.
+    음성 외국인 도움센터는 2017년부터 네팔 봉사활동을 펼쳐왔으며 이번 봉사활동에는 무극 시장 상인회가 합류했다.
+    김상오 무극시장 상인회장은 "무극시장을 애용하고 시장 주변 청소 자원봉사에도 적극적인 외국인 근로자들에게 보답하는 마음으로 네팔 봉사활동에 동참했다"고 말했다.  
+   고소피아 음성 외국인 도움센터장은 "무극시장 상인회가 뜻을 함께해 올해는 더욱 뜻깊은 봉사활동이 될 것"이라며 "한국과 네팔의 우의를 돈독히 하는 계기로 삼겠다"고 말했다.
+    pjk@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -5,7 +5,7 @@
 #  id                    :integer          not null, primary key
 #  column                :integer
 #  row                   :integer
-#  extra_height_in_lines :integer          default(0)
+#  extra_height_in_lines :integer
 #  image                 :string
 #  caption_title         :string
 #  caption               :string
@@ -23,9 +23,9 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  draw_frame            :boolean          default(TRUE)
-#  zoom_level            :integer          default(1)
-#  zoom_direction        :integer          default(5)
+#  draw_frame            :boolean
+#  zoom_level            :integer
+#  zoom_direction        :integer
 #  move_level            :integer
 #  auto_size             :integer
 #  fit_type              :string

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423136700060</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160456</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005002" name="가평"/>
+			<RegionCode code="7005028" name="파주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[영연방 4개국 참전용사 '가평전투' 희생 전우 추모]]></Title>
+		<Body><![CDATA[영연방 4개국 참전용사 '가평전투' 희생 전우 추모
+
+    (가평=연합뉴스) 김도윤 기자 = 영국, 캐나다, 호주, 뉴질랜드 등 영연방 4개국 참전용사들이 23일 경기도 가평군에서 참전 68주년 기념행사를 열고 희생된 전우들을 추모했다.
+
+    이어 각국 참전용사들은 북면에 있는 캐나다, 호주, 뉴질랜드 참전비로 이동, 자체 추모 행사를 진행했다.
+    또 참전용사들은 자신들의 연금을 모아 마련한 장학금을 가평중, 가평북중, 가평고 학생 59명에게 전달했다.
+    가평전투는 1951년 4월 23∼25일 진행됐다. 영국 미들세스대대, 호주 왕실 3대대, 캐나다 프린세스 패트리샤 2대대, 뉴질랜드 16포병연대 등으로 이뤄진 영연방 제27여단 장병들은 5배가 넘는 중공군의 공세에 맞서 방어선을 지켰다.
+    영연방 장병들이 격전을 벌이는 동안 국군과 유엔군은 인근에 새로운 방어진지를 구축했으며 이 같은 공로로 미국 트루먼 대통령에게 부대 훈장을 받았다.
+    호주 왕실 3대대는 지금까지 '가평대대'라는 별칭으로 불리고 있으며, 캐나다 프린세스 패트리샤 2대대는 막사를 '가평 막사'로 부르고 있다.
+    국가보훈처는 매년 가평전투 참전용사와 가족들을 초청해 추모 행사를 열고 있다.
+    이들은 가평전투 기념행사에 이어 26일 파주 임진강 전투 기념행사에 참석한다.
+    임진강 전투는 1951년 4월 영연방 제29여단이 중국군 3개 사단을 사흘간 저지시켜 군단 주력부대가 서울 방어를 준비할 수 있는 시간을 확보한 전투다. 
+
+    kyoon@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

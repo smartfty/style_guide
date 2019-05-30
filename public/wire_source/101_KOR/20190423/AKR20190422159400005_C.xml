@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422159400005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>060007</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0501010" name="가정가족"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+			<ClassCode code="0504008" name="청년복지"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[게시판] 진선미 '비혼 청년' 간담회]]></Title>
+		<Body><![CDATA[[게시판] 진선미 '비혼 청년' 간담회
+
+
+
+    ▲ 진선미 여성가족부 장관은 23일 오후 7시 마포구 홍익대학교 인근 북카페에서 20∼30대 비혼 청년을 만나 결혼에 관한 의견을 나누고 정책 지원방안을 논의한다. 앞서 여가부는 다양한 가족과 릴레이 간담회 형태로 1인 가구, 혼자 아이를 키우는 남성, 미혼모 등과 만났다. (서울=연합뉴스) 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

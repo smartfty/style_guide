@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424019400007</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>075029</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7104002" name="미국"/>
+		</Region>
+		<Class>
+			<ClassCode code="1210010" name="골프"/>
+			<ClassCode code="1210002" name="야구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전 MLB 선수 번스, 24시간에 골프장 420홀 주파…세계기록 경신]]></Title>
+		<Body><![CDATA[전 MLB 선수 번스, 24시간에 골프장 420홀 주파…세계기록 경신
+
+
+    (서울=연합뉴스) 김동찬 기자 = 메이저리그 야구 선수 출신 에릭 번스(43·미국)가 24시간 사이에 골프 420개 홀을 돌아 이 부문 기네스북 신기록을 세웠다.
+    미국 골프 전문 매체 골프위크는 24일(한국시간) "번스가 미국 캘리포니아주 하프 문 베이 골프 링크스에서 24시간에 420개 홀을 돌았다"며 "이는 종전 기네스북 기록인 402개 홀을 넘어선 것"이라고 보도했다. 
+    번스는 현지 시간으로 22일 오전 7시에 첫 홀 경기를 시작했고 다음날 새벽 5시 31분에 402번째 홀을 마쳤다. 또 남은 1시간 29분 사이에 18개 홀을 더 돌아 420개 홀을 채웠다. 
+    번스가 이같은 도전에 나선 것은 미국 아동 체육 관련 재단 일을 돕기 위해서다. '렛뎀 플레이(Let Them Play) 재단'은 어린이들의 야외 체육 활동을 장려하는 단체다. 
+    
+
+    번스는 2000년부터 2010년까지 메이저리그 오클랜드, 콜로라도, 볼티모어, 애리조나, 시애틀에서 뛴 외야수 출신이다. 
+    골프위크는 "번스는 골프가 아닌 폴로를 하는 것 같았다"며 "올해 초 미국프로골프(PGA) 투어 제네시스오픈에 출전한 J.B 홈스는 최종 라운드 18개 홀을 도는 데 5시간 29분이 걸렸다"고 비교했다. 
+    번스는 이날 24시간에 23.3 라운드를 마쳤다. 18홀 1라운드를 마치는데 평균 1시간도 채 걸리지 않은 셈이다. 
+    emailid@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

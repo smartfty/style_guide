@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424010200052</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>063037</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[봄비 내리는 경남…미세먼지 '좋음']]></Title>
+		<Body><![CDATA[봄비 내리는 경남…미세먼지 '좋음'
+
+
+    
+    (창원=연합뉴스) 박정헌 기자 = 24일 경남지역은 구름이 많이 끼며 빗방울이 떨어지겠다.
+    창원기상대에 따르면 이날 경남 아침 최저기온은 영하 9∼14도, 낮 최고기온은 19∼24도를 기록하겠다.
+    흐리고 5∼10㎜의 비가 내리다 오전 중 그치겠으나 경남서부내륙은 밤까지 산발적으로 빗방울이 떨어지겠다.
+    대기순환이 원활해 미세먼지 농도는 '좋음'으로 예상된다.
+    창원기상대 관계자는 "비가 오는 지역은 가시거리가 짧고 지면이 습해 안개가 곳곳에 끼겠으니 교통안전에 각별히 유의해야 한다"고 말했다.
+    home1223@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

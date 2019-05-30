@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423087800057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>120916</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605004" name="강절도"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0605001" name="사건일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[흉기로 운전기사 다치게 하고 택시 빼앗은 40대 검거]]></Title>
+		<Body><![CDATA[흉기로 운전기사 다치게 하고 택시 빼앗은 40대 검거
+
+
+    (울산=연합뉴스) 허광무 기자 = 울산 중부경찰서는 택시기사를 다치게 하고 택시를 빼앗아 타고 달아난 혐의로 A(46) 씨를 붙잡아 조사하고 있다고 23일 밝혔다.
+    경찰에 따르면 A 씨는 이날 오전 5시 40분께 울산시 중구에서 손님을 가장해 택시를 탄 뒤, 60대 택시기사 B 씨를 위협해 택시를 빼앗았다.
+    B 씨는 저항 과정에서 A 씨가 휘두른 흉기에 머리를 다쳤다.
+    차량을 빼앗긴 B 씨는 즉시 경찰에 신고했다.
+    경찰은 주요 길목에 경찰관을 긴급 배치, 약 30분 만인 오전 6시 10분께 범행 장소에서 6㎞가량 떨어진 지점에서 A 씨를 검거했다.
+    B 씨는 병원에서 치료를 받고 있으며 다행히 큰 부상은 아니라고 경찰은 설명했다.
+    경찰은 A 씨를 상대로 범행 동기 등을 조사한 뒤 특수강도 혐의를 적용해 구속영장을 신청할 예정이다.
+    hkm@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

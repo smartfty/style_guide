@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424017300013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>083844</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Region>
+			<RegionCode code="7103009" name="러시아"/>
+		</Region>
+		<Class>
+			<ClassCode code="1002001" name="북한외교"/>
+			<ClassCode code="1002003" name="북러관계"/>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[김정은 위원장 방문 앞두고 진행중인 수색작업]]></Title>
+		<Comment>NO-1453</Comment>
+		<Body><![CDATA[김정은 위원장 방문 앞두고 진행중인 수색작업
+    (블라디보스토크=연합뉴스) 김도훈 기자 = 김정은 북한 국무위원장이 북러 정상회을 위해 러시아를 방문할 예정인 24일 오전(현지시간) 러시아 블라디보스토크역 앞에서 현지 경찰이 수색작업을 하고 있다.2019.4.24
+    superdoo82@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042401730001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042401730001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042401730001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

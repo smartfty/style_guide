@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423007252005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>061347</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712004" name="가요"/>
+			<ClassCode code="0712002" name="연예"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[방탄소년단, 빌보드 '핫 100' 8위…K팝 그룹 최고 기록(종합)]]></Title>
+		<SubTitle><![CDATA[두 번째 '톱 10' 진입  ]]></SubTitle>
+		<Comment><![CDATA[제목 변경, 부제 추가, 빌보드 내용 추가해 종합]]></Comment>
+		<Body><![CDATA[방탄소년단, 빌보드 '핫 100' 8위…K팝 그룹 최고 기록(종합)
+두 번째 '톱 10' 진입  
+
+
+    (서울=연합뉴스) 이은정 기자 = 그룹 방탄소년단 신곡 '작은 것들을 위한 시'(Boy With Luv)가 미국 빌보드 메인 싱글 차트인 '핫 100' 8위에 올랐다. 
+    22일(이하 현지시간) 빌보드 뉴스는 방탄소년단 새 앨범 '맵 오브 더 솔 : 페르소나'(MAP OF THE SOUL : PERSONA) 타이틀곡 '작은 것들을 위한 시'(Boy With Luv)가 '핫 100' 최신 차트 8위로 진입했다고 발표했다.
+    이는 방탄소년단이 '핫 100'에서 세운 역대 최고 순위이자, 두 번째 '톱 10' 진입이다. 이전 이들의 '핫 100' 최고 기록은 지난해 '페이크 러브'(FAKE LOVE)로 세운 10위여서 K팝 그룹 최고 기록도 자체 경신했다. 
+    빌보드는 "방탄소년단의 두 번째 '톱 10' 진입이자 K팝 그룹 최고 기록"이라며 이들은 '톱 10'에 복수로 진입한 첫 K팝 그룹이자 '강남스타일'(2012)로 2위, '젠틀맨'(2013)으로 5위에 오른 싸이에 이어 두 번째 K팝 가수가 됐다고 덧붙였다.   
+    방탄소년단은 이번까지 '핫 100'에 다섯 번째 진입했으며, '페이크 러브' 외에도 지난해 '아이돌'로 11위, 2017년 '마이크 드롭'(MIC Drop) 리믹스로 28위, 'DNA'로 67위를 기록했다.
+    전날 빌보드는 방탄소년단이 새 앨범으로 메인 앨범 차트인 '빌보드 200' 1위에 세 번째 올랐다고 발표했다.     
+    지난해 5월 정규 3집 '러브 유어셀프 전 티어'(LOVE YOURSELF 轉 Tear)와 같은 해 9월 리패키지 앨범 '러브 유어셀프 결 앤서'(LOVE YOURSELF 結 ANSWER)에 이어 3연속 정상 등극이다. 
+    빌보드에 따르면 방탄소년단이 '빌보드 200'에서 3개 앨범을 1위에 올리는데 11개월이 채 걸리지 않았으며, 이는 11개월 1주의 기록이 있는 비틀스보다 앞섰다. 또 1967년 밴드 몽키스 이후 그룹으로는 가장 빠르게 3개 앨범 1위를 달성했다. 
+    방탄소년단 새 기록이 반영된 최신 차트는 23일 빌보드 홈페이지에 업데이트 된다. 
+    mimi@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

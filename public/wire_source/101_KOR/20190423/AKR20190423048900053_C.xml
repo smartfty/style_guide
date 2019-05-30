@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423048900053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>130100</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0510003" name="법원"/>
+			<ClassCode code="0510005" name="판결"/>
+			<ClassCode code="0605001" name="사건일반"/>
+			<ClassCode code="0510002" name="검찰"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[생활고에 5만원권 30장 위조한 20대 징역 1년 6월]]></Title>
+		<Body><![CDATA[생활고에 5만원권 30장 위조한 20대 징역 1년 6월
+
+
+    (대구=연합뉴스) 이강일 기자 = 대구지법 형사12부(이진관 부장판사)는 5만원권 지폐를 위조해 사용한 혐의(통화위조·위조통화행사 등)로 기소된 A(29)씨에 대해 징역 1년 6월을 선고했다고 23일 밝혔다.
+    A씨는 지난해 7월 자신의 집에서 레이저복합기를 이용해 5만원권 지폐 30장을 위조해 전통시장 등에서 물건을 사고 거스름돈을 받는 수법으로 25장을 사용한 혐의로 재판에 넘겨졌다.
+    그는 다리를 다쳐 일을 못 하게 되자 지폐를 위조하기로 마음먹은 것으로 알려졌다.
+    재판부는 "피고인 범행은 통화에 대한 공공의 신용과 거래 안전을 심각하게 해하는 중대한 범죄지만 수단과 방법이 전문적이지 않은 데다 생활고로 범행했고 부양해야 할 가족이 있는 점 등을 종합했다"고 밝혔다.
+    leeki@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

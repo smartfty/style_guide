@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423074200055</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>113420</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009013" name="전주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0508001" name="NGO"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0201020" name="노동정책"/>
+			<ClassCode code="0509001" name="노동일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[민노총 전북본부 등, 세계노동절 앞두고 투쟁선포식]]></Title>
+		<Body><![CDATA[민노총 전북본부 등, 세계노동절 앞두고 투쟁선포식
+
+
+    
+    (전주=연합뉴스) 임채두 기자 = 민주노총 전북본부와 민중당 전북도당 등 19개 단체는 제129주년 세계노동절(5월 1일)을 앞두고 "노동개악 중단과 기본권 보장 등을 이뤄내기 위해 정부와 자본에 맞서겠다"고 강조했다.
+    이들 단체는 23일 고용노동부 전주지청 앞에서 기자회견을 열고 "세계노동절은 1886년 미국의 노동자들이 파업을 벌이다 경찰의 총격에 사망한 사건을 기점으로 제정된 날"이라며 "그로부터 133년이 지난 지금도 이 땅의 근로자들은 노동시간 단축과 인간답게 살 권리 여전히 요구하고 있다"면서 이같이 밝혔다.
+    이어 "현 정부는 '노동존중'을 외쳤지만, 정작 노동권을 보장하는 법 개정은 이뤄지지 않았다"며 "더불어민주당이 발의한 노조법 개정안은 세계 노동 표준과 거리가 멀다"고 주장했다.
+    아울러 "국제노동기구(ILO) 핵심협약이 재벌과의 흥정, 거래 도구로 쓰이고 있는 개탄스러운 현실을 살고 있다"며 "전북에서는 KT 협력업체 등이 '노조할 권리'를 지키기 위해 파업 투쟁을 이어가고 있다"고 덧붙였다.
+    이들은 "세계노동절을 맞아 노동권 보장을 위해 연대했던 전 세계 노동자들의 정신을 다시금 되새기게 된다"고도 했다.
+    이들 단체는 오는 30일과 다음 달 1일 두 차례 전주시청 광장과 전주 세이브존 앞에서 각각 제129주년 세계노동절 기념 문화제를 열 예정이다.
+    doo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

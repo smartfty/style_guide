@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423058500001</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>104316</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>2</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0104020" name="민주당"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[민주, 선거제·공수처 패스트트랙 합의안 추인(1보)]]></Title>
+		<Body><![CDATA[민주, 선거제·공수처 패스트트랙 합의안 추인(1보)
+
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424015500013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>083030</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0109001" name="국방일반"/>
+			<ClassCode code="0701003" name="전시공연"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국방부, 전쟁기념관서 '특별 기획전시회' 개최]]></Title>
+		<Comment>NO-1421</Comment>
+		<Body><![CDATA[국방부, 전쟁기념관서 '특별 기획전시회' 개최
+    (서울=연합뉴스) 국방부가 '2018 남북정상회담' 1주년을 기념하기 위해 오는 25일부터 다음 달 26일까지 전쟁기념관 2층 전시실에서 '특별 기획전시회'를 개최한다고 24일 전했다. 이번 전시회는 '강한 국방이 열어가는 평화의 길'을 주제로 마련됐다. 2019.4.24 [국방부 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042401550001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042401550001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042401550001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

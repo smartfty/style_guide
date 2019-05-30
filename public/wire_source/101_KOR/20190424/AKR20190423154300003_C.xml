@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423154300003</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>060004</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+		</Region>
+		<Class>
+			<ClassCode code="0203001" name="무역일반"/>
+			<ClassCode code="1008002" name="동포"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0201003" name="경제단체"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[코트라·월드옥타, 우수 사회적경제기업 해외진출 지원]]></Title>
+		<Body><![CDATA[코트라·월드옥타, 우수 사회적경제기업 해외진출 지원
+
+
+    (서울=연합뉴스) 고은지 기자 = 코트라(KOTRA)와 세계한인무역협회(월드옥타)가 우수 사회적경제기업의 해외 진출을 위해 힘을 합친다.
+    코트라와 월드옥타는 23∼25일 강원도 정선 하이원리조트에서 제21차 월드옥타 세계대표자대회 '우수 사회적경제기업 홍보관'을 운영한다고 24일 밝혔다.
+    홍보관에는 2018년 사회적기업 고용노동부 장관상을 받은 '구두 만드는 풍경(AGIO)'과 강원도 우수 사회적경제기업인 '해비즌협동조합', '구수담', '정선블루베리협동조합', 화이통' 등 5개사가 참가했다.
+    사회적경제 기업은 사회적 가치를 추구하면서 영업활동을 수행하는 기업으로 취약계층에게 일자리를 제공하는 사회적기업이나 사회적협동조합, 자활기업, 마을기업 등을 말한다. 
+    이들 기업은 대회장을 찾는 한인 경제인 800여명을 대상으로 제품을 홍보하고 수출 상담을 진행한다.
+    코트라는 사회적경제기업과 월드옥타 회원사를 연계해 우수 상품의 현지 유통망 진출을 위한 신규 사업도 추진할 방침이다.
+    김종춘 코트라 부사장은 "사회적 경제의 활성화를 위해서는 관련 기업이 국내뿐 아니라 해외시장으로 눈을 돌려야 한다"며 "월드옥타 세계대표자대회를 계기로 많은 사회적경제기업이 한인 경제인들과 코트라의 네트워크를 적극적으로 활용해 해외시장에서 성공할 수 있기를 바란다"고 말했다.
+    eun@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

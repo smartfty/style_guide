@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424025000008</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>083947</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302011" name="기업분석"/>
+			<ClassCode code="0408014" name="광학"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0201009" name="금융테크"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[하이투자 "LG이노텍, 2분기 실적 호조 가능성…목표가↑"]]></Title>
+		<Body><![CDATA[하이투자 "LG이노텍, 2분기 실적 호조 가능성…목표가↑"
+
+
+    (서울=연합뉴스) 황재하 기자 = 하이투자증권은 24일 LG이노텍의 2분기 실적이 호조세를 보일 가능성이 있다며 목표주가를 13만5천원에서 15만원으로 상향 조정하고 투자의견은 종전대로 '매수'로 제시했다.
+    고의영 연구원은 "LG이노텍의 1분기 매출액이 1조3천600억원으로 시장 기대치(컨센서스)를 하회했지만, 이번 실적을 통해 연중 '바닥'을 명확히 확인한 점은 오히려 긍정적"이라며 "2분기 이후 눈높이에 대한 부담을 덜었다"고 평가했다.
+    이어 "스마트폰 출하 부진의 주요 원인인 중국 시장 수요의 역성장폭이 축소되는 신호가 나타났다는 점도 2분기 실적 호조 가능성을 높이는 요소"라고 설명했다.
+    고 연구원은 또 "하반기에 북미 거래선의 트리플카메라 모듈 관련 부품 출하량이 4천만개 수준일 것으로 전망된다"며 "트리플카메라 모듈의 평균판매단가(ASP)가 듀얼카메라 모듈보다 40% 높을 것으로 보이고, LG이노텍이 물동량 대부분을 점유할 것으로 기대된다"고 덧붙였다.
+    jaeh@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

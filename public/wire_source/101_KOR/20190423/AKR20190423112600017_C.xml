@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423112600017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>144528</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0902004" name="IT산업"/>
+			<ClassCode code="0901002" name="과학기술"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[우정사업본부 '재택위탁배달원, 근로자 전환' 추진]]></Title>
+		<Body><![CDATA[우정사업본부 '재택위탁배달원, 근로자 전환' 추진
+
+    (서울=연합뉴스) 전준상 기자 = 과학기술정보통신부 우정사업본부는 대법원의 '재택위탁배달원 근로자 지위 확인' 소송 판결을 존중하고 이른 시일 내에 필요한 조치를 할 방침이라고 23일 밝혔다.
+    대법원은 이날 재택위탁배달원 5명이 국가인 우정사업본부를 상대로 제기한 '근로자 지위 확인 소송'에서 '우정사업본부가 재택배달원의 실질적 사용자임'을 확인하는 판결을 내렸다.
+    이에 따라 우정사업본부는 노사와 민간 전문가로 '재택위탁배달원 근로자 전환 TF'를 구성, 합리적 방안을 마련하고, 관계부처와 협의해 재원과 정원 등을 확보할 방침이다.
+    재택위탁배달제도는 IMF 당시 공무원 구조조정으로 집배원 충원이 여의치 않던 2002년 당시 배달여건이 상대적으로 좋은 아파트 단지 등에 도입돼 도급계약인 민간위탁 방식으로 운영돼 왔다.
+    그동안 우정사업본부는 재택위탁배달원이 우체국으로부터 구분된 통상 우편물을 받아 본인 책임 아래 자유로운 4∼6시간을 활용해 업무를 하기 때문에 신분상 지위를 특수고용형태 종사자인 개인사업자로 판단해 왔다.
+    그러나 대법원은 재택위탁배달원도 국가에 종속돼 지휘·감독을 받는 노동자에 해당한다고 판단했다.
+    강성주 우정사업본부장은 "조속한 시일 내 재택배달원의 근로자 전환을 추진할 계획"이라며 "관계부처와 협의해 집배원들의 처우개선과 우정서비스 향상을 위해 노력할 것"이라고 말했다.
+    chunjs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

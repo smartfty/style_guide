@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424005700013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>065621</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Region>
+			<RegionCode code="7201001" name="평양"/>
+		</Region>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001074" name="KCNA사진"/>
+			<AttributeCode code="9001121" name="NKNT"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[KN]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[러시아로 출발하는 북한 김정은]]></Title>
+		<Comment>NO-1207</Comment>
+		<Body><![CDATA[러시아로 출발하는 북한 김정은
+     (평양 조선중앙통신=연합뉴스) 김정은 북한 국무위원장이 북러정상회담에 참석하기 위해 24일 새벽 러시아를 향해 출발했다고 조선중앙통신이 보도했다. 2019.4.24 
+    [국내에서만 사용가능. 재배포 금지. For Use Only in the Republic of Korea. No Redistribution] 
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042400570001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042400570001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042400570001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

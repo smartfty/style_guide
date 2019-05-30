@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423125400052</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>152517</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0713002" name="아동"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001032" name="창원기업"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['두산인 봉사의 날'…두산중 임직원들 이웃돕기 한마음]]></Title>
+		<SubTitle><![CDATA[옷걸이 수납장, 테이블 등 직접 만들어 아동센터에 전달]]></SubTitle>
+		<Body><![CDATA['두산인 봉사의 날'…두산중 임직원들 이웃돕기 한마음
+옷걸이 수납장, 테이블 등 직접 만들어 아동센터에 전달
+
+
+    
+    (창원=연합뉴스) 이정훈 기자 = 두산중공업 임직원들이 '두산인 봉사의 날'인 23일 본사가 있는 경남 창원시에서 대대적인 사회봉사를 했다.
+    정연인 대표이사 등 이 회사 임직원 1천여 명은 이날 오동동 문화광장에서 지역아동센터에 보낼 가구를 직접 제작했다.
+    허성무 창원시장, 한철수 창원상공회의소 회장, 홍성희 두산중공업 협력사 회장도 힘을 보탰다.
+    오동동 문화광장이 '일일 가구공방'으로 변했다.
+    봄비가 내리자 참가자들은 가설 천막 아래서 직접 목재에 색깔을 입히거나 망치로 두드리고 전동 드릴로 볼트를 조이는 방법으로 정성껏 가구를 만들었다.
+    두산중공업은 이날 임직원 만든 옷걸이 수납장, 좌식 테이블 120여 개를 만들어 지역아동센터 등에 전달했다.
+    
+
+    
+    두산중공업 임직원들은 지난해와 2017년에는 교구 수납장, 테이블 등을 만들어 지역사회에 기증했다.
+    정연인 대표이사는 "사회적 책임을 다하는 것은 두산중공업 구성원들의 의무이자 보람이다"며 "일회성이 아닌 중장기적 관점에서 지역밀착형 사회공헌활동을 지속하겠다"고 말했다.
+    두산중공업은 2014년 10월부터 '두산인 봉사의 날'을 정해 대규모 봉사활동을 한다.
+    두산인 봉사의 날에는 국내는 물론이고 아시아, 미주, 유럽 등 세계 20개국 임직원들이 일제히 봉사활동에 나선다.
+    seaman@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

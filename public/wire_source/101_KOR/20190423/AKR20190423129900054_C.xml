@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423129900054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>154703</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008001" name="전남"/>
+			<RegionCode code="7008009" name="목포"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0202003" name="중소기업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전남 사회적기업, 농협 하나로마트에 입점한다]]></Title>
+		<Body><![CDATA[전남 사회적기업, 농협 하나로마트에 입점한다
+
+
+    (무안=연합뉴스) 여운창 기자 = 판로 확보에 어려움을 겪는 전남 도내 사회적경제기업들이 전남도와 함께 농협 하나로마트 입점을 적극적으로 추진한다.
+    전남도는 23일 농협전남지역본부, 농협 목포유통센터, 사회적경제기업 당사자조직과 함께 사회적경제 활성화 업무협약을 했다.
+    협약식에는 윤병태 전남도 정무부지사, 김석기 농협전남지역본부 본부장, 김훈 농협목포유통센터 지사장, 박상선 전남사회적기업협의회장, 김해옥 전남마을기업협회장이 참석했다.
+    협약에 따라 사회적경제기업이 안정적으로 기업을 경영하도록 도와 농협이 판매시장을 확대하는 데 함께 노력하고, 사회적경제기업은 소비자가 질 좋은 제품을 구입하도록 품질 개선에 주력한다.
+    특히 사회적경제기업의 우수 제품을 선별해 농협에 상시 입점하기로 했다.
+    소비자 선호를 파악하고 사회적경제기업 제품 홍보를 위해 열흘간 특판행사도 할 예정이다    전남도는 올해 농협 목포유통센터를 시작으로 나주·순천농협과도 협의해 사회적경제기업 제품 입점을 추진하기로 했다. 
+    사업 성과 추이를 지켜보면서 민선 7기 동안 전남을 포함해 수도권 지역까지 진출하도록 한다는 목표다.
+    김회필 전남도 사회적경제과장은 "사회적경제기업에 실질적으로 도움이 되는 것은 매출 증대 정책"이라며 "사회적경제기업의 안정적 경영 환경 조성을 위해 다각적인 판로 지원책을 마련하겠다"고 말했다.
+    betty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

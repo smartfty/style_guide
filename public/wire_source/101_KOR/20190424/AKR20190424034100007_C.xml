@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424034100007</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>090702</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210010" name="골프"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[미셸 위, LPGA 투어 무기한 휴식…부상 치료에 전념]]></Title>
+		<Body><![CDATA[미셸 위, LPGA 투어 무기한 휴식…부상 치료에 전념
+
+
+    (서울=연합뉴스) 최인영 기자 = 교포 프로골퍼 미셸 위(30)가 부상 치료를 위해 미국여자프로골프(LPGA) 투어 활동을 잠정 중단했다.
+    미셸 위는 LPGA 투어 로스앤젤레스 오픈 개막을 앞둔 24일(한국시간) 기권을 선언했다.
+    미셸 위는 "계속 이어지고 있는 오른손 부상에서 회복하기 위해 무기한으로 대회에 출전하지 않겠다"고 밝혔다.
+    미셸 위는 지난 2월 타이틀 방어에 나섰던 HSBC 위민스 월드 챔피언십에서도 손목 부상을 이유로 기권하고 3월 대회를 쉬었다. 
+    이달 초 시즌 첫 메이저대회인 ANA 인스퍼레이션에서 복귀했지만, 컷 탈락했고 이어서 열린 롯데 챔피언십에서도 컷을 통과하지 못했다. 
+    미셸 위는 지난 23일 의사와 상의한 끝에 건강에 집중하기로 했다. 복귀 시점은 정하지 않았다. 
+    그는 자신의 인스타그램에 "의사와 나는 경기에서 잠시 물러나 내 몸을 적절히 치료하고 더 강하게 만드는 것이 최선이라고 생각하고 있었다. 지금은 건강이 우선이고, 곧 통증에서 벗어나기를 바라고 있다"며 "인내심을 갖고 나를 지켜봐 주시는 모든 분께 감사하다"고 밝혔다.
+    AFP 통신은 미셸 위가 손목뿐 아니라 목, 등, 엉덩이, 무릎, 발목 부상에 시달리고 있다고 전했다. 
+    abbie@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

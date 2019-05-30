@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422180700004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111505</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0503007" name="사회교육"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울자유시민대학, '경제인문학 특별 강좌' 3개 마련]]></Title>
+		<SubTitle><![CDATA[25일부터 서울시평생학습포털서 선착순 접수]]></SubTitle>
+		<Body><![CDATA[서울자유시민대학, '경제인문학 특별 강좌' 3개 마련
+25일부터 서울시평생학습포털서 선착순 접수
+
+
+
+    (서울=연합뉴스) 윤고은 기자 = 서울자유시민대학은 5월15일부터 5주간 '경제인문학 특별 기획 강좌' 3개를 진행한다고 23일 밝혔다. 
+    서울자유시민대학 뚝섬학습장에서는 5월15일부터 매주 수요일 오후 3시30분 한국개발연구원(KDI) 박정호 전문연구원이 '불황을 이기는 경제학'을 강의한다. 실생활에 필요한 필수 경제 상식과 미래 사회를 내다볼 경제트렌드를 소개한다. 
+    서울시청 시민청에서는 5월16일부터 매주 목요일 오후 7시에 김동환 대안금융경제연구소 소장이 '2019년 우리 경제, 무엇을 어떻게 볼 것인가?'를 강의한다. 최근 경제 상황에 맞게 효과적으로 자산을 관리할 수 있는 방법을 들려준다. 
+    은평학습장에서는 5월16일부터 매주 목요일 오후 1시에 윤민진 한국열린사이버대학교 특임교수가 '평범한 CEO들의 특별한 창업공부: 저도 창업이 어려운데요'를 강의한다. 창업의 성공과 실패 사례를 알아보고 사업계획서까지 작성해본다. 
+    3개 강좌 모두 서울시민 누구나 무료로 참여할 수 있다. 
+    수강신청은 오는 25일부터 서울시평생학습포털(http://sll.seoul.go.kr)에서 선착순으로 진행된다. 
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

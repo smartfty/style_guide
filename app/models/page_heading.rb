@@ -84,7 +84,7 @@ class PageHeading < ApplicationRecord
   end
 
   def background_pdf_path
-    path + "/images/1.pdf"
+    path + "/images/1_bg.pdf"
   end
 
   def jpg_path
