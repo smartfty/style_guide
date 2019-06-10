@@ -16,6 +16,7 @@ module ArticleSaveXml
     return unless title
     title.strip!
     title.gsub!(/\u3000/, "")
+    title.gsub!(/\···/, "⋯")
     title.gsub!(/ {2,8}/, " ")
     title
   end
@@ -114,14 +115,14 @@ module ArticleSaveXml
     title.gsub!("\u2013", "&#8211;")
     title.gsub!("\u5e26", "&#24102;")
     title.gsub!("\u2219", "&#8729;")
-    title.gsub!("\u0026", "&amp;")
-    title.gsub!("\u22ef", "&#8943;")
+    # title.gsub!("\u0026", "&amp;")
+    # title.gsub!("\u22ef", "&#8943;")
     title.gsub!("\u00A0", " ")
     title.gsub!("\u2031", "&#8241;")
     end
     if subtitle && subtitle != ""
     subtitle.gsub!("\u2027", "&#8231;")
-    subtitle.gsub!("\u22EF", "&#8943;")
+    # subtitle.gsub!("\u22EF", "&#8943;")
     subtitle.gsub!("\u200B", "")
     subtitle.gsub!("\u2024", "&#8228;")
     subtitle.gsub!("\u2013", "&#8211;")
@@ -173,12 +174,14 @@ module ArticleSaveXml
     body.gsub!("\u302e", "&#12334;")
     body.gsub!("\u5e26", "&#24102;")
     body.gsub!("\u2219", "&#8729;")
-    body.gsub!("\u0026", "&amp;")
+    # body.gsub!("\u0026", "&amp;")
     body.gsub!("\u0387", "\u00B7")
     body.gsub!("\u8f9f", "&#36767;")
-    body.gsub!("\u22ef", "&#8943;")
+    # body.gsub!("\u22ef", "&#8943;")
     body.gsub!("\u25fc", "&#9724;")
     body.gsub!("\u00FC", "&#252;")
+    body.gsub!("\u924F", "&#37455;")
+    body.gsub!("\u939B", "&#37787;")
     end
   end
 
@@ -252,7 +255,7 @@ module ArticleSaveXml
     story_xml.gsub!("\u2027", "&#8231;")
     story_xml.gsub!("\u4F18", "&#20248;")
     story_xml.gsub!("\u246F", "&#9327;")
-    story_xml.gsub!("\u22EF", "&#8943;")
+    # story_xml.gsub!("\u22EF", "&#8943;")
     story_xml.gsub!("\u2024", "&#8228;")
     convert_euckr_not_suported_chars
     # puts story_xml =~/\u4F18/ 
@@ -562,6 +565,7 @@ module ArticleSaveXml
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
+    string = string.sub(/\s?$/, "")
     string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
     # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s

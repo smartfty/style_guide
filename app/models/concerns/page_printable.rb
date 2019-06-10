@@ -28,6 +28,11 @@ module PagePrintable
     Dir.glob("#{printer_folder}/*.pdf").sort
   end
 
+  def proof_files
+    Dir.glob("#{printer_folder}/*.pdf").sort
+  end
+
+
   def printer_file_to_show
     if print_count > 0
       return relative_path + "/printer/#{File.basename(latest_printer_file)}" 
@@ -44,6 +49,10 @@ module PagePrintable
   end
 
   def print_count
+    printed_files.length
+  end
+
+  def proof_count
     printed_files.length
   end
 
@@ -90,6 +99,10 @@ module PagePrintable
   
   def printer_folder
     path + "/printer"
+  end
+
+  def proof_folder
+    path + "/proof"
   end
 
   def latest_printer_file

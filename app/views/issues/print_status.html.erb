@@ -5,7 +5,7 @@
 <div class="view">
   <% @issue.pages.each do |page| %>
     <div class="col-xs-3 col-md-2" align='center'>
-      <img src="<%= page.printer_file_to_show %>" width="100%"></img>
+      <embed src="<%= page.printer_file_to_show %>#toolbar=0&navpanes=0&scrollbar=0" width="245px" height="340px"></embed>
       <!-- %= raw page.to_svg_with_jpg % -->
 
       <h4 align='center'>
