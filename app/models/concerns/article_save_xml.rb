@@ -18,6 +18,9 @@ module ArticleSaveXml
     title.gsub!(/\u3000/, "")
     title.gsub!(/\···/, "⋯")
     title.gsub!(/ {2,8}/, " ")
+    title.gsub!("\u2027", "\u30fb")
+    title.gsub!("\u0387", "\u30fb")
+    title.gsub!("\u00b7", "\u30fb")
     title
   end
 
@@ -77,6 +80,9 @@ module ArticleSaveXml
     body_text.gsub!(/ {2,8}/, " ")
     body_text.gsub!("\u2024", ".")
     body_text.gsub!("\u00A0", "\u0020")
+    body_text.gsub!("\u30fb", "\u00b7")
+    body_text.gsub!("\u2027", "\u00b7")
+    body_text.gsub!("\u0387", "\u00b7")
     body_text
   end
 
@@ -105,9 +111,8 @@ module ArticleSaveXml
     if title && title != ""
     title.strip!
     title.gsub!("\u200B", "")
-    title.gsub!("\u2027", "&#8231;")
     title.gsub!("\u22EF", "&#8943;")
-    title.gsub!("\u2027", "\u00b7")
+    title.gsub!("\u2027", "·")
     title.gsub!("\u2024", "&#8228;")
     title.gsub!("\u003C", "&lt;")
     title.gsub!("\u003E", "&gt;")
@@ -119,13 +124,15 @@ module ArticleSaveXml
     # title.gsub!("\u22ef", "&#8943;")
     title.gsub!("\u00A0", " ")
     title.gsub!("\u2031", "&#8241;")
+    title.gsub!("\u30fb", "·")
     end
     if subtitle && subtitle != ""
-    subtitle.gsub!("\u2027", "&#8231;")
+    subtitle.gsub!("\u2027", "·")
     # subtitle.gsub!("\u22EF", "&#8943;")
     subtitle.gsub!("\u200B", "")
     subtitle.gsub!("\u2024", "&#8228;")
     subtitle.gsub!("\u2013", "&#8211;")
+    subtitle.gsub!("\u30fb", "·")
     end
     if reporter && reporter != ""
     reporter.gsub!("\u200B", "")
@@ -134,16 +141,18 @@ module ArticleSaveXml
     if subject_head && subject_head != ""
     subject_head.gsub!("\u2024", "&#8228;")
     subject_head.gsub!("\u200B", "")
+    subject_head.gsub!("\u30fb", "·")
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""
     boxed_subtitle_text.gsub!("\u2470", "&#9328;") 
     boxed_subtitle_text.gsub!("\u22EF", "&#8943;")
     boxed_subtitle_text.gsub!("\u2024", "&#8228;")
+    boxed_subtitle_text.gsub!("\u30fb", "·")
     end
     if body && body != ""
     body.gsub!("\u2031", "&#8241;")
     body.gsub!("\u2031", "&#8241;")
-    body.gsub!("\u2027", "&#8231;")
+    body.gsub!("\u2027", "·")
     body.gsub!("\ud594", "&#54676;")
     body.gsub!("\u4F18", "&#20248;")
     body.gsub!("\u5014", "&#20500;")
@@ -153,7 +162,7 @@ module ArticleSaveXml
     body.gsub!("\u5733", "&#22323;")
     body.gsub!("\u2024", "&#8228;")
     body.gsub!("\u2043", "-")
-    body.gsub!("\u30FB", "\u00b7")
+    # body.gsub!("\u00b7", "\u30fb")
     body.gsub!("\u6DB8", "&#28088;")
     body.gsub!("\u9B92", "&#39826;")
     body.gsub!("\u00A0", " ")
@@ -168,7 +177,7 @@ module ArticleSaveXml
     body.gsub!("\u2013", "&#8211;")
     body.gsub!("\u5d1b", "&#23835;")
     body.gsub!("\u2003", "&#8195;")
-    body.gsub!("\u2022", "&#183;")
+    body.gsub!("\u2022", "·")
     body.gsub!("\uCAD2", "&#51922;")
     body.gsub!("\uFF65", "&#65381;")
     body.gsub!("\u302e", "&#12334;")
@@ -182,6 +191,8 @@ module ArticleSaveXml
     body.gsub!("\u00FC", "&#252;")
     body.gsub!("\u924F", "&#37455;")
     body.gsub!("\u939B", "&#37787;")
+    body.gsub!("\u30fb", "·")
+    body.gsub!("\u5c14", "&#23572;")
     end
   end
 
@@ -527,8 +538,8 @@ module ArticleSaveXml
       subtitle.strip!
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
-      @sub_head_line  = @sub_head_line.gsub("\r", "")
-      @sub_head_line  = @sub_head_line.gsub("\n", "")
+      # @sub_head_line  = @sub_head_line.gsub("\r", "")
+      @sub_head_line  = @sub_head_line.gsub("\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
