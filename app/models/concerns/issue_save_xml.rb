@@ -267,7 +267,6 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
 end
 
 def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이트정보 합성
-  wait_for_xml_upload
   ip        = '211.115.91.68'
   id        = 'jimeun'
   pw        = 'sodlfwlaus2018!@#$'
@@ -278,6 +277,35 @@ def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이�
 
   ftp_folder              = "#{year}/#{month}/#{day}/"
   partial_folder          = partial_xml_path
+
+  year          = date.year
+  month         = date.month.to_s.rjust(2, '0')
+  day           = date.day.to_s.rjust(2, '0')
+  issue_date    = "#{year}#{month}#{day}"
+  puts 'sending it tp Mobile Preview Xml.zip'
+  ip        = '211.115.91.68'
+  id        = 'jimeun'
+  pw        = 'sodlfwlaus2018!@#$'
+  ftp_folder = "#{year}/#{month}/#{day}"
+  entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
+
+  Net::FTP.open(ip, id, pw) do |ftp|
+    ftp.chdir(ftp_folder)
+    # ftp.chdir("#{year}/#{month}/#{day}/")
+    entries.each do |name|
+      base_name = File.basename(name)
+      dir_name  = File.dirname(name)
+      dir_base_name = File.basename(dir_name)
+      if File.directory? name
+        ftp.mkdir base_name.to_s
+      else
+        # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
+        File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
+      end
+    end
+  end
+
+  wait_for_xml_upload
 
   Net::FTP.open(ip, id, pw) do |ftp|
     ftp.chdir(ftp_folder)
@@ -408,7 +436,7 @@ EOF
     target = "#{partial_xml_path}/Container_merge.xml"
     File.open(target , 'w'){|f| f.write s}
 
-    ftp.putbinaryfile("#{partial_xml_path}/Container_merge.xml", 'Container_n.xml')
+    ftp.putbinaryfile("#{partial_xml_path}/Container_merge.xml", 'Container.xml')
   end
 end
 
@@ -433,7 +461,7 @@ def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이�
       end
     end
     return true if found
-    sleep 3000 # 1 min
+    sleep 3000 # 5 min
   end
   found
 end
@@ -443,31 +471,7 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
 end
 
 # def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
-#   year          = date.year
-#   month         = date.month.to_s.rjust(2, '0')
-#   day           = date.day.to_s.rjust(2, '0')
-#   issue_date    = "#{year}#{month}#{day}"
-#   puts 'sending it tp Mobile Preview Xml.zip'
-#   ip        = '211.115.91.68'
-#   id        = 'jimeun'
-#   pw        = 'sodlfwlaus2018!@#$'
-#   ftp_folder = "#{year}/#{month}/#{day}"
-#   entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
-#   Net::FTP.open(ip, id, pw) do |ftp|
-#     ftp.chdir(ftp_folder)
-#     # ftp.chdir("#{year}/#{month}/#{day}/")
-#     entries.each do |name|
-#       base_name = File.basename(name)
-#       dir_name  = File.dirname(name)
-#       dir_base_name = File.basename(dir_name)
-#       if File.directory? name
-#         ftp.mkdir base_name.to_s
-#       else
-#         # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
-#         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
-#       end
-#     end
-#   end
+
 #   result = wait_for_xml_upload
 #   if result
 #     puts 'xml file upload found and proceeding merge'

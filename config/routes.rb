@@ -168,7 +168,7 @@ Rails.application.routes.draw do
       get 'announcement_one'
       get 'announcement_two'
       get 'announcement_zero'
-      get 'swap'
+      # get 'swap'
 
       get 'image_1x1'
       get 'image_2x2'

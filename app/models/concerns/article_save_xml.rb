@@ -15,6 +15,9 @@ module ArticleSaveXml
   def filter_to_title(title)
     return unless title
     title.strip!
+    title.gsub!(/\n\n/, "\n")
+    title.gsub!(/^\n/, "")
+    title.gsub!(/\n$/, "")
     title.gsub!(/\u3000/, "")
     title.gsub!(/\···/, "⋯")
     title.gsub!(/ {2,8}/, " ")
@@ -530,7 +533,7 @@ module ArticleSaveXml
       @head_line      = eliminate_size_option(title)
       @head_line      = @head_line.gsub(/\u200B/, "")
       # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
-      @head_line      = @head_line.gsub("\r\n", " ")
+      # @head_line      = @head_line.gsub("\r\n", " ")
       @head_line      = @head_line.gsub("\r", "")
       @head_line      = @head_line.gsub("\n", "")
     end
@@ -538,8 +541,8 @@ module ArticleSaveXml
       subtitle.strip!
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
-      # @sub_head_line  = @sub_head_line.gsub("\r", "")
-      @sub_head_line  = @sub_head_line.gsub("\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
+      @sub_head_line  = @sub_head_line.gsub("\r", "")
+      @sub_head_line  = @sub_head_line.gsub("\n", "")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -577,7 +580,7 @@ module ArticleSaveXml
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
     string = string.sub(/\s?$/, "")
-    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "\r\n") if string =~/\{\s?(.?\d)\s?\}\s?$/
+    string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     # string = string.sub(/\{\s?(.?\d)\s?\}\s?$/, "") if string =~/\{\s?(.?\d)\s?\}\s?$/
     string = string.to_s
   end
@@ -726,7 +729,7 @@ module ArticleSaveXml
       title.strip! 
       @head_line        = eliminate_size_option(title)
       # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
-      @head_line        = @head_line.gsub("\r\n", " ")
+      # @head_line        = @head_line.gsub("\r\n", " ")
       @head_line        = @head_line.gsub("\r", "")
       @head_line        = @head_line.gsub("\n", "")
     else
@@ -1002,7 +1005,8 @@ EOF
     if title && title != ""
       title.strip!
       @head_line        = title   
-      @head_line        = @head_line.gsub("\r\n", " ")
+      # @head_line        = @head_line.gsub("\r\n", " ")
+      @head_line        = @head_line.gsub("\&", "&amp;")
       @head_line        = @head_line.gsub("\u201C", "&quot;")
       @head_line        = @head_line.gsub("\u201D", "&quot;")
       @head_line        = @head_line.gsub("\u0022", "&quot;")
@@ -1013,8 +1017,9 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""
       @c_head_line    = eliminate_size_option(@head_line)
-      @c_head_line    = @c_head_line.gsub("\r", "")
+      # @c_head_line    = @c_head_line.gsub("\r", "")
       @c_head_line    = @c_head_line.gsub("\n", "")
+      # @c_head_line    = @c_head_line.gsub("\&", "&amp;")
     else
       if images.first
       @image          = images.first
