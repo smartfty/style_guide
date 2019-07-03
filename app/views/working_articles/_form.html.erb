@@ -45,12 +45,12 @@
           <div class="form-group">
             <%= f.label :제목 %>
             <%= f.select :heading_columns, ['3단', '4단', '5단'], {include_blank: '제목 단수'} if article.column > 5 %>
-            <%= f.text_area :title, cols: "40", rows: "2", class: 'form-control', autocomplete: 'off' %>
+            <%= f.text_area :title, cols: "40", rows: "2", class: 'form-control title', autocomplete: 'off' %>
           </div>
           <div class="form-group">
             <%= f.label :부제목 %>
             <%= f.select :subtitle_type, ['1단', '2단', '2단-2단시작', '3단', '제목밑 가로'] %>
-            <%= f.text_area :subtitle, cols: "40", rows: "3", class: 'form-control', autocomplete: 'off' %>
+            <%= f.text_area :subtitle, cols: "40", rows: "3", class: 'form-control batang', autocomplete: 'off' %>
           </div>
           <!--div class="form-group">
             <%= f.label :편집자주 %>
@@ -113,7 +113,7 @@
       <!-- f.label :본문 -->
       <div class="letter">문자표 <span class="box">&#8216;</span><span class="box">&#8217;</span><span class="box">&#8220;</span><span class="box">&#8221;</span><span class="box">&#12539;</span><span class="box">&#8943;</span><span class="box">&#9724;</span><span class="box">&#8195;</span></div>
       <%= render 'character_count', article: @working_article %>
-      <%= f.text_area :body, rows: "20", class: 'form-control', autocomplete: 'off' %>
+      <%= f.text_area :body, rows: "20", class: 'form-control shinmoon', autocomplete: 'off' %>
       </div>
   </div>
 

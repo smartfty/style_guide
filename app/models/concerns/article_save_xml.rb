@@ -542,7 +542,7 @@ module ArticleSaveXml
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
       @sub_head_line  = @sub_head_line.gsub("\r", "")
-      @sub_head_line  = @sub_head_line.gsub("\n", "")
+      @sub_head_line  = @sub_head_line.gsub("\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -741,7 +741,7 @@ module ArticleSaveXml
       @sub_head_line    = eliminate_size_option(subtitle)
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
       @sub_head_line    = @sub_head_line.gsub("\r", "")
-      @sub_head_line    = @sub_head_line.gsub("\n", "")
+      @sub_head_line    = @sub_head_line.gsub("\n", "]]></SubTitle><SubTitle><![CDATA[")
 
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""

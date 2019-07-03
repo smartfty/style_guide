@@ -25,22 +25,22 @@
 
   <div class="field ">
     <%= f.label :문패 %>
-    <%= f.text_field :subject_head, :size=>"40", class: "form-control" %>
+    <%= f.text_field :subject_head, :size=>"40", class: "form-control", autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label :제목 %>
-    <%= f.text_field :title, :size=>"40" , class: "form-control" %>
+    <%= f.text_field :title, :size=>"40" , class: "form-control title", autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label :부제목 %>
-    <%= f.text_area :subtitle, cols: 40, rows: 4, class: "form-control" %>
+    <%= f.text_area :subtitle, cols: 40, rows: 4, class: "form-control batang", autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label :본문 %>
-    <%= f.text_area :body, cols: 40, rows: 20, class: "form-control" %>
+    <%= f.text_area :body, cols: 40, rows: 20, class: "form-control", autocomplete: 'off' %>
   </div>
 
  

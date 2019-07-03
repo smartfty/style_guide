@@ -372,14 +372,14 @@ class IssuesController < ApplicationController
 
   def save_mobile_preview_xml
     set_issue
-    if File.exist?(@issue.mobile_preview_xml_zip_path)
-      system("rm #{@issue.mobile_preview_xml_zip_path}")
+    # if File.exist?(@issue.mobile_preview_xml_zip_path)
+    #   system("rm #{@issue.mobile_preview_xml_zip_path}")
       @issue.save_mobile_preview_xml
       redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 재생성 되었습니다.'
-    else
-      @issue.save_mobile_preview_xml
-      redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 생성 되었습니다.'
-    end
+    # else
+    #   @issue.save_mobile_preview_xml
+    #   redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 생성 되었습니다.'
+    # end
   end
 
   def download_preview_xml

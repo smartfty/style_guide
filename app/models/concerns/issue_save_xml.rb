@@ -37,13 +37,13 @@ module IssueSaveXml
     path + '/mobile_page_preview'
   end
 
-  def mobile_preview_xml_zip_path # 모바일용 지면보기 XML
-    year = date.year
-    month         = date.month.to_s.rjust(2, '0')
-    day           = date.day.to_s.rjust(2, '0')
-    issue_date    = "#{year}#{month}#{day}"
-    mobile_preview_xml_path + "/#{issue_date}_mobile_preview_xml.zip"
-  end
+  # def mobile_preview_xml_zip_path # 모바일용 지면보기 XML
+  #   year = date.year
+  #   month         = date.month.to_s.rjust(2, '0')
+  #   day           = date.day.to_s.rjust(2, '0')
+  #   issue_date    = "#{year}#{month}#{day}"
+  #   mobile_preview_xml_path + "/#{issue_date}_mobile_preview_xml.zip"
+  # end
   
   def make_preview_xml_zip # 데스크탑용 지면보기 XML 
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
@@ -204,8 +204,9 @@ def save_mobile_preview_xml # 모바일용 지면보기 XML
   system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
   File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
   File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
-  # merge_container_xml
   # send_mobile_preview_xml
+  merge_container_xml
+  send_mobile_preview_xml
   # make_mobile_preview_xml_zip
   # directory_to_zip = mobile_preview_xml_path
   # output_file = mobile_preview_xml_zip_path
@@ -266,23 +267,13 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   end
 end
 
-def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이트정보 합성
-  ip        = '211.115.91.68'
-  id        = 'jimeun'
-  pw        = 'sodlfwlaus2018!@#$'
-  year          = date.year
-  month         = date.month.to_s.rjust(2, '0')
-  day           = date.day.to_s.rjust(2, '0')
-  issue_date    = "#{year}#{month}#{day}"
-
-  ftp_folder              = "#{year}/#{month}/#{day}/"
+def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이트정보 합성'
   partial_folder          = partial_xml_path
 
   year          = date.year
   month         = date.month.to_s.rjust(2, '0')
   day           = date.day.to_s.rjust(2, '0')
   issue_date    = "#{year}#{month}#{day}"
-  puts 'sending it tp Mobile Preview Xml.zip'
   ip        = '211.115.91.68'
   id        = 'jimeun'
   pw        = 'sodlfwlaus2018!@#$'
@@ -304,8 +295,46 @@ def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이�
       end
     end
   end
+end
 
+# check target ftp folder every 2 min for 1 hrs (2min x 50 = 1.5hrs)
+def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이트정보 생성될 때 까지 2분간격 확인
+  year          = date.year
+  month         = date.month.to_s.rjust(2, '0')
+  day           = date.day.to_s.rjust(2, '0')
+  issue_date    = "#{year}#{month}#{day}"
+  ip        = '211.115.91.68'
+  id        = 'jimeun'
+  pw        = 'sodlfwlaus2018!@#$'
+  ftp_folder = "#{year}/#{month}/#{day}"
+  found = false
+  50.times do
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.chdir(ftp_folder)
+      files_in_folder = ftp.list
+      files_in_folder.each do |file|
+        found = true if file.include?('Container.xml')
+        break if found
+      end
+    end
+    return true if found
+    puts "+++++++ Container.xml 파일이 생성되지 않았습니다."
+    sleep 120 # 2 min
+  end
+  found
+end 
+
+def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
   wait_for_xml_upload
+  
+  year          = date.year
+  month         = date.month.to_s.rjust(2, '0')
+  day           = date.day.to_s.rjust(2, '0')
+  issue_date    = "#{year}#{month}#{day}"
+  ip        = '211.115.91.68'
+  id        = 'jimeun'
+  pw        = 'sodlfwlaus2018!@#$'
+  ftp_folder = "#{year}/#{month}/#{day}"
 
   Net::FTP.open(ip, id, pw) do |ftp|
     ftp.chdir(ftp_folder)
@@ -437,37 +466,8 @@ EOF
     File.open(target , 'w'){|f| f.write s}
 
     ftp.putbinaryfile("#{partial_xml_path}/Container_merge.xml", 'Container.xml')
+    puts "+++++++ Container.xml 파일을 전송했습니다."
   end
-end
-
-# check target ftp folder every 5 min for 1 hrs (5min x 12 = 1hrs)
-def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이트정보 생성될 때 까지 5분간격 확인
-  year          = date.year
-  month         = date.month.to_s.rjust(2, '0')
-  day           = date.day.to_s.rjust(2, '0')
-  issue_date    = "#{year}#{month}#{day}"
-  ip        = '211.115.91.68'
-  id        = 'jimeun'
-  pw        = 'sodlfwlaus2018!@#$'
-  ftp_folder = "#{year}/#{month}/#{day}"
-  found = false
-  12.times do
-    Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.chdir(ftp_folder)
-      files_in_folder = ftp.list
-      files_in_folder.each do |file|
-        found = true if file.include?('Container.xml')
-        break if found
-      end
-    end
-    return true if found
-    sleep 3000 # 5 min
-  end
-  found
-end
-
-def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
-    merge_container_xml
 end
 
 # def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
