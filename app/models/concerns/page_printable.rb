@@ -123,7 +123,15 @@ module PagePrintable
     FileUtils.cp(printer_file, target_file)
   end
 
+  def page_color_check
+    if page_number == 1
+      self.color_page = true
+    end 
+    self.save
+  end
+
   def copy_to_printer_ftp
+    page_color_check
     backup_printer_file
     jung_ang
     dong_a

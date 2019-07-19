@@ -208,9 +208,9 @@ class WorkingArticle < ApplicationRecord
     # params['working_article']['subtitle'] = @working_article.filter_to_title(params['working_article']['subtitle'])
     # params['working_article']['body'] = @working_article.filter_to_markdown(params['w
     self.reporter       = story.reporter
-    self.subject_head   = filter_to_markdown(story.subject_head) if story.subject_head
-    self.title          = filter_to_markdown(story.title)
-    self.subtitle       = filter_to_markdown(story.subtitle)
+    self.subject_head   = filter_to_title(story.subject_head) if story.subject_head
+    self.title          = filter_to_title(story.title)
+    self.subtitle       = filter_to_title(story.subtitle)
     self.body           = filter_to_markdown(story.body)
     self.price          = story.price  if story.price
     self.by_line        = story.by_line  if story.by_line

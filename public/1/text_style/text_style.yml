@@ -261,7 +261,7 @@ title_main:
   font_size: 42.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1
+  tracking: -2
   space_width: 10.0
   scale: 100.0
   text_line_spacing: 5
@@ -280,7 +280,7 @@ title_4_5:
   font_size: 34.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1.5
+  tracking: -2
   space_width: 10.0
   scale: 100.0
   text_line_spacing: 3
@@ -318,7 +318,7 @@ title_3:
   font_size: 26.0
   text_color: CMYK=0,0,0,100
   alignment: left
-  tracking: -1.0
+  tracking: -2
   space_width: 5.0
   scale: 100.0
   text_line_spacing: 10

@@ -21,9 +21,10 @@ module ArticleSaveXml
     title.gsub!(/\u3000/, "")
     title.gsub!(/\···/, "⋯")
     title.gsub!(/ {2,8}/, " ")
-    title.gsub!("\u2027", "\u30fb")
-    title.gsub!("\u0387", "\u30fb")
-    title.gsub!("\u00b7", "\u30fb")
+    title.gsub!("\u2027", "・")
+    title.gsub!("\u0387", "・")
+    title.gsub!("\u00b7", "・")
+    title.gsub!("\u2219", "・")
     title
   end
 
@@ -36,6 +37,8 @@ module ArticleSaveXml
     text.gsub!(/^\'/, "‘")
     text.gsub!(/\(\"/, "(“")
     text.gsub!(/\(\'/, "(‘")
+    text.gsub!(/\)\"/, ")”")
+    text.gsub!(/\)\'/, ")’")
     text.gsub!(/\.\"/, ".”")
     text.gsub!(/\.\'/, ".’")
     text.gsub!(/\"$/, "”")
@@ -77,15 +80,16 @@ module ArticleSaveXml
     body_text.gsub!(/^\s*#/, '#' )
     body_text.gsub!(/^\n/, "")
     body_text.gsub!(/(\n|\r\n)+/, "\n\n")
+    # body_text.gsub!(/(\n)+/, "\n\n")
     # body_text.gsub!(/[.]\s\s\s+/, ".")
     # body_text.gsub!(/\.$\n\n/, ".")
     body_text.gsub!(/^\./, "")
     body_text.gsub!(/ {2,8}/, " ")
     body_text.gsub!("\u2024", ".")
-    body_text.gsub!("\u00A0", "\u0020")
-    body_text.gsub!("\u30fb", "\u00b7")
-    body_text.gsub!("\u2027", "\u00b7")
-    body_text.gsub!("\u0387", "\u00b7")
+    body_text.gsub!("\u00A0", " ")
+    body_text.gsub!("\u30fb", "·")
+    body_text.gsub!("\u2027", "·")
+    body_text.gsub!("\u0387", "·")
     body_text
   end
 
@@ -97,8 +101,10 @@ module ArticleSaveXml
     body.gsub!(/^\u3000/, "")
     body.gsub!(/^\s*\n/m, "\n")
     body.gsub!(/^\s*#/, '#' )
-    body.gsub!(/$(\n|\r\n)+/, "\n\n" )
-    body.gsub!(/(\n|\r\n)+/, "\n\n")
+    # body.gsub!(/$(\n|\r\n)+/, "\n\n" )
+    # body.gsub!(/(\n|\r\n)+/, "\n\n")
+    body.gsub!(/$(\n)+/, "\n\n" )
+    body.gsub!(/(\n)+/, "\n\n")
     self.save
   end
   
@@ -114,13 +120,13 @@ module ArticleSaveXml
     if title && title != ""
     title.strip!
     title.gsub!("\u200B", "")
-    title.gsub!("\u22EF", "&#8943;")
+    title.gsub!("\u22EF", "&ctdot;")
     title.gsub!("\u2027", "·")
-    title.gsub!("\u2024", "&#8228;")
+    title.gsub!("\u2024", ".")
     title.gsub!("\u003C", "&lt;")
     title.gsub!("\u003E", "&gt;")
-    title.gsub!("\u2014", "&#8212;")
-    title.gsub!("\u2013", "&#8211;")
+    title.gsub!("\u2014", "-")
+    title.gsub!("\u2013", "-")
     title.gsub!("\u5e26", "&#24102;")
     title.gsub!("\u2219", "&#8729;")
     # title.gsub!("\u0026", "&amp;")
@@ -128,74 +134,79 @@ module ArticleSaveXml
     title.gsub!("\u00A0", " ")
     title.gsub!("\u2031", "&#8241;")
     title.gsub!("\u30fb", "·")
+    title.gsub!("\u223c", "~")
     end
     if subtitle && subtitle != ""
     subtitle.gsub!("\u2027", "·")
     # subtitle.gsub!("\u22EF", "&#8943;")
     subtitle.gsub!("\u200B", "")
-    subtitle.gsub!("\u2024", "&#8228;")
-    subtitle.gsub!("\u2013", "&#8211;")
+    subtitle.gsub!("\u2024", ".")
+    subtitle.gsub!("\u2013", "-")
     subtitle.gsub!("\u30fb", "·")
+    subtitle.gsub!("\u223c", "~")
     end
     if reporter && reporter != ""
     reporter.gsub!("\u200B", "")
-    reporter.gsub!("\u2024", "&#8228;")
+    reporter.gsub!("\u2024", ".")
     end
     if subject_head && subject_head != ""
-    subject_head.gsub!("\u2024", "&#8228;")
+    subject_head.gsub!("\u2024", ".")
     subject_head.gsub!("\u200B", "")
     subject_head.gsub!("\u30fb", "·")
+    subject_head.gsub!("\u223c", "~")
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""
     boxed_subtitle_text.gsub!("\u2470", "&#9328;") 
-    boxed_subtitle_text.gsub!("\u22EF", "&#8943;")
-    boxed_subtitle_text.gsub!("\u2024", "&#8228;")
+    boxed_subtitle_text.gsub!("\u22EF", "&ctdot;")
+    boxed_subtitle_text.gsub!("\u2024", ".")
     boxed_subtitle_text.gsub!("\u30fb", "·")
+    boxed_subtitle_text.gsub!("\u223c", "~")
     end
     if body && body != ""
     body.gsub!("\u2031", "&#8241;")
     body.gsub!("\u2031", "&#8241;")
-    body.gsub!("\u2027", "·")
     body.gsub!("\ud594", "&#54676;")
     body.gsub!("\u4F18", "&#20248;")
     body.gsub!("\u5014", "&#20500;")
     body.gsub!("\u5733", "&#22323;")
-    body.gsub!("\u22EF", "&#8943;")
+    body.gsub!("\u22EF", "&ctdot;")
     body.gsub!("\u200B", "")
     body.gsub!("\u5733", "&#22323;")
     body.gsub!("\u2024", "&#8228;")
-    body.gsub!("\u2043", "-")
     # body.gsub!("\u00b7", "\u30fb")
     body.gsub!("\u6DB8", "&#28088;")
     body.gsub!("\u9B92", "&#39826;")
+    body.gsub!("\u2022", "·")
+    body.gsub!("\u2027", "·")
+    body.gsub!("\u0387", "·")
+    body.gsub!("\u30fb", "·")
     body.gsub!("\u00A0", " ")
-    body.gsub!("\u2014", "&mdash;")
+    body.gsub!("\u2003", " ")
+    body.gsub!("\u2014", "-")
+    body.gsub!("\u2013", "-")
+    body.gsub!("\u2043", "-")
+    body.gsub!("\u223c", "~")
     body.gsub!("\u003C", "&lt;")
     body.gsub!("\u003E", "&gt;")
     body.gsub!("\uFF62", "&#65378;")
     body.gsub!("\uFF63", "&#65379;")
     body.gsub!("\u2613", "&#9747;")
     body.gsub!("\u9752", "&#38738;")
-    body.gsub!("\u2014", "&#8212;")
-    body.gsub!("\u2013", "&#8211;")
     body.gsub!("\u5d1b", "&#23835;")
-    body.gsub!("\u2003", "&#8195;")
-    body.gsub!("\u2022", "·")
     body.gsub!("\uCAD2", "&#51922;")
     body.gsub!("\uFF65", "&#65381;")
     body.gsub!("\u302e", "&#12334;")
     body.gsub!("\u5e26", "&#24102;")
     body.gsub!("\u2219", "&#8729;")
     # body.gsub!("\u0026", "&amp;")
-    body.gsub!("\u0387", "\u00B7")
     body.gsub!("\u8f9f", "&#36767;")
     # body.gsub!("\u22ef", "&#8943;")
     body.gsub!("\u25fc", "&#9724;")
     body.gsub!("\u00FC", "&#252;")
     body.gsub!("\u924F", "&#37455;")
     body.gsub!("\u939B", "&#37787;")
-    body.gsub!("\u30fb", "·")
     body.gsub!("\u5c14", "&#23572;")
+    body.gsub!("\ucc1f", "&#52255;")
     end
   end
 
@@ -265,7 +276,7 @@ module ArticleSaveXml
     FileUtils.mkdir_p(newsml_issue_path) unless File.exist? newsml_issue_path
     path = "#{newsml_issue_path}/#{story_xml_filename}"
     # story_xml.encode("utf-8").force_encoding("ANSI")
-    story_xml.gsub!("\u200B", "&#8203;")
+    # story_xml.gsub!("\u200B", "&#8203;")
     story_xml.gsub!("\u2027", "&#8231;")
     story_xml.gsub!("\u4F18", "&#20248;")
     story_xml.gsub!("\u246F", "&#9327;")
@@ -450,6 +461,19 @@ module ArticleSaveXml
         @subject_ex_name = opinion_writer.title
         @name_plate = opinion_writer.title
       end
+      if kind == '기고'
+        @money_status = "30"
+        if opinion_writer.title == '신문로'
+          @subject_ex_code = 2103
+          @subject_ex_name = '신문로'
+        elsif opinion_writer.title == '경제시평'
+          @subject_ex_code = 2202
+          @subject_ex_name = '경제시평'
+        elsif opinion_writer.title == '중국시평'
+          @subject_ex_code = 2203
+          @subject_ex_name = '중국시평'
+        end
+      end
     end 
     @subject_ex_code = story.category_code if story && story.category_code && story.category_code != ""
     # if page_number == 1
@@ -479,8 +503,6 @@ module ArticleSaveXml
           # @money_status = "30"
         end
         # @money_status = "30"
-      elsif kind == '기고'
-        @money_status = "30"
       end
     elsif page_number == 23
       if kind == '사설'
@@ -492,6 +514,7 @@ module ArticleSaveXml
       end
       @money_status = "30"
     end
+
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     # reporter_from_body = 
     if body && body != ""
@@ -505,6 +528,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
       @body_content     = @body_content.gsub(/\n\n/){"<br><br>"} 
+      @body_content     = @body_content.gsub(/\r\n/){"<br><br>"} 
       @data_content     = @body_content.gsub(/<br><br>\z/){""} 
       # @data_content     = @body_content.gsub(/\n\n\z/){""} 
     end
@@ -534,14 +558,14 @@ module ArticleSaveXml
       @head_line      = @head_line.gsub(/\u200B/, "")
       # @head_line      = @head_line.gsub("\r\n", "]]></HeadLine><HeadLine><![CDATA[")
       # @head_line      = @head_line.gsub("\r\n", " ")
-      @head_line      = @head_line.gsub("\r", "")
+      # @head_line      = @head_line.gsub("\r", "")
       @head_line      = @head_line.gsub("\n", "")
     end
     if subtitle && subtitle != ""
       subtitle.strip!
       @sub_head_line  = eliminate_size_option(subtitle)
       @sub_head_line  = @sub_head_line.gsub("\r\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
-      @sub_head_line  = @sub_head_line.gsub("\r", "")
+      # @sub_head_line  = @sub_head_line.gsub("\r", "")
       @sub_head_line  = @sub_head_line.gsub("\n", "]]></SubHeadLine><SubHeadLine><![CDATA[")
     end 
     if boxed_subtitle_text && boxed_subtitle_text != ""
@@ -699,7 +723,6 @@ module ArticleSaveXml
         @name_plate = opinion_writer.title if opinion_writer
       end
     end    
-
     @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
@@ -723,6 +746,19 @@ module ArticleSaveXml
         @subject_ex_name = '내일시론'
       end
     end
+    if kind == '기고'
+      @money_status = "30"
+      if subject_head == '신문로'
+        @subject_ex_code = 2103
+        @subject_ex_name = '신문로'
+      elsif subject_head == '경제시평'
+        @subject_ex_code = 2202
+        @subject_ex_name = '경제시평'
+      elsif subject_head == '중국시평'
+        @subject_ex_code = 2203
+        @subject_ex_name = '중국시평'
+      end
+    end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
 
     if title && title != ""
@@ -730,7 +766,7 @@ module ArticleSaveXml
       @head_line        = eliminate_size_option(title)
       # @head_line        = @head_line.gsub("\r\n", "]]></MainTitle><MainTitle><![CDATA[")
       # @head_line        = @head_line.gsub("\r\n", " ")
-      @head_line        = @head_line.gsub("\r", "")
+      # @head_line        = @head_line.gsub("\r", "")
       @head_line        = @head_line.gsub("\n", "")
     else
       @head_line       
@@ -740,7 +776,7 @@ module ArticleSaveXml
       subtitle.strip! 
       @sub_head_line    = eliminate_size_option(subtitle)
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
-      @sub_head_line    = @sub_head_line.gsub("\r", "")
+      # @sub_head_line    = @sub_head_line.gsub("\r", "")
       @sub_head_line    = @sub_head_line.gsub("\n", "]]></SubTitle><SubTitle><![CDATA[")
 
     end
@@ -787,6 +823,7 @@ module ArticleSaveXml
     @send_modify            = "0"  # 수정횟수
     @new_article            = "1" #뭘까?
     @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
+    @graphic_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.02L.jpg"
     #해당기사 저자사진: 121 × 160 픽셀, 120 픽셀/인치
     #해당기사 그래픽은 .01L대신 .01S.jpg로 표시
 article_info =<<EOF
@@ -888,9 +925,17 @@ EOF
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
 </TitleComponent>
 <ArticleComponent>
-  <Content><![CDATA[<%= @h_caption %> <%= @h_source %>]]>
-  </Content>
+<Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
+</Content>
 </ArticleComponent>
+<PhotoComponent>
+<PhotoItem>
+  <ImageType>Image</ImageType>
+    <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+    <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+    <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+  </PhotoItem>
+</PhotoComponent>
 </Article>
 EOF
 
@@ -961,7 +1006,7 @@ EOF
     <PhotoItem>
     <ImageType>Image</ImageType> 
       <Property ImgClass="[IMG01]" align="center" Class="일반" Size="Large"/>
-        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+        <PhotoFileName><%= @graphic_file_name %></PhotoFileName>
     </PhotoItem>
   </PhotoComponent><% end %>
 </Article>
@@ -1054,40 +1099,40 @@ EOF
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       elsif ext == ".pdf"
-        original_pdf = File.open("#{image_name}", 'rb').read
-        image = Magick::Image::from_blob(original_pdf) do
-          self.format = 'PDF'
-          self.quality = 100
-          self.density = 300
-        end
-        image[0].format = 'JPG'
-        image[0].to_blob
-        image[0].write("#{original_pdf}".jpg)
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
-        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+        # original_pdf = File.open("#{image_name}", 'rb').read
+        # image = Magick::Image::from_blob(original_pdf) do
+        #   self.format = 'PDF'
+        #   self.quality = 100
+        #   self.density = 300
+        # end
+        # image[0].format = 'JPG'
+        # image[0].to_blob
+        # image[0].write("#{original_pdf}".jpg)
+        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
     graphics.each do |g|
       ext = File.extname(g.graphic.path)
       image_name = File.basename(g.graphic.path)
       if ext == ".jpg"
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
+        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@graphic_file_name}")
       # elsif ext == ".pdf"
       #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
       # end
       elsif ext == ".pdf"
         # binding.pry
-        original_pdf = File.open("#{image_name}", 'rb').read
-        image = Magick::Image::from_blob(original_pdf) do
-          self.format = 'PDF'
-          self.quality = 100
-          self.density = 300
-        end
-        image[0].format = 'JPG'
-        image[0].to_blob
-        image[0].write("#{original_pdf}".jpg)
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
-        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
+        # original_pdf = File.open("#{image_name}", 'rb').read
+        # image = Magick::Image::from_blob(original_pdf) do
+        #   self.format = 'PDF'
+        #   self.quality = 100
+        #   self.density = 300
+        # end
+        # image[0].format = 'JPG'
+        # image[0].to_blob
+        # image[0].write("#{original_pdf}".jpg)
+        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@graphic_file_name}")
+        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
       end
     end
   end
