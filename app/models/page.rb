@@ -616,6 +616,7 @@ class Page < ApplicationRecord
     change_working_articles(new_section)
     change_ad_boxes(new_section)
     generate_pdf_with_time_stamp
+    page_color_check
   end
 
   def change_heading
