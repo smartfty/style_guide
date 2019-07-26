@@ -2,19 +2,25 @@ module PagePrintable
   extend ActiveSupport::Concern
 
   def page_status
-    s = "#{page_number}:"
+    s = "#{page_number}면"
     if color_page
-        s += "(칼러)" 
+        s += "(칼라)" 
     else
       s += "(흑백)" 
     end
-    s += "출력:#{print_count}"
+    s += " 출력: #{print_count}"
     s
   end
 
   def print_status
     s = ""
-    s +=  "시간:#{print_time}"   if print_count > 0
+    s +=  "인쇄 #{print_time}"   if print_count > 0
+    s
+  end
+
+  def proof_status
+    s = ""
+    s +=  "교정 #{proof_time}"   if proof_count > 0
     s
   end
 
@@ -24,12 +30,18 @@ module PagePrintable
     end
   end
 
+  def proof_time
+    if latest_proof_file
+      File.birthtime(latest_proof_file).to_s.split("+")[0].split(" ")[1]
+    end
+  end
+
   def printed_files
     Dir.glob("#{printer_folder}/*.pdf").sort
   end
 
   def proof_files
-    Dir.glob("#{printer_folder}/*.pdf").sort
+    Dir.glob("#{proof_folder}/*.pdf").sort
   end
 
 
@@ -39,6 +51,20 @@ module PagePrintable
     end
     blank_print_image
   end
+
+  def proof_file_to_show
+    if proof_count > 0
+      return relative_path + "/proof/#{File.basename(latest_proof_file)}" 
+    end
+    blank_print_image
+  end
+
+  def blank_file_to_show
+    if print_count < 0 || proof_count < 0
+      return relative_path + "/blank_print_image.jpg" 
+    end
+  end
+
 
   def latest_printer_file
     printed_files.last
@@ -53,7 +79,7 @@ module PagePrintable
   end
 
   def proof_count
-    printed_files.length
+    proof_files.length
   end
 
   def proof_path
@@ -107,6 +133,10 @@ module PagePrintable
 
   def latest_printer_file
     Dir.glob("#{printer_folder}/*.pdf").sort.last
+  end
+
+  def latest_proof_file
+    Dir.glob("#{proof_folder}/*.pdf").sort.last
   end
 
   def printer_file_version
