@@ -663,7 +663,7 @@ class Page < ApplicationRecord
 
   def wait_for_stamped_pdf
     starting = Time.now
-    times_up = starting + 60*2
+    times_up = starting + 60*1
     while !File.exist?(stamped_pdf_file)
       sleep(1)
       if Time.now > times_up

@@ -9,7 +9,7 @@ RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
   container(x: 70, y: 80, width:150, bottom_margin: 10, fill_color: 'clear') do
     
       text('서울대 명예교수', y:30, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100' )
-      text('총리실 시민사회발전위 위원장', tracking:-1, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+      text('정치사회학', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
     
   end
 end

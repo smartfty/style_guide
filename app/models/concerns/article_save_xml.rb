@@ -207,6 +207,7 @@ module ArticleSaveXml
     body.gsub!("\u939B", "&#37787;")
     body.gsub!("\u5c14", "&#23572;")
     body.gsub!("\ucc1f", "&#52255;")
+    body.gsub!("\u8B8E", "&#35726;")
     end
   end
 
@@ -461,19 +462,6 @@ module ArticleSaveXml
         @subject_ex_name = opinion_writer.title
         @name_plate = opinion_writer.title
       end
-      if kind == '기고'
-        @money_status = "30"
-        if opinion_writer.title == '신문로'
-          @subject_ex_code = 2103
-          @subject_ex_name = '신문로'
-        elsif opinion_writer.title == '경제시평'
-          @subject_ex_code = 2202
-          @subject_ex_name = '경제시평'
-        elsif opinion_writer.title == '중국시평'
-          @subject_ex_code = 2203
-          @subject_ex_name = '중국시평'
-        end
-      end
     end 
     @subject_ex_code = story.category_code if story && story.category_code && story.category_code != ""
     # if page_number == 1
@@ -487,7 +475,7 @@ module ArticleSaveXml
     elsif page_number == 20 || page_number == 21
       @money_status     = story.price.to_i if story && story.price && story.price != ""
     elsif page_number == 22
-      # puts "kind : #{page_number } #{kind} #{@money_status}"
+      puts "kind : #{page_number } #{kind} #{@money_status}"
       if kind == '사설'
         if subject_head == '기고'
           @subject_ex_code = 2401
@@ -497,12 +485,23 @@ module ArticleSaveXml
           @subject_ex_code = 2201
           @subject_ex_name = '정치시평'
           @money_status = "30"
-        # elsif subject_head == '경제시평'
-        #   category_code = 2202
-        else 
-          # @money_status = "30"
+        elsif subject_head == '신문로'
+          @subject_ex_code = 2103
+          @subject_ex_name = '신문로'
+          @money_status = "30"
         end
-        # @money_status = "30"
+      elsif kind == '기고'
+        @money_status = "30"
+        if opinion_writer.title == '신문로'
+          @subject_ex_code = 2103
+          @subject_ex_name = '신문로'
+        elsif opinion_writer.title == '경제시평'
+          @subject_ex_code = 2202
+          @subject_ex_name = '경제시평'
+        elsif opinion_writer.title == '중국시평'
+          @subject_ex_code = 2203
+          @subject_ex_name = '중국시평'
+        end
       end
     elsif page_number == 23
       if kind == '사설'
@@ -514,7 +513,6 @@ module ArticleSaveXml
       end
       @money_status = "30"
     end
-
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
     # reporter_from_body = 
     if body && body != ""
@@ -740,24 +738,23 @@ module ArticleSaveXml
         # elsif subject_head == '경제시평'
         #   category_code = 2202
         end
+      elsif kind == '기고'
+        if subject_head == '신문로'
+          @subject_ex_code = 2103
+          @subject_ex_name = '신문로'
+        elsif subject_head == '경제시평'
+          @subject_ex_code = 2202
+          @subject_ex_name = '경제시평'
+        elsif subject_head == '중국시평'
+          @subject_ex_code = 2203
+          @subject_ex_name = '중국시평'
+        end
+        @money_status = "30"
       end
     elsif page_number == 23
       if kind == '사설'
         @subject_ex_code = 2101
         @subject_ex_name = '내일시론'
-      end
-    end
-    if kind == '기고'
-      @money_status = "30"
-      if subject_head == '신문로'
-        @subject_ex_code = 2103
-        @subject_ex_name = '신문로'
-      elsif subject_head == '경제시평'
-        @subject_ex_code = 2202
-        @subject_ex_name = '경제시평'
-      elsif subject_head == '중국시평'
-        @subject_ex_code = 2203
-        @subject_ex_name = '중국시평'
       end
     end
     @gisa_key         = "#{@date_id}991#{@page_info}#{two_digit_ord}"
@@ -820,7 +817,7 @@ module ArticleSaveXml
     @news_class_large_name  = page.section_name
     # @news_class_middle_id   = category_code
     @news_class_middle_id   = @subject_ex_code
-    @news_class_middle_name = subject_head
+    @news_class_middle_name = @subject_ex_code
     @send_modify            = "0"  # 수정횟수
     @new_article            = "1" #뭘까?
     @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
