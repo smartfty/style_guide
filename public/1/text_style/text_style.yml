@@ -277,13 +277,13 @@ title_4_5:
   category:
   font_family: KoPub바탕체_Pro Medium
   font: KoPubBatangPM
-  font_size: 34.0
+  font_size: 31.0
   text_color: CMYK=0,0,0,100
   alignment: left
   tracking: -2
   space_width: 10.0
   scale: 100.0
-  text_line_spacing: 3
+  text_line_spacing: 8
   space_before_in_lines: 1
   space_after_in_lines: 1
   text_height_in_lines: 4
@@ -321,7 +321,7 @@ title_3:
   tracking: -1.5
   space_width: 5.0
   scale: 100.0
-  text_line_spacing: 10
+  text_line_spacing: 7
   space_before_in_lines: 1
   space_after_in_lines: 1.5
   text_height_in_lines: 3

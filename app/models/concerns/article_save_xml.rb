@@ -164,7 +164,7 @@ module ArticleSaveXml
     end
     if body && body != ""
     body.gsub!("\u2031", "&#8241;")
-    body.gsub!("\u2031", "&#8241;")
+    body.gsub!("\u3007", "&#12295;")
     body.gsub!("\ud594", "&#54676;")
     body.gsub!("\u4F18", "&#20248;")
     body.gsub!("\u5014", "&#20500;")

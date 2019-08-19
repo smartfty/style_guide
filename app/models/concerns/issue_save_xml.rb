@@ -307,7 +307,7 @@ def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이�
   pw        = 'sodlfwlaus2018!@#$'
   ftp_folder = "#{year}/#{month}/#{day}"
   found = false
-  50.times do
+  100.times do
     Net::FTP.open(ip, id, pw) do |ftp|
       ftp.chdir(ftp_folder)
       files_in_folder = ftp.list
