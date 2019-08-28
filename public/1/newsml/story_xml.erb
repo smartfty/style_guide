@@ -103,7 +103,7 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[<%= @h_caption %><%= @h_source %>]]>
+				<![CDATA[[IMG1]<br><%= @h_caption %><%= @h_source %>]]>
 			</DataContent>
 		</NewsComponent><% elsif kind == "__사진" %>
 		<NewsComponent>
@@ -115,7 +115,7 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[[IMG1]<%= @h_caption %><%= @h_source %>]]>
+				<![CDATA[[IMG1]<br><%= @h_caption %><%= @h_source %>]]>
 			</DataContent>
 		</NewsComponent>
 		<NewsComponent> 
@@ -149,7 +149,7 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[[IMG1]<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
+				<![CDATA[[IMG1]<br><% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
 			</DataContent>
 		</NewsComponent>
 		<NewsComponent> 
@@ -170,14 +170,14 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[[IMG1]<%= @data_content %>]]>
+				<![CDATA[[IMG1]<br><%= @data_content %>]]>
 			</DataContent>
 		</NewsComponent>
 		<NewsComponent> 
 			<Role FormalName="Photo" />
 			<MediaType FormalName="Image" />
 			<Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
-			<PhotoItem Real="<%= @photo_item %>" />
+			<PhotoItem Real="<%= @graphic_item %>" />
 		</NewsComponent><% else %>
 		<NewsComponent>
 			<Role FormalName="Title" />

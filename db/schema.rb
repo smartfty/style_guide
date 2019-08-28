@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_012437) do
+ActiveRecord::Schema.define(version: 2019_08_12_053904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,18 @@ ActiveRecord::Schema.define(version: 2019_04_22_012437) do
     t.integer "row"
     t.text "layout"
     t.string "profile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exeprt_writers", force: :cascade do |t|
+    t.string "name"
+    t.string "work"
+    t.string "position"
+    t.string "email"
+    t.integer "category_code"
+    t.string "expert_image"
+    t.string "expert_jpg_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -858,6 +870,50 @@ ActiveRecord::Schema.define(version: 2019_04_22_012437) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "yh_photo_fr_ynas", force: :cascade do |t|
+    t.string "action"
+    t.string "service_type"
+    t.string "content_id"
+    t.date "date"
+    t.time "time"
+    t.string "urgency"
+    t.string "category"
+    t.string "class_code"
+    t.string "attriubute_code"
+    t.string "source"
+    t.string "credit"
+    t.string "region"
+    t.string "title"
+    t.string "comment"
+    t.string "body"
+    t.string "picture"
+    t.string "taken_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "yh_photo_trs", force: :cascade do |t|
+    t.string "action"
+    t.string "service_type"
+    t.string "content_id"
+    t.date "date"
+    t.time "time"
+    t.string "urgency"
+    t.string "category"
+    t.string "class_code"
+    t.string "attriubute_code"
+    t.string "source"
+    t.string "credit"
+    t.string "region"
+    t.string "title"
+    t.string "comment"
+    t.string "body"
+    t.string "picture"
+    t.string "taken_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "yh_pictures", force: :cascade do |t|
     t.string "action"
     t.string "service_type"
@@ -875,6 +931,28 @@ ActiveRecord::Schema.define(version: 2019_04_22_012437) do
     t.string "comment"
     t.string "body"
     t.string "picture"
+    t.string "taken_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "yh_prs", force: :cascade do |t|
+    t.string "action"
+    t.string "service_type"
+    t.string "content_id"
+    t.date "date"
+    t.time "time"
+    t.string "urgency"
+    t.string "category"
+    t.string "class_code"
+    t.string "attriubute_code"
+    t.string "source"
+    t.string "credit"
+    t.string "region"
+    t.string "title"
+    t.string "comment"
+    t.string "body"
+    t.string "appenddata"
     t.string "taken_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -248,7 +248,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%= render 'show_prewview_by_column', article: @working_article %>
+                                    <%= render 'show_preview_by_column', article: @working_article %>
                                 </section>
 
                                 <section class="section" id="content11">
@@ -258,7 +258,7 @@
                                             <%= render 'change_story_form', article: @working_article, stories: @stories%>
                                         </div>
                                         <div class="col-sm-12 col-md-7">
-                                            <p><%= render 'show_prewview_by_column', article: @working_article %></p>
+                                            <p><%= render 'show_preview_by_column', article: @working_article %></p>
                                         </div>
                                     </div>
                                 </section>
@@ -321,7 +321,7 @@
                                             <% end %>
                                         </div>
                                     </div>
-                                    <p><%= render 'show_prewview_by_column', article: @working_article %></p>
+                                    <p><%= render 'show_preview_by_column', article: @working_article %></p>
                                 </section>
 
                                 <section class="section" id="content3">
@@ -377,7 +377,7 @@
                                             <% end %>
                                         </div>
                                     </div>
-                                    <p><%= render 'show_prewview_by_column', article: @working_article %></p>
+                                    <p><%= render 'show_preview_by_column', article: @working_article %></p>
                                 </section>
 
                                 <section class="section" id="content4">
@@ -395,14 +395,13 @@
                                         <img src="<%= @working_article.jpg_image_path %>"></img>
                                         <%= render 'character_count', article: @working_article %>
                                     </div>
-                                    <p><%= render 'show_prewview_by_column', article: @working_article %></p>
+                                    <p><%= render 'show_preview_by_column', article: @working_article %></p>
 
                                 </section>
 
                             </div>
 
-                            <!-- div class="col-sm-12 col-md-12" align="center"> <%= render 'show_prewview',
-                            article: @working_article %> </div -->
+                            <!-- div class="col-sm-12 col-md-12" align="center"> <%= render 'show_preview', article: @working_article %> </div -->
 
                         </div>
                     <% end %>

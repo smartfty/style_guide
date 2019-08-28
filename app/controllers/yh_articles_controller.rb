@@ -5,7 +5,7 @@ class YhArticlesController < ApplicationController
   # GET /yh_articles.json
   def index
     @q = YhArticle.ransack(params[:q])
-    @yh_articles = @q.result.order(:date, :time).page(params[:page]).per(10) 
+    @yh_articles = @q.result.order(:date, :time).page(params[:page]).reverse_order.per(10) 
 
     # @yh_articles = YhArticle.all
   end

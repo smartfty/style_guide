@@ -38,12 +38,12 @@
         </div>
         <div class="form-group">
           <%= f.label :제목 %>
-          <%= f.text_field :title, size: 34 %>
+          <%= f.text_field :title, size: 34, class: 'form-control title', autocomplete: 'off' %>
         </div>
 
         <div class="form-group" style="display:none">
           <%= f.label :부제목 %>
-          <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control'%>
+          <%= f.text_area :subtitle, cols: "40", rows: "2", class: 'form-control', autocomplete: 'off'%>
         </div>
 
         <div class="form-group">
@@ -53,12 +53,12 @@
 
         <div class="form-group">
           <%= f.label "글쓴이"%>
-          <%= f.text_field :reporter, size: 20 %>
+          <%= f.text_field :reporter, size: 20, class: 'form-control', autocomplete: 'off' %>
         </div>
 
         <div class="form-group-body">
           <%= f.label :본문 %>
-          <%= f.text_area :body, cols: "40", rows: "20", class: 'form-control' %>
+          <%= f.text_area :body, cols: "40", rows: "20", class: 'form-control shinmoon', autocomplete: 'off' %>
         </div>
 
         <div class="field">
@@ -76,7 +76,8 @@
         </div>
       </div>
       <div class="col-xs-6 col-sm-6">
-      <%= render 'show_prewview', article: @working_article %>
+      <div class="letter">문자표 <span class="box">&#8216;</span><span class="box">&#8217;</span><span class="box">&#8220;</span><span class="box">&#8221;</span><span class="box">&#12539;</span><span class="box">&#8943;</span><span class="box">&#9724;</span><span class="box">&#8195;</span></div>
+      <%= render 'show_preview', article: @working_article %>
       </div>          
     </div>
 

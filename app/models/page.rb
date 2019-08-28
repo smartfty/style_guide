@@ -616,6 +616,7 @@ class Page < ApplicationRecord
     change_working_articles(new_section)
     change_ad_boxes(new_section)
     generate_pdf_with_time_stamp
+    page_color_check
   end
 
   def change_heading
@@ -662,7 +663,7 @@ class Page < ApplicationRecord
 
   def wait_for_stamped_pdf
     starting = Time.now
-    times_up = starting + 60*2
+    times_up = starting + 60*1
     while !File.exist?(stamped_pdf_file)
       sleep(1)
       if Time.now > times_up

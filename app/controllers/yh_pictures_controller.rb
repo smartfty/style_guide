@@ -7,7 +7,7 @@ class YhPicturesController < ApplicationController
     @q = YhPicture.ransack(params[:q])
     @yh_pictures = @q.result
     session[:current_yh_picture_category] = params[:q]['category_cont'] if params[:q]
-    @yh_pictures = @yh_pictures.order(:date).page(params[:page]).per(18)
+    @yh_pictures = @yh_pictures.order(:date).page(params[:page]).reverse_order.per(18)
 
     # @yh_pictures = YhPicture.all
   end

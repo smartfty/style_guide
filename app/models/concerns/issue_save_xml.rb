@@ -37,13 +37,13 @@ module IssueSaveXml
     path + '/mobile_page_preview'
   end
 
-  def mobile_preview_xml_zip_path # 모바일용 지면보기 XML
-    year = date.year
-    month         = date.month.to_s.rjust(2, '0')
-    day           = date.day.to_s.rjust(2, '0')
-    issue_date    = "#{year}#{month}#{day}"
-    mobile_preview_xml_path + "/#{issue_date}_mobile_preview_xml.zip"
-  end
+  # def mobile_preview_xml_zip_path # 모바일용 지면보기 XML
+  #   year = date.year
+  #   month         = date.month.to_s.rjust(2, '0')
+  #   day           = date.day.to_s.rjust(2, '0')
+  #   issue_date    = "#{year}#{month}#{day}"
+  #   mobile_preview_xml_path + "/#{issue_date}_mobile_preview_xml.zip"
+  # end
   
   def make_preview_xml_zip # 데스크탑용 지면보기 XML 
     # Path where your pdfs are situated (‘my_pdf’ is folder with pdfs)
@@ -205,6 +205,7 @@ def save_mobile_preview_xml # 모바일용 지면보기 XML
   File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
   File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
   # send_mobile_preview_xml
+  merge_container_xml
   # make_mobile_preview_xml_zip
   # directory_to_zip = mobile_preview_xml_path
   # output_file = mobile_preview_xml_zip_path
@@ -265,17 +266,74 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   end
 end
 
-def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이트정보 합성
-  ip = '211.115.91.68'
-  id        = 'jimeun'
-  pw        = 'sodlfwlaus2018!@#$'
+def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이트정보 합성'
+  partial_folder          = partial_xml_path
+
   year          = date.year
   month         = date.month.to_s.rjust(2, '0')
   day           = date.day.to_s.rjust(2, '0')
   issue_date    = "#{year}#{month}#{day}"
+  ip        = '211.115.91.68'
+  id        = 'jimeun'
+  pw        = 'sodlfwlaus2018!@#$'
+  ftp_folder = "#{year}/#{month}/#{day}"
+  entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
 
-  ftp_folder              = "#{year}/#{month}/#{day}/"
-  partial_folder          = partial_xml_path
+  Net::FTP.open(ip, id, pw) do |ftp|
+    ftp.chdir(ftp_folder)
+    # ftp.chdir("#{year}/#{month}/#{day}/")
+    entries.each do |name|
+      base_name = File.basename(name)
+      dir_name  = File.dirname(name)
+      dir_base_name = File.basename(dir_name)
+      if File.directory? name
+        ftp.mkdir base_name.to_s
+      else
+        # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
+        File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
+      end
+    end
+  end
+end
+
+# check target ftp folder every 2 min for 1 hrs (2min x 50 = 1.5hrs)
+def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이트정보 생성될 때 까지 2분간격 확인
+  year          = date.year
+  month         = date.month.to_s.rjust(2, '0')
+  day           = date.day.to_s.rjust(2, '0')
+  issue_date    = "#{year}#{month}#{day}"
+  ip        = '211.115.91.68'
+  id        = 'jimeun'
+  pw        = 'sodlfwlaus2018!@#$'
+  ftp_folder = "#{year}/#{month}/#{day}"
+  found = false
+  100.times do
+    Net::FTP.open(ip, id, pw) do |ftp|
+      ftp.chdir(ftp_folder)
+      files_in_folder = ftp.list
+      files_in_folder.each do |file|
+        found = true if file.include?('Container.xml')
+        break if found
+      end
+    end
+    return true if found
+    puts "+++++++ Container.xml 파일이 생성되지 않았습니다."
+    sleep 120 # 2 min
+  end
+  found
+end 
+
+def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
+  wait_for_xml_upload
+  
+  year          = date.year
+  month         = date.month.to_s.rjust(2, '0')
+  day           = date.day.to_s.rjust(2, '0')
+  issue_date    = "#{year}#{month}#{day}"
+  ip        = '211.115.91.68'
+  id        = 'jimeun'
+  pw        = 'sodlfwlaus2018!@#$'
+  ftp_folder = "#{year}/#{month}/#{day}"
 
   Net::FTP.open(ip, id, pw) do |ftp|
     ftp.chdir(ftp_folder)
@@ -319,73 +377,108 @@ def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이�
     # 합성만 하고 업로드 안하게 임시 주석처리 2018.10.01
     # ftp.putbinaryfile("#{partial_xml_path}/updateinfo.xml", 'updateinfo.xml')
     # ftp.putbinaryfile("#{partial_xml_path}/Container.xml", 'Container.xml')
-  end
-end
 
-# check target ftp folder every 5 min for 2 hrs (5min x 24 = 2hrs)
-def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이트정보 생성될 때 까지 5분간격 확인
-  year          = date.year
-  month         = date.month.to_s.rjust(2, '0')
-  day           = date.day.to_s.rjust(2, '0')
-  issue_date    = "#{year}#{month}#{day}"
-  ip        = '211.115.91.68'
-  id        = 'jimeun'
-  pw        = 'sodlfwlaus2018!@#$'
-  ftp_folder = "#{year}/#{month}/#{day}"
-  found = false
-  24.times do
-    Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.chdir(ftp_folder)
-      files_in_folder = ftp.list
-      files_in_folder.each do |file|
-        found = true if file.include?('Container.xml')
-        break if found
-      end
+    path = "#{partial_xml_path}/Container.xml"
+
+    content = File.open(path, 'r'){|f| f.read}
+    header_pattern = /(\<\?xml version="1.0".*?<PageList Count="\d{2}">)/m
+    header_content = content.scan(header_pattern)
+    header_content = header_content.first.first
+    header_content.gsub!(/Count=\"\d{2}\"\>/, "Count=\"24\"\>\n")
+
+    pattern = /(<Page ID="\d{6}">.*?<\/Page>)/m
+    result = content.scan(pattern)
+    page_num_pattern = /<Page ID="\d{4}(\d{2})"/m
+    
+    container_h = {}
+    result.each do |page_chunk|
+      puts "====="
+      # puts "page_chunk[0]:#{page_chunk[0]}"
+      page_num = page_chunk[0].scan(page_num_pattern)
+      # puts "page_num:#{page_num}"
+      key = page_num.first[0]
+      container_h[key] = page_chunk[0]
     end
-    return true if found
-    sleep 3000 # 5 min
-  end
-  found
-end
-
-def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
-  year          = date.year
-  month         = date.month.to_s.rjust(2, '0')
-  day           = date.day.to_s.rjust(2, '0')
-  issue_date    = "#{year}#{month}#{day}"
-  puts 'sending it tp Mobile Preview Xml.zip'
-  ip        = '211.115.91.68'
-  id        = 'jimeun'
-  pw        = 'sodlfwlaus2018!@#$'
-  # 다른곳에 먼저 테스트
-  # ip        = '211.115.91.231'
-  # id        = 'naeil'
-  # pw        = 'sodlftlsans1!'
-  ftp_folder = "#{year}/#{month}/#{day}"
-  entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
-  Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.chdir(ftp_folder)
-    # ftp.chdir("#{year}/#{month}/#{day}/")
-    entries.each do |name|
-      base_name = File.basename(name)
-      dir_name  = File.dirname(name)
-      dir_base_name = File.basename(dir_name)
-      if File.directory? name
-        ftp.mkdir base_name.to_s
+    
+    partcial_path = "#{partial_xml_path}/partial_Container.xml"
+    partcial_content = File.open(partcial_path, 'r'){|f| f.read}
+    result = partcial_content.scan(pattern)
+    page_num_pattern = /<Page ID="\d{4}(\d{2})"/m
+    
+    
+    partial_container_h = {}
+    result.each do |page_chunk|
+      puts "====="
+      # puts "page_chunk[0]:#{page_chunk[0]}"
+      page_num = page_chunk[0].scan(page_num_pattern)
+      # puts "page_num:#{page_num}"
+      key = page_num.first[0]
+      partial_container_h[key] = page_chunk[0]
+    end
+    
+    newsgo_partial_array = []
+    24.times do |i|
+      page        = (i + 1).to_s.rjust(2,"0")
+      # page_div    = /<Page ID="\d{4}#{page}">.*?<\/Page>/m
+      # result = news_go_partial_content.match(page_div)
+      if partial_container_h[page]
+        newsgo_partial_array << partial_container_h[page]
       else
-        # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
-        File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
+        newsgo_partial_array << nil
       end
     end
-  end
-  result = wait_for_xml_upload
-  if result
-    puts 'xml file upload found and proceeding merge'
-    merge_container_xml
-  else
-    puts 'xml file upload not found!!!'
+    
+    # base_content = File.open('Container.xml', 'r'){|f| f.read}
+    # page_div      = /<Page ID="\d{4}21">.*?<\/Page>/m
+    partial_array = []
+
+    footer =<<EOF
+
+  </PageList>
+</ContainerML>
+EOF
+    
+    24.times do |i|
+      page        = (i + 1).to_s.rjust(2,"0")
+      # result = base_content.scan(page_div)
+      if container_h[page]
+        partial_array << container_h[page]
+      else
+        partial_array << nil
+      end
+    
+    end
+    partial_array = partial_array.map.with_index do |e, i|
+      if e.nil?
+        newsgo_partial_array[i]
+      else
+        e
+      end
+    end
+    
+    s = header_content 
+    s += partial_array.join("\n")
+    s += footer
+    
+    puts s
+    target = "#{partial_xml_path}/Container_merge.xml"
+    File.open(target , 'w'){|f| f.write s}
+
+    ftp.putbinaryfile("#{partial_xml_path}/Container_merge.xml", 'Container.xml')
+    puts "+++++++ Container.xml 파일을 전송했습니다."
   end
 end
+
+# def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
+
+#   result = wait_for_xml_upload
+#   if result
+#     puts 'xml file upload found and proceeding merge'
+#     merge_container_xml
+#   else
+#     puts 'xml file upload not found!!!'
+#   end
+# end
 
 
 end

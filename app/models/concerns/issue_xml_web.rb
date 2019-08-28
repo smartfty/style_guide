@@ -1,4 +1,5 @@
-module IssueXmlWeb
+## 미사용 정리필요.
+module IssueXmlWeb 
   extend ActiveSupport::Concern
 
 

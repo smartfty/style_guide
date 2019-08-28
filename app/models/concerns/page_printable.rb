@@ -2,19 +2,25 @@ module PagePrintable
   extend ActiveSupport::Concern
 
   def page_status
-    s = "#{page_number}:"
+    s = "#{page_number}면"
     if color_page
-        s += "(칼러)" 
+        s += "(칼라)" 
     else
       s += "(흑백)" 
     end
-    s += "출력:#{print_count}"
+    s += " 출력: #{print_count}"
     s
   end
 
   def print_status
     s = ""
-    s +=  "시간:#{print_time}"   if print_count > 0
+    s +=  "인쇄 #{print_time}"   if print_count > 0
+    s
+  end
+
+  def proof_status
+    s = ""
+    s +=  "교정 #{proof_time}"   if proof_count > 0
     s
   end
 
@@ -24,9 +30,20 @@ module PagePrintable
     end
   end
 
+  def proof_time
+    if latest_proof_file
+      File.birthtime(latest_proof_file).to_s.split("+")[0].split(" ")[1]
+    end
+  end
+
   def printed_files
     Dir.glob("#{printer_folder}/*.pdf").sort
   end
+
+  def proof_files
+    Dir.glob("#{proof_folder}/*.pdf").sort
+  end
+
 
   def printer_file_to_show
     if print_count > 0
@@ -34,6 +51,20 @@ module PagePrintable
     end
     blank_print_image
   end
+
+  def proof_file_to_show
+    if proof_count > 0
+      return relative_path + "/proof/#{File.basename(latest_proof_file)}" 
+    end
+    blank_print_image
+  end
+
+  def blank_file_to_show
+    if print_count < 0 || proof_count < 0
+      return relative_path + "/blank_print_image.jpg" 
+    end
+  end
+
 
   def latest_printer_file
     printed_files.last
@@ -45,6 +76,10 @@ module PagePrintable
 
   def print_count
     printed_files.length
+  end
+
+  def proof_count
+    proof_files.length
   end
 
   def proof_path
@@ -92,8 +127,16 @@ module PagePrintable
     path + "/printer"
   end
 
+  def proof_folder
+    path + "/proof"
+  end
+
   def latest_printer_file
     Dir.glob("#{printer_folder}/*.pdf").sort.last
+  end
+
+  def latest_proof_file
+    Dir.glob("#{proof_folder}/*.pdf").sort.last
   end
 
   def printer_file_version
@@ -110,7 +153,15 @@ module PagePrintable
     FileUtils.cp(printer_file, target_file)
   end
 
+  def page_color_check
+    if page_number == 1
+      self.color_page = true
+    end 
+    self.save
+  end
+
   def copy_to_printer_ftp
+    page_color_check
     backup_printer_file
     jung_ang
     dong_a

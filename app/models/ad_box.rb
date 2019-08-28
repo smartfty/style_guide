@@ -314,7 +314,8 @@ EOF
       if page.section_name == "전면광고"
         @name_plate      = '전면광고'
       end
-    @head_line       = advertiser
+    @head_line    = advertiser
+    @head_line    = @head_line.gsub("\&", "&amp;")
 
     three_component =<<EOF
       <TitleComponent>
@@ -334,7 +335,6 @@ EOF
   end
 
   def xml_group_key_template
-        # @head_line1        = @head_line.gsub("\u201C", "&quot;")
         # @head_line2        = @head_line1.gsub("\u201D", "&quot;")
         year  = issue.date.year
         month = issue.date.month.to_s.rjust(2, "0")
@@ -348,7 +348,7 @@ EOF
           @name_plate  = '전면광고'
          end
         @head_line       = advertiser
-
+        @head_line    = @head_line.gsub("\&", "&amp;")
 
       container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @head_line %>"/>

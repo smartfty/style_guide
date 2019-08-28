@@ -371,7 +371,7 @@ class WorkingArticlesController < ApplicationController
   def swap
     set_working_article
     @working_article.swap
-    redirect_to working_article_path(@working_article), notice: '위 아래 가사가 교체 되었습니다.'
+    redirect_to working_article_path(@working_article), notice: '위 아래 기사가 교체 되었습니다.'
   end
 
   def show_quote_box
