@@ -129,6 +129,7 @@ module ArticleSaveXml
     title.gsub!("\u2013", "-")
     title.gsub!("\u5e26", "&#24102;")
     title.gsub!("\u2219", "&#8729;")
+    title.gsub!("\u56fd", "&#22269;")
     # title.gsub!("\u0026", "&amp;")
     # title.gsub!("\u22ef", "&#8943;")
     title.gsub!("\u00A0", " ")
@@ -208,6 +209,8 @@ module ArticleSaveXml
     body.gsub!("\u5c14", "&#23572;")
     body.gsub!("\ucc1f", "&#52255;")
     body.gsub!("\u8B8E", "&#35726;")
+    body.gsub!("\u56fd", "&#22269;")
+    body.gsub!("\u9A91", "&#39569;")
     end
   end
 
