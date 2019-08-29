@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424041700056</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>093600</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503011" name="교육행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[제주교육청 지방공무원 임용시험 경쟁률 9.7대 1]]></Title>
+		<Body><![CDATA[제주교육청 지방공무원 임용시험 경쟁률 9.7대 1
+
+    (제주=연합뉴스) 전지혜 기자 = 제주도교육청은 2019년도 9급 지방공무원 임용시험 원서 접수를 마감한 결과 97명 모집에 940명이 원서를 접수, 평균 9.7대 1의 경쟁률을 보였다고 24일 밝혔다.
+
+
+
+    직렬별로 보면 사서(일반)가 2명 모집에 34명이 지원해 가장 높은 경쟁률인 17대 1을 기록했다.
+    이어 교육행정(일반)이 73명 모집에 767명이 지원해 10.5대 1, 전산(일반)이 1명 모집에 16명이 지원해 16대 1, 운전이 4명 모집에 60명이 접수해 15대 1의 경쟁률을 각각 보였다.
+    성별로는 남자가 350명(37.2%), 여자가 590명(62.8%)이었다.
+    연령대별로는 20대가 549명(58.4%)로 가장 많았고 이어 30대 262명(27.8%), 40대 88명(9.4%), 10대 32명(3.4%), 50대 9명(1%) 등의 순이었다.
+    필기시험은 6월 15일이며, 7월 26일 면접시험을 거쳐 8월 1일에 최종 합격자가 발표된다.
+    atoz@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

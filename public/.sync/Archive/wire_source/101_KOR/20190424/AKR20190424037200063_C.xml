@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424037200063</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>094202</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003004" name="대전"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0803001" name="여행"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대전 원도심 근대문화 탐방로 5.17㎞ 조성]]></Title>
+		<SubTitle><![CDATA[옛 충남도청·관사촌·대전여중 강당 등 근대건축물 9개 연결
+중앙시장·스카이로드·성심당도 지나…대전천 수면에 영상 상영]]></SubTitle>
+		<Body><![CDATA[대전 원도심 근대문화 탐방로 5.17㎞ 조성
+옛 충남도청·관사촌·대전여중 강당 등 근대건축물 9개 연결
+중앙시장·스카이로드·성심당도 지나…대전천 수면에 영상 상영
+
+
+    (대전=연합뉴스) 정윤덕 기자 = 대전 원도심 근대건축물들을 걸어서 둘러볼 수 있는 탐방로가 만들어졌다.
+    대전시는 원도심 근대문화 탐방로 5.17㎞ 조성사업을 완료했다고 24일 밝혔다.
+    대전역에서 시작해 옛 충남도청과 옛 관사촌, 옛 대전여중 강당을 돌아 다시 대전역으로 돌아오도록 꾸며진 탐방로를 걷다 보면 지역 근대건축물 9개를 만날 수 있다.
+
+    옛 산업은행과 옛 대전여중 강당, 옛 국립농수산품질원에는 야간 경관조명이 설치됐다.
+    탐방로는 중앙시장과 스카이로드, 성심당 등 대전의 먹거리와 볼거리가 있는 거리도 지난다.
+    탐방로 중간 목척교 아래 대전천 수면에서는 대전 홍보영상을 보여준다.
+    정무호 시 도시재생주택본부장은 "원도심 근대문화 탐방로는 볼거리, 즐길 거리, 쇼핑공간과 함께 대전의 근대역사를 즐길 수 있는 관광요소"라며 "원도심 상권 활성화에도 기여할 것으로 기대한다"고 말했다.
+    cobra@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

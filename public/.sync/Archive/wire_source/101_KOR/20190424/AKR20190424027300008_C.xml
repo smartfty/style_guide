@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424027300008</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>085038</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302011" name="기업분석"/>
+			<ClassCode code="0303002" name="증권사"/>
+			<ClassCode code="0302004" name="증시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[하나금투 "포스코케미칼 평가가치 부담…투자의견↓"]]></Title>
+		<Body><![CDATA[하나금투 "포스코케미칼 평가가치 부담…투자의견↓"
+
+    (서울=연합뉴스) 조민정 기자 = 하나금융투자는 24일 포스코케미칼에 대해 "전기차 소재 부문에 대한 성장성은 확고하지만 높은 가격대가 부담"이라며 투자의견을 '매수'에서 '중립'으로 하향 조정했다.
+    목표주가도 7만8천원에서 5만9천원으로 내려잡았다.
+    김현수 연구원은 "포스코케미칼의 올해 1분기 연결 기준 매출은 3천553억원, 영업이익은 219억원으로 시장 기대치를 하회했다"며 "내화물 부문의 실적 부진과 자회사(PMC Tech)의 판매량 감소에 따른 지분법이익 감소가 실적 부진의 주원인"이라고 분석했다.
+    김 연구원은 "음극재의 경우 매출이 작년 동기 대비 92% 증가하며 성장세를 이어간 점은 긍정적"이라며 "연말까지 음극재 생산능력(CAPA)이 증가하면서 올해 전사 매출에서 전기차 소재 관련 매출 비중이 18%로 올라 기업가치 상승이 이뤄질 것"이라고 전망했다.
+    다만 그는 "음극재 부문 초기 증설에 따른 비용증가 부담과 PMC Tech의 영업이익률 하락을 고려해 연간 순이익 추정치를 기존 추정치 대비 24% 하향 조정한다"며 "자회사 지분법이익 감소 리스크가 밸류에이션(평가가치) 부담을 더욱 높일 수 있어 당분간은 높은 주가 수익률을 기대하기 어렵다"고 진단했다.
+    chomj@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

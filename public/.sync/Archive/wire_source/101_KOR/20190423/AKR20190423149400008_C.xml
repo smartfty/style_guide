@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423149400008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164320</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0404001" name="건설일반"/>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[화성산업, 525억원 규모 공사 수주]]></Title>
+		<Body><![CDATA[화성산업, 525억원 규모 공사 수주
+
+    (서울=연합뉴스) 임미나 기자 = 화성산업은 약 525억원 규모의 '광명아파트재건축정비사업' 공사 수주 계약을 체결했다고 23일 공시했다.
+    계약금액은 지난해 매출액의 11.1%에 해당한다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010072600055</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>111821</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대책 마련 촉구하는 민주당 전주병지역위원회]]></Title>
+		<Comment>NO-2074</Comment>
+		<Body><![CDATA[대책 마련 촉구하는 민주당 전주병지역위원회
+    (전주=연합뉴스) 임채두 기자 = 더불어민주당 전북도당 전주병지역위원회 소속 시·도의원들이 10일 전주시청에서 기자회견을 열고 라돈 검출 아파트에 대한 대책 마련을 촉구하고 있다. 2018.10.10
+    doo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101007260005500.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101007260005500_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101007260005500_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

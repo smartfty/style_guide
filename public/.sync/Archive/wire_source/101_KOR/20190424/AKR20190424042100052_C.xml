@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424042100052</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>094428</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7006016" name="창원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0501002" name="사회문제"/>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0901011" name="인터넷"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[회원 계정 무단활용 음란물 150만건 유통한 7명 검거]]></Title>
+		<SubTitle><![CDATA[경찰, 범죄 수익 6천만원 기소 전 몰수보전 신청 계획]]></SubTitle>
+		<Body><![CDATA[회원 계정 무단활용 음란물 150만건 유통한 7명 검거
+경찰, 범죄 수익 6천만원 기소 전 몰수보전 신청 계획
+
+
+    (창원=연합뉴스) 김선경 기자 = 웹하드 업체를 운영하며 8개월간 음란물을 150만건 넘게 유통한 일당이 경찰에 검거됐다.
+    경남지방경찰청 사이버수사대는 정보통신망 이용촉진 및 정보보호 등에 관한 법률 위반 등 혐의로 웹하드 업체 대표 A(39)씨를 구속했다고 24일 밝혔다.
+    또 이런 혐의로 B(28)씨 등 직원 6명은 불구속 입건했다.
+    A씨 등은 지난해 6월부터 지난 2월까지 회원 계정 6개를 무단 활용해 음란물 150여만건을 올리고 회원들로부터 6천만원 상당을 챙긴 혐의를 받고 있다.
+    이들은 기존에 운영하다가 지난해 초 매각한 웹하드 업체에 등록된 회원 정보를 동의 없이 가져와 계정을 생성하고 범행에 활용한 것으로 나타났다.
+    이들은 또 음란물 차단 필터링을 피해 불법 촬영된 음란물도 게시한 데 이어 수사가 시작되자 음란물 100만여건을 삭제하는 등 증거인멸에도 나섰다고 경찰은 설명했다.
+    경찰의 이들이 헤비업로더(음란물 대량 게시자) IP 자료 요청에 허위 IP 주소를 회신하기도 했다고 덧붙였다.
+    경찰은 이들이 범죄로 얻은 이익에 대해 기소 전 몰수보전을 신청하고, 미과세 소득에 대해서는 국세청에 통보 및 세무조사 의뢰할 예정이다.
+    경찰 관계자는 "A씨가 운영하던 회원 38만명의 웹하드에는 불법 촬영물도 게시돼 있는데, 그에 따른 피해자가 확인될 경우에는 법률 지원 등 별도 보호 조치를 제공할 예정"이라며 "A씨 일당의 여죄도 확인하고 있다"고 말했다. 
+    ksk@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

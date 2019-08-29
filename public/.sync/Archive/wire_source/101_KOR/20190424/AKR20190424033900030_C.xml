@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424033900030</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>090855</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0408003" name="주류"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[하이트진로, 5월부터 참이슬 후레쉬 등 소주 가격 6.45% 인상]]></Title>
+		<Body><![CDATA[하이트진로, 5월부터 참이슬 후레쉬 등 소주 가격 6.45% 인상
+
+    (서울=연합뉴스) 박성진 기자 = 하이트진로가 다음 달 1일부터 참이슬 후레쉬 등 소주 제품 공장 출고가격을 6.45% 인상한다.
+    하이트진로는 참이슬 후레쉬와 참이슬 오리지널(360㎖)의 공장 출고가격을 병당 1천15.7원에서 1천81.2원으로 65.5원 올린다고 24일 밝혔다.
+    하이트진로 관계자는 "2015년 11월 가격 인상 이후 원부자재 가격, 제조경비 등 원가 상승요인이 발생했다"면서 "3년여간 누적된 인상요인이 10% 이상 발생했으나, 원가절감 노력 등을 통해 소비자들의 부담을 최소화하는 선에서 인상률을 결정했다"고 말했다.
+
+
+    sungjinpark@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

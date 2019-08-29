@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423151000054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>170347</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7006001" name="경남"/>
+			<RegionCode code="7008001" name="전남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0505004" name="대기환경"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[남해안남중권발전協, 비산먼지 발생사업장 합동점검]]></Title>
+		<Body><![CDATA[남해안남중권발전協, 비산먼지 발생사업장 합동점검
+
+    (여수=연합뉴스) 형민우 기자 = 남해안 발전을 위해 영호남 9개 시군이 참여한 남해안남중권발전협의회(회장 권오봉 여수시장·이하 발전협의회)는 비산먼지 발생사업장을 합동 점검한다고 23일 밝혔다.
+
+    점검에서 미세먼지의 주요 발생 요인인 비산먼지를 사전 차단하는 데 역점을 두고 관련 법규와 안전수칙 준수 여부를 중점 확인할 계획이다.
+    점검 대상은 비산먼지 발생 특별관리 건설공사장과 비산먼지 관련 지속 민원 발생사업장, 최근 2년간 비산먼지 관련 위반사항 적발 사업장 등 45곳이다.
+    점검 결과 주민 생활환경에 큰 영향이 없는 경미한 사항은 현장에서 직접 시정조치를 하고, 고질적이고 불법적인 사항은 개선명령과 과태료 부과, 형사고발 등 관련법에 따라 조치하기로 했다.
+    협의회 관계자는 "최근 미세먼지가 사회재난으로 포함되는 등 국가적 관심이 높아져 비산먼지로 인한 피해를 최소화하는 데 노력하겠다"고 말했다.
+    남해안남중권발전협의회는 전남 여수, 순천, 광양, 보성, 고흥과 경남 진주, 사천, 남해, 하동 등 9개 시·군으로 구성됐다.
+    남해안 경제권 거점 형성과 상생 발전을 위해 2011년 5월 창립했으며 시·군 공무원 인사교류, 생활체육 및 문화교류 등 다양한 사업을 추진하고 있다.
+    minu21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

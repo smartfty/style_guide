@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010004800013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>064505</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Region>
+			<RegionCode code="7201001" name="평양"/>
+		</Region>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+			<ClassCode code="1210006" name="농구"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001074" name="KCNA사진"/>
+			<AttributeCode code="9001121" name="NKNT"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[KN]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[북-중 여자농구 친선경기]]></Title>
+		<Comment>NO-0934</Comment>
+		<Body><![CDATA[북-중 여자농구 친선경기
+    (평양 조선중앙통신=연합뉴스) 9일 북한 평양 류경정주영체육관에서 열린 북한과 중국의 여자농구 친선경기에 선수들이 입장하고 있다. 2018.10.10
+    [국내에서만 사용가능. 재배포 금지. For Use Only in the Republic of Korea. No Redistribution]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101000480001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101000480001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101000480001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

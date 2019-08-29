@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424025100051</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>082846</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="1201002" name="생활체육"/>
+			<ClassCode code="1201001" name="체육일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산 2022년까지 스포츠융복합산업 도시 구축…172억원 투입]]></Title>
+		<Body><![CDATA[부산 2022년까지 스포츠융복합산업 도시 구축…172억원 투입
+   
+
+    
+    (부산=연합뉴스) 김상현 기자 = 부산이 스포츠 융복합산업 거점도시로 거듭난다.
+    부산시는 문화체육관광부와 국민체육진흥공단이 공모한 '2019년 지역 융복합 스포츠산업 거점도시'에 선정돼 2022년까지 국비 100억원을 받는다고 24일 밝혔다.
+    지역 융복합 스포츠산업 거점도시 선정사업은 전통적인 스포츠 분야에 웨어러블 디바이스, 사물인터넷, 빅데이터 등 4차 산업혁명의 핵심 기술을 접목한 스포츠 융복합산업 기술개발을 지원한다.
+    부산시는 2022년까지 국비 100억원을 포함해 모두 172억원을 들여 스마트헬스케어 기술을 융합해 새로운 개념의 스포츠 융복합산업 일자리를 창출할 계획이다.
+    부산테크노파크를 주관기관으로 부산가톨릭대학교, 한국표준과학연구원, 한국건설생활환경시험연구원 등과 함께 산·학·연·관 클러스터를 구축하고, 스포츠 기업이 창업 단계에서부터 글로벌기업 단계까지 성장할 수 있도록 돕는다.
+    시 관계자는 "신기술 중심 혁신성장 포트폴리오를 구축하고 스포츠를 활용한 신성장동력 확보에 최선을 다하겠다"고 말했다.
+    joseph@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>
