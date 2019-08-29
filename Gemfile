@@ -120,6 +120,7 @@ gem 'stateful_enum'
 gem 'guard'
 gem 'guard-rake'
 gem 'guard-shell'
+gem 'guard-remote-sync', '~> 0.1.0'
 
 # gem 'rlayout', :path => "/Users/mskim/Development/ruby/gems/rlayout"  
 
