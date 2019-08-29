@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423020500009</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>081710</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102012" name="베트남"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[베트남 '전쟁영웅' 레 득 아인 前국가주석 98세로 타계]]></Title>
+		<SubTitle><![CDATA[크메르루주에 맞서 군 지휘…1992년 한·베트남 수교 때 주석 재임]]></SubTitle>
+		<Body><![CDATA[베트남 '전쟁영웅' 레 득 아인 前국가주석 98세로 타계
+크메르루주에 맞서 군 지휘…1992년 한·베트남 수교 때 주석 재임
+    
+
+    
+    (서울=연합뉴스) 김승욱 기자 = 베트남의 전쟁영웅인 레 득 아인(黎德英) 전 국가주석이 22일(현지시간) 타계했다.
+    레 전 주석은 이날 오후 8시 10분(현지시간) 98세를 일기로 타계했다고 교도·dpa 통신이 현지 언론을 인용해 보도했다. 
+    1920년 투아티엔후에성 프록현에서 출생한 레 전 주석은 1945년 군에 입대해 4번의 큰 전쟁을 치른 전쟁 영웅 출신으로 국가수반의 자리에 오른 인물이다.
+    그는 캄보디아에서 '킬링 필드' 대학살을 일으킨 크메르루주에 맞서 베트남군을 지휘했으며, 1987년부터 1991년까지 국방부 장관을 역임했다.
+    이후 1992년 9월 베트남 4대 국가주석에 올랐고, 그해 12월 한국은 베트남과 공식 수교 관계를 맺었다.
+    그는 재임 기간 중국과의 관계를 정상화하기 위해서 노력했으나, 뇌졸중으로 쓰러진 후 1997년 6월 주석직에서 물러났다.
+    그는 전통적인 마르크스-레닌주의 옹호자로서 경제 개혁정책에 저항했다는 평가를 받고 있다.
+    kind3@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

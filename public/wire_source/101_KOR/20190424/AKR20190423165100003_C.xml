@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423165100003</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>060002</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0204001" name="부동일반"/>
+			<ClassCode code="0204002" name="부동거래"/>
+			<ClassCode code="0204004" name="분양임대"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울 아파트 입주 '기지개'…5∼7월 7천696가구]]></Title>
+		<SubTitle><![CDATA[전국 5∼7월 10만4천998가구 입주…5년간 평균보다 17%↑  ]]></SubTitle>
+		<Body><![CDATA[서울 아파트 입주 '기지개'…5∼7월 7천696가구
+전국 5∼7월 10만4천998가구 입주…5년간 평균보다 17%↑  
+
+    (세종=연합뉴스) 신호경 기자 = 올해 들어 5월까지 거의 나오지 않았던 서울 아파트 입주 물량이 6월 다소 풀릴 예정이다. 
+    24일 국토교통부에 따르면 올해 5∼7월 전국 입주 예정 아파트(민간·공공)는 10만4천998가구로 집계됐다. 작년 기간(11만3천가구)보다 6.9% 적지만, 5년 평균(9만가구)과 비교하면 16.9% 늘었다.
+    서울만 보면 지난해 동기대비 22% 적은 7천696가구, 수도권 전체로는 2.9% 감소한 5만5천526가구가 입주를 앞두고 있다.
+    5월 서울 입주 예정 아파트는 중랑구 상봉동 베스트원(114가구) 뿐이지만, 6월에는 강동구 명일동 래미안 명일역 솔베뉴(1천900가구)와 관악구 봉천동 e편한세상 서울대입구(1천531가구) 등에서 7건의 민간 아파트와 1건의 공공 아파트 입주가 이뤄진다. 그러나 7월 다시 공공주택을 제외한 서울 민간 아파트 입주 물량은 끊어질 예정이다.
+    수도권의 경우 수원시 영통구 하동 수원 광교 중흥S-클래스(5월, 2천231가구), 평택 소사2지구 효성해링턴 플레이스 A2(6월, 2천530가구) 등의 입주 규모가 상대적으로 큰 편이다. 
+    이외 지역에서도 청주시 흥덕구 옥산면 가락2지구 흥덕 파크자이 A블록(7월, 2천529가구) 등의 입주가 진행된다.
+
+
+    shk999@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

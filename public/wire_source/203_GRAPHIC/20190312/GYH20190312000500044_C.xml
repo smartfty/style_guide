@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190312000500044</ContentID>
+		<SendDate>20190312</SendDate>
+		<SendTime>101930</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0204001" name="부동일반"/>
+			<ClassCode code="0204005" name="부동정책"/>
+			<ClassCode code="0204002" name="부동거래"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+		<Writer><![CDATA[김토일]]></Writer>
+		<Desk code="044"><![CDATA[그래픽뉴스팀]]></Desk>
+	</Metadata>
+	<NewsContent>
+		<LangType>KR</LangType>
+		<Title><![CDATA[[그래픽] 자가소유자일수록 "집값 떨어진다" 전망]]></Title>
+		<Body><![CDATA[[그래픽] 자가소유자일수록 "집값 떨어진다" 전망
+
+    (서울=연합뉴스) 김토일 기자 = 지난달 한국은행의 '주택가격전망 소비자동향지수(CSI)'가 2013년 통계 조사 이후 역대 최저를 기록한 가운데 자가 보유자이고, 소득이 높을수록 앞으로 집값 하락 가능성을 크게 보는 것으로 나타났다.
+    kmtoil@yna.co.kr
+    페이스북 tuney.kr/LeYN1 트위터 @yonhap_graphics
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019031200050004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019031200050004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019031200050004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

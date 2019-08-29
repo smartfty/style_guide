@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423083500030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140331</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7009013" name="전주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0901004" name="생명공학"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[농촌진흥청, 유전자 정보 활용 국제 워크숍]]></Title>
+		<Body><![CDATA[농촌진흥청, 유전자 정보 활용 국제 워크숍
+
+    (서울=연합뉴스) 박성진 기자 = 농촌진흥청은 24일 전주시 본청에서 유전체 정보의 활발한 활용을 촉진하기 위한 '2019 포스트게놈 다부처유전체사업 유전체 해독 및 활용 국제 워크숍'을 연다고 23일 밝혔다.
+    이 워크숍에는 국내외 유전체 전문가 100여 명이 참석해 포스트게놈 다부처유전체사업 추진 경과와 계획을 논의할 예정이다.
+    포스트게놈 유전체 연구는 식물, 동물, 미생물이 갖는 다양한 유용물질과 기능을 유전자(DNA) 수준에서 분석하는 것으로, 새 품종 육종과 바이오의약 등에 활용해 고부가가치를 창출할 수 있 있는 분야다.
+    워크숍에는 또 벼와 고추 유전체 육종 연구 현황, 국화 유전체 해독 현황 등도 발표된다.
+
+
+    sungjinpark@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

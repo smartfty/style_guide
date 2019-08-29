@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190423001200044</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>164357</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0605008" name="사기"/>
+			<ClassCode code="0507001" name="의료일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[그래픽] 작년 보험사기 사상최대]]></Title>
+		<Body><![CDATA[[그래픽] 작년 보험사기 사상최대
+
+    (서울=연합뉴스) 김영은 기자 = 금융감독원은 보험사기 적발 금액이 지난해만 7천982억원으로, 한 해 전(7천302억원)보다 9%가량 늘었다고 23일 밝혔다. 보험사기 적발 금액은 매년 늘어 역대 최고금액을 매번 경신하는 추세다.
+    0eun@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019042300120004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019042300120004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019042300120004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

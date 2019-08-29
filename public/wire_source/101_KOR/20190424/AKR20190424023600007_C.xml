@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424023600007</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>081349</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210020" name="해외축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['황희찬 교체 출전' 함부르크, 라이프치히에 져 포칼 결승 좌절]]></Title>
+		<SubTitle><![CDATA[허벅지 부상 털고 20일 복귀 후 2경기 연속 출전]]></SubTitle>
+		<Body><![CDATA['황희찬 교체 출전' 함부르크, 라이프치히에 져 포칼 결승 좌절
+허벅지 부상 털고 20일 복귀 후 2경기 연속 출전
+
+
+    
+    (서울=연합뉴스) 박재현 기자 = 독일 프로축구 2부 분데스리가 함부르크의 공격수 황희찬이 부상 복귀 후 2경기 연속 출전했다.
+    황희찬은 24일(한국시간) 독일 함부르크의 폴크스파크슈타디온에서 열린 라이프치히와의 2018-2019 독일축구협회(DFB) 포칼(독일 컵대회) 준결승에서 후반 24분 교체로 그라운드를 밟았다.
+    1-2로 뒤진 상황에서 함부르크는 황희찬을 '조커'로 투입해 반전을 노렸지만, 한 골을 더 실점해 1-3으로 졌다.
+    1986-87시즌 이후 32년 만에 결승행을 노리던 함부르크는 결승 문턱에서 무릎을 꿇었다.
+    허벅지 부상으로 한동안 결장하던 황희찬은 지난 20일 에르츠게비르게전에서 46일 만에 복귀한 이후 2경기 연속으로 경기에 출전했다.
+    경기 초반 유수프 포울젠에게 한골을 내준 함부르크는 바케리 야타의 동점 골로 1-1을 만든 후 전반을 마쳤다.
+    함부르크는 바실리예 야니치치의 자책골로 다시 리드를 내줬고, 에밀 포르스베리에게 추가 골을 허용해 패배했다.
+    결승에 오른 라이프치히는 브레멘-바이에른 뮌헨의 승자와 맞붙는다. 
+    trauma@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190423105100013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>090007</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0505004" name="대기환경"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[노후 경유차·건설기계 조기폐차 등에 미세먼지 대응 추경 지원]]></Title>
+		<Comment>NO-1587</Comment>
+		<Body><![CDATA[노후 경유차·건설기계 조기폐차 등에 미세먼지 대응 추경 지원
+    (세종=연합뉴스) 진성철 기자 = 박광석 환경부 기획조정실장이 23일 세종시 정부세종청사 환경부에서 노후 경유차 및 건설기계의 조기폐차, 저공해조치 사업 지원 등 정부의 미세먼지 대응 추경예산안 중 환경부 추경안 편성에 관해 설명하고 있다.  2019.4.24
+    zjin@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042310510001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042310510001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042310510001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

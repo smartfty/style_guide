@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423017951002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>074417</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0201001" name="경제일반"/>
+			<ClassCode code="0401001" name="산업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[홍남기 "채권단, 아시아나항공에 1조6천억원 투입"(2보)]]></Title>
+		<SubTitle><![CDATA[영구채 매입 5천억원, 신용한도 8천억원 등 투입
+산업경쟁력 관계장관회의 모두발언]]></SubTitle>
+		<Body><![CDATA[홍남기 "채권단, 아시아나항공에 1조6천억원 투입"(2보)
+영구채 매입 5천억원, 신용한도 8천억원 등 투입
+산업경쟁력 관계장관회의 모두발언
+
+    (서울=연합뉴스) 이 율 정수연 기자 = 홍남기 부총리 겸 기획재정부 장관은 23일 "산업은행 등 채권단은 아시아나항공에 영구채 매입 5천억원, 신용한도 8천억원 등 총 1조6천억원을 투입해 자본을 확충하고 유동성 문제를 해소할 계획"이라고 말했다.
+    홍 부총리는 이날 정부서울청사에서 주재한 산업경쟁력 강화 관계장관회의 모두발언에서 "채권단은 아시아나항공의 영업상황이 양호하고 대주주가 인수합병(M&A) 동의를 포함한 신뢰할만한 자구안을 제출한 점을 고려해 이같이 결정했다"고 밝혔다.
+    홍 부총리는 "아시아나항공도 수익성 낮은 노선의 폐쇄 등 경영개선 노력과 함께 올해 내 계약 체결을 목표로 M&A도 병행 추진할 계획"이라고 강조했다.
+    그는 "이번 사태의 핵심은 신뢰"라면서 "감사의견 논란에 따른 신뢰 훼손이 사태의 시작이었고, 신뢰할 만한 자구안 마련이 문제해결의 기초를 제공했다"고 덧붙였다.
+    yulsid@yna.co.kr 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

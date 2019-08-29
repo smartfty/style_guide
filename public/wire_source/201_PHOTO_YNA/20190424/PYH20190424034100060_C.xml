@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424034100060</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>095427</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005003" name="고양"/>
+		</Region>
+		<Class>
+			<ClassCode code="0205001" name="고용취업"/>
+			<ClassCode code="0201020" name="노동정책"/>
+			<ClassCode code="0504008" name="청년복지"/>
+			<ClassCode code="0901014" name="로봇AI"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[고양시, 내달 16일 '청년 드림 JOB콘서트' 개최]]></Title>
+		<Comment>NO-2040</Comment>
+		<Body><![CDATA[고양시, 내달 16일 '청년 드림 JOB콘서트' 개최
+    (서울=연합뉴스) 경기도 고양시가 내달 16일 킨텍스 제2전시장에서 제12회 청년 일자리 박람회 '청년 드림 JOB콘서트'를 연다고 24일 밝혔다. 2019.4.24 [고양시 제공]
+
+    (고양=연합뉴스) 노승혁 기자 = 
+    이번 박람회는 일자리 이슈와 진로 트렌드를 주제로 진행된다.
+
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042403410006000.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042403410006000_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042403410006000_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

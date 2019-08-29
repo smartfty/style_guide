@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010053000013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>104529</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0109009" name="군수무기"/>
+			<ClassCode code="0401002" name="산업전시"/>
+			<ClassCode code="0901014" name="로봇AI"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[현대로템, 로봇박람회 '2018 로보월드' 참가]]></Title>
+		<Comment>NO-1830</Comment>
+		<Body><![CDATA[현대로템, 로봇박람회 '2018 로보월드' 참가
+    (서울=연합뉴스) 현대로템이 오는 13일까지 킨텍스에서 열리는 로봇박람회 '2018 로보월드'에 참가한다고 10일 전했다. 
+    현대로템은 이번 박람회에서 웨어러블 및 이동 로봇을 선보인다. 사진은 박람회 내 현대로템 전시관 모습. 2018.10.10 [현대로템 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101005300001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101005300001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101005300001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

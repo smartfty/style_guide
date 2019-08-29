@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010026600013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>120030</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0109004" name="해군"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[2018 해군 국제관함식 해상사열 리허설]]></Title>
+		<Comment>NO-2324</Comment>
+		<Body><![CDATA[2018 해군 국제관함식 해상사열 리허설
+    (서울=연합뉴스) 지난 9일 제주 인근 해상에서 열린 2018 해군 국제관함식 해상사열 리허설에서 국민시승함인 천자봉함(LST-687)에 시승한 시민들이 리허설을 지켜보고 있다. 
+오른쪽 앞은 일출봉함(LST-688), 마주오는 방향으로 앞에서부터 대조영함(DDH-977), 광개토대왕함(DDH-971), 대구함(FFG-818), 소양함(AOE-51), 천왕봉함(LST-686). 2018.10.10 [해군 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101002660001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101002660001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101002660001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

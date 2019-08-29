@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423069000051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110341</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503011" name="교육행정"/>
+			<ClassCode code="0901001" name="IT"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[사물인터넷 교과서 나온다…부산교육청, 고교용으로 개발]]></Title>
+		<SubTitle><![CDATA[교재 개발 후 내년부터 고교 진로선택 과목 개설 방침]]></SubTitle>
+		<Body><![CDATA[사물인터넷 교과서 나온다…부산교육청, 고교용으로 개발
+교재 개발 후 내년부터 고교 진로선택 과목 개설 방침
+
+
+    (부산=연합뉴스) 조정호 기자 = 부산시교육청은 4차 산업혁명 시대를 맞아 고등학교용 사물인터넷(Internet of Things, IoT) 교과서를 전국 최초로 개발한다고 23일 밝혔다.
+    시교육청은 이 교과서를 개발하기 위해 부산대학교 사물인터넷연구센터장인 김호원 교수를 연구 책임자로 선임하고 교수 10명, 교사, 연구원 등으로 집필진을 구성했다.
+    집필진은 12월까지 사물인터넷 개념과 사례, 하드웨어와 소프트웨어 실습 등을 담은 교과서를 개발한다.
+    시교육청은 학생이 이 교과서를 활용해 사물인터넷 개념을 이해하고 쉽게 적용할 수 있도록 내년부터 '사물인터넷 교과'를 고등학교 진로선택 과목으로 개설한다.
+    ccho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

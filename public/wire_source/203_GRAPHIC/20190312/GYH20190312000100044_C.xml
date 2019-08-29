@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>GYH0</ServiceType>
+		<ContentID>GYH20190312000100044</ContentID>
+		<SendDate>20190312</SendDate>
+		<SendTime>083724</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0103001" name="국회일반"/>
+			<ClassCode code="0104001" name="정당일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001027" name="그래픽"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+		<Writer><![CDATA[장예진]]></Writer>
+		<Desk code="044"><![CDATA[그래픽뉴스팀]]></Desk>
+	</Metadata>
+	<NewsContent>
+		<LangType>KR</LangType>
+		<Title><![CDATA[[그래픽] 서울 1인당 생활권 도시림 면적 4.38㎡로 전국 꼴찌]]></Title>
+		<Body><![CDATA[[그래픽] 서울 1인당 생활권 도시림 면적 4.38㎡로 전국 꼴찌
+
+    (서울=연합뉴스) 장예진 기자 = 12일 더불어민주당 김병욱 의원이 산림청으로부터 제출받은 2017년 말 기준 전국의 생활권 도시림 현황 통계에 따르면, 서울의 1인당 생활권 도시림 면적은 4.38㎡로 전국 17개 시·도 가운데 최하위였다.
+    jin34@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="application/postscript" type="AI" desc="pt">GYH2019031200010004400.ai</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">GYH2019031200010004400_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">GYH2019031200010004400_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

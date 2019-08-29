@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423110400054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>143027</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503004" name="중등교육"/>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0503011" name="교육행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광주 특성화고, 학생 시식·투표로 김치 납품업체 선정 눈길]]></Title>
+		<Body><![CDATA[광주 특성화고, 학생 시식·투표로 김치 납품업체 선정 눈길
+
+
+    (광주=연합뉴스) 손상원 기자 = 광주 고교생들이 직접 맛을 보고 급식용 김치 납품업체를 선정하는 광경이 눈길을 끌었다.
+    23일 광주 자동화 설비 공업고등학교에 따르면 지난 22일 이 학교 식생활교육관에서는 김치 '인기투표'가 벌어졌다.
+    학생 240명과 교직원 전체가 참여해 알파벳 A에서 I까지 1글자씩 부여된 9개 배추김치를 맛보고 가장 맛있는 김치의 글자를 적어 투표함에 넣는 방식이었다.
+    최다 득표한 2개 김치는 6개월씩 학교에 납품된다.
+    학교 측은 업체 선정에 학생들의 입맛을 반영하려고 광주시교육청이 현장 평가를 거쳐 제시한 9개 업체를 대상으로 현장 투표를 했다.
+    급식 업체 선정 과정에서 교직원, 학부모 등의 의견 반영이 점차 활발해지는 추세지만 학생들이 직접 투표로 결정하는 사례는 흔치 않다.
+    이윤서(1학년) 학생은 "중요 관심사인 학교 급식에 학생들의 의사를 적극적으로 반영하기로 한 학교의 결정에 반응이 좋다"고 말했다.
+    안규완 교장은 "학생, 교직원, 학부모 모두가 학교의 주인인 만큼 현안을 함께 논의해 실천하고, 결과에 책임지는 풍토를 조성하고 싶다"며 "앞으로도 학생들의 학교생활과 밀접한 의사 결정에는 학생들의 참여를 확대하겠다"고 말했다.
+    sangwon700@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424023000057</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>080550</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0505007" name="식물"/>
+			<ClassCode code="0505008" name="외래종"/>
+			<ClassCode code="0505006" name="동물"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울산시, 태화강 생태계 교란 동·식물 퇴치 전개]]></Title>
+		<Body><![CDATA[울산시, 태화강 생태계 교란 동·식물 퇴치 전개
+
+
+    (울산=연합뉴스) 허광무 기자 = 울산시는 오는 9월 말까지 태화강에서 생태계를 교란하는 유해 동·식물 퇴치사업을 벌인다고 24일 밝혔다.
+    시는 기간제 근로자들을 동원해 강 둔치와 호안에 서식하는 가시박과 환삼덩굴을 제거할 예정이다.
+    번식을 시작하면 제거가 쉽지 않기 때문에 새싹이 돋아나는 봄철에 뿌리째 뽑는 방식으로 제거하기로 했다.
+    한해살이 덩굴식물인 이들은 갈대 등 다른 식물의 생육을 방해하고, 왕성한 번식력으로 나무들까지 고사시키는 생태계 교란종이다.
+    시는 또 외래어종인 큰입배스 산란 철을 맞아 태화강 삼호섬 주변 모래층에 인공산란장을 설치, 6월 말까지 산란장에 산란한 알을 제거할 계획이다.
+    시는 지난해 4t의 유해식물과 59만개의 큰입배스 알을 제거했다.
+    시 관계자는 "유해 동·식물은 고유종이 자라는 것을 방해하고 생물 다양성을 위협하므로 제거 사업을 지속해서 추진할 것"이라고 밝혔다.
+    hkm@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

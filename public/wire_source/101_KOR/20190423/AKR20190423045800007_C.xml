@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423045800007</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>094730</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210004" name="축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[K리그, 장애인의 날 맞아 사랑 나눔 봉사활동]]></Title>
+		<Body><![CDATA[K리그, 장애인의 날 맞아 사랑 나눔 봉사활동
+
+
+    (서울=연합뉴스) 박재현 기자 = 프로축구연맹은 K리그 선수, 심판, 임직원 등 리그 구성원들이 장애인의 날을 맞아 22일 발달장애인 지역사회재활기관인 충현복지관을 방문해 사랑 나눔 봉사활동을 실시했다고 23일 밝혔다.
+    연맹은 장애인 축구 참여 환경 조성과 장애인·비장애인이 한 팀이 되어 경기를 펼치는 '통합축구' 확산을 목표로 이번 봉사를 진행했다고 전했다.
+    K리그 레전드인 최진철, 조재진 등과 현역 심판 3명은 발달장애인을 대상으로 축구클리닉을 진행하고, 장애인들과 한 팀을 이뤄 통합축구 경기를 했다. 
+    trauma@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

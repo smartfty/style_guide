@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010110200053</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>124358</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7007014" name="영덕"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[태풍으로 초토화]]></Title>
+		<Comment>NO-2531</Comment>
+		<Body><![CDATA[태풍으로 초토화
+    (영덕=연합뉴스) 김준범 기자 = 10일 오전 경북 영덕군 강구면 강구시장 한 마트가 태풍 '콩레이' 영향으로 피해를 당한 체 도움의 손길을 기다리고 있다. 2018.10.10
+    psykims@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101011020005300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101011020005300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101011020005300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

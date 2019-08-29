@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423149500009</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>170716</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001065" name="PRN"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[AP]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[PRNewswire] CapBridge 1exchange Is World's First Private Securities Exchange]]></Title>
+		<SubTitle><![CDATA[To Leverage Public Ethereum Blockchain And Catalyse Global Liquidity]]></SubTitle>
+		<Body><![CDATA[[PRNewswire] CapBridge 1exchange Is World's First Private Securities Exchange
+To Leverage Public Ethereum Blockchain And Catalyse Global Liquidity
+
+    -- Use of Public Blockchain Will Create Potential Global Liquidity Pool
+    -- Singapore-based and fully-regulated private securities exchange CapBridge 1exchange will deploy DLT for the trading of private company shares listed on its platform
+    -- The private exchange, with its partners ConsenSys and Equiom, will use the public Ethereum Mainnet to empower investors to directly monitor share ownership in real time
+    -- CapBridge 1exchange is set to work with other DLT-based exchanges to catalyse global liquidity on regulated securities market places and exchanges
+    -- First batch of issuers are currently preparing to list on CapBridge 1exchange and are expected to benefit from trading on the distributed ledger
+
+    (SINGAPORE, April 23, 2019 PRNewswire=연합뉴스) CapBridge 1exchange ("1exchange" or "1X"), Singapore's first regulated private securities exchange, announced today that it will be using blockchain, or Distributed Ledger Technology (DLT), to register and track the shareholdings of investors who trade in private securities listed on its platform. This initiative is developed in partnership with blockchain technology leader ConsenSys and will be implemented together with trust administrator Equiom Trust Services Pte. Ltd. ("Equiom"). 
+
+    Choo Haiping, CEO of 1exchange, said, "With DLT-enabled shareholding registration, investors on the 1X platform can independently verify and validate their shareholdings in real time without the manual process of going through an exchange or a trust administrator. The immutable nature of DLT provides the assurance of accuracy in recording and verifying both investor identity and the associated shareholdings."
+
+    1exchange is one of the first regulated private securities exchanges in leading financial centre Singapore. It holds a Recognised Market Operator license granted by the Monetary Authority of Singapore.
+
+    The Ethereum mainnet has been selected as the distributed ledger for 1exchange, as it is the most mature blockchain network with thousands of nodes and over 60 million users. 
+
+    Joseph Lubin, founder of ConsenSys and co-creator of Ethereum, said, "Ethereum is the largest open-source public blockchain network with over 400,000 developers and researchers actively improving its capabilities, and ensuring uniform standards and universal interoperability. The Ethereum project is second to none when it comes to maximising all aspects of decentralization, which is the source of the rigorous trust characteristic that 1X relies on. Deployment of 1X on public Ethereum will increase visibility, lower the cost of compliance, drastically reduce the possibility of improper manipulation of the system of record and create positive growth for the private securities industry."
+
+    Lynn Pang, Resident Manager of Equiom Trust Services Pte. Ltd., said, "DLT enables trustees such as us to maintain a digital register in an accurate and efficient environment. In addition, investors are empowered to independently verify the transactions and their holdings in the public Ethereum network for added assurance. This creates a win-win situation for the trustee and the investors."
+
+    Mr Choo added, "The DLT architecture further adds to the robust and efficient 1X infrastructure -- providing a trusted environment for market participants to trade with assurance. We believe the enhanced level of trust that 1X offers will provide greater comfort to investors and encourage more demand for private securities listed on 1X. With the assurance of an independent and immutable distributed ledger that sits on top of a MAS-regulated exchange, investors can confidently pursue returns from private equities listed on 1X."
+
+    How 1exchange Will Use DLT To Improve Tracking of Share Ownership 
+
+    By creating digital representations and registering these private securities via "smart contracts" on the public Ethereum network, a trustee can maintain an online ledger. This online ledger will contain a record of all share transactions on the 1X platform.
+
+    All transactions will be recorded immutably on the distributed ledger. Once ownership data is registered in the "smart contracts" on the public Ethereum network, the data cannot be changed or deleted. This provides investors with comprehensive, accurate, irreversible, and permanent records. 
+
+    Through DLT, shareholding information on 1exchange will be more visible and more readily available, resulting in an immutable and distributed shareholding registry for all users of 1exchange. 
+
+    1exchange Set To Connect to the Global Liquidity Pool 
+
+    Built on the global public Ethereum network that has been designed with uniform standards and universal interoperability in mind, 1exchange can potentially easily interconnect with other DLT-based exchanges. This interconnectivity offers investors on 1exchange a more streamlined user experience, while enabling users of DLT-based exchanges the opportunity to diversify their portfolio exposure by investing in regulated private securities listed on 1exchange. With regulated and robust interconnectivity among exchanges, all participants will benefit from a common and enlarged global liquidity pool. 
+
+    In time, investors can register with designated trustees through 1exchange and thereafter track their transactions and ownership directly and accurately.
+
+    With the potential ability to track different asset types across different exchanges in a single interface within a single environment, investors on 1exchange will enjoy improved ease of use, as well as an additional layer of comfort and visibility in their investment activities.
+
+    For exchanges serving users who are holding other types of assets, interconnecting with 1exchange will enable their users to access and participate in a new and regulated asset class of private securities in a compliant manner, leveraging highly familiar blockchain protocols while creating positive network effects. 
+
+    With the public Ethereum network, regulated securities and other exchanges around the world will potentially be able to work with 1exchange to catalyse global liquidity for the private securities space. 
+
+    1exchange is also open to collaborating with business corporates that have exchanges with a similar architecture, and together tap on the global liquidity pool within the allowed regulatory framework.
+
+    First batch of private securities set for listing 
+
+    With global private capital platform CapBridge and private securities trading facility 1exchange, private growth companies now have a more flexible and cost-effective avenue to raise capital and achieve partial liquidity. Individual private investors can also easily access institutional grade private equity opportunities through the CapBridge and 1exchange platforms. 
+
+    Over the next few months, 1exchange will be introducing its first set of listed private securities issued by growth companies. These companies are also set to benefit from the advantages offered by being represented on the distributed ledger. 
+
+    In the near future, 1exchange will explore the deployment of "smart contracts" with embedded functions that support compliance and corporate actions, such as incorporating Know-Your-Client status, as well as enabling automated dividend issuance. 
+
+    These innovative features can further reduce the need for manual processes and lower the overall risk of human errors. Such functions will only be deployed when fully tested and in consultation with regulators.
+
+    For companies and investors queries, please contact:
+    contact@capbridge.sg
+
+    For media queries, please contact:
+    media@capbridge.sg
+
+    About CapBridge 1exchange
+
+    CapBridge 1exchange ("1X") is a regulated private securities exchange that provides investors with a unique trading platform to buy and sell private securities in a regulated, centralized and transparent manner.
+
+    1X provides an easier and more flexible way to unlock shareholder value and recycle capital for private companies. 1X is designed for private operating companies seeking capital, or preparing for liquidity events; late-state, venture-backed companies with shareholder and employees seeking to monetise their shareholdings; and family owned businesses seeking to diversify shareholder base or planning for management transitions. Our platform allows for professional investors and business owners to trade in and out of their positions, and to achieve partial liquidity.
+
+    1X has a Recognised Market Operator License under CapBridge Platform Pte Ltd, and is regulated by the Monetary Authority of Singapore. Singapore Exchange (SGX) is a strategic partner and shareholder. 1X is an associate company of CapBridge, the global investment syndication platform for private opportunities. For more information on 1X, visit www.1x.exchange
+
+    About CapBridge Pte Ltd
+
+    CapBridge is a global investment syndication platform for private opportunities. The CapBridge co-investment syndication platform serves mid-to-late stage growth companies and the funds that focus on them. Our co-investment model is built with investors in mind. We first bring opportunities to lead investors, who leverage their specific industry knowledge to conduct due diligence, negotiate value adding investment structures, and manage their portfolio positions to the desired exit.
+
+    We then open up the same opportunities to co-investors as they leverage on the lead investors' expertise in specific industry fields and diligence work. Co-investors sign with the same terms as the lead investors and realize better risk-adjusted returns and a more likely exit. Companies benefit from working with lead investors who understand their sector well and can directly value-add, as well as broadening the shareholder base with co-investors who can add network connectivity and assist towards a more successful listing further down the road.
+
+    The co-investment process is conducted electronically on our intelligent platform, which works ceaselessly to match deals with investors and facilitate the deal process.
+
+    CapBridge has a Capital Markets Services License and is regulated by the Monetary Authority of Singapore. Singapore Exchange (SGX) is a strategic partner and shareholder. For more information on the CapBridge co-investment platform, visit www.capbridge.sg
+
+    About ConsenSys
+
+    ConsenSys is transforming our present digital architecture toward a more open, inclusive, and secure internet of value, commonly called Web3. With a more trustworthy internet architecture, we are helping individuals, enterprises, and governments unlock new business models and value, gain efficiencies through a shared IT infrastructure, and utilize cutting-edge cryptographic methods to safeguard private user data. We accomplish this through our unique global business developing the Ethereum blockchain, comprised of a startup incubator [https://consensys.net/labs ], Enterprise Ethereum consulting arm [https://consensys.net/enterprise-ethereum/ ], and investment fund [https://consensys.vc/ ].
+
+    For more information, please visit www.consensys.net
+
+    About Equiom
+
+    Equiom is a well-established, international professional services provider offering a range of innovative and effective business partnering solutions. We are a truly global business with a strong presence across Europe, Asia, the Middle East and the Americas, headquartered in the Isle of Man. We support international corporations and high-net-worth individuals around the world with their fiduciary and related support-service needs. Our specialist services include Corporate, Trust, Property, Private Client, Family Office, Yachting and Aviation, Crewing, Shipping, eBusiness, Managed Accounting and Tax and VAT.
+
+    As an independent, management-owned business, we focus on strategic thinking, flawless administration and efficient responses to our clients' requirements. We help incorporate and administer company and foundation structures on behalf of a wide range of corporate clients - and ultimately protect their interests.
+
+    For more information, please visit www.equiomgroup.com
+
+    Source: CapBridge Pte Ltd
+
+    [편집자 주] 본고는 자료 제공사에서 제공한 것으로, 연합뉴스는 내용에 대해 어떠한 편집도 하지 않았음을 밝혀 드립니다.
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

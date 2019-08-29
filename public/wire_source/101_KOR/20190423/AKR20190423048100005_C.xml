@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423048100005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>095712</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0901010" name="모바일"/>
+			<ClassCode code="0901013" name="ARVR"/>
+			<ClassCode code="0901014" name="로봇AI"/>
+			<ClassCode code="0704003" name="방송사"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[EBS, KT-지니뮤직과 5G용 오디오 콘텐츠 제작]]></Title>
+		<Body><![CDATA[EBS, KT-지니뮤직과 5G용 오디오 콘텐츠 제작
+
+
+    (서울=연합뉴스) 이정현 기자 = EBS(사장 김명중)는 KT(회장 황창규), 지니뮤직(대표이사 조훈)과 5G용 오디오 콘텐츠 제작을 위한 업무 협약을 체결했다고 23일 밝혔다. 
+    협약에 따라 EBS·KT·지니뮤직은 5G용 디바이스에서 서비스할 다양한 오디오 콘텐츠를 공동 제작한다. KT는 관련 기술제공과 함께 KT의 폭넓은 유통망을 활용한 콘텐츠 유통을, EBS는 제작·방송을, 지니뮤직은 기획·운영을 맡는다.
+    3사는 AR(증강현실)·VR(가상현실) 서비스를 위한 체감형 멀티미디어 콘텐츠와 5G 시대에 킬러 서비스가 될 AI(인공지능) 스피커, 자율주행차량 등에 최적화된 오디오 콘텐츠를 제작하는 작업도 협력하기로 했다.
+    lisa@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

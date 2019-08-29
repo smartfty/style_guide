@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423135300054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>160437</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0803001" name="여행"/>
+			<ClassCode code="0411002" name="관광"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[곡성 자전거 투어에 동호인 200여명 전용열차 타고 참가]]></Title>
+		<Body><![CDATA[곡성 자전거 투어에 동호인 200여명 전용열차 타고 참가
+
+
+    (곡성=연합뉴스) 박철홍 기자 = 전남 곡성군은 철쭉이 붉게 핀 섬진강변을 달리기 위해 자전거 동호인들이 대거 지역을 찾았다고 23일 밝혔다.
+    전국 자전거 동호인 200여명이 지난 20~21일 코레일의 자전거 전용열차인 에코레일을 이용해 '2019 곡성 자전거 투어' 행사에 참석했다.
+    이 투어는 첫날은 곡성역을 출발해 섬진강 자전거길을 따라 청계동길과 향가유원지를 지나 섬진강기차마을로 되돌아오는 총 50Km 코스다. 
+    이틀날은 섬진강기차마을을 출발해 압록유원지와 대황강변 자전거도로를 거쳐 도림사를 경유하는 총 65Km를 달렸다.
+    곡성을 방문한 자전거 투어단은 섬진강기차마을, 압록유원지, 대황강 출렁다리 등 곡성 주요 관광지도 방문해 곡성의 봄을 만끽했다. 
+    이들이 지역 숙박업소 및 음식점 등을 두루 이용하면서 상가들도 모처럼 활기를 띠었다. 
+    곡성군 관계자는 "해마다 철쭉 절정기인 4월에 에코레일과 연계해 자전거 여행을 운영할 예정이다"며 "동호회가 아니라도 4월 말부터 5월 초까지 개별적으로 곡성 섬진강 자전거도로를 찾는다면 붉은 철쭉 길을 마음껏 감상할 수 있다"고 말했다. 
+    pch80@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

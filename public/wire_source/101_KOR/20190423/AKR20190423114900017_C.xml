@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423114900017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>145816</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901011" name="인터넷"/>
+			<ClassCode code="0901009" name="게임"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[카카오게임즈 '도라에몽 모바일' 개발…日라인과 맞손]]></Title>
+		<Body><![CDATA[카카오게임즈 '도라에몽 모바일' 개발…日라인과 맞손
+
+    (서울=연합뉴스) 홍지인 기자 = 카카오게임즈는 일본 라인 게임이 현지에서 서비스할 예정인 '도라에몽 모바일' 게임을 개발한다고 23일 밝혔다. 
+    1970년 처음 등장한 만화 캐릭터 도라에몽은 지금까지 1천개가 넘는 에피소드에 관련 작품 누적 판매량이 1억7천만 부를 넘는 등 일본을 대표하는 캐릭터 중 하나다.
+    카카오게임즈는 이번 도라에몽 게임 개발과 관련해 네이버 일본 자회사인 라인과 협력 관계를 맺었다. 
+    권미진 카카오게임즈 프렌즈게임사업본부장은 "국내 게임사 최초로 일본의 국민 캐릭터인 도라에몽을 활용한 모바일 게임 개발에 참여하게 됐다"며 "양사의 강점을 최대한 활용해 개성 있는 게임을 선보일 것"이라고 말했다.
+
+    ljungberg@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

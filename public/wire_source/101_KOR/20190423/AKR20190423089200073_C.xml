@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423089200073</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>130416</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102024" name="일본"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+			<ClassCode code="0108001" name="외교일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[日, 한국에 후쿠시마 등 8개현 수산물 수입재개 요청]]></Title>
+		<Body><![CDATA[日, 한국에 후쿠시마 등 8개현 수산물 수입재개 요청
+
+    (도쿄=연합뉴스) 박세진 특파원 = 일본이 23일 한국 정부가 후쿠시마현 등 8개현의 수산물 수입을 금지하고 있는 것에 대해 금지 조치의 완화 및 철폐를 요청했다.
+    가나스기 겐지(金杉憲治) 일본 외무성 아시아대양주국장은 이날 도쿄에서 김용길 한국 외교부 동북아시아국장과 진행한 양자 협의에서 이 같은 입장을 전달했다고 교도통신이 보도했다.
+    세계무역기구(WTO) 상소기구는 지난 11일(현지시간) 일본이 제기한 한국 정부의 후쿠시마 수산물 수입금지 관련 제소 사건에서 1심 격인 분쟁해결기구(DSB) 패널의 판정을 뒤집고 한국의 처분이 타당하다고 판정했다. 
+    한국 정부는 2011년의 동일본대지진 당시 원전 폭발로 피해를 본 후쿠시마를 포함한 인근 8개 현 앞바다에서 잡힌 28개 어종의 수산물에 대해 방사능 오염 가능성을 우려해 2013년 9월부터 수입을 금지하고 있다.
+
+
+    parksj@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

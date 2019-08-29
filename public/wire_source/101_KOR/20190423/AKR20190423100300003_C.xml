@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423100300003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140609</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7102012" name="베트남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0404001" name="건설일반"/>
+			<ClassCode code="0405001" name="중공일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[현대엘리베이터, 베트남 2위 건설사 호아빈과 지분참여 제휴]]></Title>
+		<Body><![CDATA[현대엘리베이터, 베트남 2위 건설사 호아빈과 지분참여 제휴
+
+    (서울=연합뉴스) 최재서 기자 = 현대엘리베이터는 베트남 2위 건설사 호아빈 건설 그룹(HBC)과 전략적 제휴를 맺었다고 23일 밝혔다.
+    현대엘리베이터는 HBC의 주식 2천500만주를 취득해 지분율 11.3%로 3대 주주 지위를 확보했다.
+    이번 제휴를 통해 향후 HBC가 시행사로 진행하는 프로젝트에 현대엘리베이터의 제품을 전량 채택하고, 설계·시공·건축 참여 사업에서도 현대엘리베이터의 제품을 우선으로 검토하기로 했다.
+    조인식에 참석한 현대엘리베이터 장병우 대표이사는 "최고의 기술력을 갖춘 HBC와의 전략적 제휴는 베트남 시장 확대의 모멘텀의 될 것"이라고 말했다.
+    HBC 레 비엣 하이 회장은 "양사 간 파트너십 체결로 베트남 국내는 물론 해외 초고층 프로젝트에서도 최고의 성과를 낼 수 있을 것"이라고 강조했다.
+    HBC는  지상 68층 363ｍ 높이의 베트남 하노이 최고층 빌딩 '비엣틴 뱅크타워'(Vietin Bank Tower)를 지은 건설사다.
+
+    acui721@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

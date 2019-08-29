@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH1</ServiceType>
+		<ContentID>PYH20181010099200065</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>120227</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7003007" name="인천"/>
+		</Region>
+		<Class>
+			<ClassCode code="1210004" name="축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[물세례 받은 오스카르 타바레스 감독]]></Title>
+		<Comment>NO-2336</Comment>
+		<Body><![CDATA[물세례 받은 오스카르 타바레스 감독
+    (인천=연합뉴스) 윤태현 기자 = 오스카르 타바레스 우루과이 축구 대표팀 감독(왼쪽 첫 번째)이 10일 오전 인천시 서구 인천아시아드경기장에서 선수들의 훈련을 지도하던 중 경기장 관계자가 뿌린 물에 옷이 젖자 항의하고 있다. 2018.10.10
+    tomatoyoon@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101009920006500.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101009920006500_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101009920006500_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

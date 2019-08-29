@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423131200008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>154203</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0410004" name="항공운수"/>
+			<ClassCode code="0302012" name="기업공시"/>
+			<ClassCode code="0201017" name="대출채무"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아시아나항공, 단기차입금 5천737억 증가·CB 4천억 발행]]></Title>
+		<Body><![CDATA[아시아나항공, 단기차입금 5천737억 증가·CB 4천억 발행
+
+    (서울=연합뉴스) 임미나 기자 = 아시아나항공은 단기 차입금을 5천737억원 늘리기로 결정했다고 23일 공시했다.
+    이에 따라 단기차입금 합계는 3천707억4천400만원에서 9천444억4천400만원으로 변경됐다. 
+    회사 측은 "이 차입은 한국산업은행의 한도여신(Credit Line) 제공 관련 계약 체결의 건"이라고 설명했다.
+    또 아시아나항공은 운영자금 4천억원을 조달하기 위해 무기명식 무보증 사모 전환사채(Hybrid채권형)를 발행하기로 했다고 별도로 공시했다.
+    표면이자율과 만기이자율은 각각 7.2%이고 사채 만기일은 2049년 4월 29일이다.
+    발행 대상자는 한국산업은행이다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

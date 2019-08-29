@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423121000051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>152835</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="01" name="정치"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+			<RegionCode code="7102001" name="아시아"/>
+		</Region>
+		<Class>
+			<ClassCode code="1102006" name="ASEAN"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[아세안 6개국 고위관료 부산 방문, 정상회의 준비상황 점검]]></Title>
+		<Body><![CDATA[아세안 6개국 고위관료 부산 방문, 정상회의 준비상황 점검
+
+
+    
+    (부산=연합뉴스) 박창수 기자 = 아세안(ASEAN·동남아국가연합) 6개국 고위관료 등이 부산을 방문해 한·아세안 특별정상회의 준비상황을 점검하고 협력방안을 논의했다.
+    오거돈 부산시장은 23일 한국국제교류재단 초청으로 방한한 아세안 6개국 고위관료와 오찬 간담회를 가졌다.
+    이 자리에는 사라 로우 아리오라 필리핀 외교부 차관, 릇 까읏 캄보디아 법무부 차관, 응우옌 반 타오 베트남 경제 분야 차관보 등이 참석했다.
+    인도네시아 국제전략문제 연구소장, 태국 탐마삿대 동아시아연구소장, 미얀마 개발연구원장, 아세안 사무국 사무차장 등도 자리를 함께했다.
+    오 시장은 이 자리에서 "부산은 영화, 게임 등 한국 문화산업의 중심지"라고 소개하고 "아세안 국가와 문화교류를 더욱 활발하게 진행하기 위해 아세안 콘텐츠 빌리지 조성을 추진하고 있다"고 말했다.
+    영화·웹툰·관광·경제 분야 교류 거점이 될 아세안 콘텐츠 빌리지는 부산시가 한·아세안 특별정상회의 의제로 다뤄달라고 요청한 사업이다. 시는 2022년까지 부산 아세안문화원 옆에 빌리지를 조성하겠다고 밝혔다.
+    이날 모임에서 참석자들은 올해 11월 25∼26일 열리는 한·아세안 특별정상회의를 성공적으로 개최하기 위한 협력방안도 논의했다.
+    오 시장은 전날에도 문희상 국회의장을 만나 "김정은 위원장을 회의에 초청할 수 있기를 바란다"며 "특사단이 필요하다면 부산시도 망설이지 않고 지원하겠다"는 뜻을 전했다.
+    pcs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423143100054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>162231</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0503011" name="교육행정"/>
+			<ClassCode code="0205001" name="고용취업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광주시교육청 지방공무원 임용 경쟁률 13.4대 1]]></Title>
+		<Body><![CDATA[광주시교육청 지방공무원 임용 경쟁률 13.4대 1
+
+
+    (광주=연합뉴스) 손상원 기자 = 광주시교육청 지방공무원 임용시험 경쟁률이 13.4대 1을 기록했다.
+    23일 광주시교육청에 따르면 최근 응시원서 접수 결과 133명 모집에 1천785명이 지원했다.
+    경쟁률은 지난해(16.8대 1)보다 낮아졌다.
+    선발 인원이 82명에서 133명으로 늘어난 영향으로 보인다.
+    직렬별로는 교육행정(일반) 120명 선발에 1천631명이 접수해 경쟁률 13.6대 1을 기록했다.
+    교육행정 장애인 전형에서는 5명 선발에 27명이 지원해 5.4대 1, 저소득 전형에서는 3명 선발에 38명이 응시해 12.7대 1의 경쟁률을 보였다.
+    사서는 3명 모집에 44명, 시설(일반토목) 1명 선발에 26명, 1명을 뽑는 경력 경쟁 임용시험 시설(건축)에는 19명이 지원했다.
+    시교육청은 오는 6월 15일 필기시험과 7월 26일 면접시험을 거쳐 8월 1일 최종 합격자를 발표할 예정이다.
+    sangwon700@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

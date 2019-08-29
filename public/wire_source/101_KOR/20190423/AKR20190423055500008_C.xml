@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423055500008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>102856</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302021" name="상장공모"/>
+			<ClassCode code="0302004" name="증시"/>
+			<ClassCode code="0202001" name="기업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[코윈테크 등 6개사 코스닥 상장 예비심사 신청]]></Title>
+		<Body><![CDATA[코윈테크 등 6개사 코스닥 상장 예비심사 신청
+    
+    (서울=연합뉴스) 박진형 기자 = 한국거래소 코스닥시장본부는 코윈테크, 덕산테코피아, 에스피시스템스, 그린플러스, 알로이스, 미디어젠 등 6개사가 최근 상장 예비심사를 신청했다고 23일 밝혔다.
+    이 가운데 코윈테크는 2차전지 제조공정에 들어가는 물류 자동화 설비 등을 공급하는 업체로 지난해 매출액은 768억원이었고 영업이익은 105억원이었다. 상장 주관사는 미래에셋대우다.
+    덕산테코피아는 유기발광다이오드(OLED)·반도체 소재 등 화학제품 제조업체로 작년 709억원의 매출에 246억원의 영업이익을 올렸다. NH투자증권이 상장 주관사를 맡았다.
+    에스피시스템스는 산업용 로봇 등 특수 목적용 기계 제조업체로 작년 매출액과 영업이익은 469억원과 42억원이다. 상장 주관사는 한국투자증권이다.
+    그린플러스는 알루미늄 압출·가공 제품, 유리온실 등을 생산하는 업체로 작년 매출액은 464억원이고 영업이익은 51억원이었다. 한국투자증권이 상장 주관사를 맡았다.
+    알로이스는 셋톱박스 등 통신·방송장비 제조업체로 지난해 218억원의 매출에 23억원의 영업이익을 올렸다. 상장 주관사는 IBK투자증권이다.
+    미디어젠은 음성인식 등 소프트웨어 개발업체로 지난해 매출액은 134억원이고 영업손실은 2억원이었다. 교보증권이 상장 주관사를 맡았다.
+    jhpark@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

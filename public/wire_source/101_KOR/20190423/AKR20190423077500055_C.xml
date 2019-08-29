@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423077500055</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>113558</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7009001" name="전북"/>
+			<RegionCode code="7009002" name="고창"/>
+		</Region>
+		<Class>
+			<ClassCode code="0303010" name="보험사"/>
+			<ClassCode code="0607002" name="풍수해"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[고창군 풍수해보험료 추가 지원…자부담률 9.3%로 낮춰]]></Title>
+		<Body><![CDATA[고창군 풍수해보험료 추가 지원…자부담률 9.3%로 낮춰
+
+
+    
+    (고창=연합뉴스) 백도인 기자 = 전북 고창군이 다음 달부터 풍수해보험에 가입하는 군민에게 보험료를 추가 지원해준다.
+    전체 보험료의 26.2%를 지원했던 것을 64.5%로 늘린다.
+    여기에 국비와 도비로 26.2%를 내주고 있어 고창군민은 전체 보험료의 9.3%만 부담하면 된다.
+    풍수해보험은 소상공인이 운영하는 상가와 공장, 아파트를 포함한 주택, 농·임업용 온실 등이 풍수해나 지진 피해를 보면 보상해 주는 정책보험이다.
+    고창군민은 누구나 혜택을 받을 수 있으며, 문의는 읍·면사무소에 하면 된다.
+    고창군 관계자는 "자연재난의 위험이 갈수록 높아지고 있지만, 보험료 부담 때문에 가입하지 못했던 군민을 위해 지원을 늘리기로 했다"고 말했다.
+    doin100@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

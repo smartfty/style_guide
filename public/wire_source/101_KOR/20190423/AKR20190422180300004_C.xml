@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422180300004</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111506</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0712005" name="한류"/>
+			<ClassCode code="0108006" name="주한외인"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울글로벌문화체험센터 9년간 101만명 찾아…24일 설명회]]></Title>
+		<Body><![CDATA[서울글로벌문화체험센터 9년간 101만명 찾아…24일 설명회
+
+
+
+    (서울=연합뉴스) 윤고은 기자 = 외국인 주민과 관광객을 대상으로 서울 생활·관광정보와 각종 문화 체험을 제공하는 서울글로벌문화체험센터 방문객이 개관 9년 만에 100만 명을 돌파했다고 서울시가 23일 밝혔다. 
+    2009년 3월 문을 연 서울글로벌문화체험센터에는 9년간 101만 4천999명이 방문했으며, 26만여 명이 민화 그리기, K팝 댄스교실 등 한류 문화를 체험했다.  
+    센터는 다양한 문화체험 프로그램을 연중 운영하고 있다. 외국인 주민·관광객이라면 누구나 홈페이지(www.seoulculturalcenter.com) 사전 신청을 통해 무료로 체험할 수 있다.  
+    이와 관련해 서울시는 오는 24일 오후 3시부터 중구 명동 서울글로벌문화체험센터에서 '2019 서울글로벌문화체험센터 설명회'(Welcome to Seoul Global Cultural Center)를 개최한다. 
+    올해 운영 일정 등을 소개하고, K팝 댄스 교실과 한지공예 만들기를 체험할 기회를 제공한다. 프로그램별 40명씩 선착순 신청을 받는다. 
+    자세한 사항은 센터 홈페이지를 참고하면 된다. 
+    pretty@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

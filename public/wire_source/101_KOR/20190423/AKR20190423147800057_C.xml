@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423147800057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>163654</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0403005" name="원자력"/>
+			<ClassCode code="0701001" name="문화일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[새울원자력 '찾아가는 무료 영화' 상영 확대]]></Title>
+		<Body><![CDATA[새울원자력 '찾아가는 무료 영화' 상영 확대
+
+
+    (울산=연합뉴스) 서진발 기자 = 한국수력원자력 새울원자력본부는 울산시 울주군 일대의 '찾아가는 무료 영화' 상영을 확대한다고 23일 밝혔다. 
+    새울원자력본부는 그동안 울주군 온양읍과 삼남면에서 영화를 상영했으나 원전 소재지 서생면에서도 상영하기로 했다.
+    이에 따라 오는 26일 오후 7시 서생중학교 강당에서 '극한직업'을 상영한다. 
+    서생면에서는 짝수 달 마지막 주 금요일에 상영하며, 주민들은 신청 없이 선착순 입장할 수 있다. 
+    새울본부는 1917년 5월부터 온양문화복지센터에서 무료 영화 상영을 시작했고 지난해 3월부터는 울주 서부청소년수련관으로 상영을 확대했다. 지난해 총 7천여 명이 관람할 정도로 주민의 호응을 얻고 있다.
+    sjb@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

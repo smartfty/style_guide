@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423071700002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>111152</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0201002" name="경제정책"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0201019" name="관세통관"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[한-카자흐 관세당국 수출입안전 우수업체 상호 인정]]></Title>
+		<Body><![CDATA[한-카자흐 관세당국 수출입안전 우수업체 상호 인정
+
+    (세종=연합뉴스) 윤종석 기자 = 관세청은 카자흐스탄과 22일 '제10차 관세청장회의'를 열어 양국 관세당국 간 협력 방안을 논의했다고 23일 밝혔다.
+
+
+
+    이날 회의에서 김영문 관세청장과 마라트 술탄가지예프 카자흐 조세위원장은 수출입기업을 지원하는 '수출입안전관리 우수공인업체'(AEO :Authorized Economic Operator) 상호인정 약정을 맺었다.
+    AEO는 관세당국이 법규 준수와 안전관리 등을 심사해 공인한 우수업체로, 신속통관 등의 혜택을 부여받는다.
+    관세청 관계자는 "AEO 상호인정 약정이 전면 이행되면 양국 수출입기업이 검사율 축소, 신속통관 등 세관 절차상 혜택을 받아 양국의 교역이 크게 증진될 것으로 기대된다"고 말했다.
+    이와 함께 양 관세당국은 육로운송 경험이 많은 카자흐스탄의 육로 통관 및 국경감시 체계와 우리나라의 위험관리 등 공항만감시 체계와 관련된 노하우와 정보를 적극 공유하기로 했다.
+    banana@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

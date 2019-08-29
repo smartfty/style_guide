@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423069800083</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110944</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7102025" name="중국"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[중국, '일대일로' 비판에 "차이나클럽 아냐" 반박]]></Title>
+		<Body><![CDATA[중국, '일대일로' 비판에 "차이나클럽 아냐" 반박
+
+
+    (베이징=연합뉴스) 김윤구 특파원 = 중국이 '일대일로'(육해상 실크로드 프로젝트)에 관한 보고서를 내고 이 사업에 대한 비판에 해명하면서 자화자찬했다.
+    23일 신화통신에 따르면 25∼27일 베이징에서 열리는 제2회 일대일로 포럼을 앞두고 일대일로 건설 영도 소조 판공실은 전날 발간한 보고서에서 "일대일로는 평화적 발전과 경제 협력을 위한 이니셔티브지 지정학적 또는 군사적 연합이 아니다"고 말했다.
+    또 "개방적이고 포용적이며 공통적인 발전 과정이지 배타적인 블록이거나 '차이나 클럽'은 아니다"고 강조했다.
+    보고서는 이어 "일대일로는 이데올로기로 국가들을 나누거나 제로섬 게임을 하지는 않는다. 참여를 원하는 국가는 환영한다"고 덧붙였다.
+    아울러 일대일로는 국제사회에서 널리 환영받고 있으며 참여국들은 실질적인 혜택을 누렸다고 말했다.
+    보고서는 일대일로가 2013년부터 정책 소통과 인프라 연결, 원활한 무역, 금융 통합, 인적 교류, 산업 협력 등을 주요 목표로 삼아 착실하게 발전해왔다고 지적했다. 
+    보고서는 "일대일로는 평화, 개방, 번영, 녹색 발전, 혁신의 길이 될 것이다. 경제적 세계화를 더욱 개방적이고 포용적이며 균형적이고 모두에게 이롭게 할 것"이라고 말했다.
+    ykim@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

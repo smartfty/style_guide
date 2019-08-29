@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423081300030</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140746</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+			<RegionCode code="7007019" name="울릉"/>
+		</Region>
+		<Class>
+			<ClassCode code="0408002" name="식품"/>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[울릉도 산나물 싱싱하게 전국 공급…포장·수송 방법 개선]]></Title>
+		<Body><![CDATA[울릉도 산나물 싱싱하게 전국 공급…포장·수송 방법 개선
+
+    (서울=연합뉴스) 박성진 기자 = 농촌진흥청은 유통 시스템을 개선해 울릉도 산나물을 전국에 신선하게 공급하는 기술을 개발했다고 23일 밝혔다.
+    울릉도에서 3∼4월에 나는 산마늘(명이나물)과 섬쑥부쟁이(부지갱이)는 시장 규모가 400억 원에 이르지만, 쉽게 시들고 물러져 대도시 소비자들은 절임이나 건조 상태로만 즐길 수 있었다. 
+    농진청은 울릉도 산나물을 신선한 상태로 공급하기 위해 포장과 수송 등 유통 시스템을 개선했다.
+    갓 수확한 나물을 1∼2도에서 15∼24시간 예비 냉장하고 공기구멍이 있는 골판지 상자에 담아 화물선 냉장 컨테이너에 실었으며, 육지에서도 냉장 상태로 판매점까지 이동했다.
+    그 결과 10일가량이던 산마늘의 신선도가 3주까지 유지됐다. 또 섬쑥부쟁이도 이전에는 2주째 시듦 현상이 발생했으나 3주 이상 품질이 유지됐다.
+    농진청 관계자는 "울릉도 농가는 나물 건조 등에 들이는 노동력을 줄이고 생채(生菜) 판매로 수익을 늘릴 수 있게 됐으며 대도시 시민은 신선하게 산나물을 즐길 수 있게 됐다"고 말했다.
+
+    sungjinpark@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

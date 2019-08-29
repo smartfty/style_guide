@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010094200013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>115944</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0507001" name="의료일반"/>
+			<ClassCode code="0805001" name="건강"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['기침, 가래가 지속한다면 폐기능 검사를 받아보세요']]></Title>
+		<Comment>NO-2313</Comment>
+		<Body><![CDATA['기침, 가래가 지속한다면 폐기능 검사를 받아보세요'
+    (서울=연합뉴스) 10일 서울 중구 한국프레스센터 앞 서울마당에서 열린 제16회 '폐의 날' 행사에서 시민이 무료 폐기능 검사와 호흡기 내과 의료진에게 상담을 받고 있다. 2018.10.10 [대한결핵 및 호흡기학회 제공] 
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101009420001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101009420001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101009420001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

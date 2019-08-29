@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423100600005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>135338</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0701010" name="인문학"/>
+			<ClassCode code="0701001" name="문화일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[20년전도 지금도 책이 사랑한 단어는 '사랑']]></Title>
+		<SubTitle><![CDATA[국립중앙도서관, 책 제목 출현 빈도 분석]]></SubTitle>
+		<Body><![CDATA[20년전도 지금도 책이 사랑한 단어는 '사랑'
+국립중앙도서관, 책 제목 출현 빈도 분석
+
+
+
+    (서울=연합뉴스) 박상현 기자 = 최근 20년 사이에 책 제목에 가장 많이 등장한 단어는 '사랑'인 것으로 나타났다.
+    국립중앙도서관은 세계 책의 날인 23일 1998년, 2008년, 2018년에 각각 간행된 책 제목 키워드 출현 빈도 분석 결과를 공개했다.
+    명사 '사랑'은 지난해 1천177회, 2008년 1천15회, 1998년 490회로 당해 연도에 모두 1위를 차지했다.
+    지난해는 '사랑'에 이어 '사람'(902회), '우리'(749회), '세상'(714회), '행복'(677회)이 2∼5위에 올랐다. 6위는 책 제목에 631회 사용된 'NCS'(국가직무능력표준)였다.
+    '세상'은 2008년은 711회로 2위, 1998년은 240회로 4위였다. '사람'은 2008년에 648회로 3위, 1998년에는 235회로 5위를 기록했다.
+    조사는 전국 845개 도서관 데이터를 수집해 제공하는 '도서관 정보나루' 자료 23만2천560책을 대상으로 했다.
+    도서관 관계자는 "지난해 키워드를 이어보면 '사랑하는 사람과 우리 세상 행복하게'가 된다"며 "사람들이 각박한 사회에서 행복해지고자 하는 바람이 책 제목에 반영된 것으로 보인다"고 말했다.
+
+
+
+    psh59@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

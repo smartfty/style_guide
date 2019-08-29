@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010142100013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>144710</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0701001" name="문화일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['축구장 70배' 서울식물원으로 오세요]]></Title>
+		<Comment>NO-3179</Comment>
+		<Body><![CDATA['축구장 70배' 서울식물원으로 오세요
+    (서울=연합뉴스) 한종찬 기자 = 시범운영을 하루 앞둔 10일 오후 서울 강서구 마곡동 서울식물원 식물문화센터에서 관계자들이 막바지 작업에 한창이다. 시범 운영기간에는 식물원 전 구간이 무료로 운영되며, 서울식물원은 내년 5월 정식 개원한다. 2018.10.10
+    saba@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101014210001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101014210001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101014210001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

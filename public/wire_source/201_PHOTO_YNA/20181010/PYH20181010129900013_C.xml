@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010129900013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>141920</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="1211007" name="검도"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울 종암경찰서, 청소년 검도교실 운영]]></Title>
+		<Comment>NO-3003</Comment>
+		<Body><![CDATA[서울 종암경찰서, 청소년 검도교실 운영
+    (서울=연합뉴스) 서울 종암경찰서가 대한검도협회 성북협회, 청소년육성회, 청소년문화발전위원회, 성북강북교육지원청과 함께 경찰서 4층 체력단련실에서 청소년 검도교실을 운영하고 있다고 10일 전했다. 2018.10.10 [서울 종암경찰서 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101012990001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101012990001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101012990001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

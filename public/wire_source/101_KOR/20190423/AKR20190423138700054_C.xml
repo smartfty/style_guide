@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423138700054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>161639</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008016" name="영암"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0707002" name="사진영상"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['전국 최대' 영암 월출산 유채꽃 단지서 26∼28일 축제]]></Title>
+		<Body><![CDATA['전국 최대' 영암 월출산 유채꽃 단지서 26∼28일 축제
+
+
+    (영암=연합뉴스) 조근영 기자 = 전국 최대 규모인 영암 월출산 유채꽃 단지서 축제가 열린다.
+    영암군은 경관농업 일환으로 국립공원 월출산을 배경으로 전국 최대(40만평)의 경관단지에 유채를 재배하고 여름에는 메밀을 파종해 사계절 볼거리가 있는 관광농업 육성하고 있다.
+    군은 이 경관단지 등 천황사 일원에서 26일부터 사흘간 '제1회 영암 월출산 경관단지 유채꽃 축제'를 연다.
+    이번 축제는 '월출산 유채꽃 만개, 향기에 물들다'란 주제로 활짝 핀 유채밭을 배경으로 다채로운 프로그램이 펼쳐진다. 
+    '월출산 유채꽃 사진공모전 및 전시회', '월출산 야생화 전시회', 메밀비누 만들기 및 메밀배게 만들기 체험 등이 열린다.
+    군은 축제 기간 1만5천여명의 관람객이 찾을 것으로 예상하고 주차장 등 대책을 마련했다.
+    chogy@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

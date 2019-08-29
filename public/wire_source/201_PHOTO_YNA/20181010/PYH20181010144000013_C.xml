@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010144000013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>144918</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7107017" name="터키"/>
+		</Region>
+		<Class>
+			<ClassCode code="1101001" name="국제일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[문 의장 "유라시아 번영 위해 북핵 해결·한반도 평화 필수"]]></Title>
+		<Comment>NO-3193</Comment>
+		<Body><![CDATA[문 의장 "유라시아 번영 위해 북핵 해결·한반도 평화 필수"
+     (이스탄불=연합뉴스) 하채림 특파원 = 9일(현지시간) 터키 안탈리아에서 열린 제3차 유라시아 국회의장회의에서 문희상 국회의장(왼쪽 두번째)이 유라시아 국회의장회의에서 폐회사를 하고 있다. 이날 회의에서는 북핵문제의 평화적 해결과 한반도 평화체제 구축 노력에 지지를 명시한 공동선언문을 채택했다. 2018.10.10 [국회의장실 제공] 
+    tree@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101014400001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101014400001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101014400001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

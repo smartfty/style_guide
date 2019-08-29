@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423127700053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>153305</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0404001" name="건설일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[화성산업, LH 우수시공업체 선정…품질평가 최고점수]]></Title>
+		<Body><![CDATA[화성산업, LH 우수시공업체 선정…품질평가 최고점수
+
+
+    (대구=연합뉴스) 이재혁 기자 = 화성산업은 한국토지주택공사(LH)가 연 '2019년도 우수업체·기능인 시상식'에서 우수 시공업체로 선정됐다고 23일 밝혔다.
+    화성산업은 경기도 시흥은계 S-2블록(시흥은계 네이처포레) 공동주택을 시공해 현장관리·고객품질 평가에서 최고 점수를 얻었다.
+    총공사비 100억원 이상인 94개 업체를 대상으로 한 심사 결과에 따라 앞으로 선급금 향상 등 혜택을 받게 됐다.
+    화성산업은 지난달 '2018년도 LH리츠지구 우수 시공업체 시상식'에서도 최우수 시공업체로 선정된 바 있다.
+    이종원 화성산업 사장은 "화성이 추구해온 품질가치를 인정받은 것을 계기로 협력업체와 상생하며 고객 만족에 힘을 기울이겠다"고 말했다.
+    yij@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423064300017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>105207</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0901011" name="인터넷"/>
+			<ClassCode code="0901010" name="모바일"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[와이즈앱 "넷플릭스 유료 이용자 153만명…월 결제 200억"]]></Title>
+		<Body><![CDATA[와이즈앱 "넷플릭스 유료 이용자 153만명…월 결제 200억"
+
+    (서울=연합뉴스) 홍지인 기자 = 앱 분석업체 와이즈앱은 글로벌 온라인 동영상 서비스(OTT) 넷플릭스의 지난 3월 기준 국내 유료 이용자가 153만명, 월간 유료 결제금액은 200억원으로 추정된다고 23일 밝혔다.
+    지난해 12월 90만 명이었던 넷플릭스 유료 이용자는 올해 1월 107만명, 2월에는 114만명 등 지속해서 증가 추세를 나타냈다.
+    와이즈앱은 "실제 국내 넷플릭스 유료 고객 중에는 LG유플러스 같은 통신사를 통해 요금을 과금 대행하는 경우도 있다"며 "실제 유료 사용자와 매출은 조금 더 많을 것"이라고 밝혔다. 
+    유료 사용자를 연령대별로 보면 20대가 39%, 30대가 28%, 40대가 17%, 50대 이상이 17%로, 20~30대가 전체의 67%를 차지했다.
+    이번 조사는 표본집단 13만명의 구글플레이·앱스토어 결제금액을 추정하는 방식으로 이뤄졌다.
+
+    ljungberg@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

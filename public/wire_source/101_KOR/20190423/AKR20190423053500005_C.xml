@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423053500005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>101458</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712003" name="방송"/>
+			<ClassCode code="0712002" name="연예"/>
+			<ClassCode code="0712012" name="예능경연"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['프듀X', 방송 일주일 전 '프듀X 더 비기닝'으로 본편 예고]]></Title>
+		<Body><![CDATA['프듀X', 방송 일주일 전 '프듀X 더 비기닝'으로 본편 예고
+
+
+    (서울=연합뉴스) 송은경 기자 = 엠넷은 내달 3일 시작되는 '프로듀스 엑스(X) 101' 본편 방송을 일주일 앞두고 예고편 격인 '프로듀스X101 더 비기닝'을 편성했다고 23일 밝혔다.
+    오는 26일 오후 11시 방송되는 '프로듀스X101 더 비기닝'에는 이전 시즌인 '프로듀스 48' 보컬 트레이너였던 이홍기와 걸그룹 아이즈원 멤버 전원이 출연해 새 시즌 주요 장면을 소개한다.
+    방송에선 이번 시즌 연습생들의 오디션 영상, 런웨이 쇼 현장 등이 공개될 예정이다.
+    norae@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

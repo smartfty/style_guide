@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423011600051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>065410</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["우산 챙기세요" 부산 오후부터 비…내일까지 30∼60㎜]]></Title>
+		<Body><![CDATA["우산 챙기세요" 부산 오후부터 비…내일까지 30∼60㎜
+
+
+
+    (부산=연합뉴스) 김선호 기자 = 부산지방기상청은 23일 부산지역은 흐리고 정오 이후 비가 내리겠다고 예보했다.
+    예상 강수량은 30∼60㎜다.
+    부산에 비가 오면 18일부터 6일째 발효 중인 건조주의보가 해제될 가능성이 크다.
+    기상청은 남부지방에서 동진하는 저기압 영향으로 비가 계속 내리다가 24일 오후에 그칠 것으로 내다봤다.
+    기상청은 23일 밤부터 새벽 사이 해안에 돌풍과 함께 천둥, 번개가 치는 곳이 있어 안전에 유의해달라고 당부했다.
+    부산 현재 기온은 오전 6시 기준 14.7도이며, 낮 최고기온은 19도로 예상된다.
+    wink@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

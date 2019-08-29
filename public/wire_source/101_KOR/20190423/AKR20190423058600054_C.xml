@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423058600054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>103130</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+		</Region>
+		<Class>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광주호 호수생태원 '강소형 잠재 관광지' 선정]]></Title>
+		<Body><![CDATA[광주호 호수생태원 '강소형 잠재 관광지' 선정
+
+
+    (광주=연합뉴스) 박철홍 기자 = 광주 북구는 광주호 호수생태원이 한국관광공사 광주·전남지사 주관 '강소형 잠재 관광지 발굴·육성사업' 공모에 선정됐다고 23일 밝혔다. 
+    '강소형 잠재 관광지 발굴·육성사업'은 많이 알려지지는 않았으나 잠재력이 높은 지자체 단위의 관광지를 대상으로 하는 사업이다.
+    광주호 호수생태원은 무등산과 연계한 수변 생태공원으로 다양한 동·식물이 서식하는 광주 시민들의 대표적인 휴식 공간이다.
+    특히 환벽당, 충효동 왕버들군과 취가정, 정려비각 등 충장공 김덕령 장군의 정신이 깃든 역사유적도 자리하고 있어 북구가 지역대표 관광지로 육성하는 곳이다.
+    북구는 한국관광공사로부터 최대 2020년까지 ▲ 강소형 관광지 구축을 위한 컨설팅 ▲ 온·오프라인 홍보 콘텐츠 제작 및 홍보 ▲ 지역특화상품 개발 및 운영 ▲ 팸투어, 관광캠페인, 관광 교류 프로그램 운영 등을 지원받는다.
+    문인 북구청장은 "이번 잠재 관광지 선정은 지역 관광지로 잠재력이 높은 광주호 호수생태원의 생태자원과 시가 문화권 역사자원의 가치를 전국에 널리 알릴 좋은 기회가 될 것"이라고 밝혔다. 
+
+    pch80@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

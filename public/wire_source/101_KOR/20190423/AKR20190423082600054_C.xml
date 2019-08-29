@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423082600054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>114015</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008018" name="장성"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801005" name="요리"/>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0803001" name="여행"/>
+			<ClassCode code="0107004" name="지방일반"/>
+			<ClassCode code="0411003" name="요식"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[장성군 '황금밥상'으로 관광객 입맛 사로잡는다]]></Title>
+		<SubTitle><![CDATA[식단·조리법 개발해 지역 식당과 공유, 하반기 2차 개발]]></SubTitle>
+		<Body><![CDATA[장성군 '황금밥상'으로 관광객 입맛 사로잡는다
+식단·조리법 개발해 지역 식당과 공유, 하반기 2차 개발
+
+
+    (장성=연합뉴스) 정회성 기자 = 관광객 입맛 잡기에 나선 전남 장성군이 식단과 조리법 개발을 마치고 지역 식당과 공유했다.
+    23일 장성군에 따르면 건강한 한 끼를 추구하는 황금밥상 개발이 지난 19일 마무리됐다.
+    장성군은 지역 음식점 대표들과 10차례 개발 회의와 품평회를 진행하며 건강과 맛 모두를 챙기는 메뉴 개발에 나섰다.
+    돼지·닭·오리고기가 주재료인 황금알 정식, 체중감소에 효과가 있는 도토리 들깨탕, 젊은 입맛까지 겨냥한 게장·떡갈비·고등어 정식으로 구성했다.
+    축령산과 백양산 등 등산객이 즐겨 찾는 지역에 특화한 순두부 정식도 준비했다.
+    장성군은 장성호 수변길 일원을 중심으로 하반기 2차 황금밥상 식단을 개발할 예정이다.
+    전남도 내수면시험장과 연계한 민물생선 요리 위주로 구상 중이다.
+    장어 정식, 메기찜, 오모가리탕 등으로 여행객 입맛을 사로잡을 계획이다.
+    유두석 장성군수는 "장성을 찾은 방문객이 맛있게 잘 먹고 몸도 건강해졌다는 생각을 하도록 내실 있는 황금밥상을 준비하겠다"고 말했다.
+    hs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

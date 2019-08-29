@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423004600075</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>041327</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="06" name="국제"/>
+		<Region>
+			<RegionCode code="7104002" name="미국"/>
+		</Region>
+		<Class>
+			<ClassCode code="0606004" name="항공사고"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[美 텍사스서 경비행기 추락, 탑승자 6명 전원 사망]]></Title>
+		<Body><![CDATA[美 텍사스서 경비행기 추락, 탑승자 6명 전원 사망
+
+    (로스앤젤레스=연합뉴스) 옥철 특파원 = 미국 텍사스주에서 경비행기가 추락해 탑승자 6명 전원이 사망했다고 AP통신이 22일(현지시간) 보도했다.
+    미 연방항공청(FAA)에 따르면 이날 오전 9시 30분께 비치크래프트 BE58 쌍발 엔진 비행기가 텍사스주 샌안토니오에서 북서쪽으로 110㎞ 떨어진 켄빌 공항에 접근하다가 추락했다.
+    사고로 조종사와 5명의 탑승자가 모두 사망했다고 현장을 수습한 FAA와 연방교통안전위원회(NTSB) 측은 말했다. 사고 원인은 알려지지 않았다.
+    이 비행기는 휴스턴 외곽 공항에서 이륙했다. FAA는 사고 난 경비행기가 상업 운항용은 아니라고 말했다.
+
+
+    oakchul@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

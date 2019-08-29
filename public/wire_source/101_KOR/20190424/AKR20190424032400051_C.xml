@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424032400051</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>090535</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0202004" name="공기업"/>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["어, TV에서 봤는데…" 부산 핫 플레이스 소개 팸투어]]></Title>
+		<Body><![CDATA["어, TV에서 봤는데…" 부산 핫 플레이스 소개 팸투어
+
+
+    
+    (부산=연합뉴스) 김상현 기자 = 부산시와 부산관광공사는 최근 TV 프로그램에 소개됐던 '부산의 핫 플레이스'를 25일과 26일 이틀에 걸쳐 둘러보는 '톡톡부산밴드 서포터즈' 팸투어를 한다.
+    팸투어 코스는 첫날 ▲ 아미동 비석문화마을 ▲ 최민식 갤러리 ▲ 임시수도기념관 ▲ 남포동 일대 ▲ 흰여울문화마을 등 원도심과 서부산권에서 진행된다.
+    둘째 날에는 동부산 권역을 중심으로 ▲ 송도해수욕장 ▲ 해동용궁사 등 기장 일원 ▲ 동백섬 등 해운대 일원을 둘러본다. 
+    참가 서포터즈는 4인 1조로 팀을 이뤄 각 관광지에서 공통 미션과 조별 미션을 수행하고 스토리를 취재해 사진과 영상물 등 콘텐츠를 제작한다. 
+    제작된 콘텐츠 가운데 우수작은 부산시와 부산관광공사 공식 소셜미디어에 게재될 예정이다.
+    부산관광공사는 팸투어 참가 서포터즈 활동 모습을 담은 스케치 영상을 제작해 별도 홍보한다.
+    시 관계자는 "인기 방송프로그램에서 소개된 여행지를 소셜미디어로 홍보하기 위해 이번 팸투어를 마련했다"며 "앞으로도 방송프로그램을 활용한 관광코스 개발과 홍보를 강화하겠다"고 말했다.
+    joseph@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

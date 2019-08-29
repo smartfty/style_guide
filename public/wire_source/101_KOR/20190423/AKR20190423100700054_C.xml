@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423100700054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140905</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+			<RegionCode code="7008001" name="전남"/>
+			<RegionCode code="7008023" name="화순"/>
+		</Region>
+		<Class>
+			<ClassCode code="0802005" name="등산"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0505007" name="식물"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[무등산 국립공원에 펼쳐진 분홍빛 융단…산철쭉 개화]]></Title>
+		<Body><![CDATA[무등산 국립공원에 펼쳐진 분홍빛 융단…산철쭉 개화
+
+
+    (화순=연합뉴스) 정회성 기자 = 무등산국립공원동부사무소는 산철쭉 개화가 오는 주말 시작해 내달 첫째 주 절정에 이르겠다고 23일 밝혔다.
+    무등산 국립공원 내 산철쭉은 화순 안양산 정상부와 백마능선을 따라 약 2.8㎞ 구간 탐방로에 펼쳐져 있다.
+    분홍색 융단을 깔아놓은 듯한 모습이 무등산 기암괴석과 어우러져 장관을 연출한다.
+    철쭉을 감상하기 좋은 산행 코스는 수만리탐방지원센터·장불재·안양산을 잇는 5㎞(3시간) 구간과 들국화마을에서 안양산으로 이어지는 3.5㎞(2시간) 구간 탐방로다.
+    주홍준 무등산국립공원동부사무소장은 "이번 주말부터 산철쭉을 감상하려는 많은 탐방객이 찾을 것으로 보인다"며 "야생식물 채취와 샛길 출입 등 자연에 피해 주는 행위는 자제해달라"고 당부했다.
+    hs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

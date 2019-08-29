@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423146800062</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>163953</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004014" name="춘천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0502003" name="기부봉사"/>
+			<ClassCode code="0607001" name="재해일반"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서울·한양컨트리클럽, 산불피해 복구지원 성금 전달]]></Title>
+		<Body><![CDATA[서울·한양컨트리클럽, 산불피해 복구지원 성금 전달
+
+
+    (춘천=연합뉴스) 박영서 기자 = 경기도 고양시 소재 골프장인 서울·한양컨트리클럽은 23일 강원도 산불피해 이재민 돕기 성금 6천500만원을 강원도에 전달했다.
+    존중과 배려의 바른 골프문화를 지향하는 '착한 골프포럼'을 비롯한 서울·한양컨트리클럽 36개 친목 단체와 회원 및 임직원들이 성금 모금에 동참했다.
+    이심(전 대한노인회 회장) 서울컨트리클럽 이사장은 "큰 재난을 당한 강원도민들에게 깊은 위로를 전하고 특히 고통받는 노인 이재민들에게 이번 성금이 도움이 됐으면 한다"고 말했다.
+    conanys@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

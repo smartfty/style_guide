@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423138500054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>161557</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003002" name="광주"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0506003" name="철도교통"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[광주-서울, 도시철도 발전 힘 모은다…기술·인적 자원 교류]]></Title>
+		<Body><![CDATA[광주-서울, 도시철도 발전 힘 모은다…기술·인적 자원 교류
+
+
+
+    (광주=연합뉴스) 장덕종 기자 = 광주시는 23일 서울시청에서 열린 서울 도시철도 50주년 기념행사에서 서울시와 '도시철도 건설 업무협약'을 체결했다.
+    양 지자체는 도시철도 건설 관련 기술·정보 제공, 기술 향상, 노하우 교환, 인적 자원 교류·교육, 국내외 자료조사, 사업 지원사항 등을 협력하기로 했다.
+    담당자를 선정해 제휴 업무를 효과적으로 추진할 수 있도록 하고 상담 또는 자문 역할을 할 담당자도 위촉할 계획이다.
+    협약서에 규정한 협력 분야의 효율적인 추진과 업무 협의를 위해 실무협의회를 구성할 방침이다.
+    이용섭 시장은 "광주시와 서울시가 그동안 축적한 도시철도 건설 기술 및 노하우를 상호 교환하고 인적 자원의 교류를 통해 도시철도를 이용하는 시민의 안전성과 편의를 높여나갈 것이다"며 "특히 서울 도시철도의 축적된 기술과 경험이 광주의 도시철도 2호선을 안전하고 편리한 명품 도시철도로 건설하는 데 큰 도움이 될 것이다"고 말했다.
+    광주도시철도 2호선 건설 사업은 1단계 구간 착공을 위해 기획재정부 및 국토교통부와 총사업비 협의를 진행 중이다. 
+    사업계획 승인 등 행정절차를 거쳐 오는 6월 착공 예정이다.
+    cbebop@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

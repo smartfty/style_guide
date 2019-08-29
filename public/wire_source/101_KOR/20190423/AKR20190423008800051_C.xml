@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423008800051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>061800</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0510004" name="경찰"/>
+			<ClassCode code="0606005" name="화재"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[부산 한 요양원서 화재로 30명 긴급 대피]]></Title>
+		<Body><![CDATA[부산 한 요양원서 화재로 30명 긴급 대피
+
+
+
+    (부산=연합뉴스) 김선호 기자 = 22일 오후 10시 50분께 부산 기장군 한 요양원 별관 4층 모터 가압실에서 불이 났다.
+    불은 가압실을 태워 소방서 추산 150만원 상당 재산피해를 내고 26분여 만에 진화됐다.
+    이 불로 연기가 많이 발생해 요양원 별관 4층에 있던 입실자 30여명이 건물 밖으로 긴급 대피했다.
+    이 요양원에는 본관, 별관을 합쳐 남성 10명, 여성 116명 등 모두 126명이 요양하고 있었다.
+    경찰은 모터 과열로 불이 난 것으로 보고 화재 현장을 감식해 정확한 화재 원인을 밝힐 예정이다.
+    wink@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

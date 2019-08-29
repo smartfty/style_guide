@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423129500005</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>154453</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Class>
+			<ClassCode code="0712009" name="드라마"/>
+			<ClassCode code="0705001" name="출판일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[교보문고 스토리공모전 단편 수상작품집 출간]]></Title>
+		<Body><![CDATA[교보문고 스토리공모전 단편 수상작품집 출간
+
+    (서울=연합뉴스) 이승우 기자 = 교보문고가 주최하는 스토리공모전에서 올해 수상한 단편작들을 엮은 '교보문고 스토리공모전 단편 수상작품집 2019'가 23일 출간됐다.
+    교보문고 산하 출판브랜드 '마카롱'에서 펴낸 이 책에는 '루왁 인간'(강한빛), '코의 무게'(이중세), '쿠오바디스'(최난영), 먼지를 먹어드립니다'(김웅기), '강남 파출부'(김진아) 5편의 실험적 단편소설이 실렸다.
+    스토리공모전 수상작에는 책 출간과 함께 영화·드라마로 제작될 기회를 준다. 제1회 공모전 수상작인 '싱글빌'은 중국 후난 TV에서 드라마로 방영돼 시청률 1위에 오르기도 했다.
+
+
+    leslie@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

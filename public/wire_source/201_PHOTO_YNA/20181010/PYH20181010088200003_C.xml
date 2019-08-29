@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010088200003</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134057</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201010" name="소비자"/>
+			<ClassCode code="0202005" name="외국기업"/>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0408008" name="전기전자"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[캐리어에어컨, 116년 기술력으로 공청기 시장 뛰어들어]]></Title>
+		<Comment>NO-2863</Comment>
+		<Body><![CDATA[캐리어에어컨, 116년 기술력으로 공청기 시장 뛰어들어
+    (서울=연합뉴스) 국내 에어컨 업계 3위 기업 캐리어에어컨이 10일 전후좌우에서 360도 공기 청정이 가능한 '캐리어 클라윈드 공기청정기 에어원(AIR ONE)' 신제품 11종을 출시했다. 2018.10.10 [캐리어에어컨 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101008820000300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101008820000300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101008820000300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

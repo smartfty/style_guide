@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424034900056</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>093440</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7010001" name="제주도"/>
+		</Region>
+		<Class>
+			<ClassCode code="0411002" name="관광"/>
+			<ClassCode code="0501001" name="사회일반"/>
+			<ClassCode code="0410004" name="항공운수"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[中노동절·日골든위크 연휴 1만5천명 제주 찾는다]]></Title>
+		<SubTitle><![CDATA[중국인 관광객 전년 대비 42％↑, 일본인 관광객 6％↓]]></SubTitle>
+		<Body><![CDATA[中노동절·日골든위크 연휴 1만5천명 제주 찾는다
+중국인 관광객 전년 대비 42％↑, 일본인 관광객 6％↓
+
+    (제주=연합뉴스) 변지철 기자 = 중국의 노동절과 일본의 골든위크 등 4월 말에서 5월 초로 이어지는 연휴 기간 1만5천명에 이르는 외국인 관광객이 제주를 찾을 것으로 보인다.
+
+    24일 제주도관광협회에 따르면 5월 1∼5일 중국 노동절 연휴기간 중국인 관광객 1만2천390여명이 제주를 찾을 것으로 전망됐다.
+    이는 지난해 노동절 기간(4월 27일∼5월 1일) 제주를 찾은 8천719명보다 42％가량 증가한 수치다. 
+    2017년 고고도 미사일 방어 체계(THAAD·사드) 한파가 조금씩 풀리면서 올해 제주와 중국을 잇는 직항편이 지난해 48편에서 올해 78편으로 30편 늘어난 데 따른 것으로 풀이된다.
+    또 제주도관광협회는 이달 27일부터 내달 6일까지 열흘간 이어지는 골든위크 기간에 약 3천명의 일본인 관광객이 제주를 찾을 것으로 내다봤다.
+    지난해 골든위크 기간(4월 27일∼5월 6일) 제주를 방문한 3천223명과 비교해 200여명(약 6％) 줄어들었다.
+    제주도관광협회는 외국인 내도 전망은 지난 19일 기준으로 작성된 것으로, 본격적으로 연휴가 시작되면 제주를 찾는 외국인 관광객 수는 더 늘어날 수 있다고 설명했다. 
+    bjc@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

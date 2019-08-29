@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423156200003</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>060004</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7102004" name="대만"/>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201003" name="경제단체"/>
+			<ClassCode code="0203001" name="무역일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[전경련 한국·대만 경제협력위원회 다음달 부산서 개최]]></Title>
+		<Body><![CDATA[전경련 한국·대만 경제협력위원회 다음달 부산서 개최
+
+    (서울=연합뉴스) 김준억 기자 = 전국경제인연합회는 다음 달 28∼29일 부산에서 중화민국국제경제합작협회(CIECA)와 함께 '제44차 한국·대만 경제협력위원회'를 개최한다고 24일 밝혔다.
+    전경련은 대만 관광객이 부산 방문 외국인 10명 중 1명을 차지하는 등 수요가 높다는 점 등에 따라 부산이 개최지로 선정됐다고 설명했다.
+    이번 경협위에 한국 측에서는 위원장인 박근태 CJ대한통운 사장과 오거돈 부산시장, 조경태 국회 한국·대만 의원친선협회 회장, 강호갑 한국중견기업연합회장, 권태신 전경련 상근부회장, 박기식 부산경제진흥원장 등 기업·기관 관계자 40여명이 참석할 예정이다. 
+    대만에서는 위원장인 좡숴한(莊碩漢) 대만대외무역발전협회(TAITRA) 부회장, 탕뎬원(唐殿文) 주한대만대표부 대표, 우밍지(吳明機) 신베이(新北)시 부시장을 비롯해 주요 기업·정부 관계자가 참석할 예정이다. 
+    엄치성 전경련 국제협력실장은 "대만과 한국은 현재 미·중 무역전쟁 등 대내외 환경이 비슷하게 어려운 상황"이라며 "이번 경협위는 양국 기업이 협력 기회와 돌파구를 마련할 계기가 될 것"이라고 말했다.
+
+    justdust@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

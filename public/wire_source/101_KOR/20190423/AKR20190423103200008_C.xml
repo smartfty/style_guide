@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423103200008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140539</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[상아프론테크, 1분기 영업익 53억원…165.1% 증가]]></Title>
+		<Body><![CDATA[상아프론테크, 1분기 영업익 53억원…165.1% 증가
+
+    (서울=연합뉴스) 임미나 기자 = 상아프론테크는 올해 1분기 연결기준 영업이익이 53억원으로 작년 동기보다 165.1% 증가한 것으로 잠정 집계됐다고 23일 공시했다.
+    매출액은 510억원으로 27.3% 늘었다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423009000053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>062025</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801002" name="날씨"/>
+			<ClassCode code="0505004" name="대기환경"/>
+			<ClassCode code="0801001" name="생활정보"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대구·경북 오후부터 비…낮 최고 25도, 미세먼지 '보통']]></Title>
+		<Body><![CDATA[대구·경북 오후부터 비…낮 최고 25도, 미세먼지 '보통'
+
+
+    
+    (대구=연합뉴스) 최수호 기자 = 23일 대구·경북은 대체로 흐린 가운데 오후부터 비가 오겠다.
+    대구기상지청에 따르면 오전 6시 기준 아침 최저 기온은 대구 11.4도, 안동 10.5도, 구미 12.4도, 포항 11.2도 등을 기록했다.
+    낮 최고기온은 대구 22도 등 22∼25도 분포로 평년과 비슷하겠다.
+    강수량은 오는 24일 오후까지 대구·경북 전역에서 10∼40㎜가량을 기록하겠다.
+    미세먼지는 대구·경북 모두 '보통' 수준이 예상된다. 
+    suho@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

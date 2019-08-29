@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424011200062</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>064218</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7004001" name="강원"/>
+		</Region>
+		<Class>
+			<ClassCode code="0801002" name="날씨"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[강원 내륙 빗방울 뚝뚝…정오께 그쳐]]></Title>
+		<SubTitle><![CDATA[동해안은 밤부터 비 소식]]></SubTitle>
+		<Body><![CDATA[강원 내륙 빗방울 뚝뚝…정오께 그쳐
+동해안은 밤부터 비 소식
+
+
+
+    (춘천=연합뉴스) 양지웅 기자 = 24일 오전 강원지역은 대체로 흐리고 영서 내륙을 중심으로 빗방울이 떨어지고 있다.
+    강원지방기상청에 따르면 오전 6시 20분까지 전날부터 내린 비의 양은 원주 신림 12㎜, 영월 11.4㎜, 평창 8.5㎜, 정선 8.5㎜, 원주 8.3㎜, 태백 7.8㎜, 횡성 6.0㎜, 춘천 4.9㎜ 등이다.
+    비는 낮 들어 대부분 그치겠으나 동풍의 영향으로 동해안에는 오후 9시께 비 소식이 있겠다.
+    아침 기온은 10∼15도 분포로 평년보다 5∼9도 높겠고, 낮 기온은 북서쪽부터 비가 그치면서 평년보다 1∼3도 높겠다.
+    낮 최고기온은 내륙 22∼26도, 동해안과 산지는 16∼19도로 전날보다 1∼6도가량 낮겠다.
+    강원지방기상청 관계자는 "비가 내리면서 가시거리가 2㎞ 내외로 짧고 지면이 미끄럽겠으니 차량 운행에 유의해달라"고 당부했다.
+    yangdoo@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423085400003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140004</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0405004" name="자동차"/>
+			<ClassCode code="0505002" name="기후변화"/>
+			<ClassCode code="0505010" name="환경기술"/>
+			<ClassCode code="0202001" name="기업일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['수소차 개발' 현대차, 글로벌 기후변화 대응 최우수 기업 선정]]></Title>
+		<SubTitle><![CDATA[탄소정보공개 프로젝트, 현대차 사업장 온실가스 감축 등도 호평  ]]></SubTitle>
+		<Body><![CDATA['수소차 개발' 현대차, 글로벌 기후변화 대응 최우수 기업 선정
+탄소정보공개 프로젝트, 현대차 사업장 온실가스 감축 등도 호평  
+
+    (서울=연합뉴스) 최윤정 기자 = 현대자동차는 23일 세계적인 환경경영 인증기관으로부터 최우수 친환경 경영 기업 평가를 받았다고 밝혔다.
+    현대차는 '탄소정보공개 프로젝트(CDP·Carbon Disclosure Project)'가 진행한 2018년도 평가에서 국내 기업 중 최고 성적을 받았다고 말했다.
+    현대차는 이번 평가에서 ▲ 수소전기차·전기차 등 친환경차 개발 및 보급 ▲ 사업장별 온실가스 고효율 감축설비 도입 ▲ 폐에너지·폐열 재활용-신재생에너지 전환 등 중장기적 환경경영 강화 활동을 인정 받아 최고 등급인 리더십A를 받았다.
+    또 평가점수 상위 5개사(국내 기준)에만 주어지는 '탄소경영 아너스 클럽(Honors Club)'의 영예도 안았다.
+    탄소경영 아너스 클럽은 기후변화 대응에서 세계적인 수준의 리더 기업임을 뜻한다. 
+    CDP 평가는 다우존스 지속가능성지수(DJSI), FTSE4GOOD지수 등과 함께 기업의 지속가능성을 평가하는 가장 공신력 있는 지표라고 현대차는 설명했다.
+    전세계 금융투자기관의 위임을 받아 각국 주요 상장기업을 대상으로 기후변화 등 세계적인 환경이슈 대응과 관련한 평가를 한다. 이 결과는 투자지침서로 활용된다.
+    이번엔 90여개국 6천800여개 기업이 평가를 받았다. 리더십A 등급을 받은 139개사 가운데 한국 기업은 현대차를 포함해 15개사다.
+    현대차 관계자는 "앞으로 친환경 기술 개발, 사업장 에너지 효율화, 신재생 에너지 전환 등을 더욱 적극적으로 발전시켜 나갈 것"이라고 말했다.
+
+
+    merciel@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

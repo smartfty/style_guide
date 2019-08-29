@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423077100008</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>112345</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[팜스웰바이오, 50억원 규모 3자배정 유상증자 결정]]></Title>
+		<Body><![CDATA[팜스웰바이오, 50억원 규모 3자배정 유상증자 결정
+
+    (서울=연합뉴스) 임미나 기자 = 팜스웰바이오는 운영자금 약 50억원을 조달하기 위해 제3자배정 유상증자를 결정했다고 23일 공시했다.
+    현무개발과 에이디이가 새로 발행되는 보통주 134만3천363주를 주당 3천722원에 배정받는다.
+    mina@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

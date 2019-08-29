@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423073000002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>140005</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7011017" name="홍성"/>
+		</Region>
+		<Class>
+			<ClassCode code="0504005" name="아동복지"/>
+			<ClassCode code="0303003" name="은행"/>
+			<ClassCode code="0301002" name="금융기구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[하나금융, 충남 홍성에 24시간제 어린이집 열어]]></Title>
+		<Body><![CDATA[하나금융, 충남 홍성에 24시간제 어린이집 열어
+
+    (서울=연합뉴스) 한혜원 기자 = 하나금융은 23일 충남 홍성에서 국공립어린이집 '충남아이키움뜰' 개원식을 했다고 밝혔다. 
+    충남아이키움뜰은 전국 최초로 주·야간 24시간제로 운영되는 어린이집이다. 
+    공실이었던 충남도지사 공관을 리모델링하고 하나금융이 건립을 지원해 문을 열었다. 
+    하나금융은 이와 별도로 충남도에 '온종일 초등돌봄센터' 사업비 3억원과 24시간제 전담 보육시설 건립을 위한 지원금 2억원을 전달했다. 
+    이날 개원식에는 박승 하나금융 사회공헌위원장과 함영주 하나금융 부회장, 양승조 충남도지사, 김지철 충남교육감, 유병국 충남도의회 의장이 참석했다. 
+    하나금융은 작년에 보육 취약 지역 29개 지자체와 국공립어린이집 건립 협약을 했다. 
+
+    hye1@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

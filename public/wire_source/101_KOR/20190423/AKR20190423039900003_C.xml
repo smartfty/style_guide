@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423039900003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>092858</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0405004" name="자동차"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["수소차 넥쏘로 그린 친환경 미래"…현대차, 지구의 날 행사]]></Title>
+		<Body><![CDATA["수소차 넥쏘로 그린 친환경 미래"…현대차, 지구의 날 행사
+
+
+    (서울=연합뉴스) 김준억 기자 = 현대자동차가 지구의 날을 맞아 서울시와 함께 수소전기차 넥쏘의 연료전지를 이용해 서울시청 외벽에 영상을 투사하는 '수소로 밝힌 미래' 미디어 파사드 이벤트를 진행했다.
+    현대차는 22일 오후 8시부터 진행된 불 끄기 행사와 동시에 프로젝션 매핑 기법으로 영상을 투사해 수소 에너지의 이미지를 약 1시간가량 선보였다.
+    이 영상은 물이 수소와 산소로 분해되는 단계에서 전기분해로 생성된 수소 분자가 운동에너지를 갖는 단계, 수소 분자가 다시 물이 되는 단계까지의 순환 과정을 형상화했다.
+현대자동차, 지구의 날 맞아‘수소로 밝힌 미래’이벤트 실시[https://youtu.be/5JKNhOm89gY]
+    현대차는 넥쏘 5대의 수소연료전지로 전력을 만들어 빔프로젝터에 공급했으며 수소는 폐기물 에너지로 수소를 만드는 서울 월드컵공원 수소충전소에서 조달했다.
+    현대차는 "수소 에너지의 원리를 쉽게 알리고 현대차의 미래 친환경 모빌리티 비전을 공유하기 위해 이번 행사를 마련했다"며 "현대차는 친환경 미래 사회를 건설하는 데 앞장설 것"이라고 밝혔다.
+
+    justdust@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

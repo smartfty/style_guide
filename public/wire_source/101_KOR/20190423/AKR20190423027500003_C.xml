@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423027500003</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>110003</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Region>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0401001" name="산업일반"/>
+			<ClassCode code="0202001" name="기업일반"/>
+			<ClassCode code="0402002" name="농업"/>
+			<ClassCode code="0408008" name="전기전자"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[삼성전자 작물 재배용 LED, 업계 최고 광합성 효율 달성]]></Title>
+		<SubTitle><![CDATA[업그레이드 모델 이달말 양산…내달 미국 국제조명박람회서 공개]]></SubTitle>
+		<Body><![CDATA[삼성전자 작물 재배용 LED, 업계 최고 광합성 효율 달성
+업그레이드 모델 이달말 양산…내달 미국 국제조명박람회서 공개
+
+    (서울=연합뉴스) 이승관 기자 = 삼성전자는 지난해 출시한 식물생장 촉진용 LED(발광다이오드) 조명 패키지(LM301H)가 업계 최고 수준의 광합성 유효 발광효율을 달성했다고 23일 밝혔다.
+    광합성 유효 발광효율(PE)은 1W(와트)당 광합성에 도움이 되는 400~700㎚ 파장을 포함한 빛의 총량을 의미한다.
+    이 제품의 광합성 유효 발광효율은 출시 당시에는 3.03μmol/J(마이크로몰/줄)이었으나 이를 업계 최고인 3.10μmol/J 수준으로 높였다.
+    이로써 같은 성능의 등기구를 제작하는 경우 LED 패키지 사용량을 30% 이상 줄일 수 있게 됐다고 회사 측은 설명했다.
+    이 LED 조명 패키지는 전기에너지를 다양한 파장의 빛으로 전환해 햇빛이 없는 환경에서도 식물의 광합성을 도와 생장을 촉진하도록 설계됐다. 그만큼 실내 농장의 비용 절감에 도움을 준다는 것이다.
+    회사 관계자는 "반도체 박막 형성 기술을 활용, LED 발광층 표면 품질을 향상해 같은 에너지로 더 많은 빛을 생성할 수 있게 했다"면서 "또 LED 패키지 내부에서 빛을 많이 발산하는 영역이 넓어지도록 칩 설계도 최적화해 식물에 도달하는 빛의 양도 늘었다"고 말했다.
+    삼성전자는 성능을 강화한 이번 제품을 이달 말부터 본격 양산할 계획이며, 다음달 21일 미국 필라델피아에서 열리는 국제조명박람회(LIGHTFAIR International)에서 선보일 예정이다.
+
+
+    humane@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

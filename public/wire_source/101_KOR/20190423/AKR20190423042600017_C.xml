@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423042600017</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>120012</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Category code="03" name="사회"/>
+		<Category code="08" name="IT/과학"/>
+		<Class>
+			<ClassCode code="0901001" name="IT"/>
+			<ClassCode code="0902004" name="IT산업"/>
+			<ClassCode code="0901002" name="과학기술"/>
+			<ClassCode code="0106001" name="중앙행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['ICT 혁신 이끌어갈 미래인재 축제' 24~27일 코엑스서 개최]]></Title>
+		<Body><![CDATA['ICT 혁신 이끌어갈 미래인재 축제' 24~27일 코엑스서 개최
+
+    (서울=연합뉴스) 전준상 기자 = 과학기술정보통신부는 24일부터 27일까지 서울 코엑스에서 '대한민국 정보통신기술(ICT)혁신, 우리가 만들어 갑니다'를 주제로 'ICT 미래인재포럼 2019'를 개최한다.
+    ICT미래인재포럼은 ▲ 대학ICT연구센터 분야 ▲ ICT명품인재양성 분야 등 2개로 구성된다. 주요 연구성과 전시·심포지엄 등 다채로운 프로그램으로 운영된다.
+    대학ICT연구센터 분야는 올해로 20주년을 맞는 대학ICT연구센터의 연구역량 우수성을 홍보한다. 참여 학생의 산업계 채용·연계를 위해 연구성과 전시·리쿠르팅 페어를 개최한다.
+    전시관은 전국 30개 대학, 총 43개 대학ICT연구센터의 성과를 일반인이 쉽게 이해하고 체험할 수 있도록 ICT 주요 기술 7개 분야로 나눠 테마 중심으로 구성됐다.
+    리쿠르팅 페어에서는 LG CNS와 현대 NGV 등 대기업과 우수 중소·중견기업 등 20여곳의 채용 관계자들이 일자리 기회와 채용정보를 제공한다.
+    ICT 명품인재양성사업에 참여한 학생·교수들의 창의 융합교육 결과물도 대중들에게 선보인다. 
+    24일 개회식에서는 ICT분야 연구센터 평가에서 우수한 성과를 거둔 순천향대 IoT보안연구센터와 단국대 박사과정 양동석 씨 등 7명이 과기정통부 장관상을 받는다.
+    chunjs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

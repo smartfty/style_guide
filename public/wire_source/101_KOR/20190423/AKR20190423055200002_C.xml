@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423055200002</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>101926</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0204006" name="부동테크"/>
+			<ClassCode code="0303009" name="제2금융"/>
+			<ClassCode code="0202004" name="공기업"/>
+			<ClassCode code="0301002" name="금융기구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[상가·펜션·봉안당까지…예보, 저축은행 부동산 47건 공매]]></Title>
+		<Body><![CDATA[상가·펜션·봉안당까지…예보, 저축은행 부동산 47건 공매
+
+    (서울=연합뉴스) 한혜원 기자 = 예금보험공사(예보)는 저축은행 구조조정 과정에서 취득한 47개 프로젝트파이낸싱(PF) 부동산을 일괄 공매(그랜드 페어)한다고 23일 밝혔다. 
+    공매에는 상업용 건물 4건, 개별 상가 17건, 사업부지 21건, 아파트·오피스텔 3건, 펜션 1건, 봉안당(奉安堂) 1건이 나오며 총 감정가는 2천977억원이다. 
+    입찰 기간은 다음 달 8일부터 약 4주간이다. 
+
+    예보는 "공매 물건은 전국 각지에 포진했고 가격대도 1억∼870억원으로 다양해 개인투자자부터 기관투자자까지 다양한 수요자에게 투자 기회가 될 수 있다"고 설명했다. 
+    예보는 물건 정보를 공매 정보 시스템 케이애셋(K-Asset)에 게재했다. 
+    hye1@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

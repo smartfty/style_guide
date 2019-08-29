@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423113500057</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>144003</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7011004" name="금산"/>
+			<RegionCode code="7003006" name="울산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402002" name="농업"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[금산 인삼 울산박람회 5월 2일 개막]]></Title>
+		<Body><![CDATA[금산 인삼 울산박람회 5월 2일 개막
+
+
+    
+    (울산=연합뉴스) 장영은 기자 = 울산시는 오는 5월 2일부터 나흘간 울산 동천체육관에서 2019 금산 인삼 울산박람회가 열린다고 23일 밝혔다.
+    이 행사는 충청남도 금산군이 주최하고 금산군인삼약초기업인협의회가 협조한다.
+    박람회에서는 금산군이 보증하는 금산 인삼과 홍삼 가공품 등 다양한 제품을 전시·홍보한다.
+    또 인삼 음식체험과 인삼병(인삼주) 만들기 등 이벤트 체험도 다채롭게 선보인다.
+    행사장에서는 홍삼과 수삼, 홍삼절편, 홍삼 농축액, 홍삼 캔디, 홍삼액, 약초제품 등도 판매한다.
+    이밖에 하루 두 차례 금산 인삼에 관한 퀴즈를 풀고 홍보 도우미와 미니 게임을 통해 상품을 증정하는 행사 등도 열린다.    
+    박람회 사무국 측은 "울산박람회 기간 낮 12시 이전 방문객에게는 200명에 한해 기념품도 제공한다"며 "금산 인삼의 모든 것을 한 곳에서 만나볼 수 있는 이번 박람회에 많은 울산시민 방문을 기대한다"고 말했다.
+    young@yna.co.kr
+
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423133000063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>155901</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7011001" name="충남"/>
+		</Region>
+		<Class>
+			<ClassCode code="0505004" name="대기환경"/>
+			<ClassCode code="0507006" name="보건"/>
+			<ClassCode code="0107001" name="지방행정"/>
+			<ClassCode code="0505001" name="환경일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[충남 등 7개 시·도 중국발 미세먼지 영향 공동 연구]]></Title>
+		<SubTitle><![CDATA[서해안 지역 지자체 참여…"국경 넘는 미세먼지 문제 대응" ]]></SubTitle>
+		<Body><![CDATA[충남 등 7개 시·도 중국발 미세먼지 영향 공동 연구
+서해안 지역 지자체 참여…"국경 넘는 미세먼지 문제 대응" 
+    
+
+    (홍성=연합뉴스) 박주영 기자 = 충남을 비롯한 전국 7개 시·도가 중국발 미세먼지 영향을 분석하기 위한 공동 연구를 진행한다. 
+    충남·충북·서울·인천·경기·강원·전북 등 전국 7개 시·도 보건환경연구원은 23일 충남보건환경연구원에서 국경을 넘나드는 월경(越境)성 초미세먼지(PM2.5) 성분 분석 연구를 위한 회의를 열었다. 
+    이번 연구는 서해안 지역 대기 성분 분석을 통해 월경성 미세먼지가 국내에 미치는 영향을 파악하고 대처 방안을 모색하기 위해 마련됐다. 
+    지난 1월 첫 회의에 이어 이날 두 번째 열린 회의는 1∼3월 미세먼지 성분 분석 자료 공유, 올해 공동 연구 사업 현안 협의 등 순으로 진행됐다. 
+    이들 7개 보건환경연구원은 오는 12월까지 매달 동 시간대 지역별 주요 지점에서 미세먼지를 채취한 뒤 미세먼지 농도를 비롯해 이온, 탄소, 중금속 농도를 분석하게 된다. 
+    충남보건환경연구원은 당진 송산면과 서산 독곶리, 아산 모종동 측정소에서 시료를 채취해 분석하고 있다. 
+    충남보건환경연구원 관계자는 "연구 초반이어서 아직은 유의미한 결과가 나오진 않았지만, 연구 결과가 쌓이면 미세먼지 저감 대책에 유용하게 활용할 수 있는 자료가 나올 것"이라고 기대했다. 
+    jyoung@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

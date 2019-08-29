@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423123600054</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>153618</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7008014" name="여수"/>
+		</Region>
+		<Class>
+			<ClassCode code="0505004" name="대기환경"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0107002" name="지방의회"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[서완석 여수시의회 의장 "산단 주민 건강영향 평가해야"]]></Title>
+		<Body><![CDATA[서완석 여수시의회 의장 "산단 주민 건강영향 평가해야"
+
+    (여수=연합뉴스) 형민우 기자 = 서완석 전남 여수시의회 의장은 "여수산단 주변 대기 실태조사와 주민 유해성 건강 영향평가를 실시하라"고 23일 촉구했다.
+    
+
+    서 의장은 이날 오후 제192회 임시회에서 개회사를 통해 이같이 밝히고 "대기오염물질 측정치를 조작한 모든 업체에 대해 대기 오염도를 전수조사하고 주요 배출시설과 방지시설을 공개하라"고 주장했다.
+    서 의장은 "여수산단 기업들의 대기오염 측정치 거짓 기록 행위는 도저히 용서할 수 없는 반사회적 범죄"라며 "이런 사실이 적발되지 않았더라면 여수 시민은 앞으로도 계속해서 이들 업체가 뿜어내는 대기오염물질을 흡입하며 살았을 것"이라고 강조했다.
+    그는 이어 "여수산단에서 대기오염물질 총량관리제 조기 시행과 악취관리지역 지정을 해야 한다"며 "시민과 시민환경단체가 현지에서 상시 관리 감독 할 수 있도록 환경관리권 여수시 이관 등 여수산단 환경관리 시스템 전반에 대한 특별종합대책을 수립하라"고 촉구했다.
+    minu21@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

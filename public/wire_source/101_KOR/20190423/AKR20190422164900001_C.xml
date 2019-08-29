@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190422164900001</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>055500</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7002001" name="서울"/>
+		</Region>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[유시민, 노무현 前대통령 서거 10주기 기자간담회]]></Title>
+		<Body><![CDATA[유시민, 노무현 前대통령 서거 10주기 기자간담회
+
+
+    
+    (서울=연합뉴스) 이보배 기자 = 사람사는 노무현재단 유시민 이사장은 23일 마포구 노무현재단에서 고(故) 노무현 전 대통령 서거 10주기를 맞아 기자간담회를 연다.
+    유 이사장은 이날 간담회에서 노 전 대통령 서거 10주기 추도 행사의 준비 상황을 밝힐 계획이다.
+    또 2021년 완공을 목표로 서울 종로구에 세워질 '노무현시민센터'의 건축 모금 계획에 관해서도 설명할 예정이다.
+    bobae@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423152300063</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>170759</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Category code="03" name="사회"/>
+		<Region>
+			<RegionCode code="7003004" name="대전"/>
+		</Region>
+		<Class>
+			<ClassCode code="0605005" name="폭행살인"/>
+			<ClassCode code="0501002" name="사회문제"/>
+			<ClassCode code="0501001" name="사회일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[진주 아파트 방화살인 희생 60대 현충원 안장]]></Title>
+		<Body><![CDATA[진주 아파트 방화살인 희생 60대 현충원 안장
+
+    (대전=연합뉴스) 김준범 기자 = 경남 진주에서 방화살인범 안인득(42)이 휘두른 흉기에 안타깝게 숨진 희생자 고(故) 김모(64·여)씨가 대전 현충원에 있는 남편 곁에 안장됐다.
+
+
+    이날 진주에서 영결식이 끝난 뒤 운구차는 오후 3시 20분께 장지인 대전 현충원에 도착했다.
+    유가족 30여명은 빗방울이 떨어지는 날씨 속에서 연신 눈시울을 붉히며 고인과 마지막 인사를 나눴다.
+    안장식은 묵념, 하토 등 순으로 엄숙하게 진행됐다.
+    한 유가족은 유골 위에 흙을 뿌리며 "지켜주지 못해 미안해요. 그곳에서 편히 쉬세요"라며 눈물을 흘렸다.
+    유가족들은 마지막 절을 올리는 순서가 다가오자 오열하기도 했다.
+    고인은 국가유공자로 2001년 대전 현충원에 안장된 남편과 함께 현충원 묘역에서 영면에 들었다.
+    지난 17일 새벽 경남 진주시 한 아파트에 사는 방화살인범 안인득이 자신의 집에 불을 지르고 대피하는 주민을 상대로 흉기를 휘둘러 5명이 숨지고, 13명이 중경상을 입었다.
+    psykims@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423144400001</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>165736</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Class>
+			<ClassCode code="0101001" name="정치일반"/>
+			<ClassCode code="0104020" name="민주당"/>
+			<ClassCode code="0102001" name="청와일반"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[안민석 "조국 '임무 완료 후 학교行' 밝혀…한국당에 달렸다"]]></Title>
+		<SubTitle><![CDATA[페이스북 글…"비법은 권력기관 4대 개혁과제 약속하는 것"]]></SubTitle>
+		<Body><![CDATA[안민석 "조국 '임무 완료 후 학교行' 밝혀…한국당에 달렸다"
+페이스북 글…"비법은 권력기관 4대 개혁과제 약속하는 것"
+
+    (서울=연합뉴스) 한지훈 기자 = 더불어민주당 안민석 의원은 23일 "조국 청와대 민정수석이 험한 정치판으로 뛰어들지 실천적 지식인으로서의 삶을 살지는 자유한국당 하기에 달려 있다"고 말했다.
+    안 의원은 페이스북에 올린 글에서 "조 수석이 실천적 지식인으로서 현실의 한계를 절감한다면 정치판에 뛰어들어 정의로운 대한민국 실현이라는 그의 꿈을 국민과 함께 이루기 위한 무대를 준비하려 할지도 모른다"며 이같이 밝혔다.
+    안 의원은 "조 수석은 사적인 자리에서 거취에 대한 나의 물음에 '임무 완료 후 학교로'라고 단호하게 대답했다"며 "내가 보는 조국은 지식인으로서 최선을 다해 나라다운 나라를 만드는 일에 헌신할 뿐"이라고 전했다.
+    이어 "조 수석을 빨리 학교로 돌려보내는 비법을 한국당에 전수하겠다"며 "나라다운 나라를 위한 권력기관 4대 개혁 과제인 고위공직자비리수사처 설치, 검경수사권 조정, 국가정보원법 개정, 자치경찰제 실시를 약속하면 한국당의 두려움은 해소된다"고 강조했다.
+    그는 "나는 조광조의 실패한 개혁이 아닌 성공한 개혁가로서 조 수석을 보고 싶다"며 "정치보다 더 귀한 일을 조 수석에게 기대한다"고 덧붙였다. 
+
+
+    hanjh@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

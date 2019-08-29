@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010117400013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>134022</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="04" name="문화"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701001" name="문화일반"/>
+			<ClassCode code="0712001" name="영화"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['영화계 미투 이후, 우리가 살아가는 법']]></Title>
+		<Comment>NO-2861</Comment>
+		<Body><![CDATA['영화계 미투 이후, 우리가 살아가는 법'
+    (부산=연합뉴스) 강민지 기자 = 10일 오후 제23회 부산국제영화제가 열리고 있는 부산 해운대구 영화의전당 아주담담 라운지에서 부산국제영화제ㆍ미투운동부산대책위원회가 '영화계 미투 이후, 우리가 살아가는 법'을 주제로 토크 프로그램을 진행하고 있다.  2018.10.10
+    mjkang@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101011740001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101011740001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101011740001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423045500060</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>094710</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7005001" name="경기"/>
+			<RegionCode code="7005030" name="포천"/>
+		</Region>
+		<Class>
+			<ClassCode code="0402003" name="임업"/>
+			<ClassCode code="0505001" name="환경일반"/>
+			<ClassCode code="0505011" name="동식물"/>
+			<ClassCode code="0901002" name="과학기술"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국립수목원, 일반인과 24시간 광릉숲 생물 탐사]]></Title>
+		<SubTitle><![CDATA[비공개지역 개방…24일부터 참가자 선착순 모집]]></SubTitle>
+		<Body><![CDATA[국립수목원, 일반인과 24시간 광릉숲 생물 탐사
+비공개지역 개방…24일부터 참가자 선착순 모집
+
+    (포천=연합뉴스) 김도윤 기자 = 산림청 국립수목원은 다음 달 25∼26일 광릉숲에서 '바이오블리츠 코리아 2019'(Bio Blitz Korea 2019) 행사를 연다고 23일 밝혔다.
+    바이오블리츠는 생물 분야 권위자들과 일반인이 24시간 동안 특정 지역에서 확인할 수 있는 모든 생물 종을 찾아 목록을 만드는 과학 참여 활동이다.
+
+    전 세계적으로 진행되는 행사로, 국내에서는 2010년 경북 봉화에서 시작돼 올해가 10회째다.
+    국립수목원과 한국식물원수목원협회가 주관하는 이 행사는 생물학자와 함께하는 워크(Walk) 프로그램과 토크(Talk) 프로그램 등으로 운영된다.
+    특히 올해는 10주년을 맞아 생태계 보고(寶庫)인 광릉숲에서 탐사 활동을 진행하면서 그동안 일반에 공개되지 않았던 지역을 특별 개방한다.
+    광릉숲은 560년이 넘는 역사를 가진 숲으로 천연기념물인 장수하늘소와 희귀식물 광릉요강꽃 등 5천710종의 생물이 서식하고 있다.
+    2010년 유네스코(UNESCO·유엔교육과학문화기구) 생물권보전지역으로 지정되기도 했다. 
+    참가자는 오는 24일부터 선착순 모집하며 희망자는 바이오블리츠 코리아 홈페이지(www.bioblitz.or.kr)를 통해 신청하면 된다.
+    참가자들에게는 공식 티셔츠를 비롯해 탐사 활동에 필요한 기념품이 제공된다. '탄소 제로' 행사여서 1회용품을 제한하는 만큼 개인 컵과 수저류 등을 가져와야 한다.
+
+    kyoon@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

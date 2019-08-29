@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010065800013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>110940</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Region>
+			<RegionCode code="7013001" name="세종"/>
+		</Region>
+		<Class>
+			<ClassCode code="0103003" name="국감"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[국감 참석한 국세청장]]></Title>
+		<Comment>NO-2008</Comment>
+		<Body><![CDATA[국감 참석한 국세청장
+    (세종=연합뉴스) 이진욱 기자 = 10일 오전 정부세종청사 국세청에서 열린 국회 기재위 국정감사에서 한승희 청장이 여야 의원들의 질의를 듣고 있다. 2018.10.10
+    cityboy@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101006580001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101006580001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101006580001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

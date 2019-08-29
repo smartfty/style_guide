@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20190424034800013</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>095216</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Class>
+			<ClassCode code="1210004" name="축구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA['벼락 중거리슛' 강원 김현욱, K리그1 8라운드 MVP]]></Title>
+		<Comment>NO-2024</Comment>
+		<Body><![CDATA['벼락 중거리슛' 강원 김현욱, K리그1 8라운드 MVP
+    (서울=연합뉴스) 한국프로축구연맹이 지난 21일 제주종합경기장에서 열린 강원과 제주 유나이티드와의 경기에서 벼락같은 중거리슛으로 골네트를 흔든 강원의 김현욱을 프로축구 K리그1 8라운드 MVP로 선정했다고 24일 전했다. 2019.4.24 [한국프로축구연맹 제공]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2019042403480001301.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2019042403480001301_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2019042403480001301_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

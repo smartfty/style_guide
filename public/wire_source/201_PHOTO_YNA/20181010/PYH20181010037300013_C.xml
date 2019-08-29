@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010037300013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>101152</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="01" name="정치"/>
+		<Category code="09" name="북한"/>
+		<Class>
+			<ClassCode code="1008001" name="북한일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001074" name="KCNA사진"/>
+			<AttributeCode code="9001121" name="NKNT"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[KN]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[북한 당·정 간부, 당창건사적관 참관]]></Title>
+		<Comment>NO-1554</Comment>
+		<Body><![CDATA[북한 당·정 간부, 당창건사적관 참관
+    (평양 조선중앙통신=연합뉴스) 북한의 당·정 간부들과 우당위원장, 내각, 근로단체, 성(부처), 중앙기관 일꾼들이 노동당 창건 기념일 73주년을 앞둔 지난 9일 당창건사적관을 참관했다고 조선중앙통신이 10일 보도했다. 2018.10.10
+[국내에서만 사용가능. 재배포 금지. For Use Only in the Republic of Korea. No Redistribution]
+    photo@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101003730001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101003730001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101003730001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

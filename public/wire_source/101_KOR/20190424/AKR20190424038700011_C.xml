@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424038700011</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>092507</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0409002" name="물류택배"/>
+			<ClassCode code="0410003" name="수상운수"/>
+			<ClassCode code="0303002" name="증권사"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001010" name="부고"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[[부고] 양중곤(현대상선 인천사무소장)씨 모친상]]></Title>
+		<Body><![CDATA[[부고] 양중곤(현대상선 인천사무소장)씨 모친상
+
+    ▲ 강현윤씨 별세, 양중곤(현대상선 인천사무소장)·양혜숙·양미숙·양상근(BNK증권 채권부 상무)씨 모친상 = 23일 오전 8시51분께, 서울성모병원 장례식장 10호실, 발인 25일 오전 8시. ☎ 02-2258-5940 (서울=연합뉴스) 
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

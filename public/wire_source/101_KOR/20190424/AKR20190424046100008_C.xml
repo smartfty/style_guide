@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424046100008</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>094601</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="02" name="경제"/>
+		<Class>
+			<ClassCode code="0302012" name="기업공시"/>
+			<ClassCode code="0401003" name="실적발표"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[S-Oil, 1분기 영업이익 2천703억원…6.2% 증가]]></Title>
+		<Body><![CDATA[S-Oil, 1분기 영업이익 2천703억원…6.2% 증가
+
+    (서울=연합뉴스) 곽민서 기자 = S-Oil(에쓰오일)은 올해 1분기 연결기준 영업이익이 2천703억6천만원으로 작년 동기보다 6.2% 증가한 것으로 잠정 집계됐다고 24일 공시했다.
+    매출액은 5조4천261억원으로 0.3% 증가했고 당기순이익은 약 1천136억원으로 39.8% 감소했다. 
+    mskwak@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

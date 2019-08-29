@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423105500053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>141427</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7007001" name="경북"/>
+			<RegionCode code="7007020" name="울진"/>
+		</Region>
+		<Class>
+			<ClassCode code="0701004" name="축제"/>
+			<ClassCode code="0107001" name="지방행정"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[지게 지고 백두대간 넘던 길…울진서 십이령등금쟁이축제]]></Title>
+		<Body><![CDATA[지게 지고 백두대간 넘던 길…울진서 십이령등금쟁이축제
+
+
+    (울진=연합뉴스) 손대성 기자 = 제8회 십이령등금쟁이 축제가 28일 경북 울진군 북면 십이령마을 커뮤니티센터에서 열린다.
+    축제는 북면 4개 마을 주민 화합과 십이령바지게꾼놀이를 계승 발전하고자 2011년 주민 주도로 시작했다.
+    십이령마을은 옛날 울진 해산물과 봉화 등 내륙지방 특산물을 교환하던 길목이다. 등금쟁이는 물건을 등에 지고 팔러 다니는 보부상을 가리킨다.
+    예로부터 울진 해산물을 지게에 싣고 열두고개를 넘어 내륙지방으로 오가던 보부상이 부른 노래를 창작한 민속놀이가 십이령바지게꾼놀이다.
+    축제는 옛 보부상 모습을 재현한 십이령바지게꾼놀이, 지덕체 겸비 주모 선발대회, 등금쟁이 사진전, 물동이 이고 달리기 등 보부상 생활상을 엿볼 수 있는 행사로 구성된다.
+    축제는 올해까지 7년 연속으로 농림축산식품부가 공모한 농촌축제지원 대상에 뽑혔다.
+    강성국 십이령마을 운영위원장은 "봄꽃이 만발하는 4월을 맞아 전통문화를 체험하고 풍성한 먹거리·볼거리를 즐길 수 있는 축제에 많은 관광객이 참여하기를 바란다"고 말했다.
+    sds123@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

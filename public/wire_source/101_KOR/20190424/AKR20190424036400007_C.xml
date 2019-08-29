@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190424036400007</ContentID>
+		<SendDate>20190424</SendDate>
+		<SendTime>091548</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="05" name="스포츠/레저"/>
+		<Region>
+			<RegionCode code="7001001" name="종합"/>
+			<RegionCode code="7104002" name="미국"/>
+		</Region>
+		<Class>
+			<ClassCode code="1210002" name="야구"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[마운드에서 쓰러진 피츠버그 버디, 다행히 큰 부상 아닌듯]]></Title>
+		<Body><![CDATA[마운드에서 쓰러진 피츠버그 버디, 다행히 큰 부상 아닌듯
+
+
+    (서울=연합뉴스) 신창용 기자 = 미국프로야구 피츠버그 파이리츠의 우완 투수 닉 버디(26)가 다행히 큰 부상은 피한 것으로 보인다.
+    미국 스포츠전문매체 ESPN은 24일(한국시간) 버디의 초기 검진 결과가 희망적이라며 인대 파열이나 골절은 없었다고 전했다.
+    버디는 전날 애리조나 다이아몬드백스와의 홈경기에서 8회초 재러드 다이슨에게 공을 던진 뒤 오른쪽 이두박근을 부여잡으며 주저앉았다.
+    버디는 극심한 통증에 눈물까지 흘렸다. 이미 2017년 팔꿈치 인대 접합 수술을 받은 터라 부상이 예사롭지 않아 보였다.
+    하지만 끔찍했던 부상 당시와는 달리 다행히 현재까지는 수술이 필요해 보이지는 않는다고 ESPN은 전했다.
+    버디는 곧 2차 검진을 받을 예정이다.
+    클린트 허들 감독은 "좀 더 정확하고 구체적인 정보가 필요하다"며 말을 아꼈다.
+    수술 이후 지난해 대부분을 쉰 버디는 올 시즌 11경기에서 2승 1패 평균자책점 9.35로 기록했다. 8⅔이닝을 던져 삼진 17개를 잡아낼 정도로 구위 자체는 위력을 되찾았다.
+    피츠버그는 버디를 이두박근과 팔꿈치 통증으로 10일짜리 부상자 명단에 올리고 좌완 투수 스티븐 브롤을 콜업했다.
+    changyong@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

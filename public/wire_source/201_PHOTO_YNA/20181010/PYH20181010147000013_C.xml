@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>PYH0</ServiceType>
+		<ContentID>PYH20181010147000013</ContentID>
+		<SendDate>20181010</SendDate>
+		<SendTime>145746</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="03" name="사회"/>
+		<Class>
+			<ClassCode code="0509002" name="노사문제"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[옥시 노조 '부당해고 규탄 결의대회']]></Title>
+		<Comment>NO-3221</Comment>
+		<Body><![CDATA[옥시 노조 '부당해고 규탄 결의대회'
+    (서울=연합뉴스) 김주환 기자 = 옥시레킷벤키저 노동조합이 10일 서울 여의도 IFC몰 옥시 본사 앞에서 '살인적 부당해고 규탄 결의대회'를 열고 사측에 정리해고 철회와 복직 이행을 촉구했다. 2018.10.10
+    jujuk@yna.co.kr
+(끝)
+
+
+<저작권자(c) 연합뉴스, 무단 전재-재배포 금지>]]></Body>
+		<MultiMedia>
+			<DataFile mimetype="image/jpeg" type="FULL" desc="REALIMAGE">PYH2018101014700001300.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="P1" desc="PREVIEW">PYH2018101014700001300_P1.jpg</DataFile>
+			<DataFile mimetype="image/jpeg" type="T2" desc="THUMBNAIL">PYH2018101014700001300_T2.jpg</DataFile>
+		</MultiMedia>
+	</NewsContent>
+</YNewsML>

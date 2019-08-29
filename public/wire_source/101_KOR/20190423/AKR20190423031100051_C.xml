@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423031100051</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>085549</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>4</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003005" name="부산"/>
+		</Region>
+		<Class>
+			<ClassCode code="0504005" name="아동복지"/>
+			<ClassCode code="0402003" name="임업"/>
+		</Class>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA["어린이날 숲으로 오세요"…부산 5곳에서 체험행사]]></Title>
+		<Body><![CDATA["어린이날 숲으로 오세요"…부산 5곳에서 체험행사
+
+
+    (부산=연합뉴스) 박창수 기자 = 부산시는 숲에 대한 이해와 가치를 되새길 수 있는 숲 체험행사를 내달 4일부터 이틀간 개최한다고 23일 밝혔다.
+    숲 체험행사는 숲체험학습센터, 부산산림교육센터, 대연수목전시원, 부산 치유의 숲, 화명수목원 등 5곳에서 진행된다.
+    체험행사는 숲 해설가와 유아 숲 지도사 등 전문가 해설은 물론 자연물 만들기, 생태놀이 등 다양한 프로그램으로 꾸며진다.
+    부산산림교육센터 일부 프로그램을 제외한 모든 행사는 무료로 진행된다. 
+    숲을 체험하고 싶다면 부산시 통합예약사이트(https://reserve.busan.go.kr)로 신청하면 된다.
+    pcs@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>

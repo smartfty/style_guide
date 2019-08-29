@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<YNewsML>
+	<Header>
+		<Action>C</Action>
+		<ServiceType>AKR0</ServiceType>
+		<ContentID>AKR20190423096500053</ContentID>
+		<SendDate>20190423</SendDate>
+		<SendTime>135122</SendTime>
+	</Header>
+	<Metadata>
+		<Urgency>3</Urgency>
+		<Category code="07" name="지방"/>
+		<Region>
+			<RegionCode code="7003003" name="대구"/>
+		</Region>
+		<Class>
+			<ClassCode code="0201001" name="경제일반"/>
+		</Class>
+		<Attribute>
+			<AttributeCode code="9001200" name="단신"/>
+		</Attribute>
+		<Credit><![CDATA[YNA]]></Credit>
+		<Source><![CDATA[YNA]]></Source>
+	</Metadata>
+	<NewsContent>
+		<Title><![CDATA[대구는 벌써 여름…유통업계 계절상품 매출 '쑥쑥']]></Title>
+		<Body><![CDATA[대구는 벌써 여름…유통업계 계절상품 매출 '쑥쑥'
+
+
+    (대구=연합뉴스) 김현태 기자 = 매년 폭염으로 이름을 떨치는 '대프리카(대구와 아프리카의 합성어)'에 여름이 벌써 찾아왔다. 
+    23일 대구지역 유통업계에 따르면 기온이 섭씨 24도를 넘어선 지난 16일부터 최근까지 여름상품을 찾는 고객 발길이 이어지면서 작년 이맘때보다 관련 상품 매출이 10∼50%가량 늘었다.
+    신세계백화점은 래시가드와 수영복 전문브랜드 매출이 각각 53%, 40% 증가했고 대구백화점은 여름 차렵이불과 시원한 소재의 홈패션을 찾는 고객이 늘면서 관련 제품 판매가 25%가량 껑충 뛰었다. 
+    롯데백화점 식품매장에서는 참외 판매가 12% 늘었고 예년보다 10여일 앞당겨 출하한 수박도 10%가량 더 팔린 것으로 집계됐다.
+    롯데백화점 사충환 홍보팀장은 "대구는 벌써 여름이 왔다"며 "다른 지역보다 여름이 빨리 오는 대구는 관련 상품 매출이 4월부터 시작해 9월까지 증가세가 계속된다"고 말했다.
+    뜨겁게 달궈지는 대구는 기상청 자료로도 확인된다.
+    기상청에 따르면 지난 일주일간 대구의 낮 최고기온이 24도를 넘긴 날이 6일이었다. 같은 기간 서울은 1일, 제주는 2일이며 부산과 여수는 0일을 기록했다.
+    mtkht@yna.co.kr
+(끝)
+
+]]></Body>
+	</NewsContent>
+</YNewsML>
