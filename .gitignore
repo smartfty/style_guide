@@ -37,4 +37,5 @@ coverage
 /wire_source
 config/*
 config/schedule.rb
-config/schedule.rb
+/config/*
+/config/schedule.rb
