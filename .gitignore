@@ -34,5 +34,5 @@ coverage
 /doc/dev_doc
 
 /public/.sync
-/public/wire_source
+/wire_source
 /config/*
