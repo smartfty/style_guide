@@ -174,6 +174,8 @@ module ArticleSaveXml
     body.gsub!("\u200B", "")
     body.gsub!("\u5733", "&#22323;")
     body.gsub!("\u2024", "&#8228;")
+    body.gsub!("\u9785", "&#38789;")
+    body.gsub!("\u9ee5", "&#40677;")
     # body.gsub!("\u00b7", "\u30fb")
     body.gsub!("\u6DB8", "&#28088;")
     body.gsub!("\u9B92", "&#39826;")

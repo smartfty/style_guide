@@ -2,17 +2,17 @@
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
-set :output, "#{path}/log/cron.log"
+# set :output, "#{path}/log/cron.log"
 
-every :day, at: '5am' do
-  # specify the task name as a string
-  rake 'style:new_issue'
-end
+# every :day, at: '5am' do
+#   # specify the task name as a string
+#   rake 'style:new_issue'
+# end
 
-every :day, at: '5:30am' do
-  # specify the task name as a string
-  rake 'wire:new_issue'
-end
+# every :day, at: '5:30am' do
+#   # specify the task name as a string
+#   rake 'wire:new_issue'
+# end
 
 # every :day, at: '11:30am' do
 #   # specify the task name as a string
