@@ -3,7 +3,8 @@ namespace :wire do
   desc 'load new ytn contents'
   task :new_ytn => [:environment] do
     puts "in new_ytn task..."
-    WireServiceWorker.perform_async
+    # WireServiceWorker.perform_async
+    YNewsML.new_ytn
   end
 
 

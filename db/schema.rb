@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_053904) do
+ActiveRecord::Schema.define(version: 2019_08_27_065044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,12 @@ ActiveRecord::Schema.define(version: 2019_08_12_053904) do
     t.integer "row"
     t.text "layout"
     t.string "profile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dummies", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -846,6 +852,8 @@ ActiveRecord::Schema.define(version: 2019_08_12_053904) do
     t.string "taken_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category_name"
+    t.string "category_code"
   end
 
   create_table "yh_graphics", force: :cascade do |t|

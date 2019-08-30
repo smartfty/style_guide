@@ -29,7 +29,10 @@ default: &default
   pool: 5
   username: <%= ENV['USER'] %>
   password:
-
+  host: 211.115.91.213
+  port: 5432
+  timeout: 5000
+  
 development:
   <<: *default
   database: style_guide_development

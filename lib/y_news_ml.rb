@@ -1,3 +1,4 @@
+
 require 'happymapper'
 require 'yaml'
 require 'pry'
@@ -5,6 +6,7 @@ require 'pry'
 require 'date'
 require 'fileutils'
 require 'etc'
+
 
 class Header
   include HappyMapper
@@ -25,7 +27,7 @@ class Header
     h
   end
 end
-
+#
 class CodeCategory
   include HappyMapper
   tag 'Category'
@@ -69,6 +71,34 @@ class Class
   end
 end
 
+class AttributeCode
+  include HappyMapper
+  tag 'AttributeCode'
+  attribute :code, String, tag: 'code'
+  attribute :name, String, tag: 'name'
+  def to_hash
+    h = {}
+    h[:code]     = self.code if self.code
+    h[:name]     = self.name if self.name
+    h
+  end
+end
+
+class Attribute
+  include HappyMapper
+  tag 'Attribute'
+  has_many :attribute_codes, AttributeCode
+
+  def to_hash
+    h = []
+    attribute_codes.each do |attribute_code|
+      h << cattribute.to_hash 
+    end
+    # h[:attribute_code]     = self.attribute_code if self.attribute_code
+    h
+  end
+end
+
 class Metadata
   include HappyMapper
   tag 'Metadata'
@@ -76,6 +106,7 @@ class Metadata
   has_one :Category, CodeCategory
   has_one :Region, String
   has_one :Class, String, tag: 'Class'
+  has_one :Attribute, String, tag: 'Attribute'
   has_one :Credit, String
   has_one :Source, String
 
@@ -339,6 +370,7 @@ class YNewsML
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
         @filename_date = jpg_file.split("/").last.scan(/\d{3,8}/).first
         destination_dir = "#{source_dir}/#{@filename_date}" 
+        FileUtils.mkdir_p "#{destination_dir}"
         sudo_passwd = "4141"
         system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
         FileUtils.mv(jpg_file, destination_dir) 
@@ -348,6 +380,7 @@ class YNewsML
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
           @filename_date = xml_file.split("/").last.scan(/\d{3,8}/).first
           destination_dir = "#{source_dir}/#{@filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}"
           sudo_passwd = "4141"
           system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml")

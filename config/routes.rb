@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :yh_photo_fr_ynas
+  resources :yh_photo_trs
+  resources :yh_prs
   resources :line_fragments
   resources :paragraphs
   resources :expert_writers
@@ -168,7 +171,7 @@ Rails.application.routes.draw do
       get 'announcement_one'
       get 'announcement_two'
       get 'announcement_zero'
-      # get 'swap'
+      get 'swap'
 
       get 'image_1x1'
       get 'image_2x2'
