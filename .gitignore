@@ -36,3 +36,4 @@ coverage
 /public/.sync
 /wire_source
 /config/*
+/config/schedule.rb
