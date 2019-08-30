@@ -25,10 +25,10 @@
 /public/1/section/*
 /public/1/issue/*
 coverage
-public/1/.DS_Store
+/public/1/.DS_Store
 
 /vendor/*
-public/1/page_heading/.DS_Store
+/public/1/page_heading/.DS_Store
 .DS_Store
 .DS_Store
 /doc/dev_doc
@@ -36,4 +36,3 @@ public/1/page_heading/.DS_Store
 /public/.sync
 /public/wire_source
 /config/*
-public/wire_source
