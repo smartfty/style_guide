@@ -43,6 +43,7 @@ module ArticleSaveXml
     text.gsub!(/\.\'/, ".’")
     text.gsub!(/\"$/, "”")
     text.gsub!(/\'$/, "’")
+    text.gsub!(/\*\"/, "*“")
     text.gsub!(/\*\◆\"/, "*◆“")
     text.gsub!(/\*\s\◆\"/, "*◆“")
     text.gsub!(/\*\s\◆/, "*◆")
