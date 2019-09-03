@@ -158,6 +158,7 @@ end
 def save_story_xml # 데스크탑용 기사 XML 
   pages[0..0].each(&:save_story_xml)
   full_page_ad.each(&:save_story_xml)
+  pages[9..9].each(&:save_story_xml)
   pages[21..22].each(&:save_story_xml)
   # make_story_xml_zip
 end
@@ -165,6 +166,7 @@ end
 def save_preview_xml # 데스크탑용 지면보기 XML
   pages[0..0].each(&:save_preview_xml)
   full_page_ad.each(&:save_preview_xml)
+  pages[9..9].each(&:save_preview_xml)
   pages[21..22].each(&:save_preview_xml)
   # make_preview_xml_zip
 end
@@ -183,6 +185,12 @@ def save_mobile_preview_xml # 모바일용 지면보기 XML
   u = ''
   # page 1 only for now!!
   pages[0..0].each do |page|
+    s += page.all_container
+    u += page.updateinfo
+    page.save_mobile_preview_xml
+    # all_container_xml_page = page.container_xml_page
+  end
+  pages[9..9].each do |page|
     s += page.all_container
     u += page.updateinfo
     page.save_mobile_preview_xml

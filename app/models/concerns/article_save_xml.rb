@@ -5,7 +5,7 @@ module ArticleSaveXml
 ## 뉴스 / 지면보기 XML 생성관련 소스 분리 2018-12-27 DaNiel
 
    def find_code_name(code)
-    a =      [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]]
+    a =      [['금융', 1401], ['산업', 1402], ['재정', 1403], ['글로벌경제', 1502], ['피플', 1404], ['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]]
     a.each do |code_a|
       return code_a[0] if code_a[1] == code
     end
@@ -177,6 +177,7 @@ module ArticleSaveXml
     body.gsub!("\u2024", "&#8228;")
     body.gsub!("\u9785", "&#38789;")
     body.gsub!("\u9ee5", "&#40677;")
+    body.gsub!("\ud5a1", "&#54689;")
     # body.gsub!("\u00b7", "\u30fb")
     body.gsub!("\u6DB8", "&#28088;")
     body.gsub!("\u9B92", "&#39826;")
@@ -470,16 +471,18 @@ module ArticleSaveXml
       end
     end 
     @subject_ex_code = story.category_code if story && story.category_code && story.category_code != ""
+    @subject_ex_code = category_code if category_code && category_code != ""
     # if page_number == 1
     #   @subject_ex_code = category_code
     #   @subject_ex_name = ""
     # end
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
-    if page_number == 1
+    @subject_ex_name  = find_code_name(category_code.to_i) if category_code && category_code != ""
+    if page_number == 1 || page_number == 10
       @money_status = "0"
-    elsif page_number == 20 || page_number == 21
-      @money_status     = story.price.to_i if story && story.price && story.price != ""
+    # elsif page_number == 20 || page_number == 21
+    #   @money_status     = story.price.to_i if story && story.price && story.price != ""
     elsif page_number == 22
       puts "kind : #{page_number } #{kind} #{@money_status}"
       if kind == '사설'
@@ -929,7 +932,7 @@ EOF
   <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
 </TitleComponent>
 <ArticleComponent>
-<Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
+<Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %>]]>
 </Content>
 </ArticleComponent>
 <PhotoComponent>
@@ -937,27 +940,7 @@ EOF
   <ImageType>Image</ImageType>
     <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
     <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-    <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-  </PhotoItem>
-</PhotoComponent>
-</Article>
-EOF
-
-elsif kind == "__사진"
-  three_component =<<EOF
-  <TitleComponent>
-  <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
-</TitleComponent>
-<ArticleComponent>
-  <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
-  </Content>
-</ArticleComponent>
-<PhotoComponent>
-<PhotoItem>
-  <ImageType>Image</ImageType>
-    <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-    <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-    <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+    <DataContent><![CDATA[ <%= @h_source %>]]></DataContent>
   </PhotoItem>
 </PhotoComponent>
 </Article>
@@ -1051,21 +1034,25 @@ EOF
     day   = issue.date.day.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     @head_line        = title    
-    if title && title != ""
-      title.strip!
-      @head_line        = title   
-      # @head_line        = @head_line.gsub("\r\n", " ")
-      @head_line        = @head_line.gsub("\&", "&amp;")
-      @head_line        = @head_line.gsub("\u201C", "&quot;")
-      @head_line        = @head_line.gsub("\u201D", "&quot;")
-      @head_line        = @head_line.gsub("\u0022", "&quot;")
-      @head_line        = @head_line.gsub("\u003C", "&lt;")
-      @head_line        = @head_line.gsub("\u003E", "&gt;")
-    end
+    # if title && title != ""
+    #   title.strip!
+    #   @head_line        = title    
+    #   # @head_line        = @head_line.gsub("\r\n", " ")
+    #   @head_line        = @head_line.gsub("\&", "&amp;")
+    #   @head_line        = @head_line.gsub("\u201C", "&quot;")
+    #   @head_line        = @head_line.gsub("\u201D", "&quot;")
+    #   @head_line        = @head_line.gsub("\u0022", "&quot;")
+    #   @head_line        = @head_line.gsub("\u003C", "&lt;")
+    #   @head_line        = @head_line.gsub("\u003E", "&gt;")
+    # end
     @order            = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
-    if title && title != ""
-      @c_head_line    = eliminate_size_option(@head_line)
+    if title && title != ""    
+      if kind == "사진"
+        @c_head_line = eliminate_size_option(images.first.caption_title)
+      else
+        @c_head_line = eliminate_size_option(@head_line)
+      end
       # @c_head_line    = @c_head_line.gsub("\r", "")
       @c_head_line    = @c_head_line.gsub("\n", "")
       # @c_head_line    = @c_head_line.gsub("\&", "&amp;")
