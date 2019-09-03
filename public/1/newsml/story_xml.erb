@@ -103,28 +103,15 @@
 			<Role FormalName="Article" />
 			<MediaType FormalName="Text" />
 			<DataContent>
-				<![CDATA[[IMG1]<br><%= @h_caption %><%= @h_source %>]]>
+				<![CDATA[[IMG1]<br><%= @h_caption %>]]>
 			</DataContent>
-		</NewsComponent><% elsif kind == "__사진" %>
-		<NewsComponent>
-			<Role FormalName="Title" />
-			<MediaType FormalName="Text" />
-			<HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></HeadLine>
-		</NewsComponent>
-		<NewsComponent>
-			<Role FormalName="Article" />
-			<MediaType FormalName="Text" />
-			<DataContent>
-				<![CDATA[[IMG1]<br><%= @h_caption %><%= @h_source %>]]>
-			</DataContent>
-		</NewsComponent>
 		<NewsComponent> 
 			<Role FormalName="Photo" />
 			<MediaType FormalName="Image" />
 			<Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
 			<PhotoItem Real="<%= @photo_item %>" />
 			<DataContent>
-			<![CDATA[ <%= @caption %>]]> </DataContent>
+			<![CDATA[ <%= @h_source %>]]> </DataContent>
 		</NewsComponent><% elsif kind == "부고-인사" %>
 		<NewsComponent>
 			<Role FormalName="Title" />

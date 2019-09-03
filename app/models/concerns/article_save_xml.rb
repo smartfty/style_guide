@@ -727,7 +727,8 @@ module ArticleSaveXml
         @name_plate = opinion_writer.title if opinion_writer
       end
     end    
-    @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
+    # @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
+    @subject_ex_code  = category_code if category_code && category_code != ""
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
     @money_status     = "30"
