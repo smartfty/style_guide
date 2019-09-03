@@ -93,6 +93,13 @@ class Image < ApplicationRecord
     working_article.images.length
   end
 
+  def correct_image_path
+    binding.pry
+    if  working_article.images.length == 1
+      image.path 
+    end
+  end
+
   #'최적' '가로', '세로', '욱여넣기'
   # MAGE_FIT_TYPE_ORIGINAL        = 0
   # IMAGE_FIT_TYPE_VERTICAL       = 1

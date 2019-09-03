@@ -32,7 +32,7 @@ class YhPicture < ApplicationRecord
       today = Date.today
       today_string = today.strftime("%Y%m%d")  
       @filename_date = content_id.split("/").last.scan(/\d{3,8}/).first
-      "#{Rails.root}/wire_source/201_PHOTO_YNA/#{@filename_date}"
+      "/wire_source/201_PHOTO_YNA/#{@filename_date}"
 
       # source_dir = "/wire_source/201_PHOTO_YNA/#{@filename_date}"
       # Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|

@@ -32,7 +32,7 @@ class YhGraphic < ApplicationRecord
       today = Date.today
       today_string = today.strftime("%Y%m%d")
       @filename_date = content_id.split("/").last.scan(/\d{3,8}/).first
-      "#{Rails.root}/wire_source/203_GRAPHIC/#{@filename_date}"
+      "/wire_source/203_GRAPHIC/#{@filename_date}"
 
       #  "/wire_source/203_GRAPHIC/#{today_string}"
       # "/wire_source/203_GRAPHIC/20190424"
