@@ -30,6 +30,7 @@ class YhPhotoFrYna < ApplicationRecord
     def sorce_path
         require 'date'
         today = Date.today
+        
         today_string = today.strftime("%Y%m%d")
         @filename_date = content_id.split("/").last.scan(/\d{3,8}/).first
         "/wire_source/205_PHOTO_FR_YNA/#{@filename_date}"
