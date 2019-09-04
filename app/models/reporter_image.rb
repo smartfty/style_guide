@@ -38,7 +38,11 @@ class ReporterImage < ApplicationRecord
 
   #TODO
   def sorce_path
-    "/wire_source/201_PHOTO_YNA/20190424"
+    return unless wire_pictures
+    full_size = wire_pictures.split(" ").first
+    @filename_date = full_size.split(".").first.scan(/\d{3,8}/).first
+    "/wire_source/201_PHOTO_YNA/#{@filename_date}"
+    # "/wire_source/201_PHOTO_YNA/"
   end
 
   def full_size_path
