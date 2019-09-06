@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  resources :yh_photo_fr_ynas
-  resources :yh_photo_trs
-  resources :yh_prs
+  resources :yh_photo_fr_ynas do
+    member do
+      get 'taken'
+    end
+  end
+  resources :yh_photo_trs do
+    member do
+      get 'taken'
+    end
+  end
+  resources :yh_prs do
+    member do
+      get 'taken'
+    end
+  end
   resources :line_fragments
   resources :paragraphs
   resources :expert_writers
