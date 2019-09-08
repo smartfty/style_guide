@@ -94,7 +94,6 @@ class Image < ApplicationRecord
   end
 
   def correct_image_path
-    binding.pry
     if  working_article.images.length == 1
       image.path 
     end
@@ -256,8 +255,8 @@ class Image < ApplicationRecord
   private
 
     def set_default
-      self.column                 = 3 unless column
-      self.row                    = 3 unless row
+      self.column                 = 2 unless column
+      self.row                    = 2 unless row
       self.extra_height_in_lines  = 0
       self.position               = 3
       self.fit_type               = 3 #'최적' '상하', '좌우', '욱여넣기'
