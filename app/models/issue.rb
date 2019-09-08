@@ -61,7 +61,7 @@ class Issue < ApplicationRecord
   def set_color_page
     pages.each do |page|
       # puts page.page_number
-      if page.page_number == 22 || page.page_number == 23
+      if page.page_number == 22 || page.page_number == 23 || page.page_number == 10
         page.color_page = false
       else
         page.color_page = true
