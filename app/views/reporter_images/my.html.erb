@@ -13,8 +13,9 @@
 <div class="view">
   <% @reporter_images.each do |picture| %>
     <div class="col-md-2">
-      <a href="<%=  reporter_image_path(picture) %>"><img style="object-fit:cover",  src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
+      <a href="<%= reporter_image_path(picture) %>"><img style="object-fit:cover",  src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
       <p align="center"><%= picture.title %></p>
+      <p align="center"><%= picture.source %></p>
 
     </div>
   <% end %>

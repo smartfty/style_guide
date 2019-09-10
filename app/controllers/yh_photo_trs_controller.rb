@@ -1,5 +1,5 @@
 class YhPhotoTrsController < ApplicationController
-  before_action :set_yh_photo_tr, only: [:show, :edit, :update, :destroy]
+  before_action :set_yh_photo_tr, only: [:show, :edit, :update, :destroy, :taken]
 
   # GET /yh_photo_trs
   # GET /yh_photo_trs.json
