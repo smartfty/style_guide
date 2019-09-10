@@ -1,4 +1,4 @@
-
+<h3 align="center">나의 사진</h3>
 
 <%= search_form_for @q do |f| %>
   <%= f.label '제목에 포함된 글자로' %>
@@ -12,16 +12,14 @@
 
 <div class="view">
   <% @reporter_images.each do |picture| %>
-    <div class="col-md-2">
-      <a href="<%= reporter_image_path(picture) %>"><img style="object-fit:cover",  src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
-      <p align="center"><%= picture.title %></p>
-      <p align="center"><%= picture.source %></p>
-
+    <div class="col-xs-5 col-sm-2">
+      <a href="<%= reporter_image_path(picture) %>"><img class="img-crop" src="<%= picture.thumb_path %>" width="200px" height="200px"></img></a>
+      <div align="center" style="height: 50px;"><%= picture.title %> (<%= picture.source %>)</div>
     </div>
   <% end %>
 </div>
 
-<div align="center">
+<div class="col-xs-12 col-sm-12" align="center">
   <%= paginate @reporter_images %>
 </div>
 
