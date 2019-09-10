@@ -13,7 +13,6 @@
       self.extended_line_count = new_extended_line_count
       twin_h[:extended_line_count] = extended_line_count - new_extended_line_count
     end
-    binding.pry
     if pushed_line_count && pushed_line_count != 0
       new_pushed_line_count = pushed_line_count/2
       new_pushed_line_count +=1 if (new_pushed_line_count % 2) > 0

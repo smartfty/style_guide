@@ -1,5 +1,5 @@
 class YhPhotoFrYnasController < ApplicationController
-  before_action :set_yh_photo_fr_yna, only: [:show, :edit, :update, :destroy]
+  before_action :set_yh_photo_fr_yna, only: [:show, :edit, :update, :destroy, :taken]
 
   # GET /yh_photo_fr_ynas
   # GET /yh_photo_fr_ynas.json

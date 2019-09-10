@@ -27,7 +27,7 @@
 class YhPhotoFrYna < ApplicationRecord
     validates_uniqueness_of :content_id
   
-    def sorce_path
+    def source_path
         require 'date'
         today = Date.today
         
@@ -41,19 +41,19 @@ class YhPhotoFrYna < ApplicationRecord
     def full_size_path
         return unless picture
         full_size = picture.split(" ").first
-        sorce_path + "/#{full_size}"
+        source_path + "/#{full_size}"
     end
 
     def preview_path
         return unless picture
         preview = picture.split(" ")[1]
-        sorce_path + "/#{preview}"
+        source_path + "/#{preview}"
     end
 
     def thumb_path
         return unless picture
         thumb = picture.split(" ").last
-        sorce_path + "/#{thumb}"
+        source_path + "/#{thumb}"
     end
 
     def taken(user)

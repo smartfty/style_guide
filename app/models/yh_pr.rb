@@ -27,7 +27,7 @@
 class YhPr < ApplicationRecord
     validates_uniqueness_of :content_id
   
-    def sorce_path
+    def source_path
         require 'date'
         today = Date.today
         today_string = today.strftime("%Y%m%d")
@@ -40,19 +40,19 @@ class YhPr < ApplicationRecord
     def full_size_path
         return unless appenddata
         full_size = appenddata.split("/").last
-        sorce_path + "/#{full_size}"
+        source_path + "/#{full_size}"
     end
 
     def preview_path
         return unless appenddata
         preview = appenddata.split("/").last
-        sorce_path + "/#{preview}"
+        source_path + "/#{preview}"
     end
 
     def thumb_path
         return unless appenddata
         thumb = appenddata.split("/").last
-        sorce_path + "/#{thumb}"
+        source_path + "/#{thumb}"
     end
 
     def taken(user)
