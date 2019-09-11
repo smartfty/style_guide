@@ -59,7 +59,6 @@ class ReporterImage < ApplicationRecord
     else
       "/wire_source/202_PHOTO_TR/#{@filename_date}"
     end
-
     # "/wire_source/201_PHOTO_YNA/"
   end
 
