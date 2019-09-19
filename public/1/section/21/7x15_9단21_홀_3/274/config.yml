@@ -36,4 +36,4 @@ story_frames:
   - 9
   - 광고_9단21_홀
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true
