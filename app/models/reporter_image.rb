@@ -35,7 +35,6 @@ class ReporterImage < ApplicationRecord
     s.source          = wire.source
     s.wire_pictures   = wire.picture
     s.kind            = kind
-    binding.pry
     s.save
   end
 

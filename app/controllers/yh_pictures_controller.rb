@@ -67,7 +67,6 @@ class YhPicturesController < ApplicationController
   end
 
   def taken
-    binding.pry
     ReporterImage.image_from_wire(current_user, @yh_picture, "201_PHOTO_YNA")
     redirect_to my_reporter_images_path, notice: '나의 사진으로 등록 되었습니다.'
   end
