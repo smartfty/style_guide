@@ -52,4 +52,4 @@ story_frames:
   - 7
   - 광고_7단15_홀
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true

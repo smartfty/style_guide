@@ -295,8 +295,8 @@ module ArticleSaveXml
     convert_euckr_not_suported_chars
     # puts story_xml =~/\u4F18/ 
     # puts story_xml.dump
-    # File.open(path, 'w:euc-kr'){|f| f.write story_xml}
-    File.open(path, 'w:utf-8'){|f| f.write story_xml}
+    File.open(path, 'w:euc-kr'){|f| f.write story_xml}
+    # File.open(path, 'w:utf-8'){|f| f.write story_xml}
     save_xml_image 
   end
 

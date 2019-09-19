@@ -458,7 +458,36 @@ class Page < ApplicationRecord
     h['gutter']                         = gutter
     h['story_frames']                   = eval(layout)
     h['article_line_thickness']         = article_line_thickness
+    h['draw_divider']                   = true if page_number != 22 || page_number != 23
     h
+  end
+
+  def update_working_article_layout
+    layout = []
+    working_articles.each do |wa|
+      layout << wa.layout_info
+    end
+    self.layout = layout.to_s
+    self.save
+  end
+
+  def  update_config_file_to_draw_divider
+    h = config_hash
+    h['draw_divider'] = true
+    File.open(config_yml_path, 'w'){|f| f.write h.to_yaml}
+  end
+
+  def  update_config_file_not_to_draw_divider
+    h = config_hash
+    h['draw_divider'] = false
+    File.open(config_yml_path, 'w'){|f| f.write h.to_yaml}
+  end
+
+  def update_config_file
+    h = config_hash
+    h['layout'] = update_working_article_layout
+    yaml = h.to_yaml
+    File.open(config_yml_path, 'w'){|f| f.write yaml}
   end
 
   def config_yml_path
