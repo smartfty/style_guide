@@ -23,7 +23,7 @@ module ArticleSaveXml
     title.gsub!(/ {2,8}/, " ")
     title.gsub!("\u2027", "・")
     title.gsub!("\u0387", "・")
-    title.gsub!("\u00b7", "・")
+    # title.gsub!("\u00b7", "・")
     title.gsub!("\u2219", "・")
     title
   end
