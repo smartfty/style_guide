@@ -13,6 +13,7 @@
 #  wire_pictures  :string
 #  section_name   :string
 #  used_in_layout :boolean
+#  kind           :string
 #
 # Indexes
 #
@@ -27,12 +28,14 @@ class ReporterImage < ApplicationRecord
   belongs_to :user
   mount_uploader :reporter_image, ReporterImageUploader
 
-  def self.image_from_wire(user, wire)
+  def self.image_from_wire(user, wire, kind)
     s = ReporterImage.where(user_id: user.id, wire_pictures: wire.picture).first_or_create! 
     s.title           = wire.title
     s.caption         = wire.body
     s.source          = wire.source
     s.wire_pictures   = wire.picture
+    s.kind            = kind
+    binding.pry
     s.save
   end
 
@@ -50,7 +53,7 @@ class ReporterImage < ApplicationRecord
     #   "/wire_source/205_PHOTO_FR_YNA/#{@filename_date}"
     # end
     @filename_code = wire_pictures.split(".").first.scan(/\d{4,4}/).last
-    if @filename_code == "0001" || @filename_code == "0007" 
+    if @filename_code == "0001" || @filename_code == "0007" || @filename_code == "0006" 
       "/wire_source/201_PHOTO_YNA/#{@filename_date}"
     elsif @filename_code == "0440" 
       "/wire_source/203_GRAPHIC/#{@filename_date}"
