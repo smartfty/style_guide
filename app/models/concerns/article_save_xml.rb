@@ -141,6 +141,7 @@ module ArticleSaveXml
     if subtitle && subtitle != ""
     subtitle.gsub!("\u2027", "·")
     # subtitle.gsub!("\u22EF", "&#8943;")
+    subtitle.gsub!("\u22EF", "&ctdot;")
     subtitle.gsub!("\u200B", "")
     subtitle.gsub!("\u2024", ".")
     subtitle.gsub!("\u2013", "-")
@@ -532,6 +533,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
@@ -809,6 +811,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       # @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
