@@ -169,8 +169,8 @@ class Graphic < ApplicationRecord
   end
 
   def self.place_all_images
-    Image.current_images.each do |curremt_image|
-      curremt_image.place_image unless curremt_image.used_in_layout
+    Image.current_images.each do |current_image|
+      current_image.place_image unless current_image.used_in_layout
     end
   end
 
@@ -189,8 +189,8 @@ class Graphic < ApplicationRecord
   end
 
   def self.clear_all_images
-    Image.current_images.each do |curremt_image|
-      curremt_image.clear_image
+    Image.current_images.each do |current_image|
+      current_image.clear_image
     end
   end
 

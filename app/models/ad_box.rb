@@ -370,7 +370,8 @@ EOF
     sec   = updated_at.sec.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     updated_date      = "#{year}#{month}#{day}"
-    updated_time      = "#{hour}#{min}#{sec}+0900"
+    # updated_time      = "#{hour}#{min}#{sec}+0900"
+    updated_time      = "100000+0900"
     @date_and_time    = "#{updated_date}T#{updated_time}"
     @date_id          = updated_date
     @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
