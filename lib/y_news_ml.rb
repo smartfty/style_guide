@@ -183,11 +183,13 @@ class YNewsML
   end
 
   def self.new_ytn
+    binding.pry
     require 'date'
     today = Date.today
     today_string = today.strftime("%Y%m%d")
     # source_location = '/Volumes/211.115.91.190'
-    source_location = "/yhnews/wire_source"
+    # source_location = "/yhnews/wire_source"
+    source_location = "/Volumes/wire_source/wire_source"
     ytn_today_story_folder = source_location + "/101_KOR/#{today_string}"
     ytn_today_image_folder = source_location + "/201_PHOTO_YNA/#{today_string}"
     ytn_today_graphic_folder = source_location + "/203_GRAPHIC/#{today_string}"
@@ -323,6 +325,7 @@ class YNewsML
   end
 
   def self.parse_new_wire_photo_fr_yna(source_dir)
+    # binding.pry
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
@@ -354,8 +357,9 @@ class YNewsML
             YhPhotoFrYna.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
+          # FileUtils.mv(xml_file, destination_dir)   
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
-          puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
+          puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end
       end
     end

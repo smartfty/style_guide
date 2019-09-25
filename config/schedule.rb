@@ -9,15 +9,15 @@
 #   rake 'style:new_issue'
 # end
 
-every :day, at: '5:30am' do
-  # specify the task name as a string
-  rake 'wire:new_ytn'
-end
+# every :day, at: '5:30am' do
+#   # specify the task name as a string
+#   rake 'wire:new_ytn'
+# end
 
-every 10.minutes do
-    # specify the task name as a string
-    rake 'wire:new_ytn'
-  end
+# every 10.minutes do
+#     # specify the task name as a string
+#     rake 'wire:new_ytn'
+#   end
 
 # every :day, at: '11:30am' do
 #   # specify the task name as a string
