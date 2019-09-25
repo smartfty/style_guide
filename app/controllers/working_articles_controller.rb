@@ -462,7 +462,7 @@ class WorkingArticlesController < ApplicationController
     reporter_image = ReporterImage.find(params[:reporter_image])
     #TODO
     # i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
-    i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.preview_path)
+    i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
     @working_article.generate_pdf_with_time_stamp
     redirect_to @working_article
   end
