@@ -183,7 +183,6 @@ class YNewsML
   end
 
   def self.new_ytn
-    binding.pry
     require 'date'
     today = Date.today
     today_string = today.strftime("%Y%m%d")
@@ -357,7 +356,7 @@ class YNewsML
             YhPhotoFrYna.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          # FileUtils.mv(xml_file, destination_dir)   
+          FileUtils.mv(xml_file, destination_dir)   
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end
@@ -397,6 +396,7 @@ class YNewsML
             YhPr.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
+          FileUtils.mv(xml_file, destination_dir)   
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end

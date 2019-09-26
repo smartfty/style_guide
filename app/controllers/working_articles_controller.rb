@@ -458,11 +458,20 @@ class WorkingArticlesController < ApplicationController
   end
 
   def select_reporter_image
+    binding.pry
     set_working_article
     reporter_image = ReporterImage.find(params[:reporter_image])
-    #TODO
+    # 지면으로 출고된 나의 사진을 선택하면 today_issue/images 로 사진 복사
+    filename = "#{@working_article.page_number}_#{@working_article.order}_#{@working_article.images.count}.jpg"
+    source = "#{Rails.root}/public/#{reporter_image.full_size_path}"
+    target = "#{@working_article.issue.issue_images_path}/#{filename}"
+    layout_target = "/wire_source/#{filename}"
+    puts "select_reporter_image: #{target}"
+    system("cp #{source} #{target}")
+        #TODO
     # i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
-    i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
+    # i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
+    i = Image.create!(working_article_id:@working_article.id, reporter_image_path:target)
     @working_article.generate_pdf_with_time_stamp
     redirect_to @working_article
   end
