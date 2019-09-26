@@ -168,6 +168,10 @@ class WorkingArticle < ApplicationRecord
     "/#{publication.id}/issue/#{page.issue.date.to_s}/#{page.page_number}/#{order}/#{latest_jpg_basename}"
   end
 
+  def image_path
+    "/#{publication.id}/issue/images"
+  end
+
   def article_info_path
     path + "/article_info.yml"
   end

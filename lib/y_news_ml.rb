@@ -183,7 +183,6 @@ class YNewsML
   end
 
   def self.new_ytn
-    binding.pry
     require 'date'
     today = Date.today
     today_string = today.strftime("%Y%m%d")
