@@ -60,10 +60,10 @@ class Graphic < ApplicationRecord
   def image_path
     if graphic.url 
       "#{Rails.root}/public" + graphic.url 
-    elsif reporter_graphic_path
+    else reporter_graphic_path
       "#{Rails.root}/public" + reporter_graphic_path 
-    else
-     "#{Rails.root}/public" + "/place_holder_image.jpg"
+    # else
+    #  "#{Rails.root}/public" + "/place_holder_image.jpg"
     end
   end
 

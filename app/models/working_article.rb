@@ -169,7 +169,7 @@ class WorkingArticle < ApplicationRecord
   end
 
   def image_path
-    "/#{publication.id}/issue/images"
+    "/#{publication.id}/issue/#{page.issue.date.to_s}/images"
   end
 
   def article_info_path

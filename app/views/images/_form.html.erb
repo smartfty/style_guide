@@ -67,10 +67,12 @@
         <div class="col-xs-7 col-sm-7">
             <div class="col-xs-12 col-sm-12">
                 <%= image.size_string %>
-                <% if  image.image && image.image.url%>
+                <% if image.image && image.image.url%>
                     <!-- %= image_tag image.image.url, style: "padding-bottom:20px" % -->
                     <%= image_tag image.image.url, :width => "100%", :height => "200px", style: "object-fit: contain; height: 15em !important;" %>
-                <% else%>
+                <% elsif image.reporter_image_path %>
+                    <%= image_tag image.reporter_image_path, :width => "100%", style: "padding-bottom:20px" %>
+                <% else %>
                     <%= image_tag image.empty_image_url, :width => "100%", style: "padding-bottom:20px" %>
                 <% end %>
             </div>
