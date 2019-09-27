@@ -240,6 +240,7 @@ class YNewsML
         story_hash = YNewsML.parse(xml).to_hash
         story_hash[:content_id] = content_id
         YhArticle.create(story_hash)
+        FileUtils.mv(source_file, destination_dir) 
       end
       left_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) }
       puts "#{source_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"
