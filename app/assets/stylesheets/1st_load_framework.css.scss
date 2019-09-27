@@ -18,6 +18,14 @@ img {
     border: 1px solid #000
     }
 
+.repoter_img_thumb {
+  height: 100px;
+  width: 100px;
+  // object-fit: cover;
+  object-fit: scale-down;
+  // object-position: top;
+  }
+
 .img-bg {
   background-color: #e1e1e1; 
   margin: 2px;
