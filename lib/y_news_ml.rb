@@ -241,7 +241,6 @@ class YNewsML
         story_hash[:content_id] = content_id
         YhArticle.create(story_hash)
       end
-      FileUtils.mv(source_file, destination_dir) 
       left_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) }
       puts "#{source_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"
     end
@@ -356,7 +355,6 @@ class YNewsML
             YhPhotoFrYna.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          FileUtils.mv(xml_file, destination_dir)   
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end
@@ -396,7 +394,6 @@ class YNewsML
             YhPr.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          FileUtils.mv(xml_file, destination_dir)   
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
