@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_071731) do
+ActiveRecord::Schema.define(version: 2019_09_27_091033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,11 @@ ActiveRecord::Schema.define(version: 2019_09_19_071731) do
     t.index ["publication_id"], name: "index_announcements_on_publication_id"
   end
 
+  create_table "article_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+  end
+
   create_table "article_plans", force: :cascade do |t|
     t.bigint "page_plan_id"
     t.string "reporter"
@@ -144,6 +149,13 @@ ActiveRecord::Schema.define(version: 2019_09_19_071731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["page_plan_id"], name: "index_article_plans_on_page_plan_id"
+  end
+
+  create_table "article_sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "article_category_id"
+    t.index ["article_category_id"], name: "index_article_sub_categories_on_article_category_id"
   end
 
   create_table "articles", id: :serial, force: :cascade do |t|
@@ -686,6 +698,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_071731) do
     t.string "subject_head"
     t.string "kind"
     t.string "by_line"
+    t.string "category_name"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end
@@ -828,6 +841,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_071731) do
     t.integer "height_in_lines"
     t.string "by_line"
     t.float "price"
+    t.string "category_name"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
@@ -972,6 +986,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_071731) do
   add_foreign_key "ad_plans", "ad_bookings"
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "article_sub_categories", "article_categories"
   add_foreign_key "graphic_requests", "users"
   add_foreign_key "graphics", "working_articles"
   add_foreign_key "heading_ad_images", "page_headings"
