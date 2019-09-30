@@ -23,7 +23,7 @@ module ArticleSaveXml
     title.gsub!(/ {2,8}/, " ")
     title.gsub!("\u2027", "・")
     title.gsub!("\u0387", "・")
-    # title.gsub!("\u00b7", "・")
+    title.gsub!("\u00b7", "・")
     title.gsub!("\u2219", "・")
     title
   end
@@ -77,6 +77,7 @@ module ArticleSaveXml
     body_text.gsub!(/^\n/, "")
     body_text.gsub!(/^\s/, "")
     body_text.gsub!(/^\u3000/, "")
+    body_text.gsub!(/\u3000/, " ")
     body_text.gsub!(/^\s*\n/m, "\n")
     body_text.gsub!(/^\s*#/, '#' )
     body_text.gsub!(/^\n/, "")
