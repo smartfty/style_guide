@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_104851) do
+ActiveRecord::Schema.define(version: 2019_09_27_090502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,13 +135,6 @@ ActiveRecord::Schema.define(version: 2019_09_27_104851) do
     t.index ["publication_id"], name: "index_announcements_on_publication_id"
   end
 
-  create_table "article_categories", force: :cascade do |t|
-    t.string "name"
-    t.string "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "article_plans", force: :cascade do |t|
     t.bigint "page_plan_id"
     t.string "reporter"
@@ -151,13 +144,6 @@ ActiveRecord::Schema.define(version: 2019_09_27_104851) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["page_plan_id"], name: "index_article_plans_on_page_plan_id"
-  end
-
-  create_table "article_subcategories", force: :cascade do |t|
-    t.string "name"
-    t.string "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "articles", id: :serial, force: :cascade do |t|
