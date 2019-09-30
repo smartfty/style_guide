@@ -10,4 +10,7 @@
 #
 
 class ArticleCategory < ApplicationRecord
+    belongs_to :story
+    belongs_to :working_article
+    has_one :article_subcategory
 end

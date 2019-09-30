@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :article_sub_categories
+  resources :article_subcategories
   resources :article_categories
   resources :yh_photo_fr_ynas do
     member do

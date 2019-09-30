@@ -23,8 +23,14 @@
   <div class="form-group">
     <%= f.label :기사종류 %>
     <%= f.select :kind, ['기사', '사진', '기고', '박스기고', '부고-인사', '특집', '책소개'], {}, {onChange: 'this.form.submit();'} %>
-      <%= f.label '금융_카테고리' %> <%= f.select :category_code, [['금융', 1401], ['산업',1402], ['재정',1403], ['글로벌경제', 1502], ['피플',1404], ['연합뉴스',1400]], { :include_blank => '-- 선택해주세요 --' } %>
-      <%= f.label '가격' %><%= f.select :price, [['무료', 0], ['500원', 20], ['1000원', 30]] %>
+    <% if @working_article.page.page_number == 1 %>
+      <%= f.label '카테고리' %><%= f.collection_select :category_code, ArticleCategory.order(:name), :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
+      <%= f.label '서브카테고리' %><%= f.grouped_collection_select :category_code, ArticleSubcategory.order(:name), :id, :name, :code,  { :include_blank => '-- 선택해주세요 --' } %>
+    <% elsif @working_article.page.page_number == 10 %>
+      <%= f.label '카테고리' %> <%= f.select :category_code, [['금융', 1401], ['산업',1402], ['재정',1403], ['글로벌경제', 1502], ['피플',1404], ['연합뉴스',1400]], { :include_blank => '-- 선택해주세요 --' } %>
+    <% else %>
+    <% end %>
+    <%= f.label '가격' %><%= f.select :price, [['무료', 0], ['500원', 20], ['1000원', 30]] %>
   </div>
   
   <% if article.kind == '사진' %>

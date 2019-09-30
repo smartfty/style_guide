@@ -83,6 +83,8 @@ class WorkingArticle < ApplicationRecord
   belongs_to :article, optional: true
   has_many :images, dependent: :delete_all
   has_many :graphics, dependent: :delete_all
+  has_one :article_category
+  has_one :article_subcategory
   has_one :story
   before_create :init_atts
   after_create :setup

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "article_sub_categories/show", type: :view do
+RSpec.describe "article_subcategories/show", type: :view do
   before(:each) do
-    @article_sub_category = assign(:article_sub_category, ArticleSubCategory.create!(
+    @article_subcategory = assign(:article_subcategory, ArticleSubcategory.create!(
       :name => "Name",
       :code => "Code"
     ))

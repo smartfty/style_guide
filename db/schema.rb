@@ -153,11 +153,13 @@ ActiveRecord::Schema.define(version: 2019_09_27_104851) do
     t.index ["page_plan_id"], name: "index_article_plans_on_page_plan_id"
   end
 
-  create_table "article_sub_categories", force: :cascade do |t|
+  create_table "article_subcategories", force: :cascade do |t|
     t.string "name"
     t.string "code"
+    t.bigint "article_categories_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_categories_id"], name: "index_article_subcategories_on_article_categories_id"
   end
 
   create_table "articles", id: :serial, force: :cascade do |t|
@@ -988,6 +990,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_104851) do
   add_foreign_key "ad_plans", "ad_bookings"
   add_foreign_key "announcements", "publications"
   add_foreign_key "article_plans", "page_plans"
+  add_foreign_key "article_subcategories", "article_categories", column: "article_categories_id"
   add_foreign_key "graphic_requests", "users"
   add_foreign_key "graphics", "working_articles"
   add_foreign_key "heading_ad_images", "page_headings"
