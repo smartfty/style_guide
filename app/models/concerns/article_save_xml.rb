@@ -536,8 +536,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
-      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b>#{$1}</b> = "} 
-      @body_content     = @body_content.gsub(/^\*\◆(.*)\*/){"<b>◆#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b>◆#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
