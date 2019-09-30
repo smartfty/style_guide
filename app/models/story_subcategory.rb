@@ -19,7 +19,6 @@
 #
 
 class StorySubcategory < ApplicationRecord
-  belongs_to :story_category
   belongs_to :story
   belongs_to :working_article
   belongs_to :story_category
