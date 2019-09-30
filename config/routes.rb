@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :article_subcategories
-  resources :article_categories
+  resources :story_subcategories
+  resources :story_categories
   resources :yh_photo_fr_ynas do
     member do
       get 'taken'
