@@ -10,7 +10,9 @@
 #
 
 class StoryCategory < ApplicationRecord
-    belongs_to :story
-    belongs_to :working_article
-    has_one :story_subcategory
+    # belongs_to :story
+    # belongs_to :working_article
+    has_many :story_subcategory
+    validates :name, :code, presence:true
+    validates_uniqueness_of :name, :code
 end

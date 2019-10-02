@@ -211,11 +211,11 @@ class YNewsML
     # self.parse_new_wire_picture_xml(ytn_today_image_folder)
     # self.parse_new_wire_graphic_xml(ytn_today_graphic_folder)
 
-    self.parse_new_wire_story_xml(ytn_101_KOR_folder)
+    # self.parse_new_wire_story_xml(ytn_101_KOR_folder)
     self.parse_new_wire_picture_xml(ytn_201_PHOTO_YNA_folder)
     self.parse_new_wire_photo_tr(ytn_202_PHOTO_TR_folder)
     self.parse_new_wire_graphic_xml(ytn_203_GRAPHIC_folder)
-    self.parse_new_wire_photo_fr_yna(ytn_205_PHOTO_FR_YNA_folder)
+    # self.parse_new_wire_photo_fr_yna(ytn_205_PHOTO_FR_YNA_folder)
     self.parse_new_wire_pr(ytn_401_PR_folder)
 
     # delete files that are week old
@@ -242,6 +242,7 @@ class YNewsML
         YhArticle.create(story_hash)
         FileUtils.mv(source_file, destination_dir) 
       end
+      FileUtils.mv(source_file, destination_dir) 
       left_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) }
       puts "#{source_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"
     end
@@ -276,6 +277,7 @@ class YNewsML
             YhPicture.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
+          FileUtils.mv(source_file, destination_dir)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -316,6 +318,7 @@ class YNewsML
             YhPhotoTr.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
+          FileUtils.mv(source_file, destination_dir)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -356,6 +359,7 @@ class YNewsML
             YhPhotoFrYna.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
+          FileUtils.mv(source_file, destination_dir)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end
@@ -395,6 +399,7 @@ class YNewsML
             YhPr.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
+          FileUtils.mv(source_file, destination_dir)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -437,6 +442,7 @@ class YNewsML
             YhGraphic.create(graphic_hash)
             FileUtils.mv(xml_file, destination_dir) 
           end
+          FileUtils.mv(source_file, destination_dir)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end

@@ -14,7 +14,7 @@
 #   rake 'wire:new_ytn'
 # end
 
-every 30.minutes do
+every 5.minutes do
     # specify the task name as a string
     rake 'wire:new_ytn'
   end
