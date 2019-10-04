@@ -20,3 +20,23 @@
 //= require activestorage
 //= require_tree .
 
+jQuery(function() {
+  var subcategory_code;
+  $('#working_article_subcategory_code').parent().hide();
+  subcategory_code = $('#working_article_subcategory_code').html();
+  console.log(subcategory_code);
+  return $('#working_article_category_code').change(function() {
+    var category_code, escaped_category, options;
+    category_code = $('#working_article_category_code :selected').text();
+    escaped_category = category_code.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+    options = $(subcategory_code).filter("optgroup[label=" + escaped_category + "]").html();
+    console.log(options);
+    if (options) {
+      $('#working_article_subcategory_code').html(options);
+      return $('#working_article_subcategory_code').parent().show();
+    } else {
+      $('#working_article_subcategory_code').empty();
+      return $('#working_article_subcategory_code').parent().hide();
+    }
+  });
+});
