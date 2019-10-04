@@ -211,11 +211,11 @@ class YNewsML
     # self.parse_new_wire_picture_xml(ytn_today_image_folder)
     # self.parse_new_wire_graphic_xml(ytn_today_graphic_folder)
 
-    # self.parse_new_wire_story_xml(ytn_101_KOR_folder)
+    self.parse_new_wire_story_xml(ytn_101_KOR_folder)
     self.parse_new_wire_picture_xml(ytn_201_PHOTO_YNA_folder)
     self.parse_new_wire_photo_tr(ytn_202_PHOTO_TR_folder)
     self.parse_new_wire_graphic_xml(ytn_203_GRAPHIC_folder)
-    # self.parse_new_wire_photo_fr_yna(ytn_205_PHOTO_FR_YNA_folder)
+    self.parse_new_wire_photo_fr_yna(ytn_205_PHOTO_FR_YNA_folder)
     self.parse_new_wire_pr(ytn_401_PR_folder)
 
     # delete files that are week old
