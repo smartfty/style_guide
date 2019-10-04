@@ -269,7 +269,7 @@ class YNewsML
   def self.parse_new_wire_story_xml(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      puts "source_file: #{source_file}"
+      # puts "source_file: #{source_file}"
       filename_date = source_file.split("/").last.scan(/\d{8}/).first
       destination_dir = "#{source_dir}/#{filename_date}"
       FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
