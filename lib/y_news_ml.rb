@@ -160,9 +160,9 @@ class YNewsML
   def self.chmod(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
+      filename_date = source_file.split("/").last.scan(/\d{8}/).first
+      destination_dir = "/Volumes/wire_source/wire_source/#{filename_date}"
+      FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
       # sudo_passwd = ""
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
       puts "source_file:#{source_file}"
@@ -172,14 +172,56 @@ class YNewsML
   def self.mvfile(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
+      filename_date = source_file.split("/").last.scan(/\d{8}/).first
+      destination_dir = "/Volumes/wire_source/wire_source/#{filename_date}"
+      FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
       FileUtils.mv(source_file, destination_dir)
       left_file = Dir[File.join(source_dir, '*')].count { |f| File.file?(f) }
       puts "#{source_dir}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"
       # system("sudo mv #{source_file} #{destination_dir}")
     end
+  end
+
+  def self.ytn_101
+    today = Date.today
+    source_location = "/Volumes/wire_source/wire_source/101_KOR"
+    self.parse_new_wire_story_xml(source_location)
+    YhArticle.delete_week_old(today)
+  end
+
+  def self.ytn_201
+    today = Date.today
+    source_location = "/Volumes/wire_source/wire_source/201_PHOTO_YNA"
+    self.parse_new_wire_picture_xml(source_location)
+    YhPicture.delete_week_old(today)
+  end
+
+  def self.ytn_202
+    today = Date.today
+    source_location = "/Volumes/wire_source/wire_source/202_PHOTO_TR"
+    self.parse_new_wire_photo_tr(source_location)
+    YhPhotoTr.delete_week_old(today)
+  end
+
+  def self.ytn_203
+    today = Date.today
+    source_location = "/Volumes/wire_source/wire_source/203_GRAPHIC"
+    self.parse_new_wire_graphic_xml(source_location)
+    YhGraphic.delete_week_old(today)
+  end
+
+  def self.ytn_205
+    today = Date.today
+    source_location = "/Volumes/wire_source/wire_source/205_PHOTO_FR_YNA"
+    self.parse_new_wire_photo_fr_yna(source_location)
+    YhPhotoFrYna.delete_week_old(today)
+  end
+
+  def self.ytn_401
+    today = Date.today
+    source_location = "/Volumes/wire_source/wire_source/401_PR"
+    self.parse_new_wire_pr(source_location)
+    YhPr.delete_week_old(today)
   end
 
   def self.new_ytn
@@ -210,7 +252,6 @@ class YNewsML
     # self.parse_new_wire_story_xml(ytn_today_story_folder)
     # self.parse_new_wire_picture_xml(ytn_today_image_folder)
     # self.parse_new_wire_graphic_xml(ytn_today_graphic_folder)
-
     self.parse_new_wire_story_xml(ytn_101_KOR_folder)
     self.parse_new_wire_picture_xml(ytn_201_PHOTO_YNA_folder)
     self.parse_new_wire_photo_tr(ytn_202_PHOTO_TR_folder)
@@ -228,12 +269,13 @@ class YNewsML
   def self.parse_new_wire_story_xml(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/101_KOR/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
+      puts "source_file: #{source_file}"
+      filename_date = source_file.split("/").last.scan(/\d{8}/).first
+      destination_dir = "#{source_dir}/#{filename_date}"
+      FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
       # sudo_passwd = ""
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
-      content_id = File.basename(source_file, ".xml")
+      content_id = File.basename(source_file, ".xml").split("_").first
       received = YhArticle.find_by(content_id: content_id)   
       unless received
         xml = File.open(source_file, 'r'){|f| f.read}
@@ -242,7 +284,7 @@ class YNewsML
         YhArticle.create(story_hash)
         FileUtils.mv(source_file, destination_dir) 
       end
-      FileUtils.mv(source_file, destination_dir) 
+      # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
       left_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) }
       puts "#{source_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"
     end
@@ -253,9 +295,10 @@ class YNewsML
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-          @filename_date = jpg_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/201_PHOTO_YNA/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "jpg_file: #{jpg_file}"
+          filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
           FileUtils.mv(jpg_file, destination_dir) 
@@ -263,12 +306,13 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          @filename_date = xml_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/201_PHOTO_YNA/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "xml_file: #{xml_file}"
+          filename_date = xml_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
-          content_id = File.basename(xml_file, ".xml")
+          content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPicture.find_by(content_id: content_id)
           unless received
             xml = File.open(xml_file, 'r'){|f| f.read}
@@ -277,7 +321,7 @@ class YNewsML
             YhPicture.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          FileUtils.mv(source_file, destination_dir)
+          # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -288,15 +332,12 @@ class YNewsML
   def self.parse_new_wire_photo_tr(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      puts "source_file: #{source_file}"
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/202_PHOTO_TR/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-        @filename_date = jpg_file.split("/").last.scan(/\d{3,8}/).first
-        destination_dir = "/Volumes/wire_source/wire_source/202_PHOTO_TR/#{@filename_date}" 
-        FileUtils.mkdir_p "#{destination_dir}"
+        puts "jpg_file: #{jpg_file}"
+        filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
+        destination_dir = "#{source_dir}/#{filename_date}" 
+        FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
         # sudo_passwd = ""
         # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
         FileUtils.mv(jpg_file, destination_dir) 
@@ -304,12 +345,13 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          @filename_date = xml_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/202_PHOTO_TR/#{@filename_date}"
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "xml_file: #{xml_file}"
+          filename_date = xml_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}"
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
-          content_id = File.basename(xml_file, ".xml")
+          content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPhotoTr.find_by(content_id: content_id)
           unless received
             xml = File.open(xml_file, 'r'){|f| f.read}
@@ -318,7 +360,7 @@ class YNewsML
             YhPhotoTr.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          FileUtils.mv(source_file, destination_dir)
+          # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -330,14 +372,12 @@ class YNewsML
     # binding.pry
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/205_PHOTO_FR_YNA/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-          @filename_date = jpg_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/205_PHOTO_FR_YNA/#{@filename_date}"
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "jpg_file: #{jpg_file}"
+          filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}"
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
           FileUtils.mv(jpg_file, destination_dir) 
@@ -345,12 +385,13 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          @filename_date = xml_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/205_PHOTO_FR_YNA/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "xml_file: #{xml_file}"
+          filename_date = xml_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
-          content_id = File.basename(xml_file, ".xml")
+          content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPhotoFrYna.find_by(content_id: content_id)
           unless received
             xml = File.open(xml_file, 'r'){|f| f.read}
@@ -359,7 +400,7 @@ class YNewsML
             YhPhotoFrYna.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          FileUtils.mv(source_file, destination_dir)
+          # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end
@@ -370,14 +411,12 @@ class YNewsML
   def self.parse_new_wire_pr(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/401_PR/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-          @filename_date = jpg_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/401_PR/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "jpg_file: #{jpg_file}"
+          filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
           FileUtils.mv(jpg_file, destination_dir) 
@@ -385,12 +424,13 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          @filename_date = xml_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/401_PR/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "xml_file: #{xml_file}"
+          filename_date = xml_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
-          content_id = File.basename(xml_file, ".xml")
+          content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPr.find_by(content_id: content_id)
           unless received
             xml = File.open(xml_file, 'r'){|f| f.read}
@@ -399,7 +439,7 @@ class YNewsML
             YhPr.create(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
           end
-          FileUtils.mv(source_file, destination_dir)
+          # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -410,16 +450,14 @@ class YNewsML
   def self.parse_new_wire_graphic_xml(source_dir)
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
-      @filename_date = source_file.split("/").last.scan(/\d{3,8}/).first
-      destination_dir = "/Volumes/wire_source/wire_source/203_GRAPHIC/#{@filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}"
       # sudo_passwd = ""
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
       if File.extname(source_file) == '.ai' || File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |ai_file| File.extname(ai_file) == '.ai' || File.extname(ai_file) == '.jpg' }.each do |ai_file|
-          @filename_date = ai_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/203_GRAPHIC/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
+          puts "ai_file: #{ai_file}"
+          filename_date = ai_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{ai_file}")
           FileUtils.mv(ai_file, destination_dir) 
@@ -428,10 +466,11 @@ class YNewsML
       else
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          @filename_date = xml_file.split("/").last.scan(/\d{3,8}/).first
-          destination_dir = "/Volumes/wire_source/wire_source/203_GRAPHIC/#{@filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}"
-          content_id = File.basename(xml_file, ".xml")
+          puts "xml_file: #{xml_file}"
+          filename_date = xml_file.split("/").last.scan(/\d{8}/).first
+          destination_dir = "#{source_dir}/#{filename_date}" 
+          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhGraphic.find_by(content_id: content_id)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
@@ -442,7 +481,7 @@ class YNewsML
             YhGraphic.create(graphic_hash)
             FileUtils.mv(xml_file, destination_dir) 
           end
-          FileUtils.mv(source_file, destination_dir)
+          # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
         end

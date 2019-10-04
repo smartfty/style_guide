@@ -248,12 +248,12 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   pw        = 'sodlftlsans1!'
   entries = Dir.glob("#{xml_path}/**/*").sort
   Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.mkdir news_xml
+    ftp.mkdir news_xml unless File.exists?(news_xml)
     entries.each do |name|
       base_name = File.basename(name)
       if File.directory? base_name
         # ftp.mkdir issue_date + "/#{base_name}"
-        ftp.mkdir base_name
+        ftp.mkdir base_name unless File.exists?(base_name)
       else
         File.open(name) { |file| ftp.putbinaryfile(file, news_xml + "/#{base_name}") }
       end
@@ -261,12 +261,12 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   end
   entries = Dir.glob("#{preview_xml_path}/**/*").sort
   Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.mkdir preview_xml
+    ftp.mkdir preview_xml unless File.exists?(preview_xml)
     entries.each do |name|
       base_name = File.basename(name)
       if File.directory? base_name
         # ftp.mkdir issue_date + "/#{base_name}"
-        ftp.mkdir base_name
+        ftp.mkdir base_name unless File.exists?(base_name)
       else
         File.open(name) { |file| ftp.putbinaryfile(file, preview_xml + "/#{base_name}") }
       end
@@ -295,7 +295,7 @@ def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이�
       dir_name  = File.dirname(name)
       dir_base_name = File.basename(dir_name)
       if File.directory? name
-        ftp.mkdir base_name.to_s
+        ftp.mkdir base_name.to_s unless File.exists?(base_name.to_s)
       else
         # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }

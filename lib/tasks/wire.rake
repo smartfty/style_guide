@@ -1,13 +1,47 @@
 namespace :wire do
   
   desc 'load new ytn contents'
-  task :new_ytn => [:environment] do
+  task :new_ytn_101 => [:environment] do
     puts "in new_ytn task..."
     # WireServiceWorker.perform_async
-    YNewsML.new_ytn
+    # YNewsML.new_ytn
+    YNewsML.ytn_101
   end
 
+  desc 'load new ytn contents'
+  task :new_ytn_201 => [:environment] do
+    puts "in new_ytn task..."
+    # WireServiceWorker.perform_async
+    YNewsML.ytn_201
+  end
 
+  desc 'load new ytn contents'
+  task :new_ytn_202 => [:environment] do
+    puts "in new_ytn task..."
+    # WireServiceWorker.perform_async
+    YNewsML.ytn_202
+  end
+
+  desc 'load new ytn contents'
+  task :new_ytn_203 => [:environment] do
+    puts "in new_ytn task..."
+    # WireServiceWorker.perform_async
+    YNewsML.ytn_203
+  end
+
+  desc 'load new ytn contents'
+  task :new_ytn_205 => [:environment] do
+    puts "in new_ytn task..."
+    # WireServiceWorker.perform_async
+    YNewsML.ytn_205
+  end
+
+  desc 'load new ytn contents'
+  task :new_ytn_401 => [:environment] do
+    puts "in new_ytn task..."
+    # WireServiceWorker.perform_async
+    YNewsML.ytn_401
+  end
 
   desc 'testing for mounted volumn file change'
   task :volumn_test, [:paths] => [:environment] do |t, args|

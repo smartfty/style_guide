@@ -31,7 +31,7 @@ class YhPhotoTr < ApplicationRecord
     require 'date'
     today = Date.today
     today_string = today.strftime("%Y%m%d")
-    @filename_date = content_id.split("/").last.scan(/\d{3,8}/).first
+    @filename_date = content_id.split("/").last.scan(/\d{8}/).first
     "/wire_source/202_PHOTO_TR/#{@filename_date}"
     # "/Volumes/211.115.91.190/101_KOR/#{Issue.last.date_string}"
     # "/Volumes/211.115.91.190/203_GRAPHIC/#{Issue.last.date_string}"

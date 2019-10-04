@@ -177,7 +177,7 @@ EOF
         dir_name  = File.dirname(name)
         dir_base_name = File.basename(dir_name)
         if File.directory? name
-          ftp.mkdir base_name.to_s
+          ftp.mkdir base_name.to_s unless File.exists?(base_name.to_s)
         else
           puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
           File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
