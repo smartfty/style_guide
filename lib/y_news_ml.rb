@@ -295,7 +295,7 @@ class YNewsML
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-          puts "jpg_file: #{jpg_file}"
+          # puts "jpg_file: #{jpg_file}"
           filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -306,7 +306,7 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          puts "xml_file: #{xml_file}"
+          # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -334,7 +334,7 @@ class YNewsML
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-        puts "jpg_file: #{jpg_file}"
+        # puts "jpg_file: #{jpg_file}"
         filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
         destination_dir = "#{source_dir}/#{filename_date}" 
         FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -345,7 +345,7 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          puts "xml_file: #{xml_file}"
+          # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}"
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -374,7 +374,7 @@ class YNewsML
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-          puts "jpg_file: #{jpg_file}"
+          # puts "jpg_file: #{jpg_file}"
           filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}"
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -385,7 +385,7 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          puts "xml_file: #{xml_file}"
+          # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -413,7 +413,7 @@ class YNewsML
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       if File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |jpg_file| File.extname(jpg_file) == '.jpg' }.each do |jpg_file|
-          puts "jpg_file: #{jpg_file}"
+          # puts "jpg_file: #{jpg_file}"
           filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -424,7 +424,7 @@ class YNewsML
       else 
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          puts "xml_file: #{xml_file}"
+          # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
@@ -466,7 +466,7 @@ class YNewsML
       else
         # File.extname(source_file) == '.xml'
         Dir.glob("#{source_dir}/*").select { |xml_file| File.extname(xml_file) == '.xml' }.each do |xml_file|
-          puts "xml_file: #{xml_file}"
+          # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
           FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)

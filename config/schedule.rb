@@ -16,8 +16,35 @@
 
 every 5.minutes do
     # specify the task name as a string
-    rake 'wire:new_ytn'
+    rake 'wire:new_ytn_101'
   end
+
+  every 5.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_201'
+  end
+
+  every 10.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_202'
+  end
+
+  every 10.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_203'
+  end
+
+  every 5.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_205'
+  end
+
+  every 30.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_401'
+  end
+
+
 
 # every :day, at: '11:30am' do
 #   # specify the task name as a string
