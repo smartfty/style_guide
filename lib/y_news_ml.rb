@@ -272,7 +272,7 @@ class YNewsML
       puts "source_file: #{source_file}"
       filename_date = source_file.split("/").last.scan(/\d{8}/).first
       destination_dir = "#{source_dir}/#{filename_date}"
-      FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+      FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
       # sudo_passwd = ""
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
       content_id = File.basename(source_file, ".xml").split("_").first
@@ -298,7 +298,7 @@ class YNewsML
           # puts "jpg_file: #{jpg_file}"
           filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
           FileUtils.mv(jpg_file, destination_dir) 
@@ -309,7 +309,7 @@ class YNewsML
           # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
@@ -337,7 +337,7 @@ class YNewsML
         # puts "jpg_file: #{jpg_file}"
         filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
         destination_dir = "#{source_dir}/#{filename_date}" 
-        FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+        FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
         # sudo_passwd = ""
         # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
         FileUtils.mv(jpg_file, destination_dir) 
@@ -348,7 +348,7 @@ class YNewsML
           # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}"
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
@@ -377,7 +377,7 @@ class YNewsML
           # puts "jpg_file: #{jpg_file}"
           filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}"
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
           FileUtils.mv(jpg_file, destination_dir) 
@@ -388,7 +388,7 @@ class YNewsML
           # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
@@ -416,7 +416,7 @@ class YNewsML
           # puts "jpg_file: #{jpg_file}"
           filename_date = jpg_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{jpg_file}")
           FileUtils.mv(jpg_file, destination_dir) 
@@ -427,7 +427,7 @@ class YNewsML
           # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
@@ -454,10 +454,10 @@ class YNewsML
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
       if File.extname(source_file) == '.ai' || File.extname(source_file) == '.jpg'
         Dir.glob("#{source_dir}/*").select { |ai_file| File.extname(ai_file) == '.ai' || File.extname(ai_file) == '.jpg' }.each do |ai_file|
-          puts "ai_file: #{ai_file}"
+          # puts "ai_file: #{ai_file}"
           filename_date = ai_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{ai_file}")
           FileUtils.mv(ai_file, destination_dir) 
@@ -469,7 +469,7 @@ class YNewsML
           # puts "xml_file: #{xml_file}"
           filename_date = xml_file.split("/").last.scan(/\d{8}/).first
           destination_dir = "#{source_dir}/#{filename_date}" 
-          FileUtils.mkdir_p "#{destination_dir}" unless File.exists?(destination_dir)
+          FileUtils.mkdir_p "#{destination_dir}" unless File.directory?(destination_dir)
           content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhGraphic.find_by(content_id: content_id)
           # sudo_passwd = ""
