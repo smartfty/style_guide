@@ -46,6 +46,7 @@ class Graphic < ApplicationRecord
   belongs_to :working_article, optional: true
   mount_uploader :graphic, GraphicUploader
   before_create  :set_default
+  before_save    :save_default_value
 
   def info
     h = {}
@@ -240,6 +241,11 @@ class Graphic < ApplicationRecord
       puts "wrong size format!!!"
       return false
     end
+  end
+
+  def save_default_value
+    self.extra_height_in_lines  = 0 unless extra_height_in_lines
+    self.row                    = 1 unless row
   end
 
   private
