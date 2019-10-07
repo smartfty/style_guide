@@ -11,15 +11,12 @@ document.addEventListener("turbolinks:load", function() {
   var $setWidth = $getColumnNumber * 171.496062992123;
   var $setHeight =
     $getRowNumber * 97.32283464566807 + $getLineNumber * 13.903262092238295;
-  var cropBoxData;
-  var canvasData;
-  var saveCropData = $("#saveCropData");
 
   // 이벤트 핸들러 설정
   // 크롭박스 설정
 
   $cropbox.cropper({
-    viewMode: 1,
+    viewMode: 2,
     dragMode: "move",
     aspectRatio: $setWidth / $setHeight,
     autoCropArea: 1,
@@ -50,14 +47,4 @@ document.addEventListener("turbolinks:load", function() {
       });
     }
   });
-
-  // 함수 기능 설정
-  // 사진 사이즈를 동적으로 변경시 값을 가져오게 만들어야 한다.\
-  // function imgCropping() {
-  //   if (!croppable) {
-  //     return false;
-  //   }
-  //   let croppedData = $image.cropper("getCroppedCanvas").toDataURL();
-  //   $preview.attr("src", croppedData);
-  // }
 });
