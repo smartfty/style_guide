@@ -68,7 +68,7 @@ class Graphic < ApplicationRecord
     end
   end
 
-  def pdf_to_jpg
+  def pdf_to_jpg 
     system("convert -density 300 -resize 1200 #{image_path}/ #{mobile_page_preview_path}/#{@graphic_file_name}")
   end
 
