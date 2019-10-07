@@ -60,13 +60,18 @@ class Graphic < ApplicationRecord
 
   def image_path
     if graphic.url 
-      "#{Rails.root}/public" + graphic.url 
+      "#{Rails.root}/public" + graphic.url
     else reporter_graphic_path
       "#{Rails.root}/public" + reporter_graphic_path 
     # else
     #  "#{Rails.root}/public" + "/place_holder_image.jpg"
     end
   end
+
+  def pdf_to_jpg
+    system("convert -density 300 -resize 1200 #{image_path}/ #{mobile_page_preview_path}/#{@graphic_file_name}")
+  end
+
 
   def size_string
     width_in_mm   = ((working_article.grid_width*column - working_article.gutter)*0.352778).round(2)
