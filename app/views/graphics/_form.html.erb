@@ -16,7 +16,7 @@
   <div class="col-xs-3 col-sm-5">
     <div class="col-xs-11 col-sm-12">
       <p><%= graphic.size_string %></p>
-      <%= image_tag graphic.graphic.url, :width => "100%", style: "padding-bottom:20px" if graphic.graphic.url %>
+      <embed src="<%= graphic.graphic.url %>#toolbar=0&navpanes=0&scrollbar=0" width="100%" style="padding-bottom:20px"></embed>
     </div>
   </div>
   <div class="col-xs-12 col-sm-12">

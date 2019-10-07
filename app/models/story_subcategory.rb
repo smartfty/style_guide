@@ -22,6 +22,7 @@ class StorySubcategory < ApplicationRecord
   # belongs_to :story
   # belongs_to :working_article
   belongs_to :story_category
+  # has_many :working_article
   validates :name, :code, presence:true
   validates_uniqueness_of  :name, :code
 end
