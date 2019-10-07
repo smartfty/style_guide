@@ -1,45 +1,24 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-//
+// # Place all the behaviors and hooks related to the matching controller here.
+// # All this logic will automatically be available in application.js.
+// # You can use CoffeeScript in this file: http://coffeescript.org/
+// //
 // $(document).ready(function() {
 //   $('#myBtn').on('click', function() { $('#edit_working_article_288').submit(); });
 // });
 
-// jQuery(function() {
-//   var story_subcategory;
-//   $('#working_articles_story_subcategory_id').parent().hide();
-//   story_subcategory = $('#working_articles_story_subcategory_id').html();
-//   console.log(story_subcategory);
-//   return $('#working_articles_story_category_id').change(function() {
-//     var story_category, escaped_story_category, options;
-//     story_category = $('#working_articles_story_category_id :selected').text();
-//     escaped_story_category = story_category.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
-//     options = $(story_subcategory).filter("optgroup[label=" + escaped_story_category + "]").html();
-//     console.log(options);
-//     if (options) {
-//       $('#working_articles_story_subcategory_id').html(options);
-//       return $('#working_articles_story_subcategory_id').parent().show();
-//     } else {
-//       $('#working_articles_story_subcategory_id').empty();
-//       return $('#working_articles_story_subcategory_id').parent().hide();
-//     }
-//   });
-// });
-
 jQuery(function() {
-  var states;
-  states = $('#working_articles_story_subcategory_id').html();
-  console.log(states);
-  return $('#working_articles_story_category_id').change(function() {
-    var story_category, options;
-    story_category = $('#working_articles_story_category_id :selected').text();
-    options = $(story_subcategory).filter("optgroup[label=" + escaped_story_category + "]").html();
-    console.log(options);
-    if (options) {
-      return $('#working_articles_story_subcategory_id').html(options);
-    } else {
-      return $('#working_articles_story_subcategory_id').empty();
-    }
+    var story_subcategory;
+    story_subcategory = $('#working_article_subcategory_code').html();
+    console.log(story_subcategory);
+    return $('#working_article_category_code').change(function() {
+      var category, options;
+      category = $('#working_article_category_code :selected').text();
+      options = $(story_subcategory).filter("optgroup[label=" + category + "]").html();
+      console.log(options);
+      if (options) {
+        return $('#working_article_subcategory_code').html(options);
+      } else {
+        return $('#working_article_subcategory_code').empty();
+      }
+    });
   });
-});

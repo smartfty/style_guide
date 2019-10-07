@@ -66,6 +66,7 @@
 #  by_line                      :string
 #  price                        :float
 #  category_name                :string
+#  subcategory_code             :string
 #
 # Indexes
 #
@@ -836,7 +837,7 @@ class WorkingArticle < ApplicationRecord
     end
     h[:article_bottom_spaces_in_lines]= 2         #publication.article_bottom_spaces_in_lines
     h[:article_line_thickness]        = 0.3       #publication.article_line_thickness
-    h[:article_line_draw_sides]       = [0,0,0,0] #publication.article_line_draw_sides
+    h[:article_line_draw_sides]       = [0,0,0,1] #publication.article_line_draw_sides
     h[:draw_divider]                  = false     #publication.draw_divider
     h[:overlap]                       = overlap   if overlap
     h[:embedded]                      = embedded  if embedded

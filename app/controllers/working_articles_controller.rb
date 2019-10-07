@@ -517,7 +517,7 @@ class WorkingArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type, :quote_box_column, :quote_box_show, :category_code, :price)
+      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type, :quote_box_column, :quote_box_show, :category_code, :price, :subcategory_code)
     end
 
     def filter_markdown?

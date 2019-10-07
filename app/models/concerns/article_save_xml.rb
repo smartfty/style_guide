@@ -1058,7 +1058,11 @@ EOF
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     if title && title != ""    
       if kind == "사진"
-        @c_head_line = eliminate_size_option(images.first.caption_title)
+        if images.count != 0
+        @c_head_line = eliminate_size_option(images.first.caption_title) 
+        else 
+        @c_head_line = eliminate_size_option(graphics.first.title)
+        end
       else
         @c_head_line = eliminate_size_option(@head_line)
       end
