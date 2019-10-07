@@ -67,6 +67,7 @@ gem 'griddler'
 gem 'simple_form', '~> 4.0.1'
 gem 'bootstrap_form'
 gem 'carrierwave'
+gem 'carrierwave-i18n'
 gem 'sinatra', '~> 2.0.1'
 gem 'rest-client'
 
