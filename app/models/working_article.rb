@@ -84,8 +84,8 @@ class WorkingArticle < ApplicationRecord
   belongs_to :article, optional: true
   has_many :images, dependent: :delete_all
   has_many :graphics, dependent: :delete_all
-  has_many :story_category
-  has_many :story_subcategory
+  # has_many :story_category
+  # has_many :story_subcategory
   has_one :story
   before_create :init_atts
   after_create :setup
@@ -223,6 +223,7 @@ class WorkingArticle < ApplicationRecord
     self.price          = story.price  if story.price
     self.by_line        = story.by_line  if story.by_line
     self.category_code  = story.category_code  if story.category_code
+    self.subcategory_code  = story.subcategory_code  if story.subcategory_code
     self.quote          = story.quote  if story.quote
     self.save
     save_article
