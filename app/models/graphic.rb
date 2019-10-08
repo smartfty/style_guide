@@ -47,6 +47,7 @@ class Graphic < ApplicationRecord
   mount_uploader :graphic, GraphicUploader
   before_create  :set_default
   before_save    :save_default_value
+  after_save     :pdf_to_jpg
 
   def info
     h = {}
@@ -69,7 +70,10 @@ class Graphic < ApplicationRecord
   end
 
   def pdf_to_jpg 
-    system("convert -density 300 -resize 1200 #{image_path}/ #{mobile_page_preview_path}/#{@graphic_file_name}")
+    image_name = File.basename(graphic.path).split(".").first
+    dir_path = File.dirname(image_path)
+    # image_basename  = File.basename(graphic.url).split(".").first
+    system("convert -density 300 -resize 1200 #{image_path}/ #{dir_path}/#{image_name}.jpg")
   end
 
 
