@@ -5,7 +5,7 @@
 #  id                    :integer          not null, primary key
 #  column                :integer
 #  row                   :integer
-#  extra_height_in_lines :integer
+#  extra_height_in_lines :integer          default(0)
 #  image                 :string
 #  caption_title         :string
 #  caption               :string
@@ -23,15 +23,19 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  draw_frame            :boolean
-#  zoom_level            :integer
-#  zoom_direction        :integer
+#  draw_frame            :boolean          default(TRUE)
+#  zoom_level            :integer          default(1)
+#  zoom_direction        :integer          default(5)
 #  move_level            :integer
 #  auto_size             :integer
 #  fit_type              :string
 #  image_kind            :string
 #  not_related           :boolean
 #  reporter_image_path   :string
+#  crop_x                :integer
+#  crop_y                :integer
+#  crop_w                :integer
+#  crop_h                :integer
 #
 
 require 'test_helper'

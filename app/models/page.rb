@@ -57,6 +57,8 @@ class Page < ApplicationRecord
   before_create :copy_attributes_from_template
   after_create :setup
   scope :clone_page, -> {where("clone_name!=?", nil)}
+  scope :odd_page, -> {where("clone_name!=?", nil)}
+  
   attr_reader :time_stamp
   include PageSplitable
   include PagePrintable

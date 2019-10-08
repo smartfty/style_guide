@@ -1,6 +1,5 @@
 ---
 title: 1번 기사 제목은 여기에
-subtitle: 부제는 여기에 여기는 부제목 자리
 reporter: 
 email: gdhong@gmail.com
 ---

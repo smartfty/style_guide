@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :line_fragments
   resources :paragraphs
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
     member do
       get 'download'
     end
-    collection do 
+    collection do
       get 'my'
     end
   end
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
     member do
       get 'download'
     end
-    collection do 
+    collection do
       get 'my'
     end
   end
@@ -47,16 +49,16 @@ Rails.application.routes.draw do
       get 'backup'
       get 'recover_backup'
     end
-    collection do 
+    collection do
       get 'my'
     end
   end
   resources :spreads
-#api
+  # api
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index, :create, :show, :update, :destroy]
-      resources :microposts, only: [:index, :create, :show, :update, :destroy]
+      resources :users, only: %i[index create show update destroy]
+      resources :microposts, only: %i[index create show update destroy]
     end
   end
 
@@ -76,10 +78,9 @@ Rails.application.routes.draw do
       get 'download_pdf'
       get 'save_current'
     end
-
   end
   resources :graphic_requests do
-    collection do 
+    collection do
       get 'my'
     end
   end
@@ -103,10 +104,10 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'home#welcome'
+      root to: 'home#welcome'
     end
     unauthenticated :user do
-      root :to => 'devise/sessions#new', as: :unauthenticated_root
+      root to: 'devise/sessions#new', as: :unauthenticated_root
     end
   end
 
@@ -125,7 +126,7 @@ Rails.application.routes.draw do
       get 'download_pdf'
     end
   end
-  
+
   resources :ad_images do
     collection do
       # get 'current'
@@ -161,7 +162,7 @@ Rails.application.routes.draw do
       get 'show_quote_box_for_opinion2'
       get 'show_quote_box_for_opinion3'
       get 'hide_quote_box'
-      
+
       get 'boxed_subtitle_one'
       get 'boxed_subtitle_two'
       get 'boxed_subtitle_zero'
@@ -230,7 +231,6 @@ Rails.application.routes.draw do
       get 'save_mobile_preview_xml'
       get 'send_mobile_preview_xml'
       get 'merge_container_xml'
-
     end
   end
 
@@ -247,7 +247,6 @@ Rails.application.routes.draw do
       get 'send_pdf_to_printer'
       get 'assign_stories'
     end
-
   end
 
   resources :page_headings do
@@ -286,6 +285,7 @@ Rails.application.routes.draw do
   resources :images do
     member do
       get 'crop'
+      patch 'save_crop'
     end
     collection do
       get 'current'
@@ -326,7 +326,6 @@ Rails.application.routes.draw do
     member do
       get 'download_pdf'
     end
-
   end
   resources :text_styles do
     collection do
@@ -341,5 +340,4 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#welcome'
-
 end
