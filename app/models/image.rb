@@ -253,7 +253,7 @@ class Image < ApplicationRecord
   
   def save_default_value
     self.extra_height_in_lines  = 0 unless extra_height_in_lines
-    self.row                    = 1 unless row
+    self.row                    = 2 unless row
   end
 
   private
