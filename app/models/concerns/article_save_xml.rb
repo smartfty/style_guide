@@ -138,6 +138,7 @@ module ArticleSaveXml
     title.gsub!("\u2031", "&#8241;")
     title.gsub!("\u30fb", "·")
     title.gsub!("\u223c", "~")
+    title.gsub!("\u2003", "")
     end
     if subtitle && subtitle != ""
     subtitle.gsub!("\u2027", "·")
@@ -148,6 +149,7 @@ module ArticleSaveXml
     subtitle.gsub!("\u2013", "-")
     subtitle.gsub!("\u30fb", "·")
     subtitle.gsub!("\u223c", "~")
+    subtitle.gsub!("\u2003", "")
     end
     if reporter && reporter != ""
     reporter.gsub!("\u200B", "")
@@ -269,11 +271,11 @@ module ArticleSaveXml
     sec   = updated_at.sec.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     updated_date      = "#{year}#{month}#{day}"
-    @page_info        = page_number.to_s.rjust(2,"0")
-    @jeho_info        = issue.number
-    @date_id          = updated_date
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
-    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
+    # @page_info        = page_number.to_s.rjust(2,"0")
+    # @jeho_info        = issue.number
+    # @date_id          = updated_date
+    # @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
+    # @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
   end
   
   def two_digit_ord
@@ -604,8 +606,16 @@ module ArticleSaveXml
     #   @sub_head_line2 = sh[1]
     #   @sub_head_line3 = sh[2]
     # end
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
-    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
+    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}_p.jpg"
+    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}_g.jpg"
+    # images.each do |i|
+    #   img = i.image.split(".").first
+    #   @photo_item       = "#{img}.jpg"
+    # end
+    # graphics.each do |g|
+    #   grp = g.graphic.split(".").first
+    #   @graphic_item       = "#{grp}.jpg"
+    # end
     # if story_xml_template.include?("\u200B")
     #   binding.pry
     # end
@@ -783,6 +793,7 @@ module ArticleSaveXml
       # @head_line        = @head_line.gsub("\r\n", " ")
       # @head_line        = @head_line.gsub("\r", "")
       @head_line        = @head_line.gsub("\n", "")
+      @head_line        = @head_line.gsub("\u2003", "")
     else
       @head_line       = @c_head_line
     end  
@@ -793,7 +804,7 @@ module ArticleSaveXml
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
       # @sub_head_line    = @sub_head_line.gsub("\r", "")
       @sub_head_line    = @sub_head_line.gsub("\n", "]]></SubTitle><SubTitle><![CDATA[")
-
+      @sub_head_line    = @sub_head_line.gsub("\u2003", "")
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
