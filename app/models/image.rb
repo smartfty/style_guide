@@ -106,7 +106,7 @@ class Image < ApplicationRecord
   # IMAGE_FIT_TYPE_REPEAT_MUTIPLE = 5
   # IMAGE_CHANGE_BOX_SIZE         = 6 #change box size to fit image source as is at origin
 
-  def iamge_layout_hash
+  def image_layout_hash
     h = {}
     h[:image_path]        = image_path
     h[:column]            = column
@@ -135,7 +135,10 @@ class Image < ApplicationRecord
     h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame || true
     h[:image_kind]        = image_kind if image_kind
-
+    if crop_x
+      # 크롭을 했을 경우 crop_x
+      h[:crop_rect] = [crop_x, crop_y, crop_w, crop_h]
+    end
     h
   end
 
