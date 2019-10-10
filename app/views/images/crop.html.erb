@@ -12,7 +12,10 @@
           </div>
           <%= simple_form_for(@image) do |f| %>
             <div class="form-group">
-              <%= f.button :submit, '크롭', id: "saveCropData", method: :fetch,  class: "btn btn-primary btn-lg btn-block", style: "border-radius: 0" %>
+              <%= f.button :submit, '크롭 적용', id: "saveCropData", method: :fetch,  class: "btn btn-primary btn-lg btn-block", style: "border-radius: 0" %>
+            </div>
+            <div class="form-group">
+              <%= link_to '크롭 취소', working_article_path(@image.working_article), class: "btn btn-danger btn-lg btn-block", style: "border-radius: 0" %>
             </div>
             <div class="form-group">
               <div class="row">
