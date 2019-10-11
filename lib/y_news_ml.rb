@@ -184,44 +184,44 @@ class YNewsML
 
   def self.ytn_101
     today = Date.today
+    YhArticle.delete_week_old(today)
     source_location = "/Volumes/wire_source/wire_source/101_KOR"
     self.parse_new_wire_story_xml(source_location)
-    YhArticle.delete_week_old(today)
   end
 
   def self.ytn_201
     today = Date.today
+    YhPicture.delete_week_old(today)
     source_location = "/Volumes/wire_source/wire_source/201_PHOTO_YNA"
     self.parse_new_wire_picture_xml(source_location)
-    YhPicture.delete_week_old(today)
   end
 
   def self.ytn_202
     today = Date.today
+    YhPhotoTr.delete_week_old(today)
     source_location = "/Volumes/wire_source/wire_source/202_PHOTO_TR"
     self.parse_new_wire_photo_tr(source_location)
-    YhPhotoTr.delete_week_old(today)
   end
 
   def self.ytn_203
     today = Date.today
+    YhGraphic.delete_week_old(today)
     source_location = "/Volumes/wire_source/wire_source/203_GRAPHIC"
     self.parse_new_wire_graphic_xml(source_location)
-    YhGraphic.delete_week_old(today)
   end
 
   def self.ytn_205
     today = Date.today
+    YhPhotoFrYna.delete_week_old(today)
     source_location = "/Volumes/wire_source/wire_source/205_PHOTO_FR_YNA"
     self.parse_new_wire_photo_fr_yna(source_location)
-    YhPhotoFrYna.delete_week_old(today)
   end
 
   def self.ytn_401
     today = Date.today
+    YhPr.delete_week_old(today)
     source_location = "/Volumes/wire_source/wire_source/401_PR"
     self.parse_new_wire_pr(source_location)
-    YhPr.delete_week_old(today)
   end
 
   def self.new_ytn
@@ -277,6 +277,7 @@ class YNewsML
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
       content_id = File.basename(source_file, ".xml").split("_").first
       received = YhArticle.find_by(content_id: content_id)   
+      update_id = File.basename(source_file, ".xml") unless File.basename(source_file, ".xml").split("_").last == "U"
       unless received
         xml = File.open(source_file, 'r'){|f| f.read}
         story_hash = YNewsML.parse(xml).to_hash
