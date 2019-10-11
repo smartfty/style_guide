@@ -277,7 +277,20 @@ class YNewsML
       # system("echo #{sudo_passwd} | sudo -S chown apple #{source_file}")
       content_id = File.basename(source_file, ".xml").split("_").first
       received = YhArticle.find_by(content_id: content_id)   
-      update_id = File.basename(source_file, ".xml") unless File.basename(source_file, ".xml").split("_").last == "U"
+      update_id = File.basename(source_file, ".xml") 
+      if File.basename(source_file, ".xml").split("_").last == "U" ## 제목 [고침]이라고 표시?
+        xml = File.open(source_file, 'r'){|f| f.read}
+        story_hash = YNewsML.parse(xml).to_hash
+        story_hash[:content_id] = content_id
+        YhArticle.destroy(story_hash)
+        YhArticle.create(story_hash)
+      elsif File.basename(source_file, ".xml").split("_").last == "D" ## [삭제]라고 표시?
+        xml = File.open(source_file, 'r'){|f| f.read}
+        story_hash = YNewsML.parse(xml).to_hash
+        story_hash[:content_id] = content_id
+        YhArticle.destroy(story_hash)
+        YhArticle.create(story_hash)
+      end
       unless received
         xml = File.open(source_file, 'r'){|f| f.read}
         story_hash = YNewsML.parse(xml).to_hash

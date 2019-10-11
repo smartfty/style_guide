@@ -8,7 +8,7 @@
 <%= f.select :category_name_eq, ['정치', '경제', '국제', '문화', '스포츠', '지방'], {include_blank: '전체'} %>
 
 <%= f.label '제목' %>
-<%= f.text_field :title_eq, style: "width:40px" %>
+<%= f.text_field :title_eq, style: "width:40px" %><br>
 
 <%= f.submit "검색", class: "btn btn-sm btn-normal"%>
 <% end %>
@@ -17,6 +17,7 @@
 <table class="table table-striped" align="center">
   <thead>
     <tr>
+      <th style="text-align:center;">ID</th>
       <th style="text-align:center;">날짜</th>
       <th style="text-align:center;">시간</th>
       <th style="text-align:center;">카테고리</th>
@@ -30,6 +31,7 @@
   <tbody>
     <% @yh_articles.each do |article| %>
       <tr>
+        <td style="text-align:center;"><%= article.id %></td>
         <td style="text-align:center;"><%= article.date %></td>
         <td style="text-align:center;"><%= article.time %></td>
         <td style="text-align:center;"><%= eval(article.category)[:name] %></td>
