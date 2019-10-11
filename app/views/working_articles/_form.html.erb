@@ -26,14 +26,15 @@
     <%= f.label '가격' %><%= f.select :price, [['무료', 0], ['500원', 20], ['1000원', 30]] %>
   </div>
   <% if @working_article.page.page_number == 1 %>
-  카테고리: <%= @working_article.category_code %>, 서브 카테고리: <%= @working_article.subcategory_code %>
-
+    <% if @working_article.category_code %>
+    카테고리: <%= @working_article.category_code %> 서브 카테고리: <%= @working_article.subcategory_code %>
+    <% end %>
     <div class="form-group">
-    <%= f.label :category_code, '카테고리' %><%= f.collection_select :category_code, StoryCategory.order(:code), :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
+    <%= f.label :category_code, '카테고리' %> <%= f.collection_select :category_code, StoryCategory.order(:code), :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
       
     </div>
     <div class="form-group">
-      <%= f.label :subcategory_code, '서브_카테고리' %><%= f.grouped_collection_select :subcategory_code, StoryCategory.order(:code), :story_subcategory, :name, :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
+      <%= f.label :subcategory_code, '서브 카테고리' %> <%= f.grouped_collection_select :subcategory_code, StoryCategory.order(:code), :story_subcategory, :name, :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
     </div>
     <% elsif @working_article.page.page_number == 10 %>
       <div class="form-group">

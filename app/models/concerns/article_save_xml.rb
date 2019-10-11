@@ -92,6 +92,7 @@ module ArticleSaveXml
     body_text.gsub!("\u30fb", "·")
     body_text.gsub!("\u2027", "·")
     body_text.gsub!("\u0387", "·")
+    body_text.gsub!("\u2022", "·")
     body_text
   end
 
