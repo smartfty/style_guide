@@ -278,25 +278,21 @@ class YNewsML
       content_id = File.basename(source_file, ".xml").split("_").first
       received = YhArticle.find_by(content_id: content_id)   
       update_id = File.basename(source_file, ".xml") 
-      if File.basename(source_file, ".xml").split("_").last == "U" ## 제목 [고침]이라고 표시?
+      if File.basename(source_file, ".xml").split("_").last == "C"
+        unless received
+          xml = File.open(source_file, 'r'){|f| f.read}
+          story_hash = YNewsML.parse(xml).to_hash
+          story_hash[:content_id] = content_id
+          YhArticle.create(story_hash)
+          FileUtils.mv(source_file, destination_dir) 
+        end
+      else
         xml = File.open(source_file, 'r'){|f| f.read}
         story_hash = YNewsML.parse(xml).to_hash
         story_hash[:content_id] = content_id
-        YhArticle.destroy(story_hash)
-        YhArticle.create(story_hash)
-      elsif File.basename(source_file, ".xml").split("_").last == "D" ## [삭제]라고 표시?
-        xml = File.open(source_file, 'r'){|f| f.read}
-        story_hash = YNewsML.parse(xml).to_hash
-        story_hash[:content_id] = content_id
-        YhArticle.destroy(story_hash)
-        YhArticle.create(story_hash)
-      end
-      unless received
-        xml = File.open(source_file, 'r'){|f| f.read}
-        story_hash = YNewsML.parse(xml).to_hash
-        story_hash[:content_id] = content_id
-        YhArticle.create(story_hash)
-        FileUtils.mv(source_file, destination_dir) 
+        # update_id = YhArticle.find_by(content_id: content_id).id
+        YhArticle.update(story_hash)
+        FileUtils.mv(source_file, destination_dir)
       end
       # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
       left_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) }
@@ -328,13 +324,21 @@ class YNewsML
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPicture.find_by(content_id: content_id)
-          unless received
+          if File.basename(xml_file, ".xml").split("_").last == "C"
+            unless received
+              xml = File.open(xml_file, 'r'){|f| f.read}
+              picture_hash = YNewsML.parse(xml).to_hash
+              picture_hash[:content_id] = content_id
+              YhPicture.create(picture_hash)
+              FileUtils.mv(xml_file, destination_dir)
+            end
+          else
             xml = File.open(xml_file, 'r'){|f| f.read}
             picture_hash = YNewsML.parse(xml).to_hash
             picture_hash[:content_id] = content_id
-            YhPicture.create(picture_hash)
+            YhPicture.update(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
-          end
+          end      
           # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
@@ -367,13 +371,21 @@ class YNewsML
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPhotoTr.find_by(content_id: content_id)
-          unless received
+          if File.basename(xml_file, ".xml").split("_").last == "C"
+            unless received
+              xml = File.open(xml_file, 'r'){|f| f.read}
+              picture_hash = YNewsML.parse(xml).to_hash
+              picture_hash[:content_id] = content_id
+              YhPhotoTr.create(picture_hash)
+              FileUtils.mv(xml_file, destination_dir)
+            end
+          else
             xml = File.open(xml_file, 'r'){|f| f.read}
             picture_hash = YNewsML.parse(xml).to_hash
             picture_hash[:content_id] = content_id
-            YhPhotoTr.create(picture_hash)
+            YhPhotoTr.update(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
-          end
+          end      
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -406,13 +418,21 @@ class YNewsML
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPhotoFrYna.find_by(content_id: content_id)
-          unless received
+          if File.basename(xml_file, ".xml").split("_").last == "C"
+            unless received
+              xml = File.open(xml_file, 'r'){|f| f.read}
+              picture_hash = YNewsML.parse(xml).to_hash
+              picture_hash[:content_id] = content_id
+              YhPhotoFrYna.create(picture_hash)
+              FileUtils.mv(xml_file, destination_dir)
+            end
+          else
             xml = File.open(xml_file, 'r'){|f| f.read}
             picture_hash = YNewsML.parse(xml).to_hash
             picture_hash[:content_id] = content_id
-            YhPhotoFrYna.create(picture_hash)
+            YhPhotoFrYna.update(picture_hash)
             FileUtils.mv(xml_file, destination_dir)
-          end
+          end      
           # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
@@ -445,14 +465,21 @@ class YNewsML
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
           content_id = File.basename(xml_file, ".xml").split("_").first
           received = YhPr.find_by(content_id: content_id)
-          unless received
+          if File.basename(xml_file, ".xml").split("_").last == "C"
+            unless received
+              xml = File.open(xml_file, 'r'){|f| f.read}
+              picture_hash = YNewsML.parse(xml).to_hash
+              picture_hash[:content_id] = content_id
+              YhPr.create(picture_hash)
+              FileUtils.mv(xml_file, destination_dir)
+            end
+          else
             xml = File.open(xml_file, 'r'){|f| f.read}
             picture_hash = YNewsML.parse(xml).to_hash
             picture_hash[:content_id] = content_id
             YhPr.create(picture_hash)
-            FileUtils.mv(xml_file, destination_dir)
-          end
-          # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
+          end      
+            # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
@@ -487,13 +514,21 @@ class YNewsML
           received = YhGraphic.find_by(content_id: content_id)
           # sudo_passwd = ""
           # system("echo #{sudo_passwd} | sudo -S chown apple #{xml_file}")
-          unless received
+          if File.basename(xml_file, ".xml").split("_").last == "C"
+            unless received
+              xml = File.open(xml_file, 'r'){|f| f.read}
+              graphic_hash = YNewsML.parse(xml).to_hash
+              graphic_hash[:content_id] = content_id
+              YhGraphic.create(graphic_hash)
+              FileUtils.mv(xml_file, destination_dir) 
+            end
+          else
             xml = File.open(xml_file, 'r'){|f| f.read}
             graphic_hash = YNewsML.parse(xml).to_hash
             graphic_hash[:content_id] = content_id
             YhGraphic.create(graphic_hash)
             FileUtils.mv(xml_file, destination_dir) 
-          end
+          end                    
           # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리" 
