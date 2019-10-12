@@ -478,6 +478,7 @@ class YNewsML
             picture_hash = YNewsML.parse(xml).to_hash
             picture_hash[:content_id] = content_id
             YhPr.create(picture_hash)
+            FileUtils.mv(xml_file, destination_dir)
           end      
             # FileUtils.mv(source_file, destination_dir) unless File.exists?(source_file)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
