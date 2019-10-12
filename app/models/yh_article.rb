@@ -36,7 +36,7 @@ class YhArticle < ApplicationRecord
   end
 
   def self.delete_week_old(today)
-    one_week_old = today.days_ago(7)
+    one_week_old = today.days_ago(3)
     YhArticle.all.each do |article|
       article.destroy if article.created_at < one_week_old
     end

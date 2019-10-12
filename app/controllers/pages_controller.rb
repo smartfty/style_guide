@@ -110,7 +110,6 @@ class PagesController < ApplicationController
   end
 
   def send_pdf_to_printer
-    send_proof_reading_pdf
     puts __method__
     result = @page.copy_to_printer_ftp
     if result

@@ -167,6 +167,7 @@ module PagePrintable
     dong_a
     news_pdf
     ex_pdf
+    copy_to_proof_reading_ftp
     true
   end
 
