@@ -61,7 +61,7 @@ class YhGraphic < ApplicationRecord
     end
 
     def self.delete_week_old(today)
-      one_week_old = today.days_ago(7)
+      one_week_old = today.days_ago(3)
       YhGraphic.all.each do |graphic|
         graphic.destroy if graphic.created_at < one_week_old
       end
