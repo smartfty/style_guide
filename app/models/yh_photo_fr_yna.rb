@@ -62,7 +62,7 @@ class YhPhotoFrYna < ApplicationRecord
     end
 
     def self.delete_week_old(today)
-        one_week_old = today.days_ago(2)
+        one_week_old = today.days_ago(3)
         YhPhotoFrYna.all.each do |photo_fr_yna|
             photo_fr_yna.destroy if photo_fr_yna.created_at < one_week_old
         end
