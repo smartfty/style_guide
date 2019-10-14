@@ -164,8 +164,8 @@ module PagePrintable
   def copy_to_printer_ftp
     page_color_check
     backup_printer_file
-    # jung_ang
-    # dong_a
+    jung_ang
+    dong_a
     news_pdf
     ex_pdf
     copy_to_proof_reading_ftp
