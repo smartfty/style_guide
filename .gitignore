@@ -44,3 +44,4 @@ config/schedule.rb
 /public/wire_source
 config/schedule.rb
 *.yml
+config/schedule.rb
