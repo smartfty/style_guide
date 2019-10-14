@@ -19,19 +19,9 @@ every 1.minutes do
     rake 'wire:new_ytn_101'
   end
 
-  every 2.minutes do
+  every 1.minutes do
     # specify the task name as a string
     rake 'wire:new_ytn_201'
-  end
-
-  every 3.minutes do
-    # specify the task name as a string
-    rake 'wire:new_ytn_202'
-  end
-
-  every 3.minutes do
-    # specify the task name as a string
-    rake 'wire:new_ytn_203'
   end
 
   every 1.minutes do
@@ -39,7 +29,18 @@ every 1.minutes do
     rake 'wire:new_ytn_205'
   end
 
-  every 5.minutes do
+  every 1.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_202'
+  end
+
+  every 1.minutes do
+    # specify the task name as a string
+    rake 'wire:new_ytn_203'
+  end
+
+ 
+  every 1.minutes do
     # specify the task name as a string
     rake 'wire:new_ytn_401'
   end
