@@ -101,6 +101,7 @@ module PagePrintable
     end
     puts "target_file:#{target_file}"
     system("cd #{path} && cp section.pdf #{target_file}")
+
     target_file
   end
 
@@ -261,7 +262,7 @@ module PagePrintable
     yyyymd    = issue.date.strftime("%Y%m%d")
     dir_name  = "/NewsPDF/#{yyyymd}"
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.mkdir dir_name unless File.exists?(dir_name)
+      # ftp.mkdir dir_name unless File.exists?(dir_name)
       ftp.putbinaryfile(printer_file, "#{dir_name}/#{news_pdf_code}")
     end
   end
@@ -284,7 +285,7 @@ module PagePrintable
     yyyymd    = issue.date.strftime("%Y%m%d")
     dir_name  = "/외부전송PDF"
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.mkdir dir_name unless File.exists?(dir_name)
+      # ftp.mkdir dir_name unless File.exists?(dir_name)
       ftp.putbinaryfile(printer_file, "#{dir_name}/#{ex_pdf_code}")
     end
   end
