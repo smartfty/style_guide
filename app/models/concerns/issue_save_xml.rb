@@ -212,7 +212,9 @@ def save_mobile_preview_xml # 모바일용 지면보기 XML
   system("mkdir -p #{partial_xml_path}") unless File.exist?(partial_xml_path)
   File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
   File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
-  # send_mobile_preview_xml
+
+  send_mobile_preview_xml # 모바일용 지면보기 XML 전송
+  
   # merge_container_xml
   # make_mobile_preview_xml_zip
   # directory_to_zip = mobile_preview_xml_path
@@ -248,12 +250,14 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   pw        = 'sodlftlsans1!'
   entries = Dir.glob("#{xml_path}/**/*").sort
   Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.mkdir news_xml unless File.exists?(news_xml)
+    files = ftp.list
+    ftp.mkdir(news_xml) if !ftp.list("/").any?{|dir| dir.match(/\s#{news_xml}$/)}
     entries.each do |name|
       base_name = File.basename(name)
       if File.directory? base_name
         # ftp.mkdir issue_date + "/#{base_name}"
-        ftp.mkdir base_name unless File.exists?(base_name)
+        # ftp.mkdir base_name unless File.exists?(base_name)
+        ftp.mkdir(base_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         File.open(name) { |file| ftp.putbinaryfile(file, news_xml + "/#{base_name}") }
       end
@@ -261,12 +265,14 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   end
   entries = Dir.glob("#{preview_xml_path}/**/*").sort
   Net::FTP.open(ip, id, pw) do |ftp|
-    ftp.mkdir preview_xml unless File.exists?(preview_xml)
+    files = ftp.list
+    ftp.mkdir(preview_xml) if !ftp.list("/").any?{|dir| dir.match(/\s#{preview_xml}$/)}
     entries.each do |name|
       base_name = File.basename(name)
       if File.directory? base_name
         # ftp.mkdir issue_date + "/#{base_name}"
-        ftp.mkdir base_name unless File.exists?(base_name)
+        # ftp.mkdir base_name unless File.exists?(base_name)
+        ftp.mkdir(base_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         File.open(name) { |file| ftp.putbinaryfile(file, preview_xml + "/#{base_name}") }
       end
@@ -274,7 +280,7 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   end
 end
 
-def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이트정보 합성'
+def send_mobile_preview_xml # 모바일용 지면보기 XML 전송 
   partial_folder          = partial_xml_path
 
   year          = date.year
@@ -288,6 +294,7 @@ def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이�
   entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
 
   Net::FTP.open(ip, id, pw) do |ftp|
+    files = ftp.list
     ftp.chdir(ftp_folder)
     # ftp.chdir("#{year}/#{month}/#{day}/")
     entries.each do |name|
@@ -296,6 +303,7 @@ def merge_container_xml # 모바일용 지면보기 XML 콘테이너/업데이�
       dir_base_name = File.basename(dir_name)
       if File.directory? name
         ftp.mkdir base_name.to_s unless File.exists?(base_name.to_s)
+        # ftp.mkdir(base_name.to_s) if !ftp.list("/").any?{|dir| dir.match(/\s#{base_name.to_s}$/)}
       else
         # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
@@ -331,8 +339,8 @@ def wait_for_xml_upload # 모바일용 지면보기 XML 콘테이너/업데이�
   found
 end 
 
-def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
-  merge_container_xml
+# 모바일용 지면보기 XML 콘테이너/업데이트정보 합성'
+def merge_container_xml
   wait_for_xml_upload
   
   year          = date.year
