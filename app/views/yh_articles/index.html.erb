@@ -5,7 +5,7 @@
 
 <%= search_form_for @q do |f| %>
 <%= f.label '카테고리' %>
-<%= f.select :category_name_eq, ['정치', '경제', '국제', '문화', '스포츠', '지방'], {include_blank: '전체'} %>
+<%= f.select :category_name_eq, ['정치', '경제', '사회', '국제', '문화', '스포츠/레저', '지방'], {include_blank: '전체'} %>
 
 <%= f.label '제목' %>
 <%= f.text_field :title_eq, style: "width:40px" %><br>
