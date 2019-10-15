@@ -260,10 +260,15 @@ module PagePrintable
     id        = 'comp'
     pw        = '*4141'
     yyyymd    = issue.date.strftime("%Y%m%d")
-    dir_name  = "/NewsPDF/#{yyyymd}"
+    dir_name  = "NewsPDF/#{yyyymd}"
     Net::FTP.open(ip, id, pw) do |ftp|
       files = ftp.list
-      ftp.mkdir(dir_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
+      puts "list out files in root directory:"
+      puts files
+    
+      # ftp.mkdir(dir_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
+
+      # ftp.mkdir(dir_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
         # ftp.mkdir dir_name unless File.exists?(dir_name)
       ftp.putbinaryfile(printer_file, "#{dir_name}/#{news_pdf_code}")
     end
@@ -285,7 +290,7 @@ module PagePrintable
     id        = 'comp'
     pw        = '*4141'
     yyyymd    = issue.date.strftime("%Y%m%d")
-    dir_name  = "/외부전송PDF"
+    dir_name  = "외부전송PDF"
     Net::FTP.open(ip, id, pw) do |ftp|
       # ftp.mkdir dir_name unless File.exists?(dir_name)
       ftp.putbinaryfile(printer_file, "#{dir_name}/#{ex_pdf_code}")

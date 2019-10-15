@@ -343,11 +343,11 @@ EOF
         @order = page.working_articles.length + 1
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
-        @name_plate      = '광고'
+        @name_plate   = '광고'
          if page.section_name == '전면광고'
-          @name_plate  = '전면광고'
+          @name_plate = '전면광고'
          end
-        @head_line       = advertiser
+        @head_line    = advertiser
         @head_line    = @head_line.gsub("\&", "&amp;")
 
       container_xml_group_key=<<EOF
