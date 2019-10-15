@@ -294,8 +294,8 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
   entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
 
   Net::FTP.open(ip, id, pw) do |ftp|
-    files = ftp.list
-    ftp.mkdir(ftp_folder) unless ftp.list("/").any?{|dir| dir.match(/\s#{ftp_folder}$/)}
+    # files = ftp.list
+    # ftp.mkdir(ftp_folder) unless ftp.list("/").any?{|dir| dir.match(/\s#{ftp_folder}$/)}
     ftp.chdir(ftp_folder)
     # ftp.chdir("#{year}/#{month}/#{day}/")
     entries.each do |name|
@@ -304,7 +304,7 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
       dir_base_name = File.basename(dir_name)
       if File.directory? name
         # ftp.mkdir base_name.to_s unless File.exists?(base_name.to_s)
-        ftp.mkdir(base_name.to_s) unless ftp.list("/").any?{|dir| dir.match(/\s#{base_name.to_s}$/)}
+        ftp.mkdir(base_name) unless ftp.list.any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }

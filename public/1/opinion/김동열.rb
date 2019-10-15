@@ -10,7 +10,7 @@ RLayout::Container.new(width:158.74015748031, height: 162.83914494488) do
       
         text('김동열', y:28, font: 'KoPubDotumPB', font_size: 9, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
       
-      text('', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
+      text('중소기업연구원 원장', y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear', text_color:'CMYK=0,0,0,100')
     
   end
 end
