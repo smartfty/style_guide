@@ -1053,8 +1053,8 @@ EOF
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    @head_line        = title    
+    page_info       = page_number.to_s.rjust(2,"0")
+    @head_line      = title
     # if title && title != ""
     #   title.strip!
     #   @head_line        = title    
@@ -1087,7 +1087,7 @@ EOF
       @c_head_line    = @image.caption_title 
       elsif
       @graphic        = graphics.first
-      @c_head_line    = @graphic.title 
+      @c_head_line    = @graphic.title
       else
       @c_head_line    = ""
       end 

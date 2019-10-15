@@ -251,13 +251,13 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   entries = Dir.glob("#{xml_path}/**/*").sort
   Net::FTP.open(ip, id, pw) do |ftp|
     files = ftp.list
-    ftp.mkdir(news_xml) if !ftp.list("/").any?{|dir| dir.match(/\s#{news_xml}$/)}
+    ftp.mkdir(news_xml) unless ftp.list("/").any?{|dir| dir.match(/\s#{news_xml}$/)}
     entries.each do |name|
       base_name = File.basename(name)
       if File.directory? base_name
         # ftp.mkdir issue_date + "/#{base_name}"
         # ftp.mkdir base_name unless File.exists?(base_name)
-        ftp.mkdir(base_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
+        ftp.mkdir(base_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         File.open(name) { |file| ftp.putbinaryfile(file, news_xml + "/#{base_name}") }
       end
@@ -266,13 +266,13 @@ def xml_send # 데스크탑용 뉴스/지면보기 XML 전송
   entries = Dir.glob("#{preview_xml_path}/**/*").sort
   Net::FTP.open(ip, id, pw) do |ftp|
     files = ftp.list
-    ftp.mkdir(preview_xml) if !ftp.list("/").any?{|dir| dir.match(/\s#{preview_xml}$/)}
+    ftp.mkdir(preview_xml) unless ftp.list("/").any?{|dir| dir.match(/\s#{preview_xml}$/)}
     entries.each do |name|
       base_name = File.basename(name)
       if File.directory? base_name
         # ftp.mkdir issue_date + "/#{base_name}"
         # ftp.mkdir base_name unless File.exists?(base_name)
-        ftp.mkdir(base_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
+        ftp.mkdir(base_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         File.open(name) { |file| ftp.putbinaryfile(file, preview_xml + "/#{base_name}") }
       end
@@ -294,7 +294,8 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
   entries = Dir.glob("#{mobile_preview_xml_path}/**/*").sort
 
   Net::FTP.open(ip, id, pw) do |ftp|
-    files = ftp.list
+    # files = ftp.list
+    # ftp.mkdir(ftp_folder) unless ftp.list("/").any?{|dir| dir.match(/\s#{ftp_folder}$/)}
     ftp.chdir(ftp_folder)
     # ftp.chdir("#{year}/#{month}/#{day}/")
     entries.each do |name|
@@ -303,7 +304,7 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
       dir_base_name = File.basename(dir_name)
       if File.directory? name
         # ftp.mkdir base_name.to_s unless File.exists?(base_name.to_s)
-        ftp.mkdir(base_name.to_s) if !ftp.list("/").any?{|dir| dir.match(/\s#{base_name.to_s}$/)}
+        ftp.mkdir(base_name) unless ftp.list.any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }
