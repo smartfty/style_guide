@@ -263,8 +263,8 @@ module PagePrintable
     dir_name  = "NewsPDF/#{yyyymd}"
     Net::FTP.open(ip, id, pw) do |ftp|
       # files = ftp.list
-      # ftp.mkdir(dir_name) if !ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
-        # ftp.mkdir dir_name unless File.exists?(dir_name)
+      # ftp.mkdir(dir_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
+      # ftp.mkdir dir_name unless File.exists?(dir_name)
       ftp.putbinaryfile(printer_file, "#{dir_name}/#{news_pdf_code}")
     end
   end
