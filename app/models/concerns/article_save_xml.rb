@@ -607,8 +607,8 @@ module ArticleSaveXml
     #   @sub_head_line2 = sh[1]
     #   @sub_head_line3 = sh[2]
     # end
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}_p.jpg"
-    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}_g.jpg"
+    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
+    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
     # images.each do |i|
     #   img = i.image.split(".").first
     #   @photo_item       = "#{img}.jpg"
