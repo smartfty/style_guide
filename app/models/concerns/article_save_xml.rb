@@ -5,7 +5,7 @@ module ArticleSaveXml
 ## 뉴스 / 지면보기 XML 생성관련 소스 분리 2018-12-27 DaNiel
 
    def find_code_name(code)
-    a =      [['금융', 1401], ['산업', 1402], ['재정', 1403], ['글로벌경제', 1502], ['피플', 1404], ['연합뉴스', 1400], ['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]]
+    a =      [['국회/정당', 1201], ['청와대', 1202], ['피플', 1205], ['지방자치', 1300], ['금융', 1401], ['산업', 1402], ['재정', 1403], ['글로벌경제', 1502], ['피플', 1404], ['지구촌소식', 1501], ['외교/국방', 1203], ['통일', 1204], ['피플', 1503], ['연합뉴스', 1000], ['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['보건복지', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609], ['도서관', 1701], ['출판/서평', 1702], ['예술', 1704], ['피플', 1706], ['여론조사', 3201], ['기획연재', 3201]]
     a.each do |code_a|
       return code_a[0] if code_a[1] == code
     end
@@ -480,14 +480,14 @@ module ArticleSaveXml
       end
     end 
     @subject_ex_code = story.category_code if story && story.category_code && story.category_code != ""
-    @subject_ex_code = category_code if category_code && category_code != ""
+    @subject_ex_code = subcategory_code if subcategory_code && subcategory_code != ""
     # if page_number == 1
     #   @subject_ex_code = category_code
     #   @subject_ex_name = ""
     # end
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
-    @subject_ex_name  = find_code_name(category_code.to_i) if category_code && category_code != ""
+    @subject_ex_name  = find_code_name(subcategory_code.to_i) if subcategory_code && subcategory_code != ""
     if page_number == 1 || page_number == 10
       @money_status = "0"
     # elsif page_number == 20 || page_number == 21

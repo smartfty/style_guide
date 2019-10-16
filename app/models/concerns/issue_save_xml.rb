@@ -304,7 +304,7 @@ def send_mobile_preview_xml # 모바일용 지면보기 XML 전송
       dir_base_name = File.basename(dir_name)
       if File.directory? name
         # ftp.mkdir base_name.to_s unless File.exists?(base_name.to_s)
-        ftp.mkdir(base_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{base_name}$/)}
+        ftp.mkdir(base_name) unless ftp.list.any?{|dir| dir.match(/\s#{base_name}$/)}
       else
         # puts "-------------- #{ftp_folder}/#{dir_base_name}/#{base_name}"
         File.open(name) { |file| ftp.putbinaryfile(file, "#{dir_base_name}/#{base_name}") }

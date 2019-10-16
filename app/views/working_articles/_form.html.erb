@@ -38,7 +38,7 @@
     </div>
     <% elsif @working_article.page.page_number == 10 %>
       <div class="form-group">
-      <%= f.label '카테고리' %> <%= f.select :category_code, [['금융', 1401], ['산업',1402], ['재정',1403], ['글로벌경제', 1502], ['피플',1404], ['연합뉴스',1400]], { :include_blank => '-- 선택해주세요 --' } %>
+      <%= f.label '카테고리' %> <%= f.select :subcategory_code, [['금융', 1401], ['산업',1402], ['재정',1403], ['글로벌경제', 1502], ['피플',1404], ['연합뉴스',1000]], { :include_blank => '-- 선택해주세요 --' } %>
      </div>
     <% end %>
   

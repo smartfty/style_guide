@@ -12,7 +12,7 @@
 
 <p>
   <strong>Story category:</strong>
-  <%= @story_subcategory.story_category %>
+  <%= @story_subcategory.story_category.name %>(<%= @story_subcategory.story_category.code %>)
 </p>
 
 <%= link_to 'Edit', edit_story_subcategory_path(@story_subcategory) %> |
