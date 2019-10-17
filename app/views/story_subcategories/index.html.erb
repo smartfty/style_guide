@@ -1,11 +1,11 @@
-<h1>기사 하위 카테고리</h1>
+<h1>기사 소분류 관리</h1>
 
 <table class="responsive nowrap table table-hover" id="dttb-story_subcategories" data-sort="true" data-source="<%= url_for(format: :json)%>">
   <thead>
     <tr>
-      <th data-data="name">하위 카테고리 이름</th>
-      <th data-data="code">하위 카테고리 코드</th>
-      <th data-data="story_category.name">상위 카테고리 이름</th>
+      <th data-data="name">기사 소분류 이름</th>
+      <th data-data="code">기사 소분류 코드</th>
+      <th data-data="story_category.name">기사 대분류</th>
       <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
   </thead>
@@ -14,4 +14,4 @@
 
 <br>
 
-<%= link_to 'New Story Subcategory', new_story_subcategory_path %>
+<%= link_to '새로운 기사 소분류 만들기', new_story_subcategory_path %>
