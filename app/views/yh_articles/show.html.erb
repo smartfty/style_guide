@@ -1,4 +1,3 @@
-<%= form_with(model: @yh_article, local: true) do |f| %>
 
 <!-- p id="notice"><%= notice %></p-->
 
@@ -6,14 +5,14 @@
 <div class="col-xs-7 col-sm-7">
 <h3 align="center">연합기사 </h3>
 
-<%= search_form_for @q do |f| %>
-<%= f.label '카테고리' %>
-<%= f.select :category_name_eq, ['정치', '경제', '국제', '문화', '스포츠', '지방'], {include_blank: '전체'} %>
+<%= search_form_for @q do |s| %>
+<%= s.label '카테고리' %>
+<%= s.select :category_name_eq, ['정치', '경제', '국제', '문화', '스포츠', '지방'], {include_blank: '전체'} %>
 
-<%= f.label '제목' %>
-<%= f.text_field :title_eq, style: "width:40px" %>
+<%= s.label '제목' %>
+<%= s.text_field :title_eq, style: "width:40px" %>
 
-<%= f.submit "검색", class: "btn btn-sm btn-normal"%>
+<%= s.submit "검색", class: "btn btn-sm btn-normal"%>
 <% end %>
 <br>
 
@@ -34,7 +33,7 @@
   <tbody>
     <% @yh_articles.each do |article| %>
       <tr>
-        <td style="text-align:center;"><%= @yh_article.id %></td>
+        <td style="text-align:center;"><%= article.id %></td>
         <td style="text-align:center;"><%= article.date %></td>
         <td style="text-align:center;"><%= article.time %></td>
         <td style="text-align:center;"><%= eval(article.category)[:name] %></td>
@@ -52,6 +51,8 @@
     <%= paginate @yh_articles %>
 </div>
 </div>
+
+<%= form_with(model: @yh_article, local: true) do |f| %>
 
 <div class="col-xs-5 col-sm-5">
 <div class="col-xs-1 col-sm-1">
