@@ -1,10 +1,10 @@
-<h1>Story Categories</h1>
+<h1>대분류</h1>
 
 <table class="responsive nowrap table table-hover" id="dttb-story_categories" data-sort="true" data-source="<%= url_for(format: :json)%>">
   <thead>
     <tr>
-      <th data-data="name">Name</th>
-      <th data-data="code">Code</th>
+      <th data-data="name">대분류 이름</th>
+      <th data-data="code">대분류 코드</th>
       <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
   </thead>
@@ -13,4 +13,4 @@
 
 <br>
 
-<%= link_to 'New Story Category', new_story_category_path %>
+<%= link_to '새로운 대분류 만들기', new_story_category_path %>
