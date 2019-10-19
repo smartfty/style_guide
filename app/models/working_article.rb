@@ -93,6 +93,7 @@ class WorkingArticle < ApplicationRecord
   include ArticleSaveXml
   include WorkingArticleAutofit
   include WorkingArticleLayout
+  include StorageBackupWorkingArticle
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
   attr_reader :time_stamp

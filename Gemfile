@@ -67,7 +67,7 @@ gem 'griddler'
 # gem 'jquery-ace-rails'
 # gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap_form'
-gem 'carrierwave'
+gem 'carrierwave', "~> 1.2.3"
 gem 'rest-client'
 gem 'simple_form', '~> 4.0.1'
 gem 'sinatra', '~> 2.0.1'

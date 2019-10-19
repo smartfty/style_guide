@@ -64,6 +64,7 @@ class Page < ApplicationRecord
   include PagePrintable
   include PageSavePdf
   include PageSaveXml
+  include StorageBackupPage
   # extend FriendlyId 
   # friendly_id :friendly_string, :use => [:slugged]
 

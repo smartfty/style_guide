@@ -41,10 +41,13 @@
 #
 
 class Image < ApplicationRecord
+  include Rails.application.routes.url_helpers
   belongs_to :issue, optional: true
   belongs_to :working_article, optional: true
+  before_create :set_default
   mount_uploader :image, ImageUploader
-  before_create  :set_default
+  # active_storage 버전으로 파일 필드 추가
+  has_one_attached :storage_image
 
   def info
     h = {}
@@ -57,13 +60,17 @@ class Image < ApplicationRecord
   end
 
   def image_path
-    if image.url
-      "#{Rails.root}/public" + image.url
-    elsif reporter_image_path
-      "#{Rails.root}/public" + reporter_image_path
-    else
-      "#{Rails.root}/public" + '/place_holder_image.jpg'
+    if storage_image.attached?
+      ActiveStorage::Blob.service.send(:path_for, storage_image.key)
     end
+
+    # if image.url
+    #   "#{Rails.root}/public" + image.url
+    # elsif reporter_image_path
+    #   "#{Rails.root}/public" + reporter_image_path
+    # else
+    #   "#{Rails.root}/public" + '/place_holder_image.jpg'
+    # end
   end
 
   def empty_image_url
@@ -113,8 +120,8 @@ class Image < ApplicationRecord
     h[:row]               = row
     h[:position]          = position.to_i
     h[:extra_height_in_lines] = extra_height_in_lines || 0
-    h[:is_float]          = true
-    h[:caption_title]     = RubyPants.new(caption_title).to_html if caption_title
+    h[:is_float] = true
+    h[:caption_title] = RubyPants.new(caption_title).to_html if caption_title
     h[:caption]           = RubyPants.new(caption).to_html if caption
     h[:source]            = source if source
     case fit_type
@@ -236,7 +243,9 @@ class Image < ApplicationRecord
 
     if size == 'auto'
       new_column, new_row, new_extra_lines = working_article.calculate_fitting_image_size(column, row, extra_height_in_lines)
-      return false if column == new_column && row == new_row && extra_height_in_lines == new_extra_lines
+      if column == new_column && row == new_row && extra_height_in_lines == new_extra_lines
+        return false
+      end
 
       self.column                 = new_column
       self.row                    = new_row
@@ -276,8 +285,12 @@ class Image < ApplicationRecord
       if parsed_name_array.length >= 2
         self.page_number      = parsed_name_array[0].to_i
         self.story_number     = parsed_name_array[1].to_i
-        self.column           = parsed_name_array[3] if  parsed_name_array.length >= 4
-        self.row              = parsed_name_array[4] if  parsed_name_array.length >= 5
+        if parsed_name_array.length >= 4
+          self.column           = parsed_name_array[3]
+        end
+        if parsed_name_array.length >= 5
+          self.row              = parsed_name_array[4]
+        end
       end
     end
   end

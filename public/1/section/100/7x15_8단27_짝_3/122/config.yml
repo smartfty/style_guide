@@ -36,4 +36,4 @@ story_frames:
   - 8
   - 광고_8단27_짝
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true
