@@ -44,4 +44,4 @@ story_frames:
   - 3
   - 광고_3단통
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true

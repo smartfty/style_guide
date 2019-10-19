@@ -48,4 +48,4 @@ story_frames:
   - 6
   - 광고_6단통
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true
