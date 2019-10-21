@@ -213,7 +213,7 @@ def save_mobile_preview_xml # 모바일용 지면보기 XML
   File.open(partial_xml_path + '/partial_Container.xml', 'w') { |f| f.write s }
   File.open(partial_xml_path + '/partial_updateinfo.xml', 'w') { |f| f.write u }
 
-  # send_mobile_preview_xml # 모바일용 지면보기 XML 전송
+  send_mobile_preview_xml # 모바일용 지면보기 XML 전송
   
   # merge_container_xml
   # make_mobile_preview_xml_zip
