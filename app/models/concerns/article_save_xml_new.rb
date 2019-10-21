@@ -362,232 +362,6 @@ module ArticleSaveXml
   def story_xml # 내일닷컴(데스크탑용) 기사 xml 생성
     # story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
     # story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
-
-    article_info =<<~EOF
-      <?xml version="1.0" encoding="EUC-KR"?>
-      <NewsXML>
-        <NewsEnvelope>
-          <NewsPlus Program ="NewsLayout" Version="7.00" />
-          <DateAndTime><%= @date_and_time %></DateAndTime>
-        </NewsEnvelope>
-        <NewsItem>
-          <Identification>
-            <NewsIdentifier>
-              <ProviderId></ProviderId>
-              <DateId><%= @date_id %></DateId>
-              <NewsKeyId><%= @news_key_id %></NewsKeyId>
-              <RevisionNum>0</RevisionNum>
-            </NewsIdentifier>
-            <NewsPublish>
-              <Property FormalName="DayInfo" Value="<%= @day_info %>" />
-              <Property FormalName="MediaInfo" Value="<%= @media_info %>" />
-              <Property FormalName="EditionInfo" Value="EditionInfo" />
-              <Property FormalName="PageInfo" Value="A<%= @page_info %>" />
-              <Property FormalName="JeHoInfo" Value="<%= @jeho_info %>" />
-              <Property FormalName="NewsTitleInfo" Value="<%= @news_title_info %>" />
-            </NewsPublish>
-          </Identification>
-          <NewsComponent>
-            <Role FormalName="Main" />
-            <MediaType FormalName="Text" />
-            <Creator>
-              <Property FormalName="Name" Value="<%= @name %>" />
-              <Property FormalName="Post" Value="<%= @gija_post %>" />
-              <Property FormalName="GijaID" Value="<%= @author_id %>" />
-              <Property FormalName="Email" Value="<%= @author_email %>" />
-              <Property FormalName="ByLine" Value="<%= @by_line %>" />
-            </Creator>
-            <SubjectCode>
-              <Subject FormalName="<%= @section_name_code %>" />
-              <Subject FormalNameString="<%= @news_title_info %>" />
-              <SubjectEx FormalName="<%= @subject_ex_code %>" />
-              <SubjectEx FormalNameString="<%= @subject_ex_name %>" />
-              <MoneyStatus><%= @money_status %></MoneyStatus>
-              <GisaStatus>50</GisaStatus>
-              <GisaFileName><%= @gisa_key %>.txt</GisaFileName>
-              <GisaKey><%= @gisa_key %></GisaKey>
-            </SubjectCode>
-          </NewsComponent>
-    EOF
-
-    if page_number == 22
-      three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent><![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]></DataContent>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Photo" />
-                <MediaType FormalName="Image" />
-                <Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
-                <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' />
-                <DataContent><![CDATA[<%= @caption %>]]> </DataContent>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-                
-
-    elsif page_number == 23 && order == 1 || page_number == 23 && order == 3
-      three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent><![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]></DataContent>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Photo" />
-                <MediaType FormalName="Image" />
-                <Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
-                <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' />
-                <DataContent><![CDATA[<%= @caption %>]]> </DataContent>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-                
-        
-      elsif page_number == 23 && order == 2
-        three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent><![CDATA[<%= @data_content %><br><br><%= @by_line %>]]></DataContent>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-                
-        
-      elsif kind == "사진"
-        three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></HeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent><![CDATA[[IMG1]<br><%= @h_caption %>]]></DataContent>
-              </NewsComponent>
-              <NewsComponent> 
-                <Role FormalName="Photo" />
-                <MediaType FormalName="Image" />
-                <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
-                <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' />
-                <DataContent><![CDATA[ <%= @h_source %>]]> </DataContent>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-                
-        
-      elsif kind == "부고-인사"
-        three_component =<<~EOF
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></HeadLine>
-                <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent><![CDATA[<%= @data_content %>]]></DataContent>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-                
-        
-      elsif images.length > 0
-        three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
-                <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent>
-                  <![CDATA[[IMG1]<br><% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
-                </DataContent>
-              </NewsComponent>
-              <NewsComponent> 
-                <Role FormalName="Photo" />
-                <MediaType FormalName="Image" />
-                <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
-                <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' /><% if @caption && @caption !="" %>
-                <DataContent><![CDATA[ <%= @caption %>]]> </DataContent><% end %>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-                
-        
-      elsif graphics.length > 0
-        three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
-                <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent>
-                  <![CDATA[[IMG1]<br><%= @data_content %>]]>
-                </DataContent>
-              </NewsComponent>
-              <NewsComponent> 
-                <Role FormalName="Photo" />
-                <MediaType FormalName="Image" />
-                <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
-                <PhotoItem Real='<%= "#{@graphic_item}#{n+1}p.jpg" %>' />
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-
-      else
-        three_component =<<~EOF    
-              <NewsComponent>
-                <Role FormalName="Title" />
-                <MediaType FormalName="Text" />
-                <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
-                <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
-              </NewsComponent>
-              <NewsComponent>
-                <Role FormalName="Article" />
-                <MediaType FormalName="Text" />
-                <DataContent>
-                  <![CDATA[<%= @data_content %>]]>
-                </DataContent>
-              </NewsComponent>
-            </NewsItem>
-          </NewsXML>  
-        EOF
-      end
         
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
@@ -852,6 +626,233 @@ module ArticleSaveXml
     @page_number = page_number
     @order = order
 
+    article_info =<<~EOF
+      <?xml version="1.0" encoding="EUC-KR"?>
+      <NewsXML>
+        <NewsEnvelope>
+          <NewsPlus Program ="NewsLayout" Version="7.00" />
+          <DateAndTime><%= @date_and_time %></DateAndTime>
+        </NewsEnvelope>
+        <NewsItem>
+          <Identification>
+            <NewsIdentifier>
+              <ProviderId></ProviderId>
+              <DateId><%= @date_id %></DateId>
+              <NewsKeyId><%= @news_key_id %></NewsKeyId>
+              <RevisionNum>0</RevisionNum>
+            </NewsIdentifier>
+            <NewsPublish>
+              <Property FormalName="DayInfo" Value="<%= @day_info %>" />
+              <Property FormalName="MediaInfo" Value="<%= @media_info %>" />
+              <Property FormalName="EditionInfo" Value="EditionInfo" />
+              <Property FormalName="PageInfo" Value="A<%= @page_info %>" />
+              <Property FormalName="JeHoInfo" Value="<%= @jeho_info %>" />
+              <Property FormalName="NewsTitleInfo" Value="<%= @news_title_info %>" />
+            </NewsPublish>
+          </Identification>
+          <NewsComponent>
+            <Role FormalName="Main" />
+            <MediaType FormalName="Text" />
+            <Creator>
+              <Property FormalName="Name" Value="<%= @name %>" />
+              <Property FormalName="Post" Value="<%= @gija_post %>" />
+              <Property FormalName="GijaID" Value="<%= @author_id %>" />
+              <Property FormalName="Email" Value="<%= @author_email %>" />
+              <Property FormalName="ByLine" Value="<%= @by_line %>" />
+            </Creator>
+            <SubjectCode>
+              <Subject FormalName="<%= @section_name_code %>" />
+              <Subject FormalNameString="<%= @news_title_info %>" />
+              <SubjectEx FormalName="<%= @subject_ex_code %>" />
+              <SubjectEx FormalNameString="<%= @subject_ex_name %>" />
+              <MoneyStatus><%= @money_status %></MoneyStatus>
+              <GisaStatus>50</GisaStatus>
+              <GisaFileName><%= @gisa_key %>.txt</GisaFileName>
+              <GisaKey><%= @gisa_key %></GisaKey>
+            </SubjectCode>
+          </NewsComponent>
+    EOF
+
+    if page_number == 22
+      three_component =<<~EOF    
+              <NewsComponent>
+                <Role FormalName="Title" />
+                <MediaType FormalName="Text" />
+                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Article" />
+                <MediaType FormalName="Text" />
+                <DataContent><![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]></DataContent>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Photo" />
+                <MediaType FormalName="Image" />
+                <Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+                <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' />
+                <DataContent><![CDATA[<%= @caption %>]]> </DataContent>
+              </NewsComponent>
+            </NewsItem>
+          </NewsXML>  
+        EOF
+                
+
+    elsif page_number == 23 && order == 1 || page_number == 23 && order == 3
+      three_component =<<~EOF    
+              <NewsComponent>
+                <Role FormalName="Title" />
+                <MediaType FormalName="Text" />
+                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Article" />
+                <MediaType FormalName="Text" />
+                <DataContent><![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]></DataContent>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Photo" />
+                <MediaType FormalName="Image" />
+                <Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+                <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' />
+                <DataContent><![CDATA[<%= @caption %>]]> </DataContent>
+              </NewsComponent>
+            </NewsItem>
+          </NewsXML>  
+        EOF
+                
+        
+    elsif page_number == 23 && order == 2
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent><![CDATA[<%= @data_content %><br><br><%= @by_line %>]]></DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+                
+        
+    elsif kind == "사진"
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></HeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent><![CDATA[[IMG1]<br><%= @h_caption %>]]></DataContent>
+            </NewsComponent>
+            <NewsComponent> 
+              <Role FormalName="Photo" />
+              <MediaType FormalName="Image" />
+              <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
+              <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' />
+              <DataContent><![CDATA[ <%= @h_source %>]]> </DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+              
+      
+    elsif kind == "부고-인사"
+      three_component =<<~EOF
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent><![CDATA[<%= @data_content %>]]></DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+              
+      
+    elsif images.length > 0
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent>
+                <![CDATA[[IMG1]<br><% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
+              </DataContent>
+            </NewsComponent>
+            <NewsComponent> 
+              <Role FormalName="Photo" />
+              <MediaType FormalName="Image" />
+              <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
+              <PhotoItem Real='<%= "#{@photo_item}#{n+1}p.jpg" %>' /><% if @caption && @caption !="" %>
+              <DataContent><![CDATA[ <%= @caption %>]]> </DataContent><% end %>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+              
+      
+    elsif graphics.length > 0
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent>
+                <![CDATA[[IMG1]<br><%= @data_content %>]]>
+              </DataContent>
+            </NewsComponent>
+            <NewsComponent> 
+              <Role FormalName="Photo" />
+              <MediaType FormalName="Image" />
+              <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
+              <PhotoItem Real='<%= "#{@graphic_item}#{n+1}p.jpg" %>' />
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+
+    else
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent>
+                <![CDATA[<%= @data_content %>]]>
+              </DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+    end
+
+
     article = ""
     article_erb = ERB.new(article_info)
     article += article_erb.result(binding)  
@@ -865,7 +866,7 @@ module ArticleSaveXml
     story_xml_template = ""
     story_erb = article + "\n" + component + "\n" 
     story_xml_template += story_erb
-end
+  end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
     string = string.sub(/\s?$/, "")
@@ -1221,26 +1222,25 @@ end
     EOF
 
     elsif images.count > 0 
-    component_template =<<~EOF
-      <PhotoComponent>
-      <PhotoItem>
-      <ImageType>Image</ImageType> 
-        <Property ImgClass="#{@image_col}" align="center" Class="일반" Size="Large"/>
-        <PhotoFileName><%= "#{@image_collect}" %></PhotoFileName>
-        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-      </PhotoItem>
-      </PhotoComponent>
-    EOF
+      component_template =<<~EOF
+        <PhotoComponent>
+        <PhotoItem>
+        <ImageType>Image</ImageType> 
+          <Property ImgClass="#{@image_col}" align="center" Class="일반" Size="Large"/>
+          <PhotoFileName><%= "#{@image_collect}" %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+        </PhotoItem>
+        </PhotoComponent>
+      EOF
 
-    images.each_with_index do |i, n|
-      merged_component = ""
-      binding.pry
-      erb = ERB.new(component_template)
-      @image_collection = "<!--[[--image#{n+1}--]]//-->"
-      @image_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
-      @image_col = "[IMG0#{n+1}]"
-      merged_component += erb.result(binding) + '\n'
-    end
+      images.each_with_index do |i, n|
+        merged_component = ""
+        erb = ERB.new(component_template)
+        @image_collection = "<!--[[--image#{n+1}--]]//-->"
+        @image_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
+        @image_col = "[IMG0#{n+1}]"
+        merged_component += erb.result(binding) + '\n'
+      end
 
     three_component =<<~EOF
       <TitleComponent>
@@ -1275,7 +1275,7 @@ end
         @graphic_collection = "<!--[[--image#{n+1}--]]//-->"
         @graphic_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
         @graphic_col = "[IMG0#{n+1}]"
-          merged_component += erb.result(binding) + '\n'
+        merged_component += erb.result(binding) + '\n'
       end
   
     three_component =<<~EOF
@@ -1284,7 +1284,7 @@ end
         <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
       </TitleComponent><% if images.last.not_related == true %>
       <ArticleComponent>
-      <Content><![CDATA[<%= @data_content %>]]></Content>
+        <Content><![CDATA[<%= @data_content %>]]></Content>
       </ArticleComponent><% else %>
       <ArticleComponent>
         <Content><![CDATA[#{@graphic_collection}<%= @data_content %>]]></Content>
