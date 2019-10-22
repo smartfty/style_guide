@@ -1,0 +1,43 @@
+---
+section_name: 
+page_heading_margin_in_lines: 3
+ad_type: 9단21_홀
+is_front_page: false
+profile: 7x15_9단21_홀_4
+section_id: 135
+page_columns: 7
+grid_size:
+- 146.99662542182026
+- 97.32283464566795
+lines_per_grid: 7.0
+width: 1114.0157480314808
+height: 1544.8818897637584
+left_margin: 42.5196850393695
+top_margin: 42.5196850393695
+right_margin: 42.5196850393695
+bottom_margin: 42.5196850393695
+gutter: 12.755905511810848
+story_frames:
+- - 0
+  - 0
+  - 5
+  - 6
+- - 5
+  - 0
+  - 2
+  - 6
+- - 0
+  - 6
+  - 3
+  - 4
+- - 0
+  - 10
+  - 3
+  - 5
+- - 3
+  - 6
+  - 4
+  - 9
+  - 광고_9단21_홀
+article_line_thickness: 0.3
+draw_divider: 

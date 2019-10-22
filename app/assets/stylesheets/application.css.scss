@@ -12,34 +12,36 @@
  *
  *= require jcrop
  *= require datatables
+ *= require cropper.min
  *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
 
 html {
   height: 100% !important;
 }
 
-body{
-  display:table;
-  width:100% !important;
-  height:100% !important;
+body {
+  display: table;
+  width: 100% !important;
+  height: 100% !important;
 }
 
-#header,#footer{
-  display:table-row;
-  width:100% !important;
-  height:1px
+#header,
+#footer {
+  display: table-row;
+  width: 100% !important;
+  height: 1px;
 }
 
-#container{
-  display:table-row;
-  width:100% !important;
-  height:100% !important;
+#container {
+  display: table-row;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .row {
@@ -53,9 +55,8 @@ body{
   // display: inline-block;
 }
 
-
 .view {
-  width:100%;
+  width: 100%;
   height: 100% !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -99,66 +100,64 @@ body{
 .out {
   width: 100%;
   text-align: center;
-  }
- .in {
+}
+.in {
   display: inline-block;
-  }
+}
 
 .frame-0 {
   // background: #e7e7e7;
   border: 10px solid white;
-  border-radius: 0em; 
-  padding:20px !important; 
-  margin-top:0px !important;
-  margin-bottom:10px !important;
+  border-radius: 0em;
+  padding: 20px !important;
+  margin-top: 0px !important;
+  margin-bottom: 10px !important;
 }
 
-  
 .frame-1 {
   // background: #e7e7e7;
   border: 10px solid white;
-  border-radius: 0em; 
-  padding:20px !important; 
-  margin:0em;
+  border-radius: 0em;
+  padding: 20px !important;
+  margin: 0em;
 }
 
 .frame-2 {
   // background: #e7e7e7;
   // border: 10px solid white;
-  border-radius: 0em; 
-  padding:20px !important; 
-  margin:0em;
+  border-radius: 0em;
+  padding: 20px !important;
+  margin: 0em;
 }
 
 .shinmoon {
   // font-family: 'shinmoon' !important;
-  font-family: 'KoPub Batang' !important;
+  font-family: "KoPub Batang" !important;
   font-size: 22px !important;
   font-weight: 400 !important;
   line-height: 1.4 !important;
   letter-spacing: -1px !important;
-  // columns:12em; 
-  // column-gap: 3em; 
+  // columns:12em;
+  // column-gap: 3em;
   // text-align:justify;
 }
 
 .batang {
-  font-family: 'KoPub Batang' !important;
+  font-family: "KoPub Batang" !important;
   font-size: 22px !important;
   font-weight: 400 !important;
   letter-spacing: -1px !important;
 }
 
 .title {
-  font-family: 'KoPub Batang' !important;
+  font-family: "KoPub Batang" !important;
   font-size: 24px !important;
   font-weight: 700 !important;
   letter-spacing: -1px !important;
 }
 
-
 .form-control {
-  font-family: 'KoPub Batang';
+  font-family: "KoPub Batang";
   // font-family: "KoPub Dotum";
   font-weight: 400;
   font-size: 18px;
@@ -168,15 +167,16 @@ body{
 }
 
 @font-face {
-  font-family: 'KoPub Dotum';
+  font-family: "KoPub Dotum";
   font-style: normal;
   font-weight: 400;
   src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.eot);
-  src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.eot?#iefix) format('embedded-opentype'),
-       url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.woff) format('woff'),
-       url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.ttf) format('truetype');
+  src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.eot?#iefix)
+      format("embedded-opentype"),
+    url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.woff) format("woff"),
+    url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.ttf)
+      format("truetype");
 }
-
 
 input,
 button,
@@ -211,8 +211,8 @@ textarea {
 }
 
 .form-group-body {
-    margin-bottom:5px !important;
-    height: 100% !important;
+  margin-bottom: 5px !important;
+  height: 100% !important;
 }
 
 .form-group {
@@ -226,111 +226,108 @@ textarea {
 //    border-radius: 4px;
 //  }
 
- .notice {
+.notice {
   padding: 15px;
   margin-bottom: 0px !important;
   border: 1px solid transparent;
   border-radius: 4px;
 }
 
- .main{
-   padding-top: 0px  !important;
-   padding-bottom: 0px  !important;
- }
+.main {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
 
- .navbar-fixed-top2 {
-   top: 50px !important;
-   position: fixed !important;
-   border-radius: 0 !important;
-   right: 0;
-   left: 0;
-   z-index: 1000;
- }
+.navbar-fixed-top2 {
+  top: 50px !important;
+  position: fixed !important;
+  border-radius: 0 !important;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
 
-  .navbar {
-    min-height: 40px;
-  }
+.navbar {
+  min-height: 40px;
+}
 
-  .left {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    margin-left: 10px !important; 
-  }
-  
- .btn-md {
+.left {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  margin-left: 10px !important;
+}
+
+.btn-md {
   margin: 8px !important;
   padding: 3px 10px !important;
   color: #fff !important;
- }
+}
 
- .button_to {
+.button_to {
   display: inline-block !important;
   margin-right: -6px !important;
- }
+}
 
- .large {
+.large {
   margin: 8px !important;
   color: #fff !important;
- }
- 
- .btn > a {
+}
+
+.btn > a {
   color: #fff !important;
   text-decoration: none;
   background-color: none;
- }
+}
 
- .btn > a:hover {
+.btn > a:hover {
   color: #fff !important;
   text-decoration: none;
   background-color: transparent;
- }
- 
- .btn > a:visited {
+}
+
+.btn > a:visited {
   color: #fff !important;
   text-decoration: none;
   background-color: transparent;
- }
+}
 
- .btn-default:visited {
+.btn-default:visited {
   color: #000 !important;
   text-decoration: none;
   background-color: transparent;
- }
+}
 
- .btn-dnager:visited {
+.btn-dnager:visited {
   color: #fff !important;
   text-decoration: none;
   background-color: transparent;
- }
-
+}
 
 //  a {color: #fff; text-decoration: none; outline: none}
 //  a:hover, a:active, a:visited {text-decoration: none; color:#fff;}
- 
- 
 
- .btn-default > a:visited {
+.btn-default > a:visited {
   color: #000 !important;
   text-decoration: none;
   background-color: transparent;
- }
+}
 
- .btn > a:active {
+.btn > a:active {
   color: #fff !important;
   text-decoration: none;
   background-color: none;
- }
+}
 
- .btn-group {
+.btn-group {
   margin: 8px !important;
   // display: block !important;
- }
+}
 
-  .btn-danger > a:visited {
-    color: #fff !important;
-    text-decoration: none;
-    background-color: transparent;
-   }
+.btn-danger > a:visited {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: transparent;
+}
 
 //  .btn-success {
 //    background-color: #5cb85c !important;
@@ -370,14 +367,13 @@ textarea {
 //    border-color: #204d74 !important;
 //  }
 
-
 .navbar-nav2 {
   margin: 0px;
 }
 
- .navbar-default .navbar-nav > li > a {
-   color: #fff !important;
- }
+.navbar-default .navbar-nav > li > a {
+  color: #fff !important;
+}
 
 .col-sm-6 {
   padding: 2px !important;
@@ -391,7 +387,54 @@ textarea {
 //   margin: 0px;
 // }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -409,18 +452,19 @@ textarea {
   float: left;
 }
 
-
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
   background-color: #e1e1e1;
 }
 
 @media (max-width: 767px) {
-    .navbar-nav .open .dropdown-menu {
-      background-color: #333;
-    }
-    .navbar-toggle:hover, .navbar-toggle:focus {
-      background-color: #e1e1e1;
-    }
+  .navbar-nav .open .dropdown-menu {
+    background-color: #333;
+  }
+  .navbar-toggle:hover,
+  .navbar-toggle:focus {
+    background-color: #e1e1e1;
+  }
 }
 
 // .btn-primary:visited {
@@ -441,30 +485,29 @@ textarea {
 .box {
   border: solid 1px #bfbfbf;
   display: inline-block;
-  line-height: 1.0em;
+  line-height: 1em;
   font-size: 16px !important;
   text-align: center;
   font-weight: 400;
-  min-width:  18px;
-  }
+  min-width: 18px;
+}
 
-table.link td { 
+table.link td {
   line-height: 2.5em;
-  border: 1px solid #c7c7bc; 
-  background-color: #ececec; 
+  border: 1px solid #c7c7bc;
+  background-color: #ececec;
   text-align: center;
   vertical-align: middle;
-  font-size: 12px; 
+  font-size: 12px;
   color: #404040;
-  }
+}
 
 table.link td a {
   display: block;
   width: 100%;
   height: 100%;
-  }
+}
 
 table.link td a:hover {
   background-color: #f49d9d;
 }
-  

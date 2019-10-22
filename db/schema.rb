@@ -280,7 +280,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_044310) do
     t.integer "x_grid"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
-    t.boolean "draw_frame"
+    t.boolean "draw_frame", default: false
     t.boolean "detail_mode"
     t.integer "zoom_level"
     t.integer "zoom_direction"
@@ -329,7 +329,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_044310) do
   create_table "images", id: :serial, force: :cascade do |t|
     t.integer "column"
     t.integer "row"
-    t.integer "extra_height_in_lines"
+    t.integer "extra_height_in_lines", default: 0
     t.string "image"
     t.string "caption_title"
     t.string "caption"
@@ -347,15 +347,19 @@ ActiveRecord::Schema.define(version: 2019_10_04_044310) do
     t.integer "x_grid"
     t.integer "y_in_lines"
     t.integer "height_in_lines"
-    t.boolean "draw_frame"
-    t.integer "zoom_level"
-    t.integer "zoom_direction"
+    t.boolean "draw_frame", default: true
+    t.integer "zoom_level", default: 1
+    t.integer "zoom_direction", default: 5
     t.integer "move_level"
     t.integer "auto_size"
     t.string "fit_type"
     t.string "image_kind"
     t.boolean "not_related"
     t.string "reporter_image_path"
+    t.integer "crop_x"
+    t.integer "crop_y"
+    t.integer "crop_w"
+    t.integer "crop_h"
   end
 
   create_table "issues", id: :serial, force: :cascade do |t|

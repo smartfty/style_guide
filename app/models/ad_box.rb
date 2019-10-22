@@ -33,15 +33,24 @@ class AdBox < ApplicationRecord
   belongs_to :page
   belongs_to :spread, optional: true
   mount_uploader :ad_image, AdImageUploader
+  has_one_attached :storage_ad_image
   before_create :init_atts
   after_create :setup
-
+  include StorageBackupWorkingArticle
   # def path
   #   path + "/ad"
   # end
 
   def url
     path.sub("#{Rails.root}/public}", "")
+  end
+
+  def image_path
+
+    if storage_ad_image.attached?
+      ActiveStorage::Blob.service.send(:path_for, storage_ad_image.key)
+    end
+
   end
 
   def setup
@@ -160,7 +169,6 @@ class AdBox < ApplicationRecord
       end
     end
 
-    image_path                                     = ad_image.path if ad_image
     ad_image_hash = {}
     ad_image_hash[:layout_expand]                  = [:width, :height]
     ad_image_hash[:page_heading_margin_in_lines]   = page_heading_margin_in_lines

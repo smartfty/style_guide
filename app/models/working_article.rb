@@ -97,6 +97,7 @@ class WorkingArticle < ApplicationRecord
   include ArticleSaveXml
   include WorkingArticleAutofit
   include WorkingArticleLayout
+  include StorageBackupWorkingArticle
   # extend FriendlyId
   # friendly_id :make_frinedly_slug, :use => [:slugged]
   attr_reader :time_stamp
@@ -699,7 +700,7 @@ class WorkingArticle < ApplicationRecord
 
   def image_options
     if images.first
-      images.first.iamge_layout_hash
+      images.first.image_layout_hash
     else
       nil
     end
@@ -707,7 +708,7 @@ class WorkingArticle < ApplicationRecord
 
   def image_box_options
     if images.first
-      images.first.iamge_layout_hash
+      images.first.image_layout_hash
     else
       nil
     end  end
@@ -848,7 +849,7 @@ class WorkingArticle < ApplicationRecord
   def image_layout
     content = ""
     images.each do |image|
-      content += "  news_image(#{image.iamge_layout_hash})\n"
+      content += "  news_image(#{image.image_layout_hash})\n"
     end
     content
   end

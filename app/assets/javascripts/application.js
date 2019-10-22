@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require datatables
 //= require bootstrap-sprockets
-//= require jcrop
+//= require cropper.min
+//= require jquery-cropper.min
 //= require moment
 //= require activestorage
 //= require_tree .
