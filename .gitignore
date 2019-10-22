@@ -45,3 +45,4 @@ config/schedule.rb
 config/schedule.rb
 *.yml
 config/schedule.rb
+storage/
