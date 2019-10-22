@@ -313,8 +313,8 @@ module ArticleSaveXml
     target = newsml_issue_path + "/#{@photo_item}"
     system("cp #{source} #{target}")
     images.each do |i|
-      ext = File.extname(i.image.path)
-      image_name = File.basename(i.image.path)
+      ext = File.extname(i.image_path)
+      image_name = File.basename(i.image_path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
       elsif ext == ".pdf"
@@ -332,8 +332,8 @@ module ArticleSaveXml
       end
     end
     graphics.each do |g|
-      ext = File.extname(g.graphic.path)
-      image_name = File.basename(g.graphic.path)
+      ext = File.extname(g.image_path)
+      image_name = File.basename(g.image_path)
       if ext == ".jpg"
         system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@graphic_item}")
       elsif ext == ".pdf"
