@@ -49,7 +49,7 @@ class Graphic < ApplicationRecord
   mount_uploader :graphic, GraphicUploader
   before_create  :set_default
   before_save    :save_default_value
-  after_save     :pdf_to_jpg
+  # after_save     :pdf_to_jpg
   has_one_attached :storage_graphic
 
   def info
