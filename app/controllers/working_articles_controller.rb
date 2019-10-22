@@ -284,7 +284,7 @@ class WorkingArticlesController < ApplicationController
       format.html do
         if  params[:images]
           params[:images]['image'].each do |a|
-            @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
+            @image = @working_article.images.create!(:storage_image => a, :working_article_id => @working_article.id)
           end
         else
           @image = @working_article.images.create!(:working_article_id => @working_article.id)
@@ -301,7 +301,7 @@ class WorkingArticlesController < ApplicationController
     respond_to do |format|
       format.html do
          params[:images]['image'].each do |a|
-           @graphic = @working_article.graphics.create!(:graphic => a, :working_article_id => @working_article.id)
+           @graphic = @working_article.graphics.create!(:storage_graphic => a, :working_article_id => @working_article.id)
          end
        end
      end
