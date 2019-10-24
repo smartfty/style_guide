@@ -151,6 +151,15 @@ class PagePlan < ApplicationRecord
       self.row                  = selected_section_template.row
       self.story_count          = selected_section_template.story_count
       self.ad_type              = selected_section_template.ad_type
+      if page_number == 22
+        puts "page_number: #{page_number}"
+        self.advertiser         = "내일신문"
+      elsif page_number == 23
+        self.advertiser         = "내일교육"
+      else
+        self.advertiser         = nil
+      end
+
       parse_section_name
       self.dirty                = true
     else

@@ -643,12 +643,15 @@ class WorkingArticle < ApplicationRecord
     page.issue.publication
   end
 
-  def opinion_profile_pdf_path
+  def opinion_pdf_path
     publication.path + "/opinion/#{reporter}.pdf"
   end
 
-  def opinion_profile_jpg_path
-    publication.path + "/opinion/#{reporter}.jpg"
+  def opinion_jpg_path
+    filtered_name = reporter
+    filtered_name = reporter.split("_").first if reporter.include?("_")
+    filtered_name = reporter.split("=").first if reporter.include?("=")
+    "/1/opinion/images/#{filtered_name}.jpg"
   end
 
   # IMAGE_FIT_TYPE_ORIGINAL       = 0
@@ -659,9 +662,9 @@ class WorkingArticle < ApplicationRecord
   # IMAGE_FIT_TYPE_REPEAT_MUTIPLE = 5
   # IMAGE_CHANGE_BOX_SIZE         = 6 #change box size to fit image source as is at origin
 
-  def opinion_profile_options
+  def opinion_image_options
     profile_hash                  = {}
-    profile_hash[:image_path]     = opinion_profile_pdf_path
+    profile_hash[:image_path]     = opinion_pdf_path
     profile_hash[:column]         = 1
     profile_hash[:row]            = 1
     if reporter == '내일시론'
@@ -678,13 +681,16 @@ class WorkingArticle < ApplicationRecord
     profile_hash
   end
 
-  def editorial_profile_pdf_path
-    publication.path + "/profile/#{reporter}.pdf"
+  def profile_pdf_path
+    filtered_name = reporter
+    filtered_name = reporter.split("_").first if reporter.include?("_")
+    filtered_name = reporter.split("=").first if reporter.include?("=")
+    publication.path + "/profile/#{filtered_name}.pdf"
   end
 
-  def editorial_image_options
+  def profile_image_options
     profile_hash                          = {}
-    profile_hash[:image_path]             = editorial_profile_pdf_path
+    profile_hash[:image_path]             = profile_pdf_path
     profile_hash[:inside_first_column]    = true
     profile_hash[:width_in_colum]         = 'half'
     profile_hash[:image_height_in_line]   = 7
@@ -912,12 +918,12 @@ class WorkingArticle < ApplicationRecord
     elsif kind == '사설' || kind == 'editorial'
       h[:article_line_draw_sides]  = [0,1,0,0]
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-      content += "  news_column_image(#{editorial_image_options})\n" if reporter && reporter != "" # if page_number == 22
+      content += "  news_column_image(#{profile_image_options})\n" if reporter && reporter != "" # if page_number == 22
       content += "end\n"
     elsif kind == '기고' || kind == 'opinion'
       h[:article_line_draw_sides]  = [0,1,0,1]
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
-        content += "  news_image(#{opinion_profile_options})\n"
+        content += "  news_image(#{opinion_image_options})\n"
       content += "end\n"
     else
       content = "RLayout::NewsArticleBox.new(#{h}) do\n"
