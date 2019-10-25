@@ -101,6 +101,7 @@ module PagePrintable
     end
     puts "target_file:#{target_file}"
     system("cd #{path} && cp section.pdf #{target_file}")
+
     target_file
   end
 
@@ -167,6 +168,7 @@ module PagePrintable
     dong_a
     news_pdf
     ex_pdf
+    copy_to_proof_reading_ftp
     true
   end
 
@@ -257,9 +259,13 @@ module PagePrintable
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    yyyymd = issue.date.strftime("%Y%m%d")
+    yyyymd    = issue.date.strftime("%Y%m%d")
+    dir_name  = "NewsPDF/#{yyyymd}"
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/NewsPDF/#{yyyymd}/#{news_pdf_code}")
+      # files = ftp.list
+      # ftp.mkdir(dir_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
+      # ftp.mkdir dir_name unless File.exists?(dir_name)
+      ftp.putbinaryfile(printer_file, "#{dir_name}/#{news_pdf_code}")
     end
   end
 
@@ -278,9 +284,11 @@ module PagePrintable
     ip        = '211.115.91.231'
     id        = 'comp'
     pw        = '*4141'
-    yyyymd = issue.date.strftime("%Y%m%d")
+    yyyymd    = issue.date.strftime("%Y%m%d")
+    dir_name  = "외부전송PDF"
     Net::FTP.open(ip, id, pw) do |ftp|
-      ftp.putbinaryfile(printer_file, "/외부전송PDF/#{ex_pdf_code}")
+      # ftp.mkdir dir_name unless File.exists?(dir_name)
+      ftp.putbinaryfile(printer_file, "#{dir_name}/#{ex_pdf_code}")
     end
   end
 

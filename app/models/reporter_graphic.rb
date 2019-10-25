@@ -44,14 +44,17 @@ class ReporterGraphic < ApplicationRecord
   end
 
   #TODO
-  def sorce_path
-    "/wire_source/203_GRAPHIC/20190424"
+  def source_path
+    return unless wire_pictures
+    # full_size = wire_pictures.split(" ").first
+    @filename_date = wire_pictures.split(".").first.scan(/\d{3,8}/).first
+    "/wire_source/203_GRAPHIC/#{@filename_date}"
   end
 
   def full_size_path
     return unless wire_pictures
     full_size = wire_pictures.split(" ").first
-    sorce_path + "/#{full_size}"
+    source_path + "/#{full_size}"
   end
 
   #TODO fix this
@@ -62,13 +65,13 @@ class ReporterGraphic < ApplicationRecord
   def preview_path
     return unless wire_pictures
     preview = wire_pictures.split(" ")[1]
-    sorce_path + "/#{preview}"
+    source_path + "/#{preview}"
   end
 
   def thumb_path
     return unless wire_pictures
     thumb = wire_pictures.split(" ").last
-    sorce_path + "/#{thumb}"
+    source_path + "/#{thumb}"
   end
   
 end

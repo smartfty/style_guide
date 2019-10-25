@@ -38,5 +38,7 @@
 
 
 <%= link_to '이전으로', my_reporter_images_path %>
+<%= link_to '삭제', @reporter_image, method: :delete, data: { confirm: '정말 삭제하겠습니까?' } %>
+
 </div>
 

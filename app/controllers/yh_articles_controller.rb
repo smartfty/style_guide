@@ -13,6 +13,9 @@ class YhArticlesController < ApplicationController
   # GET /yh_articles/1
   # GET /yh_articles/1.json
   def show
+    @q = YhArticle.ransack(params[:q])
+    @yh_articles = @q.result.order(:date, :time).page(params[:page]).reverse_order.per(10) 
+
   end
 
   # GET /yh_articles/new

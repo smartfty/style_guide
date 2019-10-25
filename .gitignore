@@ -22,13 +22,27 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-/public/1/section/*
+# /public/1/section/*
 /public/1/issue/*
 coverage
-public/1/.DS_Store
+/public/1/.DS_Store
 
 /vendor/*
-public/1/page_heading/.DS_Store
+/public/1/page_heading/.DS_Store
 .DS_Store
 .DS_Store
 /doc/dev_doc
+
+/public/.sync
+/wire_source
+config/*
+config/schedule.rb
+/config/*
+/config/schedule.rb
+config/schedule.rb
+config/schedule.rb
+/public/wire_source
+config/schedule.rb
+*.yml
+config/schedule.rb
+storage/

@@ -31,6 +31,7 @@
 #  subject_head       :string
 #  kind               :string
 #  by_line            :string
+#  category_name      :string
 #
 # Indexes
 #

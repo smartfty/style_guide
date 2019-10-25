@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :save_proof_reading_pdf, :send_pdf_to_printer, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default, :assign_stories]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :download_pdf, :send_proof_reading_pdf, :send_pdf_to_printer, :dropbox, :regenerate_pdf, :change_template, :save_current_as_default, :assign_stories]
   before_action :authenticate_user!
 
   # GET /pages
@@ -100,7 +100,7 @@ class PagesController < ApplicationController
     send_file @page.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
-  def save_proof_reading_pdf
+  def send_proof_reading_pdf
     result = @page.copy_to_proof_reading_ftp
     if result
       redirect_to @page, notice: '교열용 PDF가 저장 되었습니다,.'

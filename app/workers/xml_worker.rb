@@ -6,8 +6,8 @@ class XmlWorker
       i = Issue.find(issue_id)
     #   puts i.path
     #   puts "=============="
-    #   i.merge_container_xml
-       i.send_mobile_preview_xml
+      i.merge_container_xml
+      #  i.send_mobile_preview_xml
    end 
 
 end

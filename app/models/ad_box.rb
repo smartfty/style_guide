@@ -173,7 +173,7 @@ class AdBox < ApplicationRecord
     ad_image_hash[:layout_expand]                  = [:width, :height]
     ad_image_hash[:page_heading_margin_in_lines]   = page_heading_margin_in_lines
     content=<<~EOF
-    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, on_right_edge: #{on_right_edge?}, top_position: #{top_position?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}) do
+    RLayout::NewsAdBox.new(is_ad_box: true, column: #{column}, row: #{row}, grid_width: #{grid_width}, grid_height: #{grid_height}, on_left_edge: #{on_left_edge?}, on_right_edge: #{on_right_edge?}, top_position: #{top_position?}, page_heading_margin_in_lines: #{page_heading_margin_in_lines}, :article_line_draw_sides=>"[0, 0, 0, 0]") do
       image(image_path: '#{image_path}', fit_type: 4, layout_expand: [:width, :height])
       relayout!
     end
@@ -351,11 +351,11 @@ EOF
         @order = page.working_articles.length + 1
         @group_key        = "#{year}#{month}#{day}.011001#{page_info}00000#{@order}"
 
-        @name_plate      = '광고'
+        @name_plate   = '광고'
          if page.section_name == '전면광고'
-          @name_plate  = '전면광고'
+          @name_plate = '전면광고'
          end
-        @head_line       = advertiser
+        @head_line    = advertiser
         @head_line    = @head_line.gsub("\&", "&amp;")
 
       container_xml_group_key=<<EOF
@@ -378,7 +378,8 @@ EOF
     sec   = updated_at.sec.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     updated_date      = "#{year}#{month}#{day}"
-    updated_time      = "#{hour}#{min}#{sec}+0900"
+    # updated_time      = "#{hour}#{min}#{sec}+0900"
+    updated_time      = "100000+0900"
     @date_and_time    = "#{updated_date}T#{updated_time}"
     @date_id          = updated_date
     @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"

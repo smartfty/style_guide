@@ -13,6 +13,7 @@
 #  wire_pictures  :string
 #  section_name   :string
 #  used_in_layout :boolean
+#  kind           :string
 #
 # Indexes
 #
