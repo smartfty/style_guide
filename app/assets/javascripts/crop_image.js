@@ -33,18 +33,6 @@ document.addEventListener("turbolinks:load", function() {
       $dataY.val(Math.round(e.detail.y));
       $dataW.val(Math.round(e.detail.width));
       $dataH.val(Math.round(e.detail.height));
-    },
-    ready: function() {
-      var $getDataX = $dataX.val();
-      var $getDataY = $dataY.val();
-      var $getDataW = $dataW.val();
-      var $getDataH = $dataH.val();
-      $cropbox.cropper("setCropBoxData", {
-        left: $getDataX,
-        top: $getDataY,
-        width: $getDataW,
-        height: $getDataH
-      });
     }
   });
 });

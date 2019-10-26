@@ -20,23 +20,23 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-md-3 mb-3">
-                  <%= f.hidden_field :crop_x, placeholder: "x축", id:"dataX", class: "form-control"%>
+                  <%= f.text_field :crop_x, placeholder: "x축", id:"dataX", class: "form-control"%>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <%= f.hidden_field :crop_y, placeholder: "y축", id:"dataY", class: "form-control"%>
+                  <%= f.text_field :crop_y, placeholder: "y축", id:"dataY", class: "form-control"%>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <%= f.hidden_field :crop_w, placeholder: "가로", id:"dataW", class: "form-control"%>
+                  <%= f.text_field :crop_w, placeholder: "가로", id:"dataW", class: "form-control"%>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <%= f.hidden_field :crop_h, placeholder: "세로", id:"dataH", class: "form-control"%>
+                  <%= f.text_field :crop_h, placeholder: "세로", id:"dataH", class: "form-control"%>
                 </div>
               </div>
             </div>
             <div class="row">
-              <%= f.hidden_field :column, style: "width:40px", class: 'form-control' %>
-              <%= f.hidden_field :row, style: "width:40px", class: 'form-control' %>
-              <%= f.hidden_field :extra_height_in_lines, style: "width:50px", class: 'form-control' %>
+              <%= f.text_field :column, style: "width:40px", class: 'form-control' %>
+              <%= f.text_field :row, style: "width:40px", class: 'form-control' %>
+              <%= f.text_field :extra_height_in_lines, style: "width:40px", class: 'form-control' %>
             </div>
           <% end %>
           <br>

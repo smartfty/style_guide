@@ -170,7 +170,7 @@
                                       <%= f.fields_for :images, Image.new do |p| %>
                                         <br>
                                         <div class="field">
-                                          <label class="btn btn-warning btn-sm">사진 파일선택<%= p.file_field :image, style: "display:none;", :multiple => true, name: "images[image][]" %></label>
+                                          <label class="btn btn-warning btn-sm">사진 파일선택<%= p.file_field :storage_image, style: "display:none;", :multiple => true %></label>
                                           <input type="text" placeholder="선택한 파일 없음" class="form-control width2 btn-sm" readonly="readonly">
                                         </div>
                                       <% end %>

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class WorkingArticlesController < ApplicationController
-  before_action :set_working_article, only: [:show, :edit, :update, :destroy, :download_pdf, :upload_images, :upload_graphics, :zoom_preview,:change_story, :update_story, :assign_reporter, :add_image]
+  before_action :set_working_article, only: %i[show edit update destroy download_pdf upload_images upload_graphics zoom_preview change_story update_story assign_reporter add_image]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
 
@@ -8,7 +10,7 @@ class WorkingArticlesController < ApplicationController
   # GET /working_articles.json
   def index
     # rails controller 에서
-    # ruby 
+    # ruby
     @q = WorkingArticle.ransack(params[:q])
     @working_articles = @q.result
     # @pages = Page.all.includes(:issue)
@@ -20,15 +22,15 @@ class WorkingArticlesController < ApplicationController
   def show
     @pages = @working_article.issue.pages.order(:id, 'desc')
     section_name = @working_article.page.section_name
-    @pages = @working_article.issue.pages.select {|p| p.section_name == section_name}
+    @pages = @working_article.issue.pages.select { |p| p.section_name == section_name }
     # @reporter_images = ReporterImage.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
     # @reporter_graphics = ReporterGraphic.where(section_name:section_name, updated_at: @working_article.issue.updated_at).all
     session[:current_story_group] = @working_article.group_name
-    @reporter_images = ReporterImage.where(section_name:section_name).all
-    @reporter_graphics = ReporterGraphic.where(section_name:section_name).all
+    @reporter_images = ReporterImage.where(section_name: section_name).all
+    @reporter_graphics = ReporterGraphic.where(section_name: section_name).all
     respond_to do |format|
       format.html
-      format.json {render @working_article}
+      format.json { render @working_article }
     end
     change_story
   end
@@ -38,7 +40,7 @@ class WorkingArticlesController < ApplicationController
     @working_article = WorkingArticle.new
   end
 
-  # GET /working_articles/1/edit 
+  # GET /working_articles/1/edit
   def edit
     # puts "in edit of working_article"
     # puts "@working_article.issue.date:#{@working_article.issue.date}"
@@ -85,8 +87,8 @@ class WorkingArticlesController < ApplicationController
         #   RLayout::NewsBoxMaker.new(h)
         #   # send_data pdf.render, filename: "#{@working_article.id}", type: "application/pdf", disposition: "inline"
         # else
-          @working_article.generate_pdf_with_time_stamp
-          @working_article.page.generate_pdf_with_time_stamp
+        @working_article.generate_pdf_with_time_stamp
+        @working_article.page.generate_pdf_with_time_stamp
         # end
 
         if story = @working_article.story
@@ -106,9 +108,8 @@ class WorkingArticlesController < ApplicationController
         end
         # format.html { render @working_article, notice: 'Working article was successfully updated.' }
         format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
-        format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
+        format.js { render js: "window.location = '#{working_article_path(@working_article)}'" }
         format.json { render :show, status: :ok, location: @working_article }
-
 
       else
         format.html { render :edit }
@@ -135,7 +136,7 @@ class WorkingArticlesController < ApplicationController
 
         # format.html { rendrer @working_article, notice: 'Working article was successfully updated.' }
         # format.html { redirect_to @working_article, notice: 'Working article was successfully updated.' }
-        format.js {render :js => "window.location = '#{working_article_path(@working_article)}'"}
+        format.js { render js: "window.location = '#{working_article_path(@working_article)}'" }
         format.json { render :show, status: :ok, location: @working_article }
       else
         format.html { render :edit }
@@ -146,61 +147,59 @@ class WorkingArticlesController < ApplicationController
   end
 
   def change_story
-    #todo
+    # todo
     # @stories = Story.where(group: , date: date) name: :desc
     # @stories = Story.where(summitted_section: @working_article.page.section_name).order(selected: 'desc')
-    @stories = Story.where("updated_at" => (DateTime.now.at_beginning_of_day.utc..Time.now.utc), summitted_section: @working_article.page.section_name).order(:updated_at).reverse
-    assigned = @stories.select{|s| s.working_article_id == @working_article.id}
-    if assigned.length > 0
-      @stories = assigned
-    end
-    #TODO
+    @stories = Story.where('updated_at' => (DateTime.now.at_beginning_of_day.utc..Time.now.utc), summitted_section: @working_article.page.section_name).order(:updated_at).reverse
+    assigned = @stories.select { |s| s.working_article_id == @working_article.id }
+    @stories = assigned unless assigned.empty?
+    # TODO
     # if story is assigned, to current_article, no need to display other stories
   end
 
   def update_story
-      story_id = params[:story_id]
-      # update working_article with new story
-      case session[:current_story_group]
-      when 'first_group'
-        redirect_to first_group_stories_issue_path(@working_article.issue)
-      when 'second_group'
-        redirect_to second_group_stories_issue_path(@working_article.issue)
-      when 'third_group'
-        redirect_to third_group_stories_issue_path(@working_article.issue)
-      when 'fourth_group'
-        redirect_to fourth_group_stories_issue_path(@working_article.issue)
-      when 'fifth_group'
-        redirect_to fifth_group_stories_issue_path(@working_article.issue)
-      when 'sixth_group'
-        redirect_to sixth_group_stories_issue_path(@working_article.issue)
-      when 'seventh_group'
-        redirect_to seventh_group_stories_issue_path(@working_article.issue)
-      when 'seventh_group'
-        redirect_to seventh_group_stories_issue_path(@working_article.issue)
-      when 'eighth_group'
-        redirect_to eighth_group_stories_issue_path(@working_article.issue)
-      when 'nineth_group'
-        redirect_to nineth_group_stories_issue_path(@working_article.issue)
-      else
-        # redirect_to first_group_stories_issue_path(Issue.last)
-        redirect_to eighth_group_stories_issue_path(Issue.last)
-      end
+    story_id = params[:story_id]
+    # update working_article with new story
+    case session[:current_story_group]
+    when 'first_group'
+      redirect_to first_group_stories_issue_path(@working_article.issue)
+    when 'second_group'
+      redirect_to second_group_stories_issue_path(@working_article.issue)
+    when 'third_group'
+      redirect_to third_group_stories_issue_path(@working_article.issue)
+    when 'fourth_group'
+      redirect_to fourth_group_stories_issue_path(@working_article.issue)
+    when 'fifth_group'
+      redirect_to fifth_group_stories_issue_path(@working_article.issue)
+    when 'sixth_group'
+      redirect_to sixth_group_stories_issue_path(@working_article.issue)
+    when 'seventh_group'
+      redirect_to seventh_group_stories_issue_path(@working_article.issue)
+    when 'seventh_group'
+      redirect_to seventh_group_stories_issue_path(@working_article.issue)
+    when 'eighth_group'
+      redirect_to eighth_group_stories_issue_path(@working_article.issue)
+    when 'nineth_group'
+      redirect_to nineth_group_stories_issue_path(@working_article.issue)
+    else
+      # redirect_to first_group_stories_issue_path(Issue.last)
+      redirect_to eighth_group_stories_issue_path(Issue.last)
+    end
   end
 
   # download story.pdf
   def download_pdf
-    send_file @working_article.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
+    send_file @working_article.pdf_path, type: 'application/pdf', x_sendfile: true, disposition: 'attachment'
   end
 
   def image_1x1
     set_working_article
     image = @working_article.images.first
-    if image
-      need_pdf_update = image.change_size("1x1")
-    else
-      need_pdf_update = @working_article.create_image_place_holder(1,1)
-    end
+    need_pdf_update = if image
+                        image.change_size('1x1')
+                      else
+                        @working_article.create_image_place_holder(1, 1)
+                      end
     @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
@@ -208,11 +207,11 @@ class WorkingArticlesController < ApplicationController
   def image_2x2
     set_working_article
     image = @working_article.images.first
-    if image
-      need_pdf_update = image.change_size("2x2")
-    else
-      need_pdf_update = @working_article.create_image_place_holder(2,2)
-    end
+    need_pdf_update = if image
+                        image.change_size('2x2')
+                      else
+                        @working_article.create_image_place_holder(2, 2)
+                      end
     @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
@@ -220,43 +219,43 @@ class WorkingArticlesController < ApplicationController
   def image_3x3
     set_working_article
     image = @working_article.images.first
-    if image
-      need_pdf_update = image.change_size("3x3")
-    else
-      need_pdf_update = @working_article.create_image_place_holder(3,3)
-    end
-    @working_article.generate_pdf_with_time_stamp if need_pdf_update    
+    need_pdf_update = if image
+                        image.change_size('3x3')
+                      else
+                        @working_article.create_image_place_holder(3, 3)
+                      end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
 
   def image_4x4
     set_working_article
     image = @working_article.images.first
-    if image
-      need_pdf_update = image.change_size("4x4")
-    else
-      need_pdf_update = @working_article.create_image_place_holder(4,4)
-    end
-    @working_article.generate_pdf_with_time_stamp if need_pdf_update    
+    need_pdf_update = if image
+                        image.change_size('4x4')
+                      else
+                        @working_article.create_image_place_holder(4, 4)
+                      end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
 
   def image_5x5
     set_working_article
     image = @working_article.images.first
-    if image
-      need_pdf_update = image.change_size("5x5")
-    else
-      need_pdf_update = @working_article.create_image_place_holder(5,5)
-    end
-    @working_article.generate_pdf_with_time_stamp if need_pdf_update    
+    need_pdf_update = if image
+                        image.change_size('5x5')
+                      else
+                        @working_article.create_image_place_holder(5, 5)
+                      end
+    @working_article.generate_pdf_with_time_stamp if need_pdf_update
     redirect_to @working_article
   end
 
   def image_auto
     set_working_article
     image = @working_article.images.first
-    image.change_size("auto")
+    image.change_size('auto')
     redirect_to @working_article
   end
 
@@ -270,27 +269,24 @@ class WorkingArticlesController < ApplicationController
     @selected_image = params[:selected_image]
   end
 
-
   def add_personal_image
-    #code
+    # code
   end
 
-  def add_empty_image
-
-  end
+  def add_empty_image; end
 
   def upload_images
     respond_to do |format|
       format.html do
-        if  params[:images]
+        if params[:images]
           params[:images]['image'].each do |a|
-            @image = @working_article.images.create!(:image => a, :working_article_id => @working_article.id)
+            @image = @working_article.images.create!(storage_image: a, working_article_id: @working_article.id)
           end
         else
-          @image = @working_article.images.create!(:working_article_id => @working_article.id)
+          @image = @working_article.images.create!(working_article_id: @working_article.id)
         end
-       end
-     end
+      end
+    end
     @image.working_article.generate_pdf_with_time_stamp
     @image.working_article.page.generate_pdf_with_time_stamp
     redirect_to @working_article
@@ -300,24 +296,24 @@ class WorkingArticlesController < ApplicationController
   def upload_graphics
     respond_to do |format|
       format.html do
-         params[:images]['image'].each do |a|
-           @graphic = @working_article.graphics.create!(:graphic => a, :working_article_id => @working_article.id)
-         end
-       end
-     end
+        params[:images]['image'].each do |a|
+          @graphic = @working_article.graphics.create!(storage_graphic: a, working_article_id: @working_article.id)
+        end
+      end
+    end
     @graphic.working_article.generate_pdf_with_time_stamp
     @graphic.working_article.page.generate_pdf_with_time_stamp
     redirect_to @working_article
   end
 
   def zoom_preview
-    #code
+    # code
   end
 
   def extend_zero
     set_working_article
     @working_article.set_extend_line(0)
-    redirect_to working_article_path(@working_article) , notice: '박스크기 추가가 0행으로 설정 되었습니다.'
+    redirect_to working_article_path(@working_article), notice: '박스크기 추가가 0행으로 설정 되었습니다.'
   end
 
   def extend_one
@@ -403,12 +399,11 @@ class WorkingArticlesController < ApplicationController
     @working_article.boxed_subtitle_one
     redirect_to working_article_path(@working_article), notice: '본문 박스부제가(회색_고딕)가 생성 되었습니다.'
   end
-  
+
   def boxed_subtitle_two
     set_working_article
     @working_article.boxed_subtitle_two
     redirect_to working_article_path(@working_article), notice: '본문 박스부제가(테두리)가 생성 되었습니다.'
-
   end
 
   def boxed_subtitle_zero
@@ -439,20 +434,20 @@ class WorkingArticlesController < ApplicationController
     @working_article.split(options)
   end
 
-  def split_article_vertically(options)
-    split_article(direction:'v')
+  def split_article_vertically(_options)
+    split_article(direction: 'v')
   end
 
-  def split_article_horinotally(options)
-    split_article(direction:'h')
+  def split_article_horinotally(_options)
+    split_article(direction: 'h')
   end
 
   def select_reporter_graphic
     set_working_article
     reporter_graphic = ReporterGraphic.find(params[:reporter_graphic])
-    #TODO
+    # TODO
     # g = Graphic.create(working_article_id:@working_article.id, reporter_graphic_path:reporter_graphic.full_size_path)
-    g = Graphic.create(working_article_id:@working_article.id, reporter_graphic_path:reporter_graphic.preview_path)
+    g = Graphic.create(working_article_id: @working_article.id, reporter_graphic_path: reporter_graphic.preview_path)
     @working_article.generate_pdf_with_time_stamp
     redirect_to @working_article
   end
@@ -460,13 +455,13 @@ class WorkingArticlesController < ApplicationController
   def select_reporter_image
     set_working_article
     reporter_image = ReporterImage.find(params[:reporter_image])
-    #TODO
+    # TODO
     # i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.full_size_path)
-    i = Image.create!(working_article_id:@working_article.id, reporter_image_path:reporter_image.preview_path)
+    i = Image.create!(working_article_id: @working_article.id, reporter_image_path: reporter_image.preview_path)
     @working_article.generate_pdf_with_time_stamp
     redirect_to @working_article
   end
-    
+
   def autofit_by_height
     set_working_article
     @working_article.autofit_by_height
@@ -493,23 +488,24 @@ class WorkingArticlesController < ApplicationController
 
   def autofit_with_sibllings_plus
     set_working_article
-    @working_article.autofit_with_sibllings(enough_space:true)
+    @working_article.autofit_with_sibllings(enough_space: true)
     redirect_to @working_article
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_working_article
-      # @working_article = WorkingArticle.find(params[:id])
-      @working_article = WorkingArticle.includes(:page).find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def working_article_params
-      params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type, :quote_box_column, :quote_box_show)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_working_article
+    # @working_article = WorkingArticle.find(params[:id])
+    @working_article = WorkingArticle.includes(:page).find(params[:id])
+  end
 
-    def filter_markdown?
-      params[:commit] == "본문정리"
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def working_article_params
+    params.require(:working_article).permit(:column, :row, :order, :profile, :kind, :subject_head, :title, :heading_columns, :title_head, :subtitle, :subtitle_type, :subtitle_head, :body, :reporter, :email, :has_profile_image, :image, :quote, :is_front_page, :top_story, :top_position, :page_id, :boxed_subtitle_type, :boxed_subtitle_text, :announcement_text, :announcement_color, :quote_position, :quote_x_grid, :quote_v_extra_space, :quote_alignment, :quote_line_type, :quote_box_column, :quote_box_show)
+  end
+
+  def filter_markdown?
+    params[:commit] == '본문정리'
+  end
 end
