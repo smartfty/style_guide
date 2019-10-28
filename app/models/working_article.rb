@@ -643,11 +643,11 @@ class WorkingArticle < ApplicationRecord
     page.issue.publication
   end
 
-  def opinion_pdf_path
+  def opinion_image_pdf_path
     publication.path + "/opinion/#{reporter}.pdf"
   end
 
-  def opinion_jpg_path
+  def opinion_image_jpg_path
     filtered_name = reporter
     filtered_name = reporter.split("_").first if reporter.include?("_")
     filtered_name = reporter.split("=").first if reporter.include?("=")
@@ -664,7 +664,7 @@ class WorkingArticle < ApplicationRecord
 
   def opinion_image_options
     profile_hash                  = {}
-    profile_hash[:image_path]     = opinion_pdf_path
+    profile_hash[:image_path]     = opinion_image_pdf_path
     profile_hash[:column]         = 1
     profile_hash[:row]            = 1
     if reporter == '내일시론'
@@ -681,16 +681,33 @@ class WorkingArticle < ApplicationRecord
     profile_hash
   end
 
-  def profile_pdf_path
+  def profile_image_pdf_path
+    publication.path + "/profile/#{reporter}.pdf"
+  end
+
+  def profile_image_jpg_path
     filtered_name = reporter
     filtered_name = reporter.split("_").first if reporter.include?("_")
     filtered_name = reporter.split("=").first if reporter.include?("=")
-    publication.path + "/profile/#{filtered_name}.pdf"
+    "/1/profile/images/#{filtered_name}.jpg"
+  end
+  
+  #TODO a hack
+  def opinion_writer_id
+    if result = OpinionWriter.where(name:reporter).first
+      return result.id if result 
+    end
+    nil
+  end
+
+  #TODO a hack
+  def opinion_writer_link
+    "opinion_writers/#{opinion_writer_id}"
   end
 
   def profile_image_options
     profile_hash                          = {}
-    profile_hash[:image_path]             = profile_pdf_path
+    profile_hash[:image_path]             = profile_image_pdf_path
     profile_hash[:inside_first_column]    = true
     profile_hash[:width_in_colum]         = 'half'
     profile_hash[:image_height_in_line]   = 7

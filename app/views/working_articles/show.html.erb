@@ -126,11 +126,17 @@
                       <h4 align='center'><%= link_to "#{@working_article.page.page_number}면", page_path(@working_article.page), class: "btn btn-default btn-xs" %></h4>
                     <% end %>
                   </p>
-                  <% if @working_article.page.page_number == 22  || @working_article.page.page_number == 23 && @working_article.order != 2 %>
-                  <!-- a href=" opinion_writer_path(OpinionWriter.where(name:@working_article.reporter).first.id)  --><img width="100px" src="<%= @working_article.opinion_jpg_path %>"></img><!-- /a -->
+                  <% if @working_article.page_number == 22 && @working_article.order != 2 || @working_article.page_number == 23 && @working_article.order != 2 %>
+                    <% if @working_article.opinion_writer_id %>
+                        <a href='<%= @working_article.opinion_writer_link %>'><img width="100px" src="<%= @working_article.opinion_image_jpg_path %>"></img></a>
+                    <% end %>
+                  <h5 align='center'>오피니언 저자 원본사진 확인</h5>  
+                  <% elsif @working_article.page_number == 22 && @working_article.order == 2 %>
+                  <img width="100px" src="<%= @working_article.profile_image_jpg_path %>"></img>
                   <h5 align='center'>오피니언 저자 원본사진 확인</h5>  
                   <% else %>
-                  <% end %>  
+                  <% end %>
+
                 </div>
                 <div class="col-xs-12 col-sm-9">
                   <!-- div class="panel-group" id="accordion" -->

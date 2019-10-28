@@ -45,7 +45,7 @@ class Profile < ApplicationRecord
     "/#{publication.id}/profile/#{name}.jpg"
   end
 
-  def profile_jpg_path
+  def profile_image_path
     "/#{publication.id}/profile/images/#{name}.jpg"
   end
 

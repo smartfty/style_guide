@@ -46,7 +46,7 @@ class OpinionWriter < ApplicationRecord
     "/#{publication.id}/opinion/#{name}.jpg"
   end
 
-  def profile_jpg_path
+  def profile_image_path
     filtered_name = name
     filtered_name = name.split("_").first if name.include?("_")
     filtered_name = name.split("=").first if name.include?("=")

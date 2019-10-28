@@ -323,7 +323,7 @@ EOF
         @name_plate      = '전면광고'
       end
     @head_line    = advertiser
-    @head_line    = @head_line.gsub("\&", "&amp;")
+    @head_line    = @head_line.gsub("\&", "&amp;") 
 
     three_component =<<EOF
       <TitleComponent>
@@ -356,7 +356,7 @@ EOF
           @name_plate = '전면광고'
          end
         @head_line    = advertiser
-        @head_line    = @head_line.gsub("\&", "&amp;")
+        @head_line    = @head_line.gsub("\&", "&amp;") 
 
       container_xml_group_key=<<EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @head_line %>"/>

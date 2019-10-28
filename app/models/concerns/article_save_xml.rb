@@ -313,50 +313,31 @@ module ArticleSaveXml
       return if source.nil? 
       target = newsml_issue_path + "/#{@photo_item}1p.jpg"
       system("cp #{source} #{target}") 
-        images.each do |i|
-        ext = File.extname(i.image_path)
-        image_name = File.basename(i.image_path)
-        if ext == ".jpg"
-          system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}1p.jpg")
-        elsif ext == ".pdf"
-          system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}1p.jpg")
-        end
+        images.each do |img|
+        ext = File.extname(img.image_path)
+        image_name = File.basename(img.image_path)
+        # if ext == ".jpg"
+        #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}1p.jpg")
+        # elsif ext == ".pdf"
+        #   system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}1p.jpg")
+        # end
+        system("convert -density 300 -resize 540 #{img.image_path} #{newsml_issue_path}/#{@photo_item}1p.jpg")
       end
     else
-      images.map.with_index do |i, n|
-        source = image_source
-        return if source.nil? 
-        target = newsml_issue_path + "/#{@photo_item}#{n+1}p.jpg"
-        system("cp #{source} #{target}") if image 
-        ext = File.extname(i.image_path)
-        image_name = File.basename(i.image_path)
-        if ext == ".jpg"
-          # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
-          system("sips -s format jpeg -s formatOptions best -Z 540 #{i.image_path} --out #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
-        elsif ext == ".pdf"
-          system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
-          # original_pdf = File.open("#{image_name}", 'rb').read
-          # image = Magick::Image::from_blob(original_pdf) do
-          #   self.format = 'PDF'
-          #   self.quality = 100
-          #   self.density = 300
-          # end
-          # image[0].format = 'JPG'
-          # image[0].to_blob
-          # image[0].write("#{original_pdf}".jpg)
-          # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
-        end
-      end
-      graphics.map.with_index do |g, n|
-        # @graphic_index = graphics.map{|n| "#{n+1}"} if graphic
-        ext = File.extname(g.image_path)
-        image_name = File.basename(g.image_path)
-        if ext == ".jpg"
-          system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
-        elsif ext == ".pdf"
-          system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+      images.map.with_index do |img, i|
+        # source = image_source
+        # return if source.nil? 
+        # target = newsml_issue_path + "/#{@photo_item}#{i+1}p.jpg"
+        # system("cp #{source} #{target}") if image 
+        # ext = File.extname(img.image_path)
+        # image_name = File.basename(img.image_path)
+        system("convert -density 300 -resize 540 #{img.image_path} #{newsml_issue_path}/#{@photo_item}#{i+1}p.jpg")
+        # if ext == ".jpg"
+        #   # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
+        #   system("sips -s format jpeg -s formatOptions best -Z 540 #{img.image_path} --out #{newsml_issue_path}/#{@photo_item}#{i+1}p.jpg")
         # elsif ext == ".pdf"
-          # original_pdf = File.open("#{image_name}", 'rb').read
+        # system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}#{i+1}p.jpg")
+        # original_pdf = File.open("#{image_name}", 'rb').read
           # image = Magick::Image::from_blob(original_pdf) do
           #   self.format = 'PDF'
           #   self.quality = 100
@@ -366,7 +347,29 @@ module ArticleSaveXml
           # image[0].to_blob
           # image[0].write("#{original_pdf}".jpg)
           # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
-        end
+        # end
+      end
+      graphics.map.with_index do |grp, i|
+        # @graphic_index = graphics.map{|n| "#{n+1}"} if graphic
+        # ext = File.extname(grp.image_path)
+        # image_name = File.basename(grp.image_path)
+        system("convert -density 300 -resize 540 #{grp.image_path} #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+        # if ext == ".jpg"
+        #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+        # elsif ext == ".pdf"
+        #   system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+        # # elsif ext == ".pdf"
+        #   # original_pdf = File.open("#{image_name}", 'rb').read
+        #   # image = Magick::Image::from_blob(original_pdf) do
+        #   #   self.format = 'PDF'
+        #   #   self.quality = 100
+        #   #   self.density = 300
+        #   # end
+        #   # image[0].format = 'JPG'
+        #   # image[0].to_blob
+        #   # image[0].write("#{original_pdf}".jpg)
+        #   # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+        # end
       end
     end
   end
@@ -799,7 +802,6 @@ module ArticleSaveXml
               
       
     elsif images.count > 0
-
       component_template =<<~EOF
         <NewsComponent> 
         <Role FormalName="Photo" />
@@ -815,7 +817,6 @@ module ArticleSaveXml
       @img_data = images.map.with_index{|img, i| "[IMG#{i+1}]<br>"}.join("")
 
       images.each_with_index do |img, i|
-      
         @img_class = "[IMG#{i+1}]"
         @photoItem_real = "#{@photo_item}#{i+1}p.jpg"
         img_merged_component += img_component_erb.result(binding)
@@ -841,11 +842,8 @@ module ArticleSaveXml
 
     elsif graphics.count > 0
       # grp_merged_component = ""
-  
       # @grp_data =graphics.map {|n| "[IMG#{n}]<br>"}
-
-
-      component_template =<<~EOF
+     component_template =<<~EOF
       <NewsComponent> 
       <Role FormalName="Photo" />
       <MediaType FormalName="Image" />
@@ -859,13 +857,10 @@ module ArticleSaveXml
     @img_data = graphics.map.with_index{|grp, i| "[IMG#{i+1}]<br>"}.join("")
 
     graphics.each_with_index do |grp, i|
-    
       @grp_class = "[IMG#{i+1}]"
       @photoItem_real = "#{@photo_item}#{i+1}g.jpg"
       grp_merged_component += grp_component_erb.result(binding)
     end 
-
-
 
     three_component =<<~EOF    
             <NewsComponent>
@@ -887,16 +882,16 @@ module ArticleSaveXml
 
       @grp_merged_component = ""
   
-      grp_component_erb = ERB.new(component_template)
-      # grp_erb = ERB.new(grp_component)
-      # three_component = ""
-      graphics.each_with_index do |g, n|
-        @grp_class = "[IMG#{n+1}]"
-        @grp_data = "[IMG#{n+1}]<br>" 
-        @grpItem_real = "#{@graphic_item}#{n+1}g.jpg"
-        grp_merged_component += grp_component_erb.result(binding)
-        # three_component += grp_erb.result(binding)
-      end 
+      # grp_component_erb = ERB.new(component_template)
+      # # grp_erb = ERB.new(grp_component)
+      # # three_component = ""
+      # graphics.each_with_index do |grp, i|
+      #   @grp_class = "[IMG#{i+1}]"
+      #   @grp_data = "[IMG#{i+1}]<br>" 
+      #   @grpItem_real = "#{@graphic_item}#{i+1}g.jpg"
+      #   grp_merged_component += grp_component_erb.result(binding)
+      #   # three_component += grp_erb.result(binding)
+      # end 
 
 
     else
@@ -1308,33 +1303,33 @@ module ArticleSaveXml
 
     elsif images.count > 0
       # image_collection = images.map{|i| "<!--[[--image#{n+1}--]]//-->"}
-      images.each_with_index do |i, n|  
-        @image_collection = "<!--[[--image#{n+1}--]]//-->"
-        @image_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
-        @image_col = "[IMG0#{n+1}]"
-      end 
+     
+      # images.each_with_index do |img, i|  
+      #   @image_collection = "<!--[[--image#{i+1}--]]//-->"
+      #   @image_collect = "#{@photo_file_name}.p#{i+1}L.jpg"
+      #   @image_col = "[IMG0#{i+1}]"
+      # end 
 
       component_template =<<~EOF
         <PhotoComponent>
         <PhotoItem>
         <ImageType>Image</ImageType> 
-          <Property ImgClass="#{@image_col}" align="center" Class="일반" Size="Large"/>
-          <PhotoFileName><%= "#{@image_collect}" %></PhotoFileName>
+          <Property ImgClass="<%= @img_class %>" align="center" Class="일반" Size="Large"/>
+          <PhotoFileName><%= @photo_file %></PhotoFileName>
           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
         </PhotoItem>
         </PhotoComponent>
       EOF
 
-      merged_component = ""
-      erb = ERB.new(component_template)
+      img_merged_component = ""
+      img_component_erb = ERB.new(component_template)
+      @img_data = images.map.with_index{|img, i| "<!--[[--image#{i+1}--]]//-->"}.join("")
 
-      images.map.with_index do |i, n|
-        merged_component += erb.result(binding) 
-      end
- 
-      # @image_collection = "<!--[[--image#{n+1}--]]//-->"
-      # @image_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
-      # @image_col = "[IMG0#{n+1}]"
+      images.each_with_index do |img, i|
+        @img_class = "[IMG0#{i+1}]"
+        @photo_file = "#{@photo_file_name}.p#{i+1}L.jpg"
+        img_merged_component += img_component_erb.result(binding)
+      end 
 
     three_component =<<~EOF
       <TitleComponent>
@@ -1345,37 +1340,34 @@ module ArticleSaveXml
         <Content><![CDATA[<%= @data_content %>]]></Content>
       </ArticleComponent><% else %>
       <ArticleComponent>
-        <Content><![CDATA[#{@image_collection}<%= @data_content %>]]></Content>
+        <Content><![CDATA[#{@img_data}<%= @data_content %>]]></Content>
       </ArticleComponent>
-      #{merged_component}<% end %>
+      #{img_merged_component}<% end %>
       </Article>
     EOF
 
     elsif graphics.count > 0
-      graphics.each_with_index do |g, n|  
-        @graphic_collection = "<!--[[--image#{n+1}--]]//-->"
-        @graphic_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
-        @graphic_col = "[IMG0#{n+1}]"
-      end 
-      
- 
       component_template =<<~EOF
         <PhotoComponent>
           <PhotoItem>
             <ImageType>Image</ImageType> 
-            <Property ImgClass="#{@graphic_col}" align="center" Class="일반" Size="Large"/>
-            <PhotoFileName><%= "#{@graphic_collect}" %></PhotoFileName>
+            <Property ImgClass="<%= @grp_class %>" align="center" Class="일반" Size="Large"/>
+            <PhotoFileName><%= @photo_file %></PhotoFileName>
             <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
           </PhotoItem>
         </PhotoComponent>
       EOF
 
-    merged_component = ""
-    erb = ERB.new(component_template)
+      grp_merged_component = ""
+      grp_component_erb = ERB.new(component_template)
+      @img_data = graphics.map.with_index{|grp, i| "<!--[[--image#{i+1}--]]//-->"}.join("")
 
-    graphics.map.with_index do |g, n|
-      merged_component += erb.result(binding)
-    end
+      grphics.each_with_index do |grp, i|
+        @grp_class = "[IMG0#{i+1}]"
+        @photo_file = "#{@photo_file_name}.g#{i+1}L.jpg"
+        grp_merged_component += grp_component_erb.result(binding)
+      end 
+
   
     three_component =<<~EOF
       <TitleComponent>
@@ -1386,9 +1378,9 @@ module ArticleSaveXml
         <Content><![CDATA[<%= @data_content %>]]></Content>
       </ArticleComponent><% else %>
       <ArticleComponent>
-        <Content><![CDATA[#{@graphic_collection}<%= @data_content %>]]></Content>
+        <Content><![CDATA[#{@img_data}<%= @data_content %>]]></Content>
       </ArticleComponent>
-      #{merged_component}<% end %>
+      #{grp_merged_component}<% end %>
       </Article>
     EOF
 
@@ -1481,28 +1473,29 @@ EOF
       return if source.nil?  
       target = mobile_page_preview_path + "/#{@photo_file_name}.p1L.jpg"
       system("cp #{source} #{target}")
-      images.each do |i|
-        ext = File.extname(i.image_path)
-        image_name = File.basename(i.image_path)
-        if ext == ".jpg"
-          system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
-        elsif ext == ".pdf"
-          system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
-        end
+      images.each do |img|
+        ext = File.extname(img.image_path)
+        image_name = File.basename(img.image_path)
+        system("convert -density 300 -resize 1200 #{img.image_path} #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
+        # if ext == ".jpg"
+        #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
+        # elsif ext == ".pdf"
+        #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
+        # end
       end
     else
-    images.each_with_index do |img, i|
+      images.each_with_index do |img, i|
       # source = image_source
       # return if source.nil?  
       # target = mobile_page_preview_path + "/#{@photo_file_name}.p#{i+1}L.jpg"
       # system("cp #{source} #{target}")
-      ext = File.extname(img.image_path)
-      image_name = File.basename(img.image_path)
+        ext = File.extname(img.image_path)
+        image_name = File.basename(img.image_path)
+        system("convert -density 300 -resize 1200 #{img.image_path} #{mobile_page_preview_path}/#{@photo_file_name}.p#{i+1}L.jpg")
       # if ext == ".jpg"
       #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}.p#{n+1}L.jpg")
       # elsif ext == ".pdf"
       #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p#{n+1}L.jpg")
-        system("convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p#{i+1}L.jpg")
         # original_pdf = File.open("#{image_name}", 'rb').read
         # image = Magick::Image::from_blob(original_pdf) do
         #   self.format = 'PDF'
@@ -1518,12 +1511,12 @@ EOF
     graphics.each_with_index do |grp, i|
       ext = File.extname(grp.image_path)
       image_name = File.basename(grp.image_path)
+      system("convert -density 300 -resize 1200 #{grp.image_path} #{mobile_page_preview_path}/#{@graphic_file_name}.g#{i+1}L.jpg")
       # if ext == ".jpg"
       #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@graphic_file_name}")
       # elsif ext == ".pdf"
       #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@graphic_file_name}")
       # end
-        system("convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@graphic_file_name}.g#{i+1}L.jpg")
       # elsif ext == ".pdf"
         # binding.pry
         # original_pdf = File.open("#{image_name}", 'rb').read

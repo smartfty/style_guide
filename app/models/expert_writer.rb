@@ -32,7 +32,7 @@ class ExpertWriter < ApplicationRecord
   # mount_uploader :expert_jpg_image, ExpertJpgImageUploader
 
   def path
-    "#{Rails.root}/public/#{1}/expert"
+    "#{Rails.root}/public/#{publication.id}/expert"
   end
 
   def pdf_path
@@ -40,18 +40,18 @@ class ExpertWriter < ApplicationRecord
   end
 
   def pdf_image_path
-    "/#{1}/expert/#{name}.pdf"
+    "/#{publication.id}/expert/#{name}.pdf"
   end
 
   def jpg_image_path
-    "/#{1}/expert/#{name}.jpg"
+    "/#{publication.id}/expert/#{name}.jpg"
   end
 
-  def profile_jpg_path
+  def profile_image_path
     filtered_name = name
     filtered_name = name.split("_").first if name.include?("_")
     filtered_name = name.split("=").first if name.include?("=")
-    "/#{1}/expert/images/#{filtered_name}.jpg"
+    "/#{publication.id}/expert/images/#{filtered_name}.jpg"
   end
 
   def self.generate_profile_image
@@ -66,7 +66,7 @@ class ExpertWriter < ApplicationRecord
   end
 
   def csv_path
-    "#{Rails.root}/public/#{1}/expert/#{expert.csv}"
+    "#{Rails.root}/public/#{publication.id}/expert/#{expert.csv}"
   end
 
   def layout_rb
