@@ -377,8 +377,8 @@ class IssuesController < ApplicationController
     end
   end
 
-  # def merge_container_xml
-  def send_mobile_preview_xml
+  def merge_container_xml
+  # def send_mobile_preview_xml
     set_issue
     XmlWorker.perform_async(@issue.id)
     # @issue.send_mobile_preview_xml

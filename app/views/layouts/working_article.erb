@@ -70,6 +70,34 @@
         });
       });
     </script>
+
+    <script>
+  $(function(){
+    var story_subcategory;
+    $('#working_article_subcategory_code').parent().show();
+    story_subcategory = $('#working_article_subcategory_code').html();
+    console.log(story_subcategory);
+    return $('#working_article_category_code').change(function() {
+      var category, escaped_category, options;
+      category = $('#working_article_category_code :selected').text();
+      escaped_category = category.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options = $(story_subcategory).filter("optgroup[label=" + escaped_category + "]").html();
+      console.log(options);
+      if (options) {
+        $('#working_article_subcategory_code').html(options);
+        return $('#working_article_subcategory_code').parent().show();
+      } else {
+        $('#working_article_subcategory_code').empty();
+        return $('#working_article_subcategory_code').parent().hide();
+      }
+    });
+  });
+
+  $(document).ready(function() {
+  $("#dttb").dataTable();
+});
+</script> 
+
     <!-- 클릭된 기사 박스 색상변경 하려고 추가했는데, 모든 기사 박스 색이 같이 변경된다. svg rect를 그리는 소스에 추가해서 그런가본데.. 
 클릭시에만 잠깐 변경되는데 다른 기사 박스 선택전까지 계속 상태 유지하는 방법도 찾아야 함. 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -65,7 +65,7 @@ class ReporterImagesController < ApplicationController
   def my
     @q = ReporterImage.ransack(params[:q])
     @reporter_images = @q.result
-    @reporter_images = @reporter_images.order(:id).page(params[:page]).per(10)
+    @reporter_images = @reporter_images.order(:id).page(params[:page]).reverse_order.per(18)
 
     # @reporter_images = current_user.reporter_images.order(id: 'DESC')
   end

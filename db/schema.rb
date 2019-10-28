@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_002734) do
+ActiveRecord::Schema.define(version: 2019_10_04_044310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,36 @@ ActiveRecord::Schema.define(version: 2019_09_17_002734) do
     t.integer "row"
     t.text "layout"
     t.string "profile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dummies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exeprt_writers", force: :cascade do |t|
+    t.string "name"
+    t.string "work"
+    t.string "position"
+    t.string "email"
+    t.integer "category_code"
+    t.string "expert_image"
+    t.string "expert_jpg_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exert_writers", force: :cascade do |t|
+    t.string "name"
+    t.string "work"
+    t.string "position"
+    t.string "email"
+    t.integer "category_code"
+    t.string "expert_image"
+    t.string "expert_jpg_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -557,6 +587,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_002734) do
     t.string "wire_pictures"
     t.string "section_name"
     t.boolean "used_in_layout"
+    t.string "kind"
     t.index ["user_id"], name: "index_reporter_images_on_user_id"
   end
 
@@ -659,8 +690,25 @@ ActiveRecord::Schema.define(version: 2019_09_17_002734) do
     t.string "subject_head"
     t.string "kind"
     t.string "by_line"
+    t.string "category_name"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
+  end
+
+  create_table "story_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "story_subcategories", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "story_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_category_id"], name: "index_story_subcategories_on_story_category_id"
   end
 
   create_table "stroke_styles", force: :cascade do |t|
@@ -801,6 +849,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_002734) do
     t.integer "height_in_lines"
     t.string "by_line"
     t.float "price"
+    t.string "category_name"
+    t.string "subcategory_code"
     t.index ["article_id"], name: "index_working_articles_on_article_id"
     t.index ["page_id"], name: "index_working_articles_on_page_id"
     t.index ["slug"], name: "index_working_articles_on_slug", unique: true
@@ -826,6 +876,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_002734) do
     t.string "taken_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category_name"
+    t.string "category_code"
   end
 
   create_table "yh_graphics", force: :cascade do |t|
@@ -959,6 +1011,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_002734) do
   add_foreign_key "spreads", "issues"
   add_foreign_key "stories", "users"
   add_foreign_key "stories", "working_articles"
+  add_foreign_key "story_subcategories", "story_categories"
   add_foreign_key "stroke_styles", "publications"
   add_foreign_key "text_styles", "publications"
   add_foreign_key "wire_stories", "issues"

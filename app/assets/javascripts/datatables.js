@@ -18,12 +18,6 @@
 // require datatables/extensions/Scroller/dataTables.scroller
 // require datatables/extensions/Select/dataTables.select
 
-//= require datatables/dataTables.bootstrap
-// require datatables/extensions/AutoFill/autoFill.bootstrap
-// require datatables/extensions/Buttons/buttons.bootstrap
-// require datatables/extensions/Responsive/responsive.bootstrap
-
-
 //Global setting and initializer
 
 $.extend( $.fn.dataTable.defaults, {

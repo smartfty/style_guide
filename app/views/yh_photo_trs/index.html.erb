@@ -12,7 +12,8 @@
     <div class="col-xs-5 col-sm-2">
       <a href="<%= yh_photo_tr_path(yh_photo_tr) %>"><img class="img-crop" src="<%= yh_photo_tr.thumb_path %>"></img></a>
       <div align="center" style="height: 50px;"><%= yh_photo_tr.title %></div>
-    </div>
+      <p align="center"><%= yh_photo_tr.source %></p>
+      </div>
   <% end %>
 </div>
 

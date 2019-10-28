@@ -1,6 +1,23 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :story_subcategories
+  resources :story_categories
+  resources :yh_photo_fr_ynas do
+    member do
+      get 'taken'
+    end
+  end
+  resources :yh_photo_trs do
+    member do
+      get 'taken'
+    end
+  end
+  resources :yh_prs do
+    member do
+      get 'taken'
+    end
+  end
   resources :line_fragments
   resources :paragraphs
   resources :expert_writers
@@ -169,7 +186,7 @@ Rails.application.routes.draw do
       get 'announcement_one'
       get 'announcement_two'
       get 'announcement_zero'
-      # get 'swap'
+      get 'swap'
 
       get 'image_1x1'
       get 'image_2x2'
@@ -243,7 +260,7 @@ Rails.application.routes.draw do
       get 'regenerate_pdf'
       get 'save_current_as_default'
       get 'clone'
-      get 'save_proof_reading_pdf'
+      get 'send_proof_reading_pdf'
       get 'send_pdf_to_printer'
       get 'assign_stories'
     end

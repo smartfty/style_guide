@@ -30,8 +30,20 @@
 # Add files and commands to this file, like the example:
 #   watch(%r{file/path}) { `command(s)` }
 #
-guard :shell do
-  local = File.dirname(__FILE__)
-  watch(/(101_KOR.*).xml/) {|m| puts "#{m[0]}"; `cd #{local} && rake wire:parse_wire_story_xml[#{m[0]}]` }
-  watch(/(201_PHOTO_YNA.*).xml/) {|m| puts "#{m[0]}"; `cd #{local} && rake wire:parse_wire_picture_xml[#{m[0]}]` }
+# guard :shell do
+#   local = File.dirname(__FILE__)
+#   watch(/(101_KOR.*).xml/) {|m| puts "#{m[0]}"; `cd #{local} && rake wire:parse_wire_story_xml[#{m[0]}]` }
+#   watch(/(201_PHOTO_YNA.*).xml/) {|m| puts "#{m[0]}"; `cd #{local} && rake wire:parse_wire_picture_xml[#{m[0]}]` }
+# end
+
+guard 'remote-sync',
+	:source => "/User/apple/Development/style_guide/public/1/", 
+	:destination => "/User/apple/Development/style_guide/public/1/", 
+	:user => 'apple',
+	:remote_address => '211.115.91.212',
+	:verbose => true, 
+	:cli => "--color", 
+	:sync_on_start => true do
+  
+  watch(%r{^.+\.(.*)$})
 end

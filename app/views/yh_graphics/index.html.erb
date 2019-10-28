@@ -14,7 +14,7 @@
 <div class="view">
   <% @yh_graphics.each do |yh_graphic| %>
     <div class="col-md-2">
-      <a href="<%=  yh_graphic_path(yh_graphic) %>"><img style="object-fit:cover",  src="<%= yh_graphic.thumb_path %>" width="200px" height="200px"></img></a>
+      <a href="<%=  yh_graphic_path(yh_graphic) %>"><img style="object-fit:cover",  src="<%= yh_graphic.preview_path %>" width="200px" height="200px"></img></a>
       <p align="center"><%= yh_graphic.title %></p>
     </div>
   <% end %>

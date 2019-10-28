@@ -46,6 +46,8 @@ class Image < ApplicationRecord
   belongs_to :working_article, optional: true
   before_create :set_default
   mount_uploader :image, ImageUploader
+  before_create  :set_default
+  before_save    :save_default_value
   # active_storage 버전으로 파일 필드 추가
   has_one_attached :storage_image
 
@@ -103,7 +105,13 @@ class Image < ApplicationRecord
     working_article.images.length
   end
 
-  # '최적' '가로', '세로', '욱여넣기'
+  def correct_image_path
+    if  working_article.images.length == 1
+      image.path 
+    end
+  end
+
+  #'최적' '가로', '세로', '욱여넣기'
   # MAGE_FIT_TYPE_ORIGINAL        = 0
   # IMAGE_FIT_TYPE_VERTICAL       = 1
   # IMAGE_FIT_TYPE_HORIZONTAL     = 2
@@ -185,8 +193,8 @@ class Image < ApplicationRecord
   end
 
   def self.place_all_images
-    Image.current_images.each do |curremt_image|
-      curremt_image.place_image unless curremt_image.used_in_layout
+    Image.current_images.each do |current_image|
+      current_image.place_image unless current_image.used_in_layout
     end
   end
 
@@ -261,6 +269,11 @@ class Image < ApplicationRecord
       puts 'wrong size format!!!'
       return false
     end
+  end
+  
+  def save_default_value
+    self.extra_height_in_lines  = 0 unless extra_height_in_lines
+    self.row                    = 2 unless row
   end
 
   private

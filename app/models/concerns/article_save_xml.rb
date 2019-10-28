@@ -5,7 +5,7 @@ module ArticleSaveXml
 ## 뉴스 / 지면보기 XML 생성관련 소스 분리 2018-12-27 DaNiel
 
    def find_code_name(code)
-    a =      [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]]
+    a =      [['국회/정당', 1201], ['청와대', 1202], ['피플', 1205], ['지방자치', 1300], ['금융', 1401], ['산업', 1402], ['재정', 1403], ['글로벌경제', 1502], ['피플', 1404], ['지구촌소식', 1501], ['외교/국방', 1203], ['통일', 1204], ['피플', 1503], ['연합뉴스', 1000], ['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['보건복지', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609], ['도서관', 1701], ['출판/서평', 1702], ['예술', 1704], ['피플', 1706], ['여론조사', 3201], ['기획연재', 3201]]
     a.each do |code_a|
       return code_a[0] if code_a[1] == code
     end
@@ -43,6 +43,7 @@ module ArticleSaveXml
     text.gsub!(/\.\'/, ".’")
     text.gsub!(/\"$/, "”")
     text.gsub!(/\'$/, "’")
+    text.gsub!(/\*\"/, "*“")
     text.gsub!(/\*\◆\"/, "*◆“")
     text.gsub!(/\*\s\◆\"/, "*◆“")
     text.gsub!(/\*\s\◆/, "*◆")
@@ -76,6 +77,7 @@ module ArticleSaveXml
     body_text.gsub!(/^\n/, "")
     body_text.gsub!(/^\s/, "")
     body_text.gsub!(/^\u3000/, "")
+    body_text.gsub!(/\u3000/, " ")
     body_text.gsub!(/^\s*\n/m, "\n")
     body_text.gsub!(/^\s*#/, '#' )
     body_text.gsub!(/^\n/, "")
@@ -90,6 +92,7 @@ module ArticleSaveXml
     body_text.gsub!("\u30fb", "·")
     body_text.gsub!("\u2027", "·")
     body_text.gsub!("\u0387", "·")
+    body_text.gsub!("\u2022", "·")
     body_text
   end
 
@@ -129,21 +132,25 @@ module ArticleSaveXml
     title.gsub!("\u2013", "-")
     title.gsub!("\u5e26", "&#24102;")
     title.gsub!("\u2219", "&#8729;")
+    title.gsub!("\u56fd", "&#22269;")
     # title.gsub!("\u0026", "&amp;")
     # title.gsub!("\u22ef", "&#8943;")
     title.gsub!("\u00A0", " ")
     title.gsub!("\u2031", "&#8241;")
     title.gsub!("\u30fb", "·")
     title.gsub!("\u223c", "~")
+    title.gsub!("\u2003", "")
     end
     if subtitle && subtitle != ""
     subtitle.gsub!("\u2027", "·")
     # subtitle.gsub!("\u22EF", "&#8943;")
+    subtitle.gsub!("\u22EF", "&ctdot;")
     subtitle.gsub!("\u200B", "")
     subtitle.gsub!("\u2024", ".")
     subtitle.gsub!("\u2013", "-")
     subtitle.gsub!("\u30fb", "·")
     subtitle.gsub!("\u223c", "~")
+    subtitle.gsub!("\u2003", "")
     end
     if reporter && reporter != ""
     reporter.gsub!("\u200B", "")
@@ -164,6 +171,7 @@ module ArticleSaveXml
     end
     if body && body != ""
     body.gsub!("\u2031", "&#8241;")
+    body.gsub!("\u25b8", "&#9656;")
     body.gsub!("\u3007", "&#12295;")
     body.gsub!("\ud594", "&#54676;")
     body.gsub!("\u4F18", "&#20248;")
@@ -173,6 +181,9 @@ module ArticleSaveXml
     body.gsub!("\u200B", "")
     body.gsub!("\u5733", "&#22323;")
     body.gsub!("\u2024", "&#8228;")
+    body.gsub!("\u9785", "&#38789;")
+    body.gsub!("\u9ee5", "&#40677;")
+    body.gsub!("\ud5a1", "&#54689;")
     # body.gsub!("\u00b7", "\u30fb")
     body.gsub!("\u6DB8", "&#28088;")
     body.gsub!("\u9B92", "&#39826;")
@@ -208,6 +219,10 @@ module ArticleSaveXml
     body.gsub!("\u5c14", "&#23572;")
     body.gsub!("\ucc1f", "&#52255;")
     body.gsub!("\u8B8E", "&#35726;")
+    body.gsub!("\u56fd", "&#22269;")
+    body.gsub!("\u9A91", "&#39569;")
+    body.gsub!("\uB9DF", "&#47583;")
+
     end
   end
 
@@ -257,11 +272,11 @@ module ArticleSaveXml
     sec   = updated_at.sec.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     updated_date      = "#{year}#{month}#{day}"
-    @page_info        = page_number.to_s.rjust(2,"0")
-    @jeho_info        = issue.number
-    @date_id          = updated_date
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
-    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
+    # @page_info        = page_number.to_s.rjust(2,"0")
+    # @jeho_info        = issue.number
+    # @date_id          = updated_date
+    # @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
+    # @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
   end
   
   def two_digit_ord
@@ -279,11 +294,11 @@ module ArticleSaveXml
     path = "#{newsml_issue_path}/#{story_xml_filename}"
     # story_xml.encode("utf-8").force_encoding("ANSI")
     # story_xml.gsub!("\u200B", "&#8203;")
-    story_xml.gsub!("\u2027", "&#8231;")
-    story_xml.gsub!("\u4F18", "&#20248;")
-    story_xml.gsub!("\u246F", "&#9327;")
+    # story_xml.gsub!("\u2027", "&#8231;")
+    # story_xml.gsub!("\u4F18", "&#20248;")
+    # story_xml.gsub!("\u246F", "&#9327;")
     # story_xml.gsub!("\u22EF", "&#8943;")
-    story_xml.gsub!("\u2024", "&#8228;")
+    # story_xml.gsub!("\u2024", "&#8228;")
     convert_euckr_not_suported_chars
     # puts story_xml =~/\u4F18/ 
     # puts story_xml.dump
@@ -292,48 +307,66 @@ module ArticleSaveXml
     save_xml_image 
   end
 
-  def save_xml_image    
-    source = image_source
-    return if source.nil?
-    target = newsml_issue_path + "/#{@photo_item}"
-    system("cp #{source} #{target}")
-    images.each do |i|
-      ext = File.extname(i.image.path)
-      image_name = File.basename(i.image.path)
-      if ext == ".jpg"
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}")
-      elsif ext == ".pdf"
-        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}")
-        # original_pdf = File.open("#{image_name}", 'rb').read
-        # image = Magick::Image::from_blob(original_pdf) do
-        #   self.format = 'PDF'
-        #   self.quality = 100
-        #   self.density = 300
-        # end
-        # image[0].format = 'JPG'
-        # image[0].to_blob
-        # image[0].write("#{original_pdf}".jpg)
-        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+  def save_xml_image
+    if page_number == 22 || page_number == 23
+      source = image_source
+      return if source.nil? 
+      target = newsml_issue_path + "/#{@photo_item}1p.jpg"
+      system("cp #{source} #{target}") 
+        images.each do |i|
+        ext = File.extname(i.image_path)
+        image_name = File.basename(i.image_path)
+        if ext == ".jpg"
+          system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}1p.jpg")
+        elsif ext == ".pdf"
+          system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}1p.jpg")
+        end
       end
-    end
-    graphics.each do |g|
-      ext = File.extname(g.graphic.path)
-      image_name = File.basename(g.graphic.path)
-      if ext == ".jpg"
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@graphic_item}")
-      elsif ext == ".pdf"
-        system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@graphic_item}")
-      # elsif ext == ".pdf"
-        # original_pdf = File.open("#{image_name}", 'rb').read
-        # image = Magick::Image::from_blob(original_pdf) do
-        #   self.format = 'PDF'
-        #   self.quality = 100
-        #   self.density = 300
-        # end
-        # image[0].format = 'JPG'
-        # image[0].to_blob
-        # image[0].write("#{original_pdf}".jpg)
-        # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+    else
+      images.map.with_index do |i, n|
+        source = image_source
+        return if source.nil? 
+        target = newsml_issue_path + "/#{@photo_item}#{n+1}p.jpg"
+        system("cp #{source} #{target}") if image 
+        ext = File.extname(i.image_path)
+        image_name = File.basename(i.image_path)
+        if ext == ".jpg"
+          # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
+          system("sips -s format jpeg -s formatOptions best -Z 540 #{i.image_path} --out #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
+        elsif ext == ".pdf"
+          system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@photo_item}#{n+1}p.jpg")
+          # original_pdf = File.open("#{image_name}", 'rb').read
+          # image = Magick::Image::from_blob(original_pdf) do
+          #   self.format = 'PDF'
+          #   self.quality = 100
+          #   self.density = 300
+          # end
+          # image[0].format = 'JPG'
+          # image[0].to_blob
+          # image[0].write("#{original_pdf}".jpg)
+          # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+        end
+      end
+      graphics.map.with_index do |g, n|
+        # @graphic_index = graphics.map{|n| "#{n+1}"} if graphic
+        ext = File.extname(g.image_path)
+        image_name = File.basename(g.image_path)
+        if ext == ".jpg"
+          system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+        elsif ext == ".pdf"
+          system("cd #{issue.path}/images/ && convert -density 300 -resize 540 #{image_name} #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+        # elsif ext == ".pdf"
+          # original_pdf = File.open("#{image_name}", 'rb').read
+          # image = Magick::Image::from_blob(original_pdf) do
+          #   self.format = 'PDF'
+          #   self.quality = 100
+          #   self.density = 300
+          # end
+          # image[0].format = 'JPG'
+          # image[0].to_blob
+          # image[0].write("#{original_pdf}".jpg)
+          # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{original_pdf} --out #{newsml_issue_path}/#{@photo_item}")
+        end
       end
     end
   end
@@ -345,8 +378,9 @@ module ArticleSaveXml
   end
 
   def story_xml # 내일닷컴(데스크탑용) 기사 xml 생성
-    story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
-    story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
+    # story_erb_path = "#{Rails.root}/public/1/newsml/story_xml.erb"
+    # story_xml_template = File.open(story_erb_path, 'r'){|f| f.read}
+        
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
@@ -355,7 +389,8 @@ module ArticleSaveXml
     sec   = created_at.sec.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
     updated_date      = "#{year}#{month}#{day}"
-    updated_time      = "#{hour}#{min}#{sec}+0900"
+    # updated_time      = "#{hour}#{min}#{sec}+0900"
+    updated_time      = "100000+0900"
     @date_and_time    = "#{updated_date}T#{updated_time}"
     @date_id          = updated_date
     @news_key_id      = "#{updated_date}.011001#{page_info}0000#{two_digit_ord}"
@@ -464,16 +499,18 @@ module ArticleSaveXml
       end
     end 
     @subject_ex_code = story.category_code if story && story.category_code && story.category_code != ""
+    @subject_ex_code = subcategory_code if subcategory_code && subcategory_code != ""
     # if page_number == 1
     #   @subject_ex_code = category_code
     #   @subject_ex_name = ""
     # end
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !=""  
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
-    if page_number == 1
+    @subject_ex_name  = find_code_name(subcategory_code.to_i) if subcategory_code && subcategory_code != ""
+    if page_number == 1 || page_number == 10
       @money_status = "0"
-    elsif page_number == 20 || page_number == 21
-      @money_status     = story.price.to_i if story && story.price && story.price != ""
+    # elsif page_number == 20 || page_number == 21
+    #   @money_status     = story.price.to_i if story && story.price && story.price != ""
     elsif page_number == 22
       puts "kind : #{page_number } #{kind} #{@money_status}"
       if kind == '사설'
@@ -522,6 +559,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b>#{$1}</b><br><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b>#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b>◆#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\^$/){""} 
@@ -588,17 +626,331 @@ module ArticleSaveXml
     #   @sub_head_line2 = sh[1]
     #   @sub_head_line3 = sh[2]
     # end
-    @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
-    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
+    # @photo_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}p.jpg"
+    @photo_item         = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{order}"
+    # @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{two_digit_ord}g.jpg"
+    @graphic_item       = "#{@date_id}_#{@jeho_info}_#{@page_info}_#{order}"
+    # images.each do |i|
+    #   img = i.image.split(".").first
+    #   @photo_item       = "#{img}.jpg"
+    # end
+    # graphics.each do |g|
+    #   grp = g.graphic.split(".").first
+    #   @graphic_item       = "#{grp}.jpg"
+    # end
     # if story_xml_template.include?("\u200B")
     #   binding.pry
     # end
     @page_number = page_number
     @order = order
-    story_erb = ERB.new(story_xml_template)
-    story_erb.result(binding)
-    # story_erb = ERB.new(story_xml_template)
-    # story_erb.result(binding)
+
+    article_info =<<~EOF
+      <?xml version="1.0" encoding="EUC-KR"?>
+      <NewsXML>
+        <NewsEnvelope>
+          <NewsPlus Program ="NewsLayout" Version="7.00" />
+          <DateAndTime><%= @date_and_time %></DateAndTime>
+        </NewsEnvelope>
+        <NewsItem>
+          <Identification>
+            <NewsIdentifier>
+              <ProviderId></ProviderId>
+              <DateId><%= @date_id %></DateId>
+              <NewsKeyId><%= @news_key_id %></NewsKeyId>
+              <RevisionNum>0</RevisionNum>
+            </NewsIdentifier>
+            <NewsPublish>
+              <Property FormalName="DayInfo" Value="<%= @day_info %>" />
+              <Property FormalName="MediaInfo" Value="<%= @media_info %>" />
+              <Property FormalName="EditionInfo" Value="EditionInfo" />
+              <Property FormalName="PageInfo" Value="A<%= @page_info %>" />
+              <Property FormalName="JeHoInfo" Value="<%= @jeho_info %>" />
+              <Property FormalName="NewsTitleInfo" Value="<%= @news_title_info %>" />
+            </NewsPublish>
+          </Identification>
+          <NewsComponent>
+            <Role FormalName="Main" />
+            <MediaType FormalName="Text" />
+            <Creator>
+              <Property FormalName="Name" Value="<%= @name %>" />
+              <Property FormalName="Post" Value="<%= @gija_post %>" />
+              <Property FormalName="GijaID" Value="<%= @author_id %>" />
+              <Property FormalName="Email" Value="<%= @author_email %>" />
+              <Property FormalName="ByLine" Value="<%= @by_line %>" />
+            </Creator>
+            <SubjectCode>
+              <Subject FormalName="<%= @section_name_code %>" />
+              <Subject FormalNameString="<%= @news_title_info %>" />
+              <SubjectEx FormalName="<%= @subject_ex_code %>" />
+              <SubjectEx FormalNameString="<%= @subject_ex_name %>" />
+              <MoneyStatus><%= @money_status %></MoneyStatus>
+              <GisaStatus>50</GisaStatus>
+              <GisaFileName><%= @gisa_key %>.txt</GisaFileName>
+              <GisaKey><%= @gisa_key %></GisaKey>
+            </SubjectCode>
+          </NewsComponent>
+    EOF
+
+    if page_number == 22
+      three_component =<<~EOF    
+              <NewsComponent>
+                <Role FormalName="Title" />
+                <MediaType FormalName="Text" />
+                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Article" />
+                <MediaType FormalName="Text" />
+                <DataContent><![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]></DataContent>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Photo" />
+                <MediaType FormalName="Image" />
+                <Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+                <PhotoItem Real='<%= "#{@photo_item}1p.jpg" %>' />
+                <DataContent><![CDATA[<%= @caption %>]]> </DataContent>
+              </NewsComponent>
+            </NewsItem>
+          </NewsXML>  
+        EOF
+                
+
+    elsif page_number == 23 && order == 1 || page_number == 23 && order == 3
+      three_component =<<~EOF    
+              <NewsComponent>
+                <Role FormalName="Title" />
+                <MediaType FormalName="Text" />
+                <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Article" />
+                <MediaType FormalName="Text" />
+                <DataContent><![CDATA[[IMG1]<%= @data_content %><%= @by_line_body %>]]></DataContent>
+              </NewsComponent>
+              <NewsComponent>
+                <Role FormalName="Photo" />
+                <MediaType FormalName="Image" />
+                <Property ImgClass="[IMG1]" align="right" Class="일반" Size="Large"/>
+                <PhotoItem Real='<%= "#{@photo_item}1p.jpg" %>' />
+                <DataContent><![CDATA[<%= @caption %>]]> </DataContent>
+              </NewsComponent>
+            </NewsItem>
+          </NewsXML>  
+        EOF
+                
+        
+    elsif page_number == 23 && order == 2
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}]" if @name_plate && @name_plate !="" %> <%= @head_line %>]]></HeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent><![CDATA[<%= @data_content %><br><br><%= @by_line %>]]></DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+                
+        
+    elsif kind == "사진"
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></HeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent><![CDATA[[IMG1]<br><%= @h_caption %>]]></DataContent>
+            </NewsComponent>
+            <NewsComponent> 
+              <Role FormalName="Photo" />
+              <MediaType FormalName="Image" />
+              <Property ImgClass="[IMG1]" align="center" Class="일반" Size="Large"/>
+              <PhotoItem Real='<%= "#{@photo_item}1p.jpg" %>' />
+              <DataContent><![CDATA[ <%= @h_source %>]]> </DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+              
+      
+    elsif kind == "부고-인사"
+      three_component =<<~EOF
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent><![CDATA[<%= @data_content %>]]></DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+              
+      
+    elsif images.count > 0
+
+      component_template =<<~EOF
+        <NewsComponent> 
+        <Role FormalName="Photo" />
+        <MediaType FormalName="Image" />
+        <Property ImgClass="<%= @img_class %>" align="center" Class="일반" Size="Large"/>
+        <PhotoItem Real="<%= @photoItem_real %>" /><% if @caption && @caption !="" %>
+        <DataContent><![CDATA[ <%= @caption %>]]> </DataContent><% end %>
+        </NewsComponent>
+      EOF
+
+      img_merged_component = ""
+      img_component_erb = ERB.new(component_template)
+      @img_data = images.map.with_index{|img, i| "[IMG#{i+1}]<br>"}.join("")
+
+      images.each_with_index do |img, i|
+      
+        @img_class = "[IMG#{i+1}]"
+        @photoItem_real = "#{@photo_item}#{i+1}p.jpg"
+        img_merged_component += img_component_erb.result(binding)
+      end 
+           
+      three_component =<<~EOF    
+      <NewsComponent>
+        <Role FormalName="Title" />
+        <MediaType FormalName="Text" />
+        <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><% if @head_line == nil || @head_line == "" %><%= @h_caption_title %>]]><% else %><%= @head_line %>]]><% end %></HeadLine>
+        <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+      </NewsComponent>
+      <NewsComponent>
+        <Role FormalName="Article" />
+        <MediaType FormalName="Text" />
+        <DataContent>
+          <![CDATA[#{@img_data}<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
+        </DataContent>
+      </NewsComponent>
+      #{img_merged_component}</NewsItem>
+    </NewsXML>  
+    EOF
+
+    elsif graphics.count > 0
+      # grp_merged_component = ""
+  
+      # @grp_data =graphics.map {|n| "[IMG#{n}]<br>"}
+
+
+      component_template =<<~EOF
+      <NewsComponent> 
+      <Role FormalName="Photo" />
+      <MediaType FormalName="Image" />
+      <Property ImgClass="<% @grp_class %>" align="center" Class="일반" Size="Large"/>
+      <PhotoItem Real="<% @grpItem_real %>" />
+    </NewsComponent>
+    EOF
+
+    grp_merged_component = ""
+    grp_component_erb = ERB.new(component_template)
+    @img_data = graphics.map.with_index{|grp, i| "[IMG#{i+1}]<br>"}.join("")
+
+    graphics.each_with_index do |grp, i|
+    
+      @grp_class = "[IMG#{i+1}]"
+      @photoItem_real = "#{@photo_item}#{i+1}g.jpg"
+      grp_merged_component += grp_component_erb.result(binding)
+    end 
+
+
+
+    three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent>
+                <![CDATA[#{@grp_data}<%= @data_content %>]]>
+              </DataContent>
+            </NewsComponent>
+            #{grp_merged_component}</NewsItem>
+        </NewsXML>  
+      EOF
+
+      @grp_merged_component = ""
+  
+      grp_component_erb = ERB.new(component_template)
+      # grp_erb = ERB.new(grp_component)
+      # three_component = ""
+      graphics.each_with_index do |g, n|
+        @grp_class = "[IMG#{n+1}]"
+        @grp_data = "[IMG#{n+1}]<br>" 
+        @grpItem_real = "#{@graphic_item}#{n+1}g.jpg"
+        grp_merged_component += grp_component_erb.result(binding)
+        # three_component += grp_erb.result(binding)
+      end 
+
+
+    else
+      three_component =<<~EOF    
+            <NewsComponent>
+              <Role FormalName="Title" />
+              <MediaType FormalName="Text" />
+              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
+              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+            </NewsComponent>
+            <NewsComponent>
+              <Role FormalName="Article" />
+              <MediaType FormalName="Text" />
+              <DataContent>
+                <![CDATA[<%= @data_content %>]]>
+              </DataContent>
+            </NewsComponent>
+          </NewsItem>
+        </NewsXML>  
+      EOF
+    end
+
+
+    article = ""
+    article_erb = ERB.new(article_info)
+    article += article_erb.result(binding)  
+
+    component = ""
+    erb = ERB.new(three_component)
+    component += erb.result(binding)
+
+    article += component
+
+
+    # puts "============ page_number: #{page_number}"
+    # binding.pry if page_number == 1
+
+    # images.map.with_index do |i, n|
+    #   merged_component += erb.result(binding)
+    # end
+
+
+    # images.map.with_index do |i, n|
+    #   merged_component += erb.result(binding)
+    # end
+
+    # images.map.with_index do |i, n|
+    #   component += component_erb.result(binding) + "\n"
+    # end
+
+    # story_xml_template = ""
+    # story_erb = article + "\n" + component + "\n" 
+    # story_xml_template += story_erb
+
   end
 
   def eliminate_size_option(string) # 제목/부제 사이즈 조절 {-3}같은 태그 제거 
@@ -722,7 +1074,8 @@ module ArticleSaveXml
         @name_plate = opinion_writer.title if opinion_writer
       end
     end    
-    @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
+    # @subject_ex_code  = story.category_code if story && story.category_code && story.category_code != ""
+    @subject_ex_code  = category_code if category_code && category_code != ""
     # @subject_ex_name  = @name_plate.gsub(/\[(.*)\]/){"#{$1}"} if @name_plate && @name_plate !="" 
     @subject_ex_name  = find_code_name(story.category_code.to_i) if story && story.category_code && story.category_code != ""
     @money_status     = "30"
@@ -766,8 +1119,9 @@ module ArticleSaveXml
       # @head_line        = @head_line.gsub("\r\n", " ")
       # @head_line        = @head_line.gsub("\r", "")
       @head_line        = @head_line.gsub("\n", "")
+      @head_line        = @head_line.gsub("\u2003", "")
     else
-      @head_line       
+      @head_line       = @c_head_line
     end  
 
     if subtitle && subtitle != ""
@@ -776,7 +1130,7 @@ module ArticleSaveXml
       @sub_head_line    = @sub_head_line.gsub("\r\n", "]]></SubTitle><SubTitle><![CDATA[")
       # @sub_head_line    = @sub_head_line.gsub("\r", "")
       @sub_head_line    = @sub_head_line.gsub("\n", "]]></SubTitle><SubTitle><![CDATA[")
-
+      @sub_head_line    = @sub_head_line.gsub("\u2003", "")
     end
     if boxed_subtitle_text && boxed_subtitle_text != ""
       boxed_subtitle_text.strip!
@@ -798,6 +1152,7 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub(/^\#\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b><br>"} 
       @body_content     = @body_content.gsub(/^\#\#(.*)/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/^\*(.*)=\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
+      @body_content     = @body_content.gsub(/^\*(.*)\*/){"<b style=font-weight:bold;>#{$1}</b> = "} 
       @body_content     = @body_content.gsub(/^\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       @body_content     = @body_content.gsub(/\*\*(.*)\*\*/){"<b style=font-weight:bold;>#{$1}</b>"} 
       # @body_content     = @body_content.gsub(/^#\s(.*)/){"#{$1}"} 
@@ -805,7 +1160,6 @@ module ArticleSaveXml
       @body_content     = @body_content.gsub("\n\n"){"<br><br>"} 
       # @data_content     = @body_content.gsub(/\n\n\z/){""} 
       @data_content     = @body_content.gsub(/<br><br>\z/){""} 
-
     end
     @page_number = page_number 
     @order = order.to_s.rjust(2, "0")
@@ -820,25 +1174,28 @@ module ArticleSaveXml
     @news_class_middle_name = @subject_ex_code
     @send_modify            = "0"  # 수정횟수
     @new_article            = "1" #뭘까?
-    @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
-    @graphic_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.02L.jpg"
+    # @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
+    @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
+    # @graphic_file_name      = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.02L.jpg"
     #해당기사 저자사진: 121 × 160 픽셀, 120 픽셀/인치
     #해당기사 그래픽은 .01L대신 .01S.jpg로 표시
-article_info =<<EOF
-    <ArticleInfo>
-      <GroupKey><%= @group_key %></GroupKey>
-      <CmsFileName><%= @cms_file_name %></CmsFileName>
-      <CmsRelationName/>
-      <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
-      <GisaNumberID/>
-      <GisaRelationID/>
-      <ByLine><%= @by_line %></ByLine> 
-      <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
-      <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
-      <SendModify><%= @send_modify %></SendModify>
-      <NewArticle><%= @new_article %></NewArticle>
-    </ArticleInfo>
-EOF
+
+    article_info =<<~EOF
+        <ArticleInfo>
+          <GroupKey><%= @group_key %></GroupKey>
+          <CmsFileName><%= @cms_file_name %></CmsFileName>
+          <CmsRelationName/>
+          <ArticleFileName><%= @article_file_name %>.txt</ArticleFileName>
+          <GisaNumberID/>
+          <GisaRelationID/>
+          <ByLine><%= @by_line %></ByLine> 
+          <Gija ID="0" Area="0" Name="<%= @name %>" Email=""/>
+          <NewsClass LargeID="<%= @news_class_large_id %>" LargeName="<%= @news_class_large_name %>" MiddleID="<%= @news_class_middle_id %>" MiddleName="<%= @news_class_middle_name %>"/>
+          <SendModify><%= @send_modify %></SendModify>
+          <NewArticle><%= @new_article %></NewArticle>
+        </ArticleInfo>
+    EOF
+
     article = ""
     erb = ERB.new(article_info)
     article += erb.result(binding)
@@ -849,8 +1206,59 @@ EOF
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
     page_info        = page_number.to_s.rjust(2,"0")
+    
     if page_number == 22
-      three_component =<<EOF
+    three_component =<<~EOF
+        <TitleComponent>
+          <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
+        </TitleComponent>
+        <ArticleComponent>
+          <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
+        </ArticleComponent>
+        <PhotoComponent>
+        <PhotoItem>
+          <ImageType>Image</ImageType>
+            <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+            <PhotoFileName><%= "#{@photo_file_name}.p1L.jpg" %></PhotoFileName>
+            <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+          </PhotoItem>
+        </PhotoComponent>
+        </Article>
+    EOF
+
+    elsif page_number == 23 && order == 1 
+    three_component =<<~EOF
+        <TitleComponent>
+          <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
+        </TitleComponent>
+        <ArticleComponent>
+          <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
+        </ArticleComponent>
+        <PhotoComponent>
+        <PhotoItem>
+          <ImageType>Image</ImageType>
+            <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+            <PhotoFileName><%= "#{@photo_file_name}.p1L.jpg" %></PhotoFileName>
+            <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+          </PhotoItem>
+        </PhotoComponent>
+        </Article>
+    EOF
+
+    elsif page_number == 23 && order == 2 
+    three_component =<<~EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<%= @data_content %>]]></Content>
+      </ArticleComponent>
+      </Article>
+    EOF
+
+    elsif page_number == 23 && order == 3
+    three_component =<<~EOF
       <TitleComponent>
         <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
       </TitleComponent>
@@ -861,174 +1269,147 @@ EOF
       <PhotoItem>
         <ImageType>Image</ImageType>
           <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-          <PhotoFileName><%= @photo_file_name %></PhotoFileName>
+          <PhotoFileName><%= "#{@photo_file_name}.p1L.jpg" %></PhotoFileName>
           <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
         </PhotoItem>
       </PhotoComponent>
-    </Article>
-EOF
+      </Article>
+    EOF
 
-    elsif page_number == 23 && order == 1 
-    three_component =<<EOF
-    <TitleComponent>
-      <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
-    </TitleComponent>
-    <ArticleComponent>
-      <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
-    </ArticleComponent>
-    <PhotoComponent>
-    <PhotoItem>
-      <ImageType>Image</ImageType>
-        <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-      </PhotoItem>
-    </PhotoComponent>
-  </Article>
-EOF
-  elsif page_number == 23 && order == 2 
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle><% if page_number == 23 && order == 2 %><% else %><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %><% end %>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %>]]></Content>
-  </ArticleComponent>
-</Article>
-EOF
+    elsif kind == "사진"
+    three_component =<<~EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %>]]></Content>
+      </ArticleComponent>
+      <PhotoComponent>
+        <PhotoItem>
+          <ImageType>Image</ImageType>
+          <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
+          <PhotoFileName><%= "#{@photo_file_name}.p1L.jpg" %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @h_source %>]]></DataContent>
+        </PhotoItem>
+      </PhotoComponent>
+      </Article>
+    EOF
 
-elsif page_number == 23 && order == 3
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><![CDATA[[<%= @name_plate %>] <%= @head_line %>]]></MainTitle>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %><%= @by_line_body %>]]></Content>
-  </ArticleComponent>
-  <PhotoComponent>
-  <PhotoItem>
-    <ImageType>Image</ImageType>
-      <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-      <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-      <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-    </PhotoItem>
-  </PhotoComponent>
-</Article>
-EOF
+    elsif kind == "부고-인사"
+    three_component =<<~EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></MainTitle>
+      </TitleComponent>
+      <ArticleComponent>
+        <Content><![CDATA[<%= @data_content %>]]></Content>
+      </ArticleComponent>
+      </Article>
+    EOF
 
-  elsif kind == "사진"
-  three_component =<<EOF
-  <TitleComponent>
-  <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
-</TitleComponent>
-<ArticleComponent>
-<Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
-</Content>
-</ArticleComponent>
-<PhotoComponent>
-<PhotoItem>
-  <ImageType>Image</ImageType>
-    <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-    <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-    <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-  </PhotoItem>
-</PhotoComponent>
-</Article>
-EOF
+    elsif images.count > 0
+      # image_collection = images.map{|i| "<!--[[--image#{n+1}--]]//-->"}
+      images.each_with_index do |i, n|  
+        @image_collection = "<!--[[--image#{n+1}--]]//-->"
+        @image_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
+        @image_col = "[IMG0#{n+1}]"
+      end 
 
-elsif kind == "__사진"
-  three_component =<<EOF
-  <TitleComponent>
-  <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
-</TitleComponent>
-<ArticleComponent>
-  <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %> <%= @h_source %>]]>
-  </Content>
-</ArticleComponent>
-<PhotoComponent>
-<PhotoItem>
-  <ImageType>Image</ImageType>
-    <Property ImgClass="[IMG01]" align="left" Class="일반" Size="Large"/>
-    <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-    <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-  </PhotoItem>
-</PhotoComponent>
-</Article>
-EOF
+      component_template =<<~EOF
+        <PhotoComponent>
+        <PhotoItem>
+        <ImageType>Image</ImageType> 
+          <Property ImgClass="#{@image_col}" align="center" Class="일반" Size="Large"/>
+          <PhotoFileName><%= "#{@image_collect}" %></PhotoFileName>
+          <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+        </PhotoItem>
+        </PhotoComponent>
+      EOF
 
-elsif kind == "부고-인사"
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><![CDATA[<%= "#{@name_plate}- #{year}#{month}#{day}#{page_info}" %>]]></MainTitle>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %>]]></Content>
-  </ArticleComponent>
-</Article>
-EOF
+      merged_component = ""
+      erb = ERB.new(component_template)
 
+      images.map.with_index do |i, n|
+        merged_component += erb.result(binding) 
+      end
+ 
+      # @image_collection = "<!--[[--image#{n+1}--]]//-->"
+      # @image_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
+      # @image_col = "[IMG0#{n+1}]"
 
-  elsif images.count > 0 
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
-    </Content>
-  </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
-  <PhotoComponent>
-    <PhotoItem>
-    <ImageType>Image</ImageType> 
-      <Property ImgClass="[IMG01]" align="center" Class="일반" Size="Large"/>
-        <PhotoFileName><%= @photo_file_name %></PhotoFileName>
-        <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-    </PhotoItem>
-  </PhotoComponent><% end %>
-</Article>
-EOF
+    three_component =<<~EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+      </TitleComponent><% if images.last.not_related == true %>
+      <ArticleComponent>
+        <Content><![CDATA[<%= @data_content %>]]></Content>
+      </ArticleComponent><% else %>
+      <ArticleComponent>
+        <Content><![CDATA[#{@image_collection}<%= @data_content %>]]></Content>
+      </ArticleComponent>
+      #{merged_component}<% end %>
+      </Article>
+    EOF
 
-  elsif graphics.count > 0 
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<!--[[--image1--]]//--><%= @data_content %>]]>
-    </Content>
-  </ArticleComponent><% if images.length < 0 || graphics.length < 0 %><% else %>
-  <PhotoComponent>
-    <PhotoItem>
-    <ImageType>Image</ImageType> 
-      <Property ImgClass="[IMG01]" align="center" Class="일반" Size="Large"/>
-        <PhotoFileName><%= @graphic_file_name %></PhotoFileName>
-    </PhotoItem>
-  </PhotoComponent><% end %>
-</Article>
-EOF
+    elsif graphics.count > 0
+      graphics.each_with_index do |g, n|  
+        @graphic_collection = "<!--[[--image#{n+1}--]]//-->"
+        @graphic_collect = "#{@photo_file_name}.p#{n+1}L.jpg"
+        @graphic_col = "[IMG0#{n+1}]"
+      end 
+      
+ 
+      component_template =<<~EOF
+        <PhotoComponent>
+          <PhotoItem>
+            <ImageType>Image</ImageType> 
+            <Property ImgClass="#{@graphic_col}" align="center" Class="일반" Size="Large"/>
+            <PhotoFileName><%= "#{@graphic_collect}" %></PhotoFileName>
+            <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+          </PhotoItem>
+        </PhotoComponent>
+      EOF
 
+    merged_component = ""
+    erb = ERB.new(component_template)
 
-  else
-  three_component =<<EOF
-  <TitleComponent>
-    <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-    <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
-  </TitleComponent>
-  <ArticleComponent>
-    <Content><![CDATA[<%= @data_content %>]]></Content>
-  </ArticleComponent>
-</Article>
-EOF
+    graphics.map.with_index do |g, n|
+      merged_component += erb.result(binding)
+    end
+  
+    three_component =<<~EOF
+      <TitleComponent>
+        <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+      </TitleComponent><% if images.last.not_related == true %>
+      <ArticleComponent>
+        <Content><![CDATA[<%= @data_content %>]]></Content>
+      </ArticleComponent><% else %>
+      <ArticleComponent>
+        <Content><![CDATA[#{@graphic_collection}<%= @data_content %>]]></Content>
+      </ArticleComponent>
+      #{merged_component}<% end %>
+      </Article>
+    EOF
 
-  end
-  component = ""
-  # puts "============ page_number: #{page_number}"
-  # binding.pry if page_number == 1
-  erb = ERB.new(three_component)
-  component += erb.result(binding)
+    else
+      three_component =<<~EOF
+        <TitleComponent>
+          <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+          <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+        </TitleComponent>
+        <ArticleComponent>
+          <Content><![CDATA[<%= @data_content %>]]></Content>
+        </ArticleComponent>
+        </Article>
+      EOF
+    end
+
+    component = ""
+    # puts "============ page_number: #{page_number}"
+    # binding.pry if page_number == 1
+    erb = ERB.new(three_component)
+    component += erb.result(binding)
   end
 
   def xml_group_key_template
@@ -1043,23 +1424,31 @@ EOF
     year  = issue.date.year
     month = issue.date.month.to_s.rjust(2, "0")
     day   = issue.date.day.to_s.rjust(2, "0")
-    page_info        = page_number.to_s.rjust(2,"0")
-    @head_line        = title    
-    if title && title != ""
-      title.strip!
-      @head_line        = title   
-      # @head_line        = @head_line.gsub("\r\n", " ")
-      @head_line        = @head_line.gsub("\&", "&amp;")
-      @head_line        = @head_line.gsub("\u201C", "&quot;")
-      @head_line        = @head_line.gsub("\u201D", "&quot;")
-      @head_line        = @head_line.gsub("\u0022", "&quot;")
-      @head_line        = @head_line.gsub("\u003C", "&lt;")
-      @head_line        = @head_line.gsub("\u003E", "&gt;")
-    end
+    page_info       = page_number.to_s.rjust(2,"0")
+    @head_line      = title
+    # if title && title != ""
+    #   title.strip!
+    #   @head_line        = title    
+    #   # @head_line        = @head_line.gsub("\r\n", " ")
+    #   @head_line        = @head_line.gsub("\&", "&amp;")
+    #   @head_line        = @head_line.gsub("\u201C", "&quot;")
+    #   @head_line        = @head_line.gsub("\u201D", "&quot;")
+    #   @head_line        = @head_line.gsub("\u0022", "&quot;")
+    #   @head_line        = @head_line.gsub("\u003C", "&lt;")
+    #   @head_line        = @head_line.gsub("\u003E", "&gt;")
+    # end
     @order            = order.to_s.rjust(2, "0")
     @group_key        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
-    if title && title != ""
-      @c_head_line    = eliminate_size_option(@head_line)
+    if title && title != ""    
+      if kind == "사진"
+        if images.count != 0
+        @c_head_line = eliminate_size_option(images.first.caption_title) 
+        else 
+        @c_head_line = eliminate_size_option(graphics.first.title)
+        end
+      else
+        @c_head_line = eliminate_size_option(@head_line)
+      end
       # @c_head_line    = @c_head_line.gsub("\r", "")
       @c_head_line    = @c_head_line.gsub("\n", "")
       # @c_head_line    = @c_head_line.gsub("\&", "&amp;")
@@ -1069,12 +1458,12 @@ EOF
       @c_head_line    = @image.caption_title 
       elsif
       @graphic        = graphics.first
-      @c_head_line    = @graphic.title 
+      @c_head_line    = @graphic.title
       else
       @c_head_line    = ""
       end 
     end
-    container_xml_group_key=<<EOF
+    container_xml_group_key=<<~EOF
       <Group Key="<%= @group_key %>" CmsFileName="" Title="<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= @c_head_line %>"/>
 EOF
     xml_group_key = ""
@@ -1087,17 +1476,33 @@ EOF
   end
 
   def save_mobile_xml_image
-    source = image_source
-    return if source.nil?
-    target = mobile_page_preview_path + "/#{@photo_file_name}"
-    system("cp #{source} #{target}")
-    images.each do |i|
-      ext = File.extname(i.image.path)
-      image_name = File.basename(i.image.path)
-      if ext == ".jpg"
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
-      elsif ext == ".pdf"
-        system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}")
+    if page_number == 22 || page_number == 23
+      source = image_source
+      return if source.nil?  
+      target = mobile_page_preview_path + "/#{@photo_file_name}.p1L.jpg"
+      system("cp #{source} #{target}")
+      images.each do |i|
+        ext = File.extname(i.image_path)
+        image_name = File.basename(i.image_path)
+        if ext == ".jpg"
+          system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
+        elsif ext == ".pdf"
+          system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p1L.jpg")
+        end
+      end
+    else
+    images.each_with_index do |img, i|
+      # source = image_source
+      # return if source.nil?  
+      # target = mobile_page_preview_path + "/#{@photo_file_name}.p#{i+1}L.jpg"
+      # system("cp #{source} #{target}")
+      ext = File.extname(img.image_path)
+      image_name = File.basename(img.image_path)
+      # if ext == ".jpg"
+      #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}.p#{n+1}L.jpg")
+      # elsif ext == ".pdf"
+      #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p#{n+1}L.jpg")
+        system("convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@photo_file_name}.p#{i+1}L.jpg")
         # original_pdf = File.open("#{image_name}", 'rb').read
         # image = Magick::Image::from_blob(original_pdf) do
         #   self.format = 'PDF'
@@ -1110,14 +1515,15 @@ EOF
         # system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@photo_file_name}")
       end
     end
-    graphics.each do |g|
-      ext = File.extname(g.graphic.path)
-      image_name = File.basename(g.graphic.path)
-      if ext == ".jpg"
-        system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@graphic_file_name}")
-      elsif ext == ".pdf"
-        system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@graphic_file_name}")
-      end
+    graphics.each_with_index do |grp, i|
+      ext = File.extname(grp.image_path)
+      image_name = File.basename(grp.image_path)
+      # if ext == ".jpg"
+      #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 1200 #{image_name} --out #{mobile_page_preview_path}/#{@graphic_file_name}")
+      # elsif ext == ".pdf"
+      #   system("cd #{issue.path}/images/ && convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@graphic_file_name}")
+      # end
+        system("convert -density 300 -resize 1200 #{image_name} #{mobile_page_preview_path}/#{@graphic_file_name}.g#{i+1}L.jpg")
       # elsif ext == ".pdf"
         # binding.pry
         # original_pdf = File.open("#{image_name}", 'rb').read

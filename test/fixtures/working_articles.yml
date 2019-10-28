@@ -65,6 +65,8 @@
 #  height_in_lines              :integer
 #  by_line                      :string
 #  price                        :float
+#  category_name                :string
+#  subcategory_code             :string
 #
 # Indexes
 #

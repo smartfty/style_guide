@@ -22,6 +22,8 @@
 #  taken_by        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  category_name   :string
+#  category_code   :string
 #
 
 FactoryBot.define do

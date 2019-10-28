@@ -48,6 +48,8 @@ class Graphic < ApplicationRecord
   belongs_to :working_article, optional: true
   mount_uploader :graphic, GraphicUploader
   before_create  :set_default
+  before_save    :save_default_value
+  # after_save     :pdf_to_jpg
   has_one_attached :storage_graphic
 
   def info
@@ -74,6 +76,14 @@ class Graphic < ApplicationRecord
     #   "#{Rails.root}/public" + '/place_holder_image.jpg'
     # end
   end
+
+  def pdf_to_jpg 
+    image_name = File.basename(graphic.path).split(".").first
+    dir_path = File.dirname(image_path)
+    # image_basename  = File.basename(graphic.url).split(".").first
+    system("convert -density 300 -resize 1200 #{image_path}/ #{dir_path}/#{image_name}.jpg")
+  end
+
 
   def size_string
     width_in_mm   = ((working_article.grid_width * column - working_article.gutter) * 0.352778).round(2)
@@ -178,8 +188,8 @@ class Graphic < ApplicationRecord
   end
 
   def self.place_all_images
-    Image.current_images.each do |curremt_image|
-      curremt_image.place_image unless curremt_image.used_in_layout
+    Image.current_images.each do |current_image|
+      current_image.place_image unless current_image.used_in_layout
     end
   end
 
@@ -253,6 +263,11 @@ class Graphic < ApplicationRecord
       puts 'wrong size format!!!'
       return false
     end
+  end
+
+  def save_default_value
+    self.extra_height_in_lines  = 0 unless extra_height_in_lines
+    self.row                    = 2 unless row
   end
 
   private
