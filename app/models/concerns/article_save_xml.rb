@@ -353,7 +353,7 @@ module ArticleSaveXml
         # @graphic_index = graphics.map{|n| "#{n+1}"} if graphic
         # ext = File.extname(grp.image_path)
         # image_name = File.basename(grp.image_path)
-        system("convert -density 300 -resize 540 #{grp.image_path} #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
+        system("convert -density 300 -resize 540 #{grp.image_path} #{newsml_issue_path}/#{@graphic_item}#{i+1}g.jpg")
         # if ext == ".jpg"
         #   system("cd #{issue.path}/images/ && sips -s format jpeg -s formatOptions best -Z 540 #{image_name} --out #{newsml_issue_path}/#{@graphic_item}#{n+1}g.jpg")
         # elsif ext == ".pdf"
@@ -801,7 +801,7 @@ module ArticleSaveXml
       EOF
               
       
-    elsif images.count > 0
+    elsif images.count > 0 || graphics.count > 0
       component_template =<<~EOF
         <NewsComponent> 
         <Role FormalName="Photo" />
@@ -822,6 +822,17 @@ module ArticleSaveXml
         img_merged_component += img_component_erb.result(binding)
       end 
            
+      @p = images.count if images
+      grp_merged_component = ""
+      grp_component_erb = ERB.new(component_template)
+      @grp_data = graphics.map.with_index{|grp, i| "[IMG#{@p+i+1}]<br>"}.join("")
+  
+      graphics.each_with_index do |grp, i|
+        @img_class = "[IMG#{@p+i+1}]"
+        @photoItem_real = "#{@photo_item}#{@p+i+1}g.jpg"
+        grp_merged_component += grp_component_erb.result(binding)
+      end 
+  
       three_component =<<~EOF    
       <NewsComponent>
         <Role FormalName="Title" />
@@ -833,65 +844,65 @@ module ArticleSaveXml
         <Role FormalName="Article" />
         <MediaType FormalName="Text" />
         <DataContent>
-          <![CDATA[#{@img_data}<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
+          <![CDATA[#{@img_data}#{@grp_data}<% if @data_content == nil || @data_content == "" %><%= @h_caption %><%= @h_source %><% else %><%= @data_content %><% end %>]]>
         </DataContent>
       </NewsComponent>
-      #{img_merged_component}</NewsItem>
+      #{img_merged_component}#{grp_merged_component}</NewsItem>
     </NewsXML>  
     EOF
 
-    elsif graphics.count > 0
-      # grp_merged_component = ""
-      # @grp_data =graphics.map {|n| "[IMG#{n}]<br>"}
-     component_template =<<~EOF
-      <NewsComponent> 
-      <Role FormalName="Photo" />
-      <MediaType FormalName="Image" />
-      <Property ImgClass="<% @grp_class %>" align="center" Class="일반" Size="Large"/>
-      <PhotoItem Real="<% @grpItem_real %>" />
-    </NewsComponent>
-    EOF
+    # elsif graphics.count > 0 
+    #   # grp_merged_component = ""
+    #   # @grp_data =graphics.map {|n| "[IMG#{n}]<br>"}
+    #  component_template =<<~EOF
+    #   <NewsComponent> 
+    #   <Role FormalName="Photo" />
+    #   <MediaType FormalName="Image" />
+    #   <Property ImgClass="<% @grp_class %>" align="center" Class="일반" Size="Large"/>
+    #   <PhotoItem Real="<% @grpItem_real %>" />
+    # </NewsComponent>
+    # EOF
 
-    grp_merged_component = ""
-    grp_component_erb = ERB.new(component_template)
-    @img_data = graphics.map.with_index{|grp, i| "[IMG#{i+1}]<br>"}.join("")
+    # grp_merged_component = ""
+    # grp_component_erb = ERB.new(component_template)
+    # @img_data = graphics.map.with_index{|grp, i| "[IMG#{i+1}]<br>"}.join("")
 
-    graphics.each_with_index do |grp, i|
-      @grp_class = "[IMG#{i+1}]"
-      @photoItem_real = "#{@photo_item}#{i+1}g.jpg"
-      grp_merged_component += grp_component_erb.result(binding)
-    end 
+    # graphics.each_with_index do |grp, i|
+    #   @grp_class = "[IMG#{i+1}]"
+    #   @photoItem_real = "#{@photo_item}#{i+1}g.jpg"
+    #   grp_merged_component += grp_component_erb.result(binding)
+    # end 
 
-    three_component =<<~EOF    
-            <NewsComponent>
-              <Role FormalName="Title" />
-              <MediaType FormalName="Text" />
-              <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
-              <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
-            </NewsComponent>
-            <NewsComponent>
-              <Role FormalName="Article" />
-              <MediaType FormalName="Text" />
-              <DataContent>
-                <![CDATA[#{@grp_data}<%= @data_content %>]]>
-              </DataContent>
-            </NewsComponent>
-            #{grp_merged_component}</NewsItem>
-        </NewsXML>  
-      EOF
+    # three_component =<<~EOF    
+    #         <NewsComponent>
+    #           <Role FormalName="Title" />
+    #           <MediaType FormalName="Text" />
+    #           <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></HeadLine>
+    #           <SubHeadLine><![CDATA[<%= @sub_head_line %>]]></SubHeadLine>
+    #         </NewsComponent>
+    #         <NewsComponent>
+    #           <Role FormalName="Article" />
+    #           <MediaType FormalName="Text" />
+    #           <DataContent>
+    #             <![CDATA[#{@grp_data}<%= @data_content %>]]>
+    #           </DataContent>
+    #         </NewsComponent>
+    #         #{grp_merged_component}</NewsItem>
+    #     </NewsXML>  
+    #   EOF
 
-      @grp_merged_component = ""
+    #   @grp_merged_component = ""
   
-      # grp_component_erb = ERB.new(component_template)
-      # # grp_erb = ERB.new(grp_component)
-      # # three_component = ""
-      # graphics.each_with_index do |grp, i|
-      #   @grp_class = "[IMG#{i+1}]"
-      #   @grp_data = "[IMG#{i+1}]<br>" 
-      #   @grpItem_real = "#{@graphic_item}#{i+1}g.jpg"
-      #   grp_merged_component += grp_component_erb.result(binding)
-      #   # three_component += grp_erb.result(binding)
-      # end 
+    #   # grp_component_erb = ERB.new(component_template)
+    #   # # grp_erb = ERB.new(grp_component)
+    #   # # three_component = ""
+    #   # graphics.each_with_index do |grp, i|
+    #   #   @grp_class = "[IMG#{i+1}]"
+    #   #   @grp_data = "[IMG#{i+1}]<br>" 
+    #   #   @grpItem_real = "#{@graphic_item}#{i+1}g.jpg"
+    #   #   grp_merged_component += grp_component_erb.result(binding)
+    #   #   # three_component += grp_erb.result(binding)
+    #   # end 
 
 
     else
@@ -1171,7 +1182,7 @@ module ArticleSaveXml
     @new_article            = "1" #뭘까?
     # @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.01L.jpg"
     @photo_file_name        = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
-    # @graphic_file_name      = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}.02L.jpg"
+    @graphic_file_name      = "#{year}#{month}#{day}.011001#{page_info}0000#{@order}"
     #해당기사 저자사진: 121 × 160 픽셀, 120 픽셀/인치
     #해당기사 그래픽은 .01L대신 .01S.jpg로 표시
 
@@ -1301,7 +1312,7 @@ module ArticleSaveXml
       </Article>
     EOF
 
-    elsif images.count > 0
+    elsif images.count > 0 || graphics.count > 0
       # image_collection = images.map{|i| "<!--[[--image#{n+1}--]]//-->"}
      
       # images.each_with_index do |img, i|  
@@ -1331,44 +1342,17 @@ module ArticleSaveXml
         img_merged_component += img_component_erb.result(binding)
       end 
 
-    three_component =<<~EOF
-      <TitleComponent>
-        <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
-        <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
-      </TitleComponent><% if images.last.not_related == true %>
-      <ArticleComponent>
-        <Content><![CDATA[<%= @data_content %>]]></Content>
-      </ArticleComponent><% else %>
-      <ArticleComponent>
-        <Content><![CDATA[#{@img_data}<%= @data_content %>]]></Content>
-      </ArticleComponent>
-      #{img_merged_component}<% end %>
-      </Article>
-    EOF
-
-    elsif graphics.count > 0
-      component_template =<<~EOF
-        <PhotoComponent>
-          <PhotoItem>
-            <ImageType>Image</ImageType> 
-            <Property ImgClass="<%= @grp_class %>" align="center" Class="일반" Size="Large"/>
-            <PhotoFileName><%= @photo_file %></PhotoFileName>
-            <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
-          </PhotoItem>
-        </PhotoComponent>
-      EOF
-
+      @p = images.count if images
       grp_merged_component = ""
       grp_component_erb = ERB.new(component_template)
-      @img_data = graphics.map.with_index{|grp, i| "<!--[[--image#{i+1}--]]//-->"}.join("")
+      @grp_data = graphics.map.with_index{|grp, i| "<!--[[--image#{@p+i+1}--]]//-->"}.join("")
 
-      grphics.each_with_index do |grp, i|
-        @grp_class = "[IMG0#{i+1}]"
-        @photo_file = "#{@photo_file_name}.g#{i+1}L.jpg"
+      graphics.each_with_index do |grp, i|
+        @img_class = "[IMG0#{@p+i+1}]"
+        @photo_file = "#{@photo_file_name}.g#{@p+i+1}L.jpg"
         grp_merged_component += grp_component_erb.result(binding)
       end 
 
-  
     three_component =<<~EOF
       <TitleComponent>
         <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
@@ -1378,11 +1362,49 @@ module ArticleSaveXml
         <Content><![CDATA[<%= @data_content %>]]></Content>
       </ArticleComponent><% else %>
       <ArticleComponent>
-        <Content><![CDATA[#{@img_data}<%= @data_content %>]]></Content>
+        <Content><![CDATA[#{@img_data}#{@grp_data}<%= @data_content %>]]></Content>
       </ArticleComponent>
-      #{grp_merged_component}<% end %>
+      #{img_merged_component}#{grp_merged_component}<% end %>
       </Article>
     EOF
+
+    # elsif graphics.count > 0
+    #   component_template =<<~EOF
+    #     <PhotoComponent>
+    #       <PhotoItem>
+    #         <ImageType>Image</ImageType> 
+    #         <Property ImgClass="<%= @grp_class %>" align="center" Class="일반" Size="Large"/>
+    #         <PhotoFileName><%= @photo_file %></PhotoFileName>
+    #         <DataContent><![CDATA[ <%= @caption %>]]></DataContent>
+    #       </PhotoItem>
+    #     </PhotoComponent>
+    #   EOF
+
+    #   grp_merged_component = ""
+    #   grp_component_erb = ERB.new(component_template)
+    #   @img_data = graphics.map.with_index{|grp, i| "<!--[[--image#{i+1}--]]//-->"}.join("")
+
+    #   grphics.each_with_index do |grp, i|
+    #     @grp_class = "[IMG0#{i+1}]"
+    #     @photo_file = "#{@photo_file_name}.g#{i+1}L.jpg"
+    #     grp_merged_component += grp_component_erb.result(binding)
+    #   end 
+
+  
+    # three_component =<<~EOF
+    #   <TitleComponent>
+    #     <MainTitle><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @head_line %>]]></MainTitle><% if @sub_head_line == nil && @sub_head_line == "" %><% else %>
+    #     <SubTitle><![CDATA[<%= @sub_head_line %>]]></SubTitle><% end %>
+    #   </TitleComponent><% if images.last.not_related == true %>
+    #   <ArticleComponent>
+    #     <Content><![CDATA[<%= @data_content %>]]></Content>
+    #   </ArticleComponent><% else %>
+    #   <ArticleComponent>
+    #     <Content><![CDATA[#{@img_data}<%= @data_content %>]]></Content>
+    #   </ArticleComponent>
+    #   #{grp_merged_component}<% end %>
+    #   </Article>
+    # EOF
 
     else
       three_component =<<~EOF
