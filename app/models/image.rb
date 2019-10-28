@@ -65,7 +65,6 @@ class Image < ApplicationRecord
     if storage_image.attached?
       ActiveStorage::Blob.service.send(:path_for, storage_image.key)
     end
-
     # if image.url
     #   "#{Rails.root}/public" + image.url
     # elsif reporter_image_path
