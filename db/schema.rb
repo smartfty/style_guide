@@ -204,36 +204,6 @@ ActiveRecord::Schema.define(version: 2019_10_04_044310) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "dummies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "exeprt_writers", force: :cascade do |t|
-    t.string "name"
-    t.string "work"
-    t.string "position"
-    t.string "email"
-    t.integer "category_code"
-    t.string "expert_image"
-    t.string "expert_jpg_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "exert_writers", force: :cascade do |t|
-    t.string "name"
-    t.string "work"
-    t.string "position"
-    t.string "email"
-    t.integer "category_code"
-    t.string "expert_image"
-    t.string "expert_jpg_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "expert_writers", force: :cascade do |t|
     t.string "name"
     t.string "work"

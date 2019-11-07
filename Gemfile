@@ -65,7 +65,7 @@ gem 'griddler'
 
 # gem 'high_voltage'
 # gem 'jquery-ace-rails'
-# gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap_form'
 gem 'carrierwave', "~> 1.2.3"
 gem 'rest-client'
@@ -73,7 +73,7 @@ gem 'simple_form', '~> 4.0.1'
 gem 'sinatra', '~> 2.0.1'
 
 gem 'bootstrap-kaminari-views'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'browser'
 gem 'devise'
 gem 'devise-i18n'
@@ -87,7 +87,7 @@ gem 'rubypants-unicode'
 gem 'seed_dump'
 gem 'whenever'
 
-gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+# gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'mechanize'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'rubyzip', '>= 1.0.0'
@@ -128,3 +128,8 @@ gem 'guard-remote-sync', '~> 0.1.0'
 
 gem 'image_processing', '~> 1.2'
 gem 'simple_calendar', '~> 2.0'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+  gem 'rails-assets-chosen-bootstrap'
+end

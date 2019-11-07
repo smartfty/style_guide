@@ -30,7 +30,7 @@
         var activeItem = sessionStorage.getItem(storageKey);
         if (activeItem) {
             //remove default collapse settings
-            $(accordionId + " .panel-collapse").removeClass('in');
+            $(accordionId + " .card-collapse").removeClass('in');
       
             //show the account_last visible group
             $("#" + activeItem).addClass("in");
