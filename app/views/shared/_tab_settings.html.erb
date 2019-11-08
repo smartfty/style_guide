@@ -1,0 +1,218 @@
+<div class="settings-panel">
+
+  <div class="mt-4 d-table w-100 px-5">
+    <div class="d-table-cell align-middle">
+      <h5 class="p-0">
+        App Layout
+      </h5>
+    </div>
+  </div>
+
+  <div class="list" id="fh">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'header-function-fixed'} %>
+    <span class="onoffswitch-title">Fixed Header</span>
+    <span class="onoffswitch-title-desc">header is in a fixed at all times</span>
+  </div>
+  <div class="list" id="nff">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-function-fixed'} %>
+    <span class="onoffswitch-title">Fixed Navigation</span>
+    <span class="onoffswitch-title-desc">left panel is fixed</span>
+  </div>
+  <div class="list" id="nfm">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-function-minify'} %>
+    <span class="onoffswitch-title">Minify Navigation</span>
+    <span class="onoffswitch-title-desc">Skew nav to maximize space</span>
+  </div>
+  <div class="list" id="nfh">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-function-hidden'} %>
+    <span class="onoffswitch-title">Hide Navigation</span>
+    <span class="onoffswitch-title-desc">roll mouse on edge to reveal</span>
+  </div>
+  <div class="list" id="nft">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-function-top'} %>
+    <span class="onoffswitch-title">Top Navigation</span>
+    <span class="onoffswitch-title-desc">Relocate left pane to top</span>
+  </div>
+  <div class="list" id="mmb">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-main-boxed'} %>
+    <span class="onoffswitch-title">Boxed Layout</span>
+    <span class="onoffswitch-title-desc">Encapsulates to a container</span>
+  </div>
+  <div class="expanded">
+    <ul class="">
+      <li><div class="bg-fusion-50" data-action="toggle" data-class="mod-bg-1"></div></li>
+      <li><div class="bg-warning-200" data-action="toggle" data-class="mod-bg-2"></div></li>
+      <li><div class="bg-primary-200" data-action="toggle" data-class="mod-bg-3"></div></li>
+      <li><div class="bg-success-300" data-action="toggle" data-class="mod-bg-4"></div></li>
+    </ul>
+    <div class="list" id="mbgf">
+      <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-fixed-bg'} %>
+      <span class="onoffswitch-title">Fixed Background</span>
+    </div>
+  </div>
+
+  <div class="mt-4 d-table w-100 px-5">
+    <div class="d-table-cell align-middle">
+      <h5 class="p-0">
+        Mobile Menu
+      </h5>
+    </div>
+  </div>
+
+  <div class="list" id="nmp">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-mobile-push'} %>
+    <span class="onoffswitch-title">Push Content</span>
+    <span class="onoffswitch-title-desc">Content pushed on menu reveal</span>
+  </div>
+  <div class="list" id="nmno">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-mobile-no-overlay'} %>
+    <span class="onoffswitch-title">No Overlay</span>
+    <span class="onoffswitch-title-desc">Removes mesh on menu reveal</span>
+  </div>
+  <div class="list" id="sldo">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'nav-mobile-slide-out'} %>
+    <span class="onoffswitch-title">Off-Canvas <sup>(beta)</sup></span>
+    <span class="onoffswitch-title-desc">Content overlaps menu</span>
+  </div>
+
+  <div class="mt-4 d-table w-100 px-5">
+    <div class="d-table-cell align-middle">
+      <h5 class="p-0">
+        Accessibility
+      </h5>
+    </div>
+  </div>
+
+  <div class="list" id="mbf">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-bigger-font'} %>
+    <span class="onoffswitch-title">Bigger Content Font</span>
+    <span class="onoffswitch-title-desc">content fonts are bigger for readability</span>
+  </div>
+  <div class="list" id="mhc">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-high-contrast'} %>
+    <span class="onoffswitch-title">High Contrast Text (WCAG 2 AA)</span>
+    <span class="onoffswitch-title-desc">4.5:1 text contrast ratio</span>
+  </div>
+  <div class="list" id="mcb">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-color-blind'} %>
+    <span class="onoffswitch-title">Daltonism <sup>(beta)</sup> </span>
+    <span class="onoffswitch-title-desc">color vision deficiency</span>
+  </div>
+  <div class="list" id="mpc">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-pace-custom'} %>
+    <span class="onoffswitch-title">Preloader Inside</span>
+    <span class="onoffswitch-title-desc">preloader will be inside content</span>
+  </div>
+
+  <div class="mt-4 d-table w-100 px-5">
+    <div class="d-table-cell align-middle">
+      <h5 class="p-0">
+        Global Modifications
+      </h5>
+    </div>
+  </div>
+  <div class="list" id="mcbg">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-clean-page-bg'} %>
+    <span class="onoffswitch-title">Clean Page Background</span>
+    <span class="onoffswitch-title-desc">adds more whitespace</span>
+  </div>
+  <div class="list" id="mhni">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-hide-nav-icons'} %>
+    <span class="onoffswitch-title">Hide Navigation Icons</span>
+    <span class="onoffswitch-title-desc">invisible navigation icons</span>
+  </div>
+  <div class="list" id="dan">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-disable-animation'} %>
+    <span class="onoffswitch-title">Disable CSS Animation</span>
+    <span class="onoffswitch-title-desc">Disables CSS based animations</span>
+  </div>
+  <div class="list" id="mhic">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-hide-info-card'} %>
+    <span class="onoffswitch-title">Hide Info Card</span>
+    <span class="onoffswitch-title-desc">Hides info card from left panel</span>
+  </div>
+  <div class="list" id="mlph">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-lean-subheader'} %>
+    <span class="onoffswitch-title">Lean Subheader</span>
+    <span class="onoffswitch-title-desc">distinguished page header</span>
+  </div>
+  <div class="list" id="mnl">
+    <%= link_to '', '#', onclick: 'return false;', class: 'btn btn-switch', data: {action: 'toggle', class: 'mod-nav-link'} %>
+    <span class="onoffswitch-title">Hierarchical Navigation</span>
+    <span class="onoffswitch-title-desc">Clear breakdown of nav links</span>
+  </div>
+  <div class="list mt-1">
+    <span class="onoffswitch-title">Global Font Size <small>(RESETS ON REFRESH)</small> </span>
+    <div class="btn-group btn-group-sm btn-group-toggle my-2" data-toggle="buttons">
+      <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text-sm" data-target="html">
+        <input type="radio" name="changeFrontSize"> SM
+      </label>
+      <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text" data-target="html">
+        <input type="radio" name="changeFrontSize" checked=""> MD
+      </label>
+      <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text-lg" data-target="html">
+        <input type="radio" name="changeFrontSize"> LG
+      </label>
+      <label class="btn btn-default btn-sm" data-action="toggle-swap" data-class="root-text-xl" data-target="html">
+        <input type="radio" name="changeFrontSize"> XL
+      </label>
+    </div>
+    <span class="onoffswitch-title-desc d-block mb-g">Change <strong>root</strong> font size to effect rem values</span>
+  </div>
+
+  <div class="mt-2 d-table w-100 pl-5 pr-3">
+    <div class="d-table-cell align-middle">
+      <h5 class="p-0">
+        Theme colors <small>(overlays base css)</small>
+      </h5>
+      <div class="fs-xs text-muted p-2 alert alert-warning mt-3 mb-0">
+        <i class="fal fa-exclamation-triangle text-warning mr-2"></i>Due to network latency and CPU utilization, you may experience a brief flickering effect on page load which may show the intial applied theme for a split second. Setting the prefered style/theme in the header will prevent this from happening.
+      </div>
+    </div>
+  </div>
+  <div class="expanded theme-colors pl-5 pr-3">
+    <ul class="m-0">
+      <li><%= link_to '', '#', id: 'myapp-0', data: {action: 'theme-update',  themesave: '', theme: '', toggle: 'tooltip', placement: 'top', 'original-title' => 'Wisteria (base css)'}, title: 'Wisteria (base css)' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-1', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-1.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Tapestry'}, title: 'Tapestry' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-2', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-2.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Atlantis'}, title: 'Atlantis' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-3', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-3.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Indigo'}, title: 'Indigo' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-4', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-4.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Dodger Blue'}, title: 'Dodger Blue' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-5', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-5.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Tradewind'}, title: 'Tradewind' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-6', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-6.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Cranberry'}, title: 'Cranberry' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-7', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-7.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Oslo Gray'}, title: 'Oslo Gray' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-8', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-8.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Chetwode Blue'}, title: 'Chetwode Blue' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-9', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-9.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Apricot'}, title: 'Apricot' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-10', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-10.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Blue Smoke'}, title: 'Blue Smoke' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-11', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-11.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Green Smoke'}, title: 'Green Smoke' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-12', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-12.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Wild Blue Yonder'}, title: 'Wild Blue Yonder' %></li>
+
+      <li><%= link_to '', '#', id: 'myapp-13', data: {action: 'theme-update', themesave: '', theme: stylesheet_path('smartadmin/themes/cust-theme-13.css'), toggle: 'tooltip', placement: 'top', 'original-title' => 'Emerald'}, title: 'Emerald' %></li>
+    </ul>
+  </div>
+
+
+  <hr class="mb-0 mt-4">
+  <div class="pl-5 pr-3 py-3 bg-faded">
+    <div class="row no-gutters">
+      <div class="col-6 pr-1">
+        <%= link_to 'Reset Settings', '#', class: 'btn btn-outline-danger fw-500 btn-block', data: {action: 'app-reset'} %>
+      </div>
+      <div class="col-6 pl-1">
+        <%= link_to 'Factory Reset', '#', class: 'btn btn-danger fw-500 btn-block', data: {action: 'factory-reset'} %>
+      </div>
+    </div>
+  </div>
+
+</div>

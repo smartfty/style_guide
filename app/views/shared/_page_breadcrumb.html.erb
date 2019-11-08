@@ -1,0 +1,13 @@
+<% if content_for?(:category_1) %>
+  <ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">NewsGo</a></li>
+    <% if content_for?(:category_1) %>
+      <li class="breadcrumb-item"><%= yield(:category_1) %></li>
+    <% end %>
+    <% if content_for?(:category_2) %>
+      <li class="breadcrumb-item"><%= yield(:category_2) %></li>
+    <% end %>
+    <li class="breadcrumb-item active"><%= yield(:title) %></li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+  </ol>
+<% end %>

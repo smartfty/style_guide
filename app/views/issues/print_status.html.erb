@@ -2,9 +2,9 @@
 <h3 align='center'>출력 현황</h3>
 
 
-<div class="view">
+<div class="row">
   <% @issue.pages.each do |page| %>
-    <div class="col-xs-3 col-md-2" align='center'>
+    <div class="col-sm-3" align='center'>
     <% if page.print_count > 0 %>
       <embed src="<%= page.printer_file_to_show %>#toolbar=0&navpanes=0&scrollbar=0" style="border-style:solid; border-color:green;" width="245px" height="340px"></embed>
       <!-- %= raw page.to_svg_with_jpg % -->

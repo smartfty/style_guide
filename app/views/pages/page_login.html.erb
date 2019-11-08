@@ -1,0 +1,73 @@
+<%
+  content_for(:title, 'Login')
+%>
+
+<% content_for :head_block do %>
+  <%= stylesheet_link_tag 'smartadmin/page-login', media: 'screen, print' %>
+<% end %>
+
+<div class="blankpage-form-field">
+
+
+  <div class="page-logo m-0 w-100 align-items-center justify-content-center rounded border-bottom-left-radius-0 border-bottom-right-radius-0 px-4">
+    <a href="javascript:void(0)" class="page-logo-link press-scale-down d-flex align-items-center">
+      <%= image_tag 'smartadmin/logo.png', alt: Rails.configuration.app_name, aria: {roledescription: 'logo'} %>
+      <span class="page-logo-text mr-1"><%= Rails.configuration.app_name %></span>
+      <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+    </a>
+  </div>
+
+  <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
+
+    <%= form_tag root_path, method: :get do %>
+
+      <div class="form-group">
+        <label class="form-label" for="username">Username</label>
+        <input type="email" id="username" class="form-control" placeholder="your id or email" value="<%= Rails.configuration.email %>">
+        <span class="help-block">
+					Your unique username to app
+				</span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="password" value="password123">
+        <span class="help-block">
+					Your password
+				</span>
+      </div>
+
+      <div class="form-group text-left">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="rememberme">
+          <label class="custom-control-label" for="rememberme"> Remember me for the next 30 days</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-default float-right">Secure login</button>
+
+    <% end %>
+  </div>
+
+  <div class="blankpage-footer text-center">
+    <a href="#"><strong>Recover Password</strong></a> | <a href="#"><strong>Register Account</strong></a>
+  </div>
+
+</div>
+
+<div class="login-footer p-2">
+  <div class="row">
+    <div class="col col-sm-12 text-center">
+
+      <i><strong>System Message:</strong> You were logged out from 198.164.246.1 on Saturday, March, 2017 at 10.56AM</i>
+    </div>
+  </div>
+</div>
+
+<%=
+  video_tag(
+      %w(smartadmin/video/cc.webm smartadmin/video/cc.mp4),
+      poster: 'smartadmin/backgrounds/clouds.png',
+      playsinline: '', autoplay: '', muted: '', loop: ''
+  )
+%>

@@ -1,0 +1,16 @@
+<li class="<%= 'disabled' if sub_entry[:disabled] %><%= class_if_current_page(entry: sub_entry) %>">
+  <a href="<%= sub_entry[:href] %>" title="<%= sub_entry[:title] %>" data-filter-tags="<%= filter_tags_from_title((parents + [sub_entry]).collect {|item| item[:title]}.join(' ')) %>">
+    <% if sub_entry[:icon].present? %>
+      <i class="fal <%= sub_entry[:icon] %>"></i>
+    <% end %>
+    <span class="nav-link-text" data-i18n="<%= i18n_from_title(prefix: 'nav.', title: (parents + [sub_entry]).collect {|item| item[:title]}.join(' ')) %>"><%= sub_entry[:title] %></span>
+    <% if sub_entry[:subtitle].present? %>
+      <span class="<%= sub_entry[:subtitle_class] %>"><%= sub_entry[:subtitle] %></span>
+    <% end %>
+  </a>
+  <% if sub_entry[:children].present? %>
+    <ul>
+      <%= render partial: 'shared/nav_sub_entry', collection: sub_entry[:children], as: :sub_entry, locals: {parents: parents + [sub_entry]} %>
+    </ul>
+  <% end %>
+</li>

@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+
+<title>
+  <% if content_for?(:title) %>
+    <%= yield :title %> - <%= yield :category_1 %> - <%= Rails.configuration.app %> v<%= Rails.configuration.version %>
+  <% else %>
+    <%= Rails.configuration.app %>
+  <% end %>
+</title>
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<!-- base vendor bundle:
+	 DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations
+				+ pace.js (recommended)
+				+ jquery.js (core)
+				+ jquery-ui-cust.js (core)
+				+ popper.js (core)
+				+ bootstrap.js (core)
+				+ slimscroll.js (extension)
+				+ app.navigation.js (core)
+				+ ba-throttle-debounce.js (core)
+				+ waves.js (extension)
+				+ smartpanels.js (extension)
+				+ src/../jquery-snippets.js (core) -->
+<%=javascript_include_tag 'smartadmin/vendors.bundle', 'data-turbolinks-track': 'reload' %>
+
+<meta name="description" content="<%= yield :title %>">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+<!-- Call App Mode on ios devices -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- Remove Tap Highlight on Windows Phone IE -->
+<meta name="msapplication-tap-highlight" content="no">
+<!-- base css -->
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<!-- Place favicon.ico in the root directory -->
+<%= render 'shared/favicon' %>

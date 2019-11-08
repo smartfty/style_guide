@@ -1,0 +1,105 @@
+<header class="page-header" role="banner">
+
+  <!-- we need this logo when user switches to nav-function-top -->
+  <%= render 'shared/logo' %>
+
+  <% if Rails.configuration.app_layout_shortcut %>
+    <!-- DOC: nav menu layout change shortcut -->
+    <div class="hidden-md-down dropdown-icon-menu position-relative">
+      <%= link_to '#', class: 'header-btn btn js-waves-off', data: {action: 'toggle', class: 'nav-function-hidden', title: 'Hide Navigation'} do %>
+        <i class="ni ni-menu"></i>
+      <% end %>
+      <ul>
+        <li>
+          <%= link_to '#', class: 'btn js-waves-off', data: {action: 'toggle', class: 'nav-function-minify', title: 'Minify Navigation'} do %>
+            <i class="ni ni-minify-nav"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', class: 'btn js-waves-off', data: {action: 'toggle', class: 'nav-function-fixed', title: 'Lock Navigation'} do %>
+            <i class="ni ni-lock-nav"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- DOC: mobile button appears during mobile width -->
+  <div class="hidden-lg-up">
+    <%= link_to '#', class: 'header-btn btn press-scale-down', data: {action: 'toggle', class: 'mobile-nav-on'} do %>
+      <i class="ni ni-menu"></i>
+    <% end %>
+  </div>
+
+  <div class="search">
+    <%= form_tag pages_page_search_path, method: 'get', class: 'app-forms hidden-xs-down', role: 'search', autocomplete: 'off' do %>
+      <%= text_field_tag '', '', id: 'search-field', placeholder: 'Search for anything', class: 'form-control', tabindex: 1 %>
+      <%= link_to '#', onclick: 'return false;', class: 'btn-danger btn-search-close js-waves-off d-none', data: {action: 'toggle', class: 'mobile-search-on'} do %>
+        <i class="fal fa-times"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="ml-auto d-flex">
+
+    <!-- activate app search icon (mobile) -->
+    <div class="hidden-sm-up">
+      <a href="#" class="header-icon" data-action="toggle" data-class="mobile-search-on" data-focus="search-field" title="Search">
+        <i class="fal fa-search"></i>
+      </a>
+    </div>
+
+    <% if Rails.configuration.layout_settings %>
+      <!-- app settings -->
+      <div class="hidden-md-down">
+        <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-settings">
+          <i class="fal fa-cog"></i>
+        </a>
+      </div>
+    <% end %>
+
+    <!-- app shortcuts -->
+    <div>
+      <a href="#" class="header-icon" data-toggle="dropdown" title="My Apps">
+        <i class="fal fa-cube"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-animated w-auto h-auto">
+        <%= render 'shared/dropdown_app' %>
+      </div>
+    </div>
+
+    <% if Rails.configuration.chat_interface %>
+      <!-- app message -->
+      <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-messenger">
+        <i class="fal fa-globe"></i>
+        <span class="badge badge-icon">!</span>
+      </a>
+    <% end %>
+
+    <!-- app notification -->
+    <div>
+      <a href="#" class="header-icon" data-toggle="dropdown" title="You got 11 notifications">
+        <i class="fal fa-bell"></i>
+        <span class="badge badge-icon">11</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-animated dropdown-xl">
+        <%= render 'shared/dropdown_notification' %>
+      </div>
+    </div>
+
+    <!-- app user menu -->
+    <div>
+      <%= link_to '#', data: {toggle: 'dropdown'}, title: Rails.configuration.email, class: 'header-icon d-flex align-items-center justify-content-center ml-2' do %>
+        <%= image_tag "smartadmin/demo/avatars/#{Rails.configuration.avatar}", class: 'profile-image rounded-circle', alt: Rails.configuration.user %>
+        <!-- you can also add username next to the avatar with the codes below:
+        <span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">Me</span>
+        <i class="ni ni-chevron-down hidden-xs-down"></i> -->
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+        <%= render 'shared/dropdown_menu' %>
+      </div>
+    </div>
+
+  </div>
+
+</header>

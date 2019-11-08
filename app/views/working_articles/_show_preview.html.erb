@@ -1,7 +1,8 @@
 <%= render 'character_count', article: @working_article %>
 <a href='/working_articles/<%= @working_article.id %>'>
 <span class='zoom' id='ex1'>
-<img src="<%= @working_article.jpg_image_path %>"></img></span>
+<img class="w-100" src="<%= @working_article.jpg_image_path %>"></img>
+</span>
 </a>
 <%= render 'character_count', article: @working_article %>
 <br>

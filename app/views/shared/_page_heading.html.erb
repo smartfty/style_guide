@@ -1,0 +1,20 @@
+<% if content_for?(:heading) %>
+
+  <div class="subheader">
+
+    <%= yield(:header_icon_block) %>
+
+    <h1 class="subheader-title">
+      <%= yield(:heading) %>
+      <small>
+        <% if content_for?(:pagedescription) %>
+          <%= yield(:pagedescription) %>
+        <% end %>
+      </small>
+    </h1>
+
+    <%= yield(:subheader_block) %>
+
+  </div>
+
+<% end %>

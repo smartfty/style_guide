@@ -1,0 +1,8 @@
+<div class="nav-filter">
+  <div class="position-relative">
+    <%= text_field_tag '', '', id: 'nav_filter_input', placeholder: 'Filter menu', class: 'form-control', tabindex: 0 %>
+    <%= link_to '#', onclick: 'return false;', class: 'btn-primary btn-search-close js-waves-off', data: {action: 'toggle', class: 'list-filter-active', target: '.page-sidebar'} do %>
+      <i class="fal fa-chevron-up"></i>
+    <% end %>
+  </div>
+</div>

@@ -1,21 +1,25 @@
-<div class="view">
-  <% @issue.pages.each do |page| %>
-    <div class="col-xs-6 col-md-2" align='center'>
-      <a href="<%=  page_path(page) %>">
-        <img src="<%= page.jpg_image_path %>" width="100%"></img>
-      </a>
-      <!-- %= raw page.to_svg_with_jpg % -->
-
-      <% if page.color_page %> 
-      <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-danger btn-xs" %></h4>
-      <% else %>
-      <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-default btn-xs" %></h4>
-      <% end %>
-
-    </div>
-    <!-- true -->
-  <% end %>
-
+<%
+  content_for(:title, '전체보기')
+  content_for(:category_1, '뉴스고 지면편집')
+  content_for(:pagedescription, '')
+%>
+<div class="col-sm-12 ">
+<div class="row">
+    <% @issue.pages.each do |page| %>
+      <div class="col-sm-2 ">
+        <a href="<%= page_path(page) %>">
+          <img class="card" src="<%= page.jpg_image_path %>" width="100%"></img>
+        </a>
+        <!-- %= raw page.to_svg_with_jpg % -->
+        <% if page.color_page %> 
+        <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-outline-primary btn-xs" %></h4>
+        <% else %>
+        <h4 align='center'><%= link_to "#{page.page_number}면", page_path(page), class: "btn btn-outline-secondary btn-xs" %></h4>
+        <% end %>
+      <!-- true -->
+      </div>
+    <% end %>
+  </div>
 </div>
 <!-- 편집화면 하단에 자주쓰는 이전, 저장, 다운 버튼을 항상 보이게 설정 -->
 <nav class="navbar navbar-default navbar-fixed-bottom">

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<%= render 'shared/copyright_header' %>
+<html lang="en">
+<head>
+  <%= render 'shared/head' %>
+
+  <%# Optional: page related CSS %>
+  <%= yield :head_block %>
+</head>
+<body>
+
+<!-- BEGIN Page Wrapper -->
+<div class="page-wrapper alt">
+
+  <!-- BEGIN Page Content -->
+  <!-- the #js-page-content id is needed for some plugins to initialize -->
+  <main id="js-page-content" role="main" class="page-content">
+    <%= yield %>
+  </main>
+  <!-- END Page Content -->
+
+  <!-- BEGIN Page Footer -->
+  <%= render 'shared/page_footer' %>
+  <!-- END Page Footer -->
+
+</div>
+<!-- END Page Wrapper -->
+
+<!-- BEGIN Quick Menu -->
+<%= render 'shared/shortcut_menu' %>
+<!-- END Quick Menu -->
+
+
+<%= render 'shared/scripts_base_plugins' %>
+<%# Custom scripts per page can be added. %>
+<%= yield :scripts_block %>
+</body>
+</html>

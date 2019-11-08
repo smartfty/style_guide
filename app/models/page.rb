@@ -538,7 +538,6 @@ class Page < ApplicationRecord
   end
 
 
-
   def heading_page_number
     page_heading_path = "#{Rails.root}/public/1/page_heading/#{page_number}" 
     if File.exist?(page_heading_path)
@@ -569,7 +568,6 @@ class Page < ApplicationRecord
   end
 
   def copy_section_template(section)
-    
     old_article_count = working_articles.length
     new_aricle_count  = section.story_count
     copy_config_file
@@ -753,7 +751,7 @@ class Page < ApplicationRecord
       ad_box.generate_pdf
     end
     PageWorker.perform_async(path, nil)
-
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section . -time_stamp=#{@time_stamp}"
     # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
     # copy_outputs_to_site
   end
