@@ -1,0 +1,15 @@
+<%= search_form_for @q, remote: true do |f| %>
+    <div class="form-row d-flex justify-content-center my-2">
+        <%= f.label '날짜 범위', class: "col-form-label" %>
+        <%= f.date_field :date_gteq_any, class: "form-control col-md-4" %> 
+        <%= f.label '~', class: "col-form-label" %>
+        <%= f.date_field :date_lteq_any, class: "form-control col-md-4" %>
+    </div>
+    <div class="form-row d-flex justify-content-center my-2">
+        <%= f.label '카테고리', class: "col-form-label" %>
+        <%= f.select :category_name_eq, ['정치', '경제', '사회', '국제', '문화', '스포츠/레저', '지방'], {include_blank: '전체'}, class: "form-control col-md-3" %>
+        <%= f.label '제목 및 본문', class: "col-form-label" %>
+        <%= f.text_field :title_or_body_cont, placeholder: "검색할 단어과 내용을 입력하세요", class: "form-control col-md-4" %>
+        <%= f.submit "검색", class: "btn btn-info", style: "margin-left: 10px;" %>
+    </div>
+<% end %>

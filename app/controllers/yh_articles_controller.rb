@@ -7,11 +7,12 @@ class YhArticlesController < ApplicationController
   # GET /yh_articles.json
   def index
     @q = YhArticle.ransack(params[:q])
-    @yh_articles = @q.result.order(:date, :time).page(params[:page]).reverse_order.per(10)
+    @yh_articles = @q.result(distinct: true)
+    @yh_articles = @yh_articles.order(:date, :time).page(params[:page]).reverse_order.per(10)
 
     # @yh_articles = YhArticle.all
-    @yh_article_categories = YhArticle.pluck(:category_name).uniq.sort
-    
+    # @yh_article_categories = YhArticle.pluck(:category_name).uniq.sort
+    # @yh_article_categories = ["전체", "정치", "사회", "국제", "경제", "지방", "문화", "스포츠/레저", "기타"]
   end
 
   # GET /yh_articles/1
