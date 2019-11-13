@@ -43,7 +43,6 @@ config/schedule.rb
 config/schedule.rb
 /public/wire_source
 config/schedule.rb
-*.yml
 config/schedule.rb
 storage/
 .DS_Store
