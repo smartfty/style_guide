@@ -1,25 +1,21 @@
-# frozen_string_literal: true
-
 class YhArticlesController < ApplicationController
-  before_action :set_yh_article, only: %i[show edit update destroy taken]
+  before_action :set_yh_article, only: [:show, :edit, :update, :destroy, :taken]
 
   # GET /yh_articles
   # GET /yh_articles.json
   def index
     @q = YhArticle.ransack(params[:q])
-    @yh_articles = @q.result(distinct: true)
-    @yh_articles = @yh_articles.order(:date, :time).page(params[:page]).reverse_order.per(10)
+    @yh_articles = @q.result.order(:date, :time).page(params[:page]).reverse_order.per(10) 
 
     # @yh_articles = YhArticle.all
-    # @yh_article_categories = YhArticle.pluck(:category_name).uniq.sort
-    # @yh_article_categories = ["전체", "정치", "사회", "국제", "경제", "지방", "문화", "스포츠/레저", "기타"]
   end
 
   # GET /yh_articles/1
   # GET /yh_articles/1.json
   def show
     @q = YhArticle.ransack(params[:q])
-    @yh_articles = @q.result.order(:date, :time).page(params[:page]).reverse_order.per(10)
+    @yh_articles = @q.result.order(:date, :time).page(params[:page]).reverse_order.per(10) 
+
   end
 
   # GET /yh_articles/new
@@ -28,7 +24,8 @@ class YhArticlesController < ApplicationController
   end
 
   # GET /yh_articles/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /yh_articles
   # POST /yh_articles.json
@@ -77,14 +74,13 @@ class YhArticlesController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_yh_article
+      @yh_article = YhArticle.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_yh_article
-    @yh_article = YhArticle.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def yh_article_params
-    params.require(:yh_article).permit(:action, :service_type, :content_id, :date, :time, :urgency, :category, :class_code, :attriubute_code, :source, :credit, :region, :title, :body, :writer, :char_count, :taken_by)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def yh_article_params
+      params.require(:yh_article).permit(:action, :service_type, :content_id, :date, :time, :urgency, :category, :class_code, :attriubute_code, :source, :credit, :region, :title, :body, :writer, :char_count, :taken_by)
+    end
 end

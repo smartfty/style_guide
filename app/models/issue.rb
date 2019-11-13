@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: issues
@@ -30,7 +28,7 @@ class Issue < ApplicationRecord
   has_many  :page_plans, dependent: :delete_all
   has_many  :pages, -> { order(page_number: :asc) }, dependent: :delete_all
   has_one :spread, dependent: :delete
-  has_many :images
+  has_many  :images
   accepts_nested_attributes_for :images
   has_many :ad_images
   accepts_nested_attributes_for :ad_images
@@ -84,20 +82,18 @@ class Issue < ApplicationRecord
 
   def setup
     system "mkdir -p #{path}" unless File.directory?(path)
-    unless File.directory?(issue_images_path)
-      system "mkdir -p #{issue_images_path}"
-    end
+    system "mkdir -p #{issue_images_path}" unless File.directory?(issue_images_path)
     system "mkdir -p #{issue_ads_path}" unless File.directory?(issue_ads_path)
   end
 
-  DAYS_IN_KOREAN = %w[(일) (월) (화) (수) (목) (금) (토)].freeze
+  DAYS_IN_KOREAN = %w{(일) (월) (화) (수) (목) (금) (토)}
 
   def issue_week_day_in_korean
     DAYS_IN_KOREAN[date.wday]
   end
 
   def date_string
-    date.strftime('%Y%m%d')
+    date.strftime("%Y%m%d")
   end
 
   def korean_date_string
@@ -154,15 +150,15 @@ class Issue < ApplicationRecord
   end
 
   def make_default_issue_plan
-    # plan
+    #plan
     # section_names_array = eval(publication.section_names)
     default_plans = eval(plan)
     default_plans.each_with_index do |page_array, i|
       page_hash = {}
       page_hash[:issue_id] = id
       # puts "page_hash[:section_name]:#{page_hash[:section_name]}"
-      page_hash[:page_number] = i + 1
-      page_hash[:section_name] = page_array[0]
+      page_hash[:page_number]   = i + 1
+      page_hash[:section_name]   = page_array[0]
       page_hash[:profile]       = page_array[1]
       page_hash[:color_page]    = page_array[2] if page_array.length > 2
       # binding.pry
@@ -176,14 +172,14 @@ class Issue < ApplicationRecord
     # parse_ad_images
     # parse_graphics
   end
-
+  
   def make_spread
     puts 'in make_spread'
     Spread.create!(issue_id: id)
   end
 
   def make_pages
-    page_plans.each_with_index do |page_plan, _i|
+    page_plans.each_with_index do |page_plan, i|
       if page_plan.page
         if page_plan.need_update?
           if page_plan.page.color_page != page_plan.color_page
@@ -197,7 +193,7 @@ class Issue < ApplicationRecord
         next
       else
         # create new page
-        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, page_number: page_plan.page_number, section_name: page_plan.section_name, template_id: page_plan.selected_template_id, color_page: page_plan.color_page)
+        page_plan.page = Page.create!(issue_id: id, page_plan_id: page_plan.id, page_number:page_plan.page_number,  section_name: page_plan.section_name, template_id: page_plan.selected_template_id, color_page:page_plan.color_page)
         page_plan.dirty = false
         page_plan.save
       end
@@ -218,7 +214,6 @@ class Issue < ApplicationRecord
       list << page.ad_info if page.ad_info
     end
     return false unless list.empty?
-
     list.to_yaml
   end
 
@@ -231,11 +226,10 @@ class Issue < ApplicationRecord
     Dir.glob("#{issue_images_path}/*{.jpg,.pdf}").each do |image|
       puts "+++++ image:#{image}"
       h = {}
-      issue_image_basename = File.basename(image)
-      profile_array = issue_image_basename.split('_')
+      issue_image_basename  = File.basename(image)
+      profile_array         = issue_image_basename.split('_')
       puts "profile_array:#{profile_array}"
       next if profile_array.length < 2
-
       puts "profile_array.length:#{profile_array.length}"
       # h[:image_path]        = image
       h[:page_number]       = profile_array[0].to_i
@@ -315,28 +309,27 @@ class Issue < ApplicationRecord
   def spread_left_page
     puts "pages.count:#{pages.count}"
     return if pages.count == 0
-
-    half = pages.count / 2
+    half = pages.count/2
     puts "half:#{half}"
     pages[half - 1]
   end
 
   def spread_right_page
     return if pages.count == 0
-
-    half = pages.count / 2
+    half = pages.count/2
     pages[half]
   end
 
   private
 
   def read_issue_plan
+
     if File.exist?(default_issue_plan_path)
-      self.plan = File.open(default_issue_plan_path, 'r', &:read)
-      true
+      self.plan = File.open(default_issue_plan_path, 'r'){|f| f.read}
+      return true
     else
       puts "#{default_issue_plan_path} does not exist!!!"
-      false
+      return false
     end
   end
 end

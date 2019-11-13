@@ -4,9 +4,10 @@ RLayout::Container.new(width:158.74015748031,  height: 75) do
   container(x: 0, y: 20, width:100, bottom_margin: 10, fill_color: 'clear') do
     
       
-        text('전수미', text_alignment: 'right', from_right: 10, y:28, font: 'KoPubDotumPB', font_size: 9,text_color:"CMYK=0,0,0,100", fill_color: 'clear')
+        text('전수미', text_alignment: 'right', from_right: 10, y:17, font: 'KoPubDotumPB', font_size: 9,text_color:"CMYK=0,0,0,100", fill_color: 'clear')
       
-        text('변호사·정치학 박사', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, fill_color: 'clear')
+        text('변호사', text_alignment: 'right', from_right: 10, y:30, font: 'KoPubDotumPL', font_size: 8, text_color:"CMYK=0,0,0,100", fill_color: 'clear')
+        text('화해평화연구소 소장', text_alignment: 'right', from_right: 10, y:41, font: 'KoPubDotumPL', font_size: 8, text_color:"CMYK=0,0,0,100", fill_color: 'clear')
     
   end
 end

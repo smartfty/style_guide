@@ -1,4 +1,10 @@
 namespace :style do
+  desc 'save section configs'
+  task :save_section_config =>:environment do
+    Section.all do |section|
+      section.save_section_config_yml
+    end
+  end
   
   desc 'update section to draw divider'
   task :update_section_to_draw_divider =>:environment do

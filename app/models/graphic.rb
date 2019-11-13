@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: graphics
@@ -23,7 +21,7 @@
 #  x_grid                :integer
 #  y_in_lines            :integer
 #  height_in_lines       :integer
-#  draw_frame            :boolean          default(FALSE)
+#  draw_frame            :boolean
 #  detail_mode           :boolean
 #  zoom_level            :integer
 #  zoom_direction        :integer
@@ -49,15 +47,12 @@ class Graphic < ApplicationRecord
   mount_uploader :graphic, GraphicUploader
   before_create  :set_default
   before_save    :save_default_value
-  # after_save     :pdf_to_jpg
-  has_one_attached :storage_graphic
+  after_save     :pdf_to_jpg
 
   def info
     h = {}
-    h[:position] = position
-    if extra_height_in_lines && extra_height_in_lines != 0
-      h[:extra_height_in_lines] = extra_height_in_lines
-    end
+    h[:position]              = position
+    h[:extra_height_in_lines] = extra_height_in_lines if extra_height_in_lines && extra_height_in_lines != 0
     h[:column]                = column
     h[:row]                   = row
     h[:x_grid]                = x_grid if x_grid
@@ -65,16 +60,13 @@ class Graphic < ApplicationRecord
   end
 
   def image_path
-    if storage_graphic.attached?
-      ActiveStorage::Blob.service.send(:path_for, storage_graphic.key)
-    end
-    # if graphic.url
-    #   "#{Rails.root}/public" + graphic.url
-    # elsif reporter_graphic_path
-    #   "#{Rails.root}/public" + reporter_graphic_path
+    if graphic.url 
+      "#{Rails.root}/public" + graphic.url
+    else reporter_graphic_path
+      "#{Rails.root}/public" + reporter_graphic_path 
     # else
-    #   "#{Rails.root}/public" + '/place_holder_image.jpg'
-    # end
+    #  "#{Rails.root}/public" + "/place_holder_image.jpg"
+    end
   end
 
   def pdf_to_jpg 
@@ -86,10 +78,10 @@ class Graphic < ApplicationRecord
 
 
   def size_string
-    width_in_mm   = ((working_article.grid_width * column - working_article.gutter) * 0.352778).round(2)
+    width_in_mm   = ((working_article.grid_width*column - working_article.gutter)*0.352778).round(2)
     # 4 is value adjustef to align image with body text
     # extra_height_in_lines = 0 unless extra_height_in_lines
-    height_in_mm  = ((working_article.grid_height * row + working_article.body_line_height * extra_height_in_lines - 4) * 0.352778).round(3)
+    height_in_mm  = ((working_article.grid_height*row + working_article.body_line_height*extra_height_in_lines - 4)*0.352778).round(3)
     "#{width_in_mm}mm x #{height_in_mm}mm"
   end
 
@@ -101,7 +93,7 @@ class Graphic < ApplicationRecord
     working_article.page_number
   end
 
-  # TODO: delete this
+  # TODO delete this
   # def order
   #   working_article.order
   # end
@@ -117,7 +109,7 @@ class Graphic < ApplicationRecord
     working_article.graphics.length
   end
 
-  # '최적' '가로', '세로', '욱여넣기'
+  #'최적' '가로', '세로', '욱여넣기'
   # MAGE_FIT_TYPE_ORIGINAL        = 0
   # IMAGE_FIT_TYPE_VERTICAL       = 1
   # IMAGE_FIT_TYPE_HORIZONTAL     = 2
@@ -131,23 +123,23 @@ class Graphic < ApplicationRecord
     h[:column]            = column
     h[:row]               = row
     h[:position]          = position.to_i
-    h[:extra_height_in_lines] = extra_height_in_lines
+    h[:extra_height_in_lines]   = extra_height_in_lines
     h[:is_float]          = true
     h[:image_kind]        = 'graphic'
-    h[:fit_type] = case fit_type
-                   when '최적'
-                     3
-                   when '세로'
-                     1
-                   when '가로'
-                     2
-                   when '욱여넣기'
-                     4
-                   else
-                     3
-                   end
+    case fit_type
+    when '최적'
+      h[:fit_type] = 3 
+    when '세로'
+      h[:fit_type] = 1 
+    when '가로'
+      h[:fit_type] = 2 
+    when '욱여넣기'
+      h[:fit_type] = 4 
+    else
+      h[:fit_type] = 3 
+    end
     # h[:fit_type]          = fit_type if fit_type
-    h[:x_grid]            = x_grid - 1 if x_grid # user_input - 1
+    h[:x_grid]            = x_grid  - 1 if x_grid # user_input - 1
     h[:draw_frame]        = draw_frame || false
     h
   end
@@ -156,9 +148,8 @@ class Graphic < ApplicationRecord
   def update_change
     return unless page_number
     return unless story_number
-
     current_article_id = working_article_id
-    page = Page.where(issue_id: issue_id, page_number: page_number).first
+    page        = Page.where(issue_id: issue_id, page_number: page_number).first
     unless page
       puts "we don't have page!!!"
       return
@@ -170,10 +161,10 @@ class Graphic < ApplicationRecord
     end
     puts "new_article.id:#{new_article.id}"
     if new_article && new_article.id != current_article_id
-      puts 'change to different article'
+      puts "change to different article"
       self.working_article_id = new_article.id
       self.used_in_layout = false
-      save
+      self.save
       place_image
       # clear image from current_article, if it exits
     end
@@ -197,20 +188,20 @@ class Graphic < ApplicationRecord
     if page_number && story_number
       page = Page.where(issue_id: issue_id, page_number: page_number).first
       return unless page
-
       working_article = WorkingArticle.where(page_id: page.id, order: story_number).first
       return unless working_article
-
       self.working_article_id = working_article.id
       working_article.generate_pdf_with_time_stamp
       working_article.update_page_pdf
       self.used_in_layout = true
-      save
+      self.save
     end
   end
 
   def self.clear_all_images
-    Image.current_images.each(&:clear_image)
+    Image.current_images.each do |current_image|
+      current_image.clear_image
+    end
   end
 
   def clear_image
@@ -218,18 +209,18 @@ class Graphic < ApplicationRecord
       working_article.generate_pdf_with_time_stamp
       working_article.update_page_pdf
       self.used_in_layout = false
-      save
+      self.save
     end
   end
+
 
   # return array of image_basename.split("_")
   # we want to see if page_number and story_number are specified in the file name.
   def parse_file_name
     return [] unless graphic
-
-    image_basename = File.basename(graphic.url)
+    image_basename  = File.basename(graphic.url)
     if image_basename =~ /^\d/
-      image_basename.split('_')
+      image_basename.split("_")
     else
       []
     end
@@ -241,26 +232,22 @@ class Graphic < ApplicationRecord
 
   def change_size(size)
     return false if size == current_image_size
-
     if size == 'auto'
       new_column, new_row, new_lines = working_article.calculate_fitting_image_size(column, row, extra_height_in_lines)
-      if column == new_column && row == new_row && lines == new_lines
-        return false
-      end
-
+      return false if column == new_column && row == new_row && lines == new_lines
       self.column = new_column
       self.row    = new_row
       self.lines  = new_lines
-      save
+      self.save
       true
-    elsif size.include?('x')
-      size_array  = size.split('x')
+    elsif size.include?("x")
+      size_array  = size.split("x")
       self.column = column[0]
       self.row    = column[1]
-      save
+      self.save
       true
     else
-      puts 'wrong size format!!!'
+      puts "wrong size format!!!"
       return false
     end
   end
@@ -272,26 +259,26 @@ class Graphic < ApplicationRecord
 
   private
 
-  def set_default
-    self.column                 = 1 unless column
-    self.row                    = 2 unless row
-    self.extra_height_in_lines  = 0
-    self.position               = 3
+    def set_default
+      self.column                 = 1 unless column
+      self.row                    = 2 unless row
+      self.extra_height_in_lines  = 0
+      self.position               = 3
 
-    if working_article_id
-      wa = WorkingArticle.find(working_article_id)
-      self.issue_id         = wa.page.issue.id
-      self.page_number      = wa.page.page_number
-      self.story_number     = wa.order
+      if working_article_id
+        wa = WorkingArticle.find(working_article_id)
+        self.issue_id         = wa.page.issue.id
+        self.page_number      = wa.page.page_number
+        self.story_number     = wa.order
 
-    elsif graphic
-      parsed_name_array = parse_file_name
-      if parsed_name_array.length >= 2
-        self.page_number      = parsed_name_array[0].to_i
-        self.story_number     = parsed_name_array[1].to_i
-        self.column = parsed_name_array[3] if parsed_name_array.length >= 4
-        self.row = parsed_name_array[4] if parsed_name_array.length >= 5
+      elsif graphic
+        parsed_name_array = parse_file_name
+        if parsed_name_array.length >= 2
+          self.page_number      = parsed_name_array[0].to_i
+          self.story_number     = parsed_name_array[1].to_i
+          self.column           = parsed_name_array[3] if  parsed_name_array.length >= 4
+          self.row              = parsed_name_array[4] if  parsed_name_array.length >= 5
+        end
       end
     end
-  end
 end

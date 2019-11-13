@@ -57,14 +57,11 @@ class Page < ApplicationRecord
   before_create :copy_attributes_from_template
   after_create :setup
   scope :clone_page, -> {where("clone_name!=?", nil)}
-  scope :odd_page, -> {where("clone_name!=?", nil)}
-  
   attr_reader :time_stamp
   include PageSplitable
   include PagePrintable
   include PageSavePdf
   include PageSaveXml
-  include StorageBackupPage
   # extend FriendlyId 
   # friendly_id :friendly_string, :use => [:slugged]
 
@@ -754,7 +751,7 @@ class Page < ApplicationRecord
     end
     PageWorker.perform_async(path, nil)
 
-    # system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
+    system "cd #{path} && /Applications/newsman.app/Contents/MacOS/newsman section ."
     # copy_outputs_to_site
   end
 

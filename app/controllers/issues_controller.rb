@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class IssuesController < ApplicationController
-  before_action :set_issue, only: %i[show clone_pages edit update current_plan images upload_images ad_boxes ad_images upload_ad_images destroy slide_show assign_reporter send_xml_to_ebiz merge_container_xml print_status change_current]
+  before_action :set_issue, only: [:show, :clone_pages, :edit, :update, :current_plan, :images, :upload_images, :ad_boxes, :ad_images, :upload_ad_images, :destroy, :slide_show, :assign_reporter, :send_xml_to_ebiz, :merge_container_xml, :print_status, :change_current]
   before_action :authenticate_user!
 
   # GET /issues
@@ -10,7 +8,7 @@ class IssuesController < ApplicationController
     @issues = Issue.page(params[:page])
     @issues_for_search = Issue.page(params[:page]).reverse_order.per(5)
     session[:current_issue] = @issue
-    # @issues = Issue.order(:id, 'DESC').page(params[:page]).per(20)
+    # @issues = Issue.order(:id, 'DESC').page(params[:page]).per(20) 
   end
 
   # GET /issues/1
@@ -21,8 +19,9 @@ class IssuesController < ApplicationController
     @pages = @issue.pages
     respond_to do |format|
       format.html
-      format.json { render @issue }
+      format.json { render @issue}
     end
+    
   end
 
   # GET /issues/new
@@ -35,7 +34,8 @@ class IssuesController < ApplicationController
   end
 
   # GET /issues/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /issues
   # POST /issues.jsonfredirect_to
@@ -45,7 +45,7 @@ class IssuesController < ApplicationController
       if @issue.save
         @issue.make_default_issue_plan
         @issue.make_pages
-        format.html { redirect_to @issue }
+        format.html { redirect_to @issue}
         format.json { render :show, status: :created, location: @issue }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class IssuesController < ApplicationController
   def update
     respond_to do |format|
       if @issue.update(issue_params)
-        format.html { redirect_to @issue }
+        format.html { redirect_to @issue}
         format.json { render :show, status: :ok, location: @issue }
       else
         format.html { render :edit }
@@ -86,9 +86,9 @@ class IssuesController < ApplicationController
 
   def current_plan
     session[:current_issue] = @issue
-    half = @issue.page_plans.count / 2
-    @front_page_plans = @issue.page_plans.select { |x| x.page_number <= half }.sort_by(&:page_number)
-    @back_page_plans  = @issue.page_plans.select { |x| x.page_number > half }.sort_by(&:page_number).reverse
+    half = @issue.page_plans.count/2
+    @front_page_plans = @issue.page_plans.select{|x| x.page_number <= half}.sort_by{|x| x.page_number}
+    @back_page_plans  = @issue.page_plans.select{|x| x.page_number > half}.sort_by{|x| x.page_number}.reverse
     @available_ads_for_pages = @issue.available_ads_for_pages
   end
 
@@ -103,13 +103,13 @@ class IssuesController < ApplicationController
   def upload_images
     respond_to do |format|
       format.html do
-        if @issue.update(issue_params)
-          params[:images]['image'].each do |a|
-            @image = @issue.images.create!(image: a, issue_id: @issue.id)
-          end
-        end
-      end
-    end
+         if @issue.update(issue_params)
+           params[:images]['image'].each do |a|
+             @image = @issue.images.create!(:image => a, :issue_id => @issue.id)
+           end
+         end
+       end
+     end
     redirect_to images_issue_path(@issue.id)
     # images_issue_path(Issue.last.id)
   end
@@ -127,19 +127,19 @@ class IssuesController < ApplicationController
   def upload_ad_images
     respond_to do |format|
       format.html do
-        if @issue.update(issue_params)
-          params[:ad_images]['ad_image'].each do |a|
-            @ad = @issue.ad_images.create!(ad_image: a, issue_id: @issue.id)
-          end
-        end
-      end
-    end
+         if @issue.update(issue_params)
+           params[:ad_images]['ad_image'].each do |a|
+             @ad = @issue.ad_images.create!(:ad_image => a, :issue_id => @issue.id)
+           end
+         end
+       end
+     end
     redirect_to ad_images_issue_path(@issue.id)
     # images_issue_path(Issue.last.id)
   end
 
   def demo
-    # code
+    #code
   end
 
   def change_current
@@ -149,71 +149,81 @@ class IssuesController < ApplicationController
   def first_group
     set_issue
     group = @issue.publication.sections[0]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_group] = 'first_group'
+    
   end
 
   def second_group
     set_issue
     group = @issue.publication.sections[1]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     session[:current_group] = 'second_group'
+    
   end
 
   def third_group
     set_issue
     group = @issue.publication.sections[2]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}    
     session[:current_group] = 'third_group'
+    
   end
 
   def fourth_group
     set_issue
     group = @issue.publication.sections[3]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}    
     session[:current_group] = 'fourth_group'
+    
   end
 
   def fifth_group
     set_issue
     group = @issue.publication.sections[4]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'fifth_group'
+    
   end
 
   def sixth_group
     set_issue
     group = @issue.publication.sections[5]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'sixth_group'
+    
   end
 
   def seventh_group
     set_issue
     group = @issue.publication.sections[6]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'seventh_group'
+    
   end
 
   def eighth_group
     set_issue
     group = @issue.publication.sections[7]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'eighth_group'
+    
   end
 
   # 오피니언
   def nineth_group
     set_issue
     group = @issue.publication.sections[8]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}  
     session[:current_group] = 'nineth_group'
+    
   end
 
   def ad_group
     set_issue
     session[:current_group] = 'ad_group'
-    @pages = @issue.pages.select { |p| p.section_name == '전면광고' }
+    @pages = @issue.pages.select{|p| p.section_name == '전면광고'}
+    
   end
 
   def spread
@@ -225,14 +235,16 @@ class IssuesController < ApplicationController
     @clone_pages = Page.clone_pages
   end
 
-  def slide_show; end
+  def slide_show
+
+  end
 
   def assign_reporter
-    @reporters        = User.reject { |u| u.group.nil? }.sort_by(&:group)
+    @reporters        = User.select{|u| u.group !=nil}.sort_by{|u| u.group}
     @working_articles = []
     @issue.pages.each do |page|
-      @working_articles += page.working_articles.sort_by(&:order)
-    end # code
+      @working_articles += page.working_articles.sort_by{|x| x.order}
+    end #code
   end
 
   def generate_stories
@@ -243,7 +255,7 @@ class IssuesController < ApplicationController
   def first_group_stories
     set_issue
     group = @issue.publication.sections[0]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'first_group'
   end
@@ -251,7 +263,7 @@ class IssuesController < ApplicationController
   def second_group_stories
     set_issue
     group = @issue.publication.sections[1]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'second_group'
   end
@@ -259,15 +271,16 @@ class IssuesController < ApplicationController
   def third_group_stories
     set_issue
     group = @issue.publication.sections[2]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'third_group'
+
   end
 
   def fourth_group_stories
     set_issue
     group = @issue.publication.sections[3]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'fourth_group'
   end
@@ -275,7 +288,7 @@ class IssuesController < ApplicationController
   def fifth_group_stories
     set_issue
     group = @issue.publication.sections[4]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'fifth_group'
   end
@@ -283,7 +296,7 @@ class IssuesController < ApplicationController
   def sixth_group_stories
     set_issue
     group = @issue.publication.sections[5]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'sixth_group'
   end
@@ -291,23 +304,23 @@ class IssuesController < ApplicationController
   def seventh_group_stories
     set_issue
     group = @issue.publication.sections[6]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'seventh_group'
   end
-
+  
   def eighth_group_stories
     set_issue
     group = @issue.publication.sections[7]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'eighth_group'
   end
-
+  
   def nineth_group_stories
     set_issue
     group = @issue.publication.sections[8]
-    @pages = @issue.pages.select { |p| p.section_name == group }
+    @pages = @issue.pages.select{|p| p.section_name == group}
     @stories = Story.where(summitted_section: group)
     session[:current_story_group] = 'nineth_group'
   end
@@ -340,7 +353,7 @@ class IssuesController < ApplicationController
     set_issue
     # send_file @issue.xml_zip_path, type: 'application/zip'
     respond_to do |format|
-      format.zip { send_data File.open(@issue.xml_zip_path, 'r', &:read) }
+      format.zip { send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
       # zip: {send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
     end
     # send_file @issue.xml_zip_path, :type=>'application/zip', :x_sendfile=>true, :disposition => "attachment", :filename =>filename
@@ -353,7 +366,7 @@ class IssuesController < ApplicationController
     if result
       redirect_to @issue, notice: '뉴스와 지면보기용 xml 파일이 전송 되었습니다.'
     else
-      redirect_to @issue, notice: result.to_s
+      redirect_to @issue, notice: "#{result}"
     end
   end
 
@@ -361,8 +374,8 @@ class IssuesController < ApplicationController
     set_issue
     # if File.exist?(@issue.mobile_preview_xml_zip_path)
     #   system("rm #{@issue.mobile_preview_xml_zip_path}")
-    @issue.save_mobile_preview_xml
-    redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 재생성 되었습니다.'
+      @issue.save_mobile_preview_xml
+      redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 재생성 되었습니다.'
     # else
     #   @issue.save_mobile_preview_xml
     #   redirect_to issue_path(@issue), notice: '모바일용 지면보기 xml 파일이 생성 되었습니다.'
@@ -372,7 +385,7 @@ class IssuesController < ApplicationController
   def download_preview_xml
     set_issue
     respond_to do |format|
-      format.zip { send_data File.open(@issue.preview_xml_zip_path, 'r', &:read) }
+      format.zip { send_data File.open(@issue.preview_xml_zip_path, 'r'){|f| f.read} }
       # zip: {send_data File.open(@issue.xml_zip_path, 'r'){|f| f.read} }
     end
   end
@@ -386,22 +399,21 @@ class IssuesController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_issue
+      if params[:id]
+        # @issue = Issue.find(params[:id])
+        # @issue = Issue.friendly.find(params[:id])
+        @issue = Issue.find(params[:id])
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_issue
-    @issue = if params[:id]
-               # @issue = Issue.find(params[:id])
-               # @issue = Issue.friendly.find(params[:id])
-               Issue.find(params[:id])
+      else
+        @issue = Issue.last
+      end
+    end
 
-             else
-               Issue.last
-             end
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def issue_params
-    # params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
-    params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: %i[id issue_id image])
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def issue_params
+      # params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
+      params.require(:issue).permit(:date, :number, :plan, :publication_id, images_attributes: [:id, :issue_id, :image])
+    end
 end

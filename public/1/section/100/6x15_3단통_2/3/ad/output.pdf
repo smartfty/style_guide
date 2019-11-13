@@ -25,10 +25,14 @@ endobj
 << /Type /Catalog /Pages 3 0 R >>
 endobj
 8 0 obj
-(macOS Version 10.14.6 \(Build 18G1012\) Quartz PDFContext)
+(Mac OS X 10.12.6 Quartz PDFContext)
 endobj
 9 0 obj
-(D:20191105020529Z00'00')
+<<<<<<< HEAD
+(D:20190404063013Z00'00')
+=======
+(D:20190404071744Z00'00')
+>>>>>>> upstream/master
 endobj
 1 0 obj
 << /Producer 8 0 R /CreationDate 9 0 R /ModDate 9 0 R >>
@@ -36,7 +40,7 @@ endobj
 xref
 0 10
 0000000000 65535 f 
-0000000721 00000 n 
+0000000698 00000 n 
 0000000310 00000 n 
 0000000473 00000 n 
 0000000022 00000 n 
@@ -44,10 +48,15 @@ xref
 0000000434 00000 n 
 0000000556 00000 n 
 0000000605 00000 n 
-0000000680 00000 n 
+0000000657 00000 n 
 trailer
-<< /Size 10 /Root 7 0 R /Info 1 0 R /ID [ <6d6bd74e10b3dce6412636d2e5df82a8>
-<6d6bd74e10b3dce6412636d2e5df82a8> ] >>
+<<<<<<< HEAD
+<< /Size 10 /Root 7 0 R /Info 1 0 R /ID [ <629c2014d2d57be211e389131d19ca0a>
+<629c2014d2d57be211e389131d19ca0a> ] >>
+=======
+<< /Size 10 /Root 7 0 R /Info 1 0 R /ID [ <eb58c27bfa4af9c0e527da7769260ff6>
+<eb58c27bfa4af9c0e527da7769260ff6> ] >>
+>>>>>>> upstream/master
 startxref
-793
+770
 %%EOF

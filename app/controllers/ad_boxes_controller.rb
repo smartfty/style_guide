@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class AdBoxesController < ApplicationController
-  before_action :set_ad_box, only: %i[show edit update destroy upload_ad_image download_pdf]
+  before_action :set_ad_box, only: [:show, :edit, :update, :destroy, :upload_ad_image, :download_pdf]
   before_action :authenticate_user!
 
   # GET /ad_boxes
@@ -13,9 +11,10 @@ class AdBoxesController < ApplicationController
   # GET /ad_boxes/1
   # GET /ad_boxes/1.json
   def show
+    
     @pages = @ad_box.issue.pages.order(:id, 'desc')
     section_name = @ad_box.page.section_name
-    @pages = @ad_box.issue.pages.select { |p| p.section_name == section_name }
+    @pages = @ad_box.issue.pages.select {|p| p.section_name == section_name}
   end
 
   # GET /ad_boxes/new
@@ -24,7 +23,8 @@ class AdBoxesController < ApplicationController
   end
 
   # GET /ad_boxes/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /ad_boxes
   # POST /ad_boxes.json
@@ -76,27 +76,26 @@ class AdBoxesController < ApplicationController
   def upload_ad_image
     respond_to do |format|
       format.html do
-        @ad_image = AdImage.create!(ad_image: params[:ad_image]['ad_image'], ad_box_id: @ad_box.id)
+        @ad_image = AdImage.create!(:ad_image => params[:ad_image]['ad_image'], :ad_box_id => @ad_box.id)
         @ad_box.generate_pdf_with_time_stamp
-        @ad_box.page.generate_pdf_with_time_stamp
+        @ad_box.page.generate_pdf_with_time_stamp 
       end
-    end
+     end
     redirect_to @ad_box
   end
 
   def download_pdf
-    send_file @ad_box.pdf_path, type: 'application/pdf', x_sendfile: true, disposition: 'attachment'
+    send_file @ad_box.pdf_path, :type=>'application/pdf', :x_sendfile=>true, :disposition => "attachment"
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_ad_box
+      @ad_box = AdBox.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_ad_box
-    @ad_box = AdBox.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def ad_box_params
-    params.require(:ad_box).permit(:column, :row, :ad_type, :advertiser, :ad_image, :page_id, :storage_ad_image)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def ad_box_params
+      params.require(:ad_box).permit(:column, :row, :ad_type, :advertiser, :ad_image, :page_id)
+    end
 end

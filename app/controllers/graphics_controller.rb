@@ -1,17 +1,17 @@
-# frozen_string_literal: true
-
 class GraphicsController < ApplicationController
-  before_action :set_graphic, only: %i[show edit update destroy]
+  before_action :set_graphic, only: [:show, :edit, :update, :destroy]
 
   # GET /graphics
   # GET /graphics.json
   def index
     @graphics = Graphic.all
+    
   end
 
   # GET /graphics/1
   # GET /graphics/1.json
-  def show; end
+  def show
+  end
 
   # GET /graphics/new
   def new
@@ -19,7 +19,8 @@ class GraphicsController < ApplicationController
   end
 
   # GET /graphics/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /graphics
   # POST /graphics.json
@@ -42,8 +43,8 @@ class GraphicsController < ApplicationController
   def update
     respond_to do |format|
       if @graphic.update(graphic_params)
-        @graphic.working_article.generate_pdf_with_time_stamp
-        @graphic.working_article.page.generate_pdf_with_time_stamp
+         @graphic.working_article.generate_pdf_with_time_stamp
+         @graphic.working_article.page.generate_pdf_with_time_stamp
 
         format.html { redirect_to @graphic.working_article, notice: 'Graphic was successfully updated.' }
         format.json { render :show, status: :ok, location: @graphic }
@@ -68,14 +69,13 @@ class GraphicsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_graphic
+      @graphic = Graphic.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_graphic
-    @graphic = Graphic.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def graphic_params
-    params.require(:graphic).permit(:grid_x, :grid_y, :column, :row, :extra_height_in_lines, :graphic, :caption, :source, :position, :page_number, :story_number, :working_article_id, :issue_id, :fit_type, :x_grid, :draw_frame, :title, :description, :image_path, :storage_graphic)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def graphic_params
+      params.require(:graphic).permit(:grid_x, :grid_y, :column, :row, :extra_height_in_lines, :graphic, :caption, :source, :position, :page_number, :story_number, :working_article_id, :issue_id, :fit_type, :x_grid, :draw_frame, :title, :description, :image_path)
+    end
 end

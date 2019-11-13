@@ -35,12 +35,12 @@ story_frames:
   - 2
   - 5
 - - 5
-  - 10
+  - 11
   - 2
-  - 5
+  - 4
 - - 0
   - 12
   - 5
   - 3
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true

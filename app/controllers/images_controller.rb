@@ -1,13 +1,12 @@
-# frozen_string_literal: true
-
 class ImagesController < ApplicationController
-  before_action :set_image, only: %i[show edit update destroy crop]
+  before_action :set_image, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /images
   # GET /images.json
   def index
     @images = Image.all
+    
   end
 
   def current
@@ -21,7 +20,8 @@ class ImagesController < ApplicationController
 
   # GET /images/1
   # GET /images/1.json
-  def show; end
+  def show
+  end
 
   # GET /images/new
   def new
@@ -29,7 +29,8 @@ class ImagesController < ApplicationController
   end
 
   # GET /images/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /images
   # POST /images.json
@@ -50,9 +51,9 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1.json
   def update
     respond_to do |format|
-      # binding.pry
       if @image.update(image_params)
-        # if image_params[:crop_x]
+        if image_params['crop_x']
+        end
         if @image.working_article_id
           @image.working_article.generate_pdf_with_time_stamp
           @image.working_article.page.generate_pdf_with_time_stamp
@@ -91,18 +92,18 @@ class ImagesController < ApplicationController
   end
 
   def crop
-    @grid_width = @image.working_article.grid_width
+    set_image
+    render :crop
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_image
+      @image = Image.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_image
-    @image = Image.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def image_params
-    params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id, :x_grid, :fit_type, :draw_frame, :image_kind, :not_related, :image_path, :zoom_level, :zoom_direction, :crop_x, :crop_y, :crop_w, :crop_h, :storage_image)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def image_params
+      params.require(:image).permit(:column, :row, :extra_height_in_lines, :image_path, :caption_title, :caption, :source, :position, :page_number, :story_number, :issue_id, :image, :working_article_id, :x_grid, :fit_type, :draw_frame, :image_kind, :not_related, :zoom_level, :zoom_direction)
+    end
 end

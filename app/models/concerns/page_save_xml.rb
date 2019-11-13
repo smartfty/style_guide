@@ -268,9 +268,9 @@ EOF
 
      # mobile_layout_ml += article_info
      mobile_layout += "\n" + " </MobileLayoutML>"
-     working_articles.each do |article|
-       article.save_mobile_xml_image
-     end
+    #  working_articles.each do |article|
+    #    article.save_mobile_xml_image
+    #  end
 
     File.open(mobile_page_preview_path + "/#{@filename}.xml", 'w'){|f| f.write mobile_layout}
     system("cp #{pdf_path} #{mobile_page_preview_path}/#{@filename}.pdf")

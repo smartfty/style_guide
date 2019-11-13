@@ -1,7 +1,8 @@
-# frozen_string_literal: true
-
 class HomeController < ApplicationController
-  def welcome; end
+  def welcome
+      
+  end
 
-  def help; end
+  def help
+  end
 end
