@@ -46,3 +46,4 @@ config/schedule.rb
 config/schedule.rb
 storage/
 .DS_Store
+config/database.yml
