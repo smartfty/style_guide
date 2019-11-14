@@ -338,7 +338,7 @@ class Page < ApplicationRecord
 
   def change_working_articles(section)
     if section.articles.length == 0
-      # if new page is full page ad, delete working articles from page
+      # if new page is full page ad, delete working articles from page
       working_articles.each do |wa|
         # wa.inactive = true
         # dettach attached story
@@ -471,13 +471,17 @@ class Page < ApplicationRecord
     self.save
   end
 
-  def  update_config_file_to_draw_divider
+  def update_config_file_to_draw_divider
     h = config_hash
-    h['draw_divider'] = true
+    if page_number == 22 || page_number == 23
+      h['draw_divider'] = false
+    else
+      h['draw_divider'] = true
+    end
     File.open(config_yml_path, 'w'){|f| f.write h.to_yaml}
   end
 
-  def  update_config_file_not_to_draw_divider
+  def update_config_file_not_to_draw_divider
     h = config_hash
     h['draw_divider'] = false
     File.open(config_yml_path, 'w'){|f| f.write h.to_yaml}

@@ -183,38 +183,44 @@ class YNewsML
   # end
 
   def self.ytn_101
+    today = Date.yesterday
+    today_string = today.strftime("%Y%m%d")
+    puts "today_string: #{today_string}"
     @source = "101_KOR"
-    source_location = "/Volumes/wire_source/wire_source/#{@source}"
+
+    # source_location = "/Volumes/wire_source/wire_source/#{@source}}"
+    source_location = "#{Rails.root}/public/wire_source/#{@source}"
+    puts "source_location: #{source_location}"
     self.parse_wire(source_location)
   end
 
   def self.ytn_201
     @source = "201_PHOTO_YNA"
-    source_location = "/Volumes/wire_source/wire_source/#{@source}"
+    source_location = "#{Rails.root}/public/wire_source/#{@source}"
     self.parse_wire(source_location)
   end
 
   def self.ytn_202
     @source = "202_PHOTO_TR"
-    source_location = "/Volumes/wire_source/wire_source/#{@source}"
+    source_location = "#{Rails.root}/public/wire_source/#{@source}"
     self.parse_wire(source_location)
   end
 
   def self.ytn_203
     @source = "203_GRAPHIC"
-    source_location = "/Volumes/wire_source/wire_source/#{@source}"
+    source_location = "#{Rails.root}/public/wire_source/#{@source}"
     self.parse_wire(source_location)
   end
 
   def self.ytn_205
     @source = "205_PHOTO_FR_YNA"
-    source_location = "/Volumes/wire_source/wire_source/#{@source}"
+    source_location = "#{Rails.root}/public/wire_source/#{@source}"
     self.parse_wire(source_location)
   end
 
   def self.ytn_401
     @source = "401_PR"
-    source_location = "/Volumes/wire_source/wire_source/#{@source}"
+    source_location = "#{Rails.root}/public/wire_source/#{@source}"
     self.parse_wire(source_location)
   end
 
@@ -264,6 +270,7 @@ class YNewsML
 
     if @source == "101_KOR"
       @class = YhArticle
+      puts "source_dir: #{source_dir}"
     elsif @source == "202_PHOTO_TR"
       @class = YhPhotoTr
     elsif @source == "201_PHOTO_YNA"
@@ -277,8 +284,8 @@ class YNewsML
     end
 
     @class.delete_week_old(today)
-    # binding.pry
     total_file = Dir[File.join(source_dir, '*.xml')].count { |f| File.file?(f) } 
+    puts "source_dir: #{source_dir}"
     Dir.glob("#{source_dir}/*").select { |source_file| File.file?(source_file) }.each do |source_file|
       if File.extname(source_file) == '.ai' || File.extname(source_file) == '.jpg' || File.extname(source_file) == '.png'
         Dir.glob("#{source_dir}/*").select { |img_file| File.extname(img_file) == '.ai' || File.extname(img_file) == '.jpg' || File.extname(source_file) == '.png' }.each do |img_file|
@@ -300,35 +307,36 @@ class YNewsML
             if File.basename(xml_file, ".xml").split("_").last == "U"
               unless received
                 xml = File.open(xml_file, 'r'){|f| f.read}
-                picture_hash = YNewsML.parse(xml).to_hash
-                picture_hash[:content_id] = content_id
-                @class.create(picture_hash)
+                story_hash = YNewsML.parse(xml).to_hash
+                story_hash[:content_id] = content_id
+                @class.create(story_hash)
                 FileUtils.mv(xml_file, destination_dir)
               end
             else
               xml = File.open(xml_file, 'r'){|f| f.read}
-              picture_hash = YNewsML.parse(xml).to_hash
-              picture_hash[:content_id] = content_id
-              @class.update(picture_hash)
+              story_hash = YNewsML.parse(xml).to_hash
+              story_hash[:content_id] = content_id
+              @class.update(story_hash)
               FileUtils.mv(xml_file, destination_dir)
             end  
           else
             if File.basename(xml_file, ".xml").split("_").last == "C"
               unless received
                 xml = File.open(xml_file, 'r'){|f| f.read}
-                picture_hash = YNewsML.parse(xml).to_hash
-                picture_hash[:content_id] = content_id
-                @class.create(picture_hash)
+                story_hash = YNewsML.parse(xml).to_hash
+                story_hash[:content_id] = content_id
+                @class.create(story_hash)
                 FileUtils.mv(xml_file, destination_dir)
               end
             else
               xml = File.open(xml_file, 'r'){|f| f.read}
-              picture_hash = YNewsML.parse(xml).to_hash
-              picture_hash[:content_id] = content_id
-              @class.update(picture_hash)
+              story_hash = YNewsML.parse(xml).to_hash
+              story_hash[:content_id] = content_id
+              @class.update(story_hash)
               FileUtils.mv(xml_file, destination_dir)
             end  
-          end    
+            #  FileUtils.mv(xml_file, destination_dir) 
+          end   
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end

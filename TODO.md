@@ -181,7 +181,7 @@
   - 텍스트스타일에서 직접 조절할 수 있게 분리 필요
 
 
-  - 박스기사 밑에 부고..  제목이 붙어서 일반 기사의 문패처럼 처리하고 본문을 문패와 겹쳐지지 않게 떨어뜨려주세요.
+  - 박스기사 밑에 부고..  제목이 붙어서 일반 기사의 문패처럼 처리하고 본문을 문패와 겹쳐지지 않게 떨어뜨려주세요.
 
 2019-3-26
   - add display name to page
@@ -491,7 +491,7 @@
     with content
   
   - page library
-      b 판  heading 수정
+      b 판  heading 수정
       copy to data and page(template or source)
   
   - 반단 사진 (.5 width)
