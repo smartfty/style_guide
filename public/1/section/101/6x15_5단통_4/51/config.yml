@@ -7,8 +7,8 @@ profile: 6x15_5단통_4
 section_id: 51
 page_columns: 6
 grid_size:
-- 171.496062992123
-- 97.3228346456681
+- 171.49606299212348
+- 97.32283464566807
 lines_per_grid: 7.0
 width: 1114.01574803148
 height: 1544.88188976376
@@ -40,4 +40,4 @@ story_frames:
   - 5
   - 광고_5단통
 article_line_thickness: 0.3
-draw_divider: true
+draw_divider: 

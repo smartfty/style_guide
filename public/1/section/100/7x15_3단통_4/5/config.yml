@@ -1,5 +1,5 @@
 ---
-section_name: ''
+section_name: 
 page_heading_margin_in_lines: 3
 ad_type: 3단통
 is_front_page: false
@@ -7,8 +7,8 @@ profile: 7x15_3단통_4
 section_id: 5
 page_columns: 7
 grid_size:
-- 146.99662542182
-- 97.3228346456681
+- 146.99662542182014
+- 97.32283464566807
 lines_per_grid: 7.0
 width: 1114.01574803148
 height: 1544.88188976376
@@ -40,4 +40,4 @@ story_frames:
   - 3
   - 광고_3단통
 article_line_thickness: 0.3
-draw_divider: true
+draw_divider: 

@@ -300,34 +300,38 @@ class YNewsML
             if File.basename(xml_file, ".xml").split("_").last == "U"
               unless received
                 xml = File.open(xml_file, 'r'){|f| f.read}
-                picture_hash = YNewsML.parse(xml).to_hash
-                picture_hash[:content_id] = content_id
-                @class.create(picture_hash)
+                story_hash = YNewsML.parse(xml).to_hash
+                story_hash[:content_id] = content_id
+                @class.create(story_hash)
                 FileUtils.mv(xml_file, destination_dir)
               end
+              FileUtils.mv(xml_file, destination_dir)
             else
               xml = File.open(xml_file, 'r'){|f| f.read}
-              picture_hash = YNewsML.parse(xml).to_hash
-              picture_hash[:content_id] = content_id
-              @class.update(picture_hash)
+              story_hash = YNewsML.parse(xml).to_hash
+              story_hash[:content_id] = content_id
+              @class.update(story_hash)
               FileUtils.mv(xml_file, destination_dir)
             end  
+            FileUtils.mv(xml_file, destination_dir)
           else
             if File.basename(xml_file, ".xml").split("_").last == "C"
               unless received
                 xml = File.open(xml_file, 'r'){|f| f.read}
-                picture_hash = YNewsML.parse(xml).to_hash
-                picture_hash[:content_id] = content_id
-                @class.create(picture_hash)
+                story_hash = YNewsML.parse(xml).to_hash
+                story_hash[:content_id] = content_id
+                @class.create(story_hash)
                 FileUtils.mv(xml_file, destination_dir)
               end
+              FileUtils.mv(xml_file, destination_dir)
             else
               xml = File.open(xml_file, 'r'){|f| f.read}
-              picture_hash = YNewsML.parse(xml).to_hash
-              picture_hash[:content_id] = content_id
-              @class.update(picture_hash)
+              story_hash = YNewsML.parse(xml).to_hash
+              story_hash[:content_id] = content_id
+              @class.update(story_hashps)
               FileUtils.mv(xml_file, destination_dir)
             end  
+            FileUtils.mv(xml_file, destination_dir)
           end    
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
