@@ -1,5 +1,5 @@
 ---
-section_name: 
+section_name: ''
 page_heading_margin_in_lines: 3
 ad_type: 광고없음
 is_front_page: false
@@ -7,8 +7,13 @@ profile: 6x15_광고없음_12
 section_id: 134
 page_columns: 6
 grid_size:
+<<<<<<< HEAD
+- 171.49606299212348
+- 97.322834645668
+=======
 - 171.49606299212363
 - 97.32283464566795
+>>>>>>> 2fa26ff78c73f7c56c31bb42857bc8eb143af6eb
 lines_per_grid: 7.0
 width: 1114.0157480314808
 height: 1544.8818897637584

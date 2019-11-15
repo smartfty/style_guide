@@ -115,7 +115,7 @@ EOF
     end
     # container += container_xml  + "\n" + page_container_xml
     container += container_xml
-    container + page_container_xml + "    </Page>" + "\n"
+    container + page_container_xml + "    </Page>" + "\n"
   end
 
   def updateinfo
