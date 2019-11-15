@@ -229,7 +229,11 @@ class Section < ApplicationRecord
   end
 
   def update_config_file_to_draw_divider
-    self.draw_divider = true
+    if page_number == 22 || page_number == 23
+      self.draw_divider = false
+    else
+      self.draw_divider = true
+    end
     self.save
     section_config_yml_path = path + "/config.yml"
     yaml = section_config_hash.to_yaml
