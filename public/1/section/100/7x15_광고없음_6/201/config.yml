@@ -7,21 +7,16 @@ profile: 7x15_광고없음_6
 section_id: 201
 page_columns: 7
 grid_size:
-<<<<<<< HEAD
 - 146.99662542182014
 - 97.322834645668
-=======
-- 146.99662542182026
-- 97.32283464566795
->>>>>>> 2fa26ff78c73f7c56c31bb42857bc8eb143af6eb
 lines_per_grid: 7.0
-width: 1114.0157480314808
-height: 1544.8818897637584
+width: 1114.01574803148
+height: 1544.88188976376
 left_margin: 42.5196850393695
 top_margin: 42.5196850393695
 right_margin: 42.5196850393695
 bottom_margin: 42.5196850393695
-gutter: 12.755905511810848
+gutter: 12.7559055118108
 story_frames:
 - - 0
   - 0
