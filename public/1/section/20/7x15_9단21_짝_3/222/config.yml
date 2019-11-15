@@ -7,16 +7,16 @@ profile: 7x15_9단21_짝_3
 section_id: 222
 page_columns: 7
 grid_size:
-- 146.99662542182
-- 97.3228346456681
+- 146.99662542182026
+- 97.32283464566795
 lines_per_grid: 7.0
-width: 1114.01574803148
-height: 1544.88188976376
+width: 1114.0157480314808
+height: 1544.8818897637584
 left_margin: 42.5196850393695
 top_margin: 42.5196850393695
 right_margin: 42.5196850393695
 bottom_margin: 42.5196850393695
-gutter: 12.7559055118108
+gutter: 12.755905511810848
 story_frames:
 - - 0
   - 0
@@ -36,4 +36,4 @@ story_frames:
   - 9
   - 광고_9단21_짝
 article_line_thickness: 0.3
-draw_divider: true
+draw_divider: 
