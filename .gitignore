@@ -49,3 +49,5 @@ storage/
 config/database.yml
 config/database.yml
 app/.sync
+app/.sync/
+config/database.yml

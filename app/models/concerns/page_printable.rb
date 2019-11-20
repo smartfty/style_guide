@@ -98,10 +98,11 @@ module PagePrintable
     else
       curernt_index = proof_files.length
       target_file = "proof/#{r_page_number}011001-#{date}#{month}#{year}000_#{curernt_index}.pdf"
+      target_jpg_file = "proof/#{r_page_number}011001-#{date}#{month}#{year}000_#{curernt_index}.jpg"
     end
     puts "target_file:#{target_file}"
     system("cd #{path} && cp section.pdf #{target_file}")
-
+    system("cd #{path} && cp section.jpg #{target_jpg_file}")
     target_file
   end
 
