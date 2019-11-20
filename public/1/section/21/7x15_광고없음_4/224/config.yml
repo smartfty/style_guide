@@ -7,7 +7,7 @@ profile: 7x15_광고없음_4
 section_id: 224
 page_columns: 7
 grid_size:
-- 146.99662542182014
+- 146.99662542182
 - 97.322834645668
 lines_per_grid: 7.0
 width: 1114.01574803148
@@ -35,4 +35,4 @@ story_frames:
   - 3
   - 8
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true

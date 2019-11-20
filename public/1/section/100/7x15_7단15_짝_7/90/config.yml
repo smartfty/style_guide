@@ -7,7 +7,7 @@ profile: 7x15_7단15_짝_7
 section_id: 90
 page_columns: 7
 grid_size:
-- 146.99662542182014
+- 146.99662542182
 - 97.322834645668
 lines_per_grid: 7.0
 width: 1114.01574803148
@@ -52,4 +52,4 @@ story_frames:
   - 7
   - 광고_7단15_짝
 article_line_thickness: 0.3
-draw_divider: 
+draw_divider: true
