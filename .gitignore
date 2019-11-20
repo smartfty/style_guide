@@ -49,3 +49,4 @@ storage/
 config/database.yml
 config/database.yml
 app/.sync/
+config/database.yml
