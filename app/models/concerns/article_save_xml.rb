@@ -729,6 +729,13 @@ module ArticleSaveXml
         system("convert -density 300 -resize 540 #{img.image_path} #{newsml_issue_path}/#{@photoItem_real}")
       end 
 
+      graphics.each_with_index do |grp, i|
+        @img_class = "[IMG#{i+1}]"
+        @photoItem_real = "#{@photo_item}#{i+1}g.jpg"
+        system("convert -density 300 -resize 540 #{grp.image_path} #{newsml_issue_path}/#{@photoItem_real}")
+      end 
+
+      if images.first
       three_component =<<~EOF    
             <NewsComponent>
               <Role FormalName="Title" />
@@ -750,6 +757,29 @@ module ArticleSaveXml
           </NewsItem>
         </NewsXML>  
       EOF
+      else
+        three_component =<<~EOF    
+        <NewsComponent>
+          <Role FormalName="Title" />
+          <MediaType FormalName="Text" />
+          <HeadLine><![CDATA[<%= @graphic.title %>]]></HeadLine>
+        </NewsComponent>
+        <NewsComponent>
+          <Role FormalName="Article" />
+          <MediaType FormalName="Text" />
+          <DataContent><![CDATA[[IMG1]<br><%= @h_caption %>]]></DataContent>
+        </NewsComponent>
+        <NewsComponent> 
+          <Role FormalName="Photo" />
+          <MediaType FormalName="Image" />
+          <Property ImgClass="<%= @img_class %>" align="center" Class="일반" Size="Large"/>
+          <PhotoItem Real="<%= @photoItem_real %>" />
+          <DataContent><![CDATA[ <%= @h_source %>]]> </DataContent>
+        </NewsComponent>
+      </NewsItem>
+    </NewsXML>  
+  EOF
+      end
               
       
     elsif kind == "부고-인사"
@@ -1279,29 +1309,57 @@ module ArticleSaveXml
     # EOF
 
     elsif kind == "사진"
-    images.each_with_index do |img, i|
-      @img_class = "[IMG0#{i+1}]"
-      @photo_file = "#{@photo_file_name}.p#{i+1}L.jpg"
-      system("convert -density 300 -resize 1200 #{img.image_path} #{mobile_page_preview_path}/#{@photo_file}")
-    end 
+      images.each_with_index do |img, i|
+        @img_class = "[IMG0#{i+1}]"
+        @photo_file = "#{@photo_file_name}.p#{i+1}L.jpg"
+        system("convert -density 300 -resize 1200 #{img.image_path} #{mobile_page_preview_path}/#{@photo_file}")
+      end 
 
-    three_component =<<~EOF
-      <TitleComponent>
-        <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
-      </TitleComponent>
-      <ArticleComponent>
-        <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %>]]></Content>
-      </ArticleComponent>
-      <PhotoComponent>
-        <PhotoItem>
-          <ImageType>Image</ImageType>
-          <Property ImgClass="#{@img_class}" align="left" Class="일반" Size="Large"/>
-          <PhotoFileName><%= "#{@photo_file}" %></PhotoFileName>
-          <DataContent><![CDATA[ <%= @h_source %>]]></DataContent>
-        </PhotoItem>
-      </PhotoComponent>
-      </Article>
-    EOF
+  
+      graphics.each_with_index do |grp, i|
+        @img_class = "[IMG0#{i+1}]"
+        @photo_file = "#{@photo_file_name}.g#{i+1}L.jpg"
+        system("convert -density 300 -resize 1200 #{grp.image_path} #{mobile_page_preview_path}/#{@photo_file}")
+      end 
+
+
+      if images.first
+        three_component =<<~EOF
+          <TitleComponent>
+            <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
+          </TitleComponent>
+          <ArticleComponent>
+            <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %>]]></Content>
+          </ArticleComponent>
+          <PhotoComponent>
+            <PhotoItem>
+              <ImageType>Image</ImageType>
+              <Property ImgClass="#{@img_class}" align="left" Class="일반" Size="Large"/>
+              <PhotoFileName><%= "#{@photo_file}" %></PhotoFileName>
+              <DataContent><![CDATA[ <%= @h_source %>]]></DataContent>
+            </PhotoItem>
+          </PhotoComponent>
+          </Article>
+        EOF
+      else
+        three_component =<<~EOF
+        <TitleComponent>
+          <MainTitle><![CDATA[<%= @graphic.title %>]]></MainTitle>
+        </TitleComponent>
+        <ArticleComponent>
+          <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %>]]></Content>
+        </ArticleComponent>
+        <PhotoComponent>
+          <PhotoItem>
+            <ImageType>Image</ImageType>
+            <Property ImgClass="#{@img_class}" align="left" Class="일반" Size="Large"/>
+            <PhotoFileName><%= "#{@photo_file}" %></PhotoFileName>
+            <DataContent><![CDATA[ <%= @h_source %>]]></DataContent>
+          </PhotoItem>
+        </PhotoComponent>
+        </Article>
+      EOF
+      end
 
     elsif kind == "부고-인사"
     three_component =<<~EOF

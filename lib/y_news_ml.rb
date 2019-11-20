@@ -329,8 +329,10 @@ class YNewsML
               picture_hash[:content_id] = content_id
               @class.update(picture_hash)
               FileUtils.mv(xml_file, destination_dir)
-            end  
+            end 
+            FileUtils.mv(xml_file, destination_dir)
           end    
+          FileUtils.mv(xml_file, destination_dir)
           left_file = Dir.glob("#{source_dir}/*").count { |xml_file| File.extname(xml_file) == '.xml' }
           puts "#{xml_file}...뉴스파일 이동중... #{total_file - left_file}/#{total_file}개 처리"    
         end
