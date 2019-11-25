@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_044310) do
+ActiveRecord::Schema.define(version: 2019_11_20_062908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -687,6 +687,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_044310) do
     t.string "kind"
     t.string "by_line"
     t.string "category_name"
+    t.string "subcategory_code"
     t.index ["user_id"], name: "index_stories_on_user_id"
     t.index ["working_article_id"], name: "index_stories_on_working_article_id"
   end

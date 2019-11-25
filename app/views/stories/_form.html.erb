@@ -17,7 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label '기획팀_기사분류' %> <%= f.select :category_code, [['사건/사고', 1601], ['법률',1602], ['교육',1603], ['노동', 1604], ['환경',1605], ['의료(보건복지)', 1606], ['시민사회', 1607], ['포토뉴스',1608], ['피플',1609]], { :include_blank => '-- 선택해주세요 --' }, :required => true %>
+    <%= f.label :category_code, '카테고리' %> <%= f.collection_select :category_code, StoryCategory.order(:code), :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
+    <%= f.label :subcategory_code, '서브 카테고리' %> <%= f.grouped_collection_select :subcategory_code, StoryCategory.order(:code), :story_subcategory, :name, :code, :name, { :include_blank => '-- 선택해주세요 --' } %>
     <%= f.label '가격' %><%= f.select :price, [['무료', 0], ['500원', 20], ['1000원', 30]] %>
     <%= f.label '출고면_선택' %><%= f.select :summitted_section, ['미정', '1면','정치','자치행정','국제통일','금융','산업','정책','기획','오피니언'], { :include_blank => '-- 선택해주세요 --' }, :required => true%>
     <%= f.button "저장", accesskey: "s", class: "btn btn-default btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> 처리중..."} %>

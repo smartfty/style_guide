@@ -30,6 +30,29 @@
 
   </head>
   <body>
+  <script>
+  $(function(){
+    var story_subcategory;
+    $('#working_article_subcategory_code').parent().show();
+    story_subcategory = $('#working_article_subcategory_code').html();
+    console.log(story_subcategory);
+    return $('#working_article_category_code').change(function() {
+      var category, escaped_category, options;
+      category = $('#working_article_category_code :selected').text();
+      escaped_category = category.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options = $(story_subcategory).filter("optgroup[label=" + escaped_category + "]").html();
+      console.log(options);
+      if (options) {
+        $('#working_article_subcategory_code').html(options);
+        return $('#working_article_subcategory_code').parent().show();
+      } else {
+        $('#working_article_subcategory_code').empty();
+        return $('#working_article_subcategory_code').parent().hide();
+      }
+    });
+  });
+  </script> 
+  
     <!-- p class="notice"><%= notice %></p -->
     <!-- p class="alert"><%= alert %></p -->
     <header id="header">
