@@ -136,7 +136,14 @@ class AdBox < ApplicationRecord
     x             = publication.left_margin
     left_inset    = 0
     right_inset   = 0
-    ad_width      = grid_width*column
+    if column == 6
+      grid_width = 171.496062992123
+      ad_width      = grid_width*column
+    else 
+      grid_width = 146.99662542182
+      ad_width      = grid_width*column
+    end
+
     if page_number.odd?
       x = publication.width - publication.right_margin - ad_width
       if column < page.column
@@ -439,6 +446,12 @@ EOF
     self.gutter       = publication.gutter
     self.page_heading_margin_in_lines = page.page_heading_margin_in_lines
     self.date         = page.issue.date
+    self.column       = page.column 
+    if self.column == 6
+      self.grid_width = 171.496062992123
+    else 
+      self.grid_width = 146.99662542182
+    end
   end
 
 end

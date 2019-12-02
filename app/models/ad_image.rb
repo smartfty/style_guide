@@ -31,7 +31,7 @@ class AdImage < ApplicationRecord
     "#{page.path}/ad"
   end
 
-  def  publication
+  def publication
     if ad_box
       ad_box.publication
     elsif issue
