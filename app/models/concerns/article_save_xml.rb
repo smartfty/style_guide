@@ -762,8 +762,8 @@ module ArticleSaveXml
         <NewsComponent>
           <Role FormalName="Title" />
           <MediaType FormalName="Text" />
-          <HeadLine><![CDATA[<%= @graphic.title %>]]></HeadLine>
-        </NewsComponent>
+          <HeadLine><![CDATA[<%= "[#{@name_plate}] " if @name_plate && @name_plate !="" %><%= "| #{@boxed_subtitle} | " if @boxed_subtitle && @boxed_subtitle != "" %><%= @h_caption_title %>]]></HeadLine>
+          </NewsComponent>
         <NewsComponent>
           <Role FormalName="Article" />
           <MediaType FormalName="Text" />
@@ -1516,7 +1516,8 @@ module ArticleSaveXml
     else
       if images.first
       @image          = images.first
-      @c_head_line    = @image.caption_title 
+      @c_head_line    = @image.caption_title
+      @c_head_line    = @graphic.title if @graphic.title
       elsif
       @graphic        = graphics.first
       @c_head_line    = @graphic.title
