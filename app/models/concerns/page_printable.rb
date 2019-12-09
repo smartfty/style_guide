@@ -92,7 +92,7 @@ module PagePrintable
     date          = issue.date.day.to_s.rjust(2,"0")
     month         = issue.date.month.to_s.rjust(2,"0")
     year          = issue.date.year.to_s
-    proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*")
+    proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*.pdf")
     if proof_files.length == 0
       target_file   = "proof/#{r_page_number}011001-#{date}#{month}#{year}000.pdf"
     else
