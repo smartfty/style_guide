@@ -116,19 +116,21 @@ module PagePrintable
     # ip  = '211.115.91.231'
     # id  = 'naeilcts'
     # pw  = 'sodlftlsans1!'
-    last_generate_file = generate_proof_pdf
+    # last_generate_file = generate_proof_pdf
     # # upload files
-    latest_proof_file = File.new(path + "/#{last_generate_file}")
+    # latest_proof_file = File.new(path + "/#{last_generate_file}")
     # Net::FTP.open(ip, id, pw) do |ftp|
     #   ftp.putbinaryfile(latest_proof_file, "#{File.basename(latest_proof_file)}")
     # end
-    true
+    # true
     # 드롭박스 동기화 느리다는 얘기가 나와 직접 드롭박스 폴더로 복사 해넣기로 변경함
+    last_generate_file = generate_proof_pdf
+    latest_proof_file = File.new(path + "/#{last_generate_file}")
     Dir.glob("/Users/apple/Dropbox/*").grep(/\d\d.*/).each do |dir|
       puts dir
       FileUtils.cp("#{path}/#{last_generate_file}", "#{dir}")
     end
-
+    true
   end
   
   def printer_folder
