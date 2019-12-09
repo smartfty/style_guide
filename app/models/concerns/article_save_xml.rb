@@ -1344,7 +1344,7 @@ module ArticleSaveXml
       else
         three_component =<<~EOF
         <TitleComponent>
-          <MainTitle><![CDATA[<%= @graphic.title %>]]></MainTitle>
+        <MainTitle><![CDATA[<%= @h_caption_title %>]]></MainTitle>
         </TitleComponent>
         <ArticleComponent>
           <Content><![CDATA[<!--[[--image1--]]//--><%= @h_caption %>]]></Content>
