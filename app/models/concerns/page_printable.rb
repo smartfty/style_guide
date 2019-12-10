@@ -92,7 +92,7 @@ module PagePrintable
     date          = issue.date.day.to_s.rjust(2,"0")
     month         = issue.date.month.to_s.rjust(2,"0")
     year          = issue.date.year.to_s
-    proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*")
+    proof_files   = Dir.glob("#{proof_path}/#{r_page_number}011001*.pdf")
     if proof_files.length == 0
       target_file   = "proof/#{r_page_number}011001-#{date}#{month}#{year}000.pdf"
     else
@@ -272,7 +272,7 @@ module PagePrintable
     dir_name  = "NewsPDF/#{yyyymd}"
     Net::FTP.open(ip, id, pw) do |ftp|
       # files = ftp.list
-      # ftp.mkdir(dir_name) unless ftp.list("/").any?{|dir| dir.match(/\s#{dir_name}$/)}
+      ftp.mkdir(dir_name) unless ftp.list("/NewsPDF").any?{|dir| dir.match(/\s#{yyyymd}$/)}
       # ftp.mkdir dir_name unless File.exists?(dir_name)
       ftp.putbinaryfile(printer_file, "#{dir_name}/#{news_pdf_code}")
     end
