@@ -122,6 +122,7 @@ module ArticleSaveXml
     # images.first.source.gsub!("\u200B", "")
     if title && title != ""
     title.strip!
+    title.gsub!("\u0026", "&amp;")
     title.gsub!("\u200B", "")
     title.gsub!("\u22EF", "&ctdot;")
     title.gsub!("\u2027", "·")
@@ -133,7 +134,6 @@ module ArticleSaveXml
     title.gsub!("\u5e26", "&#24102;")
     title.gsub!("\u2219", "&#8729;")
     title.gsub!("\u56fd", "&#22269;")
-    # title.gsub!("\u0026", "&amp;")
     # title.gsub!("\u22ef", "&#8943;")
     title.gsub!("\u00A0", " ")
     title.gsub!("\u2031", "&#8241;")
@@ -170,6 +170,7 @@ module ArticleSaveXml
     boxed_subtitle_text.gsub!("\u223c", "~")
     end
     if body && body != ""
+    body.gsub!("\u0026", "&amp;")
     body.gsub!("\u2031", "&#8241;")
     body.gsub!("\u25b8", "&#9656;")
     body.gsub!("\u3007", "&#12295;")
@@ -209,7 +210,6 @@ module ArticleSaveXml
     body.gsub!("\u302e", "&#12334;")
     body.gsub!("\u5e26", "&#24102;")
     body.gsub!("\u2219", "&#8729;")
-    # body.gsub!("\u0026", "&amp;")
     body.gsub!("\u8f9f", "&#36767;")
     # body.gsub!("\u22ef", "&#8943;")
     body.gsub!("\u25fc", "&#9724;")
@@ -1517,7 +1517,7 @@ module ArticleSaveXml
       if images.first
       @image          = images.first
       @c_head_line    = @image.caption_title
-      @c_head_line    = @graphic.title if @graphic.title
+      # @c_head_line    = @graphic.title if @graphic.title
       elsif
       @graphic        = graphics.first
       @c_head_line    = @graphic.title
